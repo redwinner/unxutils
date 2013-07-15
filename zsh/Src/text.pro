@@ -1,0 +1,11 @@
+void taddchr _((int c));
+void taddstr _((char *s));
+void taddint _((int x));
+void taddnl _((void));
+char * getpermtext _((struct node *n));
+char * getjobtext _((struct node *n));
+void gettext2 _((struct node *n));
+void getcond _((Cond nm, int addpar));
+void getsimptext _((Cmd cmd));
+void getredirs _((Cmd cmd));
+void taddlist _((LinkList l));

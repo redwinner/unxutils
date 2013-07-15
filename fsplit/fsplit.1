@@ -1,0 +1,106 @@
+.\" @(#)fsplit.1 1.7 86/08/27 SMI; from UCB 4.1
+.TH FSPLIT 1 "05 November 1989"
+.SH NAME
+fsplit \- split a multi-routine Fortran file into individual files
+.SH SYNOPSIS
+.B fsplit
+[ 
+.B \-e 
+.IR efile " ] .\|.\|. [ " file " ]"
+.\"
+.SH DESCRIPTION
+.\"
+.IX "fsplit split fortran file" "" "\fLfsplit\fP split \s-1FORTRAN\s0 file"
+.IX fortran "split file fsplit" \s-1FORTRAN\s0  "split file \(em \fLfsplit\fR"
+.IX file "split fortran file" "" "split \s-1FORTRAN\s0 file"
+.IX "split fortran file" "" "split \s-1FORTRAN\s0 file"
+.IX file "split fortran file" "" "split \s-1FORTRAN\s0 file"
+.IX command fsplit "" \fLfsplit\fR
+.\"
+.B fsplit
+takes as input either a file or standard input 
+containing Fortran source code.
+It attempts to split the input into separate routine 
+files of the form \fIname\fR\fB.f\fR, where
+.I name
+is the name of the program unit (e.g. function, subroutine, 
+block data or program).  
+.LP
+Block data subprograms with no names
+get names of the form \fBblkdta\fINNN\fB.f\fR,
+where 
+.I NNN 
+is three digits and a file of this name does 
+not already exist.
+.LP
+Main programs with no names 
+get names of the form \fBmain\fINNN\fB.f .\fR
+.LP
+If there is an error in classifying a program unit, or 
+if \fIname\fR\fB.f\fR already exists,
+the program unit will be put in a file of the form 
+\fBzzz\fP\fINNN\fB.f\fR where \fBzzz\fP\fINNN\fB.f\fR
+does not already exist.
+.PP
+Normally each subprogram unit is split into a separate file.  
+For example:
+.nf
+.sp .5v
+        \fBfsplit prog.f\fR
+.sp .5v
+.fi
+will split each subprogram unit is split into a separate file.  
+.LP
+When the
+.B \-e
+option is used, only the specified subprogram units are 
+split into separate files.  For example:
+.nf
+.sp .5v
+        \fBfsplit \-e readit \-e doit prog.f\fR
+.sp .5v
+.fi
+will split 
+.B readit 
+and 
+.B doit 
+into separate files.
+.\"
+.SH OPTIMIZER
+.\"
+At some levels the optimizer is file oriented.
+If the optimizer chokes, you might try
+.B fsplit
+on the source files.
+If each
+.B .f
+file is smaller, the optimizer has less to cope with.
+.\"
+.SH DIAGNOSTICS
+.\"
+If names specified via the 
+.B -e
+option are not found, a diagnostic is written to 
+.I standard 
+.I error.
+.\"
+.SH HISTORY
+The
+.B fsplit
+command appeared in BSD 4.1.
+.\"
+.SH AUTHORS
+Asa Romberger and Jerry Berkman
+.\"
+.SH BUGS
+.\"
+.B fsplit
+assumes the subprogram name is on the first noncomment 
+line of the subprogram unit.  Nonstandard source 
+formats may confuse 
+.B fsplit.
+.PP
+It is hard to use 
+.B \-e
+for unnamed main programs and block data subprograms 
+since you must predict the created file name.

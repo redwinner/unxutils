@@ -1,0 +1,650 @@
+{\rtf1\windows \deff0{\fonttbl
+{\f0\fswiss MS Sans Serif;}{\f1\fmodern Courier New;}{\f2\ftech Symbol;}}\fs20
+\page #{\footnote hcAbout}${\footnote \pard{}About this help file}\pard{\fs24\b About this help file}\par\par\pard{}This file was made with the help of {\ul Makertf 3.12b-1}{\v hcMakertf} from the input file id-utils.texi.\par\par{{START-INFO-DIR-ENTRY\line
+* ID database: (id-utils).              Identifier database utilities.\line
+* mkid: (id-utils)mkid invocation.      Creating an ID database.\line
+* lid: (id-utils)lid invocation.        Matching words and patterns.\line
+* fid: (id-utils)fid invocation.        Listing a file's tokens.\line
+* fnid: (id-utils)fnid invocation.      Looking up file names.\line
+* xtokid: (id-utils)xtokid invocation.  Testing mkid scanners.\line
+END-INFO-DIR-ENTRY\par
+\pard{}}}\par
+{\pard{}This file documents the {\f1{}id-utils} database utilities.\par
+\par
+\pard{}Copyright (C) 1996, 1999 Free Software Foundation, Inc.\par
+\par
+\pard{}Permission is granted to make and distribute verbatim copies of this manual provided the copyright notice and this permission notice are preserved on all copies.\par
+\par
+\pard{}Permission is granted to copy and distribute modified versions of this manual under the conditions for verbatim copying, provided that the entire resulting derived work is distributed under the terms of a permission notice identical to this one.\par
+\par
+\pard{}Permission is granted to copy and distribute translations of this manual into another language, under the above conditions for modified versions, except that this permission notice may be stated in a translation.  }\par
+\par
+{\page\pard Node: {\b Top}, \keepn Next: {\uldb }{\v }, Prev: {\uldb }{\v }, Up: {\uldb (dir)}{\v Top @dir.hlp}\tab\tab{\uldb About this help file}{\v hcAbout}\line
+K{\footnote K Top}
+#{\footnote Top}
+${\footnote \pard{}ID utilities}\par
+\pard\pard{\fs24\b ID utilities}\par
+\par
+\pard{}This manual documents version 3.2d of the ID utilities.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Introduction}{\v Introduction}\tab Overview of the tools with tutorial.\par
+{\uldb Quick start}{\v Quick_start}\tab Quick start procedure.\par
+{\uldb Common options}{\v Common_options}\tab Common command-line options.\par
+{\uldb mkid invocation}{\v mkid_invocation}\tab Creating an ID database.\par
+{\uldb lid invocation}{\v lid_invocation}\tab Querying an ID database by token.\par
+{\uldb fid invocation}{\v fid_invocation}\tab Listing a file's tokens.\par
+{\uldb fnid invocation}{\v fnid_invocation}\tab Looking up file names.\par
+{\uldb xtokid invocation}{\v xtokid_invocation}\tab Testing language scanners.\par
+{\uldb Past and Future}{\v Past_and_Future}\tab History and future directions.\par
+{\uldb Index}{\v Index}\tab General index.\par
+\pard{}}}\par
+\page\pard Node: {\b Introduction}, \keepn Next: {\uldb Quick start}{\v Quick_start}, Prev: {\uldb Top}{\v Top}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Introduction}
+#{\footnote Introduction}
+${\footnote \pard{}Introduction}\par
+\pard{\fs24\b Introduction}\par
+\par
+\pard{}{K{\footnote K overview}}{K{\footnote K introduction}}{K{\footnote K ID database, definition of}} An \'A2ID database\'A2 is a binary file containing a list of file names, a list of tokens, and a sparse matrix indicating which tokens appear in which files.\par
+\par
+\pard{}With this database and some tools to query it (described in this manual), many text-searching tasks become simpler and faster.  For example, you can list all files that reference a particular {\f1{}#include} file throughout a huge source hierarchy, search for all the memos containing references to a project, or automatically invoke an editor on all files containing references to some function or variable.  Anyone with a large software project to maintain, or a large set of text files to organize, can benefit from the ID utilities.\par
+\par
+\pard{}Although the name `ID' is short for `identifier', the ID utilities handle more than just identifiers; they also treat other kinds of tokens, most notably numeric constants, and the contents of certain character strings.  Thus, this manual will use the word \'A2token\'A2 as a term that is inclusive of identifiers, numbers and strings.\par
+\par
+\pard{}There are several programs in the ID utilities family:\par
+\par
+{\pard{}{\f1{}mkid}\par
+\pard\li720{}scans files for tokens and builds the ID database file.\par
+\par
+\pard{}{\f1{}lid}\par
+\pard\li720{}queries the ID database for tokens, then reports matching file names or matching lines.\par
+\par
+\pard{}{\f1{}fid}\par
+\pard\li720{}lists all tokens recorded in the database for given files, or tokens common to two files.\par
+\par
+\pard{}{\f1{}fnid}\par
+\pard\li720{}matches the file names in the database, rather than the tokens.\par
+\par
+\pard{}{\f1{}xtokid}\par
+\pard\li720{}extracts raw tokens--helps with testing of new {\f1{}mkid} scanners.\par
+\par
+\pard{}}\par
+\pard{}In addition, the ID utilities have historically provided several query programs which are specializations of {\f1{}lid}:\par
+\par
+{\pard{}{\f1{}gid}\par
+\pard\li720{}(alias for {\f1{}lid -R grep}) lists all lines containing the requested pattern.\par
+\par
+\pard{}{\f1{}eid}\par
+\pard\li720{}(alias for {\f1{}lid -R edit}) invokes an editor on all files containing the requested pattern, and if possible, initiates a text search for that pattern.\par
+\par
+\pard{}{\f1{}aid}\par
+\pard\li720{}(alias for {\f1{}lid -ils}) treats the requested pattern as a case-insensitive literal substring.\par
+\par
+\pard{}}\par
+\pard{}{K{\footnote K bugs, reporting}}Please report bugs to {\f1{}bug-gnu-utils@gnu.ai.mit.edu}.  Remember to include the version number, machine architecture, input files, and any other information needed to reproduce the bug: your input, what you expected, what you got, and why it is wrong.  Diffs are welcome, but please include a description of the problem as well, since this is sometimes difficult to infer.  See {\uldb Bugs}{\v Bugs @gcc.hlp}.\par
+\par
+\page\pard Node: {\b Quick start}, \keepn Next: {\uldb Common options}{\v Common_options}, Prev: {\uldb Introduction}{\v Introduction}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Quick start}
+#{\footnote Quick_start}
+${\footnote \pard{}Quick Start Procedure}\par
+\pard{\fs24\b Quick Start Procedure}\par
+\par
+{\pard\li720{}Unpack the distribution.\par
+\par
+\pard\li720{}Type {\f1{}./configure}\par
+\par
+\pard\li720{}Type {\f1{}make}\par
+\par
+\pard\li720{}Type {\f1{}make install} as a user with the appropriate privileges (e.g., {\f1{}bin} or perhaps even {\f1{}root}).\par
+\par
+\pard\li720{}Type {\f1{}cd /usr/include; mkid} to build an ID database covering all of the system header files.\par
+\par
+\pard\li720{}Type {\f1{}lid FILE}, then {\f1{}gid strtok}, then {\f1{}aid stdout}.\par
+\par
+\pard{}}\par
+\pard{}You have just built, installed and used the most common commands of the GNU ID utilities.  If you ever need help remembering which system header files contain a particular declaration, or reference a particular symbol, you'll want to keep the ID file you built in {\f1{}/usr/include} for later use.  If your working directory is elsewhere at the time, simply provide the {\f1{}-f /usr/include} option to {\f1{}lid} (see {\uldb Reading options}{\v Reading_options}).\par
+\par
+\page\pard Node: {\b Common options}, \keepn Next: {\uldb mkid invocation}{\v mkid_invocation}, Prev: {\uldb Quick start}{\v Quick_start}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Common options}
+#{\footnote Common_options}
+${\footnote \pard{}Common command-line options}\par
+\pard{\fs24\b Common command-line options}\par
+\par
+\pard{}{K{\footnote K common command-line options}} Certain options, and regular expression syntax, are shared by various groupings of the ID utilities.  We describe these in the sections below, rather than repeating them for each program.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Universal options}{\v Universal_options}\tab Options common to all programs.\par
+{\uldb Extraction options}{\v Extraction_options}\tab Options for programs that extract tokens from source files.\par
+{\uldb Walker options}{\v Walker_options}\tab Options for programs that walk file and directory trees.\par
+{\uldb Reading options}{\v Reading_options}\tab Options for programs that read ID databases.\par
+{\uldb Writing options}{\v Writing_options}\tab Options for programs that write ID databases.\par
+{\uldb File listing options}{\v File_listing_options}\tab Options for programs that list file names.\par
+\pard{}}\par
+\page\pard Node: {\b Universal options}, \keepn Next: {\uldb Extraction options}{\v Extraction_options}, Prev: {\uldb }{\v }, Up: {\uldb Common options}{\v Common_options}\line
+K{\footnote K Universal options}
+#{\footnote Universal_options}
+${\footnote \pard{}Options Common to All Programs}\par
+\pard{\fs24\b Options Common to All Programs}\par
+\par
+{\pard{}{\f1{}--help}\par
+\pard\li720{}{K{\footnote K -help}}{K{\footnote K help, online}}Print a usage message listing all available options, then exit successfully.\par
+\par
+\pard{}{\f1{}--version}\par
+\pard\li720{}{K{\footnote K -version}}{K{\footnote K version number, finding}}Print the version number, then exit successfully.\par
+\par
+\pard{}}\par
+\page\pard Node: {\b Reading options}, \keepn Next: {\uldb Writing options}{\v Writing_options}, Prev: {\uldb Walker options}{\v Walker_options}, Up: {\uldb Common options}{\v Common_options}\line
+K{\footnote K Reading options}
+#{\footnote Reading_options}
+${\footnote \pard{}Options for Programs that Read ID Databases}\par
+\pard{\fs24\b Options for Programs that Read ID Databases}\par
+\par
+{\pard{}{\f1{}-f {\i filename}}\par
+\pard{}{\f1{}--file={\i filename}}\par
+\pard\li720{}{K{\footnote K -f}}{K{\footnote K -file}}{K{\footnote K ID database file name}} {\i Filename} is the ID database to read when processing queries.  At present, only a single {\f1{}--file} option is processed, but in future releases, more than one ID database may be named on the command line.\par
+\par
+\pard{}{\f1{}$IDPATH}\par
+\pard\li720{}{K{\footnote K ID database file name}} {\f1{}IDPATH} is an environment variable that contains a colon-separated list of ID database names.  If this variable is present, and no {\f1{}--file} options are presented on the command line, the ID databases named in {\f1{}IDPATH} are implied.({\ul 1}{\v Reading_options_1})\par
+\par
+\pard{}}\par
+\pard{}If no ID databases are specified either on the command line or via the {\f1{}IDPATH} environment variable, then the ID utilities search for a file named {\f1{}ID} in the current working directory, and then in successive parent directories.\par
+\par
+\page\pard#{\footnote Reading_options_1}
+\pard{}(1) At present, this feature isn't fully implemented, since only the first of a list of ID database names is processed.\par
+\par
+\page\pard Node: {\b Writing options}, \keepn Next: {\uldb File listing options}{\v File_listing_options}, Prev: {\uldb Reading options}{\v Reading_options}, Up: {\uldb Common options}{\v Common_options}\line
+K{\footnote K Writing options}
+#{\footnote Writing_options}
+${\footnote \pard{}Options for Programs that Write ID Databases}\par
+\pard{\fs24\b Options for Programs that Write ID Databases}\par
+\par
+{\pard{}{\f1{}-o {\i filename}}\par
+\pard{}{\f1{}--output={\i filename}}\par
+\pard\li720{}{K{\footnote K -o}}{K{\footnote K -output}}{K{\footnote K ID database file name}} The {\f1{}--output} option names the file in which to write a new ID database.  If no {\f1{}--output} (or {\f1{}--file}) option is present, an output file named {\f1{}ID} is implied.\par
+\par
+\pard{}{\f1{}-f {\i filename}}\par
+\pard{}{\f1{}--file={\i filename}}\par
+\pard\li720{}{K{\footnote K -f}}{K{\footnote K -file}}{K{\footnote K ID database file name}} This is a synonym for {\f1{}--output}\par
+\par
+\pard{}}\par
+\page\pard Node: {\b Walker options}, \keepn Next: {\uldb Reading options}{\v Reading_options}, Prev: {\uldb Extraction options}{\v Extraction_options}, Up: {\uldb Common options}{\v Common_options}\line
+K{\footnote K Walker options}
+#{\footnote Walker_options}
+${\footnote \pard{}Options for Programs that Walk File and Directory Trees.}\par
+\pard{\fs24\b Options for Programs that Walk File and Directory Trees.}\par
+\par
+\pard{}The programs {\f1{}mkid} and {\f1{}xtokid} accept the names of files and directories on the command line.  Files are scanned if there is a scanner available and enabled for the file's source language.  Directories are recursively descended, searching for files whose names match the rules listed in the {\i language map} file (see {\uldb Language map}{\v Language_map}).\par
+\par
+\pard{}The following option controls the file tree walker:\par
+\par
+{\pard{}{\f1{}-p {\i names}}\par
+\pard{}{\f1{}--prune={\i names}}\par
+\pard\li720{}{K{\footnote K -p}}{K{\footnote K -prune}}{K{\footnote K file tree pruning}} One or more file or directory names may appear in {\i names}.  The file tree walker will stop short at these files and directories and their contents will not be scanned.\par
+\par
+\pard{}}\par
+\page\pard Node: {\b File listing options}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Writing options}{\v Writing_options}, Up: {\uldb Common options}{\v Common_options}\line
+K{\footnote K File listing options}
+#{\footnote File_listing_options}
+${\footnote \pard{}Options for Programs that List File Names}\par
+\pard{\fs24\b Options for Programs that List File Names}\par
+\par
+\pard{}The programs {\f1{}lid} and {\f1{}fnid} can print lists of file names as the result of queries.  The following option controls how these lists are formatted:\par
+\par
+{\pard{}{\f1{}-S {\i style}}\par
+\pard{}{\f1{}--separator={\i style}}\par
+\pard\li720{}{K{\footnote K -S}}{K{\footnote K -separator}}{K{\footnote K file name separator}} {\i Style} may be one of {\f1{}braces}, {\f1{}space} or {\f1{}newline}.\par
+\par
+\pard\li720{}The {\i style} of {\f1{}braces} means that file names with common directory prefix and common suffix are printed using the shell's brace notation in order to compress the output.  For example, {\f1{}../src/foo.c ../src/bar.c} can be printed in brace notation as {\f1{}../src/\'7Bfoo,bar\'7D.c}.\par
+\par
+\pard\li720{}The {\i style}s of {\f1{}space} and {\f1{}newline} mean that file names are separated spaces or by newlines, respectively.\par
+\par
+\pard\li720{}If the list of files is being printed on a terminal, brace notation is the default.  If not, file names are separated by spaces if the {\i key} is included in the output, and by newlines the {\i key style} is {\f1{}none} (see {\uldb lid invocation}{\v lid_invocation}).\par
+\par
+\pard{}}\par
+\page\pard Node: {\b Extraction options}, \keepn Next: {\uldb Walker options}{\v Walker_options}, Prev: {\uldb Universal options}{\v Universal_options}, Up: {\uldb Common options}{\v Common_options}\line
+K{\footnote K Extraction options}
+#{\footnote Extraction_options}
+${\footnote \pard{}Options for Programs that Scan Source Files}\par
+\pard{\fs24\b Options for Programs that Scan Source Files}\par
+\par
+{\f1{}\pard{}mkid} and {\f1{}xtokid} walk file trees, select source files by name, and extract tokens from source files.  They accept the following options:\par
+\par
+{\pard{}{\f1{}-m {\i mapfile}}\par
+\pard{}{\f1{}--lang-map={\i mapfile}}\par
+\pard\li720{}{K{\footnote K -m}}{K{\footnote K -lang-map}}{K{\footnote K language map file}} {\i mapfile} contains rules for determining the source languages from file names See {\uldb Language map}{\v Language_map}.\par
+\par
+\pard{}{\f1{}-i {\i languages}}\par
+\pard{}{\f1{}--include={\i languages}}\par
+\pard\li720{}{K{\footnote K -i}}{K{\footnote K -include}}{K{\footnote K include languages}} The {\f1{}--include} option names {\i languages} whose source files should be scanned and incorporated into the ID database.  By default, all languages known to the ID utilities are enabled.\par
+\par
+\pard{}{\f1{}-x {\i languages}}\par
+\pard{}{\f1{}--exclude={\i languages}}\par
+\pard\li720{}{K{\footnote K -x}}{K{\footnote K -exclude}}{K{\footnote K exclude languages}} The {\f1{}--exclude} option names {\i languages} whose source files should {\i not} be scanned.  The default list of excluded languages is empty.  Note that only one of {\f1{}--include} or {\f1{}--exclude} may be specified on the command line for a single run.\par
+\par
+\pard{}{\f1{}-l {\i language}:{\i options}}\par
+\pard{}{\f1{}--lang-option={\i language}:{\i options}}\par
+\pard\li720{}{K{\footnote K -l}}{K{\footnote K -lang-option}}{K{\footnote K language-specific option}} Language-specific scanners also accept options.  {\i Language} denotes the desired scanner, and {\i option} are the command-line options that should be passed through to it.  For example, to pass the {\i -x -coke-bottle} options to the scanner for the language {\i swizzle}, pass this: {\i -l swizzle:"-x -coke-bottle"}, or this: {\i -lang-option=swizzle:"-x -coke-bottle"}, or this: {\i -l swizzle-x -l swizzle:-coke-bottle}.  Use the {\f1{}--help} option to see the command-line option summary for\par
+\par
+\pard{}}\par
+\pard{}{K{\footnote K scanners}} To determine which tokens to extract from a file and store in the database, {\f1{}mkid} calls a \'A2scanner\'A2; we say a scanner \'A2recognizes\'A2 a particular language.  Scanners for several languages are built-in to {\f1{}mkid}; you can add your own scanners as well, as explained in {\uldb Defining scanners}{\v Defining_scanners}.\par
+\par
+\pard{}The ID utilities determine which scanner to use for a particular file by consulting the language-map file.  Scanners for several are already built-in to the ID utilities.  You can see which languages have built-in scanners, and examine their language-specific options by invoking {\f1{}mkid --help} or {\f1{}xtokid --help}.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Language map}{\v Language_map}\tab Mapping file names to source languages.\par
+{\uldb C/C++ scanner}{\v C_C___scanner}\tab For the C and C++ programming language.\par
+{\uldb Assembler scanner}{\v Assembler_scanner}\tab For assembly language.\par
+{\uldb Text scanner}{\v Text_scanner}\tab For documents or other non-source code.\par
+{\uldb Defining scanners}{\v Defining_scanners}\tab Defining new scanners in the source code.\par
+\pard{}}\par
+\page\pard Node: {\b Language map}, \keepn Next: {\uldb C/C++ scanner}{\v C_C___scanner}, Prev: {\uldb }{\v }, Up: {\uldb Extraction options}{\v Extraction_options}\line
+K{\footnote K Language map}
+#{\footnote Language_map}
+${\footnote \pard{}Mapping file names to source languages}\par
+\pard{\fs24\b Mapping file names to source languages}\par
+\par
+\pard{}The file {\f1{}id-lang.map}, installed by default in {\f1{}$(prefix)/share/id-lang.map}, contains rules for mapping file names to source languages.  Each rule comprises three parts: a shell {\i glob} pattern, a language name, and language-specific scanner options.\par
+\par
+\pard{}The special pattern {\f1{}**} denotes the default source language.  This is the language that's assigned to file names that don't match any other pattern.\par
+\par
+\pard{}The special pattern {\f1{}***} should be followed by a file name.  The named file should contain more language-map rules and is included at this point.\par
+\par
+\pard{}The order in which rules are presented in a language-map file is significant.  This order influences the order in which files are displayed as the result of queries.  For example, the distributed language-map file places all rules for C {\i .h} files ahead of {\i .c} files, so that in general, declarations will precede definitions in query output.  The same thing is done for C++ and its many different source file name extensions.\par
+\par
+\pard{}Here is a pared-down version of the {\f1{}id-lang.map} file distributed with the ID utilities:\par
+\par
+{\line
+\pard\keep\li720\f1{}# Default language\line
+**			IGNORE	# Although this is listed first,\line
+				# the default language pattern is\line
+				# logically matched last.\line
+\line
+# Backup files\line
+*~			IGNORE\line
+*.bak			IGNORE\line
+*.bk[0-9]		IGNORE\line
+\line
+# SCCS files\line
+[sp].*			IGNORE\line
+\line
+# list header files before code files\line
+*.h			C\line
+*.h.in			C\line
+*.H			C++\line
+*.hh			C++\line
+*.hpp			C++\line
+*.hxx			C++\line
+\line
+# list C `meta' files next\line
+*.l			C\line
+*.lex			C\line
+*.y			C\line
+*.yacc			C\line
+\line
+# list C code files after header files\line
+*.c			C\line
+*.C			C++\line
+*.cc			C++\line
+*.cpp			C++\line
+*.cxx			C++\line
+\line
+# list assembly language after C\line
+*.[sS]			asm --comment=;\line
+*.asm			asm --comment=;\line
+\line
+# [nt]roff\line
+*.[0-9]			roff\line
+*.ms			roff\line
+*.me			roff\line
+*.mm			roff\line
+\line
+# TeX and friends\line
+*.tex			TeX\line
+*.ltx			TeX\line
+*.texi			texinfo\line
+*.texinfo		texinfo\line
+\par
+\pard\f0{}}\par
+\page\pard Node: {\b C/C++ scanner}, \keepn Next: {\uldb Assembler scanner}{\v Assembler_scanner}, Prev: {\uldb Language map}{\v Language_map}, Up: {\uldb Extraction options}{\v Extraction_options}\line
+K{\footnote K C/C++ scanner}
+#{\footnote C_C___scanner}
+${\footnote \pard{}C/C++ Language Scanner}\par
+\pard{\fs24\b C/C++ Language Scanner}\par
+\par
+\pard{}{K{\footnote K C scanner, predefined}} The C scanner is the most commonly used.  Files that match the glob pattern {\f1{}*.h}, {\f1{}*.c}, as well as {\f1{}yacc} files that match {\f1{}*.y} or {\f1{}*.yacc}, and {\f1{}lex} files that match {\f1{}*.l} or {\f1{}*.lex}, are processed with this scanner.\par
+\par
+\pard{}Scanner-specific options (Note, these options are presented {\i without} the required {\f1{}-l} or {\f1{}--lang-option=} prefix):\par
+\par
+{\pard{}{\f1{}-k {\i character-class}}\par
+\pard{}{\f1{}--keep={\i character-class}}\par
+\pard\li720{}{K{\footnote K -k}}{K{\footnote K -keep}}{K{\footnote K -l C:-k}}{K{\footnote K -l C:-keep}}{K{\footnote K -lang-option=C:-k}}{K{\footnote K -lang-option=C:-keep}} Consider the characters in {\i character-class} as valid constituents of identifier names.  For example, if you are indexing C code that contains {\f1{}$} in some of its identifiers, you can include these by using {\f1{}--lang-option=C:--keep=$}, or {\f1{}-l C:"-k $"} (if you don't like to type so much).\par
+\par
+\pard{}{\f1{}-i {\i character-class}}\par
+\pard{}{\f1{}--ignore={\i character-class}}\par
+\pard\li720{}{K{\footnote K -i}}{K{\footnote K -ignore}}{K{\footnote K -l C:-i}}{K{\footnote K -l C:-ignore}}{K{\footnote K -lang-option=C:-i}}{K{\footnote K -lang-option=C:-ignore}} Consider the characters in {\i character-class} as valid constituents of identifier names, but discard all tokens containing these characters.  For example, if some C code has identifiers containing {\f1{}$}, but you don't want these cluttering up your ID database, use {\f1{}--lang-option=C:--ignore=$}, or the terser equivalent {\f1{}-l C:"-i $"}.\par
+\par
+\pard{}{\f1{}-u}\par
+\pard{}{\f1{}--strip-underscore}\par
+\pard\li720{}{K{\footnote K -u}}{K{\footnote K -strip-underscore}}{K{\footnote K -l C:-u}}{K{\footnote K -l C:-strip-underscore}}{K{\footnote K -lang-option=C:-u}}{K{\footnote K -lang-option=C:-strip-underscore}} Strip one leading underscore from C identifiers encapsulated as character strings.  This option is useful if you are indexing C code that contains symbol-table name strings for systems that prepend an underscore to external symbols.  By default, the leading underscore is retained.\par
+\par
+\pard{}}\par
+\page\pard Node: {\b Assembler scanner}, \keepn Next: {\uldb Text scanner}{\v Text_scanner}, Prev: {\uldb C/C++ scanner}{\v C_C___scanner}, Up: {\uldb Extraction options}{\v Extraction_options}\line
+K{\footnote K Assembler scanner}
+#{\footnote Assembler_scanner}
+${\footnote \pard{}Assembly Language Scanner}\par
+\pard{\fs24\b Assembly Language Scanner}\par
+\par
+\pard{}{K{\footnote K assembler scanner}}{K{\footnote K assembly language scanner}} Assembly languages use a variety of commenting conventions, and allow a variety of special characters to {\i dirty up} local symbols, preventing name space conflicts with symbols defined by higher-level languages.  Also, some compilation systems prepend an underscore to external symbols.  The options listed below are designed to address these differences.\par
+\par
+{\pard{}{\f1{}-c {\i character-class}}\par
+\pard{}{\f1{}--comment={\i character-class}}\par
+\pard\li720{}{K{\footnote K -c}}{K{\footnote K -comment}}{K{\footnote K -l asm:-c}}{K{\footnote K -l asm:-comment}}{K{\footnote K -lang-option=asm:-c}}{K{\footnote K -lang-option=asm:-comment}} The characters in {\i character-class} are considered left delimiters for comments that extend until the end of the current line.\par
+\par
+\pard{}{\f1{}-k {\i character-class}}\par
+\pard{}{\f1{}--keep={\i character-class}}\par
+\pard\li720{}{K{\footnote K -k}}{K{\footnote K -keep}}{K{\footnote K -l asm:-k}}{K{\footnote K -l asm:-keep}}{K{\footnote K -lang-option=asm:-k}}{K{\footnote K -lang-option=asm:-keep}} Consider the characters of {\i character-class} as valid constituents of identifier names.  For example, if you are indexing assembly code that prepends {\f1{}.} to assembler directives, and prepends {\f1{}%} to register names, you can keep these characters in the tokens by specifying {\f1{}--lang-option=asm:--keep=.%}, or {\f1{}-l asm:"-k .%"}.\par
+\par
+\pard{}{\f1{}-i {\i character-class}}\par
+\pard{}{\f1{}--ignore={\i character-class}}\par
+\pard\li720{}{K{\footnote K -i}}{K{\footnote K -ignore}}{K{\footnote K -l asm:-i}}{K{\footnote K -l asm:-ignore}}{K{\footnote K -lang-option=asm:-i}}{K{\footnote K -lang-option=asm:-ignore}} Consider the characters of {\i character-class} as valid constituents of identifier names, but discard all tokens containing these characters.  For example, if you don't want to clutter your ID database with assembler directives that begin with a leading {\f1{}.} or with assembler labels that contain {\f1{}@}, use {\f1{}--lang-option=asm:--ignore=.@}, or {\f1{}-l asm:"-i .@"}.\par
+\par
+\pard{}{\f1{}-u}\par
+\pard{}{\f1{}--strip-underscore}\par
+\pard\li720{}{K{\footnote K -u}}{K{\footnote K -strip-underscore}}{K{\footnote K -l asm:-u}}{K{\footnote K -l asm:-strip-underscore}}{K{\footnote K -lang-option=asm:-u}}{K{\footnote K -lang-option=asm:-strip-underscore}} Strip one leading underscore from identifiers.  This option is useful if your compilation system prepends an underscore to external symbols.  By stripping the underscore, you can canonicalize such names and bring them into conformance the way they are expressed in the C language.  By default, the leading underscore is retained.\par
+\par
+\pard{}{\f1{}-n}\par
+\pard{}{\f1{}--no-cpp}\par
+\pard\li720{}{K{\footnote K -n}}{K{\footnote K -no-cpp}}{K{\footnote K -l asm:-n}}{K{\footnote K -l asm:-no-cpp}}{K{\footnote K -lang-option=asm:-n}}{K{\footnote K -lang-option=asm:-no-cpp}} Do not recognize C preprocessor directives.  By default, such lines are handled in the same way as they are by the C language scanner.\par
+\par
+\pard{}}\par
+\page\pard Node: {\b Text scanner}, \keepn Next: {\uldb Defining scanners}{\v Defining_scanners}, Prev: {\uldb Assembler scanner}{\v Assembler_scanner}, Up: {\uldb Extraction options}{\v Extraction_options}\line
+K{\footnote K Text scanner}
+#{\footnote Text_scanner}
+${\footnote \pard{}Text Scanner}\par
+\pard{\fs24\b Text Scanner}\par
+\par
+\pard{}{K{\footnote K text scanner}} The plain text scanner is intended for human-language documents, or as the scanner of last resort for files that have no scanner that is more specific.  It is customizable to the extent that character classes can be designated as token constituents or as token delimiters.  The default token constituents are the alpha-numerics; all other characters are considered token delimiters.\par
+\par
+{\pard{}{\f1{}-i {\i character-class}}\par
+\pard{}{\f1{}--include={\i character-class}}\par
+\pard\li720{}{K{\footnote K -i}}{K{\footnote K -include}}{K{\footnote K -l text:-i}}{K{\footnote K -l text:-include}}{K{\footnote K -lang-option=text:-i}}{K{\footnote K -lang-option=text:-include}} Include characters belonging to {\i character-class} in tokens.\par
+\par
+\pard{}{\f1{}-x {\i character-class}}\par
+\pard{}{\f1{}--exclude={\i character-class}}\par
+\pard\li720{}{K{\footnote K -x}}{K{\footnote K -exclude}}{K{\footnote K -l text:-x}}{K{\footnote K -l text:-exclude}}{K{\footnote K -lang-option=text:-x}}{K{\footnote K -lang-option=text:-exclude}} Exclude characters belonging to {\i character-class} from tokens, i.e., treat them as token delimiters.\par
+\par
+\pard{}}\par
+\page\pard Node: {\b Defining scanners}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Text scanner}{\v Text_scanner}, Up: {\uldb Extraction options}{\v Extraction_options}\line
+K{\footnote K Defining scanners}
+#{\footnote Defining_scanners}
+${\footnote \pard{}Defining New Scanners in the Source Code}\par
+\pard{\fs24\b Defining New Scanners in the Source Code}\par
+\par
+\pard{}{K{\footnote K scanners.c}}{K{\footnote K scanners, defining in source code}} {K{\footnote K languages_0}} To add a new scanner in source code, you should add a new section to the file {\f1{}scanners.c}.  It might be easiest to clone one of the existing scanners and modify it as necessary.  For the hypothetical language {\i foo}, you must define the functions {\f1{}get_token_foo}, {\f1{}parse_args_foo}, {\f1{}help_me_foo}, as well as the tables {\f1{}long_options_foo} and {\f1{}args_foo}.  If your scanner is modeled after one of the existing scanners, you'll also need a character-attribute table {\f1{}ctype_foo}.\par
+\par
+\pard{}This is not a terribly difficult programming task, but it requires recompiling and installing the new version of {\f1{}mkid} and {\f1{}xtokid}.  You should use {\f1{}xtokid} to test the operation of the new scanner.\par
+\par
+\pard{}Once these functions and tables are ready, add function prototypes and an entry to the {\f1{}languages_0} table near the beginning of the file.\par
+\par
+\pard{}Be warned that the existing scanners are built for speed, not elegance or readability.  You might wish to create a new scanner that's easier to read and understand if you don't feel that speed is so important.\par
+\par
+\page\pard Node: {\b mkid invocation}, \keepn Next: {\uldb lid invocation}{\v lid_invocation}, Prev: {\uldb Common options}{\v Common_options}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K mkid invocation}
+#{\footnote mkid_invocation}
+${\footnote {\f1{}\pard{}mkid}: Creating an ID Database}\par
+\pard{\fs24\b {\f1{}mkid}: Creating an ID Database}\par
+\par
+\pard{}{K{\footnote K creating databases}}{K{\footnote K databases, creating}}{K{\footnote K ID file format}}{K{\footnote K architecture-independence}}{K{\footnote K sharing ID files}} {\f1{}mkid} builds an ID database.  It accepts the names of files and/or directories on the command line, selects files that have an enabled scanner, then extracts and stores tokens from those files.  The resulting ID database is architecture- and byte-order-independent so it can be shared among all systems.\par
+\par
+\pard{}The primary virtues of {\f1{}mkid} are speed and high capacity.  The size of the source trees it can index is limited only by available system memory.  {\f1{}mkid}'s indexing algorithm is very space-efficient and exhibits excellent locality-of-reference, and so is capable of operating with a working-set size that is only half the size of its virtual address space.  A typical {\scaps\fs16{}UNIX}-like operating system with 16 megabytes of system memory should be able to build an ID database covering approximately 12,000-14,000 source files totaling approximately 50-100 Megabytes.  A 66 MHz 486 computer can build such a large ID database in approximately 10-15 minutes.\par
+\par
+\pard{}{K{\footnote K cron}}In a future release, {\f1{}mkid} will be able to incrementally update an ID database much faster than it can build one from scratch.  Until this feature becomes available, it might be a good idea to schedule a {\f1{}cron} job to regularly update large ID databases during off-hours.\par
+\par
+{\f1{}\pard{}mkid} writes the ID file, therefore it accepts the {\f1{}--output} (and {\f1{}--file}) options as described in {\uldb Writing options}{\v Writing_options}.  {\f1{}mkid} extracts tokens from source files, therefore it accepts the {\f1{}--lang-map}, {\f1{}--include}, {\f1{}--exclude}, and {\f1{}--lang-option} options, as well as the language-specific scanner options, all of which are described in {\uldb Extraction options}{\v Extraction_options}.  {\f1{}mkid} walks file trees, therefore it handles file and directory names on its command line and the {\f1{}--prune} option as described in {\uldb Walker options}{\v Walker_options}.\par
+\par
+\pard{}In addition, {\f1{}mkid} accepts the following command-line options:\par
+\par
+{\pard{}{\f1{}-s}\par
+\pard{}{\f1{}--statistics}\par
+\pard\li720{}{K{\footnote K -s}}{K{\footnote K -statistics}}{K{\footnote K statistics}} {\f1{}mkid} reports statistics about resource usage at the end of its run.\par
+\par
+\pard{}{\f1{}-v}\par
+\pard{}{\f1{}--verbose}\par
+\pard\li720{}{K{\footnote K -v}}{K{\footnote K -verbose}}{K{\footnote K {\f1{}mkid} progress}} {\f1{}mkid} reports statistics about each file as it is scanned, and about the resource usage of its indexing algorithm at regular intervals.\par
+\par
+\pard{}}\par
+\page\pard Node: {\b lid invocation}, \keepn Next: {\uldb fid invocation}{\v fid_invocation}, Prev: {\uldb mkid invocation}{\v mkid_invocation}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K lid invocation}
+#{\footnote lid_invocation}
+${\footnote {\f1{}\pard{}lid}: Querying an ID Database by Token}\par
+\pard{\fs24\b {\f1{}lid}: Querying an ID Database by Token}\par
+\par
+\pard{}The {\f1{}lid} program accepts {\i patterns} on the command line which it matches against the tokens stored in an ID database.  The interpretation of a {\i pattern} is determined by the makeup of the {\i pattern} string itself, or can be overridden by command-line options.  If a {\i pattern} contains regular expression meta-characters, it is used to perform a regular-expression substring search.  If no such meta-characters are present, {\i pattern} is used to perform a literal word search.  (By default, all searches are sensitive to alphabetic case.)  If no {\i pattern} is supplied on the command line, {\f1{}lid} lists every entry in the ID database.\par
+\par
+{\f1{}\pard{}lid} reads the ID database, therefore it accepts the {\f1{}--file} option, and consults the {\f1{}IDPATH} environment variable, as described in {\uldb Reading options}{\v Reading_options}.  {\f1{}lid} lists file names, therefore it accepts the {\f1{}--separator} option, as described in {\uldb File listing options}{\v File_listing_options}.\par
+\par
+\pard{}In addition, {\f1{}lid} accepts the following command-line options:\par
+\par
+{\pard{}{\f1{}-i}\par
+\pard{}{\f1{}--ignore-case}\par
+\pard\li720{}{K{\footnote K -i}}{K{\footnote K -ignore-case}}{K{\footnote K alphabetic case, ignoring differences in}}{K{\footnote K ignoring differences in alphabetic case}} Ignoring differences in alphabetic case between the {\i pattern} and the tokens in the ID database.\par
+\par
+\pard{}{\f1{}-l}\par
+\pard{}{\f1{}--literal}\par
+\pard\li720{}{K{\footnote K -l}}{K{\footnote K -literal}} Match {\i pattern} as a literal string.  Use this option if {\i pattern} contains regular-expression meta-characters, but you don't wish to perform a regular-expression search.\par
+\par
+\pard{}{\f1{}-r}\par
+\pard{}{\f1{}--regexp}\par
+\pard\li720{}{K{\footnote K -r}}{K{\footnote K -regexp}} Match {\i pattern} as an {\i extended} regular expression({\ul 1}{\v lid_invocation_1}).  Use this option if no regular-expression expression meta-characters are present in {\i pattern}, but you wish to force a regular-expression search (note: in this case, a {\i literal substring} search might be faster).\par
+\par
+\pard{}{\f1{}-w}\par
+\pard{}{\f1{}--word}\par
+\pard\li720{}{K{\footnote K -w}}{K{\footnote K -word}} Match {\i pattern} using a word-delimited (non substring) search.  This is the default for literal searches.\par
+\par
+\pard{}{\f1{}-s}\par
+\pard{}{\f1{}--substring}\par
+\pard\li720{}{K{\footnote K -s}}{K{\footnote K -substring}} Match {\i pattern} using a substring (non word-delimited) search.  This is the default for regular expression searches.\par
+\par
+\pard{}{\f1{}-k {\i style}}\par
+\pard{}{\f1{}--key={\i style}}\par
+\pard\li720{}{K{\footnote K -k}}{K{\footnote K -substring}} {\i Style} can be one of {\f1{}token}, {\f1{}pattern} or {\f1{}none}.  This option controls how the subject of the query is presented.  This is best illustrated by example:\par
+\par
+{\pard\keep\li1440\f1{}$ lid --key=token '^dest.'\line
+destaddr       libsys/memcpy.c\line
+destination    libsys/regex.c\line
+destlst        libsys/rx.c\line
+destpos        libsys/rx.c\line
+destset        libsys/rx.h libsys/rx.c\line
+\line
+$ lid --key=pattern '^dest.'\line
+^dest.         libsys/rx.h libsys/\'7Bmemcpy,regex,rx\'7D.c\line
+\line
+$ lid --key=none '^dest.'\line
+libsys/rx.h libsys/\'7Bmemcpy,regex,rx\'7D.c\par
+\pard\li720\f0{}}\par
+\pard\li720{}When {\f1{}--key} is either {\f1{}token} or {\f1{}pattern}, the first column of output is a {\i token} or {\i pattern}, respectively.  When {\f1{}--key} is {\f1{}none}, neither of these is printed, and the file name list begins immediately.  The default is {\f1{}token}.\par
+\par
+\pard{}{\f1{}-R {\i style}}\par
+\pard{}{\f1{}--result={\i style}}\par
+\pard\li720{}{K{\footnote K -R}}{K{\footnote K -result}} {\i Style} can be one of {\f1{}filenames}, {\f1{}grep}, {\f1{}edit} or {\f1{}none}.  This option controls how the value associated with the query's {\i key} presented.  When {\i style} is {\f1{}filenames}, a list of file names is printed (this is the default).  When {\i style} is {\f1{}grep}, the lines that match {\i pattern} are printed in the same format as {\f1{}egrep -n}.  When {\i style} is {\f1{}edit}, the file names are passed to an editor, and if possible {\i pattern} is passed as an initial search string (see {\uldb eid invocation}{\v eid_invocation}).  When {\i style} is {\f1{}none}, the file names are not processed in any way.  This can be useful if you wish to see what tokens match a {\i pattern}, but don't care about where they reside.\par
+\par
+\pard{}{\f1{}-d}\par
+\pard{}{\f1{}-o}\par
+\pard{}{\f1{}-x}\par
+\pard\li720{}{K{\footnote K -d}}{K{\footnote K -o}}{K{\footnote K -x}}{K{\footnote K radix of numeric matches, specifying}}{K{\footnote K numeric matches, specifying radix of}} These options may be used in any combination to specify the radix of numeric matches.  {\f1{}-d} allows matching on decimal numbers, {\f1{}-o} on octal numbers, and {\f1{}-x} on hexadecimal numbers.  Any combination of these options may be used.  The default is to match all three radixes.\par
+\par
+\pard{}{\f1{}-F {\i range}}\par
+\pard{}{\f1{}--frequency={\i range}}\par
+\pard\li720{}{K{\footnote K -F}}{K{\footnote K -frequency}}{K{\footnote K single matches, showing}} Match tokens whose occurrence count falls in {\i range}.  {\i Range} may be expressed as a single number {\i n}, or as a range {\i n{\f1{}..}m}.  Either limit of the range may be omitted (e.g., {\i {\f1{}..}m}, or {\i n..{\f1{}..}}).  If the lower limit {\i n} is omitted, it defaults to {\f1{}1}.  If the upper limit is omitted, it defaults in the present implementation to {\f1{}65535}, the maximum value of an unsigned 16-bit integer.\par
+\par
+\pard\li720{}Particularly useful queries are {\f1{}lid -F1}, which helps locate identifiers that are defined but never used, or are used but never defined.  Similarly, {\f1{}lid -F2} can help find functions that possess a prototype declaration and a definition, but are never called.\par
+\par
+\pard{}{\f1{}-a {\i number}}\par
+\pard{}{\f1{}--ambiguous={\i number}}\par
+\pard\li720{}{K{\footnote K -a}}{K{\footnote K -ambiguous}}{K{\footnote K ambiguous identifier names, finding}} List identifiers (not numbers) that are ambiguous for the first {\i number} characters.  This feature might be in useful when porting programs to ancient pea-brained compilers that don't support long identifier names.  However, the best long-term option is to set such systems on fire.\par
+\par
+\pard{}}\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb lid aliases}{\v lid_aliases}\tab Aliases for specialized lid queries\par
+{\uldb Emacs gid interface}{\v Emacs_gid_interface}\tab GNU Emacs query interface\par
+{\uldb eid invocation}{\v eid_invocation}\tab Invoking an editor on query results\par
+\pard{}}\par
+\page\pard#{\footnote lid_invocation_1}
+\pard{}(1) Extended regular expressions are the same as those accepted by {\f1{}egrep}.\par
+\par
+\page\pard Node: {\b lid aliases}, \keepn Next: {\uldb Emacs gid interface}{\v Emacs_gid_interface}, Prev: {\uldb }{\v }, Up: {\uldb lid invocation}{\v lid_invocation}\line
+K{\footnote K lid aliases}
+#{\footnote lid_aliases}
+${\footnote \pard{}Aliases for Specialized {\f1{}lid} Queries}\par
+\pard{\fs24\b Aliases for Specialized {\f1{}lid} Queries}\par
+\par
+\pard{}Historically, the ID utilities have provided several query interfaces which are specializations of {\f1{}lid} (see {\uldb lid invocation}{\v lid_invocation}).\par
+\par
+{\pard{}{\f1{}gid}\par
+\pard\li720{}(alias for {\f1{}lid -R grep}) lists all lines containing the requested pattern.\par
+\par
+\pard{}{\f1{}eid}\par
+\pard\li720{}(alias for {\f1{}lid -R edit}) invokes an editor on all files containing the requested pattern, and optionally initiates a text search for that pattern.\par
+\par
+\pard{}{\f1{}aid}\par
+\pard\li720{}(alias for {\f1{}lid -ils}) treats the requested pattern as a case-insensitive literal substring.\par
+\par
+\pard{}}\par
+\page\pard Node: {\b Emacs gid interface}, \keepn Next: {\uldb eid invocation}{\v eid_invocation}, Prev: {\uldb lid aliases}{\v lid_aliases}, Up: {\uldb lid invocation}{\v lid_invocation}\line
+K{\footnote K Emacs gid interface}
+#{\footnote Emacs_gid_interface}
+${\footnote \pard{}GNU Emacs query interface}\par
+\pard{\fs24\b GNU Emacs query interface}\par
+\par
+\pard{}{K{\footnote K Emacs interface to {\f1{}gid}}}{K{\footnote K id-utils.el interface to Emacs}} {K{\footnote K load-path}}The {\f1{}id-utils} source distribution comes with a file {\f1{}id-utils.el}, which defines a GNU Emacs interface to {\f1{}gid}.  To install it, put {\f1{}id-utils.el} somewhere that Emacs will find it (i.e., in your {\f1{}load-path}) and put\par
+\par
+{\pard\keep\li720\f1{}(autoload 'gid "gid" nil t)\par
+\pard\f0{}}\par
+\pard{}in one of Emacs' initialization files, e.g., {\f1{}~/.emacs}.  You will then be able to use {\f1{}M-x gid} to run the command.\par
+\par
+\pard{}{K{\footnote K gid Emacs function}}The {\f1{}gid} function prompts you with the word around point.  If you want to search for something else, simply delete the line and type the pattern of interest.\par
+\par
+\pard{}{K{\footnote K *compilation* Emacs buffer}}The function then runs the {\f1{}gid} program in a {\f1{}*compilation*} buffer, so the normal {\f1{}next-error} function can be used to visit all the places the identifier is found (see {\uldb Compilation}{\v Compilation @emacs.hlp}).\par
+\par
+\page\pard Node: {\b eid invocation}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Emacs gid interface}{\v Emacs_gid_interface}, Up: {\uldb lid invocation}{\v lid_invocation}\line
+K{\footnote K eid invocation}
+#{\footnote eid_invocation}
+${\footnote {\f1{}\pard{}eid}: Invoking an Editor on Query Results}\par
+\pard{\fs24\b {\f1{}eid}: Invoking an Editor on Query Results}\par
+\par
+\pard{}{K{\footnote K eid}} {\f1{}lid -R edit} is an editing interface for the ID utilities that is most commonly used with {\f1{}vi}.  Emacs users should use the interface defined in {\f1{}id-utils.el} (see {\uldb Emacs gid interface}{\v Emacs_gid_interface}).  The ID utilities include an alias called {\f1{}eid}, and for the sake of brevity, we'll use this alias for the remainder of this section.  {\f1{}eid} performs a {\f1{}lid}-style, then asks if you wish to edit the files.  If your query yields more than one line of output, you will be prompted after each line.  This is the prompt you'll see:\par
+\par
+{\pard\keep\li720\f1{}Edit? [y1-9^S/nq]\par
+\pard\f0{}}\par
+\pard{}You may respond with:\par
+\par
+{\pard{}{\f1{}y}\par
+\pard\li720{}Edit all files listed.\par
+\par
+\pard{}{\f1{}1...9}\par
+\pard\li720{}Edit all files starting at the {\i n} + 1'st file.\par
+\par
+\pard{}{\f1{}/{\i string} or CTRL-S{\i regexp}}\par
+\pard\li720{}Search into the file list, and begin editing with the first file name that matches the regular expression {\i regexp}.\par
+\par
+\pard{}{\f1{}n}\par
+\pard\li720{}Don't edit any files.  If another line of query output is pending, advance to that line, for which another {\f1{}Edit?} prompt will appear.\par
+\par
+\pard{}{\f1{}q}\par
+\pard\li720{}Quit--don't edit any files, and don't process any more lines of query output.\par
+\par
+\pard{}}\par
+\pard{}Here is an example:\par
+\par
+{\pard\keep\li720\f1{}prompt$ eid FILE \'5C^print\line
+FILE           \'7Bansi2knr,fid,filenames,idfile,idx,lid,misc,...\'7D.c\line
+Edit? [y1-9^S/nq] n\line
+^print         \'7Bansi2knr,fid,getopt,getopt1,lid,mkid,regex,scanners\'7D.c\line
+Edit? [y1-9^S/nq] 2\par
+\pard\f0{}}\par
+\pard{}This will start editing at {\f1{}getopt}.c.\par
+\par
+{\f1{}\pard{}eid} invokes the editor defined by the environment variable {\f1{}VISUAL}.  If {\f1{}VISUAL} is undefined, it uses the environment variable {\f1{}EDITOR} instead.  If {\f1{}EDITOR} is undefined, it defaults to {\f1{}vi}.  It is possible for {\f1{}eid} to pass the editor an initial search pattern so that your cursor will immediately alight on the token of interest.  This feature is controlled by the following environment variables:\par
+\par
+{\pard{}{\f1{}EIDARG}\par
+\pard\li720{}{K{\footnote K EIDARG}}{K{\footnote K search for token, initial}}A printf(3) format string for the editor argument to search for the matching token.  For {\f1{}vi}, this should be {\f1{}+/%s/}.\par
+\par
+\pard{}{\f1{}EIDLDEL}\par
+\pard\li720{}{K{\footnote K EIDLDEL}}{K{\footnote K left delimiter editor argument}}{K{\footnote K beginning-of-word editor argument}}The regular-expression meta-character(s) for delimiting the beginning of a word (the `{\f1{}eid} Left DELimiter').  {\f1{}eid} inserts this in front of the matching token when a word-search is desired.  For {\f1{}vi}, this should be {\f1{}\'5C<}.\par
+\par
+\pard{}{\f1{}EIDRDEL}\par
+\pard\li720{}{K{\footnote K EIDRDEL}}{K{\footnote K right delimiter editor argument}}{K{\footnote K end-of-word editor argument}}The regular-expression meta-character(s) for delimiting the end of a word (the `{\f1{}eid} Right DELimiter').  {\f1{}eid} inserts this in end of the matching token when a word-search is desired.  For {\f1{}vi}, this should be {\f1{}\'5C>}.\par
+\par
+\pard{}}\par
+\page\pard Node: {\b fid invocation}, \keepn Next: {\uldb fnid invocation}{\v fnid_invocation}, Prev: {\uldb lid invocation}{\v lid_invocation}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K fid invocation}
+#{\footnote fid_invocation}
+${\footnote {\f1{}\pard{}fid}: Listing a file's tokens}\par
+\pard{\fs24\b {\f1{}fid}: Listing a file's tokens}\par
+\par
+\pard{}{K{\footnote K fid}}{K{\footnote K tokens in a file}}{K{\footnote K tokens common to two files}} {\f1{}fid} prints the tokens found in a given file.  If two file names are passed on the command line, {\f1{}fid} prints the tokens that are common to both files (i.e., the {\i set intersection} of the two token sets).\par
+\par
+{\f1{}\pard{}fid} reads the ID database, therefore it accepts the {\f1{}--file} option, and consults the {\f1{}IDPATH} environment variable, as described in {\uldb Reading options}{\v Reading_options}.\par
+\par
+\pard{}If the standard output is attached to a terminal, the printed tokens are separated by spaces.  Otherwise, the tokens are printed one per line.\par
+\par
+\page\pard Node: {\b fnid invocation}, \keepn Next: {\uldb xtokid invocation}{\v xtokid_invocation}, Prev: {\uldb fid invocation}{\v fid_invocation}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K fnid invocation}
+#{\footnote fnid_invocation}
+${\footnote {\f1{}\pard{}fnid}: Looking up filenames}\par
+\pard{\fs24\b {\f1{}fnid}: Looking up filenames}\par
+\par
+\pard{}{K{\footnote K fnid}}{K{\footnote K filenames, matching}}{K{\footnote K matching filenames}} {\f1{}fnid} queries the list of file names stored in the ID database.  It accepts shell {\i wildcard} patterns on the command line.  If no pattern is supplied, {\f1{}*} is implied.  {\f1{}fnid} prints the file names that match the given patterns.\par
+\par
+{\f1{}\pard{}fnid} prints file names, and as such accepts the {\f1{}--separator} option as described in {\uldb File listing options}{\v File_listing_options}.\par
+\par
+\pard{}For example, the command:\par
+\par
+{\pard\keep\li720\f1{}fnid \'5C*.c\par
+\pard\f0{}}\par
+\pard{}lists all the {\f1{}.c} files in the database.  (The {\f1{}\'5C} here protects the {\f1{}*} from being expanded by the shell.)\par
+\par
+\page\pard Node: {\b xtokid invocation}, \keepn Next: {\uldb Past and Future}{\v Past_and_Future}, Prev: {\uldb fnid invocation}{\v fnid_invocation}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K xtokid invocation}
+#{\footnote xtokid_invocation}
+${\footnote {\f1{}\pard{}xtokid}: Testing Language Scanners}\par
+\pard{\fs24\b {\f1{}xtokid}: Testing Language Scanners}\par
+\par
+{\f1{}\pard{}xtokid} accepts the names of files and/or directories on the command line, then extracts and prints a stream of tokens from those files for which it has a valid, enabled scanner.  This is useful primarily for debugging new {\f1{}mkid} scanners (see {\uldb Defining scanners}{\v Defining_scanners}).\par
+\par
+{\f1{}\pard{}xtokid} extracts tokens from source files, therefore it accepts the {\f1{}--lang-map}, {\f1{}--include}, {\f1{}--exclude}, and {\f1{}--lang-option} options, as well as the language-specific scanner options, all of which are described in {\uldb Extraction options}{\v Extraction_options}.  {\f1{}xtokid} walks file trees, therefore it handles file and directory names on its command line and the {\f1{}--prune} option as described in {\uldb Walker options}{\v Walker_options}.\par
+\par
+\pard{}The name {\f1{}xtokid} indicates that it is the "eXtract TOKens ID utility".\par
+\par
+\page\pard Node: {\b Past and Future}, \keepn Next: {\uldb Index}{\v Index}, Prev: {\uldb xtokid invocation}{\v xtokid_invocation}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Past and Future}
+#{\footnote Past_and_Future}
+${\footnote \pard{}Past and Future}\par
+\pard{\fs24\b Past and Future}\par
+\par
+\pard{}{K{\footnote K history}} {K{\footnote K look and {\f1{}mkid} 1}}{K{\footnote K McGary, Greg}}Greg McGary conceived of the ideas behind the ID utilities when he began working on the Unix kernel in 1984.  He needed a navigation tool to help him find his way around the expansive, unfamiliar landscape.  The first {\f1{}id-utils}-like tools were shell scripts, and produced an ASCII database that looks much like the output of {\f1{}lid ".*"}.  It took over an hour on a {\scaps\fs16{}vax 11/750} to build a database for a {\scaps\fs16{}4.1bsd} derived kernel.  The first version of {\f1{}lid} used the {\scaps\fs16{}unix} system utility {\f1{}look}, modified to handle very long lines.\par
+\par
+\pard{}In 1986, Greg rewrote the shell scripts in C to improve performance.  Build times for the ID file were shortened by an order of magnitude.  The ID utilities were first posted to {\f1{}comp.sources.unix} in September 1987 under the name {\f1{}id}.\par
+\par
+\pard{}{K{\footnote K Horsley, Tom}}{K{\footnote K Scofield, Doug}}{K{\footnote K Leonard, Bill}}{K{\footnote K Berry, Karl}}Over the next few years, several versions diverged from the original source.  Tom Horsley at Harris Computer Systems Division stepped forward to take over maintenance and integrated some of the fixes from divergent versions.  A first release of the renamed {\f1{}mkid} version 2 was posted to {\f1{}alt.sources} near the end of 1990.  At that time, Tom wrote a Texinfo manual with the encouragement the net community.  (Tom especially thanks Doug Scofield and Bill Leonard whom he dragooned into helping proofread and edit--they found several problems in the initial version.)  Karl Berry revamped the manual for Texinfo style, indexing, and organization in 1995.\par
+\par
+\pard{}In January 1995, Greg McGary reemerged as the primary maintainer and launched development of {\f1{}mkid} version 3, whose primary new feature is an efficient algorithm for building databases that is linear in both time and space over the size of the input text.  (The old algorithm was quadratic in space so it was incapable of handling very large source trees.)  For the first time, the code was released under the GNU Public License.\par
+\par
+\pard{}In June 1996, the package was renamed again to {\f1{}id-utils} and was released for the first time under FSF copyright as part of the GNU system.  All programs had their command-line arguments completely revised.  The {\f1{}mkid} and {\f1{}xtokid} programs also gained a file-tree walker, so that directory names can be passed on the command line instead of the names of every individual file.  Greg reorganized and rewrote most of the Texinfo manual to reflect these changes.\par
+\par
+\pard{}{K{\footnote K cscope}}{K{\footnote K grep}}{K{\footnote K future}}Future releases of {\f1{}id-utils} might include:\par
+\par
+{\pard\li720{}an optional coupling with GNU {\f1{}grep}, so that {\f1{}grep} can use an ID database for hints\par
+\par
+\pard\li720{}a {\f1{}cscope} work-alike query interface\par
+\par
+\pard\li720{}incremental update of the ID database.\par
+\par
+\pard{}}\par
+\page\pard Node: {\b Index}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Past and Future}{\v Past_and_Future}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Index}
+#{\footnote Index}
+${\footnote \pard{}Index}\par
+\pard{\fs24\b Index}\par
+\par
+{\fi-2880\li2880\tx2880*compilation* Emacs buffer:\tab {\uldb Emacs gid interface}{\v Emacs_gid_interface}.\par}{\fi-2880\li2880\tx2880-a:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-ambiguous:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-c:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-comment:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-d:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-exclude <1>:\tab {\uldb Text scanner}{\v Text_scanner}.\par}{\fi-2880\li2880\tx2880-exclude:\tab {\uldb Extraction options}{\v Extraction_options}.\par}{\fi-2880\li2880\tx2880-f:\tab {\uldb Reading options}{\v Reading_options}.\par}{\fi-2880\li2880\tx2880-F:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-f:\tab {\uldb Writing options}{\v Writing_options}.\par}{\fi-2880\li2880\tx2880-file <1>:\tab {\uldb Reading options}{\v Reading_options}.\par}{\fi-2880\li2880\tx2880-file:\tab {\uldb Writing options}{\v Writing_options}.\par}{\fi-2880\li2880\tx2880-frequency:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-help:\tab {\uldb Universal options}{\v Universal_options}.\par}{\fi-2880\li2880\tx2880-i <1>:\tab {\uldb Extraction options}{\v Extraction_options}.\par}{\fi-2880\li2880\tx2880-i <2>:\tab {\uldb Text scanner}{\v Text_scanner}.\par}{\fi-2880\li2880\tx2880-i <3>:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-i <4>:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-i:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-ignore <1>:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-ignore:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-ignore-case:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-include <1>:\tab {\uldb Text scanner}{\v Text_scanner}.\par}{\fi-2880\li2880\tx2880-include:\tab {\uldb Extraction options}{\v Extraction_options}.\par}{\fi-2880\li2880\tx2880-k <1>:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-k <2>:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-k:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-keep <1>:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-keep:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-l <1>:\tab {\uldb Extraction options}{\v Extraction_options}.\par}{\fi-2880\li2880\tx2880-l:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-l asm:-c:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-l asm:-comment:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-l asm:-i:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-l asm:-ignore:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-l asm:-k:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-l asm:-keep:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-l asm:-n:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-l asm:-no-cpp:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-l asm:-strip-underscore:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-l asm:-u:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-l C:-i:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-l C:-ignore:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-l C:-k:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-l C:-keep:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-l C:-strip-underscore:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-l C:-u:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-l text:-exclude:\tab {\uldb Text scanner}{\v Text_scanner}.\par}{\fi-2880\li2880\tx2880-l text:-i:\tab {\uldb Text scanner}{\v Text_scanner}.\par}{\fi-2880\li2880\tx2880-l text:-include:\tab {\uldb Text scanner}{\v Text_scanner}.\par}{\fi-2880\li2880\tx2880-l text:-x:\tab {\uldb Text scanner}{\v Text_scanner}.\par}{\fi-2880\li2880\tx2880-lang-map:\tab {\uldb Extraction options}{\v Extraction_options}.\par}{\fi-2880\li2880\tx2880-lang-option:\tab {\uldb Extraction options}{\v Extraction_options}.\par}{\fi-2880\li2880\tx2880-lang-option=asm:-c:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=asm:-comment:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=asm:-i:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=asm:-ignore:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=asm:-k:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=asm:-keep:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=asm:-n:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=asm:-no-cpp:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=asm:-strip-underscore:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=asm:-u:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=C:-i:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=C:-ignore:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=C:-k:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=C:-keep:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=C:-strip-underscore:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=C:-u:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=text:-exclude:\tab {\uldb Text scanner}{\v Text_scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=text:-i:\tab {\uldb Text scanner}{\v Text_scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=text:-include:\tab {\uldb Text scanner}{\v Text_scanner}.\par}{\fi-2880\li2880\tx2880-lang-option=text:-x:\tab {\uldb Text scanner}{\v Text_scanner}.\par}{\fi-2880\li2880\tx2880-literal:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-m:\tab {\uldb Extraction options}{\v Extraction_options}.\par}{\fi-2880\li2880\tx2880-n:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-no-cpp:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-o <1>:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-o:\tab {\uldb Writing options}{\v Writing_options}.\par}{\fi-2880\li2880\tx2880-output:\tab {\uldb Writing options}{\v Writing_options}.\par}{\fi-2880\li2880\tx2880-p:\tab {\uldb Walker options}{\v Walker_options}.\par}{\fi-2880\li2880\tx2880-prune:\tab {\uldb Walker options}{\v Walker_options}.\par}{\fi-2880\li2880\tx2880-r:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-R:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-regexp:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-result:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-s:\tab {\uldb mkid invocation}{\v mkid_invocation}.\par}{\fi-2880\li2880\tx2880-S:\tab {\uldb File listing options}{\v File_listing_options}.\par}{\fi-2880\li2880\tx2880-s:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-separator:\tab {\uldb File listing options}{\v File_listing_options}.\par}{\fi-2880\li2880\tx2880-statistics:\tab {\uldb mkid invocation}{\v mkid_invocation}.\par}{\fi-2880\li2880\tx2880-strip-underscore <1>:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-strip-underscore:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-substring:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-u <1>:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880-u:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880-v:\tab {\uldb mkid invocation}{\v mkid_invocation}.\par}{\fi-2880\li2880\tx2880-verbose:\tab {\uldb mkid invocation}{\v mkid_invocation}.\par}{\fi-2880\li2880\tx2880-version:\tab {\uldb Universal options}{\v Universal_options}.\par}{\fi-2880\li2880\tx2880-w:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-word:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880-x <1>:\tab {\uldb Text scanner}{\v Text_scanner}.\par}{\fi-2880\li2880\tx2880-x <2>:\tab {\uldb Extraction options}{\v Extraction_options}.\par}{\fi-2880\li2880\tx2880-x:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880alphabetic case, ignoring differences in:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880ambiguous identifier names, finding:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880architecture-independence:\tab {\uldb mkid invocation}{\v mkid_invocation}.\par}{\fi-2880\li2880\tx2880assembler scanner:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880assembly language scanner:\tab {\uldb Assembler scanner}{\v Assembler_scanner}.\par}{\fi-2880\li2880\tx2880beginning-of-word editor argument:\tab {\uldb eid invocation}{\v eid_invocation}.\par}{\fi-2880\li2880\tx2880Berry, Karl:\tab {\uldb Past and Future}{\v Past_and_Future}.\par}{\fi-2880\li2880\tx2880bugs, reporting:\tab {\uldb Introduction}{\v Introduction}.\par}{\fi-2880\li2880\tx2880C scanner, predefined:\tab {\uldb C/C++ scanner}{\v C_C___scanner}.\par}{\fi-2880\li2880\tx2880common command-line options:\tab {\uldb Common options}{\v Common_options}.\par}{\fi-2880\li2880\tx2880creating databases:\tab {\uldb mkid invocation}{\v mkid_invocation}.\par}{\fi-2880\li2880\tx2880cron:\tab {\uldb mkid invocation}{\v mkid_invocation}.\par}{\fi-2880\li2880\tx2880cscope:\tab {\uldb Past and Future}{\v Past_and_Future}.\par}{\fi-2880\li2880\tx2880databases, creating:\tab {\uldb mkid invocation}{\v mkid_invocation}.\par}{\fi-2880\li2880\tx2880eid:\tab {\uldb eid invocation}{\v eid_invocation}.\par}{\fi-2880\li2880\tx2880EIDARG:\tab {\uldb eid invocation}{\v eid_invocation}.\par}{\fi-2880\li2880\tx2880EIDLDEL:\tab {\uldb eid invocation}{\v eid_invocation}.\par}{\fi-2880\li2880\tx2880EIDRDEL:\tab {\uldb eid invocation}{\v eid_invocation}.\par}{\fi-2880\li2880\tx2880Emacs interface to {\f1{}gid}:\tab {\uldb Emacs gid interface}{\v Emacs_gid_interface}.\par}{\fi-2880\li2880\tx2880end-of-word editor argument:\tab {\uldb eid invocation}{\v eid_invocation}.\par}{\fi-2880\li2880\tx2880exclude languages:\tab {\uldb Extraction options}{\v Extraction_options}.\par}{\fi-2880\li2880\tx2880fid:\tab {\uldb fid invocation}{\v fid_invocation}.\par}{\fi-2880\li2880\tx2880file name separator:\tab {\uldb File listing options}{\v File_listing_options}.\par}{\fi-2880\li2880\tx2880file tree pruning:\tab {\uldb Walker options}{\v Walker_options}.\par}{\fi-2880\li2880\tx2880filenames, matching:\tab {\uldb fnid invocation}{\v fnid_invocation}.\par}{\fi-2880\li2880\tx2880fnid:\tab {\uldb fnid invocation}{\v fnid_invocation}.\par}{\fi-2880\li2880\tx2880future:\tab {\uldb Past and Future}{\v Past_and_Future}.\par}{\fi-2880\li2880\tx2880gid Emacs function:\tab {\uldb Emacs gid interface}{\v Emacs_gid_interface}.\par}{\fi-2880\li2880\tx2880grep:\tab {\uldb Past and Future}{\v Past_and_Future}.\par}{\fi-2880\li2880\tx2880help, online:\tab {\uldb Universal options}{\v Universal_options}.\par}{\fi-2880\li2880\tx2880history:\tab {\uldb Past and Future}{\v Past_and_Future}.\par}{\fi-2880\li2880\tx2880Horsley, Tom:\tab {\uldb Past and Future}{\v Past_and_Future}.\par}{\fi-2880\li2880\tx2880ID database file name <1>:\tab {\uldb Reading options}{\v Reading_options}.\par}{\fi-2880\li2880\tx2880ID database file name <2>:\tab {\uldb Writing options}{\v Writing_options}.\par}{\fi-2880\li2880\tx2880ID database file name:\tab {\uldb Reading options}{\v Reading_options}.\par}{\fi-2880\li2880\tx2880ID database, definition of:\tab {\uldb Introduction}{\v Introduction}.\par}{\fi-2880\li2880\tx2880ID file format:\tab {\uldb mkid invocation}{\v mkid_invocation}.\par}{\fi-2880\li2880\tx2880id-utils.el interface to Emacs:\tab {\uldb Emacs gid interface}{\v Emacs_gid_interface}.\par}{\fi-2880\li2880\tx2880ignoring differences in alphabetic case:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880include languages:\tab {\uldb Extraction options}{\v Extraction_options}.\par}{\fi-2880\li2880\tx2880introduction:\tab {\uldb Introduction}{\v Introduction}.\par}{\fi-2880\li2880\tx2880language map file:\tab {\uldb Extraction options}{\v Extraction_options}.\par}{\fi-2880\li2880\tx2880language-specific option:\tab {\uldb Extraction options}{\v Extraction_options}.\par}{\fi-2880\li2880\tx2880languages_0:\tab {\uldb Defining scanners}{\v Defining_scanners}.\par}{\fi-2880\li2880\tx2880left delimiter editor argument:\tab {\uldb eid invocation}{\v eid_invocation}.\par}{\fi-2880\li2880\tx2880Leonard, Bill:\tab {\uldb Past and Future}{\v Past_and_Future}.\par}{\fi-2880\li2880\tx2880load-path:\tab {\uldb Emacs gid interface}{\v Emacs_gid_interface}.\par}{\fi-2880\li2880\tx2880look and {\f1{}mkid} 1:\tab {\uldb Past and Future}{\v Past_and_Future}.\par}{\fi-2880\li2880\tx2880matching filenames:\tab {\uldb fnid invocation}{\v fnid_invocation}.\par}{\fi-2880\li2880\tx2880McGary, Greg:\tab {\uldb Past and Future}{\v Past_and_Future}.\par}{\fi-2880\li2880\tx2880numeric matches, specifying radix of:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880overview:\tab {\uldb Introduction}{\v Introduction}.\par}{\fi-2880\li2880\tx2880radix of numeric matches, specifying:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880right delimiter editor argument:\tab {\uldb eid invocation}{\v eid_invocation}.\par}{\fi-2880\li2880\tx2880scanners:\tab {\uldb Extraction options}{\v Extraction_options}.\par}{\fi-2880\li2880\tx2880scanners, defining in source code:\tab {\uldb Defining scanners}{\v Defining_scanners}.\par}{\fi-2880\li2880\tx2880scanners.c:\tab {\uldb Defining scanners}{\v Defining_scanners}.\par}{\fi-2880\li2880\tx2880Scofield, Doug:\tab {\uldb Past and Future}{\v Past_and_Future}.\par}{\fi-2880\li2880\tx2880search for token, initial:\tab {\uldb eid invocation}{\v eid_invocation}.\par}{\fi-2880\li2880\tx2880sharing ID files:\tab {\uldb mkid invocation}{\v mkid_invocation}.\par}{\fi-2880\li2880\tx2880single matches, showing:\tab {\uldb lid invocation}{\v lid_invocation}.\par}{\fi-2880\li2880\tx2880statistics:\tab {\uldb mkid invocation}{\v mkid_invocation}.\par}{\fi-2880\li2880\tx2880text scanner:\tab {\uldb Text scanner}{\v Text_scanner}.\par}{\fi-2880\li2880\tx2880tokens common to two files:\tab {\uldb fid invocation}{\v fid_invocation}.\par}{\fi-2880\li2880\tx2880tokens in a file:\tab {\uldb fid invocation}{\v fid_invocation}.\par}{\fi-2880\li2880\tx2880version number, finding:\tab {\uldb Universal options}{\v Universal_options}.\par}{\fi-2880\li2880\tx2880{\f1{}mkid} progress:\tab {\uldb mkid invocation}{\v mkid_invocation}.\par}\page K{\footnote Makertf}#{\footnote hcMakertf}${\footnote \pard{}About Makertf}\pard{\fs24\b About Makertf}\par\par\pard{}Makertf is a program that converts "Texinfo" files into "Rich Text Format" (RTF) files. It can be used to make WinHelp Files from GNU manuals and other documentation written in Texinfo. Visit http://www.snafu.de/~cschenk/makertf for more information.}

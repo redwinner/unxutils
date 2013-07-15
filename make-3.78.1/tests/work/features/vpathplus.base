@@ -1,0 +1,2 @@
+cat bar.d > bar.c
+cat work/foo.c bar.c > foo.b 2>/dev/null || exit 1

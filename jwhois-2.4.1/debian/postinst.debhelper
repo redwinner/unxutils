@@ -1,0 +1,10 @@
+# Automatically added by dh_installdocs
+if [ "$1" = "configure" ]; then
+	if [ -d /usr/doc -a ! -e /usr/doc/jwhois -a -d /usr/share/doc/jwhois ]; then
+		ln -sf ../share/doc/jwhois /usr/doc/jwhois
+	fi
+fi
+# End automatically added section
+# Automatically added by dh_installinfo
+install-info --quiet /usr/share/info/jwhois.info
+# End automatically added section

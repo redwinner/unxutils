@@ -1,0 +1,367 @@
+# Generated automatically from Makefile.in by configure.
+# Makefile.in generated automatically by automake 1.4 from Makefile.am
+
+# Copyright (C) 1994, 1995-8, 1999 Free Software Foundation, Inc.
+# This Makefile.in is free software; the Free Software Foundation
+# gives unlimited permission to copy and/or distribute it,
+# with or without modifications, as long as this notice is preserved.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY, to the extent permitted by law; without
+# even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+
+SHELL = /bin/sh
+
+srcdir = .
+top_srcdir = ..
+prefix = /usr/local
+exec_prefix = ${prefix}
+
+bindir = ${exec_prefix}/bin
+sbindir = ${exec_prefix}/sbin
+libexecdir = ${exec_prefix}/libexec
+datadir = ${prefix}/share
+sysconfdir = ${prefix}/etc
+sharedstatedir = ${prefix}/com
+localstatedir = ${prefix}/var
+libdir = ${exec_prefix}/lib
+infodir = ${prefix}/info
+mandir = ${prefix}/man
+includedir = ${prefix}/include
+oldincludedir = /usr/include
+
+DESTDIR =
+
+pkgdatadir = $(datadir)/fileutils
+pkglibdir = $(libdir)/fileutils
+pkgincludedir = $(includedir)/fileutils
+
+top_builddir = ..
+
+ACLOCAL = @ACLOCAL@
+AUTOCONF = @AUTOCONF@
+AUTOMAKE = @AUTOMAKE@
+AUTOHEADER = @AUTOHEADER@
+
+INSTALL = /usr/bin/install -c
+INSTALL_PROGRAM = ${INSTALL} $(AM_INSTALL_PROGRAM_FLAGS)
+INSTALL_DATA = ${INSTALL} -m 644
+INSTALL_SCRIPT = ${INSTALL_PROGRAM}
+transform = s,x,x,
+
+NORMAL_INSTALL = :
+PRE_INSTALL = :
+POST_INSTALL = :
+NORMAL_UNINSTALL = :
+PRE_UNINSTALL = :
+POST_UNINSTALL = :
+CATALOGS =  de.gmo es.gmo fr.gmo nl.gmo pl.gmo pt.gmo sl.gmo sv.gmo
+CATOBJEXT = .gmo
+CC = gcc
+CPP = gcc -E
+DATADIRNAME = share
+DF_PROG = 
+GENCAT = 
+GMOFILES =  de.gmo es.gmo fr.gmo nl.gmo pl.gmo pt.gmo sl.gmo sv.gmo
+GMSGFMT = msgfmt
+GT_NO = 
+GT_YES = #YES#
+INSTOBJEXT = .mo
+INTLDEPS = ../intl/libintl.a
+INTLLIBS = ../intl/libintl.a
+INTLOBJS = $(GETTOBJS)
+LIBOBJS =  regex.o fileblocks.o basename.o euidaccess.o group-member.o rpmatch.o stpcpy.o strndup.o mktime.o strftime.o getline.o error.o obstack.o fnmatch.o
+LN = /usr/bin/ln
+MAINT = #M#
+MKINSTALLDIRS = ./mkinstalldirs
+MSGFMT = msgfmt
+MV = /usr/bin/mv
+MVDIR_PROG = 
+PACKAGE = fileutils
+PERL = /usr/local/bin/perl
+POFILES =  de.po es.po fr.po nl.po pl.po pt.po sl.po sv.po
+POSUB = po
+RANLIB = ranlib
+RM = /usr/bin/rm
+U = 
+USE_INCLUDED_LIBINTL = yes
+USE_NLS = yes
+VERSION = 3.16
+YACC = bison -y
+
+noinst_LIBRARIES = libfu.a
+
+EXTRA_DIST = mkdir.c rmdir.c getline.c mktime.c strftime.c getgroups.c
+
+INCLUDES = -I.. -I$(srcdir) -I../intl
+
+libfu_a_SOURCES = getdate.y posixtm.y getopt.c getopt1.c argmatch.c backupfile.c dirname.c filemode.c full-write.c getversion.c idcache.c isdir.c long-options.c makepath.c modechange.c path-concat.c safe-read.c save-cwd.c savedir.c stripslash.c userspec.c xgetcwd.c xmalloc.c xstrdup.c xstrtol.c xstrtoul.c yesno.c
+
+
+libfu_a_LIBADD =  regex.o fileblocks.o basename.o euidaccess.o group-member.o rpmatch.o stpcpy.o strndup.o mktime.o strftime.o getline.o error.o obstack.o fnmatch.o 
+libfu_a_DEPENDENCIES = $(libfu_a_LIBADD)
+
+noinst_HEADERS = argmatch.h backupfile.h error.h fnmatch.h fsusage.h getdate.h getline.h getopt.h group-member.h long-options.h makepath.h modechange.h mountlist.h path-concat.h pathmax.h save-cwd.h xstrtol.h xstrtoul.h
+
+
+BUILT_SOURCES = getdate.c posixtm.c
+mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+CONFIG_HEADER = ../config.h
+CONFIG_CLEAN_FILES = 
+LIBRARIES =  $(noinst_LIBRARIES)
+
+
+DEFS = -DHAVE_CONFIG_H -I. -I$(srcdir) -I..
+CPPFLAGS = 
+LDFLAGS = 
+LIBS = 
+libfu_a_OBJECTS =  getdate.o posixtm.o getopt.o getopt1.o argmatch.o \
+backupfile.o dirname.o filemode.o full-write.o getversion.o idcache.o \
+isdir.o long-options.o makepath.o modechange.o path-concat.o \
+safe-read.o save-cwd.o savedir.o stripslash.o userspec.o xgetcwd.o \
+xmalloc.o xstrdup.o xstrtol.o xstrtoul.o yesno.o
+AR = ar
+YLWRAP = $(srcdir)/ylwrap
+CFLAGS = -g -O2
+COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+CCLD = $(CC)
+LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@
+HEADERS =  $(noinst_HEADERS)
+
+DIST_COMMON =  Makefile.am Makefile.in alloca.c basename.c error.c \
+error.h euidaccess.c fileblocks.c fnmatch.c fsusage.c ftruncate.c \
+getdate.c getgroups.c getline.c group-member.c memcmp.c memcpy.c \
+memset.c mkdir.c mktime.c mountlist.c obstack.c obstack.h posixtm.c \
+regex.c regex.h rename.c rmdir.c rpmatch.c rx.c rx.h stpcpy.c \
+strcasecmp.c strdup.c strftime.c strndup.c strstr.c strtol.c strtoul.c \
+ylwrap
+
+
+DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST)
+
+TAR = tar
+GZIP_ENV = --best
+DEP_FILES =  .deps/alloca.P .deps/argmatch.P .deps/backupfile.P \
+.deps/basename.P .deps/dirname.P .deps/error.P .deps/euidaccess.P \
+.deps/fileblocks.P .deps/filemode.P .deps/fnmatch.P .deps/fsusage.P \
+.deps/ftruncate.P .deps/full-write.P .deps/getdate.P .deps/getgroups.P \
+.deps/getline.P .deps/getopt.P .deps/getopt1.P .deps/getversion.P \
+.deps/group-member.P .deps/idcache.P .deps/isdir.P .deps/long-options.P \
+.deps/makepath.P .deps/memcmp.P .deps/memcpy.P .deps/memset.P \
+.deps/mkdir.P .deps/mktime.P .deps/modechange.P .deps/mountlist.P \
+.deps/obstack.P .deps/path-concat.P .deps/posixtm.P .deps/regex.P \
+.deps/rename.P .deps/rmdir.P .deps/rpmatch.P .deps/rx.P \
+.deps/safe-read.P .deps/save-cwd.P .deps/savedir.P .deps/stpcpy.P \
+.deps/strcasecmp.P .deps/strdup.P .deps/strftime.P .deps/stripslash.P \
+.deps/strndup.P .deps/strstr.P .deps/strtol.P .deps/strtoul.P \
+.deps/userspec.P .deps/xgetcwd.P .deps/xmalloc.P .deps/xstrdup.P \
+.deps/xstrtol.P .deps/xstrtoul.P .deps/yesno.P
+SOURCES = $(libfu_a_SOURCES)
+OBJECTS = $(libfu_a_OBJECTS)
+
+all: all-redirect
+.SUFFIXES:
+.SUFFIXES: .S .c .o .s .y
+$(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) 
+	cd $(top_srcdir) && $(AUTOMAKE) --gnu lib/Makefile
+
+Makefile: $(srcdir)/Makefile.in  $(top_builddir)/config.status $(BUILT_SOURCES)
+	cd $(top_builddir) \
+	  && CONFIG_FILES=$(subdir)/$@ CONFIG_HEADERS= $(SHELL) ./config.status
+
+
+mostlyclean-noinstLIBRARIES:
+
+clean-noinstLIBRARIES:
+	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
+
+distclean-noinstLIBRARIES:
+
+maintainer-clean-noinstLIBRARIES:
+
+.s.o:
+	$(COMPILE) -c $<
+
+.S.o:
+	$(COMPILE) -c $<
+
+mostlyclean-compile:
+	-rm -f *.o core *.core
+
+clean-compile:
+
+distclean-compile:
+	-rm -f *.tab.c
+
+maintainer-clean-compile:
+
+libfu.a: $(libfu_a_OBJECTS) $(libfu_a_DEPENDENCIES)
+	-rm -f libfu.a
+	$(AR) cru libfu.a $(libfu_a_OBJECTS) $(libfu_a_LIBADD)
+	$(RANLIB) libfu.a
+.y.c:
+	$(SHELL) $(YLWRAP) "$(YACC)" $< y.tab.c $*.c y.tab.h $*.h -- $(AM_YFLAGS) $(YFLAGS)
+getdate.h: getdate.c
+posixtm.h: posixtm.c
+
+
+tags: TAGS
+
+ID: $(HEADERS) $(SOURCES) $(LISP)
+	list='$(SOURCES) $(HEADERS)'; \
+	unique=`for i in $$list; do echo $$i; done | \
+	  awk '    { files[$$0] = 1; } \
+	       END { for (i in files) print i; }'`; \
+	here=`pwd` && cd $(srcdir) \
+	  && mkid -f$$here/ID $$unique $(LISP)
+
+TAGS:  $(HEADERS) $(SOURCES)  $(TAGS_DEPENDENCIES) $(LISP)
+	tags=; \
+	here=`pwd`; \
+	list='$(SOURCES) $(HEADERS)'; \
+	unique=`for i in $$list; do echo $$i; done | \
+	  awk '    { files[$$0] = 1; } \
+	       END { for (i in files) print i; }'`; \
+	test -z "$(ETAGS_ARGS)$$unique$(LISP)$$tags" \
+	  || (cd $(srcdir) && etags $(ETAGS_ARGS) $$tags  $$unique $(LISP) -o $$here/TAGS)
+
+mostlyclean-tags:
+
+clean-tags:
+
+distclean-tags:
+	-rm -f TAGS ID
+
+maintainer-clean-tags:
+
+distdir = $(top_builddir)/$(PACKAGE)-$(VERSION)/$(subdir)
+
+subdir = lib
+
+distdir: $(DISTFILES)
+	here=`cd $(top_builddir) && pwd`; \
+	top_distdir=`cd $(top_distdir) && pwd`; \
+	distdir=`cd $(distdir) && pwd`; \
+	cd $(top_srcdir) \
+	  && $(AUTOMAKE) --include-deps --build-dir=$$here --srcdir-name=$(top_srcdir) --output-dir=$$top_distdir --gnu lib/Makefile
+	@for file in $(DISTFILES); do \
+	  d=$(srcdir); \
+	  if test -d $$d/$$file; then \
+	    cp -pr $$/$$file $(distdir)/$$file; \
+	  else \
+	    test -f $(distdir)/$$file \
+	    || ln $$d/$$file $(distdir)/$$file 2> /dev/null \
+	    || cp -p $$d/$$file $(distdir)/$$file || :; \
+	  fi; \
+	done
+
+DEPS_MAGIC := $(shell mkdir .deps > /dev/null 2>&1 || :)
+
+-include $(DEP_FILES)
+
+mostlyclean-depend:
+
+clean-depend:
+
+distclean-depend:
+	-rm -rf .deps
+
+maintainer-clean-depend:
+
+%.o: %.c
+	@echo '$(COMPILE) -c $<'; \
+	$(COMPILE) -Wp,-MD,.deps/$(*F).pp -c $<
+	@-cp .deps/$(*F).pp .deps/$(*F).P; \
+	tr ' ' '\012' < .deps/$(*F).pp \
+	  | sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
+	    >> .deps/$(*F).P; \
+	rm .deps/$(*F).pp
+
+%.lo: %.c
+	@echo '$(LTCOMPILE) -c $<'; \
+	$(LTCOMPILE) -Wp,-MD,.deps/$(*F).pp -c $<
+	@-sed -e 's/^\([^:]*\)\.o[ 	]*:/\1.lo \1.o :/' \
+	  < .deps/$(*F).pp > .deps/$(*F).P; \
+	tr ' ' '\012' < .deps/$(*F).pp \
+	  | sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
+	    >> .deps/$(*F).P; \
+	rm -f .deps/$(*F).pp
+info-am:
+info: info-am
+dvi-am:
+dvi: dvi-am
+check-am: all-am
+check: check-am
+installcheck-am:
+installcheck: installcheck-am
+install-exec-am:
+install-exec: install-exec-am
+
+install-data-am:
+install-data: install-data-am
+
+install-am: all-am
+	@$(MAKE) $(AM_MAKEFLAGS) install-exec-am install-data-am
+install: install-am
+uninstall-am:
+uninstall: uninstall-am
+all-am: Makefile $(LIBRARIES) $(HEADERS)
+all-redirect: all-am
+install-strip:
+	$(MAKE) $(AM_MAKEFLAGS) AM_INSTALL_PROGRAM_FLAGS=-s install
+installdirs:
+
+
+mostlyclean-generic:
+
+clean-generic:
+
+distclean-generic:
+	-rm -f Makefile $(CONFIG_CLEAN_FILES)
+	-rm -f config.cache config.log stamp-h stamp-h[0-9]*
+
+maintainer-clean-generic:
+	-test -z "getdatehgetdatecposixtmhposixtmc$(BUILT_SOURCES)" || rm -f getdateh getdatec posixtmh posixtmc $(BUILT_SOURCES)
+mostlyclean-am:  mostlyclean-noinstLIBRARIES mostlyclean-compile \
+		mostlyclean-tags mostlyclean-depend mostlyclean-generic
+
+mostlyclean: mostlyclean-am
+
+clean-am:  clean-noinstLIBRARIES clean-compile clean-tags clean-depend \
+		clean-generic mostlyclean-am
+
+clean: clean-am
+
+distclean-am:  distclean-noinstLIBRARIES distclean-compile \
+		distclean-tags distclean-depend distclean-generic \
+		clean-am
+
+distclean: distclean-am
+
+maintainer-clean-am:  maintainer-clean-noinstLIBRARIES \
+		maintainer-clean-compile maintainer-clean-tags \
+		maintainer-clean-depend maintainer-clean-generic \
+		distclean-am
+	@echo "This command is intended for maintainers to use;"
+	@echo "it deletes files that may require special tools to rebuild."
+
+maintainer-clean: maintainer-clean-am
+
+.PHONY: mostlyclean-noinstLIBRARIES distclean-noinstLIBRARIES \
+clean-noinstLIBRARIES maintainer-clean-noinstLIBRARIES \
+mostlyclean-compile distclean-compile clean-compile \
+maintainer-clean-compile tags mostlyclean-tags distclean-tags \
+clean-tags maintainer-clean-tags distdir mostlyclean-depend \
+distclean-depend clean-depend maintainer-clean-depend info-am info \
+dvi-am dvi check check-am installcheck-am installcheck install-exec-am \
+install-exec install-data-am install-data install-am install \
+uninstall-am uninstall all-redirect all-am all installdirs \
+mostlyclean-generic distclean-generic clean-generic \
+maintainer-clean-generic clean mostlyclean distclean maintainer-clean
+
+
+# Tell versions [3.59,3.63) of GNU make to not export all variables.
+# Otherwise a system limit (for SysV at least) may be exceeded.
+.NOEXPORT:

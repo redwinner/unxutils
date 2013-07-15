@@ -1,0 +1,12 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:770: minix/config.h: No such file or directory
+configure:951: siginfo.h: No such file or directory
+C:\TEMP\cc0011151.o: In function `t':
+/usr/local/m4-1.4/configure:1185: undefined reference to `sigaltstack'
+C:\TEMP\cc0011241.o: In function `t':
+/usr/local/m4-1.4/configure:1185: undefined reference to `sigstack'
+C:\TEMP\cc0010071.o: In function `t':
+/usr/local/m4-1.4/configure:1185: undefined reference to `sigvec'
+configure:1221: alloca.h: No such file or directory

@@ -1,0 +1,9 @@
+1999-01-27  Jim Meyering  <meyering@ascend.com>
+
+	* ChangeLog: New file.
+	* gettext.m4: New file.
+	* progtest.m4: New file.
+	* lcmessage.m4: New file.
+	* Makefile.am: New file.
+	* Makefile.am.in: New file.
+	* Makefile.in: New file.

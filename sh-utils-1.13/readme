@@ -1,0 +1,53 @@
+This is a package of small shell programming utilities.  They are mostly
+compliant with POSIX.2, where applicable.
+
+The programs that can be built with this package are:
+
+  basename chroot date dirname echo env expr factor false groups
+  hostname id logname nice nohup pathchk printenv printf pwd seq
+  sleep stty su tee test true tty uname users who whoami yes
+
+Some programs (chroot, nice, nohup, uname, and stty) are built and
+installed only on systems that have the features to support them.
+su is always built, but it is installed only if the installer can
+create setuid-root programs.
+
+If you want to install the su program separately, you can run
+`./configure && make check && make install' as usual;  that will
+install all programs except su if you installed as a non-privileged
+user.  Then run `make install-root' as root to install only su.
+
+See the file NEWS for a list of major changes in the current release.
+
+See the file INSTALL for compilation and installation instructions.
+
+If you are using a version of the Linux libc that predates 4.4.1,
+you should get a newer version.  The old libraries contain getopt
+functions that are incompatible with certain uses of the date program.
+For instance, when built with the obsolete getopt functions, `date +%j'
+will give a usage error instead of the expected result.
+
+nice, stty, and uname require facilities not available on all systems;
+`configure' detects this and does not try to compile them on systems
+where those facilities are missing.
+nohup requires nice.
+su will be installed only if you do `make install' as root.
+
+Many thanks to all of the people who have taken the time to submit
+problem reports and fixes.  Contributed changes are attributed in the
+ChangeLog file.
+
+Note that the distributed man pages are no longer being updated.
+The authoritative documentation is in texinfo form in the doc directory.
+
+These programs all recognize the `--version' option.  When reporting
+bugs, please include in the subject line both the package name/version
+and the name of the program for which you found a problem.
+
+For general documentation on the coding and usage standards
+this distribution follows, see the GNU standards document
+ftp://prep.ai.mit.edu/pub/gnu/standards.*, especially the `Makefile
+Conventions', `Configuration', and `User Interfaces' sections.
+
+Mail suggestions and bug reports for these programs to
+sh-utils-bugs@gnu.ai.mit.edu.

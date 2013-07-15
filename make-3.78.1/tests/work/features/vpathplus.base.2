@@ -1,0 +1,4 @@
+cat work/inter.d > inter.c
+cat inter.c > inter.b 2>/dev/null || exit 1
+cat inter.b > inter.a
+rm inter.b inter.c

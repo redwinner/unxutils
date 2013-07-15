@@ -1,0 +1,79 @@
+# Generated automatically from Makefile.in by configure.
+# Makefile for GNU shell utilities documentation.
+# Copyright (C) 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+SHELL = /bin/sh
+
+srcdir = .
+
+prefix = /usr/local
+exec_prefix = $(prefix)
+mandir = $(prefix)/man/man1
+manprefix = $(binprefix)
+manext = 1
+INSTALL = /usr/bin/install -c
+INSTALL_DATA = ${INSTALL} -m 644
+
+# Files to install on all systems
+MANFILES1 = basename.1 date.1 dirname.1 echo.1 env.1 expr.1 false.1 groups.1 \
+id.1 logname.1 pathchk.1 printenv.1 printf.1 sleep.1 tee.1 test.1 \
+true.1 tty.1 who.1 whoami.1 yes.1
+
+# Files to install if configure determines we can build the corresponding
+# executables.
+MANFILES2 = nice.1 nohup.1 su.1 stty.1 uname.1
+
+# Files to install.
+MANFILES = $(MANFILES1) 
+
+DISTFILES = Makefile.in $(MANFILES1) $(MANFILES2)
+
+all:
+
+install: all
+	for f in $(MANFILES); do \
+	  $(INSTALL_DATA) $(srcdir)/$$f \
+	    $(mandir)/$(manprefix)`basename $$f 1`$(manext); \
+	done
+	@if test `../src/id -u` = 0; then \
+	  echo you are root, so installing su.1; \
+	  $(INSTALL_DATA) $(srcdir)/su.1 $(mandir)/$(manprefix)su.$(manext); \
+	else echo WARNING: you are not root, so not installing su.1; fi
+
+uninstall:
+	for f in $(MANFILES) su.1; do \
+	  rm -f $(mandir)/$(manprefix)`basename $$f 1`$(manext); \
+	done
+
+TAGS:
+
+clean:
+
+mostlyclean: clean
+
+distclean: clean
+	rm -f Makefile
+
+realclean: distclean
+	rm -f TAGS
+
+dist:
+	ln $(DISTFILES) ../`cat ../.fname`/man
+
+# Tell versions [3.59,3.63) of GNU make not to export all variables.
+# Otherwise a system limit (for SysV at least) may be exceeded.
+.NOEXPORT:

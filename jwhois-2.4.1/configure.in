@@ -1,0 +1,119 @@
+dnl Process this file with autoconf to produce a configure script.
+##
+## This file is part of jwhois
+## Copyright (C) 1999  Free Software Foundation, Inc.
+##
+## This program is free software; you can redistribute it and/or modify
+## it under the terms of the GNU General Public License as published by
+## the Free Software Foundation; either version 2 of the License, or
+## (at your option) any later version.
+##
+## This program is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+## GNU General Public License for more details.
+##
+## You should have received a copy of the GNU General Public License
+## along with this program; if not, write to the Free Software
+## Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+##
+AC_INIT(src/jconfig.c)
+AM_INIT_AUTOMAKE(jwhois,2.4.1)
+AM_CONFIG_HEADER(config.h)
+
+AC_ARG_ENABLE(DEFAULTHOST,
+[  --enable-DEFAULTHOST=HOST   default whois host (default whois.internic.net)],
+[AC_DEFINE_UNQUOTED(DEFAULTHOST, "$enable_DEFAULTHOST")],
+[AC_DEFINE(DEFAULTHOST, "whois.internic.net")])
+
+AC_ARG_ENABLE(CACHEEXPIRE,
+[  --enable-CACHEEXPIRE=HOURS  default expire time in hours for cached objects
+                                   (default 168 hours)],
+[AC_DEFINE_UNQUOTED(CACHEEXPIRE, "$enable_CACHEEXPIRE")],
+[AC_DEFINE(CACHEEXPIRE, "168")])
+
+AC_ARG_ENABLE(GROUP,
+[  --enable-GROUP=group        group that owns the cache database
+                                   (default "nogroup")],
+[GROUP="$enable_GROUP"],
+[GROUP="nogroup"])
+AC_SUBST(GROUP)
+
+AC_ARG_WITH(cache,
+[  --without-cache             disable cache manager (see README for more info)],
+[if test x$withval = xno; then
+  AC_DEFINE(NOCACHE,1)
+  cache=no
+ elif test x$withval = xyes; then
+  cache=yes
+ fi],
+[cache=yes])
+AC_SUBST(cache)
+
+AC_ARG_WITH(localedir,
+[  --with-localedir=DIR        locale info in DIR [PREFIX/share/locale]]
+,localedir=$withval,localedir='${prefix}/share/locale')
+AC_SUBST(localedir)
+
+ALL_LINGUAS="sv"
+
+AC_PROG_INSTALL
+AC_PROG_CC
+AM_GNU_GETTEXT
+AC_PATH_PROG(CHGRP, chgrp, $PATH:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/libexec)
+AC_PATH_PROG(CHMOD, chmod, $PATH:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/libexec)
+
+AC_CHECK_FUNC(connect,,
+  AC_CHECK_LIB(socket, connect))
+AC_CHECK_FUNC(socket,,
+  AC_CHECK_LIB(socket, socket)
+  AC_CHECK_LIB(inet, socket))
+AC_CHECK_FUNC(getaddrinfo,
+  AC_DEFINE(HAVE_GETADDRINFO,1)
+  AC_CHECK_FUNCS(gai_strerror),
+  AC_CHECK_FUNC(gethostbyname,,
+    AC_CHECK_LIB(nsl, gethostbyname))
+  AC_CHECK_FUNC(inet_aton))
+
+AC_CHECK_LIB(inet6, main,
+  AC_CHECK_LIB(resolv, main))
+
+AC_CHECK_FUNCS(memcpy strtol)
+AC_CHECK_FUNCS(strcasecmp strncasecmp getopt_long)
+AC_STDC_HEADERS
+AC_CHECK_HEADERS(sys/types.h sys/socket.h netinet/in.h netdb.h sys/time.h sys/stat.h sys/fcntl.h libintl.h malloc.h)
+AC_HEADER_TIME
+
+found=no
+if test x$cache = xyes; then
+  AC_CHECK_FUNC(dbm_open,
+    [AC_DEFINE(HAVE_DBM_OPEN)
+    found=yes])
+  if test x$found = xno; then
+    AC_CHECK_LIB(gdbm, gdbm_open,
+      [AC_DEFINE(HAVE_GDBM_OPEN)
+      LIBS="-lgdbm $LIBS"
+      found=yes])
+  fi
+  if test x$found = xno; then
+    AC_CHECK_LIB(ndbm, dbm_open,
+      [AC_DEFINE(HAVE_DBM_OPEN)
+      LIBS="-lndbm $LIBS"
+      found=yes])
+  fi
+  if test x$found = xno; then
+    AC_MSG_WARN("You don\'t have any dbm libraries installed -- disabling cache functions")
+    AC_DEFINE(NOCACHE,1)
+    cache=no
+  else
+    AC_CHECK_HEADERS(gdbm.h ndbm.h dbm.h db1/ndbm.h)
+  fi
+fi
+
+if test "$ac_cv_lib_intl_bindtextdomain" = "yes" -o "$ac_cv_lib_intl_gettext" = "yes"; then
+  LIBS="-lintl $LIBS"
+fi
+OLDCFLAGS=$CFLAGS
+AC_SUBST(OLDCFLAGS)
+
+AC_OUTPUT(Makefile doc/Makefile src/Makefile intl/Makefile po/Makefile.in jwhois.spec)

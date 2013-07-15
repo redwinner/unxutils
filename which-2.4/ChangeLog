@@ -1,0 +1,181 @@
+Fri May 14 00:40:48 1999  Carlo Wood, Runaway  <carlo@jolan>
+
+	* .cvsignore: Two more files to ignore.
+
+	* acinclude.m4, configure.in, getopt.c, getopt1.c:
+	Several fixes for problems that showed up on other OS.
+
+Thu May 13 22:55:13 1999  Carlo Wood, Runaway  <carlo@jolan>
+
+	* EXAMPLES, getopt1.c, index.html.in, which-2.spec, which.lsm:
+	Bumped version to 2.4
+
+	* configure.in: getopt.c needs checks for string.h libintl.h.
+
+	* Makefile.am: Ugh, getopt_long() is in getopt1.c...
+
+	* makefile:
+	Need the dependencies, which are in the .deps directory, in the tar too!
+
+	* Attic/config.h.in, makefile:
+	Improve automation of cvslog generation (now calculates days since last
+	release).
+	Removed generated file config.h.in from CVS.
+
+	* Makefile.am, configure.in: Added getopt.c to the distribution.
+
+	* getopt.c, getopt.h, which.c: Put getopt.c in the distribution.
+
+Mon May 10 15:55:16 1999  Carlo Wood, Runaway  <carlo@jolan>
+
+	* EXAMPLES, which.1, which.c: Added options -v and -V
+
+	* Attic/config.h.in, acconfig.h, configure.in, makefile, sys.h, which.1, which.c:
+	New gnu.org E-mail address.
+	Make which work without libiberty.a and work reasonable without libreadline.
+	Added configure options --disable-readline and --disable-iberty.
+
+	* which.lsm: New gnu.org E-mail address
+
+Wed Apr 21 12:57:26 1999  Carlo Wood, Runaway  <carlo@jolan>
+
+	* EXAMPLES: Typo fix
+
+Tue Apr 20 16:11:41 1999  Carlo Wood, Runaway  <carlo@jolan>
+
+	* Attic/config.h.in, acinclude.m4, configure.in:
+	Added a test AC_CHECK_STATICLIB to search for static libs.
+	Linking with static libreadline.a again.
+
+	* EXAMPLES, configure.in, index.html.in, which-2.spec, which.lsm:
+	Bumped version to 2.3
+
+	* which.1: Minor fix in the man page
+
+Sun Apr 18 14:02:51 1999  Carlo Wood, Runaway  <carlo@jolan>
+
+	* index.html.in, makefile:
+	Making change log of version 2.2 available via webpage.
+
+	* makefile:
+	Bug fix: make doesn't do tilde expansion in PATH it seems :/
+
+	* makefile: Do not include index.html in tar.
+
+	* which.1: Documentation update.
+
+	* .cvsignore, Attic/ChangeLog, makefile:
+	Generating ChangeLog from the CVS logs now.
+
+	* which.c:
+	Make --skip-tilde also skip output in "." when --show-dot is specified
+	(assuming "." is somewhere in the HOME path of course).
+
+	* which.c:
+	Make --skip-tilde also skip all output that (would) start with a '~'.
+
+	* .cvsignore, Attic/config.h.in, Makefile.am, bash.c, configure.in, makefile, sys.h, which.c:
+	Configure and maintenance improvements.
+
+Sat Apr 17 01:06:41 1999  Carlo Wood, Runaway  <carlo@jolan>
+
+	* install-sh, makefile, missing, mkinstalldirs, posixstat.h, sys.h, which-2.spec, which.c, which.lsm, .cvsignore, AUTHORS, Attic/ChangeLog, Attic/LICENSE.GPL, Attic/Makefile, Attic/config.h.in, COPYING, EXAMPLES, INSTALL, Makefile.am, NEWS, acinclude.m4, bash.c, bash.h, config.guess, config.sub, configure.in, index.html.in:
+	Started to use automake and autoconf
+
+Sat Apr 10 00:10:01 1999  Carlo Wood, Runaway  <carlo@jolan>
+
+	* EXAMPLES: Updated and extended examples.
+
+	* Attic/Makefile: Added which-2.*.tar.gz to target `clean'.
+
+Fri Apr  9 23:38:53 1999  Carlo Wood, Runaway  <carlo@jolan>
+
+	* bash.c: Bumped version of license to GPL version 2.
+
+	* COPYING: Bumped licence to GPL version 2.
+	Renamed the file COPYING to LICENSE.GPL.
+
+	* Attic/LICENSE.GPL, which.c: Bumped license to GPL version 2.
+	Renamed the file COPYING to LICENSE.GPL.
+
+	* makefile: Don't put .indent.pro in the tar.
+
+	* index.html.in: Removed link to which-2.0
+
+	* which.1: Updated man page to include -all option.
+
+	* which.lsm: Bumped version number and mentioned --all in description.
+
+	* Attic/which-2.0.spec, which-2.spec:
+	Renamed which-2.0.spec to which-2.spec
+
+	* which.c:
+	Only translate current directory to "./" when the directory that caused
+	the match explicitely started with a dot.
+
+	* which.c:
+	Bug fix: --skip-tilde was also skipping directories starting with a dot.
+	Added short options parsing.
+	Added new option --all,-a : Show all executables anywhere in PATH.
+
+	* makefile:
+	New target `cvslog': Generate cvslog*.html files using cvs2html.
+
+	* index.html.in: Added link to release 2.1 and to generated change log.
+
+	* Attic/Makefile: Added files to `clean' target.
+
+	* .cvsignore: Ignore all version which-2.*.tar.gz
+	Ignore the generated cvslog*.html
+
+	* which.c:
+	Drastically changed the way a given absolute path is handled:
+	On failure, the shown path will be the given path and the "./"
+	and "~/" translations now also work.
+	Added path_clean_up(), which gets rid of stuff like "//", "/./"
+	and even "dir/../".
+
+	* bash.c, bash.h, which.c:
+	Renamed find_user_command_in_path() to find_command_in_path() and
+	stripped it completely of everything we don't use.
+
+	* which.c: Removed `dot_found_in_search', which we don't use.
+
+	* .indent.pro, which.c: Ran which.c through GNU indent 1.9.2.beta1
+	(see http://www.xs4all.nl/~carlo17/indent/)
+
+	* bash.c, bash.h, which.c:
+	Moved find_user_command_in_path() from bash.c to which.c because I intend
+	to heavily change it.
+
+	* which.c:
+	Security: Don't crash, not even when the current working directory is
+	          longer than PATH_MAX.
+	Bug fix : Use the correct flag (FS_EXEC_ONLY) in find_user_command_in_path().
+	          This causes `which' to also find files with a absolute path.
+
+	* which.1: Fixed a typo in the documentation.
+
+Tue Apr  6 14:27:12 1999  Carlo Wood, Runaway  <carlo@jolan>
+
+	* Attic/which-2.0.spec, which.1, index.html.in:
+	Final changes and release of version 2.0
+
+	* EXAMPLES, which.c: Final bug fix
+
+	* .cvsignore, Attic/README, index.html.in, makefile:
+	Auto generate README and index.html
+
+	* Attic/README, EXAMPLES, README.in, makefile, which.1, which.c:
+	Improvements
+
+	* makefile: Bug fix
+
+	* Attic/Makefile: Fixed install permissions of man page.
+
+	* .cvsignore, Attic/Makefile, Attic/README, Attic/which-2.0.spec, COPYING, EXAMPLES, bash.c, bash.h, makefile, which.1, which.c, which.lsm:
+	Initial import
+
+	* .cvsignore, Attic/Makefile, Attic/README, Attic/which-2.0.spec, COPYING, EXAMPLES, bash.c, bash.h, makefile, which.1, which.c, which.lsm:
+	Initial revision
+

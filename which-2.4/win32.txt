@@ -1,0 +1,9 @@
+Carlo,
+I have made a first stab of a windozed version of which which requires some source code changes.
+Are you interested in a patch to?
+
+Note:
+Compiler egcs-1.1.2
+
+Caveats:
+- the current directory ist not searched automatically

@@ -1,0 +1,18 @@
+obstack.o : \
+ obstack.c ../config.h obstack.h d:/app/mingw/include/string.h \
+  d:/app/mingw/include/_mingw.h d:/app/mingw/include/stddef.h \
+  d:/app/mingw/lib/gcc-lib/mingw32/3.2.3/include/stddef.h \
+  d:/app/mingw/include/stdio.h d:/app/mingw/include/stdarg.h \
+  d:/app/mingw/lib/gcc-lib/mingw32/3.2.3/include/stdarg.h \
+  d:/app/mingw/include/stdlib.h
+obstack.c :
+../config.h :
+obstack.h :
+d:/app/mingw/include/string.h :
+d:/app/mingw/include/_mingw.h :
+d:/app/mingw/include/stddef.h :
+d:/app/mingw/lib/gcc-lib/mingw32/3.2.3/include/stddef.h :
+d:/app/mingw/include/stdio.h :
+d:/app/mingw/include/stdarg.h :
+d:/app/mingw/lib/gcc-lib/mingw32/3.2.3/include/stdarg.h :
+d:/app/mingw/include/stdlib.h :

@@ -1,0 +1,66 @@
+User visible changes in release 1.9.3
+* `stty -a -g' gets a diagnostic
+* `stty {-a|-g} any-other-argument' gets a diagnostic
+* stty no longer ignores some of its arguments
+* basename and dirname no longer treat `--' specially
+* `basename -- file.c .c' generates a usage error.  Before, it output `file'.
+* `basename file-dist -dist' outputs `file'.  Before it output `file-dist'.
+* stty defaults `swtch' to undefined for Solaris so `susp' (^Z) will work.
+  Before, with the default settings ^Z did nothing.
+* stty no longer gives an error message when it finds a spurious difference
+  (due to buggy tcgetattr/tcsetattr) between requested and current tty
+  modes under SunOS 4.1.x.
+* stty no longer fails if the ioctl to determine the display width fails
+  when displaying settings.
+* stty works around SunOS 4.x kernel bug that made `stty rows 0 cols 0' fail.
+* who and tee no longer fail gratuitously when continued after an
+  interrupted read or write system call.
+* date accepts new format: %s time in seconds since 00:00:00 1/1/1971
+* date -d can parse dates like `11-JUL-1991'
+* expr '' == 0 works (before, it printed 1)
+* stty no longer fails on telnet sessions to Solaris systems
+* `cd /etc; who utmp' now works.  Before, any filename argument had to be
+  absolute or relative to /dev.
+
+User visible changes in release 1.9.2:
+* who output is better formatted on Solaris and other SysVr4 systems
+* fix a minor problem in formatting the output from `stty -a'
+* yes with arguments outputs newlines again
+* partial stty failures are reported
+
+Major changes in release 1.9.1:
+* stty can be built on Suns again
+* minor fix for who -q
+
+Major changes in release 1.9:
+* su fails gracefully when getpass is unable to open /dev/tty.
+* printenv and tty detect and report write errors
+* fix bug in stty
+* stty accepts the new options status and flush on systems that provide them
+* `expr 1 / 0' gives an error message rather than trying to divide by zero
+* expr's `substr' doesn't overrun malloc'd buffer
+* expr recognizes the string `0' as zero
+* better support for Linux, Dec Alpha, and SGI Irix
+* all programs (even true and false) accept --version and --help options
+* uname's --version option is no longer equivalent to its -v option
+* configure uses config.h, so DEFS won't exceed preprocessor limits of
+  some compilers on the number of symbols defined via -D.
+* work around problem where $(srcdir)/config.h was used instead of
+  ../config.h -- this happened only when building in a subdirectory
+  and when config.h remained in $(srcdir) from a previous ./configure.
+* make may be run from the subdirectories
+
+Major changes in release 1.8:
+* add echo command
+* fix some incorrect warnings in pathchk
+* look at the right utmp file on 386BSD
+* date doesn't dump core on some systems now
+
+Major changes in release 1.7:
+* add su, who, true, false commands
+* add more tests to expr
+* fix printf program handling of \ escapes
+* printf can re-use format string for multiple groups of arguments
+* printf catches numeric conversion errors with an ANSI C library
+* stty nl and -nl were backwards
+* date can format an arbitrary date without setting it

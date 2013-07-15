@@ -1,0 +1,179 @@
+This is Info file make.info, produced by Makeinfo version 1.67 from the
+input file make.texinfo.
+
+INFO-DIR-SECTION GNU Packages
+START-INFO-DIR-ENTRY
+* Make: (make).            Remake files automatically.
+END-INFO-DIR-ENTRY
+
+   This file documents the GNU Make utility, which determines
+automatically which pieces of a large program need to be recompiled,
+and issues the commands to recompile them.
+
+   This is Edition 0.54, last updated 09 September 1999, of `The GNU
+Make Manual', for `make', Version 3.78.1.
+
+   Copyright (C) 1988, '89, '90, '91, '92, '93, '94, '95, '96, '97,
+'98, '99         Free Software Foundation, Inc.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that
+the entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Free Software Foundation.
+
+
+Indirect:
+make.info-1: 1302
+make.info-2: 48813
+make.info-3: 98248
+make.info-4: 144031
+make.info-5: 191998
+make.info-6: 240821
+make.info-7: 289975
+make.info-8: 337313
+make.info-9: 367205
+make.info-10: 410588
+
+Tag Table:
+(Indirect)
+Node: Top1302
+Node: Overview12657
+Node: Preparing13664
+Node: Reading14619
+Node: Bugs15541
+Node: Introduction16834
+Node: Rule Introduction18421
+Node: Simple Makefile20140
+Node: How Make Works23764
+Node: Variables Simplify26255
+Node: make Deduces28461
+Node: Combine By Prerequisite30212
+Node: Cleanup31246
+Node: Makefiles32660
+Node: Makefile Contents33415
+Node: Makefile Names35718
+Node: Include37320
+Node: MAKEFILES Variable41012
+Node: Remaking Makefiles42514
+Node: Overriding Makefiles46760
+Node: Reading Makefiles48813
+Node: Rules51344
+Node: Rule Example53945
+Node: Rule Syntax54783
+Node: Wildcards56999
+Node: Wildcard Examples58679
+Node: Wildcard Pitfall59917
+Node: Wildcard Function61702
+Node: Directory Search63483
+Node: General Search64620
+Node: Selective Search66330
+Node: Search Algorithm69309
+Node: Commands/Search71819
+Node: Implicit/Search73167
+Node: Libraries/Search74102
+Node: Phony Targets76187
+Node: Force Targets81094
+Node: Empty Targets82134
+Node: Special Targets83435
+Node: Multiple Targets88206
+Node: Multiple Rules90078
+Node: Static Pattern92172
+Node: Static Usage92817
+Node: Static versus Implicit96515
+Node: Double-Colon98248
+Node: Automatic Prerequisites99782
+Node: Commands103914
+Node: Echoing105607
+Node: Execution106871
+Node: Parallel111447
+Node: Errors115033
+Node: Interrupts118671
+Node: Recursion120253
+Node: MAKE Variable121982
+Node: Variables/Recursion123946
+Node: Options/Recursion128909
+Node: -w Option134064
+Node: Sequences135050
+Node: Empty Commands138054
+Node: Using Variables139224
+Node: Reference142486
+Node: Flavors144031
+Node: Advanced149817
+Node: Substitution Refs150317
+Node: Computed Names151844
+Node: Values156414
+Node: Setting157331
+Node: Appending159372
+Node: Override Directive163290
+Node: Defining164669
+Node: Environment166667
+Node: Target-specific168942
+Node: Pattern-specific171341
+Node: Conditionals172536
+Node: Conditional Example173245
+Node: Conditional Syntax175811
+Node: Testing Flags180557
+Node: Functions181654
+Node: Syntax of Functions182848
+Node: Text Functions185024
+Node: File Name Functions191998
+Node: Foreach Function197709
+Node: If Function200912
+Node: Call Function202183
+Node: Origin Function204825
+Node: Shell Function208047
+Node: Make Control Functions209600
+Node: Running211033
+Node: Makefile Arguments213021
+Node: Goals213716
+Node: Instead of Execution218276
+Node: Avoiding Compilation221557
+Node: Overriding223458
+Node: Testing225746
+Node: Options Summary227626
+Node: Implicit Rules235167
+Node: Using Implicit237313
+Node: Catalogue of Rules240821
+Node: Implicit Variables249814
+Node: Chained Rules254043
+Node: Pattern Rules258045
+Node: Pattern Intro259574
+Node: Pattern Examples262403
+Node: Automatic264202
+Node: Pattern Match270515
+Node: Match-Anything Rules272129
+Node: Canceling Rules275993
+Node: Last Resort276698
+Node: Suffix Rules278539
+Node: Implicit Rule Search282261
+Node: Archives285782
+Node: Archive Members286477
+Node: Archive Update288059
+Node: Archive Symbols289975
+Node: Archive Pitfalls291175
+Node: Archive Suffix Rules291891
+Node: Features293433
+Node: Missing302016
+Node: Makefile Conventions306364
+Node: Makefile Basics307105
+Node: Utilities in Makefiles310269
+Node: Command Variables312400
+Node: Directory Variables315895
+Node: Standard Targets326766
+Node: Install Command Categories337313
+Node: Quick Reference341881
+Node: Make Errors351065
+Node: Complex Makefile358542
+Node: Concept Index367205
+Node: Name Index410588
+
+End Tag Table

@@ -1,0 +1,81 @@
+/* getugroups.c -- return a list of the groups a user is in
+   Copyright (C) 1990, 1991 Free Software Foundation.
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2, or (at your option)
+   any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.  */
+
+/* Written by David MacKenzie. */
+
+#ifdef HAVE_CONFIG_H
+#if defined (CONFIG_BROKETS)
+/* We use <config.h> instead of "config.h" so that a compilation
+   using -I. -I$srcdir will use ./config.h rather than $srcdir/config.h
+   (which it would do because it found this file in $srcdir).  */
+#include <config.h>
+#else
+#include "config.h"
+#endif
+#endif
+
+#include <sys/types.h>
+#include <grp.h>
+
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+
+/* setgrent, getgrent, and endgrent are not specified by POSIX.1,
+   so header files might not declare them.
+   If you don't have them at all, we can't implement this function.
+   You lose!  */
+struct group *getgrent ();
+
+#if defined(STDC_HEADERS) || defined(HAVE_STRING_H)
+#include <string.h>
+#else
+#include <strings.h>
+#endif
+
+/* Like `getgroups', but for user USERNAME instead of for
+   the current process. */
+
+int
+getugroups (maxcount, grouplist, username)
+     int maxcount;
+     GETGROUPS_T *grouplist;
+     char *username;
+{
+  struct group *grp;
+  register char **cp;
+  register int count = 0;
+
+  setgrent ();
+  while ((grp = getgrent ()) != 0)
+    for (cp = grp->gr_mem; *cp; ++cp)
+      if (!strcmp (username, *cp))
+	{
+	  if (maxcount != 0)
+	    {
+	      if (count >= maxcount)
+		{
+		  endgrent ();
+		  return count;
+		}
+	      grouplist[count] = grp->gr_gid;
+	    }
+	  count++;
+	}
+  endgrent ();
+  return count;
+}

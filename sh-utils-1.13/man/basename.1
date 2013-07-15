@@ -1,0 +1,36 @@
+.TH BASENAME 1 "GNU Shell Utilities" "FSF" \" -*- nroff -*-
+.SH NAME
+basename \- strip directory and suffix from filenames
+.SH SYNOPSIS
+.B basename
+name [suffix]
+.br
+.B basename
+{\-\-help,\-\-version}
+.SH DESCRIPTION
+This documentation is no longer being maintained and may be inaccurate
+or incomplete.  The Texinfo documentation is now the authoritative source.
+.PP
+This manual page
+documents the GNU version of
+.BR basename .
+The
+.B basename
+command removes any leading directory components from
+.IR name ;
+If
+.I suffix
+is specified and is identical to the end of
+.IR name ,
+it is removed from
+.I name
+as well.
+.B basename
+prints the resulting name on the standard output.
+.SS OPTIONS
+.TP
+.I "\-\-help"
+Print a usage message on standard output and exit successfully.
+.TP
+.I "\-\-version"
+Print version information on standard output then exit successfully.

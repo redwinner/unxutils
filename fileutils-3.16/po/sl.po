@@ -1,0 +1,1664 @@
+# Slovenian message catalog for GNU fileutils.
+# Copyright (C) 1996 Free Software Foundation, Inc.
+# Primoz Peterlin <primoz.peterlin@biofiz.mf.uni-lj.si>, 1996.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU fileutils 3.13a\n"
+"POT-Creation-Date: 1997-01-26 00:26-0600\n"
+"PO-Revision-Date: 1996-09-09 21:30 METDST\n"
+"Last-Translator: Primoz Peterlin <primoz.peterlin@biofiz.mf.uni-lj.si>\n"
+"Language-Team: Slovenian <sl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: lib/rpmatch.c:87
+msgid "^[yY]"
+msgstr ""
+
+#: lib/rpmatch.c:90
+msgid "^[nN]"
+msgstr ""
+
+# ! INEXACT
+#: src/chgrp.c:117
+#, c-format
+msgid "group of %s changed to %s\n"
+msgstr "skupina datoteke %s spremenjena v %s\n"
+
+# ! INEXACT
+#: src/chgrp.c:119
+#, c-format
+msgid "group of %s retained as %s\n"
+msgstr "skupina datoteke %s ohranjen kot %s\n"
+
+# Je to res v redu?
+# ! INEXACT
+#: src/chgrp.c:131
+msgid "can not change to null group"
+msgstr "skupina ne more biti prazna"
+
+# ! INEXACT
+#: src/chgrp.c:140
+#, c-format
+msgid "invalid group name `%s'"
+msgstr "neveljavno ime skupine ,%s'"
+
+#: src/chgrp.c:144
+msgid "group number"
+msgstr "èlan skupine"
+
+# ! INEXACT
+#: src/chgrp.c:147
+#, c-format
+msgid "invalid group number `%s'"
+msgstr "neveljavna ¹tevilka skupine ,%s'"
+
+#: src/chgrp.c:195
+#, c-format
+msgid "you are not a member of group `%s'"
+msgstr "vi niste èlan skupine ,%s'"
+
+# ! INEXACT
+#: src/chgrp.c:200
+#, c-format
+msgid "%s: invalid group number"
+msgstr "%s: neveljavna ¹tevilka skupine"
+
+#: src/chgrp.c:243 src/chmod.c:183 src/chmod.c:329 src/chown.c:200
+#: src/cp.c:462 src/cp.c:543 src/cp.c:699 src/cp.c:1237 src/dircolors.c:132
+#: src/du.c:576 src/install.c:273 src/ln.c:134 src/ln.c:262 src/mkdir.c:135
+#: src/mkfifo.c:129 src/mknod.c:132 src/mv.c:286 src/mv.c:363 src/mvdir.c:160
+msgid "virtual memory exhausted"
+msgstr "zmanjkalo pomnilnika"
+
+#: src/chgrp.c:273 src/chmod.c:213 src/chown.c:230 src/cp-aux.c:31
+#: src/dd.c:1086 src/df.c:552 src/dircolors.c:102 src/du.c:215
+#: src/install.c:589 src/ln.c:312 src/ls.c:2737 src/mkdir.c:56 src/mkfifo.c:56
+#: src/mknod.c:61 src/mv.c:376 src/mvdir.c:77 src/rm.c:527 src/rmdir.c:82
+#: src/sync.c:35 src/touch.c:241
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr "Poskusite ,,%s --help'' za izèrpnej¹a navodila.\n"
+
+# ! INEXACT
+#: src/chgrp.c:277
+#, c-format
+msgid "Usage: %s [OPTION]... GROUP FILE...\n"
+msgstr "Uporaba: %s [IZBIRA]... SKUPINA DATOTEKA...\n"
+
+# ! INEXACT
+#: src/chgrp.c:278
+#, fuzzy
+msgid ""
+"Change the group membership of each FILE to GROUP.\n"
+"\n"
+"  -c, --changes           like verbose but report only when a change is "
+"made\n"
+"  -h, --no-dereference    affect symbolic links instead of any referenced "
+"file\n"
+"                          (available only on systems with lchown system "
+"call)\n"
+"  -f, --silent, --quiet   suppress most error messages\n"
+"  -R, --recursive         change files and directories recursively\n"
+"  -v, --verbose           output a diagnostic for every file processed\n"
+"      --help              display this help and exit\n"
+"      --version           output version information and exit\n"
+msgstr ""
+"  -c, --changes           kot ,verbose', a samo ob spremembah\n"
+"  -h, --no-dereference    deluje na simboliène povezave, ne na ciljne "
+"datoteke\n"
+"                          (samo na sistemih, ki imajo sistemski klic "
+"lchown)\n"
+"  -f, --silent, --quiet   brez veèine opozoril o napakah\n"
+"  -v, --verbose           z diagnostiko za vsako obdelano datoteko\n"
+"  -R, --recursive         rekurzivno obdelaj imenike in datoteke\n"
+"      --help              ta navodila\n"
+"      --version           verzija programa\n"
+
+#: src/chgrp.c:290 src/chmod.c:234 src/chown.c:254 src/cp-aux.c:86
+#: src/dd.c:1121 src/df.c:576 src/dircolors.c:121 src/du.c:238
+#: src/install.c:625 src/ln.c:347 src/ls.c:2805 src/mkdir.c:70 src/mkfifo.c:68
+#: src/mknod.c:79 src/mv.c:407 src/rm.c:543 src/rmdir.c:94 src/sync.c:46
+#: src/touch.c:262
+msgid ""
+"\n"
+"Report bugs to fileutils-bugs@gnu.ai.mit.edu"
+msgstr ""
+
+#: src/chgrp.c:348 src/chmod.c:320 src/chown.c:314 src/install.c:263
+#: src/mkdir.c:123 src/mkfifo.c:118 src/mknod.c:140 src/rm.c:173
+#: src/rmdir.c:137
+msgid "too few arguments"
+msgstr "premalo argumentov"
+
+# ! INEXACT
+#: src/chgrp.c:355 src/chown.c:321
+msgid "--no-dereference (-h) is not supported on this system"
+msgstr "ta sistem ne podpira izbire \"--no-dereference (-h)\""
+
+#: src/chmod.c:89
+#, c-format
+msgid "mode of %s changed to %04o (%s)\n"
+msgstr "za¹èita datoteke %s spremenjena v %04o (%s)\n"
+
+#: src/chmod.c:92
+#, c-format
+msgid "mode of %s retained as %04o (%s)\n"
+msgstr "za¹èita datoteke %s ohranjena kot %04o (%s)\n"
+
+#: src/chmod.c:217
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... MODE[,MODE]... FILE...\n"
+"  or:  %s [OPTION]... OCTAL_MODE FILE...\n"
+msgstr ""
+"Uporaba: %s [IZBIRA]... ZA©ÈITA,[ZA©ÈITA]... DATOTEKA...\n"
+"  ali:   %s [IZBIRA]... OKTALNA_KODA DATOTEKA...\n"
+
+#: src/chmod.c:222
+msgid ""
+"\n"
+"  -c, --changes           like verbose but report only when a change is "
+"made\n"
+"  -f, --silent, --quiet   suppress most error messages\n"
+"  -v, --verbose           output a diagnostic for every file processed\n"
+"  -R, --recursive         change files and directories recursively\n"
+"      --help              display this help and exit\n"
+"      --version           output version information and exit\n"
+"\n"
+"Each MODE is one or more of the letters ugoa, one of the symbols +-= and\n"
+"one or more of the letters rwxXstugo.\n"
+msgstr ""
+"\n"
+"  -c, --changes           kot ,verbose', a samo ob spremembah\n"
+"  -f, --silent, --quiet   brez veèine opozoril o napakah\n"
+"  -v, --verbose           z diagnostiko za vsako obdelano datoteko\n"
+"  -R, --recursive         rekurzivno obdelaj imenike in datoteke\n"
+"      --help              ta navodila\n"
+"      --version           verzija programa\n"
+"\n"
+"ZA©ÈITA je ena ali veè èrk iz ,ugoa', eden od znakov +-= in\n"
+"ena ali veè èrk iz ,rwxXstugo'.\n"
+
+#: src/chmod.c:286 src/chmod.c:327 src/mkfifo.c:127 src/mknod.c:130
+msgid "invalid mode"
+msgstr "napaèna za¹èita"
+
+#: src/chown.c:117
+#, c-format
+msgid "owner of %s changed to "
+msgstr "lastnik datoteke %s spremenjen v "
+
+#: src/chown.c:119
+#, c-format
+msgid "owner of %s retained as "
+msgstr "lastnik datoteke %s ohranjen kot "
+
+#: src/chown.c:234
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... OWNER[.[GROUP]] FILE...\n"
+"  or:  %s [OPTION]... .[GROUP] FILE...\n"
+msgstr ""
+"Uporaba: %s [IZBIRA]... LASTNIK[.[SKUPINA]] DATOTEKA...\n"
+"  ali:   %s [IZBIRA]... [SKUPINA] DATOTEKA...\n"
+
+# ! INEXACT
+#: src/chown.c:239
+#, fuzzy
+msgid ""
+"Change the owner and/or group of each FILE to OWNER and/or GROUP.\n"
+"\n"
+"  -c, --changes          be verbose whenever change occurs\n"
+"  -h, --no-dereference   affect symbolic links instead of any referenced "
+"file\n"
+"                         (available only on systems with lchown system "
+"call)\n"
+"  -f, --silent, --quiet  suppress most error messages\n"
+"  -R, --recursive        operate on files and directories recursively\n"
+"  -v, --verbose          explain what is being done\n"
+"      --help             display this help and exit\n"
+"      --version          output version information and exit\n"
+"\n"
+"Owner is unchanged if missing.  Group is unchanged if missing, but changed\n"
+"to login group if implied by a period.  A colon may replace the period.\n"
+msgstr ""
+"Spremeni lastnika in/ali skupino DATOTEKE na LASTNIKA in/ali SKUPINO.\n"
+"\n"
+"  -c, --changes           informativna obvestila ob spremembah\n"
+"  -h, --no-dereference    deluje na simboliène povezave, ne na ciljne "
+"datoteke\n"
+"                          (samo na sistemih, ki imajo sistemski klic "
+"lchown)\n"
+"  -f, --silent, --quiet   brez veèine obvestil o napakah\n"
+"  -v, --verbose           z razlago poteka\n"
+"  -R, --recursive         rekurzivno obdelaj imenike in datoteke\n"
+"      --help              ta navodila\n"
+"      --version           verzija programa\n"
+"\n"
+"Lastnik datoteke ostane isti, èe ni podan.  Skupina se ohrani, èe ni "
+"podana,\n"
+"spremeni pa v skupino lastnika, èe lastniku sledi pika.  Namesto pike lahko\n"
+"uporabimo dvopièje.\n"
+
+#: src/cp-aux.c:35 src/mv.c:380
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... SOURCE DEST\n"
+"  or:  %s [OPTION]... SOURCE... DIRECTORY\n"
+msgstr ""
+"Uporaba: %s [IZBIRA]... IZVOR CILJ\n"
+"  ali:   %s [IZBIRA]... IZVOR... IMENIK\n"
+
+# ! INEXACT
+#: src/cp-aux.c:40
+#, fuzzy
+msgid ""
+"Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.\n"
+"\n"
+"  -a, --archive                same as -dpR\n"
+"  -b, --backup                 make backup before removal\n"
+"  -d, --no-dereference         preserve links\n"
+"  -f, --force                  remove existing destinations, never prompt\n"
+"  -i, --interactive            prompt before overwrite\n"
+"  -l, --link                   link files instead of copying\n"
+"  -p, --preserve               preserve file attributes if possible\n"
+"  -P, --parents                append source path to DIRECTORY\n"
+"  -r                           copy recursively, non-directories as files\n"
+"      --sparse=WHEN            control creation of sparse files\n"
+"  -R, --recursive              copy directories recursively\n"
+"  -s, --symbolic-link          make symbolic links instead of copying\n"
+"  -S, --suffix=SUFFIX          override the usual backup suffix\n"
+"  -u, --update                 copy only when the SOURCE file is newer\n"
+"                                 than the destination file or when the\n"
+"                                 destination file is missing\n"
+"  -v, --verbose                explain what is being done\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"  -x, --one-file-system        stay on this file system\n"
+"      --help                   display this help and exit\n"
+"      --version                output version information and exit\n"
+"\n"
+"By default, sparse SOURCE files are detected by a crude heuristic and the\n"
+"corresponding DEST file is made sparse as well.  That is the behavior\n"
+"selected by --sparse=auto.  Specify --sparse=always to create a sparse DEST\n"
+"file whenever the SOURCE file contains a long enough sequence of zero "
+"bytes.\n"
+"Use --sparse=never to inhibit creation of sparse files.\n"
+"\n"
+msgstr ""
+"Kopiraj IZVOR v CILJ, ali veè IZVORov v IMENIK.\n"
+"\n"
+"  -a, --archive                isto kot -dpR\n"
+"  -b, --backup                 pred brisanjem napravimo varnostno kopijo\n"
+"  -d, --no-dereference         ohranimo povezave\n"
+"  -f, --force                  odstrani obstojeèe cilje brez poziva\n"
+"  -i, --interactive            poziv preden prepi¹emo staro datoteko z novo\n"
+"  -l, --link                   (trde) povezave namesto kopij\n"
+"  -p, --preserve               èe je mo¾no, ohrani prilastke (atribute) "
+"datotek\n"
+"  -r                           rekurzivno kopiraj, vse ne-imenike\n"
+"                               kot navadne datoteke\n"
+"      --sparse=KDAJ            kdaj je CILJ razpr¹ena datoteka\n"
+"  -s, --symbolic-link          simboliène povezave namesto kopij\n"
+"  -u, --update                 kopiraj samo novej¹e datoteke\n"
+"  -v, --verbose                z razlago poteka\n"
+"  -x, --one-file-system        samo trenutni datoteèni sistem\n"
+"  -P, --parents                pot do vira dodaj v IMENIK\n"
+"  -R, --recursive              rekurzivno prekopiraj imenike\n"
+"  -S, --suffix=PRIPONA         pripona varnostne kopije naj bo PRIPONA\n"
+"  -V, --version-control=BESEDA eksplicitno doloèi tip varnostne kopije\n"
+"      --help                   ta navodila\n"
+"      --version                verzija programa\n"
+"\n"
+"Po privzeti izbiri razpr¹ene IZVORe ugotovi groba hevristika, ustrezni\n"
+"CILJi pa bodo tudi razpr¹eni.  Isto dose¾emo tudi z izbiro --sparse=auto.\n"
+"Z izbiro --sparse=always bo CILJ razpr¹en vedno, kadar IZVOR vsebuje dovolj\n"
+"dolgo zaporedje znakov niè.  Izbira --sparse=never vedno prepreèi kreacijo\n"
+"razpr¹enih datotek.\n"
+
+#: src/cp-aux.c:72 src/install.c:617 src/ln.c:339 src/mv.c:399
+msgid ""
+"The backup suffix is ~, unless set with SIMPLE_BACKUP_SUFFIX.  The\n"
+"version control may be set with VERSION_CONTROL, values are:\n"
+"\n"
+"  t, numbered     make numbered backups\n"
+"  nil, existing   numbered if numbered backups exist, simple otherwise\n"
+"  never, simple   always make simple backups\n"
+msgstr ""
+"Varnostna kopija ima pripono ~, razen èe ni s SIMPLE_BACKUP_SUFFIX\n"
+"nastavljeno drugaèe.  Tip varnostnih kopij lahko nastavimo z "
+"VERSION_CONTROL,\n"
+"mo¾nosti so:\n"
+"\n"
+"  t, numbered     o¹tevilèene varnostne kopije\n"
+"  nil, existing   o¹tevilèene varnostne kopije, èe take ¾e obstajajo,\n"
+"                  sicer enostavne\n"
+"  never, simple   vedno enostavne varnostne kopije\n"
+
+#: src/cp-aux.c:80
+msgid ""
+"\n"
+"As a special case, cp makes a backup of SOURCE when the force and backup\n"
+"options are given and SOURCE and DEST are the same name for an existing,\n"
+"regular file.\n"
+msgstr ""
+"\n"
+"V posebnem primeru napravi cp varnostno kopijo IZVORa, kadar sta podani "
+"izbiri\n"
+"--force in --backup, IZVOR in CILJ pa sta isto ime za obstojeèo navadno\n"
+"datoteko.\n"
+
+#: src/cp.c:268
+msgid "sparse type"
+msgstr "razpr¹eni tip"
+
+#: src/cp.c:326 src/ln.c:404
+msgid "symbolic links are not supported on this system"
+msgstr "ta sistem ne podpira simboliènih povezav"
+
+#: src/cp.c:366
+msgid "cannot make both hard and symbolic links"
+msgstr "hkratne trde in simboliène povezave niso mo¾ne"
+
+#: src/cp.c:406 src/mv.c:481
+msgid "missing file arguments"
+msgstr "datoteka ni podana"
+
+#: src/cp.c:411
+msgid "missing destination file"
+msgstr "manjka ciljna datoteka"
+
+#: src/cp.c:518
+msgid "when preserving paths, last argument must be a directory"
+msgstr "pri ohranitvi poti mora biti zadnji argument imenik"
+
+#: src/cp.c:579
+#, fuzzy, c-format
+msgid "copying multiple files, but last argument (%s) is not a directory"
+msgstr "pri kopiranju veè datotek mora biti zadnji argument imenik"
+
+#: src/cp.c:633
+#, c-format
+msgid "%s: omitting directory"
+msgstr "%s: izpu¹èen imenik"
+
+#: src/cp.c:658 src/install.c:391 src/ln.c:213 src/mv.c:252
+#, c-format
+msgid "`%s' and `%s' are the same file"
+msgstr ",%s' in ,%s' sta ena in ista datoteka"
+
+#: src/cp.c:668
+#, c-format
+msgid "%s: cannot overwrite directory with non-directory"
+msgstr "%s: imenika ne moremo prepisati z ne-imenikom"
+
+#: src/cp.c:682
+#, c-format
+msgid "%s: overwrite `%s', overriding mode %04o? "
+msgstr "%s: prepi¹emo ,%s' kljub za¹èiti %04o? "
+
+#: src/cp.c:688
+#, c-format
+msgid "%s: overwrite `%s'? "
+msgstr "%s: prepi¹emo ,%s'? "
+
+#: src/cp.c:708
+#, c-format
+msgid "backing up `%s' would destroy source;  `%s' not copied"
+msgstr "varnostna kopija ,%s' bi unièila vir;  ,%s' ni prekopiran"
+
+#: src/cp.c:720 src/ln.c:270 src/mv.c:294
+#, c-format
+msgid "cannot backup `%s'"
+msgstr "ne morem napraviti varnostne kopije ,%s'"
+
+#: src/cp.c:748
+#, c-format
+msgid "cannot remove old link to `%s'"
+msgstr "ne morem odstraniti stare povezave na ,%s'"
+
+#: src/cp.c:788
+#, c-format
+msgid "%s: cannot copy cyclic symbolic link"
+msgstr "%s: ne morem kopirati cikliène simboliène povezave"
+
+#: src/cp.c:806
+#, c-format
+msgid "cannot create directory `%s'"
+msgstr "ne morem kreirati imenika ,%s'"
+
+# ! INEXACT
+#: src/cp.c:844
+#, c-format
+msgid "%s: can make relative symbolic links only in current directory"
+msgstr "%s: relativne simboliène povezave so mo¾ne samo znotraj imenika"
+
+#: src/cp.c:854
+#, c-format
+msgid "cannot create link `%s'"
+msgstr "ne morem kreirati povezave ,%s'"
+
+#: src/cp.c:875
+#, c-format
+msgid "cannot create fifo `%s'"
+msgstr "ne morem kreirati FIFO ,%s'"
+
+#: src/cp.c:889
+#, c-format
+msgid "cannot create special file `%s'"
+msgstr "ne morem kreirati posebne datoteke ,%s'"
+
+#: src/cp.c:904
+#, c-format
+msgid "cannot read symbolic link `%s'"
+msgstr "ne morem prebrati simboliène povezave ,%s'"
+
+#: src/cp.c:911
+#, c-format
+msgid "cannot create symbolic link `%s'"
+msgstr "ne morem kreirati simboliène povezave ,%s'"
+
+#: src/cp.c:954
+#, c-format
+msgid "%s: unknown file type"
+msgstr "%s: neznan tip datoteke"
+
+#: src/cp.c:1007 src/ln.c:303 src/mv.c:339
+#, c-format
+msgid "cannot un-backup `%s'"
+msgstr "ne morem pobrisati varnostne kopije ,%s'"
+
+#: src/cp.c:1084 src/mkdir.c:148
+#, c-format
+msgid "cannot make directory `%s'"
+msgstr "ne morem napraviti imenika ,%s'"
+
+#: src/cp.c:1095 src/cp.c:1116
+#, c-format
+msgid "`%s' exists but is not a directory"
+msgstr ",%s' obstaja, vendar ni imenik"
+
+#: src/cp.c:1300
+#, c-format
+msgid "cannot create regular file `%s'"
+msgstr "ne morem kreirati navadne datoteke ,%s'"
+
+# ! INEXACT
+#: src/dircolors.c:106
+#, c-format
+msgid "Usage: %s [OPTION]... [FILE]\n"
+msgstr "Uporaba: %s [IZBIRA]... [DATOTEKA]...\n"
+
+#: src/dircolors.c:107
+#, fuzzy
+msgid ""
+"Output commands to set the LS_COLORS environment variable.\n"
+"\n"
+"Determine format of output:\n"
+"  -b, --sh, --bourne-shell    output Bourne shell code to set LS_COLORS\n"
+"  -c, --csh, --c-shell        output C shell code to set LS_COLORS\n"
+"  -p, --print-database        output defaults\n"
+"      --help                  display this help and exit\n"
+"      --version               output version information and exit\n"
+"\n"
+"If FILE is specified, read it to determine which colors to use for which\n"
+"file types and extensions.  Otherwise, a precompiled database is used.\n"
+"For details on the format of these files, run `dircolors --print-database'.\n"
+msgstr ""
+"Ukazi za nastavitev spremenljivke LS_COLOR.\n"
+"\n"
+"Doloèitev oblike izhoda:\n"
+"  -b, --sh, --bourne-shell    oblika ukazne lupine Bourne za nastavitev "
+"LS_COLOR\n"
+"  -c, --csh, --c-shell        oblika ukazne lupine C za nastavitev LS_COLOR\n"
+"  -p, --print-data-base       izpis privzeth vrednosti\n"
+"      --help                  ta navodila\n"
+"      --version               verzija programa\n"
+
+# ! INEXACT
+#: src/dircolors.c:363
+#, c-format
+msgid "%s:%lu: unrecognized keyword `%s'"
+msgstr "%s:%lu: neprepoznana kljuèna beseda ,%s'"
+
+#: src/dircolors.c:455
+msgid ""
+"the options to output dircolors' internal database and\n"
+"to select a shell syntax are mutually exclusive"
+msgstr ""
+"izpis privzetih vrednosti (izbira --print-data-base, -p) ni zdru¾ljiv\n"
+"z izbiro sintakse ukazne lupine"
+
+#: src/dircolors.c:463
+msgid ""
+"no FILE arguments may be used with the option to output\n"
+"dircolors' internal database"
+msgstr ""
+"pri izpisu privzetih vrednosti (izbira --print-data-base, -p) ni dovoljeno\n"
+"podati argumenta DATOTEKA"
+
+#: src/dircolors.c:470 src/mknod.c:142
+msgid "too many arguments"
+msgstr "preveè argumentov"
+
+#: src/dircolors.c:492
+msgid "no SHELL environment variable, and no shell type option given"
+msgstr "spremenljivka SHELL ni nastavljena, niti ni podan tip ukazne lupine"
+
+#: src/dircolors.c:526 src/ls.c:747
+msgid "write error"
+msgstr "napaka pri pisanju"
+
+#: src/dd.c:358 src/dd.c:362 src/dircolors.c:529
+msgid "standard input"
+msgstr "standardni vhod"
+
+#  Kaksnega spola je v resnici?
+#: src/dd.c:361
+#, c-format
+msgid "%s is closed"
+msgstr "%s je zaprto"
+
+#: src/dd.c:363 src/dd.c:383
+msgid "standard output"
+msgstr "standardni izhod"
+
+#: src/dd.c:832
+#, c-format
+msgid "unrecognized option `%s'"
+msgstr "neprepoznana izbira ,%s'"
+
+#: src/dd.c:847
+#, c-format
+msgid "invalid number `%s'"
+msgstr "neveljavno ¹tevilo ,%s'"
+
+#: src/dd.c:871
+#, c-format
+msgid "unrecognized option `%s=%s'"
+msgstr "neprepoznana izbira ,%s=%s'"
+
+#: src/dd.c:957
+#, c-format
+msgid "%s: invalid conversion"
+msgstr "%s: neveljavna pretvorba"
+
+#: src/dd.c:977
+msgid ""
+"only one conv in {ascii,ebcdic,ibm}, {lcase,ucase}, {block,unblock}, "
+"{unblock,sync}"
+msgstr ""
+"samo eno od {ascii,ebcdic,ibm}, {lcase,ucase}, {block,unblock}, "
+"{unblock,sync}"
+
+#: src/dd.c:1039
+#, c-format
+msgid "%u+%u records in\n"
+msgstr "%u+%u zapisov v\n"
+
+#: src/dd.c:1040
+#, c-format
+msgid "%u+%u records out\n"
+msgstr "%u+%u zapisov na izhodu\n"
+
+# ! INEXACT
+#: src/dd.c:1044
+msgid "truncated record"
+msgstr "odrezan zapis"
+
+# ! INEXACT
+#: src/dd.c:1045
+msgid "truncated records"
+msgstr "odrezani zapisi"
+
+#: src/dd.c:1090
+#, c-format
+msgid "Usage: %s [OPTION]...\n"
+msgstr "Uporaba: %s [IZBIRA]...\n"
+
+# ! INEXACT
+#: src/dd.c:1091
+msgid ""
+"Copy a file, converting and formatting according to the options.\n"
+"\n"
+"  bs=BYTES        force ibs=BYTES and obs=BYTES\n"
+"  cbs=BYTES       convert BYTES bytes at a time\n"
+"  conv=KEYWORDS   convert the file as per the comma separated keyword list\n"
+"  count=BLOCKS    copy only BLOCKS input blocks\n"
+"  ibs=BYTES       read BYTES bytes at a time\n"
+"  if=FILE         read from FILE instead of stdin\n"
+"  obs=BYTES       write BYTES bytes at a time\n"
+"  of=FILE         write to FILE instead of stdout, don't truncate file\n"
+"  seek=BLOCKS     skip BLOCKS obs-sized blocks at start of output\n"
+"  skip=BLOCKS     skip BLOCKS ibs-sized blocks at start of input\n"
+"      --help      display this help and exit\n"
+"      --version   output version information and exit\n"
+"\n"
+"BYTES may be suffixed: by xM for multiplication by M, by c for x1,\n"
+"by w for x2, by b for x512, by k for x1024.  Each KEYWORD may be:\n"
+"\n"
+"  ascii     from EBCDIC to ASCII\n"
+"  ebcdic    from ASCII to EBCDIC\n"
+"  ibm       from ASCII to alternated EBCDIC\n"
+"  block     pad newline-terminated records with spaces to cbs-size\n"
+"  unblock   replace trailing spaces in cbs-size records with newline\n"
+"  lcase     change upper case to lower case\n"
+"  ucase     change lower case to upper case\n"
+"  swab      swap every pair of input bytes\n"
+"  noerror   continue after read errors\n"
+"  sync      pad every input block with NULs to ibs-size\n"
+msgstr ""
+"Prekopiraj datoteko in jo pretvori in formatiraj glede na izbire.\n"
+"\n"
+"  bs=ZLOGOV       zahtevamo ibs=ZLOGOV in obs=ZLOGOV\n"
+"  cbs=ZLOGOV      pretvori ZLOGOV zlogov naenkrat\n"
+"  conv=PRETVORBA  pretvori datoteko, kot zahteva PRETVORBA\n"
+"  count=BLOKOV    pretvori samo BLOKOV vhodnih blokov\n"
+"  ibs=ZLOGOV      preberi ZLOGOV zlogov naenkrat\n"
+"  if=DATOTEKA     beri z datoteke DATOTEKA namesto s stdin\n"
+"  obs=ZLOGOV      zapi¹i ZLOGOV zlogov naenkrat\n"
+"  of=DATOTEKA     pi¹i na datoteko DATOTEKA namesto na stdout, brez rezanja\n"
+"  seek=BLOKOV     na zaèetku pisanja preskoèi BLOKOV blokov dol¾ine obs\n"
+"  skip=BLOKOV     na zaèetku branja preskoèi BLOKOV blokov dol¾ine ibs\n"
+"      --help      ta navodila\n"
+"      --version   verzija programa\n"
+"\n"
+"©tevilo ZLOGOV lahko okraj¹amo s pripono: xM za mno¾enje z M, c za x1, w za "
+"x2,\n"
+"b za x512, k za x1024.  PRETVORBA je lahko (veè izbir loèimo z vejico):\n"
+"\n"
+"  ascii     iz EBCDIC v ASCII\n"
+"  ebcdic    iz ASCII v EBCDIC\n"
+"  ibm       iz ASCII v ,,alternated EBCDIC''\n"
+"  block     zapise terminirane z NEWLINE zapolnimo z presledki do dol¾ine "
+"cbs\n"
+"  unblock   sledilne presledke v zapisu dol¾ine cbs nadomestimo z NEWLINe\n"
+"  lcase     velike èrke zamenjamo z malimi\n"
+"  ucase     male èrke zamenjamo z velikimi\n"
+"  swab      paroma zamenjamo zloge na vhodu\n"
+"  noerror   nadaljujemo po napaki pri branju\n"
+"  sync      vsak vhodni blok zapolnimo z znaki NUL dol¾ine ibs\n"
+
+#: src/df.c:556 src/du.c:219 src/ls.c:2741
+#, c-format
+msgid "Usage: %s [OPTION]... [FILE]...\n"
+msgstr "Uporaba: %s [IZBIRA]... [DATOTEKA]...\n"
+
+# ! INEXACT
+#: src/df.c:557
+#, fuzzy
+msgid ""
+"Show information about the filesystem on which each FILE resides,\n"
+"or all filesystems by default.\n"
+"\n"
+"  -a, --all             include filesystems having 0 blocks\n"
+"  -h, --human-readable  print sizes in human readable format (e.g., 1K 234M "
+"2G)\n"
+"  -i, --inodes          list inode information instead of block usage\n"
+"  -k, --kilobytes       use 1024-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -m, --megabytes       use 1024K-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"      --no-sync         do not invoke sync before getting usage info "
+"(default)\n"
+"  -P, --portability     use the POSIX output format\n"
+"      --sync            invoke sync before getting usage info\n"
+"  -t, --type=TYPE       limit listing to filesystems of type TYPE\n"
+"  -T, --print-type      print filesystem type\n"
+"  -x, --exclude-type=TYPE   limit listing to filesystems not of type TYPE\n"
+"  -v                    (ignored)\n"
+"      --help            display this help and exit\n"
+"      --version         output version information and exit\n"
+msgstr ""
+"Informacija o datoteènem sistemu, na katerem se nahaja DATOTEKA,\n"
+"ali o vseh datoteènih sistemih.\n"
+"\n"
+"  -a, --all             vkljuèno s praznimi datoteènimi sistemi\n"
+"  -h, --human-readable  velikosti v èloveku berljivem zapisu (npr. 1K 234M "
+"2G)\n"
+"  -i, --inodes          izpis informacije o inode namesto o porabi blokov\n"
+"  -k, --kilobytes       navzlic POSIXLY_CORRECT v 1024-, ne 512-zlo¾nih "
+"blokih\n"
+"  -m, --megabytes       navzlic POSIXLY_CORRECT v 1024KB, ne 512-zlo¾nih "
+"blokih\n"
+"      --no-sync         brez klica sync() pred izpisom porabe (privzeto)\n"
+"      --sync            klic sync() pred izpisom porabe\n"
+"  -t, --type=TIP        samo datoteèni sistemi tipa TIP\n"
+"  -x, --exclude-type=TIP    brez datoteènih sistemov tipa TIP\n"
+"  -v                    (ignorirano)\n"
+"  -P, --portability     izhodni format POSIX\n"
+"  -T, --print-type      izpis datoteènega sistem\n"
+"      --help            ta navodila\n"
+"      --version         verzija programa\n"
+
+#: src/df.c:681
+msgid ""
+"the option for counting 1MB blocks may not be used\n"
+"with the portable output format"
+msgstr ""
+"izbira za ¹tetje v blokih po 1MB ni zdru¾ljiva s prenosno obliko izpisa"
+
+#  Nejasno! Razisci!!!
+#: src/df.c:686
+msgid ""
+"the option for printing with adaptive units may not be used\n"
+"with the portable output format"
+msgstr ""
+"izbira za izpis v prilagodljivih enotah ni zdru¾ljiva s prenosno\n"
+"obliko izpisa"
+
+#: src/df.c:701
+#, c-format
+msgid "file system type `%s' both selected and excluded"
+msgstr "tip datoteènega sistema ,%s' obenem izbran in izkljuèen"
+
+#: src/df.c:746
+msgid "cannot read table of mounted filesystems"
+msgstr "tabela montiranih datoteènih sistemov ni berljiva"
+
+# ! INEXACT
+#: src/du.c:220
+msgid ""
+"Summarize disk usage of each FILE, recursively for directories.\n"
+"\n"
+"  -a, --all             write counts for all files, not just directories\n"
+"  -b, --bytes           print size in bytes\n"
+"  -c, --total           produce a grand total\n"
+"  -D, --dereference-args  dereference PATHs when symbolic link\n"
+"  -h, --human-readable  print sizes in human readable format (e.g., 1K 234M "
+"2G)\n"
+"  -k, --kilobytes       use 1024-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -l, --count-links     count sizes many times if hard linked\n"
+"  -L, --dereference     dereference all symbolic links\n"
+"  -m, --megabytes       use 1024K-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -S, --separate-dirs   do not include size of subdirectories\n"
+"  -s, --summarize       display only a total for each argument\n"
+"  -x, --one-file-system  skip directories on different filesystems\n"
+"      --help            display this help and exit\n"
+"      --version         output version information and exit\n"
+msgstr ""
+"Povzetek porabe diska za datoteko DATOTEKA, rekurzivno po podimenikih.\n"
+"\n"
+"  -a, --all             izpis za vse datoteke, ne le za imenike\n"
+"  -b, --bytes           velikost v zlogih (bytih)\n"
+"  -c, --total           skupni povzetek\n"
+"  -D, --dereference-args  razre¹i poti, èe so simboliène povezave\n"
+"  -h, --human           velikosti v èloveku berljivem zapisu (npr. 1K 234M "
+"2G)\n"
+"  -k, --kilobytes       navzlic POSIXLY_CORRECT v 1024-, ne 512-zlo¾nih "
+"blokih\n"
+"  -l, --count-links     trde povezeva ¹tejemo veèkrat\n"
+"  -L, --dereference     razre¹i vse simboliène povezave in ¹tej ciljne "
+"datoteke\n"
+"  -m, --megabytes       navzlic POSIXLY_CORRECT v 1024KB, ne 512-zlo¾nih "
+"blokih\n"
+"  -S, --separate-dirs   brez velikosti podimenikov\n"
+"  -s, --summarize       za vsak argument samo povzetek\n"
+"  -x, --one-file-system  brez imenikov na drugih datoteènih sistemih\n"
+"      --help            ta navodila\n"
+"      --version         verzija programa\n"
+
+#: src/du.c:347
+msgid "cannot both summarize and show all entries"
+msgstr "mo¾nosti se izkljuèujeta - ali izpis vseh, ali povzetek"
+
+#: src/du.c:431
+msgid "current directory"
+msgstr "trenutni imenik"
+
+#: src/du.c:466 src/mvdir.c:107
+msgid "starting directory"
+msgstr "zaèetni imenik"
+
+#: src/du.c:481
+#, c-format
+msgid "%ld\ttotal\n"
+msgstr "%ld\tskupno\n"
+
+#: src/du.c:551
+#, c-format
+msgid "cannot change to directory %s"
+msgstr "imenik %s ni dosegljiv"
+
+#: src/du.c:570 src/du.c:602
+#, c-format
+msgid "cannot change to `..' from directory %s"
+msgstr "iz imenika %s imenik ,..' ni dosegljiv"
+
+#: src/install.c:256
+msgid "the strip option may not be used when installing a directory"
+msgstr "opcija ,strip' ni dovoljena pri namestitvi imenika"
+
+#: src/install.c:271 src/mkdir.c:133
+#, c-format
+msgid "invalid mode `%s'"
+msgstr "neveljaven naèin ,%s'"
+
+#: src/install.c:378
+#, fuzzy, c-format
+msgid "`%s' is a directory"
+msgstr "%s: je imenik"
+
+#: src/install.c:385
+#, c-format
+msgid "`%s' is not a regular file"
+msgstr ",%s' ni navadna datoteka"
+
+#: src/install.c:526
+msgid "fork system call failed"
+msgstr ""
+
+#: src/install.c:530
+msgid "cannot run strip"
+msgstr "ne morem pognati ,strip'"
+
+#: src/install.c:556
+#, c-format
+msgid "invalid user `%s'"
+msgstr "neveljavno ime uporabnika ,%s'"
+
+#: src/install.c:574
+#, c-format
+msgid "invalid group `%s'"
+msgstr "neveljavno ime skupine ,%s'"
+
+# ! INEXACT
+#: src/install.c:593
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... SOURCE DEST           (1st format)\n"
+"  or:  %s [OPTION]... SOURCE... DIRECTORY   (2nd format)\n"
+"  or:  %s -d [OPTION]... DIRECTORY...       (3rd format)\n"
+msgstr ""
+"Uporaba: %s [IZBIRA]... IZVOR CILJ        (prva oblika)\n"
+"  ali:   %s [IZBIRA]... IZVOR... IMENIK   (druga oblika)\n"
+"  ali:   %s -d [IZBIRA]... IMENIK...      (tretja oblika)\n"
+
+# ! INEXACT
+#: src/install.c:599
+#, fuzzy
+msgid ""
+"In first two formats, copy SOURCE to DEST or multiple SOURCE(s) to\n"
+"DIRECTORY, while setting permission modes and owner/group.  In third\n"
+"format, make all components of the given DIRECTORY(ies).\n"
+"\n"
+"  -b, --backup        make backup before removal\n"
+"  -c                  (ignored)\n"
+"  -d, --directory     create [leading] directories, mandatory for 3rd "
+"format\n"
+"  -g, --group=GROUP   set group ownership, instead of process' current "
+"group\n"
+"  -m, --mode=MODE     set permission mode (as in chmod), instead of "
+"rw-r--r--\n"
+"  -o, --owner=OWNER   set ownership (super-user only)\n"
+"  -s, --strip         strip symbol tables, only for 1st and 2nd formats\n"
+"  -S, --suffix=SUFFIX override the usual backup suffix\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"      --help          display this help and exit\n"
+"      --version       output version information and exit\n"
+"\n"
+msgstr ""
+"V prvih dveh oblikah kopiramo IZVOR na CILJ ali veè IZVORov v IMENIK,\n"
+"pri èemer nastavimo za¹èito, lastnika in skupino.  V tretji obliki\n"
+"ustvarimo nov IMENIK s podanimi lastnostmi.\n"
+"\n"
+"  -c                  (ignorirano)\n"
+"  -d, --directory     kreiramo [vrhnji] imenik, obvezno za tretjo obliko\n"
+"  -g, --group=SKUPINA uporabni¹ka skupina, namesto skupine trenutnega "
+"procesa\n"
+"  -m, --mode=ZA©ÈITA  za¹èita (kot v chmod), namesto privzete rw-r--r--\n"
+"  -o, --owner=LASTNIK lastnik (samo super-user)\n"
+"  -s, --strip         ogulimo simbolne tabele (samo prva in druga oblika)\n"
+"  -b, --backup        varnostna kopija pred odstranitvijo\n"
+"  -S, --suffix=PRIPONA   pripona varnostne kopije\n"
+"  -V, --version-control=BESEDA   tip varnostne kopije\n"
+"      --help          ta navodila\n"
+"      --version       verzija programa\n"
+"\n"
+
+#: src/ln.c:178
+#, c-format
+msgid "%s: hard link not allowed for directory"
+msgstr "%s: trda pozezava ni dovoljena za imenik"
+
+#: src/ln.c:243 src/mv.c:258
+#, c-format
+msgid "%s: cannot overwrite directory"
+msgstr "%s: ne morem prepisati imenika"
+
+#: src/ln.c:248 src/mv.c:277
+#, c-format
+msgid "%s: replace `%s'? "
+msgstr "%s: nadomestimo ,%s'? "
+
+#: src/ln.c:254
+#, c-format
+msgid "%s: File exists"
+msgstr "%s: Datoteka obstaja"
+
+#: src/ln.c:279 src/mv.c:148 src/mv.c:329
+#, c-format
+msgid "cannot remove `%s'"
+msgstr "ne morem odstraniti ,%s'"
+
+# POZOR!!! Razisci, kaj program res tu pocne!
+# ! INEXACT
+#: src/ln.c:290
+#, c-format
+msgid "create %s %s to %s\n"
+msgstr "ustvarjam %s %s v %s\n"
+
+# POZOR!!! Razisci, kaj program res tu pocne!
+# ! INEXACT
+#: src/ln.c:297
+#, c-format
+msgid "cannot create %s `%s' to `%s'"
+msgstr "ne morem ustvariti %s ,%s' v ,%s'"
+
+#: src/ln.c:316
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... SOURCE [DEST]\n"
+"  or:  %s [OPTION]... SOURCE... DIRECTORY\n"
+msgstr ""
+"Uporaba: %s [IZBIRA]... IZVOR [CILJ]\n"
+"  ali:   %s [IZBIRA]... IZVOR... IMENIK\n"
+
+# ! INEXACT
+#: src/ln.c:321
+#, fuzzy
+msgid ""
+"Link SOURCE to DEST (. by default), or multiple SOURCE(s) to DIRECTORY.\n"
+"Makes hard links by default, symbolic links with -s.\n"
+"\n"
+"  -b, --backup                 make backups for removed files\n"
+"  -d, -F, --directory          hard link directories (super-user only)\n"
+"  -f, --force                  remove existing destinations\n"
+"  -n, --no-dereference         treat destination that is a symlink to a\n"
+"                                 directory as if it were a normal file\n"
+"  -i, --interactive            prompt whether to remove destinations\n"
+"  -s, --symbolic               make symbolic links instead of hard links\n"
+"  -S, --suffix=SUFFIX          override the usual backup suffix\n"
+"  -v, --verbose                print name of each file before linking\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"      --help                   display this help and exit\n"
+"      --version                output version information and exit\n"
+"\n"
+msgstr ""
+"Pove¾emo IZVOR s CILJem (privzeto .), ali veè IZVORov z IMENIKom.\n"
+"Privzeti tip povezav je trdi, z izbiro -s pa simbolièni.\n"
+"\n"
+"  -b, --backup                 napravi varnostne kopije za pobrisane "
+"datoteke\n"
+"  -d, -F, --directory          trde povezave imenikov (samo super-user)\n"
+"  -f, --force                  brez besed pobri¹i morebitne ciljne datoteke\n"
+"  -n, --no-dereference         simboliène povezave na imenik obravnavaj kot\n"
+"                                 navadne datoteke\n"
+"  -i, --interactive            zahtevaj potrditev, preden pobri¹e¹ datoteko\n"
+"  -s, --symbolic               simboliène povezave namesto trdih\n"
+"  -v, --verbose                z izpisom imen datotek, ki jih povezujemo\n"
+"  -S, --suffix=PRIPONA         pripona varnostne kopije\n"
+"  -V, --version-control=BESEDA tip varnostne kopije\n"
+"      --help                   ta navodila\n"
+"      --version                verzija programa\n"
+"\n"
+
+#: src/ln.c:433 src/mv.c:482
+msgid "missing file argument"
+msgstr "datoteka ni podana"
+
+# ! INEXACT
+#: src/ln.c:444
+msgid "symbolic link"
+msgstr "simbolièna povezava"
+
+#: src/ln.c:449
+msgid "hard link"
+msgstr "trda povezava"
+
+#: src/ln.c:452
+msgid "link"
+msgstr "povezava"
+
+#: src/ln.c:490
+msgid "when making multiple links, last argument must be a directory"
+msgstr "pri veèih povezavah mora biti zadnji argument imenik"
+
+# ! INEXACT
+#: src/ls.c:835
+#, c-format
+msgid "ignoring invalid width in environment variable COLUMNS: %s"
+msgstr "ignoriram neveljavno ¹irino v spremenljivki COLUMNS: %s"
+
+# ! INEXACT
+#: src/ls.c:862
+#, c-format
+msgid "ignoring invalid tab size in environment variable TABSIZE: %s"
+msgstr "ignoriram neveljavni tabulator v spremenljivki TABSIZE: %s"
+
+#: src/ls.c:964
+#, c-format
+msgid "invalid line width: %s"
+msgstr "neveljavna ¹irina vrstice: %s"
+
+#: src/ls.c:1028
+#, c-format
+msgid "invalid tab size: %s"
+msgstr "neveljaven tabulator: %s"
+
+#  POZOR!!! Kaj naj bi bilo to v resnici?
+#: src/ls.c:1048
+msgid "sort type"
+msgstr "tip sortiranja"
+
+#  POZOR!!! Kaj naj bi bilo to v resnici?
+#: src/ls.c:1058
+msgid "time type"
+msgstr "tip zapisa èasa"
+
+#  POZOR!!! Kaj naj bi bilo to v resnici?
+#: src/ls.c:1068
+msgid "format type"
+msgstr "tip formata"
+
+#  POZOR!!! Kaj naj bi bilo to v resnici?
+#: src/ls.c:1080
+msgid "colorization criterion"
+msgstr "kriterij za obarvanje"
+
+# ! INEXACT
+#: src/ls.c:1407
+#, c-format
+msgid "unrecognized prefix: %s"
+msgstr "neprepoznana predpona: ,%s'"
+
+#: src/ls.c:1429
+msgid "unparsable value for LS_COLORS environment variable"
+msgstr "vrednosti v spremenljivki LS_COLORS ni moè raztolmaèiti"
+
+# ! INEXACT
+#: src/ls.c:2742
+#, fuzzy
+msgid ""
+"List information about the FILEs (the current directory by default).\n"
+"Sort entries alphabetically if none of -cftuSUX nor --sort.\n"
+"\n"
+"  -a, --all                  do not hide entries starting with .\n"
+"  -A, --almost-all           do not list implied . and ..\n"
+"  -b, --escape               print octal escapes for nongraphic characters\n"
+"  -B, --ignore-backups       do not list implied entries ending with ~\n"
+"  -c                         sort by change time; with -l: show ctime\n"
+"  -C                         list entries by columns\n"
+"      --color[=WHEN]         control whether color is used to distinguish "
+"file\n"
+"                               types.  WHEN may be `never', `always', or "
+"`auto'\n"
+"  -d, --directory            list directory entries instead of contents\n"
+"  -D, --dired                generate output designed for Emacs' dired mode\n"
+"  -f                         do not sort, enable -aU, disable -lst\n"
+"  -F, --classify             append a character for typing each entry\n"
+"      --format=WORD          across -x, commas -m, horizontal -x, long -l,\n"
+"                               single-column -1, verbose -l, vertical -C\n"
+"      --full-time            list both full date and full time\n"
+msgstr ""
+"Informacije o DATOTEKI (privzeto vse datoteke v trenutnem imeniku),\n"
+"razvr¹èene po abecedi, èe ni podana nobene od izbir -cftuSUX niti --sort.\n"
+"\n"
+"  -A, --almost-all           brez izpisa privzetih . in ..\n"
+"  -a, --all                  tudi imena, ki se zaènejo s piko\n"
+"  -B, --ignore-backups       razen imen, ki se konèajo z ~ (rezervne "
+"kopije)\n"
+"  -b, --escape               izpis oktalne kode za kontrolne znake\n"
+"  -C                         imena v stolpce\n"
+"  -c                         razvrsti po datumu zadnje spremembe;\n"
+"                             skupaj z -l: poka¾i datum zadnje spremembe\n"
+"      --color[=KDAJ]         kdaj se uporabijo barve za oznaèitev tipa "
+"datoteke\n"
+"                               Mo¾nosti so ,never', 'always' ali ,auto'\n"
+"  -D, --dired                izpis primeren za naèin ,dired' v Emacsu\n"
+"  -d, --directory            imena imenika(-ov) namesto vsebine\n"
+"  -F, --classify             s pripono oznaèi tip datoteke\n"
+"  -f                         brez razvr¹èanja, omogoèi -aU, onemogoèi -lst\n"
+"      --format=BESEDA        across -x, commas -m, horizontal -x, long -l,\n"
+"                               single-column -1, verbose -l, vertical -C\n"
+"                               single-column -1, verbose -l, vertical -C\n"
+"      --full-time            pri dolgem izpisu celoten datum z uro\n"
+
+# ! INEXACT
+#: src/ls.c:2762
+#, fuzzy
+msgid ""
+"  -g                         (ignored)\n"
+"  -G, --no-group             inhibit display of group information\n"
+"  -i, --inode                print index number of each file\n"
+"  -I, --ignore=PATTERN       do not list implied entries matching shell "
+"PATTERN\n"
+"  -k, --kilobytes            use 1024 blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -l                         use a long listing format\n"
+"  -L, --dereference          list entries pointed to by symbolic links\n"
+"  -m                         fill width with a comma separated list of "
+"entries\n"
+"  -n, --numeric-uid-gid      list numeric UIDs and GIDs instead of names\n"
+"  -N, --literal              print raw entry names (don't treat e.g. "
+"control\n"
+"                               characters specially)\n"
+"  -o                         use long listing format without group info\n"
+"  -p                         append a character for typing each entry\n"
+"  -q, --hide-control-chars   print ? instead of non graphic characters\n"
+"  -Q, --quote-name           enclose entry names in double quotes\n"
+"  -r, --reverse              reverse order while sorting\n"
+"  -R, --recursive            list subdirectories recursively\n"
+"  -s, --size                 print size of each file, in blocks\n"
+msgstr ""
+"  -G, --no-group             brez izpisa skupine\n"
+"  -g                         (ignorirano)\n"
+"  -I, --ignore=VZOREC        brez imen, ki ustrezajo VZORCU\n"
+"  -i, --inode                izpis indeksneg ¹tevila za vsako datoteko\n"
+"  -k, --kilobytes            ne glede na POSIXLY_CORRECT v blokih po 1024,\n"
+"                               ne po 512 bytov\n"
+"  -L, --dereference          imena datotek, na katere ka¾ejo simboliène\n"
+"                               povezave, namesto simboliènih povezav\n"
+"  -l                         dolga oblika izpisa\n"
+"  -m                         z vejicami loèena imena po celi ¹irini vrstice\n"
+"  -N, --literal              izpis imen v neobdelani obliki (npr. "
+"kontrolnih\n"
+"                               znakov ne obravnavamo posebno)\n"
+"  -n, --numeric-uid-gid      ¹tevilène vrednosti UID in GID namesto imen\n"
+"  -o                         dolga oblika izpisa brez uporabni¹ke skupine\n"
+"  -p                         s pripono oznaèi tip datoteke\n"
+"  -Q, --quote-name           imena izpi¹emo v dvojnih narekovajih\n"
+"  -q, --hide-control-chars   izpis ,?' namesto kontrolnih znakov\n"
+"  -R, --recursive            rekurziven izpis podimenikov\n"
+"  -r, --reverse              razvrstitev po obrnjenem vrstnem redu\n"
+"  -S                         razvrstitev po velikosti datotek\n"
+
+# ! INEXACT
+#: src/ls.c:2782
+#, fuzzy
+msgid ""
+"  -S                         sort by file size\n"
+"      --sort=WORD            ctime -c, extension -X, none -U, size -S,\n"
+"                             status -c, time -t, atime -u, access -u, use "
+"-u\n"
+"      --time=WORD            show time as WORD instead of modification "
+"time:\n"
+"                             atime, access, use, ctime or status\n"
+"  -t                         sort by modification time; with -l: show mtime\n"
+"  -T, --tabsize=COLS         assume tab stops at each COLS instead of 8\n"
+"  -u                         sort by last access time; with -l: show atime\n"
+"  -U                         do not sort; list entries in directory order\n"
+"  -w, --width=COLS           assume screen width instead of current value\n"
+"  -x                         list entries by lines instead of by columns\n"
+"  -X                         sort alphabetically by entry extension\n"
+"  -1                         list one file per line\n"
+"      --help                 display this help and exit\n"
+"      --version              output version information and exit\n"
+"\n"
+"By default, color is not used to distinguish types of files.  That is\n"
+"equivalent to using --color=none.  Using the --color option without the\n"
+"optional WHEN argument is equivalent to using --color=always.  With\n"
+"--color=auto, color codes are output only if standard output is connected\n"
+"to a terminal (tty).\n"
+msgstr ""
+"  -s, --size                 velikost v blokih za vsako datoteko\n"
+"      --sort=BESEDA          datum zadnje spremembe -c, pripona -X, niè -U,\n"
+"                               velikost -S, status -c, datum nastanka -t\n"
+"      --time=BESEDA          atime -u, access -u, use -u\n"
+"  -T, --tabsize=STOLPCEV     tabulator nastavljen na STOLPCEV namesto na 8\n"
+"  -t                         razvrstitev po datumu zadnje modifikacije;\n"
+"                               skupaj z -l: poka¾i datum zadnjega dostopa\n"
+"  -U                         brez razvr¹èanja; kot so v imeniku\n"
+"  -u                         razvrstitev po datumu zadnjega dostopa;\n"
+"                               skupaj z -l: poka¾i datum zadnjega dostopa\n"
+"  -w, --width=STOLPCEV       ¹irina zaslova STOLPCEV namesto trenutne "
+"vrednosti\n"
+"  -x                         imena v vrstice namesto v stolpce\n"
+"  -X                         abecedna razvrstitev po priponah\n"
+"  -1                         izpis po eno datoteko v vrstici\n"
+"      --help                 ta navodila\n"
+"      --version              verzija programa\n"
+"Privzeto obna¹anje je, da se barve ne uporabljajo za oznaèevanje tipa "
+"datoteke.\n"
+"To je enakovredno izbiri --color=none.  Izbira --color brez argumenta KDAJ "
+"je\n"
+"enakovredna --color=always.  Pri izbiri --color=auto se barve uporabijo "
+"samo,\n"
+"kadar je standardni izhod terminal (tty).\n"
+
+#: src/mkdir.c:60
+#, c-format
+msgid "Usage: %s [OPTION] DIRECTORY...\n"
+msgstr "Uporaba: %s [IZBIRA] IMENIK...\n"
+
+#: src/mkdir.c:61
+#, fuzzy
+msgid ""
+"Create the DIRECTORY(ies), if they do not already exist.\n"
+"\n"
+"  -m, --mode=MODE   set permission mode (as in chmod), not rwxrwxrwx - "
+"umask\n"
+"  -p, --parents     no error if existing, make parent directories as needed\n"
+"      --verbose     print a message for each created directory\n"
+"      --help        display this help and exit\n"
+"      --version     output version information and exit\n"
+msgstr ""
+"Ustvari IMENIK (ali veè imenikov), èe ta ¹e ne obstaja.\n"
+"\n"
+"  -p, --parents     brez opozorila èe imenik obstaja; po potrebi ustvari\n"
+"                      ¹e star¹evske imenike\n"
+"  -m, --mode=ZA©ÈITA  nastavi za¹èito (kot pri chmod) namesto privzete\n"
+"                      rwxrwxrwx - umask\n"
+"      --verbose     z obvestilom o vsakem ustvarjenem imeniku\n"
+"      --help        ta navodila\n"
+"      --version     verzija programa\n"
+
+#. --verbose
+#: src/mkdir.c:105
+#, c-format
+msgid "created directory `%s'"
+msgstr "ustvarjen imenik ,%s'"
+
+#: src/mkfifo.c:60
+#, c-format
+msgid "Usage: %s [OPTION] NAME...\n"
+msgstr "Uporaba: %s [IZBIRA] IME...\n"
+
+#: src/mkfifo.c:61
+msgid ""
+"Create named pipes (FIFOs) with the given NAMEs.\n"
+"\n"
+"  -m, --mode=MODE   set permission mode (as in chmod), not 0666 - umask\n"
+"      --help        display this help and exit\n"
+"      --version     output version information and exit\n"
+msgstr ""
+"Ustvari poimenovano cev (FIFO) z imenom IME.\n"
+"\n"
+"  -m, --mode=ZA©ÈITA  nastavi za¹èito (kot pri chmod) namesto 0666 - umask\n"
+"      --help        ta navodila\n"
+"      --version     verzija programa\n"
+
+#: src/mkfifo.c:91 src/mknod.c:213
+msgid "fifo files not supported"
+msgstr "datoteke FIFO niso podprte"
+
+#: src/mkfifo.c:137
+#, c-format
+msgid "cannot make fifo `%s'"
+msgstr "ne morem napraviti FIFO ,%s'"
+
+#: src/mknod.c:65
+#, c-format
+msgid "Usage: %s [OPTION]... NAME TYPE [MAJOR MINOR]\n"
+msgstr "Uporaba: %s [IZBIRA]...  IME TIP [MAJOR MINOR]\n"
+
+# ! INEXACT
+#: src/mknod.c:66
+msgid ""
+"Create the special file NAME of the given TYPE.\n"
+"\n"
+"  -m, --mode=MODE   set permission mode (as in chmod), not 0666 - umask\n"
+"      --help        display this help and exit\n"
+"      --version     output version information and exit\n"
+"\n"
+"MAJOR MINOR are forbidden for TYPE p, mandatory otherwise.  TYPE may be:\n"
+"\n"
+"  b      create a block (buffered) special file\n"
+"  c, u   create a character (unbuffered) special file\n"
+"  p      create a FIFO\n"
+msgstr ""
+"Ustvari posebno datoteko tita TIP z imenom IME.\n"
+"\n"
+"  -m, --mode=ZA©ÈITA  nastavi za¹èito (kot pri chmod) namesto 0666 - umask\n"
+"      --help        ta navodila\n"
+"      --version     verzija programa\n"
+"\n"
+"©tevili MAJOR in MINOR nista dovoljeni za TIP p, za ostale pa obvezni.\n"
+"TIP je lahko:\n"
+"\n"
+"  b      bloèna enota (z medpomnilnikom)\n"
+"  c, u   znakovna enota (brez medpomnilnika)\n"
+"  p      FIFO\n"
+
+#: src/mknod.c:144
+msgid "wrong number of arguments"
+msgstr "napaèno ¹tevilo argumentov"
+
+#: src/mknod.c:156
+msgid "block special files not supported"
+msgstr "bloène enote niso podprte"
+
+#: src/mknod.c:160
+msgid ""
+"when creating block special files, major and minor device\n"
+"numbers must be specified"
+msgstr "pri ustvarjanju bloènih enot morata biti podani ¹tevili MAJOR in MINOR"
+
+#: src/mknod.c:168 src/mknod.c:197
+#, c-format
+msgid "invalid major device number `%s'"
+msgstr "neveljavno ¹tevilo MAJOR: ,%s'"
+
+#: src/mknod.c:172 src/mknod.c:201
+#, c-format
+msgid "invalid minor device number `%s'"
+msgstr "neveljavno ¹tevilo MINOR: ,%s'"
+
+#: src/mknod.c:185
+msgid "character special files not supported"
+msgstr "znakovne enote niso podprte"
+
+#: src/mknod.c:189
+msgid ""
+"when creating character special files, major and minor device\n"
+"numbers must be specified"
+msgstr "pri kreiranju znakovnih enot morata biti podani ¹tevili MAJOR in MINOR"
+
+#: src/mknod.c:217
+msgid "major and minor device numbers may not be specified for fifo files"
+msgstr "¹tevili MAJOR in MINOR ne smeta biti podani za FIFO"
+
+#: src/mv.c:141
+#, c-format
+msgid "cannot move `%s' across filesystems: Not a regular file"
+msgstr ""
+"datoteka ,%s' ni navadna - ne da se premakniti z enega datoteènega\n"
+"sistema na drugi"
+
+#: src/mv.c:269
+#, c-format
+msgid "%s: replace `%s', overriding mode %04o? "
+msgstr "%s: nadomestimo ,%s' navzlic za¹èiti %04o? "
+
+#: src/mv.c:318
+#, c-format
+msgid "cannot move `%s' to `%s'"
+msgstr ",%s' se ne da premakniti v ,%s'"
+
+# ! INEXACT
+#: src/mv.c:385
+#, fuzzy
+msgid ""
+"Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.\n"
+"\n"
+"  -b, --backup                 make backup before removal\n"
+"  -f, --force                  remove existing destinations, never prompt\n"
+"  -i, --interactive            prompt before overwrite\n"
+"  -S, --suffix=SUFFIX          override the usual backup suffix\n"
+"  -u, --update                 move only older or brand new files\n"
+"  -v, --verbose                explain what is being done\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"      --help                   display this help and exit\n"
+"      --version                output version information and exit\n"
+"\n"
+msgstr ""
+"IZVOR premakne na CILJ, ali veè IZVORov v IMENIK.\n"
+"\n"
+"  -b, --backup                 pred brisanjem napravimo varnostno kopijo\n"
+"  -f, --force                  odstrani obstojeèe cilje brez vpra¹anj\n"
+"  -i, --interactive            zahtevaj potrditev, preden prepi¹emo staro\n"
+"                                 datoteko z novo\n"
+"  -u, --update                 prepi¹i samo novej¹e datoteke\n"
+"  -v, --verbose                z razlago poteka\n"
+"  -S, --suffix=PRIPONA         pripona varnostne kopije naj bo PRIPONA\n"
+"  -V, --version-control=BESEDA eksplicitno doloèi tip varnostne kopije\n"
+"      --help                   ta navodila\n"
+"      --version                verzija programa\n"
+"\n"
+
+#: src/mv.c:493
+msgid "when moving multiple files, last argument must be a directory"
+msgstr "pri premikanju veèih datotek mora biti zadnji argument imenik"
+
+#: src/mvdir.c:81
+#, c-format
+msgid "Usage: %s [OPTION]... EXISTING_DIR NEW_DIR\n"
+msgstr "Uporaba: %s [IZBIRA]... OBSTOJEÈI_IMENIK NOVI_IMENIK\n"
+
+#: src/mvdir.c:82
+msgid ""
+"Rename EXISTING_DIR to NEW_DIR.\n"
+"\n"
+"   --help      display this help and exit\n"
+"   --version   output version information and exit\n"
+msgstr ""
+"OBSTOJEÈI_IMENIK preimenujemo v NOVI_IMENIK.\n"
+"\n"
+"      --help                   ta navodila\n"
+"      --version                verzija programa\n"
+
+#: src/mvdir.c:105
+msgid "cannot get current directory"
+msgstr "ne morem ugotoviti trenutnega imenika"
+
+#: src/mvdir.c:165
+msgid "cannot rename `.' or `..'"
+msgstr "imenikov ,.' in ,..' ne moremo preimenovati"
+
+#: src/mvdir.c:175
+#, c-format
+msgid "`%s' is not a directory"
+msgstr ",%s' ni imenik"
+
+#: src/mvdir.c:177 src/mvdir.c:179
+#, c-format
+msgid "cannot write to `%s'"
+msgstr "pisanje na ,%s' ni mo¾no"
+
+#: src/mvdir.c:198
+#, c-format
+msgid "`%s' is an ancestor of `%s'"
+msgstr "imenik ,%s' je prednik imenika ,%s'"
+
+#: src/mvdir.c:213 src/mvdir.c:234
+#, c-format
+msgid "cannot link `%s' to `%s'"
+msgstr "ne morem povezati ,%s' z ,%s'"
+
+#: src/mvdir.c:215 src/mvdir.c:232
+#, c-format
+msgid "cannot unlink `%s'"
+msgstr "ne morem odstraniti povezave ,%s'"
+
+#: src/rm.c:213
+msgid "cannot remove `.' or `..'"
+msgstr "ne morem odstraniti imenikov ,.' ali ,..'"
+
+#: src/rm.c:250
+#, c-format
+msgid "%s: remove %s`%s', overriding mode %04o? "
+msgstr "%s: odstranimo %s,%s' navzlic za¹èiti %04o?"
+
+#: src/rm.c:252 src/rm.c:261
+msgid "directory "
+msgstr "imenik "
+
+#: src/rm.c:260
+#, c-format
+msgid "%s: remove %s`%s'? "
+msgstr "%s: odstranimo %s,%s'? "
+
+#: src/rm.c:290
+#, c-format
+msgid "%s: is a directory"
+msgstr "%s: je imenik"
+
+#  POZOR!!!  Razisci, kaj je misljeno!
+#: src/rm.c:298
+#, c-format
+msgid "%s: descend directory `%s', overriding mode %04o? "
+msgstr "%s: podimenik ,%s', navzlic za¹èiti %04o? "
+
+#  POZOR!!!  Razisci, kaj je misljeno!
+#: src/rm.c:306
+#, c-format
+msgid "%s: descend directory `%s'? "
+msgstr "%s: podimenik ,%s'? "
+
+#: src/rm.c:320
+#, c-format
+msgid "%s: remove directory `%s' (might be nonempty)? "
+msgstr "%s: odstranimo imenik ,%s' (lahko je poln)? "
+
+#: src/rm.c:323
+#, c-format
+msgid "%s: remove directory `%s'? "
+msgstr "%s: odstranimo imenik ,%s'? "
+
+#: src/rm.c:498
+#, c-format
+msgid ""
+"%s: WARNING: Circular directory structure.\n"
+"This almost certainly means that you have a corrupted file system.\n"
+"NOTIFY YOUR SYSTEM MANAGER.\n"
+"Cycle detected:\n"
+"%s\n"
+"is the same file as\n"
+msgstr ""
+"%s: POZOR: Cirkularna struktura imenikov.\n"
+"To skoraj gotovo pomeni resno napako v datoteènem sistemu.\n"
+"OBVESTITE UPRAVITELJA SISTEMA.\n"
+"Ugotovljen cikel:\n"
+"%s\n"
+"je ista datoteka kot\n"
+
+#: src/rm.c:510
+#, c-format
+msgid "%s: continue? "
+msgstr "%s: nadaljujemo? "
+
+#: src/rm.c:531 src/touch.c:245
+#, c-format
+msgid "Usage: %s [OPTION]... FILE...\n"
+msgstr "Uporaba: %s [IZBIRA]... DATOTEKA...\n"
+
+#: src/rm.c:532
+#, fuzzy
+msgid ""
+"Remove (unlink) the FILE(s).\n"
+"\n"
+"  -d, --directory       unlink directory, even if non-empty (super-user "
+"only)\n"
+"  -f, --force           ignore nonexistent files, never prompt\n"
+"  -i, --interactive     prompt before any removal\n"
+"  -r, -R, --recursive   remove the contents of directories recursively\n"
+"  -v, --verbose         explain what is being done\n"
+"      --help            display this help and exit\n"
+"      --version         output version information and exit\n"
+msgstr ""
+"Odstranimo DATOTEKE.\n"
+"\n"
+"  -d, --directory       brisanje imenikov vkljuèno s polnimi (samo "
+"super-user)\n"
+"  -f, --force           brez opozoril o neobstojeèih datotekah, brez "
+"vpra¹anj\n"
+"  -i, --interactive     potrditev pred vsakim brisanjem\n"
+"  -v, --verbose         z razlago poteka\n"
+"  -r, -R, --recursive   rekurzivno brisanje vsebine imenika s podimeniki\n"
+"      --help            ta navodila\n"
+"      --version         verzija programa\n"
+
+#: src/rmdir.c:86
+#, c-format
+msgid "Usage: %s [OPTION]... DIRECTORY...\n"
+msgstr "Uporaba: %s [IZBIRA]... IMENIK...\n"
+
+#: src/rmdir.c:87
+msgid ""
+"Remove the DIRECTORY(ies), if they are empty.\n"
+"\n"
+"  -p, --parents   remove explicit parent directories if being emptied\n"
+"      --help      display this help and exit\n"
+"      --version   output version information and exit\n"
+msgstr ""
+"Odstrani IMENIK(-e), èe je prazen.\n"
+"\n"
+"  -p, --parents   skupaj s predniki, èe so prazni\n"
+"      --help      ta navodila\n"
+"      --version   verzija programa\n"
+
+#: src/sync.c:39
+#, c-format
+msgid "Usage: %s [OPTION]\n"
+msgstr "Uporaba: %s [IZBIRA]\n"
+
+#: src/sync.c:40
+msgid ""
+"Force changed blocks to disk, update the super block.\n"
+"\n"
+"  --help      display this help and exit\n"
+"  --version   output version information and exit\n"
+msgstr ""
+"Stanje na disku uskladimo s stanjem v diskovnem medpomnilniku.\n"
+"\n"
+"  --help      ta navodila\n"
+"  --version   verzija programa\n"
+
+#: src/sync.c:62
+msgid "ignoring all arguments"
+msgstr "ignoriramo vse argumente"
+
+#: src/touch.c:246
+msgid ""
+"Update the access and modification times of each FILE to the current time.\n"
+"\n"
+"  -a                     change only the access time\n"
+"  -c                     do not create any files\n"
+"  -d, --date=STRING      parse STRING and use it instead of current time\n"
+"  -f                     (ignored)\n"
+"  -m                     change only the modification time\n"
+"  -r, --reference=FILE   use this file's times instead of current time\n"
+"  -t STAMP               use MMDDhhmm[[CC]YY][.ss] instead of current time\n"
+"      --time=WORD        access -a, atime -a, mtime -m, modify -m, use -a\n"
+"      --help             display this help and exit\n"
+"      --version          output version information and exit\n"
+"\n"
+"STAMP may be used without -t if none of -drt, nor --, are used.\n"
+msgstr ""
+"Spremenimo èas zadnjega dostopa/modifikacije za DATOTEKO.\n"
+"\n"
+"  -a                     spremeni samo èas zadnjega dostopa\n"
+"  -c                     brez ustvarjanja novih datotek\n"
+"  -d, --date=NIZ         razèleni NIZ in uporabi ta èas namesto trenutnega\n"
+"  -f                     (ignorirano)\n"
+"  -m                     spremeni samo èas zadnje spremembe\n"
+"  -r, --reference=DATOTEKA  uporabi èas podate datoteke namesto trenutnega\n"
+"  -t ®IG                 uporabi MMDDhhmm[[CC]YY][.ss] namesto trenutnega "
+"èasa\n"
+"      --time=BESEDA      access -a, atime -a, mtime -m, modify -m, use -a\n"
+"      --help             ta navodila\n"
+"      --version          verzija programa\n"
+"\n"
+"®IG lahko nastopa brez -t, èe ni uporabljena nobena od izbir -drt ali --.\n"
+
+#: src/touch.c:302 src/touch.c:322
+#, c-format
+msgid "invalid date format `%s'"
+msgstr "neveljavna oblika datuma ,%s'"
+
+#  POZOR!!  Razisci, kaj je misljeno!
+#: src/touch.c:330
+msgid "time selector"
+msgstr "selektor èasa"
+
+#: src/touch.c:356
+msgid "cannot specify times from more than one source"
+msgstr "hkrati lahko navedemo samo en vir"
+
+#: src/touch.c:386
+msgid "file arguments missing"
+msgstr "datoteka ni podana"
+
+#~ msgid "cannot find mount point for %s"
+#~ msgstr "ne najdem, kam je montiran %s"
+
+#~ msgid "cannot fork"
+#~ msgstr "vejitev ni mo¾na"
+
+# ! INEXACT
+#~ msgid "Memory exhausted"
+#~ msgstr "zmanjkalo pomnilnika"

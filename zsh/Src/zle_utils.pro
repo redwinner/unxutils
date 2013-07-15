@@ -1,0 +1,16 @@
+void sizeline _((int sz));
+void spaceinline _((int ct));
+void shiftchars _((int to, int cnt));
+void backkill _((int ct, int dir));
+void forekill _((int ct, int dir));
+void cut _((int i, int ct, int dir));
+void backdel _((int ct));
+void foredel _((int ct));
+void setline _((char const *s));
+int findbol _((void));
+int findeol _((void));
+void findline _((int *a, int *b));
+void initundo _((void));
+void addundo _((void));
+char * hstrnstr _((char *haystack, int pos, char *needle, int len, int dir, int sens));
+int getzlequery _((void));

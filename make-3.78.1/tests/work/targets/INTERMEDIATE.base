@@ -1,0 +1,3 @@
+cp foo.f foo.e
+cp foo.e foo.d
+rm foo.e

@@ -1,0 +1,17 @@
+#! /bin/sh
+# Set the testing environment.
+
+PACKAGE=tar
+VERSION=1.12
+top_srcdir=..
+srcdir=.
+
+echo_n='-n'
+echo_c=''
+
+export LANGUAGE
+LANGUAGE=
+export LANG
+LANG=
+export LC_MESSAGES
+LC_MESSAGES=

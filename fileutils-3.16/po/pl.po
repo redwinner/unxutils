@@ -1,0 +1,1614 @@
+# Polish translations for the GNU gettext messages
+# Copyright (C) 1996 Free Software Foundation, Inc.
+# Rafa³ Maszkowski <rzm@pdi.net>, 1996.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fileutils 3.13a\n"
+"POT-Creation-Date: 1997-01-26 00:26-0600\n"
+"PO-Revision-Date: 1996-09-02 16:56+0200\n"
+"Last-Translator: Rafa³ Maszkowski <rzm@pdi.net>\n"
+"Language-Team: Polish <pl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: lib/rpmatch.c:87
+msgid "^[yY]"
+msgstr ""
+
+#: lib/rpmatch.c:90
+msgid "^[nN]"
+msgstr ""
+
+#: src/chgrp.c:117
+#, c-format
+msgid "group of %s changed to %s\n"
+msgstr "grupa %s zosta³a zmieniona na %s\n"
+
+#: src/chgrp.c:119
+#, c-format
+msgid "group of %s retained as %s\n"
+msgstr "grupa %s zachowana jako %s\n"
+
+#: src/chgrp.c:131
+msgid "can not change to null group"
+msgstr "nie mogê zmieniæ grupy na pust±"
+
+#: src/chgrp.c:140
+#, c-format
+msgid "invalid group name `%s'"
+msgstr "b³êdna nazwa grupy `%s'"
+
+#: src/chgrp.c:144
+msgid "group number"
+msgstr "cz³onek grupy"
+
+#: src/chgrp.c:147
+#, c-format
+msgid "invalid group number `%s'"
+msgstr "nieprawid³owy numer grupy `%s'"
+
+#: src/chgrp.c:195
+#, c-format
+msgid "you are not a member of group `%s'"
+msgstr "nie jeste¶ cz³onkiem grupy `%s'"
+
+#: src/chgrp.c:200
+#, c-format
+msgid "%s: invalid group number"
+msgstr "%s: z³y numer grupy"
+
+#: src/chgrp.c:243 src/chmod.c:183 src/chmod.c:329 src/chown.c:200
+#: src/cp.c:462 src/cp.c:543 src/cp.c:699 src/cp.c:1237 src/dircolors.c:132
+#: src/du.c:576 src/install.c:273 src/ln.c:134 src/ln.c:262 src/mkdir.c:135
+#: src/mkfifo.c:129 src/mknod.c:132 src/mv.c:286 src/mv.c:363 src/mvdir.c:160
+msgid "virtual memory exhausted"
+msgstr "pamiêæ wirtualna wyczerpana"
+
+#: src/chgrp.c:273 src/chmod.c:213 src/chown.c:230 src/cp-aux.c:31
+#: src/dd.c:1086 src/df.c:552 src/dircolors.c:102 src/du.c:215
+#: src/install.c:589 src/ln.c:312 src/ls.c:2737 src/mkdir.c:56 src/mkfifo.c:56
+#: src/mknod.c:61 src/mv.c:376 src/mvdir.c:77 src/rm.c:527 src/rmdir.c:82
+#: src/sync.c:35 src/touch.c:241
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr "Spróbuj `%s --help' dla uzyskania informacji.\n"
+
+#: src/chgrp.c:277
+#, c-format
+msgid "Usage: %s [OPTION]... GROUP FILE...\n"
+msgstr "U¿ycie: %s [OPCJA]... GRUPA PLIK...\n"
+
+#: src/chgrp.c:278
+#, fuzzy
+msgid ""
+"Change the group membership of each FILE to GROUP.\n"
+"\n"
+"  -c, --changes           like verbose but report only when a change is "
+"made\n"
+"  -h, --no-dereference    affect symbolic links instead of any referenced "
+"file\n"
+"                          (available only on systems with lchown system "
+"call)\n"
+"  -f, --silent, --quiet   suppress most error messages\n"
+"  -R, --recursive         change files and directories recursively\n"
+"  -v, --verbose           output a diagnostic for every file processed\n"
+"      --help              display this help and exit\n"
+"      --version           output version information and exit\n"
+msgstr ""
+"Zmieñ przynale¿no¶æ grupow± ka¿dego pliku PLIKu na GRUPÊ.\n"
+"\n"
+"  -c, --changes           jak verbose, ale podawaj tylko kiedy zasz³a "
+"zmiana\n"
+"  -h, --no-dereference    operuj na dowi±zaniach symbolicznych zamiast na\n"
+"                          wskazywanych plikach (tylko dla systemów z "
+"lchown)\n"
+"  -f, --silent, --quiet   wy³±cz wiêkszo¶æ komunikatów o b³êdach\n"
+"  -v, --verbose           wipisz informacjê o ka¿dym przetwarzanym pliku\n"
+"  -R, --recursive         zmieniaj rekursywnie\n"
+"      --help              wy¶wietl ten opis i zakoñcz\n"
+"      --version           wy¶wietl informacjê o wersji i zakoñcz\n"
+
+#: src/chgrp.c:290 src/chmod.c:234 src/chown.c:254 src/cp-aux.c:86
+#: src/dd.c:1121 src/df.c:576 src/dircolors.c:121 src/du.c:238
+#: src/install.c:625 src/ln.c:347 src/ls.c:2805 src/mkdir.c:70 src/mkfifo.c:68
+#: src/mknod.c:79 src/mv.c:407 src/rm.c:543 src/rmdir.c:94 src/sync.c:46
+#: src/touch.c:262
+msgid ""
+"\n"
+"Report bugs to fileutils-bugs@gnu.ai.mit.edu"
+msgstr ""
+
+#: src/chgrp.c:348 src/chmod.c:320 src/chown.c:314 src/install.c:263
+#: src/mkdir.c:123 src/mkfifo.c:118 src/mknod.c:140 src/rm.c:173
+#: src/rmdir.c:137
+msgid "too few arguments"
+msgstr "za ma³o argumentów"
+
+#: src/chgrp.c:355 src/chown.c:321
+msgid "--no-dereference (-h) is not supported on this system"
+msgstr "--no-dereference (-h) nie dzi³a w tym systemie"
+
+#: src/chmod.c:89
+#, c-format
+msgid "mode of %s changed to %04o (%s)\n"
+msgstr "uprawnienia %s zmienione na %04o (%s)\n"
+
+#: src/chmod.c:92
+#, c-format
+msgid "mode of %s retained as %04o (%s)\n"
+msgstr "uprawnienia %s zachowane jako %04o (%s)\n"
+
+#: src/chmod.c:217
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... MODE[,MODE]... FILE...\n"
+"  or:  %s [OPTION]... OCTAL_MODE FILE...\n"
+msgstr ""
+"U¿ycie: %s [OPCJA]... UPRAWN[,UPRAWN]... PLIK...\n"
+"   or:  %s [OPCJA]... UPRAWN_ÓSEMKOWE PLIK...\n"
+
+#: src/chmod.c:222
+msgid ""
+"\n"
+"  -c, --changes           like verbose but report only when a change is "
+"made\n"
+"  -f, --silent, --quiet   suppress most error messages\n"
+"  -v, --verbose           output a diagnostic for every file processed\n"
+"  -R, --recursive         change files and directories recursively\n"
+"      --help              display this help and exit\n"
+"      --version           output version information and exit\n"
+"\n"
+"Each MODE is one or more of the letters ugoa, one of the symbols +-= and\n"
+"one or more of the letters rwxXstugo.\n"
+msgstr ""
+"\n"
+"  -c, --changes           jak verbose, ale podawaj tylko kiedy zasz³a "
+"zmiana\n"
+"  -f, --silent, --quiet   wy³±cz wiêkszo¶æ komunikatów o b³êdach\n"
+"  -v, --verbose           wipisz informacjê o ka¿dym przetwarzanym pliku\n"
+"  -R, --recursive         zmieniaj rekursywnie\n"
+"      --help              wy¶wietl ten opis i zakoñcz\n"
+"      --version           wy¶wietl informacjê o wersji i zakoñcz\n"
+"\n"
+"Ka¿de uprawnienie jest oznaczane jedn± z liter ugoa, jedenym z symboli +-=\n"
+"i jedn± lub wiêcej z liter rwxXstugo.\n"
+
+#: src/chmod.c:286 src/chmod.c:327 src/mkfifo.c:127 src/mknod.c:130
+msgid "invalid mode"
+msgstr "nierpawid³owe uprawnienia"
+
+#: src/chown.c:117
+#, c-format
+msgid "owner of %s changed to "
+msgstr "w³a¶ciciel %s zmieniony na "
+
+#: src/chown.c:119
+#, c-format
+msgid "owner of %s retained as "
+msgstr "w³a¶ciciel %s zachowany jako "
+
+#: src/chown.c:234
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... OWNER[.[GROUP]] FILE...\n"
+"  or:  %s [OPTION]... .[GROUP] FILE...\n"
+msgstr ""
+"U¿ycie: %s [OPCJA]... W£A¦CICIEL[.GRUPA]... PLIK...\n"
+"   or:  %s [OPCJA]... .[GRUPA] PLIK...\n"
+
+#: src/chown.c:239
+#, fuzzy
+msgid ""
+"Change the owner and/or group of each FILE to OWNER and/or GROUP.\n"
+"\n"
+"  -c, --changes          be verbose whenever change occurs\n"
+"  -h, --no-dereference   affect symbolic links instead of any referenced "
+"file\n"
+"                         (available only on systems with lchown system "
+"call)\n"
+"  -f, --silent, --quiet  suppress most error messages\n"
+"  -R, --recursive        operate on files and directories recursively\n"
+"  -v, --verbose          explain what is being done\n"
+"      --help             display this help and exit\n"
+"      --version          output version information and exit\n"
+"\n"
+"Owner is unchanged if missing.  Group is unchanged if missing, but changed\n"
+"to login group if implied by a period.  A colon may replace the period.\n"
+msgstr ""
+"Zmieñ w³a¶ciciela i/lub grupê ka¿dego PLIKu na W£A¦CICIEL i/lub GRUPA.\n"
+"\n"
+"  -c, --changes          jak verbose, ale podawaj tylko kiedy zasz³a zmiana\n"
+"  -h, --no-dereference   operuj na dowi±zaniach symbolicznych zamiast na\n"
+"                         wskazywanych plikach (tylko dla systemów z lchown)\n"
+"  -f, --silent, --quiet  wy³±cz wiêkszo¶æ komunikatów o b³êdach\n"
+"  -v, --verbose          wipisz informacjê o ka¿dym przetwarzanym pliku\n"
+"  -R, --recursive        zmieniaj rekursywnie\n"
+"      --help             wy¶wietl ten opis i zakoñcz\n"
+"      --version          wy¶wietl infornmacjê o wersji i zakoñcz\n"
+"\n"
+"W³a¶ciciel nie jest zmieniany gdy nie podany. Grupa nie jest zmieniana "
+"je¿eli\n"
+"nie podana, ale zmieniana na grupê g³ówn± je¿eli podana jest jako kropka.\n"
+"Dwukropek mo¿e zast±piæ kropkê.\n"
+
+#: src/cp-aux.c:35 src/mv.c:380
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... SOURCE DEST\n"
+"  or:  %s [OPTION]... SOURCE... DIRECTORY\n"
+msgstr ""
+"U¿ycie: %s [OPCJA]... ¬RÓD£O CEL\n"
+"  albo: %s [OPCJA]... ¬RÓD£O... KATALOG\n"
+
+#: src/cp-aux.c:40
+#, fuzzy
+msgid ""
+"Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.\n"
+"\n"
+"  -a, --archive                same as -dpR\n"
+"  -b, --backup                 make backup before removal\n"
+"  -d, --no-dereference         preserve links\n"
+"  -f, --force                  remove existing destinations, never prompt\n"
+"  -i, --interactive            prompt before overwrite\n"
+"  -l, --link                   link files instead of copying\n"
+"  -p, --preserve               preserve file attributes if possible\n"
+"  -P, --parents                append source path to DIRECTORY\n"
+"  -r                           copy recursively, non-directories as files\n"
+"      --sparse=WHEN            control creation of sparse files\n"
+"  -R, --recursive              copy directories recursively\n"
+"  -s, --symbolic-link          make symbolic links instead of copying\n"
+"  -S, --suffix=SUFFIX          override the usual backup suffix\n"
+"  -u, --update                 copy only when the SOURCE file is newer\n"
+"                                 than the destination file or when the\n"
+"                                 destination file is missing\n"
+"  -v, --verbose                explain what is being done\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"  -x, --one-file-system        stay on this file system\n"
+"      --help                   display this help and exit\n"
+"      --version                output version information and exit\n"
+"\n"
+"By default, sparse SOURCE files are detected by a crude heuristic and the\n"
+"corresponding DEST file is made sparse as well.  That is the behavior\n"
+"selected by --sparse=auto.  Specify --sparse=always to create a sparse DEST\n"
+"file whenever the SOURCE file contains a long enough sequence of zero "
+"bytes.\n"
+"Use --sparse=never to inhibit creation of sparse files.\n"
+"\n"
+msgstr ""
+"Skopiuj ¯RÓD£O do CELu lub ¬RÓD£ó/¬RÓD£A do katalogu.\n"
+"\n"
+"  -a, --archive                to samo co -dpR\n"
+"  -b, --backup                 zrób kopiê zapasow± przed usuniêciem\n"
+"  -d, --no-dereference         zachowaj dowi±zania symboliczne\n"
+"  -f, --force                  skasuj istniej±ce cele nie pytaj±c\n"
+"  -i, --interactive            zapytaj przez skasowaniem\n"
+"  -l, --link                   dowi±zuj pliki zamiast kopiowaæ\n"
+"  -p, --preserve               zachowaj uprawnienia plików je¿eli to "
+"mo¿liwe\n"
+"  -r                           kopiuj rekursywnie, nie-katalogi jako pliki\n"
+"      --sparse=GDY             steruj tworzeniem plików rzadkich\n"
+"  -s, --symbolic-link          dowi±zuj pliki symbolicznie zamiast kopiowaæ\n"
+"  -u, --update                 kopiuj tylko pliki nowsze\n"
+"  -v, --verbose                wyja¶niaj co siê dzieje\n"
+"  -x, --one-file-system        pozostañ w jednym systemie plików\n"
+"  -P, --parents                dopisz ¶cie¿kê ¼ród³ow± do KATALOGu\n"
+"  -R, --recursive              kopiuj katalogi rekursywnie\n"
+"  -S, --suffix=ROZSZERZENIE    zmieñ domy¶lne rozszerz. kopii zapasowej\n"
+"  -V, --version-control=S£OWO  inne parametry generowania kopii zapasowych\n"
+"      --help                   wy¶wietl ten opis i zakoñcz\n"
+"      --version                wy¶wietl informacjê o wersji i zakoñcz\n"
+"\n"
+"Domy¶lnie pliki rzadkie s± wykrywane prost± heurystyk± i odpowiedni\n"
+"plik CEL jest tworzony te¿ jako rzadki.  Takie zachowanie jest wybierane\n"
+"przez --sparse=auto.  Podaj --sparse-always ¿eby utworzyæ rzadki plik CEL\n"
+"zawsze gdy plik ¬RÓD£OWY zawiera wystarczaj±co d³ug± sekwencjê zer.\n"
+"U¿yj --sparse=never zeby zakazaæ tworzenia plików rzadkich.\n"
+"\n"
+
+#: src/cp-aux.c:72 src/install.c:617 src/ln.c:339 src/mv.c:399
+msgid ""
+"The backup suffix is ~, unless set with SIMPLE_BACKUP_SUFFIX.  The\n"
+"version control may be set with VERSION_CONTROL, values are:\n"
+"\n"
+"  t, numbered     make numbered backups\n"
+"  nil, existing   numbered if numbered backups exist, simple otherwise\n"
+"  never, simple   always make simple backups\n"
+msgstr ""
+"Rozszerzenie nazwy kopii zapasowej to ~ je¿eli nie jest ustawione inaczej\n"
+"przez SIMPLE_BACKUP_SUFFIX. Sterowanie wersjami mo¿e byæ ustawione przez\n"
+"zmienn± VERSION_CONTROL, której warto¶ci mog± byæ:\n"
+"\n"
+"  t, numbered     twórz numerowane kopie zapasowe\n"
+"  nil, existing   numerowane je¿eli takie ju¿ istnieja, je¿eli nie - proste\n"
+"  never, simple   twórz zawsze proste kopie zapasowe  \n"
+
+#: src/cp-aux.c:80
+msgid ""
+"\n"
+"As a special case, cp makes a backup of SOURCE when the force and backup\n"
+"options are given and SOURCE and DEST are the same name for an existing,\n"
+"regular file.\n"
+msgstr ""
+"\n"
+"W przypadku specjalnym cp robi kopiê zapasow± ¯RÓD£A je¿eli s± podane\n"
+"opcje force i backup, a ¯RÓD£O i CEL s± t± sam± nazw± istniej±cego pliku\n"
+"zwyk³ego\n"
+
+#: src/cp.c:268
+msgid "sparse type"
+msgstr "typ rzadki"
+
+#: src/cp.c:326 src/ln.c:404
+msgid "symbolic links are not supported on this system"
+msgstr "ten system nie pozwala tworzyæ dowi±zañ symbolicznych"
+
+#: src/cp.c:366
+msgid "cannot make both hard and symbolic links"
+msgstr "nie mogê zrobiæ dowi±zania symbolicznego i zwyk³ego równocze¶nie"
+
+#: src/cp.c:406 src/mv.c:481
+msgid "missing file arguments"
+msgstr "brakuj±ce argumenty plikowe"
+
+#: src/cp.c:411
+msgid "missing destination file"
+msgstr "brakuj±cy plik docelowy"
+
+#: src/cp.c:518
+msgid "when preserving paths, last argument must be a directory"
+msgstr "je¿eli s± zachowane ¶cie¿ki ostatni argument musi byæ katalogiem"
+
+#: src/cp.c:579
+#, fuzzy, c-format
+msgid "copying multiple files, but last argument (%s) is not a directory"
+msgstr ""
+"je¿eli kopiowanych jest wiele plików ostatni argument musi byæ katalogiem"
+
+#: src/cp.c:633
+#, c-format
+msgid "%s: omitting directory"
+msgstr "%s: pomijam katalog"
+
+#: src/cp.c:658 src/install.c:391 src/ln.c:213 src/mv.c:252
+#, c-format
+msgid "`%s' and `%s' are the same file"
+msgstr "`%s' i `%s' to ten sam plik"
+
+#: src/cp.c:668
+#, c-format
+msgid "%s: cannot overwrite directory with non-directory"
+msgstr "%s: nie mogê zamazaæ nie-katalogu katalogiem"
+
+#: src/cp.c:682
+#, c-format
+msgid "%s: overwrite `%s', overriding mode %04o? "
+msgstr "%s: zamazujê `%s', obej¶æ uprawnienia %04o? "
+
+#: src/cp.c:688
+#, c-format
+msgid "%s: overwrite `%s'? "
+msgstr "%s: zamazaæ `%s'? "
+
+#: src/cp.c:708
+#, c-format
+msgid "backing up `%s' would destroy source;  `%s' not copied"
+msgstr ""
+"utworzenie kopii zapasowej `%s' zniszczy³oby ¿ród³o;  `%s' nie skopiowane"
+
+#: src/cp.c:720 src/ln.c:270 src/mv.c:294
+#, c-format
+msgid "cannot backup `%s'"
+msgstr "nie mogê utworzyæ kopii zapasowej `%s'"
+
+#: src/cp.c:748
+#, c-format
+msgid "cannot remove old link to `%s'"
+msgstr "nie mogê usun±æ starego dowi±zania do `%s'"
+
+#: src/cp.c:788
+#, c-format
+msgid "%s: cannot copy cyclic symbolic link"
+msgstr "%s: nie mogê skopiowaæ cyklicznego dowi±zania symbolicznego"
+
+#: src/cp.c:806
+#, c-format
+msgid "cannot create directory `%s'"
+msgstr "nie mogê utworzyæ katalogu `%s'"
+
+#: src/cp.c:844
+#, c-format
+msgid "%s: can make relative symbolic links only in current directory"
+msgstr ""
+"%s: mogê zrobiæ tylko wzglêdne dowi±zanie symboliczne w bie¿±cym katalogu"
+
+#: src/cp.c:854
+#, c-format
+msgid "cannot create link `%s'"
+msgstr "nie mogê utworzyæ dowi±zania `%s'"
+
+#: src/cp.c:875
+#, c-format
+msgid "cannot create fifo `%s'"
+msgstr "nie mogê utworzyæ fifo `%s'"
+
+#: src/cp.c:889
+#, c-format
+msgid "cannot create special file `%s'"
+msgstr "nie mogê utworzyæ pliku specjalnego `%s'"
+
+#: src/cp.c:904
+#, c-format
+msgid "cannot read symbolic link `%s'"
+msgstr "nie mogê odczytac dowi±zania symbolicznego `%s'"
+
+#: src/cp.c:911
+#, c-format
+msgid "cannot create symbolic link `%s'"
+msgstr "nie mogê utworzyæ dowi±zania symbolicznego `%s'"
+
+#: src/cp.c:954
+#, c-format
+msgid "%s: unknown file type"
+msgstr "%s: nieznany typ pliku"
+
+#: src/cp.c:1007 src/ln.c:303 src/mv.c:339
+#, c-format
+msgid "cannot un-backup `%s'"
+msgstr "nie mogê odwrócic utworzenia kopii zapasowej `%s'"
+
+#: src/cp.c:1084 src/mkdir.c:148
+#, c-format
+msgid "cannot make directory `%s'"
+msgstr "nie mogê utworzyæ katalogu `%s'"
+
+#: src/cp.c:1095 src/cp.c:1116
+#, c-format
+msgid "`%s' exists but is not a directory"
+msgstr "`%s' istnieje, ale nie jest katalogiem"
+
+#: src/cp.c:1300
+#, c-format
+msgid "cannot create regular file `%s'"
+msgstr "nie mogê utworzyæ zwyk³ego pliku `%s'"
+
+#: src/dircolors.c:106
+#, c-format
+msgid "Usage: %s [OPTION]... [FILE]\n"
+msgstr "U¿ycie: %s [OPCJA]... [PLIK]\n"
+
+#: src/dircolors.c:107
+#, fuzzy
+msgid ""
+"Output commands to set the LS_COLORS environment variable.\n"
+"\n"
+"Determine format of output:\n"
+"  -b, --sh, --bourne-shell    output Bourne shell code to set LS_COLORS\n"
+"  -c, --csh, --c-shell        output C shell code to set LS_COLORS\n"
+"  -p, --print-database        output defaults\n"
+"      --help                  display this help and exit\n"
+"      --version               output version information and exit\n"
+"\n"
+"If FILE is specified, read it to determine which colors to use for which\n"
+"file types and extensions.  Otherwise, a precompiled database is used.\n"
+"For details on the format of these files, run `dircolors --print-database'.\n"
+msgstr ""
+"Wypisz komendy ustawiaj±ce zmienn± ¶rodowiskow± LS_COLOR.\n"
+"\n"
+"Ustal format:\n"
+"  -b, --sh, --bourne-shell    pisz w kodzie shella Bourne'a\n"
+"  -c, --csh, --c-shell        pisz w kodzie shella C\n"
+"  -p, --print-data-base       wypisz warto¶ci domy¶lne\n"
+"      --help                  wy¶wietl ten opis i zakoñcz\n"
+"      --version               wy¶wietl informacjê o wersji i zakoñcz\n"
+
+#: src/dircolors.c:363
+#, c-format
+msgid "%s:%lu: unrecognized keyword `%s'"
+msgstr "%s:%lu: nierozpoznane s³owo kluczowe `%s'"
+
+#: src/dircolors.c:455
+msgid ""
+"the options to output dircolors' internal database and\n"
+"to select a shell syntax are mutually exclusive"
+msgstr ""
+"opcje wypisuj±ce wewnêtrzn± bazê danych dircolors oraz\n"
+"wybieraj±ce sk³adniê shella wzajeminie siê wy³±czaj±"
+
+#: src/dircolors.c:463
+msgid ""
+"no FILE arguments may be used with the option to output\n"
+"dircolors' internal database"
+msgstr ""
+"z opcj± wypisuj±c± wewnêtrzn± bazê danych dircolors nie\n"
+"mo¿e byæ u¿yty ¿aden argument plikowy"
+
+#: src/dircolors.c:470 src/mknod.c:142
+msgid "too many arguments"
+msgstr "za du¿o argumentów"
+
+#: src/dircolors.c:492
+msgid "no SHELL environment variable, and no shell type option given"
+msgstr "Brak zmiennej SHELL i opcji typu shella"
+
+#: src/dircolors.c:526 src/ls.c:747
+msgid "write error"
+msgstr "b³±d zapisu"
+
+#: src/dd.c:358 src/dd.c:362 src/dircolors.c:529
+msgid "standard input"
+msgstr "standardowe wej¶cie"
+
+#: src/dd.c:361
+#, c-format
+msgid "%s is closed"
+msgstr "%s jest zamkniêty"
+
+#: src/dd.c:363 src/dd.c:383
+msgid "standard output"
+msgstr "standardowe wyj¶cie"
+
+#: src/dd.c:832
+#, c-format
+msgid "unrecognized option `%s'"
+msgstr "nierozpoznana opcja `%s'"
+
+#: src/dd.c:847
+#, c-format
+msgid "invalid number `%s'"
+msgstr "nieprawid³owa liczba `%s'"
+
+#: src/dd.c:871
+#, c-format
+msgid "unrecognized option `%s=%s'"
+msgstr "nieropoznana opcja `%s=%s'"
+
+#: src/dd.c:957
+#, c-format
+msgid "%s: invalid conversion"
+msgstr "%s: nieprawid³owe przekszta³cenie"
+
+#: src/dd.c:977
+msgid ""
+"only one conv in {ascii,ebcdic,ibm}, {lcase,ucase}, {block,unblock}, "
+"{unblock,sync}"
+msgstr ""
+"tylko po jednym przekszta³ceniu ze zbiorów {ascii,ebcdic,ibm}, "
+"{lcase,ucase}, {block,unblock}, {unblock,sync}"
+
+#: src/dd.c:1039
+#, c-format
+msgid "%u+%u records in\n"
+msgstr "%u+%u rekordów wczytanych\n"
+
+#: src/dd.c:1040
+#, c-format
+msgid "%u+%u records out\n"
+msgstr "%u+%u rekordów zapisanych\n"
+
+#: src/dd.c:1044
+msgid "truncated record"
+msgstr "obciêty rekord"
+
+#: src/dd.c:1045
+msgid "truncated records"
+msgstr "obciête rekordy"
+
+#: src/dd.c:1090
+#, c-format
+msgid "Usage: %s [OPTION]...\n"
+msgstr "U¿ycie: %s [OPCJA]...\n"
+
+# nie wiem jak conv=S£_KL
+#: src/dd.c:1091
+msgid ""
+"Copy a file, converting and formatting according to the options.\n"
+"\n"
+"  bs=BYTES        force ibs=BYTES and obs=BYTES\n"
+"  cbs=BYTES       convert BYTES bytes at a time\n"
+"  conv=KEYWORDS   convert the file as per the comma separated keyword list\n"
+"  count=BLOCKS    copy only BLOCKS input blocks\n"
+"  ibs=BYTES       read BYTES bytes at a time\n"
+"  if=FILE         read from FILE instead of stdin\n"
+"  obs=BYTES       write BYTES bytes at a time\n"
+"  of=FILE         write to FILE instead of stdout, don't truncate file\n"
+"  seek=BLOCKS     skip BLOCKS obs-sized blocks at start of output\n"
+"  skip=BLOCKS     skip BLOCKS ibs-sized blocks at start of input\n"
+"      --help      display this help and exit\n"
+"      --version   output version information and exit\n"
+"\n"
+"BYTES may be suffixed: by xM for multiplication by M, by c for x1,\n"
+"by w for x2, by b for x512, by k for x1024.  Each KEYWORD may be:\n"
+"\n"
+"  ascii     from EBCDIC to ASCII\n"
+"  ebcdic    from ASCII to EBCDIC\n"
+"  ibm       from ASCII to alternated EBCDIC\n"
+"  block     pad newline-terminated records with spaces to cbs-size\n"
+"  unblock   replace trailing spaces in cbs-size records with newline\n"
+"  lcase     change upper case to lower case\n"
+"  ucase     change lower case to upper case\n"
+"  swab      swap every pair of input bytes\n"
+"  noerror   continue after read errors\n"
+"  sync      pad every input block with NULs to ibs-size\n"
+msgstr ""
+"Kopiuj plik, przekszta³caj±c i formatuj±c zgodnie z opcjami.\n"
+"\n"
+"  bs=BAJTÓW       wymu¶ ibs=BAJTÓW and obs=BAJTÓW\n"
+"  cbs=BAJTÓW      przekszta³caj tyle BAJTÓW za jednym razem\n"
+"  conv=S£OWA_KL   przekszta³caj plik wg listy s³ów kluczowych\n"
+"  count=BLOKÓW    skopiuj tylko tyle BLOKÓW z wej¶cia\n"
+"  ibs=BAJTÓW      czytaj tyle BAJTÓW naraz\n"
+"  if=PLIK         czytaj z PLIKu zamiast ze std. wej¶cia\n"
+"  obs=BAJTÓW      zapisuj tyle BAJTÓW naraz\n"
+"  of=PLIK         zapisuj do PLIKu zamiast do std. wyj¶cia, nie skracaj "
+"pliku\n"
+"  seek=BLOKÓW     przeskocz tyle BLOKÓW o rozmiarze ibs na wyj¶ciu\n"
+"  skip=BLOKÓW     przeskocz tyle BLOKÓW o rozmiarze ibs na wej¶ciu\n"
+"      --help      wy¶wietl ten opis i zakoñcz\n"
+"      --version   wy¶wietl informacjê o wersji i zakoñcz\n"
+"\n"
+"BAJTY mog± mieæ przydrostek: xM dla pomno¿enia przez M, c - jak x1,\n"
+"w - jak x2, b - jak x512, k - jak x1024. Ka¿de S£OWO_KL mo¿e byæ:\n"
+"\n"
+"  ascii     z EBCDIC do ASCII\n"
+"  ebcdic    z ASCII do EBCDIC\n"
+"  ibm       z ASCII do zmienionego EBCDIC\n"
+"  block     wyrównaj rekordy zakoñcz. zn. nowej linii spacjami do rozm. cbs\n"
+"  unblock   zamieñ koñcowe spacje w rekordach o rozm. cbs na zn. nowej "
+"linii\n"
+"  lcase     zamieñ du¿e litery na ma³e\n"
+"  ucase     zamieñ ma³e litery na du¿e\n"
+"  swab      zamieñ ka¿d± parê bajtów\n"
+"  noerror   kontynuuj mimo b³êdów czytania\n"
+"  sync      dope³nij ka¿dy blok wej¶ciowy zerami do rozmiaru ibs\n"
+
+#: src/df.c:556 src/du.c:219 src/ls.c:2741
+#, c-format
+msgid "Usage: %s [OPTION]... [FILE]...\n"
+msgstr "U¿ycie: %s [OPCJA]... [PLIK]...\n"
+
+#: src/df.c:557
+#, fuzzy
+msgid ""
+"Show information about the filesystem on which each FILE resides,\n"
+"or all filesystems by default.\n"
+"\n"
+"  -a, --all             include filesystems having 0 blocks\n"
+"  -h, --human-readable  print sizes in human readable format (e.g., 1K 234M "
+"2G)\n"
+"  -i, --inodes          list inode information instead of block usage\n"
+"  -k, --kilobytes       use 1024-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -m, --megabytes       use 1024K-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"      --no-sync         do not invoke sync before getting usage info "
+"(default)\n"
+"  -P, --portability     use the POSIX output format\n"
+"      --sync            invoke sync before getting usage info\n"
+"  -t, --type=TYPE       limit listing to filesystems of type TYPE\n"
+"  -T, --print-type      print filesystem type\n"
+"  -x, --exclude-type=TYPE   limit listing to filesystems not of type TYPE\n"
+"  -v                    (ignored)\n"
+"      --help            display this help and exit\n"
+"      --version         output version information and exit\n"
+msgstr ""
+"Wypisz informacjê o systemie plików w którym jest ka¿dy podany PLIK\n"
+"albo, domy¶lnie, o wszystkich systemach plików.\n"
+"\n"
+"  -a, --all             równie¿ systemy plików maj±ce 0 bloków\n"
+"  -h, --human-readable  rozmiary w formacie dla ludzi (np. 1K 234M 2G)\n"
+"  -i, --inodes          wypisz informacjê i i-wêz³ach zamiast o blokach\n"
+"  -k, --kilobytes       u¿yj bloków po 1024 B, nie 512, mimo "
+"POSIXLY_CORRECT\n"
+"  -m, --megabytes       u¿yj bloków po 1024 KB, nie 512, mimo "
+"POSIXLY_CORRECT\n"
+"      --no-sync         nie wo³aj sync przez pobraniem informacji "
+"(domy¶lnie)\n"
+"      --sync            zawo³aj sync przed pobraniem informacji\n"
+"  -t, --type=TYP        poka¿ tylko systemy plików tego TYPu\n"
+"  -x, --exclude-type=TYP   poka¿ tylko systemy plików nie tego TYPu\n"
+"  -v                    (ignorowane)\n"
+"  -P, --portability     u¿yj formatu zgodnego z POSIX\n"
+"  -T, --print-type      wypisz typ systemu plików\n"
+"      --help            wy¶wietl ten opis i zakoñcz\n"
+"      --version         wy¶wietl informacjê o wersji i zakoñcz\n"
+
+#: src/df.c:681
+msgid ""
+"the option for counting 1MB blocks may not be used\n"
+"with the portable output format"
+msgstr ""
+"opcja liczenia bloków o rozmiarze 1 MB nie mo¿e byæ u¿yta\n"
+"dla przeno¶nego formatu wyj¶ciowego"
+
+#: src/df.c:686
+msgid ""
+"the option for printing with adaptive units may not be used\n"
+"with the portable output format"
+msgstr ""
+"opcja pisania w jednostkach adaptuj±cych siê nie mo¿e byæ u¿yta\n"
+"dla przeno¶nego formatu wyj¶ciowego"
+
+#: src/df.c:701
+#, c-format
+msgid "file system type `%s' both selected and excluded"
+msgstr "typ systemu plików `%s' równocze¶nie wybrany i wykluczony"
+
+#: src/df.c:746
+msgid "cannot read table of mounted filesystems"
+msgstr "nie mogê przeczytaæ tablicy zamontowanych systemów plików"
+
+#: src/du.c:220
+msgid ""
+"Summarize disk usage of each FILE, recursively for directories.\n"
+"\n"
+"  -a, --all             write counts for all files, not just directories\n"
+"  -b, --bytes           print size in bytes\n"
+"  -c, --total           produce a grand total\n"
+"  -D, --dereference-args  dereference PATHs when symbolic link\n"
+"  -h, --human-readable  print sizes in human readable format (e.g., 1K 234M "
+"2G)\n"
+"  -k, --kilobytes       use 1024-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -l, --count-links     count sizes many times if hard linked\n"
+"  -L, --dereference     dereference all symbolic links\n"
+"  -m, --megabytes       use 1024K-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -S, --separate-dirs   do not include size of subdirectories\n"
+"  -s, --summarize       display only a total for each argument\n"
+"  -x, --one-file-system  skip directories on different filesystems\n"
+"      --help            display this help and exit\n"
+"      --version         output version information and exit\n"
+msgstr ""
+"Podsumuj zu¿ycie dysku przez ka¿dy PLIK, rekursywnie dla podkatalogów.\n"
+"\n"
+"  -a, --all             podaj podliczenia dla plików, nie samych katalogów\n"
+"  -b, --bytes           wypisz rozmiary w bajtach\n"
+"  -c, --total           wypisz podsumowanie ca³o¶ci\n"
+"  -D, --dereference-args  rozwiñ SCIE¯KI je¿eli dowi±zania symboliczne\n"
+"  -h, --human-readable  rozmiary w formacie dla ludzi (np. 1K 234M 2G)\n"
+"  -k, --kilobytes       u¿yj bloków po 1024 B, nie 512, mimo "
+"POSIXLY_CORRECT\n"
+"  -l, --count-links     licz rozmiar wielokrotnie je¿eli plik ma dowi±zania\n"
+"  -L, --dereference     rozwiñ wszystkie dowi±zania symboliczne\n"
+"  -m, --megabytes       u¿yj bloków po 1024 KB, nie 512, mimo "
+"POSIXLY_CORRECT\n"
+"  -S, --separate-dirs   nie uwzglêdniaj rozmiarów katalogów\n"
+"  -s, --summarize       wypisz tylko podsumowania dla ka¿dego argumentu\n"
+"  -x, --one-file-system  omiñ katalogi bêd±ce w innych systemach plików\n"
+"      --help            wy¶wietl ten opis i zakoñcz\n"
+"      --version         wy¶wietl informacjê o wersji i zakoñcz\n"
+
+#: src/du.c:347
+msgid "cannot both summarize and show all entries"
+msgstr "nie mogê równocze¶nie tylko podsumowaæ i wypisaæ wszystkich danych"
+
+#: src/du.c:431
+msgid "current directory"
+msgstr "bie¿±cy katalog"
+
+#: src/du.c:466 src/mvdir.c:107
+msgid "starting directory"
+msgstr "pocz±tkowy katalog"
+
+#: src/du.c:481
+#, c-format
+msgid "%ld\ttotal\n"
+msgstr "%ld\trazem\n"
+
+#: src/du.c:551
+#, c-format
+msgid "cannot change to directory %s"
+msgstr "nie mogê przej¶æ do katalogu %s"
+
+#: src/du.c:570 src/du.c:602
+#, c-format
+msgid "cannot change to `..' from directory %s"
+msgstr "nie mogê przej¶æ do `..' z katalogu %s"
+
+#: src/install.c:256
+msgid "the strip option may not be used when installing a directory"
+msgstr "opcja strip nie mo¿e byæ u¿yta przy instalacji katalogu"
+
+#: src/install.c:271 src/mkdir.c:133
+#, c-format
+msgid "invalid mode `%s'"
+msgstr "z³e uprawnienia `%s'"
+
+#: src/install.c:378
+#, fuzzy, c-format
+msgid "`%s' is a directory"
+msgstr "%s: jest katalogiem"
+
+#: src/install.c:385
+#, c-format
+msgid "`%s' is not a regular file"
+msgstr "`%s' nie jest plikiem zwyk³ym"
+
+#: src/install.c:526
+msgid "fork system call failed"
+msgstr ""
+
+#: src/install.c:530
+msgid "cannot run strip"
+msgstr "nie mogê uruchomiæ strip"
+
+#: src/install.c:556
+#, c-format
+msgid "invalid user `%s'"
+msgstr "b³edny u¿ytkownik `%s'"
+
+#: src/install.c:574
+#, c-format
+msgid "invalid group `%s'"
+msgstr "b³êdna grupa `%s'"
+
+#: src/install.c:593
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... SOURCE DEST           (1st format)\n"
+"  or:  %s [OPTION]... SOURCE... DIRECTORY   (2nd format)\n"
+"  or:  %s -d [OPTION]... DIRECTORY...       (3rd format)\n"
+msgstr ""
+"U¿ycie: %s [OPCJA]... ¬RÓD£O CEL            (format 1-szy)\n"
+"  albo: %s [OPCJA]... ¬RÓD£O... KATALOG     (format 2-gi)\n"
+"  albo: %s -d [OPCJA]... KATALOG...         (format 3-ci)\n"
+
+# dunno what means `make all components of the given DIRECTORY(ies)' - rzm
+#: src/install.c:599
+#, fuzzy
+msgid ""
+"In first two formats, copy SOURCE to DEST or multiple SOURCE(s) to\n"
+"DIRECTORY, while setting permission modes and owner/group.  In third\n"
+"format, make all components of the given DIRECTORY(ies).\n"
+"\n"
+"  -b, --backup        make backup before removal\n"
+"  -c                  (ignored)\n"
+"  -d, --directory     create [leading] directories, mandatory for 3rd "
+"format\n"
+"  -g, --group=GROUP   set group ownership, instead of process' current "
+"group\n"
+"  -m, --mode=MODE     set permission mode (as in chmod), instead of "
+"rw-r--r--\n"
+"  -o, --owner=OWNER   set ownership (super-user only)\n"
+"  -s, --strip         strip symbol tables, only for 1st and 2nd formats\n"
+"  -S, --suffix=SUFFIX override the usual backup suffix\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"      --help          display this help and exit\n"
+"      --version       output version information and exit\n"
+"\n"
+msgstr ""
+"W pierwszych dwóch formatach kopiuj ¬RÓD£O do CELu lub wiele ¬RÓDE£ do\n"
+"KATALOGu i ustaw uprawnienia oraz w³a¶ciciela/grupê. W trzecim\n"
+"formacie u¿yj wszystkich sk³adników danego KATALOGu.\n"
+"\n"
+"  -c                  (ignorowane)\n"
+"  -d, --directory     utwórz [g³ówne] katalogi, niezbêdne w formacie "
+"trzecim\n"
+"  -g, --group=GRUPA   ustaw GRUPÊ jako w³a¶ciciela, zamiast bie¿±cej grupy\n"
+"  -m, --mode=UPRAWNIENIA   ustaw uprawnienia (jak w chmod) zamiast "
+"rw-r--r--\n"
+"  -o, --owner=W£A¦CICIEL   ustaw W£A¦CICIELA (tylko super-user)\n"
+"  -s, --strip         skasuj tablice symboli, tylko w 1 i 2 formacie\n"
+"  -b, --backup        zrób kopiê zapasow± przed skasowaniem\n"
+"  -S, --suffix=ROZSZERZ zmieñ domy¶lne rozszerzenie kopii zapasowej\n"
+"  -V, --version-control=S£OWO   zmieñ domy¶lne sterowanie wersjami\n"
+"      --help            wy¶wietl ten opis i zakoñcz\n"
+"      --version         wy¶wietl informacjê o wersji i zakoñcz\n"
+"\n"
+
+#: src/ln.c:178
+#, c-format
+msgid "%s: hard link not allowed for directory"
+msgstr "%s: dowi±zanie zwyk³e nie dozwolone dla katalogu"
+
+#: src/ln.c:243 src/mv.c:258
+#, c-format
+msgid "%s: cannot overwrite directory"
+msgstr "%s: nie mogê zamazaæ katalogu"
+
+#: src/ln.c:248 src/mv.c:277
+#, c-format
+msgid "%s: replace `%s'? "
+msgstr "%s: zast±piæ `%s'? "
+
+#: src/ln.c:254
+#, c-format
+msgid "%s: File exists"
+msgstr "%s: Plik istnieje"
+
+#: src/ln.c:279 src/mv.c:148 src/mv.c:329
+#, c-format
+msgid "cannot remove `%s'"
+msgstr "nie mogê usun±æ `%s'"
+
+#: src/ln.c:290
+#, c-format
+msgid "create %s %s to %s\n"
+msgstr "utwórz %s  %s do %s\n"
+
+#: src/ln.c:297
+#, c-format
+msgid "cannot create %s `%s' to `%s'"
+msgstr "nie mogê utworzyæ %s `%s' do `%s'"
+
+#: src/ln.c:316
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... SOURCE [DEST]\n"
+"  or:  %s [OPTION]... SOURCE... DIRECTORY\n"
+msgstr ""
+"Usage: %s [OPCJA]... ¬RÓD£O [CEL]\n"
+" albo: %s [OPCJA]... ¬RÓD£O... KATALOG\n"
+
+#: src/ln.c:321
+#, fuzzy
+msgid ""
+"Link SOURCE to DEST (. by default), or multiple SOURCE(s) to DIRECTORY.\n"
+"Makes hard links by default, symbolic links with -s.\n"
+"\n"
+"  -b, --backup                 make backups for removed files\n"
+"  -d, -F, --directory          hard link directories (super-user only)\n"
+"  -f, --force                  remove existing destinations\n"
+"  -n, --no-dereference         treat destination that is a symlink to a\n"
+"                                 directory as if it were a normal file\n"
+"  -i, --interactive            prompt whether to remove destinations\n"
+"  -s, --symbolic               make symbolic links instead of hard links\n"
+"  -S, --suffix=SUFFIX          override the usual backup suffix\n"
+"  -v, --verbose                print name of each file before linking\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"      --help                   display this help and exit\n"
+"      --version                output version information and exit\n"
+"\n"
+msgstr ""
+"Dowi±¿ ¬RÓD£O do CELu (domy¶lnie .) albo wiele ¬RÓDE£ do KATALOGu.\n"
+"Tworzy zwyk³e dowi±zania, z -s tworzy dowi±zania symboliczne.\n"
+"\n"
+"  -b, --backup                 zrób kopiê zapasow± przed skasowaniem\n"
+"  -d, -F, --directory          dowi±zanie zwyk³e katalogów (tylko "
+"super-user)\n"
+"  -f, --force                  skasuj istniej±ce cele nie pytaj±c\n"
+"  -n, --no-dereference         je¿eli CEL jest dowi±zaniem symbolicznym do\n"
+"                                 katalogu, traktuj je jak zwyk³y plik\n"
+"  -i, --interactive            pytaj czy usun±c CELe\n"
+"  -s, --symbolic               twórz dowi±zania symboliczne zamiast "
+"zwyk³ych\n"
+"  -v, --verbose                wypisz nazwê pliku przed dowi±zaniem\n"
+"  -S, --suffix=ROZSZERZ        zmieñ domy¶lne rozszerzenie kopii zapasowej\n"
+"  -V, --version-control=S£OWO  zmieñ domy¶lne sterowanie wersjami\n"
+"      --help                   wy¶wietl ten opis i zakoñcz\n"
+"      --version                wy¶wietl informacjê o wersji i zakoñcz\n"
+"\n"
+
+#: src/ln.c:433 src/mv.c:482
+msgid "missing file argument"
+msgstr "brakuj±cy argument plikowy"
+
+#: src/ln.c:444
+msgid "symbolic link"
+msgstr "dowi±zanie symboliczne"
+
+#: src/ln.c:449
+msgid "hard link"
+msgstr "dowi±zanie zwyk³e"
+
+#: src/ln.c:452
+msgid "link"
+msgstr "dowi±zanie"
+
+#: src/ln.c:490
+msgid "when making multiple links, last argument must be a directory"
+msgstr ""
+"kiedy tworzonych jest wiele dowi±zañ, ostatni argument musi byæ katalogiem"
+
+#: src/ls.c:835
+#, c-format
+msgid "ignoring invalid width in environment variable COLUMNS: %s"
+msgstr "ignorujê b³êdn± d³ugo¶æ w zmiennej ¶rodowiskowej COLUMNS: %s"
+
+#: src/ls.c:862
+#, c-format
+msgid "ignoring invalid tab size in environment variable TABSIZE: %s"
+msgstr "ignorujê b³êdny rozmiar tab-a w zmiennej ¶rodowiska TABSIZE: %s"
+
+#: src/ls.c:964
+#, c-format
+msgid "invalid line width: %s"
+msgstr "b³êdna d³ugo¶æ linii: %s"
+
+#: src/ls.c:1028
+#, c-format
+msgid "invalid tab size: %s"
+msgstr "b³edny rozmiar tab-a: %s"
+
+#: src/ls.c:1048
+msgid "sort type"
+msgstr "rodzaj sortowania"
+
+#: src/ls.c:1058
+msgid "time type"
+msgstr "rodzaj czasu"
+
+#: src/ls.c:1068
+msgid "format type"
+msgstr "rodzaj formatu"
+
+#: src/ls.c:1080
+msgid "colorization criterion"
+msgstr "kryterium kolorowania"
+
+#: src/ls.c:1407
+#, c-format
+msgid "unrecognized prefix: %s"
+msgstr "nierozpoznany przedrostek: %s"
+
+#: src/ls.c:1429
+msgid "unparsable value for LS_COLORS environment variable"
+msgstr "niezrozumia³a warto¶æ zmiennej ¶rodowiska LS_COLORS"
+
+#: src/ls.c:2742
+#, fuzzy
+msgid ""
+"List information about the FILEs (the current directory by default).\n"
+"Sort entries alphabetically if none of -cftuSUX nor --sort.\n"
+"\n"
+"  -a, --all                  do not hide entries starting with .\n"
+"  -A, --almost-all           do not list implied . and ..\n"
+"  -b, --escape               print octal escapes for nongraphic characters\n"
+"  -B, --ignore-backups       do not list implied entries ending with ~\n"
+"  -c                         sort by change time; with -l: show ctime\n"
+"  -C                         list entries by columns\n"
+"      --color[=WHEN]         control whether color is used to distinguish "
+"file\n"
+"                               types.  WHEN may be `never', `always', or "
+"`auto'\n"
+"  -d, --directory            list directory entries instead of contents\n"
+"  -D, --dired                generate output designed for Emacs' dired mode\n"
+"  -f                         do not sort, enable -aU, disable -lst\n"
+"  -F, --classify             append a character for typing each entry\n"
+"      --format=WORD          across -x, commas -m, horizontal -x, long -l,\n"
+"                               single-column -1, verbose -l, vertical -C\n"
+"      --full-time            list both full date and full time\n"
+msgstr ""
+"Wypisz informacjê o PLIKach (domy¶lnie w katalogu bie¿±cym). Sortuj\n"
+"alfabetycznie je¿eli nie jest podana ¿adna z opcji -cftuSUX ani --sort.\n"
+"\n"
+"  -A, --almost-all           nie pokazuj . ani ..\n"
+"  -a, --all                  nie chowaj plików zaczynaj±cych siê od .\n"
+"  -B, --ignore-backups       nie pokazuj plików koñcz±cych siê na ~\n"
+"  -b, --escape               wypisuj znaki niegraficznie osemkowo\n"
+"  -C                         wypisuj pliki w kolumnach\n"
+"  -c                         sortuj wg czasu modyfikacji; z -l: poka¿ ctime\n"
+"      --color[=GDY]          steruj u¿yciem kolorów rozró¿niaj±cych typy\n"
+"                             plików. GDY mo¿e byæ `never', `always' albo "
+"`auto'\n"
+"  -D, --dired                pisz dane wyj¶ciowe dla trybu dired Emacsa\n"
+"  -d, --directory            pokazuj katalogi zamiast ich zawarto¶ci\n"
+"  -F, --classify             dopisz znak wskazuj±cy typ ka¿dego pliku\n"
+"  -f                         nie sortuj, w³acz -aU, wy³±cz -lst\n"
+"      --format=S£OWO         across -x, commas -m, horizontal -x, long -l,\n"
+"                               single-column -1, verbose -l, vertical -C\n"
+"      --full-time            poka¿ pe³n± datê i czas\n"
+
+#: src/ls.c:2762
+#, fuzzy
+msgid ""
+"  -g                         (ignored)\n"
+"  -G, --no-group             inhibit display of group information\n"
+"  -i, --inode                print index number of each file\n"
+"  -I, --ignore=PATTERN       do not list implied entries matching shell "
+"PATTERN\n"
+"  -k, --kilobytes            use 1024 blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -l                         use a long listing format\n"
+"  -L, --dereference          list entries pointed to by symbolic links\n"
+"  -m                         fill width with a comma separated list of "
+"entries\n"
+"  -n, --numeric-uid-gid      list numeric UIDs and GIDs instead of names\n"
+"  -N, --literal              print raw entry names (don't treat e.g. "
+"control\n"
+"                               characters specially)\n"
+"  -o                         use long listing format without group info\n"
+"  -p                         append a character for typing each entry\n"
+"  -q, --hide-control-chars   print ? instead of non graphic characters\n"
+"  -Q, --quote-name           enclose entry names in double quotes\n"
+"  -r, --reverse              reverse order while sorting\n"
+"  -R, --recursive            list subdirectories recursively\n"
+"  -s, --size                 print size of each file, in blocks\n"
+msgstr ""
+"  -G, --no-group             nie pokazuj informacji o grupach\n"
+"  -g                         (ignorowane)\n"
+"  -I, --ignore=WZÓR          nie pokazuj plików pasuj±cych do shellowego "
+"WZORu\n"
+"  -i, --inode                poka¿ numer inode dla ka¿dego pliku\n"
+"  -k, --kilobytes            u¿yj bloków 1024, nie 512 B, mimo "
+"POSIXLY_CORRECT\n"
+"  -L, --dereference          poka¿ pliki wskaz. przez dowi±zania "
+"symboliczne\n"
+"  -l                         u¿yj d³ugiego formatu wyj¶ciowego\n"
+"  -m                         pisz do pe³nej szeroko¶ci, oddzielaj±c "
+"przecinkami\n"
+"  -N, --literal              wypisz nazwy dok³adnie (nie traktuj specjalnie\n"
+"                               m.in. znaków steruj±cych)\n"
+"  -n, --numeric-uid-gid      poka¿ liczbowo UIDs i GIS zamiast nazw\n"
+"  -o                         u¿yj d³ugiego formatu bez informacji o grupach\n"
+"  -p                         dopisz znak wskazuj±cy typ ka¿dego pliku\n"
+"  -Q, --quote-name           ujmij nazwy w cudzys³owy\n"
+"  -q, --hide-control-chars   wypisz ? zamiast znaków steruj±cych\n"
+"  -R, --recursive            listuj katalogi rekursywnie\n"
+"  -r, --reverse              odwrotny porz±dek sortowania\n"
+"  -S                         posortuj wed³ug rozmiaru\n"
+
+#: src/ls.c:2782
+#, fuzzy
+msgid ""
+"  -S                         sort by file size\n"
+"      --sort=WORD            ctime -c, extension -X, none -U, size -S,\n"
+"                             status -c, time -t, atime -u, access -u, use "
+"-u\n"
+"      --time=WORD            show time as WORD instead of modification "
+"time:\n"
+"                             atime, access, use, ctime or status\n"
+"  -t                         sort by modification time; with -l: show mtime\n"
+"  -T, --tabsize=COLS         assume tab stops at each COLS instead of 8\n"
+"  -u                         sort by last access time; with -l: show atime\n"
+"  -U                         do not sort; list entries in directory order\n"
+"  -w, --width=COLS           assume screen width instead of current value\n"
+"  -x                         list entries by lines instead of by columns\n"
+"  -X                         sort alphabetically by entry extension\n"
+"  -1                         list one file per line\n"
+"      --help                 display this help and exit\n"
+"      --version              output version information and exit\n"
+"\n"
+"By default, color is not used to distinguish types of files.  That is\n"
+"equivalent to using --color=none.  Using the --color option without the\n"
+"optional WHEN argument is equivalent to using --color=always.  With\n"
+"--color=auto, color codes are output only if standard output is connected\n"
+"to a terminal (tty).\n"
+msgstr ""
+"  -s, --size                 wypisz ilo¶æ blków zajêtych przez ka¿dy plik\n"
+"      --sort=S£OWO           ctime -c, extension -X, none -U, size -S,\n"
+"                               status -c, time -t\n"
+"      --time=S£OWO           atime -u, access -u, use -u\n"
+"  -T, --tabsize=KOLUMNA      tab co tyle KOLUMN, zamiast co 8\n"
+"  -t                         sortuj wg czasu modyfikacji, z -l: poka¿ mtime\n"
+"  -U                         nie sortuj, wypisz w oryginalnym porz±dku\n"
+"  -u                         sortuj wg czasu dostêpu; z -l: poka¿ atime\n"
+"  -w, --width=KOLUMNA        szeroko¶c ekranu zamiast warto¶ci bie¿±cej\n"
+"  -x                         wypisuj nazwy kolejnymi liniami zamiast "
+"kolumnami\n"
+"  -X                         sortuj alfabetycznie wg rozszerzeñ\n"
+"  -1                         listuj po 1 pliku w linii\n"
+"      --help                 wy¶wietl ten opis i zakoñcz\n"
+"      --version              wy¶wietl informacjê o wersji i zakoñcz\n"
+"Domy¶lnie kolory nie s± u¿ywane do rozró¿niania typów plików. Jest to\n"
+"równowa¿ne u¿ycie --color=none.  U¿ycie opcji --color bez opcjonalnego\n"
+"argumentu GDY jest równowa¿ne u¿yciu --color=always.  Z --color=auto\n"
+"kody kolorów s± wypisywane tylko je¿eli standardowe wyj¶cie jest\n"
+"przy³±czone do terminala (tty).\n"
+
+#: src/mkdir.c:60
+#, c-format
+msgid "Usage: %s [OPTION] DIRECTORY...\n"
+msgstr "U¿ycie: %s [OPCJA] KATALOG...\n"
+
+#: src/mkdir.c:61
+#, fuzzy
+msgid ""
+"Create the DIRECTORY(ies), if they do not already exist.\n"
+"\n"
+"  -m, --mode=MODE   set permission mode (as in chmod), not rwxrwxrwx - "
+"umask\n"
+"  -p, --parents     no error if existing, make parent directories as needed\n"
+"      --verbose     print a message for each created directory\n"
+"      --help        display this help and exit\n"
+"      --version     output version information and exit\n"
+msgstr ""
+"Utwórz KATALOG(i), je¿eli jeszcze nie istniej±.\n"
+"\n"
+"  -p, --parents     nie ma b³êdu, je¿eli istnieje, utwórz katalogi rodzic.\n"
+"  -m, --mode=UPRAWN ustaw uprawnienia (jak w chmod), nie rwxrwxrwx - umask\n"
+"      --verbose     wypisz komunikat o ka¿dym utworzonym katalogu\n"
+"      --help        wy¶wietl ten opis i zakoñcz\n"
+"      --version     wy¶wietl informacjê o wersji i zakoñcz\n"
+
+#. --verbose
+#: src/mkdir.c:105
+#, c-format
+msgid "created directory `%s'"
+msgstr "utworzony katalog `%s'"
+
+#: src/mkfifo.c:60
+#, c-format
+msgid "Usage: %s [OPTION] NAME...\n"
+msgstr "U¿ycie: %s [OPCJA] NAZWA...\n"
+
+#: src/mkfifo.c:61
+msgid ""
+"Create named pipes (FIFOs) with the given NAMEs.\n"
+"\n"
+"  -m, --mode=MODE   set permission mode (as in chmod), not 0666 - umask\n"
+"      --help        display this help and exit\n"
+"      --version     output version information and exit\n"
+msgstr ""
+"Twórz nazwane potoki (pipes, FIFOs) o podanych NAZWAch.\n"
+"\n"
+"  -m, --mode=UPRAWN ustaw uprawnienia (jak w chmod), nie 0666 - umask\n"
+"      --help        wy¶wietl ten opis i zakoñcz\n"
+"      --version     wy¶wietl informacjê o wersji i zakoñcz\n"
+
+#: src/mkfifo.c:91 src/mknod.c:213
+msgid "fifo files not supported"
+msgstr "pliki fifo nie znane w tym systemie"
+
+#: src/mkfifo.c:137
+#, c-format
+msgid "cannot make fifo `%s'"
+msgstr "nie mogê utworzyæ fifo `%s'"
+
+#: src/mknod.c:65
+#, c-format
+msgid "Usage: %s [OPTION]... NAME TYPE [MAJOR MINOR]\n"
+msgstr "U¿ycie: %s [OPCJA]... NAZWA TYP [WIÊKSZY MNIEJSZY]\n"
+
+#: src/mknod.c:66
+msgid ""
+"Create the special file NAME of the given TYPE.\n"
+"\n"
+"  -m, --mode=MODE   set permission mode (as in chmod), not 0666 - umask\n"
+"      --help        display this help and exit\n"
+"      --version     output version information and exit\n"
+"\n"
+"MAJOR MINOR are forbidden for TYPE p, mandatory otherwise.  TYPE may be:\n"
+"\n"
+"  b      create a block (buffered) special file\n"
+"  c, u   create a character (unbuffered) special file\n"
+"  p      create a FIFO\n"
+msgstr ""
+"Utwórz plik specjalny o podanej NAZWIE i TYPie.\n"
+"\n"
+"  -m, --mode=UPRAWN ustaw uprawnienia (jak w chmod), nie 0666 - umask\n"
+"      --help        wy¶wietl ten opis i zakoñcz\n"
+"      --version     wy¶wietl informacjê o wersji i zakoñcz\n"
+"\n"
+"WIÊKSZY i MNIEJSZY s± zabronione dla TYPu p, obowi±zkowe dla innych. TYP "
+"to:\n"
+"\n"
+"  b      utwórz specjalny plik blokowy (buforowany)\n"
+"  c, u   utwórz specjalny plik znakowy (niebuforowany)  \n"
+"  p      utwórz FIFO\n"
+
+#: src/mknod.c:144
+msgid "wrong number of arguments"
+msgstr "z³a ilo¶æ argumentów"
+
+#: src/mknod.c:156
+msgid "block special files not supported"
+msgstr "specjalne pliki blokowe nie znane w tym systemie"
+
+#: src/mknod.c:160
+msgid ""
+"when creating block special files, major and minor device\n"
+"numbers must be specified"
+msgstr ""
+"dla utworzenia specjalnego pliku blokowego wiêkszy i mniejszy\n"
+"numer urz±dzenia musz± byæ podane"
+
+#: src/mknod.c:168 src/mknod.c:197
+#, c-format
+msgid "invalid major device number `%s'"
+msgstr "b³êdny wiêkszy numer urz±dzenia `%s'"
+
+#: src/mknod.c:172 src/mknod.c:201
+#, c-format
+msgid "invalid minor device number `%s'"
+msgstr "b³êdny mniejszy numer urz±dzenia `%s'"
+
+#: src/mknod.c:185
+msgid "character special files not supported"
+msgstr "specjalne pliki znakowe nie znane w tym systemie"
+
+#: src/mknod.c:189
+msgid ""
+"when creating character special files, major and minor device\n"
+"numbers must be specified"
+msgstr ""
+"dla utworzenia specjalnego pliku znakowego wiêkszy i mniejszy\n"
+"numer urz±dzenia musz± byæ podane"
+
+#: src/mknod.c:217
+msgid "major and minor device numbers may not be specified for fifo files"
+msgstr "wiêkszy i mniejszy numer urz±dzenia nie mo¿e byæ podany dla fifo"
+
+#: src/mv.c:141
+#, c-format
+msgid "cannot move `%s' across filesystems: Not a regular file"
+msgstr "nie mogê przenie¶æ `%s' miêdzy systemami plików: plik inny niz zwyk³y"
+
+#: src/mv.c:269
+#, c-format
+msgid "%s: replace `%s', overriding mode %04o? "
+msgstr "%s: zast±piæ `%s', obej¶æ uprawnienia %04o? "
+
+#: src/mv.c:318
+#, c-format
+msgid "cannot move `%s' to `%s'"
+msgstr "nie mogê przenie¶æ `%s' do `%s'"
+
+#: src/mv.c:385
+#, fuzzy
+msgid ""
+"Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.\n"
+"\n"
+"  -b, --backup                 make backup before removal\n"
+"  -f, --force                  remove existing destinations, never prompt\n"
+"  -i, --interactive            prompt before overwrite\n"
+"  -S, --suffix=SUFFIX          override the usual backup suffix\n"
+"  -u, --update                 move only older or brand new files\n"
+"  -v, --verbose                explain what is being done\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"      --help                   display this help and exit\n"
+"      --version                output version information and exit\n"
+"\n"
+msgstr ""
+"Przemianuj ¬RÓD£O na CEL albo przenie¶ wiele ¬RÓDE£ do KATALOGu.\n"
+"\n"
+"  -b, --backup                 zrób kopiê zapasow± przed skasowaniem\n"
+"  -f, --force                  skasuj istniej±ce cele nie pytaj±c\n"
+"  -i, --interactive            pytaj czy usun±c CELe\n"
+"  -u, --update                 przeno¶ tylko pliki nowsze\n"
+"  -v, --verbose                wyja¶niaj co siê dzieje\n"
+"  -S, --suffix=ROZSZERZ        zmieñ domy¶lne rozszerzenie kopii zapasowej\n"
+"  -V, --version-control=S£OWO  zmieñ domy¶lne sterowanie wersjami\n"
+"      --help                   wy¶wietl ten opis i zakoñcz\n"
+"      --version                wy¶wietl informacjê o wersji i zakoñcz\n"
+"\n"
+
+#: src/mv.c:493
+msgid "when moving multiple files, last argument must be a directory"
+msgstr ""
+"gdy przenoszonych jest wiele plików, ostatni argument musi byæ katalogiem"
+
+#: src/mvdir.c:81
+#, c-format
+msgid "Usage: %s [OPTION]... EXISTING_DIR NEW_DIR\n"
+msgstr "U¿ycie: %s [OPCJA]... ISTNIEJ¡CY_KATALOG NOWY_KATALOG\n"
+
+#: src/mvdir.c:82
+msgid ""
+"Rename EXISTING_DIR to NEW_DIR.\n"
+"\n"
+"   --help      display this help and exit\n"
+"   --version   output version information and exit\n"
+msgstr ""
+"Zamieñ ISTNIEJ±CY_KATALOG na NOWY_KATALOG.\n"
+"   --help      wy¶wietl ten opis i zakoñcz\n"
+"   --version   wy¶wietl informacjê o wersji i zakoñcz\n"
+
+#: src/mvdir.c:105
+msgid "cannot get current directory"
+msgstr "nie mogê siê dostaæ do bie¿±cego katalogu"
+
+#: src/mvdir.c:165
+msgid "cannot rename `.' or `..'"
+msgstr "nie mogê przemianowaæ `.' ani `..'"
+
+#: src/mvdir.c:175
+#, c-format
+msgid "`%s' is not a directory"
+msgstr "`%s' nie jest katalogiem"
+
+#: src/mvdir.c:177 src/mvdir.c:179
+#, c-format
+msgid "cannot write to `%s'"
+msgstr "nie mogê pisaæ do `%s'"
+
+#: src/mvdir.c:198
+#, c-format
+msgid "`%s' is an ancestor of `%s'"
+msgstr "`%s' jest przodkiem `%s'"
+
+#: src/mvdir.c:213 src/mvdir.c:234
+#, c-format
+msgid "cannot link `%s' to `%s'"
+msgstr "nie mogê dowi±zaæ `%s' do `%s'"
+
+#: src/mvdir.c:215 src/mvdir.c:232
+#, c-format
+msgid "cannot unlink `%s'"
+msgstr "nie mogê skasowaæ `%s'"
+
+#: src/rm.c:213
+msgid "cannot remove `.' or `..'"
+msgstr "nie mogê usun±æ `.' lub `..'"
+
+#: src/rm.c:250
+#, c-format
+msgid "%s: remove %s`%s', overriding mode %04o? "
+msgstr "%s: usun±æ %s`%s', obchodz±c uprawnienia %04o? "
+
+#: src/rm.c:252 src/rm.c:261
+msgid "directory "
+msgstr "katalog "
+
+#: src/rm.c:260
+#, c-format
+msgid "%s: remove %s`%s'? "
+msgstr "%s: usun±æ %s`%s'? "
+
+#: src/rm.c:290
+#, c-format
+msgid "%s: is a directory"
+msgstr "%s: jest katalogiem"
+
+#: src/rm.c:298
+#, c-format
+msgid "%s: descend directory `%s', overriding mode %04o? "
+msgstr "%s: wej¶æ w katalog `%s', obchodz±c uprawnienia %04o? "
+
+#: src/rm.c:306
+#, c-format
+msgid "%s: descend directory `%s'? "
+msgstr "%s: wej¶æ w katalog `%s'? "
+
+#: src/rm.c:320
+#, c-format
+msgid "%s: remove directory `%s' (might be nonempty)? "
+msgstr "%s: usun±c katalog `%s' (mo¿e byæ niepusty)? "
+
+#: src/rm.c:323
+#, c-format
+msgid "%s: remove directory `%s'? "
+msgstr "%s: usun±æ katalog `%s'? "
+
+#: src/rm.c:498
+#, c-format
+msgid ""
+"%s: WARNING: Circular directory structure.\n"
+"This almost certainly means that you have a corrupted file system.\n"
+"NOTIFY YOUR SYSTEM MANAGER.\n"
+"Cycle detected:\n"
+"%s\n"
+"is the same file as\n"
+msgstr ""
+"%s: UWAGA: Cykliczna struktura katalogów.\n"
+"Prawie na pewno oznacza to, ¿e masz zepsuty system plików.\n"
+"ZAWIADOM ADMIBNISTRATORA SYSTEMU.\n"
+"Cykl wykryty:\n"
+"%s\n"
+"jest tym samym plikiem co\n"
+
+#: src/rm.c:510
+#, c-format
+msgid "%s: continue? "
+msgstr "%s: kontynuowaæ? "
+
+#: src/rm.c:531 src/touch.c:245
+#, c-format
+msgid "Usage: %s [OPTION]... FILE...\n"
+msgstr "U¿ycie: %s [OPCJA]... PLIK...\n"
+
+#: src/rm.c:532
+#, fuzzy
+msgid ""
+"Remove (unlink) the FILE(s).\n"
+"\n"
+"  -d, --directory       unlink directory, even if non-empty (super-user "
+"only)\n"
+"  -f, --force           ignore nonexistent files, never prompt\n"
+"  -i, --interactive     prompt before any removal\n"
+"  -r, -R, --recursive   remove the contents of directories recursively\n"
+"  -v, --verbose         explain what is being done\n"
+"      --help            display this help and exit\n"
+"      --version         output version information and exit\n"
+msgstr ""
+"Usuñ (unlink) PLIK(i).\n"
+"\n"
+"  -d, --directory       usuñ katalog, nawet niepusty (tylko super-user)\n"
+"  -f, --force           zignoruj nieistniej±ce pliki nie pytaj±c\n"
+"  -i, --interactive     pytaj przed ka¿dym usuniêciem pliku\n"
+"  -v, --verbose         wyja¶niaj co siê dzieje\n"
+"  -r, -R, --recursive   usuwaj zawarto¶c katalogów rekursywnie\n"
+"      --help            wy¶wietl ten opis i zakoñcz\n"
+"      --version         wy¶wietl informacjê o wersji i zakoñcz\n"
+
+#: src/rmdir.c:86
+#, c-format
+msgid "Usage: %s [OPTION]... DIRECTORY...\n"
+msgstr "U¿ycie: %s [OPCJA]... KATALOG...\n"
+
+#: src/rmdir.c:87
+msgid ""
+"Remove the DIRECTORY(ies), if they are empty.\n"
+"\n"
+"  -p, --parents   remove explicit parent directories if being emptied\n"
+"      --help      display this help and exit\n"
+"      --version   output version information and exit\n"
+msgstr ""
+"Usuñ KATALOG(i) je¿eli s± puste.\n"
+"\n"
+"  -p, --parents   usuñ katalogi nadrzêdne je¿eli zosta³y opró¿nione\n"
+"      --help      wy¶wietl ten opis i zakoñcz\n"
+"      --version   wy¶wietl informacjê o wersji i zakoñcz\n"
+
+#: src/sync.c:39
+#, c-format
+msgid "Usage: %s [OPTION]\n"
+msgstr "U¿ycie: %s [OPCJA]\n"
+
+#: src/sync.c:40
+msgid ""
+"Force changed blocks to disk, update the super block.\n"
+"\n"
+"  --help      display this help and exit\n"
+"  --version   output version information and exit\n"
+msgstr ""
+"Wymu¶ zapisnie zmienionych bloków na dysku, uaktualnij super block.\n"
+"\n"
+"  --help      wy¶wietl ten opis i zakoñcz\n"
+"  --version   wy¶wietl informacjê o wersji i zakoñcz\n"
+
+#: src/sync.c:62
+msgid "ignoring all arguments"
+msgstr "ignorujê wszystkie argumenty"
+
+#: src/touch.c:246
+msgid ""
+"Update the access and modification times of each FILE to the current time.\n"
+"\n"
+"  -a                     change only the access time\n"
+"  -c                     do not create any files\n"
+"  -d, --date=STRING      parse STRING and use it instead of current time\n"
+"  -f                     (ignored)\n"
+"  -m                     change only the modification time\n"
+"  -r, --reference=FILE   use this file's times instead of current time\n"
+"  -t STAMP               use MMDDhhmm[[CC]YY][.ss] instead of current time\n"
+"      --time=WORD        access -a, atime -a, mtime -m, modify -m, use -a\n"
+"      --help             display this help and exit\n"
+"      --version          output version information and exit\n"
+"\n"
+"STAMP may be used without -t if none of -drt, nor --, are used.\n"
+msgstr ""
+"Uaktualnij czas dostêpu lub modyfikacji ka¿dego PLIKu do bie¿±cego czasu.\n"
+"\n"
+"  -a                     zmieñ tylko czas dostêpu\n"
+"  -c                     nie twórz nowych plików\n"
+"  -d, --date=£AÑCUCH     przetwórz £AÑCUCH i u¿yj zamiast bie¿±cego czasu\n"
+"  -f                     (ignorowane)\n"
+"  -m                     zmieñ tylko czas modyfikacji\n"
+"  -r, --reference=PLIK   u¿yj czasu tego PLIKu zamiast bie¿±cego czasu\n"
+"  -t CZAS                u¿yj MMDDhhmm[[CC]YY][.ss] zamiast bie¿±cego czasu\n"
+"      --time=S£OWO       access -a, atime -a, mtime -m, modify -m, use -a\n"
+"      --help             wy¶wietl ten opis i zakoñcz\n"
+"      --version          wy¶wietl informacjê o wersji i zakoñcz\n"
+"\n"
+"CZAS mo¿e byæ u¿yty bez -t, je¿eli ¿adna z opcji -drt lub -- nie jest "
+"u¿yta.\n"
+
+#: src/touch.c:302 src/touch.c:322
+#, c-format
+msgid "invalid date format `%s'"
+msgstr "b³êdny format daty `%s'"
+
+# not sure what is `time selector' - rzm
+#: src/touch.c:330
+msgid "time selector"
+msgstr "specyfikacja czasu"
+
+#: src/touch.c:356
+msgid "cannot specify times from more than one source"
+msgstr "nie mo¿esz podaæ czasu z wiêcej ni¿ jednego ¼ród³a"
+
+#: src/touch.c:386
+msgid "file arguments missing"
+msgstr "brakuj±cy argument plikowy"
+
+#~ msgid "cannot find mount point for %s"
+#~ msgstr "nie mogê znale¼æ miejsca zamontowania dla %s"
+
+#~ msgid "cannot fork"
+#~ msgstr "nie mogê rozwidliæ procesu"
+
+#~ msgid "Memory exhausted"
+#~ msgstr "pamiêæ wyczerpana"

@@ -1,0 +1,35 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:579: checking for a BSD compatible install
+configure:632: checking whether build environment is sane
+configure:689: checking whether make sets ${MAKE}
+configure:735: checking for working aclocal
+configure:748: checking for working autoconf
+configure:761: checking for working automake
+configure:774: checking for working autoheader
+configure:787: checking for working makeinfo
+configure:803: checking how to suppress newlines using echo
+configure:836: checking for mawk
+configure:836: checking for gawk
+configure:868: checking for gcc
+configure:981: checking whether the C compiler (gcc  ) works
+configure:997: gcc -o conftest    conftest.c  1>&5
+configure:1023: checking whether the C compiler (gcc  ) is a cross-compiler
+configure:1028: checking whether we are using GNU C
+configure:1037: gcc -E conftest.c
+configure:1056: checking whether gcc accepts -g
+configure:1088: checking how to run the C preprocessor
+configure:1109: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1168: checking for AIX
+configure:1193: checking for minix/config.h
+configure:1203: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1199: minix/config.h: No such file or directory
+configure: failed program was:
+#line 1198 "configure"
+#include "confdefs.h"
+#include <minix/config.h>
+configure:1316: checking host system type
+configure:1337: checking build system type
+configure:1357: checking for ranlib
+configure:1396: checking for ld used by GCC

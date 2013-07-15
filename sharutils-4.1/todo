@@ -1,0 +1,39 @@
+TODO file for GNU sharutils
+
+Tell <pinard@iro.umontreal.ca> if you feel like volunteering for any
+of these ideas, listed more or less in decreasing order of priority.
+
+* Short term
+  - include mail-files and mailshar from remsync
+  - convert uucode documentation into sharutils.texi
+  - better integrate uucode with the others, code-wise
+  - remove many fixed limits, everywhere
+  - delete useless code, among which some matching features
+  - simplify further `:' vs `true' usage, the latter might be avoided
+
+* Medium term
+  - integrate remsync script and documentation
+  - have -C as synonymous for -d in shar
+	1994-08-22, Karl Berry <kb@cs.umb.edu>
+  - speedup unshar, far too slow while matching sed input
+  - construct some `make check' for shar/unshar
+  - do something sensible with file permissions
+  - study if the symbolic links might be transported
+  - when local/remote directories are relative, this should be to ~user
+  - do not send absolute files
+  - add some `-h UNSHAR.HDR' option
+	1994-08-19, Marty Leisner <leisner@sdsp.mc.xerox.com>
+  - decode options from a SHAR environment variable
+	1994-08-30, Ulrich Drepper <drepper@ira.uka.de>
+
+* Long term
+  - automatically retrieve in correct sequence from a bunched file
+	1994-08-24, Karl Berry <kb@cs.umb.edu>
+  - when -T, just reject binary files
+	1994-08-29, Andrew A. Chernov <ache@astral.msk.su>
+	1994-09-11, Eric Backus <ericb@lsid.hp.com> -- disagrees
+
+Local Variables:
+mode: outline
+outline-regexp: " *[-+*.] \\|"
+End:

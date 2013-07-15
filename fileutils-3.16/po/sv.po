@@ -1,0 +1,1602 @@
+# Swedish messages for fileutils.
+# Copyright (C) 1996 Free Software Foundation, Inc.
+# Göran Uddeborg <göran@uddeborg.pp.se>, 1996.
+# $Revision: 1.2 $
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fileutils 3.13g\n"
+"POT-Creation-Date: 1997-01-26 00:26-0600\n"
+"PO-Revision-Date: $Date: 2003/10/15 21:33:29 $\n"
+"Last-Translator: Göran Uddeborg <göran@uddeborg.pp.se>\n"
+"Language-Team: Swedish <sv@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lib/rpmatch.c:87
+msgid "^[yY]"
+msgstr "^[yYjJ]"
+
+#: lib/rpmatch.c:90
+msgid "^[nN]"
+msgstr "^[nN]"
+
+#: src/chgrp.c:117
+#, c-format
+msgid "group of %s changed to %s\n"
+msgstr "%s tillhör numera grupp %s\n"
+
+#: src/chgrp.c:119
+#, c-format
+msgid "group of %s retained as %s\n"
+msgstr "%s tillhör fortfarande grupp %s\n"
+
+#: src/chgrp.c:131
+msgid "can not change to null group"
+msgstr "kan inte byta till namnlös grupp"
+
+#: src/chgrp.c:140
+#, c-format
+msgid "invalid group name `%s'"
+msgstr "felaktigt gruppnamn \"%s\""
+
+#: src/chgrp.c:144
+msgid "group number"
+msgstr "gruppnummer"
+
+#: src/chgrp.c:147
+#, c-format
+msgid "invalid group number `%s'"
+msgstr "felaktigt gruppnummer \"%s\""
+
+#: src/chgrp.c:195
+#, c-format
+msgid "you are not a member of group `%s'"
+msgstr "du tillhör inte gruppen \"%s\""
+
+#: src/chgrp.c:200
+#, c-format
+msgid "%s: invalid group number"
+msgstr "%s: ogiltigt gruppnummer"
+
+#: src/chgrp.c:243 src/chmod.c:183 src/chmod.c:329 src/chown.c:200
+#: src/cp.c:462 src/cp.c:543 src/cp.c:699 src/cp.c:1237 src/dircolors.c:132
+#: src/du.c:576 src/install.c:273 src/ln.c:134 src/ln.c:262 src/mkdir.c:135
+#: src/mkfifo.c:129 src/mknod.c:132 src/mv.c:286 src/mv.c:363 src/mvdir.c:160
+msgid "virtual memory exhausted"
+msgstr "virtuella minnet slut"
+
+#: src/chgrp.c:273 src/chmod.c:213 src/chown.c:230 src/cp-aux.c:31
+#: src/dd.c:1086 src/df.c:552 src/dircolors.c:102 src/du.c:215
+#: src/install.c:589 src/ln.c:312 src/ls.c:2737 src/mkdir.c:56 src/mkfifo.c:56
+#: src/mknod.c:61 src/mv.c:376 src/mvdir.c:77 src/rm.c:527 src/rmdir.c:82
+#: src/sync.c:35 src/touch.c:241
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr "Försök med \"%s --help\" för mer information.\n"
+
+#: src/chgrp.c:277
+#, c-format
+msgid "Usage: %s [OPTION]... GROUP FILE...\n"
+msgstr "Användning: %s [FLAGGA]... GRUPP FIL...\n"
+
+#: src/chgrp.c:278
+msgid ""
+"Change the group membership of each FILE to GROUP.\n"
+"\n"
+"  -c, --changes           like verbose but report only when a change is "
+"made\n"
+"  -h, --no-dereference    affect symbolic links instead of any referenced "
+"file\n"
+"                          (available only on systems with lchown system "
+"call)\n"
+"  -f, --silent, --quiet   suppress most error messages\n"
+"  -R, --recursive         change files and directories recursively\n"
+"  -v, --verbose           output a diagnostic for every file processed\n"
+"      --help              display this help and exit\n"
+"      --version           output version information and exit\n"
+msgstr ""
+"Ändra grupptillhörighet på varje FIL till GRUPP.\n"
+"\n"
+"  -c, --changes           som \"verbose\" fast bara för ändrade filer\n"
+"  -h, --no-dereference    ändra symbolisk länk istället för det den pekar "
+"på\n"
+"                          (endast på system med systemanropet lchown)\n"
+"  -f, --silent, --quiet   utelämna de flesta felmeddelandena\n"
+"  -R, --recursive         ändra filer och kataloger rekursivt\n"
+"  -v, --verbose           rapportera alla behandlade filer\n"
+"      --help              visa denna hjälptext och avsluta\n"
+"      --version           visa versionsinformation och avsluta\n"
+
+#: src/chgrp.c:290 src/chmod.c:234 src/chown.c:254 src/cp-aux.c:86
+#: src/dd.c:1121 src/df.c:576 src/dircolors.c:121 src/du.c:238
+#: src/install.c:625 src/ln.c:347 src/ls.c:2805 src/mkdir.c:70 src/mkfifo.c:68
+#: src/mknod.c:79 src/mv.c:407 src/rm.c:543 src/rmdir.c:94 src/sync.c:46
+#: src/touch.c:262
+msgid ""
+"\n"
+"Report bugs to fileutils-bugs@gnu.ai.mit.edu"
+msgstr ""
+"\n"
+"Rapportera fel till fileutils-bugs@gnu.ai.mit.edu"
+
+#: src/chgrp.c:348 src/chmod.c:320 src/chown.c:314 src/install.c:263
+#: src/mkdir.c:123 src/mkfifo.c:118 src/mknod.c:140 src/rm.c:173
+#: src/rmdir.c:137
+msgid "too few arguments"
+msgstr "för få argument"
+
+#: src/chgrp.c:355 src/chown.c:321
+msgid "--no-dereference (-h) is not supported on this system"
+msgstr "--no-dereference (-h) stöds inte på detta system"
+
+#: src/chmod.c:89
+#, c-format
+msgid "mode of %s changed to %04o (%s)\n"
+msgstr "rättigheterna hos %s ändrade till %04o (%s)\n"
+
+#: src/chmod.c:92
+#, c-format
+msgid "mode of %s retained as %04o (%s)\n"
+msgstr "rättigheterna hos %s är oförändrat %04o (%s)\n"
+
+#: src/chmod.c:217
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... MODE[,MODE]... FILE...\n"
+"  or:  %s [OPTION]... OCTAL_MODE FILE...\n"
+msgstr ""
+"Användning: %s [FLAGGA]... RÄTTIGHET[,RÄTTIGHET]... FIL...\n"
+"    eller:  %s [FLAGGA]... OKTAL_RÄTTIGHET FIL...\n"
+
+#: src/chmod.c:222
+msgid ""
+"\n"
+"  -c, --changes           like verbose but report only when a change is "
+"made\n"
+"  -f, --silent, --quiet   suppress most error messages\n"
+"  -v, --verbose           output a diagnostic for every file processed\n"
+"  -R, --recursive         change files and directories recursively\n"
+"      --help              display this help and exit\n"
+"      --version           output version information and exit\n"
+"\n"
+"Each MODE is one or more of the letters ugoa, one of the symbols +-= and\n"
+"one or more of the letters rwxXstugo.\n"
+msgstr ""
+"\n"
+"  -c, --changes           rapportera alla gjorda ändringar\n"
+"  -f, --silent, --quiet   utelämna de flesta felmeddelandena\n"
+"  -v, --verbose           rapportera alla behandlade filer\n"
+"  -R, --recursive         ändra filer och kataloger rekursivt\n"
+"      --help              visa denna hjälptext och avsluta\n"
+"      --version           visa versionsinformation och avsluta\n"
+"\n"
+"Varje RÄTTIGHET är en eller flera av bokstäverna ugoa, en av\n"
+"symbolerna +-=, och en eller flera av bokstäverna rwxXstugo.\n"
+
+#: src/chmod.c:286 src/chmod.c:327 src/mkfifo.c:127 src/mknod.c:130
+msgid "invalid mode"
+msgstr "felaktig rättighet"
+
+#: src/chown.c:117
+#, c-format
+msgid "owner of %s changed to "
+msgstr "%s ägs numera av "
+
+#: src/chown.c:119
+#, c-format
+msgid "owner of %s retained as "
+msgstr "%s ägs fortfarande av "
+
+#: src/chown.c:234
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... OWNER[.[GROUP]] FILE...\n"
+"  or:  %s [OPTION]... .[GROUP] FILE...\n"
+msgstr ""
+"Användning: %s [FLAGGA]... ÄGARE[.[GRUPP]] FIL...\n"
+"    eller:  %s [FLAGGA]... .[GRUPP] FIL...\n"
+
+#: src/chown.c:239
+msgid ""
+"Change the owner and/or group of each FILE to OWNER and/or GROUP.\n"
+"\n"
+"  -c, --changes          be verbose whenever change occurs\n"
+"  -h, --no-dereference   affect symbolic links instead of any referenced "
+"file\n"
+"                         (available only on systems with lchown system "
+"call)\n"
+"  -f, --silent, --quiet  suppress most error messages\n"
+"  -R, --recursive        operate on files and directories recursively\n"
+"  -v, --verbose          explain what is being done\n"
+"      --help             display this help and exit\n"
+"      --version          output version information and exit\n"
+"\n"
+"Owner is unchanged if missing.  Group is unchanged if missing, but changed\n"
+"to login group if implied by a period.  A colon may replace the period.\n"
+msgstr ""
+"Ändra ägaren och/eller gruppen på varje FIL till ÄGARE och/eller GRUPP.\n"
+"\n"
+"  -c, --changes           rapportera om alla gjorda ändringar\n"
+"  -h, --no-dereference    ändra symbolisk länk istället för det den pekar "
+"på\n"
+"                          (endast på system med systemanropet lchown)\n"
+"  -f, --silent, --quiet   utelämna de flesta felmeddelandena\n"
+"  -R, --recursive         ändra filer och kataloger rekursivt\n"
+"  -v, --verbose           berätta vad som görs\n"
+"      --help              visa denna hjälptext och avsluta\n"
+"      --version           visa versionsinformation och avsluta\n"
+"\n"
+"Ägaren är oförändrad om den utelämnas.  Gruppen är oförändrad om den\n"
+"utelämnas, men ändras till inloggningsgruppen om den underförstås av\n"
+"en punkt.  Punkten kan ersättas med ett kolon.\n"
+
+#: src/cp-aux.c:35 src/mv.c:380
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... SOURCE DEST\n"
+"  or:  %s [OPTION]... SOURCE... DIRECTORY\n"
+msgstr ""
+"Användning: %s [FLAGGA]... KÄLLA DEST\n"
+"    eller:  %s [FLAGGA]... KÄLLA... KATALOG\n"
+
+#: src/cp-aux.c:40
+msgid ""
+"Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.\n"
+"\n"
+"  -a, --archive                same as -dpR\n"
+"  -b, --backup                 make backup before removal\n"
+"  -d, --no-dereference         preserve links\n"
+"  -f, --force                  remove existing destinations, never prompt\n"
+"  -i, --interactive            prompt before overwrite\n"
+"  -l, --link                   link files instead of copying\n"
+"  -p, --preserve               preserve file attributes if possible\n"
+"  -P, --parents                append source path to DIRECTORY\n"
+"  -r                           copy recursively, non-directories as files\n"
+"      --sparse=WHEN            control creation of sparse files\n"
+"  -R, --recursive              copy directories recursively\n"
+"  -s, --symbolic-link          make symbolic links instead of copying\n"
+"  -S, --suffix=SUFFIX          override the usual backup suffix\n"
+"  -u, --update                 copy only when the SOURCE file is newer\n"
+"                                 than the destination file or when the\n"
+"                                 destination file is missing\n"
+"  -v, --verbose                explain what is being done\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"  -x, --one-file-system        stay on this file system\n"
+"      --help                   display this help and exit\n"
+"      --version                output version information and exit\n"
+"\n"
+"By default, sparse SOURCE files are detected by a crude heuristic and the\n"
+"corresponding DEST file is made sparse as well.  That is the behavior\n"
+"selected by --sparse=auto.  Specify --sparse=always to create a sparse DEST\n"
+"file whenever the SOURCE file contains a long enough sequence of zero "
+"bytes.\n"
+"Use --sparse=never to inhibit creation of sparse files.\n"
+"\n"
+msgstr ""
+"Kopiera KÄLLA till DEST, eller flera KÄLLOR till KATALOG.\n"
+"\n"
+"  -a, --archive                samma som -dpR\n"
+"  -b, --backup                 gör en säkerhetskopia före borttagande\n"
+"  -d, --no-dereference         bevara länkar\n"
+"  -f, --force                  ta bort existerande destination, fråga "
+"aldrig\n"
+"  -i, --interactive            fråga innan något skrivs över\n"
+"  -l, --link                   länka filer istället för att kopiera\n"
+"  -p, --preserve               bevara filattribut om möjligt\n"
+"  -P, --parents                lägg till källsökvägen till KATALOG\n"
+"  -r                           kopiera rekursivt, ickekataloger som filer\n"
+"      --sparse=NÄR             styr skapande av glesa filer\n"
+"  -R, --recursive              kopiera kataloger rekursivt\n"
+"  -s, --symbolic-link          gör symboliska länkar istället för att "
+"kopiera\n"
+"  -S, --suffix=SUFFIX          ersätt den vanliga säkerhetskopieändelsen\n"
+"  -u, --update                 kopiera bara när KÄLLA är nyare än\n"
+"                                 DESTinationen, eller när DESTinationen\n"
+"                                 saknas helt\n"
+"  -v, --verbose                berätta vad som görs\n"
+"  -V, --version-control=ORD    ersätt den vanliga versionshanteringen\n"
+"  -x, --one-file-system        stanna inom detta filsystem\n"
+"      --help                   visa denna hjälptext och avsluta\n"
+"      --version                visa versionsinformation och avsluta\n"
+"\n"
+"Normalt upptäcks en gles KÄLLA med en enkel heuristik och motsvarande DEST\n"
+"görs likaledes gles.  Det beteendet väljs av --sparse=auto.  Ange\n"
+"--sparse=always för att alltid göra DEST gles när KÄLLA innehåller\n"
+"tillräckligt långa nollbytesekvenser.  Ange --sparse=never för att hindra\n"
+"skapandet av glesa filer.\n"
+"\n"
+
+#: src/cp-aux.c:72 src/install.c:617 src/ln.c:339 src/mv.c:399
+msgid ""
+"The backup suffix is ~, unless set with SIMPLE_BACKUP_SUFFIX.  The\n"
+"version control may be set with VERSION_CONTROL, values are:\n"
+"\n"
+"  t, numbered     make numbered backups\n"
+"  nil, existing   numbered if numbered backups exist, simple otherwise\n"
+"  never, simple   always make simple backups\n"
+msgstr ""
+"Ändelsen på säkerhetskopior är ~ om inte annat anges av "
+"SIMPLE_BACKUP_SUFFIX.\n"
+"Versionhanteringen kan styras med VERSION_CONTROL, som kan ha värdena\n"
+"\n"
+"  t, numbered     gör numrerade säkerhetskopior\n"
+"  nil, existing   numrerade om det redan finns numrerade, annars enkla\n"
+"  never, simple   gör alltid enkla säkerhetskopior\n"
+
+#: src/cp-aux.c:80
+msgid ""
+"\n"
+"As a special case, cp makes a backup of SOURCE when the force and backup\n"
+"options are given and SOURCE and DEST are the same name for an existing,\n"
+"regular file.\n"
+msgstr ""
+"\n"
+"Som ett specialfall gör cp en säkerhetskopia av KÄLLA när force- och\n"
+"backup-flaggorna är givna, och KÄLLA och DEST är samma namn på en "
+"existerande\n"
+"normal fil.\n"
+
+#: src/cp.c:268
+msgid "sparse type"
+msgstr "gles typ"
+
+#: src/cp.c:326 src/ln.c:404
+msgid "symbolic links are not supported on this system"
+msgstr "symboliska länkar stöds inte på detta system"
+
+#: src/cp.c:366
+msgid "cannot make both hard and symbolic links"
+msgstr "kan inte göra både hårda och symboliska länkar"
+
+#: src/cp.c:406 src/mv.c:481
+msgid "missing file arguments"
+msgstr "utelämnade filargument"
+
+#: src/cp.c:411
+msgid "missing destination file"
+msgstr "destinationsfil saknas"
+
+#: src/cp.c:518
+msgid "when preserving paths, last argument must be a directory"
+msgstr "när sökvägen skall bevaras måste sista argumentet vara en katalog"
+
+#: src/cp.c:579
+#, c-format
+msgid "copying multiple files, but last argument (%s) is not a directory"
+msgstr "kopiering av flera filer, men sista argumentet (%s) är inte en katalog"
+
+#: src/cp.c:633
+#, c-format
+msgid "%s: omitting directory"
+msgstr "%s: katalog utelämnad"
+
+#: src/cp.c:658 src/install.c:391 src/ln.c:213 src/mv.c:252
+#, c-format
+msgid "`%s' and `%s' are the same file"
+msgstr "\"%s\" och \"%s\" är samma fil"
+
+#: src/cp.c:668
+#, c-format
+msgid "%s: cannot overwrite directory with non-directory"
+msgstr "%s: kan inte ersätta en katalog med en annan slags fil"
+
+#: src/cp.c:682
+#, c-format
+msgid "%s: overwrite `%s', overriding mode %04o? "
+msgstr "%s: ersätt \"%s\", åsidosätt rättigheterna %04o? "
+
+#: src/cp.c:688
+#, c-format
+msgid "%s: overwrite `%s'? "
+msgstr "%s: ersätt \"%s\"? "
+
+#: src/cp.c:708
+#, c-format
+msgid "backing up `%s' would destroy source;  `%s' not copied"
+msgstr ""
+"säkerhetskopiering av \"%s\" skulle förstöra källan;  \"%s\" inte kopierad"
+
+#: src/cp.c:720 src/ln.c:270 src/mv.c:294
+#, c-format
+msgid "cannot backup `%s'"
+msgstr "kan inte säkerhetskopiera \"%s\""
+
+#: src/cp.c:748
+#, c-format
+msgid "cannot remove old link to `%s'"
+msgstr "kan inte ta bort gammal länk till \"%s\""
+
+#: src/cp.c:788
+#, c-format
+msgid "%s: cannot copy cyclic symbolic link"
+msgstr "%s: kan inte kopiera en cyklisk symbolisk länk"
+
+#: src/cp.c:806
+#, c-format
+msgid "cannot create directory `%s'"
+msgstr "kan inte skapa katalog \"%s\""
+
+#: src/cp.c:844
+#, c-format
+msgid "%s: can make relative symbolic links only in current directory"
+msgstr "%s: kan bara skapa relativa symboliska länkar i aktuell katalog"
+
+#: src/cp.c:854
+#, c-format
+msgid "cannot create link `%s'"
+msgstr "kan inte skapa länken \"%s\""
+
+#: src/cp.c:875
+#, c-format
+msgid "cannot create fifo `%s'"
+msgstr "kan inte skapa fifo \"%s\""
+
+#: src/cp.c:889
+#, c-format
+msgid "cannot create special file `%s'"
+msgstr "kan inte skapa specialfil \"%s\""
+
+#: src/cp.c:904
+#, c-format
+msgid "cannot read symbolic link `%s'"
+msgstr "kan inte läsa symbolisk länk \"%s\""
+
+#: src/cp.c:911
+#, c-format
+msgid "cannot create symbolic link `%s'"
+msgstr "kan inte skapa symbolisk länk \"%s\""
+
+#: src/cp.c:954
+#, c-format
+msgid "%s: unknown file type"
+msgstr "%s: okänd filtyp"
+
+#: src/cp.c:1007 src/ln.c:303 src/mv.c:339
+#, c-format
+msgid "cannot un-backup `%s'"
+msgstr "kan inte ta bort säkerhetskopia \"%s\""
+
+#: src/cp.c:1084 src/mkdir.c:148
+#, c-format
+msgid "cannot make directory `%s'"
+msgstr "kan inte skapa katalog \"%s\""
+
+#: src/cp.c:1095 src/cp.c:1116
+#, c-format
+msgid "`%s' exists but is not a directory"
+msgstr "\"%s\" finns men är ingen katalog"
+
+#: src/cp.c:1300
+#, c-format
+msgid "cannot create regular file `%s'"
+msgstr "kan inte skapa normal fil \"%s\""
+
+#: src/dircolors.c:106
+#, c-format
+msgid "Usage: %s [OPTION]... [FILE]\n"
+msgstr "Användning: %s [FLAGGA]... [FIL]\n"
+
+#: src/dircolors.c:107
+msgid ""
+"Output commands to set the LS_COLORS environment variable.\n"
+"\n"
+"Determine format of output:\n"
+"  -b, --sh, --bourne-shell    output Bourne shell code to set LS_COLORS\n"
+"  -c, --csh, --c-shell        output C shell code to set LS_COLORS\n"
+"  -p, --print-database        output defaults\n"
+"      --help                  display this help and exit\n"
+"      --version               output version information and exit\n"
+"\n"
+"If FILE is specified, read it to determine which colors to use for which\n"
+"file types and extensions.  Otherwise, a precompiled database is used.\n"
+"For details on the format of these files, run `dircolors --print-database'.\n"
+msgstr ""
+"Skriv ut kommandon för att sätta miljövariabeln LS_COLORS.\n"
+"\n"
+"Bestäm utformat:\n"
+"  -b, --sh, --bourne-shell    skriv kod för att sätta LS_COLORS i "
+"Bourne-skal\n"
+"  -c, --csh, --c-shell        skriv kod för att sätta LS_COLORS i C-skal\n"
+"  -p, --print-database        visa standardvärden\n"
+"      --help                  visa denna hjälptext och avsluta\n"
+"      --version               visa versionsinformation och avsluta\n"
+"\n"
+"Om FIL anges, läs den för att bestämma vilka färger som skall användas till\n"
+"vilka filtyper och ändelser.  Annars används en fördefinierad databas.  För\n"
+"detaljer om formatet på dessa filer, kör \"dircolors --print-database\".\n"
+"detaljer om formatet på dessa filer, kör \"dircolors --print-database\".\n"
+
+#: src/dircolors.c:363
+#, c-format
+msgid "%s:%lu: unrecognized keyword `%s'"
+msgstr "%s:%lu: okänt nyckelord \"%s\""
+
+#: src/dircolors.c:455
+msgid ""
+"the options to output dircolors' internal database and\n"
+"to select a shell syntax are mutually exclusive"
+msgstr ""
+"flaggorna för att visa dircolors interna databas och för att välja en\n"
+"skalsyntax är ömsesidigt uteslutande"
+
+#: src/dircolors.c:463
+msgid ""
+"no FILE arguments may be used with the option to output\n"
+"dircolors' internal database"
+msgstr ""
+"inget FILargument får ges tillsammans med flaggan för att visa dircolors\n"
+"interna databas"
+
+#: src/dircolors.c:470 src/mknod.c:142
+msgid "too many arguments"
+msgstr "för många argument"
+
+#: src/dircolors.c:492
+msgid "no SHELL environment variable, and no shell type option given"
+msgstr "ingen SHELL-miljövariabel, och ingen flagga för skalvariant angiven"
+
+#: src/dircolors.c:526 src/ls.c:747
+msgid "write error"
+msgstr "skrivfel"
+
+#: src/dd.c:358 src/dd.c:362 src/dircolors.c:529
+msgid "standard input"
+msgstr "standard in"
+
+#: src/dd.c:361
+#, c-format
+msgid "%s is closed"
+msgstr "%s är stängd"
+
+#: src/dd.c:363 src/dd.c:383
+msgid "standard output"
+msgstr "standard ut"
+
+#: src/dd.c:832
+#, c-format
+msgid "unrecognized option `%s'"
+msgstr "okänd flagga \"%s\""
+
+#: src/dd.c:847
+#, c-format
+msgid "invalid number `%s'"
+msgstr "ogiltigt tal \"%s\""
+
+#: src/dd.c:871
+#, c-format
+msgid "unrecognized option `%s=%s'"
+msgstr "okänd flagga \"%s=%s\""
+
+#: src/dd.c:957
+#, c-format
+msgid "%s: invalid conversion"
+msgstr "%s: otillåten konvertering"
+
+#: src/dd.c:977
+msgid ""
+"only one conv in {ascii,ebcdic,ibm}, {lcase,ucase}, {block,unblock}, "
+"{unblock,sync}"
+msgstr ""
+"endast en konvertering av {ascii,ebcdic,ibm}, {lcase,ucase}, "
+"{block,unblock}, {unblock,sync}"
+
+#: src/dd.c:1039
+#, c-format
+msgid "%u+%u records in\n"
+msgstr "%u+%u poster in\n"
+
+#: src/dd.c:1040
+#, c-format
+msgid "%u+%u records out\n"
+msgstr "%u+%u poster ut\n"
+
+#: src/dd.c:1044
+msgid "truncated record"
+msgstr "stympad post"
+
+#: src/dd.c:1045
+msgid "truncated records"
+msgstr "stympade poster"
+
+#: src/dd.c:1090
+#, c-format
+msgid "Usage: %s [OPTION]...\n"
+msgstr "Användning: %s [FLAGGA]...\n"
+
+#: src/dd.c:1091
+msgid ""
+"Copy a file, converting and formatting according to the options.\n"
+"\n"
+"  bs=BYTES        force ibs=BYTES and obs=BYTES\n"
+"  cbs=BYTES       convert BYTES bytes at a time\n"
+"  conv=KEYWORDS   convert the file as per the comma separated keyword list\n"
+"  count=BLOCKS    copy only BLOCKS input blocks\n"
+"  ibs=BYTES       read BYTES bytes at a time\n"
+"  if=FILE         read from FILE instead of stdin\n"
+"  obs=BYTES       write BYTES bytes at a time\n"
+"  of=FILE         write to FILE instead of stdout, don't truncate file\n"
+"  seek=BLOCKS     skip BLOCKS obs-sized blocks at start of output\n"
+"  skip=BLOCKS     skip BLOCKS ibs-sized blocks at start of input\n"
+"      --help      display this help and exit\n"
+"      --version   output version information and exit\n"
+"\n"
+"BYTES may be suffixed: by xM for multiplication by M, by c for x1,\n"
+"by w for x2, by b for x512, by k for x1024.  Each KEYWORD may be:\n"
+"\n"
+"  ascii     from EBCDIC to ASCII\n"
+"  ebcdic    from ASCII to EBCDIC\n"
+"  ibm       from ASCII to alternated EBCDIC\n"
+"  block     pad newline-terminated records with spaces to cbs-size\n"
+"  unblock   replace trailing spaces in cbs-size records with newline\n"
+"  lcase     change upper case to lower case\n"
+"  ucase     change lower case to upper case\n"
+"  swab      swap every pair of input bytes\n"
+"  noerror   continue after read errors\n"
+"  sync      pad every input block with NULs to ibs-size\n"
+msgstr ""
+"Kopiera en fil med konvertering och formattering enligt flaggorna.\n"
+"\n"
+"  bs=ANTAL        framtvinga ibs=ANTAL och obs=ANTAL\n"
+"  cbs=ANTAL       konvertera ANTAL byte åt gången\n"
+"  conv=NYCKELORD  konvertera filen i enlighet med kommaseparerade nyckelord\n"
+"  count=ANTAL     kopiera bara ANTAL inblock\n"
+"  ibs=ANTAL       läs ANTAL byte åt gången\n"
+"  if=FIL          läs från FIL istället för standard in\n"
+"  obs=ANTAL       skriv ANTAL byte åt gången\n"
+"  of=FIL          skriv FIL istället för standard ut, stympa inte filen\n"
+"  seek=ANTAL      hoppa över ANTAL obs-stora block från början av utfil\n"
+"  skip=ANTAL      hoppa över ANTAL ibs-stora block från början av infil\n"
+"      --help      visa denna hjälptext och avsluta\n"
+"      --version   visa versionsinformation och avsluta\n"
+"\n"
+"ANTAL kan ha ändelse: xM för multiplikation med M, c för x1, w för x2,\n"
+"b för x512, k för x1024.  Möjliga NYCKELORD är:\n"
+"\n"
+"  ascii     från EBCDIC till ASCII\n"
+"  ebcdic    från ASCII till EBCDIC\n"
+"  ibm       från ASCII till en annan EBCDIC\n"
+"  block     fyll ut nyradsavslutade poster med blanktecken till cbs-storlek\n"
+"  unblock   ersätt avslutande blanktecken med nyrad i cbs-stora poster\n"
+"  lcase     ändra versaler till gemena\n"
+"  ucase     ändra gemena till versaler\n"
+"  swab      byt plats på varje par av byte i indata\n"
+"  noerror   fortsätt efter läsfel\n"
+"  sync      fyll ut varje indatablock med nulltecken till ibs-storlek\n"
+
+#: src/df.c:556 src/du.c:219 src/ls.c:2741
+#, c-format
+msgid "Usage: %s [OPTION]... [FILE]...\n"
+msgstr "Användning: %s [FLAGGA]... [FIL]...\n"
+
+#: src/df.c:557
+msgid ""
+"Show information about the filesystem on which each FILE resides,\n"
+"or all filesystems by default.\n"
+"\n"
+"  -a, --all             include filesystems having 0 blocks\n"
+"  -h, --human-readable  print sizes in human readable format (e.g., 1K 234M "
+"2G)\n"
+"  -i, --inodes          list inode information instead of block usage\n"
+"  -k, --kilobytes       use 1024-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -m, --megabytes       use 1024K-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"      --no-sync         do not invoke sync before getting usage info "
+"(default)\n"
+"  -P, --portability     use the POSIX output format\n"
+"      --sync            invoke sync before getting usage info\n"
+"  -t, --type=TYPE       limit listing to filesystems of type TYPE\n"
+"  -T, --print-type      print filesystem type\n"
+"  -x, --exclude-type=TYPE   limit listing to filesystems not of type TYPE\n"
+"  -v                    (ignored)\n"
+"      --help            display this help and exit\n"
+"      --version         output version information and exit\n"
+msgstr ""
+"Visa information om filsystemet där FIL ligger, eller annars alla\n"
+"filsystem.\n"
+"\n"
+"  -a, --all             tag med filsystem som har 0 block\n"
+"  -h, --human-readable  skriv storlekar i läsbart format (t.ex. 1K 234M 2G)\n"
+"  -i, --inodes          skriv inodinformation istället för blockinformation\n"
+"  -k, --kilobytes       använd 1024-byteblock, inte 512 trots "
+"POSIXLY_CORRECT\n"
+"  -m, --megabytes       använd 1024K-byteblock, inte 512 trots "
+"POSIXLY_CORRECT\n"
+"      --no-sync         anropa inte sync innan information hämtas "
+"(normalfall)\n"
+"  -P, --portability     använd POSIX-format\n"
+"      --sync            anropa sync innan information hämtas\n"
+"  -t, --type=TYP        begränsa listningen till filsystem av typen TYP\n"
+"  -T, --print-type      skriv ut filsystemtyp\n"
+"  -x, --exclude-type=TYP   utelämna filsystem av typ TYP\n"
+"  -v                    (ignorerad)\n"
+"      --help            visa denna hjälptext och avsluta\n"
+"      --version         visa versionsinformation och avsluta\n"
+
+#: src/df.c:681
+msgid ""
+"the option for counting 1MB blocks may not be used\n"
+"with the portable output format"
+msgstr ""
+"flaggan för att räkna 1M-byteblock kan inte kombineras med\n"
+"POSIX-formatet"
+
+#: src/df.c:686
+msgid ""
+"the option for printing with adaptive units may not be used\n"
+"with the portable output format"
+msgstr ""
+"flaggan för att visa i lämplig enhet kan inte kombineras med\n"
+"POSIX-formatet"
+
+#: src/df.c:701
+#, c-format
+msgid "file system type `%s' both selected and excluded"
+msgstr "filsystemtypen \"%s\" är både vald och exkluderad"
+
+#: src/df.c:746
+msgid "cannot read table of mounted filesystems"
+msgstr "kan inte läsa tabellen över monterade filsystem"
+
+#: src/du.c:220
+msgid ""
+"Summarize disk usage of each FILE, recursively for directories.\n"
+"\n"
+"  -a, --all             write counts for all files, not just directories\n"
+"  -b, --bytes           print size in bytes\n"
+"  -c, --total           produce a grand total\n"
+"  -D, --dereference-args  dereference PATHs when symbolic link\n"
+"  -h, --human-readable  print sizes in human readable format (e.g., 1K 234M "
+"2G)\n"
+"  -k, --kilobytes       use 1024-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -l, --count-links     count sizes many times if hard linked\n"
+"  -L, --dereference     dereference all symbolic links\n"
+"  -m, --megabytes       use 1024K-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -S, --separate-dirs   do not include size of subdirectories\n"
+"  -s, --summarize       display only a total for each argument\n"
+"  -x, --one-file-system  skip directories on different filesystems\n"
+"      --help            display this help and exit\n"
+"      --version         output version information and exit\n"
+msgstr ""
+"Sammanfatta diskanvändningen för varje FIL, rekursivt för kataloger.\n"
+"\n"
+"  -a, --all             skriv ut värden för alla filer, inte bara kataloger\n"
+"  -b, --bytes           skriv storlek i byte\n"
+"  -c, --total           rapportera totalsumman\n"
+"  -D, --dereference-args  följ SÖKVÄGar när de är symboliska länkar\n"
+"  -h, --human-readable  skriv storlekar i läsbart format (t.ex. 1K 234M 2G)\n"
+"  -k, --kilobytes       använd 1024-byteblock, inte 512, trots "
+"POSIXLY_CORRECT\n"
+"  -l, --count-links     räkna storlek flera gånger för hårda länkar\n"
+"  -L, --dereference     följ alla symboliska länkar\n"
+"  -m, --megabytes       använd 1024K-byteblock, inte 512, trots "
+"POSIXLY_CORRECT\n"
+"  -S, --separate-dirs   ta inte med storlek på underkataloger\n"
+"  -s, --summarize       visa bara summan för varje argument\n"
+"  -x, --one-file-system  hoppa över kataloger på andra filsystem\n"
+"      --help            visa denna hjälptext och avsluta\n"
+"      --version         visa versionsinformation och avsluta\n"
+
+#: src/du.c:347
+msgid "cannot both summarize and show all entries"
+msgstr "kan inte samtidigt bara visa summan och alla storlekar"
+
+#: src/du.c:431
+msgid "current directory"
+msgstr "aktuell katalog"
+
+#: src/du.c:466 src/mvdir.c:107
+msgid "starting directory"
+msgstr "startkatalog"
+
+#: src/du.c:481
+#, c-format
+msgid "%ld\ttotal\n"
+msgstr "%ld\ttotalt\n"
+
+#: src/du.c:551
+#, c-format
+msgid "cannot change to directory %s"
+msgstr "kan inte byta katalog till %s"
+
+#: src/du.c:570 src/du.c:602
+#, c-format
+msgid "cannot change to `..' from directory %s"
+msgstr "kan inte byta till \"..\" från katalog %s"
+
+#: src/install.c:256
+msgid "the strip option may not be used when installing a directory"
+msgstr "flaggan \"strip\" kan inte användas när en katalog installeras"
+
+#: src/install.c:271 src/mkdir.c:133
+#, c-format
+msgid "invalid mode `%s'"
+msgstr "ogiltig rättighet \"%s\""
+
+#: src/install.c:378
+#, c-format
+msgid "`%s' is a directory"
+msgstr "\"%s\" är en katalog"
+
+#: src/install.c:385
+#, c-format
+msgid "`%s' is not a regular file"
+msgstr "\"%s\" är inte en normal fil"
+
+#: src/install.c:526
+msgid "fork system call failed"
+msgstr "systemanropet \"fork\" misslyckades"
+
+#: src/install.c:530
+msgid "cannot run strip"
+msgstr "kan inte köra strip"
+
+#: src/install.c:556
+#, c-format
+msgid "invalid user `%s'"
+msgstr "felaktig användare \"%s\""
+
+#: src/install.c:574
+#, c-format
+msgid "invalid group `%s'"
+msgstr "felaktig grupp \"%s\""
+
+#: src/install.c:593
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... SOURCE DEST           (1st format)\n"
+"  or:  %s [OPTION]... SOURCE... DIRECTORY   (2nd format)\n"
+"  or:  %s -d [OPTION]... DIRECTORY...       (3rd format)\n"
+msgstr ""
+"Användning: %s [FLAGGA]... KÄLLA DEST          (format 1)\n"
+"    eller:  %s [FLAGGA]... KÄLLA... KATALOG    (format 2)\n"
+"    eller:  %s -d [FLAGGA]... KATALOG...       (format 3)\n"
+
+#: src/install.c:599
+msgid ""
+"In first two formats, copy SOURCE to DEST or multiple SOURCE(s) to\n"
+"DIRECTORY, while setting permission modes and owner/group.  In third\n"
+"format, make all components of the given DIRECTORY(ies).\n"
+"\n"
+"  -b, --backup        make backup before removal\n"
+"  -c                  (ignored)\n"
+"  -d, --directory     create [leading] directories, mandatory for 3rd "
+"format\n"
+"  -g, --group=GROUP   set group ownership, instead of process' current "
+"group\n"
+"  -m, --mode=MODE     set permission mode (as in chmod), instead of "
+"rw-r--r--\n"
+"  -o, --owner=OWNER   set ownership (super-user only)\n"
+"  -s, --strip         strip symbol tables, only for 1st and 2nd formats\n"
+"  -S, --suffix=SUFFIX override the usual backup suffix\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"      --help          display this help and exit\n"
+"      --version       output version information and exit\n"
+"\n"
+msgstr ""
+"De första två formaten kopierar KÄLLA till DEST eller flera KÄLLor till\n"
+"KATALOG, samtidigt som rättigheter och ägare/grupp sätts.  Det tredje\n"
+"formatet skapar KATALOG(er) inklusive eventuella föräldrakataloger.\n"
+"\n"
+"  -b, --backup        skapa säkerhetskopia före borttagande\n"
+"  -c                  (ignoreras)\n"
+"  -d, --directory     skapa [överliggande] katalog(er), obligatoriskt för\n"
+"                        format 3\n"
+"  -g, --group=GRUPP   sätt grupptillhörighet, istället för processens grupp\n"
+"  -m, --mode=RÄTTIGHET sätt rättigheter (som för chmod), istället för "
+"rw-r--r--\n"
+"  -o, --owner=ÄGARE   sätt ägare (endast superanvändare)\n"
+"  -s, --strip         ta bort symboltabeller, endast för format 1 och 2\n"
+"  -S, --suffix=SUFFIX ersätt den vanliga säkerhetskopieändelsen\n"
+"  -V, --version-control=ORD   ersätt den vanliga versionshanteringen\n"
+"      --help          visa denna hjälptext och avsluta\n"
+"      --version       visa versionsinformation och avsluta\n"
+"\n"
+
+#: src/ln.c:178
+#, c-format
+msgid "%s: hard link not allowed for directory"
+msgstr "%s: hårda länkar är inte tillåtna för kataloger"
+
+#: src/ln.c:243 src/mv.c:258
+#, c-format
+msgid "%s: cannot overwrite directory"
+msgstr "%s: kan inte ersätta katalog"
+
+#: src/ln.c:248 src/mv.c:277
+#, c-format
+msgid "%s: replace `%s'? "
+msgstr "%s: ersätt \"%s\"? "
+
+#: src/ln.c:254
+#, c-format
+msgid "%s: File exists"
+msgstr "%s: filen finns"
+
+#: src/ln.c:279 src/mv.c:148 src/mv.c:329
+#, c-format
+msgid "cannot remove `%s'"
+msgstr "kan inte ta bort \"%s\""
+
+#: src/ln.c:290
+#, c-format
+msgid "create %s %s to %s\n"
+msgstr "skapa %s %s till %s\n"
+
+#: src/ln.c:297
+#, c-format
+msgid "cannot create %s `%s' to `%s'"
+msgstr "kan inte skapa %s \"%s\" till \"%s\""
+
+#: src/ln.c:316
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... SOURCE [DEST]\n"
+"  or:  %s [OPTION]... SOURCE... DIRECTORY\n"
+msgstr ""
+"Användning: %s [FLAGGA]... KÄLLA [DEST]\n"
+"    eller:  %s [FLAGGA]... KÄLLA... KATALOG\n"
+
+#: src/ln.c:321
+msgid ""
+"Link SOURCE to DEST (. by default), or multiple SOURCE(s) to DIRECTORY.\n"
+"Makes hard links by default, symbolic links with -s.\n"
+"\n"
+"  -b, --backup                 make backups for removed files\n"
+"  -d, -F, --directory          hard link directories (super-user only)\n"
+"  -f, --force                  remove existing destinations\n"
+"  -n, --no-dereference         treat destination that is a symlink to a\n"
+"                                 directory as if it were a normal file\n"
+"  -i, --interactive            prompt whether to remove destinations\n"
+"  -s, --symbolic               make symbolic links instead of hard links\n"
+"  -S, --suffix=SUFFIX          override the usual backup suffix\n"
+"  -v, --verbose                print name of each file before linking\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"      --help                   display this help and exit\n"
+"      --version                output version information and exit\n"
+"\n"
+msgstr ""
+"Länka KÄLLA till DEST (. om inget anges), eller flera KÄLLor till\n"
+"KATALOG.  Gör hårda länkar om inte symboliska länkar anges med -s.\n"
+"\n"
+"  -b, --backup                 gör säkerhetskopior av borttagna filer\n"
+"  -d, -F, --directory          länka kataloger hårt (endast superanvändare)\n"
+"  -f, --force                  ta bort existerande destinationer\n"
+"  -n, --no-dereference         behandla destination som är symbolisk\n"
+"                                 länk till en katalog som om det vore\n"
+"                                 en vanlig fil\n"
+"  -i, --interactive            fråga om destinationer skall tas bort\n"
+"  -s, --symbolic               gör symboliska länkar istället för hårda\n"
+"  -S, --suffix=SUFFIX          ersätt den vanliga säkerhetskopieändelsen\n"
+"  -v, --verbose                skriv namnet på varje fil före länkning\n"
+"  -V, --version-control=ORD    ersätt den vanliga versionshanteringen\n"
+"      --help                   visa denna hjälptext och avsluta\n"
+"      --version                visa versionsinformation och avsluta\n"
+"\n"
+
+#: src/ln.c:433 src/mv.c:482
+msgid "missing file argument"
+msgstr "utelämnat filargument"
+
+#: src/ln.c:444
+msgid "symbolic link"
+msgstr "symbolisk länk"
+
+#: src/ln.c:449
+msgid "hard link"
+msgstr "hård länk"
+
+#: src/ln.c:452
+msgid "link"
+msgstr "länk"
+
+#: src/ln.c:490
+msgid "when making multiple links, last argument must be a directory"
+msgstr "för att göra flera länkar måste sista argumentet vara en katalog"
+
+#: src/ls.c:835
+#, c-format
+msgid "ignoring invalid width in environment variable COLUMNS: %s"
+msgstr "ignorerar felaktig bredd i miljövariabeln COLUMNS: %s"
+
+#: src/ls.c:862
+#, c-format
+msgid "ignoring invalid tab size in environment variable TABSIZE: %s"
+msgstr "ignorerar felaktigt tabulatorsteg i miljövariabeln TABSIZE: %s"
+
+#: src/ls.c:964
+#, c-format
+msgid "invalid line width: %s"
+msgstr "felaktig radlängd: %s"
+
+#: src/ls.c:1028
+#, c-format
+msgid "invalid tab size: %s"
+msgstr "felaktigt tabulatorsteg: %s"
+
+#: src/ls.c:1048
+msgid "sort type"
+msgstr "sorteringstyp"
+
+#: src/ls.c:1058
+msgid "time type"
+msgstr "tidtyp"
+
+#: src/ls.c:1068
+msgid "format type"
+msgstr "formattyp"
+
+#: src/ls.c:1080
+msgid "colorization criterion"
+msgstr "färgläggningskriterium"
+
+#: src/ls.c:1407
+#, c-format
+msgid "unrecognized prefix: %s"
+msgstr "okänt prefix: %s"
+
+#: src/ls.c:1429
+msgid "unparsable value for LS_COLORS environment variable"
+msgstr "obegripligt värde på LS_COLORS-miljövariabeln"
+
+#: src/ls.c:2742
+msgid ""
+"List information about the FILEs (the current directory by default).\n"
+"Sort entries alphabetically if none of -cftuSUX nor --sort.\n"
+"\n"
+"  -a, --all                  do not hide entries starting with .\n"
+"  -A, --almost-all           do not list implied . and ..\n"
+"  -b, --escape               print octal escapes for nongraphic characters\n"
+"  -B, --ignore-backups       do not list implied entries ending with ~\n"
+"  -c                         sort by change time; with -l: show ctime\n"
+"  -C                         list entries by columns\n"
+"      --color[=WHEN]         control whether color is used to distinguish "
+"file\n"
+"                               types.  WHEN may be `never', `always', or "
+"`auto'\n"
+"  -d, --directory            list directory entries instead of contents\n"
+"  -D, --dired                generate output designed for Emacs' dired mode\n"
+"  -f                         do not sort, enable -aU, disable -lst\n"
+"  -F, --classify             append a character for typing each entry\n"
+"      --format=WORD          across -x, commas -m, horizontal -x, long -l,\n"
+"                               single-column -1, verbose -l, vertical -C\n"
+"      --full-time            list both full date and full time\n"
+msgstr ""
+"Lista information om FILerna (aktuell katalog om inget anges).  Sortera\n"
+"posterna alfabetiskt om ingen av -cftuSUX eller --sort.\n"
+"\n"
+"  -a, --all                  göm inte poster som inleds med .\n"
+"  -A, --almost-all           lista inte underförstådda . och ..\n"
+"  -b, --escape               skriv oktala koder för ickegrafiska tecken\n"
+"  -B, --ignore-backups       lista inte underförstådda poster som slutar på "
+"~\n"
+"  -c                         sortera efter modifieringstid; med -l: visa "
+"den\n"
+"  -C                         lista poster kolumnvis\n"
+"      --color[=NÄR]          ange om färger skall användas för att "
+"särskilja\n"
+"                               filer.  NÄR får vara \"never\", \"always\" "
+"eller\n"
+"                               \"auto\".\n"
+"  -d, --directory            lista kataloger istället för deras innehåll\n"
+"  -D, --dired                anpassa utdata för Emacs dired-funktion\n"
+"  -f                         sortera inte, slå på -aU, slå av -lst\n"
+"  -F, --classify             lägg till ett tecken som anger typen på varje "
+"post\n"
+"      --format=ORD           across -x, commas -m, horizontal -x, long -l,\n"
+"                               single-column -1, verbose -l, vertical -C\n"
+"      --full-time            lista fullständig tid och datum\n"
+
+#: src/ls.c:2762
+msgid ""
+"  -g                         (ignored)\n"
+"  -G, --no-group             inhibit display of group information\n"
+"  -i, --inode                print index number of each file\n"
+"  -I, --ignore=PATTERN       do not list implied entries matching shell "
+"PATTERN\n"
+"  -k, --kilobytes            use 1024 blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -l                         use a long listing format\n"
+"  -L, --dereference          list entries pointed to by symbolic links\n"
+"  -m                         fill width with a comma separated list of "
+"entries\n"
+"  -n, --numeric-uid-gid      list numeric UIDs and GIDs instead of names\n"
+"  -N, --literal              print raw entry names (don't treat e.g. "
+"control\n"
+"                               characters specially)\n"
+"  -o                         use long listing format without group info\n"
+"  -p                         append a character for typing each entry\n"
+"  -q, --hide-control-chars   print ? instead of non graphic characters\n"
+"  -Q, --quote-name           enclose entry names in double quotes\n"
+"  -r, --reverse              reverse order while sorting\n"
+"  -R, --recursive            list subdirectories recursively\n"
+"  -s, --size                 print size of each file, in blocks\n"
+msgstr ""
+"  -g                         (ignorerad)\n"
+"  -G, --no-group             visa inte gruppinformation\n"
+"  -i, --inode                visa indexnumret för varje fil\n"
+"  -I, --ignore=MÖNSTER       visa inte underförstådda poster som matchar "
+"skal-MÖNSTER\n"
+"  -k, --kilobytes            använd 1024 block, inte 512, trots "
+"POSIXLY_CORRECT\n"
+"  -l                         använd långt listningsformat\n"
+"  -L, --dereference          visa poster som utpekas av symboliska länkar\n"
+"  -m                         full bredd med kommaseparerade poster\n"
+"  -n, --numeric-uid-gid      lista numeriska UID och GID istället för namn\n"
+"  -N, --literal              skriv ut alla tecken (inklusive "
+"kontrolltecken)\n"
+"  -o                         använd långt listningsformat utan "
+"gruppinformation\n"
+"  -p                         lägg till ett tecken som anger typen på varje "
+"post\n"
+"  -q, --hide-control-chars   skriv ? istället för ickegrafiska tecken\n"
+"  -Q, --quote-name           omge postnamnen med citationstecken\n"
+"  -r, --reverse              sortera baklänges\n"
+"  -R, --recursive            skriv underkataloger rekursivt\n"
+"  -s, --size                 skriv storleken i block för varje fil\n"
+
+#: src/ls.c:2782
+msgid ""
+"  -S                         sort by file size\n"
+"      --sort=WORD            ctime -c, extension -X, none -U, size -S,\n"
+"                             status -c, time -t, atime -u, access -u, use "
+"-u\n"
+"      --time=WORD            show time as WORD instead of modification "
+"time:\n"
+"                             atime, access, use, ctime or status\n"
+"  -t                         sort by modification time; with -l: show mtime\n"
+"  -T, --tabsize=COLS         assume tab stops at each COLS instead of 8\n"
+"  -u                         sort by last access time; with -l: show atime\n"
+"  -U                         do not sort; list entries in directory order\n"
+"  -w, --width=COLS           assume screen width instead of current value\n"
+"  -x                         list entries by lines instead of by columns\n"
+"  -X                         sort alphabetically by entry extension\n"
+"  -1                         list one file per line\n"
+"      --help                 display this help and exit\n"
+"      --version              output version information and exit\n"
+"\n"
+"By default, color is not used to distinguish types of files.  That is\n"
+"equivalent to using --color=none.  Using the --color option without the\n"
+"optional WHEN argument is equivalent to using --color=always.  With\n"
+"--color=auto, color codes are output only if standard output is connected\n"
+"to a terminal (tty).\n"
+msgstr ""
+"  -S                         sortera efter filstorlek\n"
+"      --sort=ORD             ctime -c, extension -X, none -U, size -S,\n"
+"                               status -c, time -t, atime -u, access -u, use "
+"-u\n"
+"      --time=ORD             visa tid som ORD istället för modifieringstid:\n"
+"                               atime, access, use, ctime eller status\n"
+"  -t                         sortera efter modifieringstid; med -l: visa "
+"den\n"
+"  -T, --tabsize=KOLUMN       antag tabulatorsteg varje KOLUMN, inte var 8:e\n"
+"  -u                         sortera enligt åtkomsttid; med -l: visa den\n"
+"  -U                         sortera inte; lista poster i katalogordning\n"
+"  -w, --width=KOLUMN         anta skärmbredd istället för aktuellt värde\n"
+"  -x                         lista poster radvis istället för kolumnvis\n"
+"  -X                         sortera alfabetiskt efter ändelser\n"
+"  -1                         lista en fil per rad\n"
+"      --help                 visa denna hjälptext och avsluta\n"
+"      --version              visa versionsinformation och avsluta\n"
+"\n"
+"Normalt används inte färger för att särskilja filtyper.  Det är likvärdigt\n"
+"med att ange --color=none.  Att använda flaggan --color utan något NÄR är\n"
+"detsamma som att ange --color=always.  Med --color=auto används färgkodning\n"
+"endast om standard ut är en terminal (tty).\n"
+
+#: src/mkdir.c:60
+#, c-format
+msgid "Usage: %s [OPTION] DIRECTORY...\n"
+msgstr "Användning: %s [FLAGGA] KATALOG...\n"
+
+#: src/mkdir.c:61
+msgid ""
+"Create the DIRECTORY(ies), if they do not already exist.\n"
+"\n"
+"  -m, --mode=MODE   set permission mode (as in chmod), not rwxrwxrwx - "
+"umask\n"
+"  -p, --parents     no error if existing, make parent directories as needed\n"
+"      --verbose     print a message for each created directory\n"
+"      --help        display this help and exit\n"
+"      --version     output version information and exit\n"
+msgstr ""
+"Skapa KATALOG(er), om de inte redan finns.\n"
+"\n"
+"  -m, --mode=RÄTTIGHET sätt rättigheter (enligt chmod), inte rwxrwxrwx - "
+"umask\n"
+"  -p, --parents     inget fel om den finns, gör föräldrakataloger vid behov\n"
+"      --verbose     skriv meddelande för varje skapad katalog\n"
+"      --help        visa denna hjälptext och avsluta\n"
+"      --version     visa versionsinformation och avsluta\n"
+
+#. --verbose
+#: src/mkdir.c:105
+#, c-format
+msgid "created directory `%s'"
+msgstr "skapade katalog \"%s\""
+
+#: src/mkfifo.c:60
+#, c-format
+msgid "Usage: %s [OPTION] NAME...\n"
+msgstr "Användning: %s [FLAGGA] NAMN...\n"
+
+#: src/mkfifo.c:61
+msgid ""
+"Create named pipes (FIFOs) with the given NAMEs.\n"
+"\n"
+"  -m, --mode=MODE   set permission mode (as in chmod), not 0666 - umask\n"
+"      --help        display this help and exit\n"
+"      --version     output version information and exit\n"
+msgstr ""
+"Skapa namngivna rör (FIFOn) med det givna NAMNet.\n"
+"\n"
+"  -m, --mode=RÄTTIGHET sätt rättigheter (enligt chmod), inte rw-rw-rw- - "
+"umask\n"
+"      --help        visa denna hjälptext och avsluta\n"
+"      --version     visa versionsinformation och avsluta\n"
+
+#: src/mkfifo.c:91 src/mknod.c:213
+msgid "fifo files not supported"
+msgstr "fifo-filer stöds inte"
+
+#: src/mkfifo.c:137
+#, c-format
+msgid "cannot make fifo `%s'"
+msgstr "kan inte skapa fifo \"%s\""
+
+#: src/mknod.c:65
+#, c-format
+msgid "Usage: %s [OPTION]... NAME TYPE [MAJOR MINOR]\n"
+msgstr "Användning: %s [FLAGGA]... NAMN TYP [ÖVRE LÄGRE]\n"
+
+#: src/mknod.c:66
+msgid ""
+"Create the special file NAME of the given TYPE.\n"
+"\n"
+"  -m, --mode=MODE   set permission mode (as in chmod), not 0666 - umask\n"
+"      --help        display this help and exit\n"
+"      --version     output version information and exit\n"
+"\n"
+"MAJOR MINOR are forbidden for TYPE p, mandatory otherwise.  TYPE may be:\n"
+"\n"
+"  b      create a block (buffered) special file\n"
+"  c, u   create a character (unbuffered) special file\n"
+"  p      create a FIFO\n"
+msgstr ""
+"Skapa specialfilen NAMN av angiven TYP.\n"
+"\n"
+"  -m, --mode=RÄTTIGHET sätt rättigheter (enligt chmod), inte rw-rw-rw- - "
+"umask\n"
+"      --help        visa denna hjälptext och avsluta\n"
+"      --version     visa versionsinformation och avsluta\n"
+"\n"
+"ÖVRE UNDRE är inte tillåtna för TYP p, obligatoriska annars.  TYP kan vara:\n"
+"\n"
+"  b      skapa en (buffrad) blockspecialfil\n"
+"  c, u   skapa en (obuffrad) teckenspecialfil\n"
+"  p      skapa en FIFO\n"
+
+#: src/mknod.c:144
+msgid "wrong number of arguments"
+msgstr "fel antal argument"
+
+#: src/mknod.c:156
+msgid "block special files not supported"
+msgstr "blockspecialfiler stöds inte"
+
+#: src/mknod.c:160
+msgid ""
+"when creating block special files, major and minor device\n"
+"numbers must be specified"
+msgstr "när blockspecialfiler skapas, måste övre och undre enhetsnumer anges"
+
+#: src/mknod.c:168 src/mknod.c:197
+#, c-format
+msgid "invalid major device number `%s'"
+msgstr "ogiltigt övre enhetsnummer \"%s\""
+
+#: src/mknod.c:172 src/mknod.c:201
+#, c-format
+msgid "invalid minor device number `%s'"
+msgstr "ogiltigt undre enhetsnummer \"%s\""
+
+#: src/mknod.c:185
+msgid "character special files not supported"
+msgstr "teckenspecialfiler stöds inte"
+
+#: src/mknod.c:189
+msgid ""
+"when creating character special files, major and minor device\n"
+"numbers must be specified"
+msgstr "när teckenspecialfiler skapas, måste övre och undre enhetsnumer anges"
+
+#: src/mknod.c:217
+msgid "major and minor device numbers may not be specified for fifo files"
+msgstr "övre och undre enhetsnummer skall inte anges för fifo-filer"
+
+#: src/mv.c:141
+#, c-format
+msgid "cannot move `%s' across filesystems: Not a regular file"
+msgstr "kan inte flytta \"%s\" över filsystem: inte en normal fil"
+
+#: src/mv.c:269
+#, c-format
+msgid "%s: replace `%s', overriding mode %04o? "
+msgstr "%s: ersätt \"%s\", åsidosätt rättigheterna %04o? "
+
+#: src/mv.c:318
+#, c-format
+msgid "cannot move `%s' to `%s'"
+msgstr "kan inte flytta \"%s\" till \"%s\""
+
+#: src/mv.c:385
+msgid ""
+"Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.\n"
+"\n"
+"  -b, --backup                 make backup before removal\n"
+"  -f, --force                  remove existing destinations, never prompt\n"
+"  -i, --interactive            prompt before overwrite\n"
+"  -S, --suffix=SUFFIX          override the usual backup suffix\n"
+"  -u, --update                 move only older or brand new files\n"
+"  -v, --verbose                explain what is being done\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"      --help                   display this help and exit\n"
+"      --version                output version information and exit\n"
+"\n"
+msgstr ""
+"Byt namn på KÄLLA till DEST eller flytta KÄLLor till KATALOG.\n"
+"\n"
+"  -b, --backup                 gör säkerhetskopior innan något tas bort\n"
+"  -f, --force                  ta bort existerande destinationer utan att "
+"fråga\n"
+"  -i, --interactive            fråga innan något skrivs över\n"
+"  -S, --suffix=SUFFIX          ersätt den vanliga säkerhetskopieändelsen\n"
+"  -u, --update                 flytta bara äldre eller helt nya filer\n"
+"  -v, --verbose                berätta vad som görs\n"
+"  -V, --version-control=ORD    ersätt den vanliga versionshanteringen\n"
+"      --help                   visa denna hjälptext och avsluta\n"
+"      --version                visa versionsinformation och avsluta\n"
+"\n"
+
+#: src/mv.c:493
+msgid "when moving multiple files, last argument must be a directory"
+msgstr "när flera filer flyttas måste sista argumentet vara en katalog"
+
+#: src/mvdir.c:81
+#, c-format
+msgid "Usage: %s [OPTION]... EXISTING_DIR NEW_DIR\n"
+msgstr "Användning: %s [FLAGGA]... EXISTERANDE_KAT NY_KAT\n"
+
+#: src/mvdir.c:82
+msgid ""
+"Rename EXISTING_DIR to NEW_DIR.\n"
+"\n"
+"   --help      display this help and exit\n"
+"   --version   output version information and exit\n"
+msgstr ""
+"Flytta EXISTERANDE_KAT till NY_KAT.\n"
+"\n"
+"   --help      visa denna hjälptext och avsluta\n"
+"   --version   visa versionsinformation och avsluta\n"
+
+#: src/mvdir.c:105
+msgid "cannot get current directory"
+msgstr "kan inte hitta aktuell katalog"
+
+#: src/mvdir.c:165
+msgid "cannot rename `.' or `..'"
+msgstr "kan inte flytta \".\" eller \"..\""
+
+#: src/mvdir.c:175
+#, c-format
+msgid "`%s' is not a directory"
+msgstr "\"%s\" är inte en katalog"
+
+#: src/mvdir.c:177 src/mvdir.c:179
+#, c-format
+msgid "cannot write to `%s'"
+msgstr "kan inte skriva i \"%s\""
+
+#: src/mvdir.c:198
+#, c-format
+msgid "`%s' is an ancestor of `%s'"
+msgstr "\"%s\" är en förfader till \"%s\""
+
+#: src/mvdir.c:213 src/mvdir.c:234
+#, c-format
+msgid "cannot link `%s' to `%s'"
+msgstr "kan inte länka \"%s\" till \"%s\""
+
+#: src/mvdir.c:215 src/mvdir.c:232
+#, c-format
+msgid "cannot unlink `%s'"
+msgstr "kan inte ta bort \"%s\""
+
+#: src/rm.c:213
+msgid "cannot remove `.' or `..'"
+msgstr "kan inte ta bort \".\" eller \"..\""
+
+#: src/rm.c:250
+#, c-format
+msgid "%s: remove %s`%s', overriding mode %04o? "
+msgstr "%s: ta bort %s\"%s\", åsidosätt rättigheter %04o? "
+
+#: src/rm.c:252 src/rm.c:261
+msgid "directory "
+msgstr "katalog "
+
+#: src/rm.c:260
+#, c-format
+msgid "%s: remove %s`%s'? "
+msgstr "%s: ta bort %s\"%s\"? "
+
+#: src/rm.c:290
+#, c-format
+msgid "%s: is a directory"
+msgstr "%s: är en katalog"
+
+#: src/rm.c:298
+#, c-format
+msgid "%s: descend directory `%s', overriding mode %04o? "
+msgstr "%s: gå ner i katalog \"%s\", åsidosätt rättigheter %04o? "
+
+#: src/rm.c:306
+#, c-format
+msgid "%s: descend directory `%s'? "
+msgstr "%s: gå ner i katalog \"%s\"? "
+
+#: src/rm.c:320
+#, c-format
+msgid "%s: remove directory `%s' (might be nonempty)? "
+msgstr "%s: ta bort katalog \"%s\" (kan ha innehåll)? "
+
+#: src/rm.c:323
+#, c-format
+msgid "%s: remove directory `%s'? "
+msgstr "%s: flytta katalog \"%s\"? "
+
+#: src/rm.c:498
+#, c-format
+msgid ""
+"%s: WARNING: Circular directory structure.\n"
+"This almost certainly means that you have a corrupted file system.\n"
+"NOTIFY YOUR SYSTEM MANAGER.\n"
+"Cycle detected:\n"
+"%s\n"
+"is the same file as\n"
+msgstr ""
+"%s: VARNING: Cirkulär katalogstruktur.\n"
+"Detta betyder nästan säkert att du har ett trasigt filsystem.\n"
+"RAPPORTERA TILL SYSTEMANSVARIG.\n"
+"Funnen cykel:\n"
+"%s\n"
+"är samma fil som\n"
+
+#: src/rm.c:510
+#, c-format
+msgid "%s: continue? "
+msgstr "%s: fortsätt? "
+
+#: src/rm.c:531 src/touch.c:245
+#, c-format
+msgid "Usage: %s [OPTION]... FILE...\n"
+msgstr "Användning: %s [FLAGGA]... FIL...\n"
+
+#: src/rm.c:532
+msgid ""
+"Remove (unlink) the FILE(s).\n"
+"\n"
+"  -d, --directory       unlink directory, even if non-empty (super-user "
+"only)\n"
+"  -f, --force           ignore nonexistent files, never prompt\n"
+"  -i, --interactive     prompt before any removal\n"
+"  -r, -R, --recursive   remove the contents of directories recursively\n"
+"  -v, --verbose         explain what is being done\n"
+"      --help            display this help and exit\n"
+"      --version         output version information and exit\n"
+msgstr ""
+"Ta bort FIL(er).\n"
+"\n"
+"  -d, --directory       ta bort katalog, även om den inte är tom\n"
+"                          (endast superanvändare)\n"
+"  -f, --force           ignorera filer som inte finns, fråga aldrig\n"
+"  -i, --interactive     fråga före varje borttagning\n"
+"  -r, -R, --recursive   ta bort innehåll i kataloger rekursivt\n"
+"  -v, --verbose         förklara vad som görs\n"
+"      --help            visa denna hjälptext och avsluta\n"
+"      --version         visa versionsinformation och avsluta\n"
+
+#: src/rmdir.c:86
+#, c-format
+msgid "Usage: %s [OPTION]... DIRECTORY...\n"
+msgstr "Användning: %s [FLAGGA]... KATALOG...\n"
+
+#: src/rmdir.c:87
+msgid ""
+"Remove the DIRECTORY(ies), if they are empty.\n"
+"\n"
+"  -p, --parents   remove explicit parent directories if being emptied\n"
+"      --help      display this help and exit\n"
+"      --version   output version information and exit\n"
+msgstr ""
+"Ta bort KATALOG(er) om de är tomma.\n"
+"\n"
+"  -p, --parents   ta bort angivna föräldrakataloger om de töms\n"
+"      --help      visa denna hjälptext och avsluta\n"
+"      --version   visa versionsinformation och avsluta\n"
+
+#: src/sync.c:39
+#, c-format
+msgid "Usage: %s [OPTION]\n"
+msgstr "Användning: %s [flagga]\n"
+
+#: src/sync.c:40
+msgid ""
+"Force changed blocks to disk, update the super block.\n"
+"\n"
+"  --help      display this help and exit\n"
+"  --version   output version information and exit\n"
+msgstr ""
+"Tvinga ut alla ändrade block till disk, uppdatera superblocket.\n"
+"\n"
+"  --help      visa denna hjälptext och avsluta\n"
+"  --version   visa versionsinformation och avsluta\n"
+
+#: src/sync.c:62
+msgid "ignoring all arguments"
+msgstr "ignorerar alla argument"
+
+#: src/touch.c:246
+msgid ""
+"Update the access and modification times of each FILE to the current time.\n"
+"\n"
+"  -a                     change only the access time\n"
+"  -c                     do not create any files\n"
+"  -d, --date=STRING      parse STRING and use it instead of current time\n"
+"  -f                     (ignored)\n"
+"  -m                     change only the modification time\n"
+"  -r, --reference=FILE   use this file's times instead of current time\n"
+"  -t STAMP               use MMDDhhmm[[CC]YY][.ss] instead of current time\n"
+"      --time=WORD        access -a, atime -a, mtime -m, modify -m, use -a\n"
+"      --help             display this help and exit\n"
+"      --version          output version information and exit\n"
+"\n"
+"STAMP may be used without -t if none of -drt, nor --, are used.\n"
+msgstr ""
+"Uppdatera åtkomst- och modifikationstiderna på varje FIL till aktuell tid.\n"
+"\n"
+"  -a                     ändra bara åtkomsttiden\n"
+"  -c                     skapa inga filer\n"
+"  -d, --date=STRÄNG      tolka STRÄNG och använd det istället för aktuell "
+"tid\n"
+"  -f                     (ignorerad)\n"
+"  -m                     ändra bara modifikationstiden\n"
+"  -r, --reference=FIL    använd FILs tider istället för aktuell tid\n"
+"  -t STÄMPEL             använd MMDDhhmm[[ÅÅ]ÅÅ][.ss] istället för aktuell "
+"tid\n"
+"      --time=WORD        access -a, atime -a, mtime -m, modify -m, use -a\n"
+"      --help             visa denna hjälptext och avsluta\n"
+"      --version          visa versionsinformation och avsluta\n"
+"\n"
+"STÄMPEL kan ges utan -t om ingen av -drt, eller --, används.\n"
+
+#: src/touch.c:302 src/touch.c:322
+#, c-format
+msgid "invalid date format `%s'"
+msgstr "felaktigt datumformat \"%s\""
+
+#: src/touch.c:330
+msgid "time selector"
+msgstr "tidval"
+
+#: src/touch.c:356
+msgid "cannot specify times from more than one source"
+msgstr "kan inte ange tid från mer än en källa"
+
+#: src/touch.c:386
+msgid "file arguments missing"
+msgstr "saknat filargument"

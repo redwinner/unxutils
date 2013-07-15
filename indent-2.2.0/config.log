@@ -1,0 +1,70 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:559: checking for a BSD compatible install
+configure:612: checking whether build environment is sane
+configure:669: checking whether make sets ${MAKE}
+configure:716: checking for working aclocal
+configure:729: checking for working autoconf
+configure:742: checking for working automake
+configure:755: checking for working autoheader
+configure:768: checking for working makeinfo
+configure:785: checking whether to enable maintainer-specific portions of Makefiles
+configure:811: checking for gcc
+configure:924: checking whether the C compiler (gcc  ) works
+configure:940: gcc -o conftest    conftest.c  1>&5
+configure:966: checking whether the C compiler (gcc  ) is a cross-compiler
+configure:971: checking whether we are using GNU C
+configure:980: gcc -E conftest.c
+configure:999: checking whether gcc accepts -g
+configure:1031: checking how to run the C preprocessor
+configure:1052: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1122: checking for a BSD compatible install
+configure:1175: checking for AIX
+configure:1200: checking for minix/config.h
+configure:1210: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1206: minix/config.h: No such file or directory
+configure: failed program was:
+#line 1205 "configure"
+#include "confdefs.h"
+#include <minix/config.h>
+configure:1248: checking for POSIXized ISC
+configure:1272: checking for gcc option to accept ANSI C
+configure:1325: gcc  -c -g -O2  conftest.c 1>&5
+    0       0 [main] d:\gnuwin32\CYGWIN~1\bin\sh.exe 1183 sig_send: error sending signal(-3) to pid 1183, Win32 error -1
+configure:1351: checking for function prototypes
+configure:1510: checking for working const
+configure:1564: gcc -c -g -O2  conftest.c 1>&5
+configure:1586: checking for ANSI C header files
+configure:1599: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1666: gcc -o conftest -g -O2   conftest.c  1>&5
+    0       0 [main] d:\gnuwin32\CYGWIN~1\bin\sh.exe 1226 sig_send: error sending signal(-3) to pid 1226, Win32 error -1
+configure:1692: checking for strchr
+configure:1720: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1692: checking for memcpy
+configure:1720: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1704: warning: conflicting types for built-in function `memcpy'
+configure:1692: checking for memmove
+configure:1720: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1748: checking for unistd.h
+configure:1758: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1748: checking for string.h
+configure:1758: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1790: checking for dirent.h that defines DIR
+configure:1803: gcc -c -g -O2  conftest.c 1>&5
+configure:1828: checking for opendir in -ldir
+configure:1847: gcc -o conftest -g -O2   conftest.c -ldir   1>&5
+/usr/bin/../lib/gcc-lib/i586-cygwin32/2.95/../../../../i586-cygwin32/bin/ld: cannot open -ldir: No such file or directory
+collect2: ld returned 1 exit status
+    0 18058882 [main] d:\gnuwin32\CYGWIN~1\bin\sh.exe 1352 sig_send: error sending signal(-3) to pid 1352, Win32 error -1
+configure: failed program was:
+#line 1836 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char opendir();
+
+int main() {
+opendir()
+; return 0; }

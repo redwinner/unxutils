@@ -1,0 +1,23 @@
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) Exception trapped!
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) exception C0000005 at 10046029
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) exception: ax 1 bx 1 cx 253E60E dx 53
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) exception: si 253E774 di 0 bp 253E588 sp 253E584
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) exception is: STATUS_ACCESS_VIOLATION
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) Stack trace:
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) frame 0: sp = 0x253E2B4, pc = 0x10009E74
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) frame 1: sp = 0x253E3D4, pc = 0x77FA4512
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) frame 2: sp = 0x253E3F8, pc = 0x77F98EEB
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) frame 3: sp = 0x253E484, pc = 0x77F86266
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) frame 4: sp = 0x253E588, pc = 0x10048E1D
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) frame 5: sp = 0x253E7C0, pc = 0x100484D9
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) frame 6: sp = 0x253E7D8, pc = 0x10048494
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) frame 7: sp = 0x253EC50, pc = 0x100485B7
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) frame 8: sp = 0x253EE90, pc = 0x100484D9
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) frame 9: sp = 0x253EEA8, pc = 0x1004333A
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) frame 10: sp = 0x253EEBC, pc = 0x47110B
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) frame 11: sp = 0x253EEF0, pc = 0x471351
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) frame 12: sp = 0x253EF1C, pc = 0x4713E7
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) frame 13: sp = 0x253EF48, pc = 0x471351
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) frame 14: sp = 0x253EF74, pc = 0x4716C4
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) frame 15: sp = 0x253EF80, pc = 0x42784C
+(d:\gnuwin32\b19\H-i386-cygwin32\lib\gcc-lib\i386-cygwin32\egcs-2.90.27\cc1.exe 1032) End of stack trace (more stack frames may be present)

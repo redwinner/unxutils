@@ -1,0 +1,4 @@
+rm cleanit
+d:\usr\local\wbin\rm: cleanit: No such file or directory
+: [clean] Error 1 (ignored)
+rm foo

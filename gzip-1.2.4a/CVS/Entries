@@ -1,0 +1,67 @@
+/GZIP.HLP/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/algorithm.doc/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/bits.c/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/changelog/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/config.status/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/configure/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/configure.in/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/copying/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/crypt.c/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/crypt.h/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/deflate.c/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/getopt.c/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/getopt.h/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/gpl.texinfo/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/gzexe.1/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/gzexe.in/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/gzip.1/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/gzip.c/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/gzip.doc/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/gzip.h/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/gzip.hpj/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/gzip.info/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/gzip.ph/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/gzip.rtf/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/gzip.texi/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/gzip.zip/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/inflate.c/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/install/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/lzw.c/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/lzw.h/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/makefile/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/makefile.in/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/makefile.nt/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/match.s/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/news/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/readme/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/revision.h/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/tailor.h/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/texinfo.tex/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/thanks/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/todo/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/trees.c/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/unlzh.c/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/unlzw.c/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/unpack.c/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/unzip.c/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/util.c/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/zdiff.1/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/zdiff.in/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/zforce.1/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/zforce.in/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/zgrep.1/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/zgrep.in/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/zip.c/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/zmore.1/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/zmore.in/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/znew.1/1.1.1.1/Wed Aug 16 00:19:56 2000//
+/znew.in/1.1.1.1/Wed Aug 16 00:19:56 2000//
+D/VC6////
+D/amiga////
+D/atari////
+D/msdos////
+D/nt////
+D/os2////
+D/primos////
+D/sample////
+D/vms////

@@ -1,0 +1,1024 @@
+{\rtf1\windows \deff0{\fonttbl
+{\f0\fswiss MS Sans Serif;}{\f1\fmodern Courier New;}{\f2\ftech Symbol;}}\fs20
+\page #{\footnote hcAbout}${\footnote \pard{}About this help file}\pard{\fs24\b About this help file}\par\par\pard{}This file was made with the help of {\ul Makertf 3.12b-1}{\v hcMakertf} from the input file indent.texi.\par\par{INFO-DIR-SECTION Indent Code Formatter
+{START-INFO-DIR-ENTRY
+\pard{}* Indent: (indent).		C code formatter.\line
+END-INFO-DIR-ENTRY\par
+\pard{}}\par
+\pard{}This is Edition 2.2.0 of {\i The {\f1{}indent} Manual}, for Indent Version 2.2.0, last updated 24 July 1999.\par
+\par
+\pard{}Copyright (C) 1989, 1992, 1993, 1994, 1995, 1996 Free Software Foundation, Inc.  Copyright (C) 1995, 1996 Joseph Arceneaux.  Copyright (C) 1999 Carlo Wood.\par
+\par
+\pard{}Permission is granted to make and distribute verbatim copies of this manual provided the copyright notice and this permission notice are preserved on all copies.\par
+\par
+}{\page\pard Node: {\b Top}, \keepn Next: {\uldb Indent Program}{\v Indent_Program}, Prev: {\uldb (dir)}{\v Top @dir.hlp}, Up: {\uldb (dir)}{\v Top @dir.hlp}\tab\tab{\uldb About this help file}{\v hcAbout}\line
+K{\footnote K Top}
+#{\footnote Top}
+${\footnote {\f1{}\pard{}indent}:  Indent and Format C Program Source}\par
+\pard\pard{\fs24\b {\f1{}indent}:  Indent and Format C Program Source}\par
+\par
+\pard{}The {\f1{}indent} program changes the appearance of a C program by inserting or deleting whitespace.\par
+\par
+\pard{}This is Edition 2.2.0, 24 July 1999, of {\i The {\f1{}indent} Manual}, for Indent Version 2.2.0.  }\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Indent Program}{\v Indent_Program}\tab The {\f1{}indent} Program\par
+{\uldb Option Summary}{\v Option_Summary}\tab Option Summary\par
+{\uldb Index}{\v Index}\tab Index\par
+\pard{}}\par
+\page\pard Node: {\b Indent Program}, \keepn Next: {\uldb Option Summary}{\v Option_Summary}, Prev: {\uldb Top}{\v Top}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Indent Program}
+#{\footnote Indent_Program}
+${\footnote \pard{}The {\f1{}indent} Program}\par
+\pard{\fs24\b The {\f1{}indent} Program}\par
+\par
+{\pard{}The {\f1{}indent} program }can be used to make code easier to read.  It can also convert from one style of writing C to another.\par
+\par
+{\f1{}\pard{}indent} understands a substantial amount about the syntax of C, but it also attempts to cope with incomplete and misformed syntax.\par
+\par
+\pard{}In version 1.2 and more recent versions, the GNU style of indenting is the default.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Invoking indent}{\v Invoking_indent}\tab Invoking {\f1{}indent}\par
+{\uldb Backup files}{\v Backup_files}\tab Backup Files\par
+{\uldb Common styles}{\v Common_styles}\tab Common styles\par
+{\uldb Blank lines}{\v Blank_lines}\tab Blank lines\par
+{\uldb Comments}{\v Comments}\tab Comments\par
+{\uldb Statements}{\v Statements}\tab Statements\par
+{\uldb Declarations}{\v Declarations}\tab Declarations\par
+{\uldb Indentation}{\v Indentation}\tab Indentation\par
+{\uldb Breaking long lines}{\v Breaking_long_lines}\tab Breaking long lines\par
+{\uldb Disabling Formatting}{\v Disabling_Formatting}\tab Disabling Formatting\par
+{\uldb Miscellaneous options}{\v Miscellaneous_options}\tab Miscellaneous options\par
+{\uldb Bugs}{\v Bugs}\tab Bugs\par
+{\uldb Copyright}{\v Copyright}\tab Copyright\par
+\pard{}}\par
+\page\pard Node: {\b Invoking indent}, \keepn Next: {\uldb Backup files}{\v Backup_files}, Prev: {\uldb }{\v }, Up: {\uldb Indent Program}{\v Indent_Program}\line
+K{\footnote K Invoking indent}
+#{\footnote Invoking_indent}
+${\footnote \pard{}Invoking {\f1{}indent}}\par
+\pard{\fs24\b Invoking {\f1{}indent}}\par
+\par
+\pard{}{K{\footnote K Invoking {\f1{}indent}}}{K{\footnote K Starting {\f1{}indent}}}{K{\footnote K Beginning {\f1{}indent}}} As of version 1.3, the format of the {\f1{}indent} command is:\par
+\par
+{{\pard\keep\li720\f1{}indent [{\i options}] [{\i input-files}]\line
+\line
+indent [{\i options}] [{\i single-input-file}] [-o {\i output-file}]\par
+\pard\keep\li720{}}}\par
+\pard\f0{}This format is different from earlier versions and other versions of {\f1{}indent}.\par
+\par
+\pard{}In the first form, one or more input files are specified.  {\f1{}indent} makes a backup copy of each file, and the original file is replaced with its indented version.  See {\uldb Backup files}{\v Backup_files}, for an explanation of how backups are made.\par
+\par
+\pard{}{K{\footnote K Output File Specification}}{K{\footnote K -o}}{K{\footnote K -output-file}}In the second form, only one input file is specified.  In this case, or when the standard input is used, you may specify an output file after the {\f1{}-o} option.\par
+\par
+\pard{}{K{\footnote K Standard Output}}{K{\footnote K -st}}{K{\footnote K -standard-output}}To cause {\f1{}indent} to write to standard output, use the {\f1{}-st} option.  This is only allowed when there is only one input file, or when the standard input is used.\par
+\par
+\pard{}{K{\footnote K Using Standard Input}}If no input files are named, the standard input is read for input.  Also, if a filename named {\f1{}-} is specified, then the standard input is read.\par
+\par
+\pard{}As an example, each of the following commands will input the program {\f1{}slithy_toves.c} and write its indented text to {\f1{}slithy_toves.out}:\par
+\par
+{{\pard\keep\li720\f1{}indent slithy_toves.c -o slithy_toves.out\line
+\line
+indent -st slithy_toves.c > slithy_toves.out\line
+\line
+cat slithy_toves.c | indent -o slithy_toves.out\par
+\pard\keep\li720{}}}\par
+\pard\f0{}{K{\footnote K Long options, use of}}Most other options to {\f1{}indent} control how programs are formatted.  As of version 1.2, {\f1{}indent} also recognizes a long name for each option name.  Long options are prefixed by either {\f1{}--} or {\f1{}+}.({\ul 1}{\v Invoking_indent_1}) In most of this document, the traditional, short names are used for the sake of brevity.  See {\uldb Option Summary}{\v Option_Summary}, for a list of options, including both long and short names.\par
+\par
+\pard{}Here is another example:\par
+\par
+{\pard\keep\li720\f1{}indent -br test/metabolism.c -l85\par
+\pard\f0{}}\par
+\pard{}This will indent the program {\f1{}test/metabolism.c} using the {\f1{}-br} and {\f1{}-l85} options, write the output back to {\f1{}test/metabolism.c}, and write the original contents of {\f1{}test/metabolism.c} to a backup file in the directory {\f1{}test}.\par
+\par
+\pard{}Equivalent invocations using long option names for this example would be:\par
+\par
+{{\pard\keep\li720\f1{}indent --braces-on-if-line --line-length185 test/metabolism.c\line
+\line
+indent +braces-on-if-line +line-length185 test/metabolism.c\par
+\pard\keep\li720{}}}\par
+\pard\f0{}{K{\footnote K {\f1{}.indent.pro} file}}{K{\footnote K Initialization file}}{K{\footnote K -npro}}{K{\footnote K -ignore-profile}}If you find that you often use {\f1{}indent} with the same options, you may put those options into a file named {\f1{}.indent.pro}.  {\f1{}indent} will first look for {\f1{}.indent.pro} in the current directory and use that if found.  Otherwise, {\f1{}indent} will search your home directory for {\f1{}.indent.pro} and use that file if it is found.  This behaviour is different from that of other versions of {\f1{}indent}, which load both files if they both exist.\par
+\par
+\pard{}The format of {\f1{}.indent.pro} is simply a list of options, just as they would appear on the command line, separated by white space (tabs, spaces, and newlines).  Options in {\f1{}.indent.pro} may be surrounded by C or C++ comments, in which case they are ignored.\par
+\par
+\pard{}Command line switches are handled {\i after} processing {\f1{}.indent.pro}.  Options specified later override arguments specified earlier, with one exception: Explicitly specified options always override background options (see {\uldb Common styles}{\v Common_styles}).  You can prevent {\f1{}indent} from reading an {\f1{}.indent.pro} file by specifying the {\f1{}-npro} option.\par
+\par
+\page\pard#{\footnote Invoking_indent_1}
+\pard{}(1)  {\f1{}+} is being superseded by {\f1{}--} to maintain consistency with the POSIX standard.\par
+\par
+\page\pard Node: {\b Backup files}, \keepn Next: {\uldb Common styles}{\v Common_styles}, Prev: {\uldb Invoking indent}{\v Invoking_indent}, Up: {\uldb Indent Program}{\v Indent_Program}\line
+K{\footnote K Backup files}
+#{\footnote Backup_files}
+${\footnote \pard{}Backup Files}\par
+\pard{\fs24\b Backup Files}\par
+\par
+\pard{}As of version 1.3, GNU {\f1{}indent} makes GNU-style backup files, the same way GNU Emacs does.  This means that either \'A2simple\'A2 or \'A2numbered\'A2 backup filenames may be made.\par
+\par
+\pard{}Simple backup file names are generated by appending a suffix to the original file name.  The default for this suffix is the one-character string {\f1{}~} (tilde).  Thus, the backup file for {\f1{}python.c} would be {\f1{}python.c~}.\par
+\par
+\pard{}Instead of the default, you may specify any string as a suffix by setting the environment variable {\f1{}SIMPLE_BACKUP_SUFFIX} to your preferred suffix.\par
+\par
+\pard{}Numbered backup versions of a file {\f1{}momewraths} look like {\f1{}momewraths.c.~23~}, where 23 is the version of this particular backup.  When making a numbered backup of the file {\f1{}src/momewrath.c}, the backup file will be named {\f1{}src/momewrath.c.~{\i V}~}, where {\i V} is one greater than the highest version currently existing in the directory {\f1{}src}.\par
+\par
+\pard{}The type of backup file made is controlled by the value of the environment variable {\f1{}VERSION_CONTROL}.  If it is the string {\f1{}simple}, then only simple backups will be made.  If its value is the string {\f1{}numbered}, then numbered backups will be made.  If its value is {\f1{}numbered-existing}, then numbered backups will be made if there {\i already exist} numbered backups for the file being indented; otherwise, a simple backup is made.  If {\f1{}VERSION_CONTROL} is not set, then {\f1{}indent} assumes the behaviour of {\f1{}numbered-existing}.\par
+\par
+\pard{}Other versions of {\f1{}indent} use the suffix {\f1{}.BAK} in naming backup files.  This behaviour can be emulated by setting {\f1{}SIMPLE_BACKUP_SUFFIX} to {\f1{}.BAK}.\par
+\par
+\pard{}Note also that other versions of {\f1{}indent} make backups in the current directory, rather than in the directory of the source file as GNU {\f1{}indent} now does.\par
+\par
+\page\pard Node: {\b Common styles}, \keepn Next: {\uldb Blank lines}{\v Blank_lines}, Prev: {\uldb Backup files}{\v Backup_files}, Up: {\uldb Indent Program}{\v Indent_Program}\line
+K{\footnote K Common styles}
+#{\footnote Common_styles}
+${\footnote \pard{}Common styles}\par
+\pard{\fs24\b Common styles}\par
+\par
+\pard{}There are several common styles of C code, including the GNU style, the Kernighan & Ritchie style, and the original Berkeley style.  A style may be selected with a single \'A2background\'A2 option, which specifies a set of values for all other options.  However, explicitly specified options always override options implied by a background option.\par
+\par
+\pard{}{K{\footnote K GNU style}}{K{\footnote K -gnu}}{K{\footnote K -gnu-style}}As of version 1.2, the default style of GNU {\f1{}indent} is the GNU style.  Thus, it is no longer neccessary to specify the option {\f1{}-gnu} to obtain this format, although doing so will not cause an error.  Option settings which correspond to the GNU style are:\par
+\par
+{{\pard\keep\li720\f1{}-nbad -bap -nbc -bbo -bl -bli2 -bls -ncdb -nce -cp1 -cs -di2\line
+-ndj -nfc1 -nfca -hnl -i2 -ip5 -lp -pcs -psl -nsc -nsob\par
+\pard\keep\li720{}}}\par
+\pard\f0{}The GNU coding style is that preferred by the GNU project.  It is the style that the GNU Emacs C mode encourages and which is used in the C portions of GNU Emacs.  (People interested in writing programs for Project GNU should get a copy of {\i The GNU Coding Standards}, which also covers semantic and portability issues such as memory usage, the size of integers, etc.)\par
+\par
+\pard{}{K{\footnote K Kernighan & Ritchie style}}{K{\footnote K -kr}}{K{\footnote K -k-and-r-style}}The Kernighan & Ritchie style is used throughout their well-known book {\i The C Programming Language}.  It is enabled with the {\f1{}-kr} option.  The Kernighan & Ritchie style corresponds to the following set of options:\par
+\par
+{{\pard\keep\li720\f1{}-nbad -bap -bbo -nbc -br -brs -c33 -cd33 -ncdb -ce -ci4 -cli0\line
+-cp33 -cs -d0 -di1 -nfc1 -nfca -hnl -i4 -ip0 -l75 -lp -npcs\line
+-npsl -nsc -nsob -nss\par
+\pard\keep\li720{}}}\par
+\pard\f0{}Kernighan & Ritchie style does not put comments to the right of code in the same column at all times (nor does it use only one space to the right of the code), so for this style {\f1{}indent} has arbitrarily chosen column 33.\par
+\par
+\pard{}{K{\footnote K Berkeley style}}{K{\footnote K Original Berkeley style}}{K{\footnote K -orig}}{K{\footnote K -original}}The style of the original Berkeley {\f1{}indent} may be obtained by specifying {\f1{}-orig} (or by specifyfying {\f1{}--original}, using the long option name).  This style is equivalent to the following settings:\par
+\par
+{{\pard\keep\li720\f1{}-nbad -nbap -bbo -bc -br -brs -c33 -cd33 -cdb -ce -ci4 -cli0\line
+-cp33 -di16 -fc1 -fca -hnl -i4 -ip4 -l75 -lp -npcs -psl -sc\line
+-nsob -nss -ts8\par
+\pard\keep\li720{}}}\par
+\page\pard Node: {\b Blank lines}, \keepn Next: {\uldb Comments}{\v Comments}, Prev: {\uldb Common styles}{\v Common_styles}, Up: {\uldb Indent Program}{\v Indent_Program}\line
+K{\footnote K Blank lines}
+#{\footnote Blank_lines}
+${\footnote \pard\f0{}Blank lines}\par
+\pard{\fs24\b Blank lines}\par
+\par
+\pard{}{K{\footnote K Blank lines}} Various programming styles use blank lines in different places.  {\f1{}indent} has a number of options to insert or delete blank lines in specific places.\par
+\par
+\pard{}The {\f1{}-bad} option causes {\f1{}indent} to force a blank line after every block of declarations.  The {\f1{}-nbad} option causes {\f1{}indent} not to force such blank lines.\par
+\par
+\pard{}The {\f1{}-bap} option forces a blank line after every procedure body.  The {\f1{}-nbap} option forces no such blank line.\par
+\par
+\pard{}{K{\footnote K -bbb}}{K{\footnote K -blank-lines-after-block-comments}}{K{\footnote K -nbbb}}{K{\footnote K -no-blank-lines-after-block-comments}}The {\f1{}-bbb} option forces a blank line before every boxed comment.  (See {\uldb Comments}{\v Comments}) The {\f1{}-nbbb} option does not force such blank lines.\par
+\par
+\pard{}{K{\footnote K -sob}}{K{\footnote K -swallow-optional-blank-lines}}{K{\footnote K -nsob}}{K{\footnote K -leave-optional-blank-lines}}The {\f1{}-sob} option causes {\f1{}indent} to swallow optional blank lines (that is, any optional blank lines present in the input will be removed from the output).  If the {\f1{}-nsob} is specified, any blank lines present in the input file will be copied to the output file.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb -bad}{\v _bad}\tab More on the {\f1{}-bad} option.\par
+{\uldb -bap}{\v _bap}\tab More on the {\f1{}-bap} option.\par
+\pard{}}\par
+{\page\pard Node: {\b -bad}, \keepn Next: {\uldb -bap}{\v _bap}, Prev: {\uldb }{\v }, Up: {\uldb Blank lines}{\v Blank_lines}\line
+K{\footnote K -bad}
+#{\footnote _bad}
+${\footnote \pard{}-blank-lines-after-declarations}\par
+\pard{\fs24\b -blank-lines-after-declarations}\par
+\par
+\pard{}The {\f1{}-bad} option forces a blank line after every block of declarations.  The {\f1{}-nbad} option does not add any such blank lines.  }\par
+\par
+\pard{}For example, given the input {\par
+{\pard\keep\li720\f1{}char *foo;\line
+char *bar;\line
+/* This separates blocks of declarations.  */\line
+int baz;\par
+\pard\keep\li720{}}}\par
+\pard\f0{}{K{\footnote K -bad}}{K{\footnote K -blank-lines-after-declarations}}{K{\footnote K -nbad}}{K{\footnote K -no-blank-lines-after-declarations}} {\f1{}indent -bad} produces\par
+\par
+{{\pard\keep\li720\f1{}char *foo;\line
+char *bar;\line
+\line
+/* This separates blocks of declarations.  */\line
+int baz;\par
+\pard\keep\li720{}}}\par
+\pard\f0{}and {\f1{}indent -nbad} produces\par
+\par
+{{\pard\keep\li720\f1{}char *foo;\line
+char *bar;\line
+/* This separates blocks of declarations.  */\line
+int baz;\par
+\pard\keep\li720{}}}\par
+{\page\pard Node: {\b -bap}, \keepn Next: {\uldb }{\v }, Prev: {\uldb -bad}{\v _bad}, Up: {\uldb Blank lines}{\v Blank_lines}\line
+K{\footnote K -bap}
+#{\footnote _bap}
+${\footnote \pard\f0{}-blank-lines-after-procedures}\par
+\pard{\fs24\b -blank-lines-after-procedures}\par
+\par
+}\pard{}{K{\footnote K -bap}}{K{\footnote K -blank-lines-after-procedures}}{K{\footnote K -nbap}}{K{\footnote K -no-blank-lines-after-procedures}}The {\f1{}-bap} option forces a blank line after every procedure body.\par
+\par
+\pard{}For example, given the input\par
+\par
+{{\pard\keep\li720\f1{}int\line
+foo ()\line
+\'7B\line
+  puts("Hi");\line
+\'7D\line
+/* The procedure bar is even less interesting.  */\line
+char *\line
+bar ()\line
+\'7B\line
+  puts("Hello");\line
+\'7D\par
+\pard\keep\li720{}}}\par
+{\f1{}\pard\f0{}indent -bap} produces\par
+\par
+{{\pard\keep\li720\f1{}int\line
+foo ()\line
+\'7B\line
+  puts ("Hi");\line
+\'7D\line
+\line
+/* The procedure bar is even less interesting.  */\line
+char *\line
+bar ()\line
+\'7B\line
+  puts ("Hello");\line
+\'7D\par
+\pard\keep\li720{}}}\par
+\pard\f0{}and {\f1{}indent -nbap} produces\par
+\par
+{{\pard\keep\li720\f1{}int\line
+foo ()\line
+\'7B\line
+  puts ("Hi");\line
+\'7D\line
+/* The procedure bar is even less interesting.  */\line
+char *\line
+bar ()\line
+\'7B\line
+  puts ("Hello");\line
+\'7D\par
+\pard\keep\li720{}}}\par
+\pard\f0{}No blank line will be added after the procedure {\f1{}foo}.\par
+\par
+\page\pard Node: {\b Comments}, \keepn Next: {\uldb Statements}{\v Statements}, Prev: {\uldb Blank lines}{\v Blank_lines}, Up: {\uldb Indent Program}{\v Indent_Program}\line
+K{\footnote K Comments}
+#{\footnote Comments}
+${\footnote \pard{}Comments}\par
+\pard{\fs24\b Comments}\par
+\par
+\pard{}{K{\footnote K Comments}} {\f1{}indent} formats both C and C++ comments. C comments are begun with {\f1{}/*}, terminated with {\f1{}*/} and may contain newline characters.  C++ comments begin with the delimiter {\f1{}//} and end at the newline.\par
+\par
+{\f1{}\pard{}indent} handles comments differently depending upon their context.  {\f1{}indent} attempts to distinguish amongst comments which follow statements, comments which follow declarations, comments following preprocessor directives, and comments which are not preceded by code of any sort, i.e., they begin the text of the line (although not neccessarily in column 1).\par
+\par
+{\f1{}\pard{}indent} further distinguishes between comments found outside of procecures and aggregates, and those found within them.  In particular, comments beginning a line found within a procedure will be indented to the column at which code is currently indented.  The exception to this a comment beginning in the leftmost column;  such a comment is output at that column.\par
+\par
+{\f1{}\pard{}indent} attempts to leave \'A2boxed comments\'A2 unmodified.  The general idea of such a comment is that it is enclosed in a rectangle or "box" of stars or dashes to visually set it apart.  More precisely, boxed comments are defined as those in which the initial {\f1{}/*} is followed immediately by the character {\f1{}*}, {\f1{}=}, {\f1{}_}, or {\f1{}-}, or those in which the beginning comment delimiter ({\f1{}/*}) is on a line by itself, and the following line begins with a {\f1{}*} in the same column as the star of the opening delimiter.\par
+\par
+\pard{}Examples of boxed comments are:\par
+\par
+{{\pard\keep\li720\f1{}/**********************\line
+ * Comment in a box!! *\line
+ **********************/\line
+\line
+       /*\line
+        * A different kind of scent,\line
+        * for a different kind of comment.\line
+        */\par
+\pard\keep\li720{}}}\par
+{\f1{}\pard\f0{}indent} attempts to leave boxed comments exactly as they are found in the source file.  Thus the indentation of the comment is unchanged, and its length is not checked in any way.  The only alteration made is that an embedded tab character may be converted into the appropriate number of spaces.\par
+\par
+\pard{}If the {\f1{}-bbb} option is specified, all such boxed comments will be preceded by a blank line, unless such a comment is preceded by code.\par
+\par
+\pard{}{K{\footnote K -fca}}{K{\footnote K -format-all-comments}}{K{\footnote K -nfca}}{K{\footnote K -dont-format-comments}}{K{\footnote K -fc1}}{K{\footnote K -format-first-column-comments}}{K{\footnote K -nfc1}}{K{\footnote K -dont-format-first-column-comments}}Comments which are not boxed comments may be formatted, which means that the line is broken to fit within a right margin and left-filled with whitespace.  Single newlines are equivalent to a space, but blank lines (two or more newlines in a row) are taken to mean a paragraph break.  Formatting of comments which begin after the first column is enabled with the {\f1{}-fca} option.  To format those beginning in column one, specify {\f1{}-fc1}.  Such formatting is disabled by default.\par
+\par
+\pard{}The right margin for formatting defaults to 78, but may be changed with the {\f1{}-lc} option.  If the margin specified does not allow the comment to be printed, the margin will be automatically extended for the duration of that comment.  The margin is not respected if the comment is not being formatted.\par
+\par
+\pard{}{K{\footnote K -d{\i n}}}{K{\footnote K -line-comments-indentation{\i n}}}If the comment begins a line (i.e., there is no program text to its left), it will be indented to the column it was found in unless the comment is within a block of code.  In that case, such a comment will be aligned with the indented code of that block (unless the comment began in the first column).  This alignment may be affected by the {\f1{}-d} option, which specifies an amount by which such comments are moved to the {\i left}, or unindented.  For example, {\f1{}-d2} places comments two spaces to the left of code.  By default, comments are aligned with code, unless they begin in the first column, in which case they are left there by default - to get them aligned with the code, specify {\f1{}-fc1}.\par
+\par
+\pard{}{K{\footnote K -c{\i n}}}{K{\footnote K -comment-indentation{\i n}}}{K{\footnote K -cd{\i n}}}{K{\footnote K -declaration-comment-column{\i n}}}{K{\footnote K -cp{\i n}}}{K{\footnote K -else-endif-column{\i n}}}Comments to the right of code will appear by default in column 33.  This may be changed with one of three options.  {\f1{}-c} will specify the column for comments following code, {\f1{}-cd} specifies the column for comments following declarations, and {\f1{}-cp} specifies the column for comments following preprocessor directives {\f1{}#else} and {\f1{}#endif}.\par
+\par
+\pard{}If the code to the left of the comment exceeds the beginning column, the comment column will be extended to the next tabstop column past the end of the code, or in the case of preprocessor directives, to one space past the end of the directive.  This extension lasts only for the output of that particular comment.\par
+\par
+\pard{}{K{\footnote K -cdb}}{K{\footnote K -comment-delimiters-on-blank-lines}}{K{\footnote K -ncdb}}{K{\footnote K -no-comment-delimiters-on-blank-lines}}The {\f1{}-cdb} option places the comment delimiters on blank lines.  Thus, a single line comment like {\f1{}/* Loving hug */} can be transformed into:\par
+\par
+{{\pard\keep\li720\f1{}/*\line
+   Loving hug\line
+ */\par
+\pard\keep\li720{}}}\par
+\pard\f0{}{K{\footnote K -sc}}{K{\footnote K -star-left-side-of-comments}}{K{\footnote K -nsc}}{K{\footnote K -dont-star-comments}}Stars can be placed at the beginning of multi-line comments with the {\f1{}-sc} option.  Thus, the single-line comment above can be transformed (with {\f1{}-cdb -sc}) into:\par
+\par
+{{\pard\keep\li720\f1{}/*\line
+ * Loving hug\line
+ */\par
+\pard\keep\li720{}}}\par
+\page\pard Node: {\b Statements}, \keepn Next: {\uldb Declarations}{\v Declarations}, Prev: {\uldb Comments}{\v Comments}, Up: {\uldb Indent Program}{\v Indent_Program}\line
+K{\footnote K Statements}
+#{\footnote Statements}
+${\footnote \pard\f0{}Statements}\par
+\pard{\fs24\b Statements}\par
+\par
+\pard{}{K{\footnote K -br}}{K{\footnote K -braces-on-if-line}}{K{\footnote K -bl}}{K{\footnote K -braces-after-if-line}}The {\f1{}-br} or {\f1{}-bl} option specifies how to format braces.\par
+\par
+\pard{}The {\f1{}-br} option formats statement braces like this:\par
+\par
+{{\pard\keep\li720\f1{}if (x > 0) \'7B\line
+  x--;\line
+\'7D\par
+\pard\keep\li720{}}}\par
+\pard\f0{}The {\f1{}-bl} option formats them like this:\par
+\par
+{{\pard\keep\li720\f1{}if (x > 0)\line
+  \'7B\line
+    x--;\line
+  \'7D\par
+\pard\keep\li720{}}}\par
+\pard\f0{}{K{\footnote K -bli{\i n}}}{K{\footnote K -brace-indent{\i n}}}If you use the {\f1{}-bl} option, you may also want to specify the {\f1{}-bli} option.  This option specifies the number of spaces by which braces are indented.  {\f1{}-bli2}, the default, gives the result shown above.  {\f1{}-bli0} results in the following:\par
+\par
+{{\pard\keep\li720\f1{}if (x > 0)\line
+\'7B\line
+  x--;\line
+\'7D\par
+\pard\keep\li720{}}}\par
+\pard\f0{}{K{\footnote K -ce}}{K{\footnote K -cuddle-else}}{K{\footnote K -dce}}{K{\footnote K -dont-cuddle-else}}If you are using the {\f1{}-br} option, you probably want to also use the {\f1{}-ce} option.  This causes the {\f1{}else} in an if-then-else construct to cuddle up to the immediately preceding {\f1{}\'7D}.  For example, with {\f1{}-br -ce} you get the following:\par
+\par
+{{\pard\keep\li720\f1{}if (x > 0) \'7B\line
+  x--;\line
+\'7D else \'7B\line
+  fprintf (stderr, "...something wrong?\'5Cn");\line
+\'7D\par
+\pard\keep\li720{}}}\par
+\pard\f0{}With {\f1{}-br -nce} that code would appear as\par
+\par
+{{\pard\keep\li720\f1{}if (x > 0) \'7B\line
+  x--;\line
+\'7D\line
+else \'7B\line
+  fprintf (stderr, "...something wrong?\'5Cn");\line
+\'7D\par
+\pard\keep\li720{}}}\par
+\pard\f0{}{K{\footnote K -cli{\i n}}}{K{\footnote K -case-indentation{\i n}}}The {\f1{}-cli} option specifies the number of spaces that case labels should be indented to the right of the containing {\f1{}switch} statement.\par
+\par
+\pard{}The default gives code like:\par
+\par
+{{\pard\keep\li720\f1{}switch (i)\line
+  \'7B\line
+  case 0:\line
+    break;\line
+  case 1:\line
+    \'7B\line
+      ++i;\line
+    \'7D\line
+  default:\line
+    break;\line
+  \'7D\par
+\pard\keep\li720{}}}\par
+\pard\f0{}Using the {\f1{}-cli2} that would become:\par
+\par
+{{\pard\keep\li720\f1{}switch (i)\line
+  \'7B\line
+    case 0:\line
+      break;\line
+    case 1:\line
+      \'7B\line
+	++i;\line
+      \'7D\line
+    default:\line
+      break;\line
+  \'7D\par
+\pard\keep\li720{}}}\par
+\pard\f0{}{K{\footnote K -cbi{\i n}}}{K{\footnote K -case-brace-indentation{\i n}}}The indentation of the braces below a case statement can be controlled with the {\f1{}-cbi{\i n}} option.  For example, using {\f1{}-cli2 -cbi0} results in:\par
+\par
+{{\pard\keep\li720\f1{}switch (i)\line
+  \'7B\line
+    case 0:\line
+      break;\line
+    case 1:\line
+    \'7B\line
+      ++i;\line
+    \'7D\line
+    default:\line
+      break;\line
+  \'7D\par
+\pard\keep\li720{}}}\par
+\pard\f0{}{K{\footnote K -ss}}{K{\footnote K -space-special-semicolon}}{K{\footnote K -nss}}{K{\footnote K -dont-space-special-semicolon}}If a semicolon is on the same line as a {\f1{}for} or {\f1{}while} statement, the {\f1{}-ss} option will cause a space to be placed before the semicolon.  This emphasizes the semicolon, making it clear that the body of the {\f1{}for} or {\f1{}while} statement is an empty statement.  {\f1{}-nss} disables this feature.\par
+\par
+\pard{}{K{\footnote K -pcs}}{K{\footnote K -space-after-procedure-calls}}{K{\footnote K -npcs}}{K{\footnote K -no-space-after-function-call-names}}The {\f1{}-pcs} option causes a space to be placed between the name of the procedure being called and the {\f1{}(} (for example, {\f1{}puts ("Hi");}.  The {\f1{}-npcs} option would give {\f1{}puts("Hi");}).\par
+\par
+\pard{}{K{\footnote K -cs}}{K{\footnote K -space-after-cast}}{K{\footnote K -ncs}}{K{\footnote K -no-space-after-casts}}If the {\f1{}-cs} option is specified, {\f1{}indent} puts a space after a cast operator.\par
+\par
+\pard{}{K{\footnote K -bs}}{K{\footnote K -blank-after-sizeof}}The {\f1{}-bs} option ensures that there is a space between the keyword {\f1{}sizeof} and its argument.  In some versions, this is known as the {\f1{}Bill_Shannon} option.\par
+\par
+\page\pard Node: {\b Declarations}, \keepn Next: {\uldb Indentation}{\v Indentation}, Prev: {\uldb Statements}{\v Statements}, Up: {\uldb Indent Program}{\v Indent_Program}\line
+K{\footnote K Declarations}
+#{\footnote Declarations}
+${\footnote \pard{}Declarations}\par
+\pard{\fs24\b Declarations}\par
+\par
+\pard{}{K{\footnote K -di{\i n}}}{K{\footnote K -declaration-indentation{\i n}}}By default {\f1{}indent} will line up identifiers, in the column specified by the {\f1{}-di} option.  For example, {\f1{}-di16} makes things look like:\par
+\par
+{{\pard\keep\li720\f1{}int             foo;\line
+char           *bar;\par
+\pard\keep\li720{}}}\par
+\pard\f0{}Using a small value (such as one or two) for the {\f1{}-di} option can be used to cause the indentifiers to be placed in the first available position, for example\par
+\par
+{{\pard\keep\li720\f1{}int foo;\line
+char *bar;\par
+\pard\keep\li720{}}}\par
+\pard\f0{}The value given to the {\f1{}-di} option will still affect variables which are put on separate lines from their types, for example {\f1{}-di2} will lead to\par
+\par
+{{\pard\keep\li720\f1{}int\line
+  foo;\par
+\pard\keep\li720{}}}\par
+\pard\f0{}{K{\footnote K -bc}}{K{\footnote K -blank-lines-after-commas}}{K{\footnote K -nbc}}{K{\footnote K -no-blank-lines-after-commas}}If the {\f1{}-bc} option is specified, a newline is forced after each comma in a declaration.  For example,\par
+\par
+{{\pard\keep\li720\f1{}int a,\line
+  b,\line
+  c;\par
+\pard\keep\li720{}}}\par
+\pard\f0{}With the {\f1{}-nbc} option this would look like\par
+\par
+{\pard\keep\li720\f1{}int a, b, c;\par
+\pard\f0{}}\par
+\pard{}{K{\footnote K -psl}}{K{\footnote K -procnames-start-lines}}{K{\footnote K -npsl}}{K{\footnote K -dont-break-procedure-type}}{K{\footnote K {\f1{}etags} requires {\f1{}-psl}}}The {\f1{}-psl} option causes the type of a procedure being defined to be placed on the line before the name of the procedure.  This style is required for the {\f1{}etags} program to work correctly, as well as some of the {\f1{}c-mode} functions of Emacs.\par
+\par
+\pard{}{K{\footnote K -T}}{K{\footnote K Typenames}}You must use the {\f1{}-T} option to tell {\f1{}indent} the name of all the typenames in your program that are defined by {\f1{}typedef}.  {\f1{}-T} can be specified more than once, and all names specified are used.  For example, if your program contains\par
+\par
+{{\pard\keep\li720\f1{}typedef unsigned long CODE_ADDR;\line
+typedef enum \'7Bred, blue, green\'7D COLOR;\par
+\pard\keep\li720{}}}\par
+\pard\f0{}you would use the options {\f1{}-T CODE_ADDR -T COLOR}.\par
+\par
+\pard{}The `-brs' or `-bls' option specifies how to format braces in struct declarations.  The `-brs' option formats braces like this:\par
+\par
+{{\pard\keep\li720\f1{}struct foo \'7B\line
+  int x;\line
+\'7D;\par
+\pard\keep\li720{}}}\par
+\pard\f0{}The `-bls' option formats them like this:\par
+\par
+{{\pard\keep\li720\f1{}struct foo\line
+\'7B\line
+  int x;\line
+\'7D;\par
+\pard\keep\li720{}}}\par
+\page\pard Node: {\b Indentation}, \keepn Next: {\uldb Breaking long lines}{\v Breaking_long_lines}, Prev: {\uldb Declarations}{\v Declarations}, Up: {\uldb Indent Program}{\v Indent_Program}\line
+K{\footnote K Indentation}
+#{\footnote Indentation}
+${\footnote \pard\f0{}Indentation}\par
+\pard{\fs24\b Indentation}\par
+\par
+\pard{}{K{\footnote K -i{\i n}}}{K{\footnote K -indent-level{\i n}}}{K{\footnote K -ci{\i n}}}{K{\footnote K -continuation-indentation{\i n}}}{K{\footnote K -lp}}{K{\footnote K -continue-at-parentheses}}{K{\footnote K -nlp}}{K{\footnote K -dont-line-up-parentheses}}One issue in the formatting of code is how far each line should be indented from the left margin.  When the beginning of a statement such as {\f1{}if} or {\f1{}for} is encountered, the indentation level is increased by the value specified by the {\f1{}-i} option.  For example, use {\f1{}-i8} to specify an eight character indentation for each level.  When a statement is broken across two lines, the second line is indented by a number of additional spaces specified by the {\f1{}-ci} option.  {\f1{}-ci} defaults to 0.  However, if the {\f1{}-lp} option is specified, and a line has a left parenthesis which is not closed on that line, then continuation lines will be lined up to start at the character position just after the left parenthesis.  This processing also applies to {\f1{}[} and applies to {\f1{}\'7B} when it occurs in initialization lists.  For example, a piece of continued code might look like this with {\f1{}-nlp -ci3} in effect:\par
+\par
+{{\pard\keep\li720\f1{}  p1 = first_procedure (second_procedure (p2, p3),\line
+     third_procedure (p4, p5));\par
+\pard\keep\li720{}}}\par
+\pard\f0{}With {\f1{}-lp} in effect the code looks somewhat clearer:\par
+\par
+{{\pard\keep\li720\f1{}  p1 = first_procedure (second_procedure (p2, p3),\line
+                        third_procedure (p4, p5));\par
+\pard\keep\li720{}}}\par
+\pard\f0{}{K{\footnote K -ts{\i n}}}{K{\footnote K -tab-size{\i n}}}When a statement is broken inbetween two or more paren pairs (...), each extra pair causes the indentation level extra indentation:\par
+\par
+{{\pard\keep\li720\f1{}if ((((i < 2 &&\line
+        k > 0) || p == 0) &&\line
+    q == 1) ||\line
+  n = 0)\par
+\pard\keep\li720{}}}\par
+\pard\f0{}The option `-ipN' can be used to set the extra offset per paren.  For instance, `-ip0' would format the above as:\par
+\par
+{{\pard\keep\li720\f1{}if ((((i < 2 &&\line
+  k > 0) || p == 0) &&\line
+  q == 1) ||\line
+  n = 0)\par
+\pard\keep\li720{}}}\par
+{\f1{}\pard\f0{}indent} assumes that tabs are placed at regular intervals of both input and output character streams.  These intervals are by default 8 columns wide, but (as of version 1.2) may be changed by the {\f1{}-ts} option.  Tabs are treated as the equivalent number of spaces.\par
+\par
+\pard{}{K{\footnote K -ip{\i n}}}{K{\footnote K -parameter-indentation{\i n}}}{K{\footnote K -nip}}{K{\footnote K -no-parameter-indentation}}The indentation of type declarations in old-style function definitions is controlled by the {\f1{}-ip} parameter.  This is a numeric parameter specifying how many spaces to indent type declarations.  For example, the default {\f1{}-ip5} makes definitions look like this:\par
+\par
+{{\pard\keep\li720\f1{}char *\line
+create_world (x, y, scale)\line
+     int x;\line
+     int y;\line
+     float scale;\line
+\'7B\line
+  . . .\line
+\'7D\par
+\pard\keep\li720{}}}\par
+\pard\f0{}For compatibility with other versions of indent, the option {\f1{}-nip} is provided, which is equivalent to {\f1{}-ip0}.\par
+\par
+\pard{}{K{\footnote K -lps}}{K{\footnote K -leave-preprocessor-space}}{K{\footnote K -nlps}}{K{\footnote K -remove-preprocessor-space}}ANSI C allows white space to be placed on preprocessor command lines between the character {\f1{}#} and the command name.  By default, {\f1{}indent} removes this space, but specifying the {\f1{}-lps} option directs {\f1{}indent} to leave this space unmodified.\par
+\par
+\page\pard Node: {\b Breaking long lines}, \keepn Next: {\uldb Disabling Formatting}{\v Disabling_Formatting}, Prev: {\uldb Indentation}{\v Indentation}, Up: {\uldb Indent Program}{\v Indent_Program}\line
+K{\footnote K Breaking long lines}
+#{\footnote Breaking_long_lines}
+${\footnote \pard{}Breaking long lines}\par
+\pard{\fs24\b Breaking long lines}\par
+\par
+\pard{}{K{\footnote K -l{\i n}}}{K{\footnote K -line-length{\i n}}}With the option {\f1{}-l{\i n}}, or {\f1{}--line-length{\i n}}, it is possible to specify the maximum length of a line of C code, not including possible comments that follow it.\par
+\par
+\pard{}When lines become longer then the specified line length, {\f1{}GNU indent} tries to break the line at a logical place.  This is new as of version 2.1 however and not very intelligent or flexible yet.\par
+\par
+\pard{}{K{\footnote K -bbo}}{K{\footnote K -break-before-boolean-operator}}{K{\footnote K -nbbo}}{K{\footnote K -break-after-boolean-operator}}{K{\footnote K -hnl}}{K{\footnote K -honour-newlines}}{K{\footnote K -nhnl}}{K{\footnote K -ignore-newlines}}Currently there are two options that allows one to interfere with the algorithm that determines where to break a line.\par
+\par
+\pard{}The {\f1{}-bbo} option causes {\f1{}GNU indent} to prefer to break long lines before the boolean operators {\f1{}&&} and {\f1{}||}.  The {\f1{}-nbbo} option causes {\f1{}GNU indent} not have that preference.  For example, the default option {\f1{}-bbo} (together with {\f1{}--line-length60} and {\f1{}--ignore-newlines}) makes code look like this:\par
+\par
+{{\pard\keep\li720\f1{}  if (mask\line
+      && ((mask[0] == '\'5C0')\line
+          || (mask[1] == '\'5C0'\line
+              && ((mask[0] == '0') || (mask[0] == '*')))))\par
+\pard\keep\li720{}}}\par
+\pard\f0{}Using the option {\f1{}-nbbo} will make it look like this:\par
+\par
+{{\pard\keep\li720\f1{}  if (mask &&\line
+      ((mask[0] == '\'5C0') ||\line
+       (mask[1] == '\'5C0' &&\line
+        ((mask[0] == '0') || (mask[0] == '*')))))\par
+\pard\keep\li720{}}}\par
+\pard\f0{}The default {\f1{}-hnl} however, honours newlines in the input file by giving them the highest possible priority to break lines at.  For example, when the input file looks like this:\par
+\par
+{{\pard\keep\li720\f1{}  if (mask\line
+      && ((mask[0] == '\'5C0')\line
+      || (mask[1] == '\'5C0' && ((mask[0] == '0') || (mask[0] == '*')))))\par
+\pard\keep\li720{}}}\par
+\pard\f0{}then using the option {\f1{}-hnl}, or {\f1{}--honour-newlines}, together with the previously mentioned {\f1{}-nbbo} and {\f1{}--line-length60}, will cause the output not to be what is given in the last example but instead will prefer to break at the positions where the code was broken in the input file:\par
+\par
+{{\pard\keep\li720\f1{}  if (mask\line
+      && ((mask[0] == '\'5C0')\line
+          || (mask[1] == '\'5C0' &&\line
+              ((mask[0] == '0') || (mask[0] == '*')))))\par
+\pard\keep\li720{}}}\par
+\pard\f0{}The idea behind this option is that lines which are too long, but are already broken up, will not be touched by {\f1{}GNU indent}.  Really messy code should be run through {\f1{}indent} at least once using the {\f1{}--ignore-newlines} option though.\par
+\par
+\page\pard Node: {\b Disabling Formatting}, \keepn Next: {\uldb Miscellaneous options}{\v Miscellaneous_options}, Prev: {\uldb Breaking long lines}{\v Breaking_long_lines}, Up: {\uldb Indent Program}{\v Indent_Program}\line
+K{\footnote K Disabling Formatting}
+#{\footnote Disabling_Formatting}
+${\footnote \pard{}Disabling Formatting}\par
+\pard{\fs24\b Disabling Formatting}\par
+\par
+\pard{}Formatting of C code may be disabled for portions of a program by embedding special \'A2control comments\'A2 in the program.  To turn off formatting for a section of a program, place the disabling control comment {\f1{}/* *INDENT-OFF* */} on a line by itself just before that section.  Program text scanned after this control comment is output precisely as input with no modifications until the corresponding enabling comment is scanned on a line by itself.  The disabling control comment is {\f1{}/* *INDENT-ON* */}, and any text following the comment on the line is also output unformatted.  Formatting begins again with the input line following the enabling control comment.\par
+\par
+\pard{}More precisely, {\f1{}indent} does not attempt to verify the closing delimiter ({\f1{}*/}) for these C comments, and any whitespace on the line is totally transparent.\par
+\par
+\pard{}These control comments also function in their C++ formats, namely {\f1{}// *INDENT-OFF*} and {\f1{}// *INDENT-ON*}.\par
+\par
+\pard{}It should be noted that the internal state of {\f1{}indent} remains unchanged over the course of the unformatted section.  Thus, for example, turning off formatting in the middle of a function and continuing it after the end of the function may lead to bizarre results.  It is therefore wise to be somewhat modular in selecting code to be left unformatted.\par
+\par
+\pard{}As a historical note, some earlier versions of {\f1{}indent} produced error messages beginning with {\f1{}*INDENT**}.  These versions of {\f1{}indent} were written to ignore any input text lines which began with such error messages.  I have removed this incestuous feature from {\f1{}GNU indent}.\par
+\par
+\page\pard Node: {\b Miscellaneous options}, \keepn Next: {\uldb Bugs}{\v Bugs}, Prev: {\uldb Disabling Formatting}{\v Disabling_Formatting}, Up: {\uldb Indent Program}{\v Indent_Program}\line
+K{\footnote K Miscellaneous options}
+#{\footnote Miscellaneous_options}
+${\footnote \pard{}Miscellaneous options}\par
+\pard{\fs24\b Miscellaneous options}\par
+\par
+\pard{}{K{\footnote K -version}}To find out what version of {\f1{}indent} you have, use the command {\f1{}indent -version}.  This will report the version number of {\f1{}indent}, without doing any of the normal processing.\par
+\par
+\pard{}{K{\footnote K -v}}{K{\footnote K -verbose}}{K{\footnote K -nv}}{K{\footnote K -no-verbosity}}The {\f1{}-v} option can be used to turn on verbose mode.  When in verbose mode, {\f1{}indent} reports when it splits one line of input into two more more lines of output, and gives some size statistics at completion.\par
+\par
+\page\pard Node: {\b Bugs}, \keepn Next: {\uldb Copyright}{\v Copyright}, Prev: {\uldb Miscellaneous options}{\v Miscellaneous_options}, Up: {\uldb Indent Program}{\v Indent_Program}\line
+K{\footnote K Bugs}
+#{\footnote Bugs}
+${\footnote \pard{}Bugs}\par
+\pard{\fs24\b Bugs}\par
+\par
+\pard{}When {\f1{}indent} is run twice on a file, with the same profile, it should {\i never} change that file the second time.  With the current design of {\f1{}indent} this can not be garanteed however and it has not been extensively tested.\par
+\par
+{\f1{}\pard{}Indent} does not understand C.  In some cases this leads to the inability to join lines.  The result is that running a file through {\f1{}indent} is {\i irreversable}, even if the used input file was the result of running {\f1{}indent} with a given profile ({\f1{}.indent.pro}).\par
+\par
+\pard{}While an attempt was made to get {\f1{}indent} working for C++, is will not do a good job on any C++ source except the real simple.\par
+\par
+{\f1{}\pard{}Indent} does not look at the given {\f1{}--line-length} option when writing comments to the output file.  This results often in comments being put far to the right.  In order to prohibit {\f1{}indent} from joining a broken line that has a comment at the end, make sure that the comments start on the first line of the break.\par
+\par
+{\f1{}\pard{}Indent} does not count lines and comments (see the {\f1{}-v} option) when {\f1{}indent} is turned off with {\f1{}/* *INDENT-OFF* */}.\par
+\par
+\page\pard Node: {\b Copyright}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Bugs}{\v Bugs}, Up: {\uldb Indent Program}{\v Indent_Program}\line
+K{\footnote K Copyright}
+#{\footnote Copyright}
+${\footnote \pard{}Copyright}\par
+\pard{\fs24\b Copyright}\par
+\par
+\pard{}The following copyright notice applies to the {\f1{}indent} program.  The copyright and copying permissions for this manual appear near the beginning of indent.texinfo and indent.info, and near the end of indent.1.\par
+\par
+{\pard\keep\li720\f1{}Copyright (c) 1999 Carlo Wood.\line
+Copyright (c) 1995, 1996 Joseph Arceneaux.\line
+Copyright (c) 1989, 1992, 1993, 1994, 1995, 1996 Free Software Foundation\line
+Copyright (c) 1985 Sun Microsystems, Inc.\line
+Copyright (c) 1980 The Regents of the University of California.\line
+Copyright (c) 1976 Board of Trustees of the University of Illinois.\line
+All rights reserved.\line
+\line
+Redistribution and use in source and binary forms are permitted\line
+provided that the above copyright notice and this paragraph are\line
+duplicated in all such forms and that any documentation,\line
+advertising materials, and other materials related to such\line
+distribution and use acknowledge that the software was developed\line
+by the University of California, Berkeley, the University of Illinois,\line
+Urbana, and Sun Microsystems, Inc.  The name of either University\line
+or Sun Microsystems may not be used to endorse or promote products\line
+derived from this software without specific prior written permission.\line
+THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR\line
+IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED\line
+WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR\line
+PURPOSE.\par
+\pard\f0{}}\par
+\page\pard Node: {\b Option Summary}, \keepn Next: {\uldb Index}{\v Index}, Prev: {\uldb Indent Program}{\v Indent_Program}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Option Summary}
+#{\footnote Option_Summary}
+${\footnote \pard{}Option Summary}\par
+\pard{\fs24\b Option Summary}\par
+\par
+\pard{}Here is a list of all the options for {\f1{}indent}, alphabetized by short option.  It is followed by a cross key alphabetized by long option.\par
+\par
+{\pard{}{\f1{}-bad}\par
+\pard{}{\f1{}--blank-lines-after-declarations}\par
+\pard\li720{}Force blank lines after the declarations.\par
+\pard\li720{}See {\uldb Blank lines}{\v Blank_lines}.\par
+\par
+\pard{}{\f1{}-bap}\par
+\pard{}{\f1{}--blank-lines-after-procedures}\par
+\pard\li720{}Force blank lines after procedure bodies.\par
+\pard\li720{}See {\uldb Blank lines}{\v Blank_lines}.\par
+\par
+\pard{}{\f1{}-bbb}\par
+\pard{}{\f1{}--blank-lines-after-block-comments}\par
+\pard\li720{}Force blank lines after block comments.\par
+\pard\li720{}See {\uldb Blank lines}{\v Blank_lines}.\par
+\par
+\pard{}{\f1{}-bbo}\par
+\pard{}{\f1{}--break-before-boolean-operator}\par
+\pard\li720{}Prefer to break long lines before boolean operators.\par
+\pard\li720{}See {\uldb Breaking long lines}{\v Breaking_long_lines}.\par
+\par
+\pard{}{\f1{}-bc}\par
+\pard{}{\f1{}--blank-lines-after-commas}\par
+\pard\li720{}Force newline after comma in declaration.\par
+\pard\li720{}See {\uldb Declarations}{\v Declarations}.\par
+\par
+\pard{}{\f1{}-bl}\par
+\pard{}{\f1{}--braces-after-if-line}\par
+\pard\li720{}Put braces on line after {\f1{}if}, etc.\par
+\pard\li720{}See {\uldb Statements}{\v Statements}.\par
+\par
+\pard{}{\f1{}-bli{\i n}}\par
+\pard{}{\f1{}--brace-indent{\i n}}\par
+\pard\li720{}Indent braces {\i n} spaces.\par
+\pard\li720{}See {\uldb Statements}{\v Statements}.\par
+\par
+\pard{}{\f1{}-bls}\par
+\pard{}{\f1{}--braces-after-struct-decl-line}\par
+\pard\li720{}Put braces on the line after {\f1{}struct} declaration lines.\par
+\pard\li720{}See {\uldb Declarations}{\v Declarations}.\par
+\par
+\pard{}{\f1{}-br}\par
+\pard{}{\f1{}--braces-on-if-line}\par
+\pard\li720{}Put braces on line with {\f1{}if}, etc. and structure declarations.\par
+\pard\li720{}See {\uldb Statements}{\v Statements}.\par
+\par
+\pard{}{\f1{}-brs}\par
+\pard{}{\f1{}--braces-on-struct-decl-line}\par
+\pard\li720{}Put braces on {\f1{}struct} declaration line.\par
+\pard\li720{}See {\uldb Declarations}{\v Declarations}.\par
+\par
+\pard{}{\f1{}-bs}\par
+\pard{}{\f1{}--Bill-Shannon}\par
+\pard{}{\f1{}--blank-before-sizeof}\par
+\pard\li720{}Put a space between {\f1{}sizeof} and its argument.\par
+\pard\li720{}See {\uldb Statements}{\v Statements}\par
+\par
+\pard{}{\f1{}-c{\i n}}\par
+\pard{}{\f1{}--comment-indentation{\i n}}\par
+\pard\li720{}Put comments to the right of code in column {\i n}.\par
+\pard\li720{}See {\uldb Comments}{\v Comments}.\par
+\par
+\pard{}{\f1{}-cbi{\i n}}\par
+\pard{}{\f1{}--case-brace-indentation{\i n}}\par
+\pard\li720{}Indent braces after a case label N spaces.\par
+\pard\li720{}See {\uldb Statements}{\v Statements}.\par
+\par
+\pard{}{\f1{}-cd{\i n}}\par
+\pard{}{\f1{}--declaration-comment-column{\i n}}\par
+\pard\li720{}Put comments to the right of the declarations in column {\i n}.\par
+\pard\li720{}See {\uldb Comments}{\v Comments}.\par
+\par
+\pard{}{\f1{}-cdb}\par
+\pard{}{\f1{}--comment-delimiters-on-blank-lines}\par
+\pard\li720{}Put comment delimiters on blank lines.\par
+\pard\li720{}See {\uldb Comments}{\v Comments}.\par
+\par
+\pard{}{\f1{}-ce}\par
+\pard{}{\f1{}--cuddle-else}\par
+\pard\li720{}Cuddle else and preceeding {\f1{}\'7D}.\par
+\pard\li720{}See {\uldb Comments}{\v Comments}.\par
+\par
+\pard{}{\f1{}-ci{\i n}}\par
+\pard{}{\f1{}--continuation-indentation{\i n}}\par
+\pard\li720{}Continuation indent of {\i n} spaces.\par
+\pard\li720{}See {\uldb Statements}{\v Statements}.\par
+\par
+\pard{}{\f1{}-cli{\i n}}\par
+\pard{}{\f1{}--case-indentation{\i n}}\par
+\pard\li720{}Case label indent of {\i n} spaces.\par
+\pard\li720{}See {\uldb Statements}{\v Statements}.\par
+\par
+\pard{}{\f1{}-cp{\i n}}\par
+\pard{}{\f1{}--else-endif-column{\i n}}\par
+\pard\li720{}Put comments to the right of {\f1{}#else} and {\f1{}#endif} statements in column {\i n}.\par
+\pard\li720{}See {\uldb Comments}{\v Comments}.\par
+\par
+\pard{}{\f1{}-cs}\par
+\pard{}{\f1{}--space-after-cast}\par
+\pard\li720{}Put a space after a cast operator.\par
+\pard\li720{}See {\uldb Statements}{\v Statements}.\par
+\par
+\pard{}{\f1{}-d{\i n}}\par
+\pard{}{\f1{}--line-comments-indentation{\i n}}\par
+\pard\li720{}Set indentation of comments not to the right of code to {\i n} spaces.\par
+\pard\li720{}See {\uldb Comments}{\v Comments}.\par
+\par
+\pard{}{\f1{}-di{\i n}}\par
+\pard{}{\f1{}--declaration-indentation{\i n}}\par
+\pard\li720{}Put variables in column {\i n}.\par
+\pard\li720{}See {\uldb Declarations}{\v Declarations}.\par
+\par
+\pard{}{\f1{}-fc1}\par
+\pard{}{\f1{}--format-first-column-comments}\par
+\pard\li720{}Format comments in the first column.\par
+\pard\li720{}See {\uldb Comments}{\v Comments}.\par
+\par
+\pard{}{\f1{}-fca}\par
+\pard{}{\f1{}--format-all-comments}\par
+\pard\li720{}Do not disable all formatting of comments.\par
+\pard\li720{}See {\uldb Comments}{\v Comments}\par
+\par
+\pard{}{\f1{}-gnu}\par
+\pard{}{\f1{}--gnu-style}\par
+\pard\li720{}Use GNU coding style.  This is the default.\par
+\pard\li720{}See {\uldb Common styles}{\v Common_styles}.\par
+\par
+\pard{}{\f1{}-hnl}\par
+\pard{}{\f1{}--honour-newlines}\par
+\pard\li720{}Prefer to break long lines at the position of newlines in the input.\par
+\pard\li720{}See {\uldb Breaking long lines}{\v Breaking_long_lines}.\par
+\par
+\pard{}{\f1{}-i{\i n}}\par
+\pard{}{\f1{}--indent-level{\i n}}\par
+\pard\li720{}Set indentation level to {\i n} spaces.\par
+\pard\li720{}See {\uldb Indentation}{\v Indentation}.\par
+\par
+\pard{}{\f1{}-ip{\i n}}\par
+\pard{}{\f1{}--parameter-indentation{\i n}}\par
+\pard\li720{}Indent parameter types in old-style function definitions by {\i n} spaces.\par
+\pard\li720{}See {\uldb Indentation}{\v Indentation}.\par
+\par
+\pard{}{\f1{}-kr}\par
+\pard{}{\f1{}--k-and-r-style}\par
+\pard\li720{}Use Kernighan & Ritchie coding style.\par
+\pard\li720{}See {\uldb Common styles}{\v Common_styles}.\par
+\par
+\pard{}{\f1{}-l{\i n}}\par
+\pard{}{\f1{}--line-length{\i n}}\par
+\pard\li720{}Set maximum line length for non-comment lines to {\i n}.\par
+\pard\li720{}See {\uldb Breaking long lines}{\v Breaking_long_lines}.\par
+\par
+\pard{}{\f1{}-lc{\i n}}\par
+\pard{}{\f1{}--comment-line-length{\i n}}\par
+\pard\li720{}Set maximum line length for comment formatting to {\i n}.\par
+\pard\li720{}See {\uldb Comments}{\v Comments}.\par
+\par
+\pard{}{\f1{}-lp}\par
+\pard{}{\f1{}--continue-at-parentheses}\par
+\pard\li720{}Line up continued lines at parentheses.\par
+\pard\li720{}See {\uldb Indentation}{\v Indentation}.\par
+\par
+\pard{}{\f1{}-lps}\par
+\pard{}{\f1{}--leave-preprocessor-space}\par
+\pard\li720{}Leave space between {\f1{}#} and preprocessor directive.\par
+\pard\li720{}See {\uldb Indentation}{\v Indentation}.\par
+\par
+\pard{}{\f1{}-nbad}\par
+\pard{}{\f1{}--no-blank-lines-after-declarations}\par
+\pard\li720{}Do not force blank lines after declarations.\par
+\pard\li720{}See {\uldb Blank lines}{\v Blank_lines}.\par
+\par
+\pard{}{\f1{}-nbap}\par
+\pard{}{\f1{}--no-blank-lines-after-procedures}\par
+\pard\li720{}Do not force blank lines after procedure bodies.\par
+\pard\li720{}See {\uldb Blank lines}{\v Blank_lines}.\par
+\par
+\pard{}{\f1{}-nbbo}\par
+\pard{}{\f1{}--break-after-boolean-operator}\par
+\pard\li720{}Do not prefer to break long lines before boolean operators.\par
+\pard\li720{}See {\uldb Breaking long lines}{\v Breaking_long_lines}.\par
+\par
+\pard{}{\f1{}-nbc}\par
+\pard{}{\f1{}--no-blank-lines-after-commas}\par
+\pard\li720{}Do not force newlines after commas in declarations.\par
+\pard\li720{}See {\uldb Declarations}{\v Declarations}.\par
+\par
+\pard{}{\f1{}-ncdb}\par
+\pard{}{\f1{}--no-comment-delimiters-on-blank-lines}\par
+\pard\li720{}Do not put comment delimiters on blank lines.\par
+\pard\li720{}See {\uldb Comments}{\v Comments}.\par
+\par
+\pard{}{\f1{}-nce}\par
+\pard{}{\f1{}--dont-cuddle-else}\par
+\pard\li720{}Do not cuddle {\f1{}\'7D} and {\f1{}else}.\par
+\pard\li720{}See {\uldb Statements}{\v Statements}.\par
+\par
+\pard{}{\f1{}-ncs}\par
+\pard{}{\f1{}--no-space-after-casts}\par
+\pard\li720{}Do not put a space after cast operators.\par
+\pard\li720{}See {\uldb Statements}{\v Statements}.\par
+\par
+\pard{}{\f1{}-nfc1}\par
+\pard{}{\f1{}--dont-format-first-column-comments}\par
+\pard\li720{}Do not format comments in the first column as normal.\par
+\pard\li720{}See {\uldb Comments}{\v Comments}.\par
+\par
+\pard{}{\f1{}-nfca}\par
+\pard{}{\f1{}--dont-format-comments}\par
+\pard\li720{}Do not format any comments.\par
+\pard\li720{}See {\uldb Comments}{\v Comments}.\par
+\par
+\pard{}{\f1{}-nhnl}\par
+\pard{}{\f1{}--ignore-newlines}\par
+\pard\li720{}Do not prefer to break long lines at the position of newlines in the input.\par
+\pard\li720{}See {\uldb Breaking long lines}{\v Breaking_long_lines}.\par
+\par
+\pard{}{\f1{}-nip}\par
+\pard{}{\f1{}--no-parameter-indentation}\par
+\pard\li720{}Zero width indentation for parameters.\par
+\pard\li720{}See {\uldb Indentation}{\v Indentation}\par
+\par
+\pard{}{\f1{}-nlp}\par
+\pard{}{\f1{}--dont-line-up-parentheses}\par
+\pard\li720{}Do not line up parentheses.\par
+\pard\li720{}See {\uldb Statements}{\v Statements}.\par
+\par
+\pard{}{\f1{}-npcs}\par
+\pard{}{\f1{}--no-space-after-function-call-names}\par
+\pard\li720{}Do not put space after the function in function calls.\par
+\pard\li720{}See {\uldb Statements}{\v Statements}.\par
+\par
+\pard{}{\f1{}-npsl}\par
+\pard{}{\f1{}--dont-break-procedure-type}\par
+\pard\li720{}Put the type of a procedure on the same line as its name.\par
+\pard\li720{}See {\uldb Declarations}{\v Declarations}.\par
+\par
+\pard{}{\f1{}-nsc}\par
+\pard{}{\f1{}--dont-star-comments}\par
+\pard\li720{}Do not put the {\f1{}*} character at the left of comments.\par
+\pard\li720{}See {\uldb Comments}{\v Comments}.\par
+\par
+\pard{}{\f1{}-nsob}\par
+\pard{}{\f1{}--leave-optional-blank-lines}\par
+\pard\li720{}Do not swallow optional blank lines.\par
+\pard\li720{}See {\uldb Blank lines}{\v Blank_lines}.\par
+\par
+\pard{}{\f1{}-nss}\par
+\pard{}{\f1{}--dont-space-special-semicolon}\par
+\pard\li720{}Do not force a space before the semicolon after certain statements.  Disables {\f1{}-ss}.\par
+\pard\li720{}See {\uldb Statements}{\v Statements}.\par
+\par
+\pard{}{\f1{}-nv}\par
+\pard{}{\f1{}--no-verbosity}\par
+\pard\li720{}Disable verbose mode.\par
+\pard\li720{}See {\uldb Miscellaneous options}{\v Miscellaneous_options}.\par
+\par
+\pard{}{\f1{}-orig}\par
+\pard{}{\f1{}--original}\par
+\pard\li720{}Use the original Berkeley coding style.\par
+\pard\li720{}See {\uldb Common styles}{\v Common_styles}.\par
+\par
+\pard{}{\f1{}-npro}\par
+\pard{}{\f1{}--ignore-profile}\par
+\pard\li720{}Do not read {\f1{}.indent.pro} files.\par
+\pard\li720{}See {\uldb Invoking indent}{\v Invoking_indent}.\par
+\par
+\pard{}{\f1{}-pcs}\par
+\pard{}{\f1{}--space-after-procedure-calls}\par
+\pard\li720{}Insert a space between the name of the procedure being called and the {\f1{}(}.\par
+\pard\li720{}See {\uldb Statements}{\v Statements}.\par
+\par
+\pard{}{\f1{}-pi{\i n}}\par
+\pard{}{\f1{}--paren-indentation{\i n}}\par
+\pard\li720{}Specify the extra indentation per open parentheses '(' when a statement is broken.  See {\uldb Statements}{\v Statements}.\par
+\par
+\pard{}{\f1{}-psl}\par
+\pard{}{\f1{}--procnames-start-lines}\par
+\pard\li720{}Put the type of a procedure on the line before its name.\par
+\pard\li720{}See {\uldb Declarations}{\v Declarations}.\par
+\par
+\pard{}{\f1{}-sbi{\i n}}\par
+\pard{}{\f1{}--struct-brace-indentation{\i n}}\par
+\pard\li720{}Indent braces of a struct, union or enum N spaces.\par
+\pard\li720{}See {\uldb Statements}{\v Statements}.\par
+\par
+\pard{}{\f1{}-sc}\par
+\pard{}{\f1{}--start-left-side-of-comments}\par
+\pard\li720{}Put the {\f1{}*} character at the left of comments.\par
+\pard\li720{}See {\uldb Comments}{\v Comments}.\par
+\par
+\pard{}{\f1{}-sob}\par
+\pard{}{\f1{}--swallow-optional-blank-lines}\par
+\pard\li720{}Swallow optional blank lines.\par
+\pard\li720{}See {\uldb Blank lines}{\v Blank_lines}.\par
+\par
+\pard{}{\f1{}-ss}\par
+\pard{}{\f1{}--space-special-semicolon}\par
+\pard\li720{}On one-line {\f1{}for} and {\f1{}while} statments, force a blank before the semicolon.\par
+\pard\li720{}See {\uldb Statements}{\v Statements}.\par
+\par
+\pard{}{\f1{}-st}\par
+\pard{}{\f1{}--standard-output}\par
+\pard\li720{}Write to standard output.\par
+\pard\li720{}See {\uldb Invoking indent}{\v Invoking_indent}.\par
+\par
+\pard{}{\f1{}-T}\par
+\pard\li720{}Tell {\f1{}indent} the name of typenames.\par
+\pard\li720{}See {\uldb Declarations}{\v Declarations}.\par
+\par
+\pard{}{\f1{}-ts{\i n}}\par
+\pard{}{\f1{}--tab-size{\i n}}\par
+\pard\li720{}Set tab size to {\i n} spaces.\par
+\pard\li720{}See {\uldb Indentation}{\v Indentation}.\par
+\par
+\pard{}{\f1{}-v}\par
+\pard{}{\f1{}--verbose}\par
+\pard\li720{}Enable verbose mode.\par
+\pard\li720{}See {\uldb Miscellaneous options}{\v Miscellaneous_options}.\par
+\par
+\pard{}{\f1{}-version}\par
+\pard\li720{}Output the version number of {\f1{}indent}.\par
+\pard\li720{}See {\uldb Miscellaneous options}{\v Miscellaneous_options}.\par
+\pard{}}\par
+\pard{\b Options' Cross Key}\par
+\par
+\pard{}Here is a list of options alphabetized by long option, to help you find the corresponding short option.\par
+\par
+{{\pard\keep\li720\f1{}--blank-lines-after-block-comments              -bbb\line
+--blank-lines-after-commas                      -bc\line
+--blank-lines-after-declarations                -bad\line
+--blank-lines-after-procedures                  -bap\line
+--braces-after-if-line                          -bl\line
+--brace-indent                                  -bli\line
+--braces-after-struct-decl-line                 -bls\line
+--braces-on-if-line                             -br\line
+--braces-on-struct-decl-line                    -brs\line
+--break-after-boolean-operator                  -nbbo\line
+--break-before-boolean-operator                 -bbo\line
+--case-indentation                              -cli{\i n}\line
+--case-brace-indentation                        -cbi{\i n}\line
+--comment-delimiters-on-blank-lines             -cdb\line
+--comment-indentation                           -c{\i n}\line
+--continuation-indentation                      -ci{\i n}\line
+--continue-at-parentheses                       -lp\line
+--cuddle-else                                   -ce\line
+--declaration-comment-column                    -cd{\i n}\line
+--declaration-indentation                       -di{\i n}\line
+--dont-break-procedure-type                     -npsl\line
+--dont-cuddle-else                              -nce\line
+--dont-format-comments                          -nfca\line
+--dont-format-first-column-comments             -nfc1\line
+--dont-line-up-parentheses                      -nlp\line
+--dont-space-special-semicolon                  -nss\line
+--dont-star-comments                            -nsc\line
+--else-endif-column                             -cp{\i n}\line
+--format-all-comments                           -fca\line
+--format-first-column-comments                  -fc1\line
+--gnu-style                                     -gnu\line
+--honour-newlines                               -hnl\line
+--ignore-newlines                               -nhnl\line
+--ignore-profile                                -npro\line
+--indent-level                                  -i{\i n}\line
+--k-and-r-style                                 -kr\line
+--leave-optional-blank-lines                    -nsob\line
+--leave-preprocessor-space                      -lps\line
+--line-comments-indentation                     -d{\i n}\line
+--line-length                                   -l{\i n}\line
+--no-blank-lines-after-commas                   -nbc\line
+--no-blank-lines-after-declarations             -nbad\line
+--no-blank-lines-after-procedures               -nbap\line
+--no-comment-delimiters-on-blank-lines          -ncdb\line
+--no-space-after-casts                          -ncs\line
+--no-parameter-indentation                      -nip\line
+--no-space-after-function-call-names            -npcs\line
+--no-verbosity                                  -nv\line
+--original                                      -orig\line
+--parameter-indentation                         -ip{\i n}\line
+--paren-indentation                             -pi{\i n}\line
+--procnames-start-lines                         -psl\line
+--space-after-cast                              -cs\line
+--space-after-procedure-calls                   -pcs\line
+--space-special-semicolon                       -ss\line
+--standard-output                               -st\line
+--start-left-side-of-comments                   -sc\line
+--struct-brace-indentation                      -sbi{\i n}\line
+--swallow-optional-blank-lines                  -sob\line
+--tab-size                                      -ts{\i n}\line
+--verbose                                       -v\par
+\pard\f0{}}}\par
+\page\pard Node: {\b Index}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Option Summary}{\v Option_Summary}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Index}
+#{\footnote Index}
+${\footnote \pard{}Index}\par
+\pard{\fs24\b Index}\par
+\par
+{\fi-2880\li2880\tx2880{\f1{}--blank-after-sizeof}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}--blank-lines-after-block-comments}:\tab {\uldb Blank lines}{\v Blank_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}--blank-lines-after-commas}:\tab {\uldb Declarations}{\v Declarations}.\par}{\fi-2880\li2880\tx2880{\f1{}--blank-lines-after-declarations}:\tab {\uldb -bad}{\v _bad}.\par}{\fi-2880\li2880\tx2880{\f1{}--blank-lines-after-procedures}:\tab {\uldb -bap}{\v _bap}.\par}{\fi-2880\li2880\tx2880{\f1{}--brace-indent{\i n}}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}--braces-after-if-line}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}--braces-on-if-line}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}--break-after-boolean-operator}:\tab {\uldb Breaking long lines}{\v Breaking_long_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}--break-before-boolean-operator}:\tab {\uldb Breaking long lines}{\v Breaking_long_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}--case-brace-indentation{\i n}}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}--case-indentation{\i n}}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}--comment-delimiters-on-blank-lines}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}--comment-indentation{\i n}}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}--continuation-indentation{\i n}}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}--continue-at-parentheses}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}--cuddle-else}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}--declaration-comment-column{\i n}}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}--declaration-indentation{\i n}}:\tab {\uldb Declarations}{\v Declarations}.\par}{\fi-2880\li2880\tx2880{\f1{}--dont-break-procedure-type}:\tab {\uldb Declarations}{\v Declarations}.\par}{\fi-2880\li2880\tx2880{\f1{}--dont-cuddle-else}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}--dont-format-comments}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}--dont-format-first-column-comments}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}--dont-line-up-parentheses}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}--dont-space-special-semicolon}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}--dont-star-comments}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}--else-endif-column{\i n}}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}--format-all-comments}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}--format-first-column-comments}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}--gnu-style}:\tab {\uldb Common styles}{\v Common_styles}.\par}{\fi-2880\li2880\tx2880{\f1{}--honour-newlines}:\tab {\uldb Breaking long lines}{\v Breaking_long_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}--ignore-newlines}:\tab {\uldb Breaking long lines}{\v Breaking_long_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}--ignore-profile}:\tab {\uldb Invoking indent}{\v Invoking_indent}.\par}{\fi-2880\li2880\tx2880{\f1{}--indent-level{\i n}}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}--k-and-r-style}:\tab {\uldb Common styles}{\v Common_styles}.\par}{\fi-2880\li2880\tx2880{\f1{}--leave-optional-blank-lines}:\tab {\uldb Blank lines}{\v Blank_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}--leave-preprocessor-space}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}--line-comments-indentation{\i n}}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}--line-length{\i n}}:\tab {\uldb Breaking long lines}{\v Breaking_long_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}--no-blank-lines-after-block-comments}:\tab {\uldb Blank lines}{\v Blank_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}--no-blank-lines-after-commas}:\tab {\uldb Declarations}{\v Declarations}.\par}{\fi-2880\li2880\tx2880{\f1{}--no-blank-lines-after-declarations}:\tab {\uldb -bad}{\v _bad}.\par}{\fi-2880\li2880\tx2880{\f1{}--no-blank-lines-after-procedures}:\tab {\uldb -bap}{\v _bap}.\par}{\fi-2880\li2880\tx2880{\f1{}--no-comment-delimiters-on-blank-lines}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}--no-parameter-indentation}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}--no-space-after-casts}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}--no-space-after-function-call-names}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}--no-verbosity}:\tab {\uldb Miscellaneous options}{\v Miscellaneous_options}.\par}{\fi-2880\li2880\tx2880{\f1{}--original}:\tab {\uldb Common styles}{\v Common_styles}.\par}{\fi-2880\li2880\tx2880{\f1{}--output-file}:\tab {\uldb Invoking indent}{\v Invoking_indent}.\par}{\fi-2880\li2880\tx2880{\f1{}--parameter-indentation{\i n}}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}--procnames-start-lines}:\tab {\uldb Declarations}{\v Declarations}.\par}{\fi-2880\li2880\tx2880{\f1{}--remove-preprocessor-space}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}--space-after-cast}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}--space-after-procedure-calls}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}--space-special-semicolon}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}--standard-output}:\tab {\uldb Invoking indent}{\v Invoking_indent}.\par}{\fi-2880\li2880\tx2880{\f1{}--star-left-side-of-comments}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}--swallow-optional-blank-lines}:\tab {\uldb Blank lines}{\v Blank_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}--tab-size{\i n}}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}--verbose}:\tab {\uldb Miscellaneous options}{\v Miscellaneous_options}.\par}{\fi-2880\li2880\tx2880{\f1{}-bad}:\tab {\uldb -bad}{\v _bad}.\par}{\fi-2880\li2880\tx2880{\f1{}-bap}:\tab {\uldb -bap}{\v _bap}.\par}{\fi-2880\li2880\tx2880{\f1{}-bbb}:\tab {\uldb Blank lines}{\v Blank_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}-bbo}:\tab {\uldb Breaking long lines}{\v Breaking_long_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}-bc}:\tab {\uldb Declarations}{\v Declarations}.\par}{\fi-2880\li2880\tx2880{\f1{}-bli{\i n}}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}-bl}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}-br}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}-bs}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}-cbi{\i n}}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}-cdb}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}-cd{\i n}}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}-ce}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}-ci{\i n}}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}-cli{\i n}}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}-cp{\i n}}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}-cs}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}-c{\i n}}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}-dce}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}-di{\i n}}:\tab {\uldb Declarations}{\v Declarations}.\par}{\fi-2880\li2880\tx2880{\f1{}-d{\i n}}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}-fc1}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}-fca}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}-gnu}:\tab {\uldb Common styles}{\v Common_styles}.\par}{\fi-2880\li2880\tx2880{\f1{}-hnl}:\tab {\uldb Breaking long lines}{\v Breaking_long_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}-ip{\i n}}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}-i{\i n}}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}-kr}:\tab {\uldb Common styles}{\v Common_styles}.\par}{\fi-2880\li2880\tx2880{\f1{}-lps}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}-lp}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}-l{\i n}}:\tab {\uldb Breaking long lines}{\v Breaking_long_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}-nbad}:\tab {\uldb -bad}{\v _bad}.\par}{\fi-2880\li2880\tx2880{\f1{}-nbap}:\tab {\uldb -bap}{\v _bap}.\par}{\fi-2880\li2880\tx2880{\f1{}-nbbb}:\tab {\uldb Blank lines}{\v Blank_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}-nbbo}:\tab {\uldb Breaking long lines}{\v Breaking_long_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}-nbc}:\tab {\uldb Declarations}{\v Declarations}.\par}{\fi-2880\li2880\tx2880{\f1{}-ncdb}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}-ncs}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}-nfc1}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}-nfca}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}-nhnl}:\tab {\uldb Breaking long lines}{\v Breaking_long_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}-nip}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}-nlps}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}-nlp}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}-npcs}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}-npro}:\tab {\uldb Invoking indent}{\v Invoking_indent}.\par}{\fi-2880\li2880\tx2880{\f1{}-npsl}:\tab {\uldb Declarations}{\v Declarations}.\par}{\fi-2880\li2880\tx2880{\f1{}-nsc}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}-nsob}:\tab {\uldb Blank lines}{\v Blank_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}-nss}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}-nv}:\tab {\uldb Miscellaneous options}{\v Miscellaneous_options}.\par}{\fi-2880\li2880\tx2880{\f1{}-orig}:\tab {\uldb Common styles}{\v Common_styles}.\par}{\fi-2880\li2880\tx2880{\f1{}-o}:\tab {\uldb Invoking indent}{\v Invoking_indent}.\par}{\fi-2880\li2880\tx2880{\f1{}-pcs}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}-psl}:\tab {\uldb Declarations}{\v Declarations}.\par}{\fi-2880\li2880\tx2880{\f1{}-sc}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}-sob}:\tab {\uldb Blank lines}{\v Blank_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}-ss}:\tab {\uldb Statements}{\v Statements}.\par}{\fi-2880\li2880\tx2880{\f1{}-st}:\tab {\uldb Invoking indent}{\v Invoking_indent}.\par}{\fi-2880\li2880\tx2880{\f1{}-ts{\i n}}:\tab {\uldb Indentation}{\v Indentation}.\par}{\fi-2880\li2880\tx2880{\f1{}-T}:\tab {\uldb Declarations}{\v Declarations}.\par}{\fi-2880\li2880\tx2880{\f1{}-version}:\tab {\uldb Miscellaneous options}{\v Miscellaneous_options}.\par}{\fi-2880\li2880\tx2880{\f1{}-v}:\tab {\uldb Miscellaneous options}{\v Miscellaneous_options}.\par}{\fi-2880\li2880\tx2880{\f1{}Beginning {\f1{}indent}}:\tab {\uldb Invoking indent}{\v Invoking_indent}.\par}{\fi-2880\li2880\tx2880{\f1{}Berkeley style}:\tab {\uldb Common styles}{\v Common_styles}.\par}{\fi-2880\li2880\tx2880{\f1{}Blank lines}:\tab {\uldb Blank lines}{\v Blank_lines}.\par}{\fi-2880\li2880\tx2880{\f1{}Comments}:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880{\f1{}GNU style}:\tab {\uldb Common styles}{\v Common_styles}.\par}{\fi-2880\li2880\tx2880{\f1{}Initialization file}:\tab {\uldb Invoking indent}{\v Invoking_indent}.\par}{\fi-2880\li2880\tx2880{\f1{}Invoking {\f1{}indent}}:\tab {\uldb Invoking indent}{\v Invoking_indent}.\par}{\fi-2880\li2880\tx2880{\f1{}Kernighan & Ritchie style}:\tab {\uldb Common styles}{\v Common_styles}.\par}{\fi-2880\li2880\tx2880{\f1{}Long options, use of}:\tab {\uldb Invoking indent}{\v Invoking_indent}.\par}{\fi-2880\li2880\tx2880{\f1{}Original Berkeley style}:\tab {\uldb Common styles}{\v Common_styles}.\par}{\fi-2880\li2880\tx2880{\f1{}Output File Specification}:\tab {\uldb Invoking indent}{\v Invoking_indent}.\par}{\fi-2880\li2880\tx2880{\f1{}Standard Output}:\tab {\uldb Invoking indent}{\v Invoking_indent}.\par}{\fi-2880\li2880\tx2880{\f1{}Starting {\f1{}indent}}:\tab {\uldb Invoking indent}{\v Invoking_indent}.\par}{\fi-2880\li2880\tx2880{\f1{}Typenames}:\tab {\uldb Declarations}{\v Declarations}.\par}{\fi-2880\li2880\tx2880{\f1{}Using Standard Input}:\tab {\uldb Invoking indent}{\v Invoking_indent}.\par}{\fi-2880\li2880\tx2880{\f1{}{\f1{}.indent.pro} file}:\tab {\uldb Invoking indent}{\v Invoking_indent}.\par}{\fi-2880\li2880\tx2880{\f1{}{\f1{}etags} requires {\f1{}-psl}}:\tab {\uldb Declarations}{\v Declarations}.\par}\page K{\footnote Makertf}#{\footnote hcMakertf}${\footnote \pard{}About Makertf}\pard{\fs24\b About Makertf}\par\par\pard{}Makertf is a program that converts "Texinfo" files into "Rich Text Format" (RTF) files. It can be used to make WinHelp Files from GNU manuals and other documentation written in Texinfo. Visit http://www.snafu.de/~cschenk/makertf for more information.}

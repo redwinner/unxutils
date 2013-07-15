@@ -1,0 +1,78 @@
+# Microsoft Developer Studio Generated Dependency File, included by VC6.mak
+
+..\bits.c : \
+	"..\crypt.h"\
+	"..\gzip.h"\
+	"..\tailor.h"\
+	
+
+..\deflate.c : \
+	"..\gzip.h"\
+	"..\lzw.h"\
+	"..\tailor.h"\
+	
+
+..\getopt.c : \
+	"..\getopt.h"\
+	"..\tailor.h"\
+	
+
+..\gzip.c : \
+	"..\getopt.h"\
+	"..\gzip.h"\
+	"..\lzw.h"\
+	"..\revision.h"\
+	"..\tailor.h"\
+	
+
+..\inflate.c : \
+	"..\gzip.h"\
+	"..\tailor.h"\
+	
+
+..\lzw.c : \
+	"..\gzip.h"\
+	"..\lzw.h"\
+	"..\tailor.h"\
+	
+
+..\trees.c : \
+	"..\gzip.h"\
+	"..\tailor.h"\
+	
+
+..\unlzh.c : \
+	"..\gzip.h"\
+	"..\lzw.h"\
+	"..\tailor.h"\
+	
+
+..\unlzw.c : \
+	"..\gzip.h"\
+	"..\lzw.h"\
+	"..\tailor.h"\
+	
+
+..\unpack.c : \
+	"..\crypt.h"\
+	"..\gzip.h"\
+	"..\tailor.h"\
+	
+
+..\unzip.c : \
+	"..\crypt.h"\
+	"..\gzip.h"\
+	"..\tailor.h"\
+	
+
+..\util.c : \
+	"..\crypt.h"\
+	"..\gzip.h"\
+	"..\tailor.h"\
+	
+
+..\zip.c : \
+	"..\crypt.h"\
+	"..\gzip.h"\
+	"..\tailor.h"\
+	

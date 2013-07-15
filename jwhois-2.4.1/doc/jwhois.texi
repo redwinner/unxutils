@@ -1,0 +1,290 @@
+\input texinfo  @c -*-texinfo-*-
+@c %**start of header
+@setfilename jwhois.info
+@settitle jwhois, Whois client
+@c %**end of header
+
+@direntry
+* jwhois: (jwhois).     Whois client.
+@end direntry
+
+@c This file has the new style title page commands.
+@c Run `makeinfo' rather than `texinfo-format-buffer'.
+
+@c smallbook
+
+@c tex
+@c \overfullrule=0pt
+@c end tex
+
+@c Combine indices.
+@synindex cp fn
+@syncodeindex vr fn
+@syncodeindex ky fn
+@syncodeindex pg fn
+@syncodeindex tp fn
+
+@ifinfo
+This file documents @sc{jwhois}, a Whois client.
+
+Copyright (C) 1999  Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+@ignore
+Permission is granted to process this file through TeX and print the
+results, provided the printed document carries copying permission
+notice identical to this one except for the removal of this paragraph
+(this paragraph not being relevant to the printed manual).
+
+@end ignore
+Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided that the entire
+resulting derived work is distributed under the terms of a permission
+notice identical to this one.
+@end ifinfo
+
+@setchapternewpage off
+
+@titlepage
+@title jwhois
+@subtitle Version 2.4
+@subtitle 28 December 1999
+@author Jonas Öberg @code{(jonas@@gnu.org)}
+
+@page
+@vskip 0pt plus 1filll
+Copyright @copyright{} 1999  Free Software Foundation, Inc.
+
+@sp 2
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided that the entire
+resulting derived work is distributed under the terms of a permission
+notice identical to this one.
+@end titlepage
+@page
+
+@node Top, Introduction, (dir), (dir)
+
+This file documents the GNU jwhois package, en extended Whois client.
+This is edition 2.4, for jwhois version 2.4, last updated 28 December 1999.
+
+
+@menu
+* Introduction::                Introduction
+* Invocation::                  How to invoke jwhois
+* RIPE Extensions::             Extensions for RIPE databases
+* Site Configuration::          Defining a list of Whois servers
+* Cache Functionality::         Cache Functionality
+* Reporting bugs::              Reporting bugs
+@end menu
+
+@node Introduction, Invocation, Top, Top
+@comment  node-name,  next,  previous,  up
+@chapter Introduction
+
+@sc{jwhois} is an Internet Whois client that queries hosts for information
+according to RFC 954 - NICNAME/WHOIS. @sc{jwhois} is configured via a
+configuration file that contains information about all known Whois servers.
+Upon execution, the host to query is selected based on the information in
+the configuration file.
+
+The configuration file is highly customizable and makes heavy use of
+regular expressions.
+
+@node Invocation, RIPE Extensions, Introduction, Top
+@chapter Invocation
+
+@sc{jwhois} uses the following command-line options:
+@table @samp
+
+@item --version
+Print the program version and licensing information.
+
+@item --help
+Print a usage message summarizing the command-line options.
+
+@item -c FILE
+@item --config=FILE
+Reads configuration from FILE instead of from the default
+system global configuration file.
+
+@item -h HOST
+@item --host=HOST
+Overrides any specifications in the configuration file and queries HOST
+directly.
+
+@item -p PORT
+@item --port=PORT
+Specifies a port number to use when querying a HOST
+
+@item -f
+@item --force-lookup
+This option forces the client to look up an entry from the
+source Whois server, even if a current copy is available in
+the system cache.
+
+@item -d
+@item --disable-cache
+This disables the cache functionality.
+
+@item -v
+@item --verbose
+Enables verbose debugging output where available.
+
+@end table
+
+The query can optionally contain the character @samp{@@} followed by
+a host name to direct the search to that host. This works exactly like
+specifying the host with @samp{--host}.
+
+@node RIPE Extensions, Site Configuration, Invocation, Top
+@chapter RIPE Extensions
+
+RIPE (Réseaux IP Européens) has defined a number of options that can be
+used against a RIPE-compatible whois server (ripe.net, apnic.net and
+others).  Unfortunately, there is really no way of telling whether a
+host we are connecting to is RIPE-compatible or not.  RIPE extensions
+are therefore not directly incorporated into the @sc{jwhois} client.
+A list of the options can be found in RIPE Document 157 which you can get
+from the RIPE ftp server, @url{ftp://ftp.ripe.net/ripe/docs/}.
+
+It is possible to use these options together with @sc{jwhois} by changing
+the format of the query slightly. If you were to search for all entries in
+the RIPE database which lists the admin-c, tech-c or zone-c as CO19-RIPE,
+you could use the following command syntax:
+
+@example
+$ jwhois -h whois.ripe.net -- -i admin-c,tech-c,zone-c CO19-RIPE
+@end example
+
+@samp{--} is used to separate the RIPE options from the jwhois options.
+
+@node Site Configuration, Cache Functionality, RIPE Extensions, Top
+@chapter Site Configuration
+
+@sc{jwhois} is configurable via its configuration file, normally
+called @file{jwhois.conf}. This file is looked for in the sysconfdir
+that was specified when compiling the program (default is
+@file{/usr/local/etc/} on most systems).
+
+If no configuration file can be found, @sc{jwhois} will default all queries
+to @url{whois.internic.net}.
+
+An example configuration file that includes most known Whois servers can be
+found in the @code{example} subdirectory of the official distribution.
+
+The configuration file is split into a number of blocks. Each block
+can contain a number of different options which are explained in the
+sections below. You can also get an overview of the syntax by looking
+at the example configuration file included in the distribution.
+
+@menu
+* Global::                      Global configuration options
+* Whois-servers::               Whois server configuration
+* Content-redirect::            The content-redirect block
+@end menu
+
+@node Global, Whois-servers, , Site Configuration
+@chapter Global
+
+The only available global options are related to the
+cache features in jwhois @xref{Cache Functionality}.
+By default, the location of the configuration file is
+@file{/usr/local/var/jwhois.db}, but this can be changed
+at compile time. The option @option{cachefile} also
+changes the location.
+
+The default expire time for all cached objects it
+7 days (168 hours). this can be changed with the
+@option{cacheexpire} option. The value is the number
+of hours that objects is considered to be current.
+
+Example:
+
+@example
+cachefile = "/var/lib/jwhois.db";
+cacheexpire = 168;
+@end example
+
+@node Whois-servers, Content-redirect, Global, Site Configuration
+@chapter Whois-servers
+
+When making a query, @sc{jwhois} looks at the @option{whois-servers}
+block to determine which host to send the query to. The option
+@option{type} can be set to change between two different kinds of
+matching; @option{cidr} or @option{regex}.
+
+@option{regex} matches using standard regular expressions.
+@option{cidr} matches using CIDR net blocks.
+
+The value of all objects can take one of two forms. Either a
+hostname or the special option @option{struct}. The later
+asks @sc{jwhois} to look at another option block in the
+configuration file.
+
+When matching using CIDR net blocks, the key can take the
+special value @option{default} which matches everything.
+
+@example
+whois-servers @{
+        type = regex;
+        ".*-[A-Z]+$" = "struct handles";
+        ".*" = "whois.internic.net";
+@};
+handles @{
+        type = regex;
+        ".*-RIPE$" = "whois.ripe.net";
+        default = "whois.arin.net";
+@};
+@end example
+
+@node Content-redirect, , Whois-servers, Site Configuration
+@chapter Content-redirect
+
+@option{content-redirect} is a special block designed to
+parse the output returned by a Whois server looking for
+special regular expressions and then sending the same query
+to the Whois server gotten from the regular expression.
+
+The key value is the name of the Whois server that this
+expression is applicable to. This is matched using regular
+expressions. The value is the regexp that is looked for in
+the output, with hostname and optional port number enclosed
+in so called subexpressions or groups.
+
+@example
+content-redirect @{
+        ".*" = ".*Whois Server: \\(.*\\)";
+@};
+@end example
+
+@node Cache Functionality, Reporting bugs, Site Configuration, Top
+@chapter Cache Functionality
+
+@sc{jwhois} implements support for maintaining a cache of Whois data
+received from Whois servers. This is NOT enabled by default but has
+to be compiled into the client specifically. The design is such that
+a central database is maintained by the client and because all users
+should have access to that database, the program must have the
+set-group-on-execution bit set and the database must be both read and
+writable by the group.
+
+The configuration options available are @sc{cachefile} and @sc{cacheexpire}
+which sets the database filename and the expire time for cached object.
+When an object expires from the cache, it is reloaded from the Whois server
+the next time it is requested. The expire time is measured in hours.
+
+@node Reporting bugs,  , Cache Functionality, Top
+@chapter Reporting bugs
+
+Email bug reports to @code{bug-jwhois@@gnu.org}.
+
+@contents
+@bye

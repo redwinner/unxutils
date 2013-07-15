@@ -1,0 +1,18 @@
+void setterm _((void));
+void ungetkey _((int ch));
+void ungetkeys _((char *s, int len));
+int getkey _((int keytmout));
+unsigned char * zleread _((char *lp, char *rp));
+int getkeycmd _((void));
+void ungetkeycmd _((void));
+void sendstring _((void));
+Key makefunckey _((int fun));
+void initkeybindings _((void));
+char * getkeystring _((char *s, int *len, int fromwhere, int *misc));
+void printbind _((char *s, int len, int metanul));
+void printbinding _((HashNode hn, int printflags));
+int bin_bindkey _((char *name, char **argv, char *ops, int junc));
+void freekeynode _((HashNode hn));
+void describekeybriefly _((void));
+void whereis _((void));
+void trashzle _((void));

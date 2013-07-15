@@ -1,0 +1,4170 @@
+
+ansi2knr.c,500
+char *malloc();malloc102,3268
+void free();free103,3284
+#define isidchar(isidchar107,3327
+#define isidfirstchar(isidfirstchar108,3377
+char *skipspace();skipspace111,3458
+void writeblanks();writeblanks112,3477
+int test1();test1113,3497
+int convert1();convert1114,3510
+main(argc, argv)main118,3554
+#define bufsize bufsize122,3621
+skipspace(p, dir)skipspace176,4813
+writeblanks(start, end)writeblanks197,5293
+test1(buf)test1219,5998
+convert1(buf, out, header)convert1267,7334
+
+builtin.c,5976
+static void printoptions _((int set));printoptions34,1357
+static char *auxdata;auxdata36,1399
+static int auxlen;auxlen37,1422
+#define MAX_OPS MAX_OPS41,1516
+execbuiltin(LinkList args, Builtin bn)execbuiltin45,1550
+bin_enable(char *name, char **argv, char *ops, int func)bin_enable197,6162
+bin_set(char *nam, char **args, char *ops, int func)bin_set270,8103
+bin_setopt(char *nam, char **args, char *ops, int isun)bin_setopt382,10951
+printoptions(int set)printoptions465,13187
+setcurjob(void)setcurjob496,14036
+bin_fg(char *name, char **argv, char *ops, int func)bin_fg517,14604
+bin_kill(char *nam, char **argv, char *ops, int func)bin_kill675,19233
+bin_suspend(char *name, char **argv, char *ops, int func)bin_suspend791,22371
+findjobnam(char *s)findjobnam825,23125
+getjob(char *s, char *prog)getjob842,23624
+isanum(char *s)isanum920,25758
+int doprintdir = 0;		/* set in exec.c (for autocd) */doprintdir929,25894
+bin_pwd(char *name, char **argv, char *ops, int func)bin_pwd935,26018
+bin_dirs(char *name, char **argv, char *ops, int func)bin_dirs950,26310
+bin_cd(char *nam, char **argv, char *ops, int func)bin_cd997,27546
+cd_get_dest(char *nam, char **argv, char *ops, int func)cd_get_dest1033,28352
+cd_do_chdir(char *cnam, char *dest)cd_do_chdir1125,30934
+cd_able_vars(char *s)cd_able_vars1197,33001
+cd_try_chdir(char *pfix, char *dest)cd_try_chdir1225,33738
+cd_new_pwd(int func, LinkNode dir)cd_new_pwd1328,36688
+printdirstack(void)printdirstack1403,38626
+fixdir(char *dest, char *src)fixdir1422,39164
+#define COMP_LIST	COMP_LIST1478,40519
+#define COMP_COMMAND	COMP_COMMAND1479,40554
+#define COMP_DEFAULT	COMP_DEFAULT1480,40592
+#define COMP_FIRST	COMP_FIRST1481,40630
+#define COMP_REMOVE	COMP_REMOVE1482,40666
+#define COMP_SPECIAL COMP_SPECIAL1484,40696
+static int cclist;cclist1487,40822
+static unsigned long showmask = 0;showmask1490,40886
+bin_compctl(char *name, char **argv, char *ops, int func)bin_compctl1496,40987
+get_compctl(char *name, char ***av, Compctl cc, int first, int isdef)get_compctl1576,43347
+get_xcompctl(char *name, char ***av, Compctl cc, int isdef)get_xcompctl1937,51592
+cc_assign(char *name, Compctl *ccptr, Compctl cct, int reass)cc_assign2190,58225
+cc_reassign(Compctl cc)cc_reassign2262,60267
+compctl_process(char **s, int mask, char *uk, char *gl, char *st, char *fu, char *ex, char *pr, char *su, char *sc, char *hp, int hn)compctl_process2282,60701
+compctl_process_cc(char **s, Compctl cc)compctl_process_cc2306,61342
+printcompctl(char *s, Compctl cc, int printflags)printcompctl2333,61919
+printcompctlp(HashNode hn, int printflags)printcompctlp2482,65444
+printqt(char *str)printqt2492,65649
+printif(char *str, int c)printif2504,65875
+bin_fc(char *nam, char **argv, char *ops, int func)bin_fc2519,66105
+fcgetcomm(char *s)fcgetcomm2661,69999
+fcsubs(char **sp, struct asgment *sub)fcsubs2688,70671
+fclist(FILE *f, int n, int r, int D, int d, int first, int last, struct asgment *subs, Comp com)fclist2730,72324
+fcedit(char *ename, char *fn)fcedit2825,74529
+bin_typeset(char *name, char **argv, char *ops, int func)bin_typeset2845,74832
+bin_functions(char *name, char **argv, char *ops, int func)bin_functions3043,81170
+bin_unset(char *name, char **argv, char *ops, int func)bin_unset3129,83664
+bin_vared(char *name, char **args, char *ops, int func)bin_vared3185,84969
+bin_whence(char *nam, char **argv, char *ops, int func)bin_whence3284,87288
+bin_hash(char *name, char **argv, char *ops, int func)bin_hash3452,92289
+bin_unhash(char *name, char **argv, char *ops, int func)bin_unhash3534,94390
+bin_alias(char *name, char **argv, char *ops, int func)bin_alias3600,96053
+# define ZSTRTORLIMT(ZSTRTORLIMT3674,98199
+# define ZSTRTORLIMT(ZSTRTORLIMT3676,98265
+bin_limit(char *nam, char **argv, char *ops, int func)bin_limit3692,98699
+bin_unlimit(char *nam, char **argv, char *ops, int func)bin_unlimit3808,102396
+bin_ulimit(char *name, char **argv, char *ops, int func)bin_ulimit3877,104453
+showlimits(int hard, int lim)showlimits4058,108891
+printulimit(int lim, int hard, int head)printulimit4108,110418
+bin_true(char *name, char **argv, char *ops, int func)bin_true4209,112754
+bin_false(char *name, char **argv, char *ops, int func)bin_false4218,112867
+bin_print(char *name, char **args, char *ops, int func)bin_print4227,112987
+bin_echotc(char *name, char **argv, char *ops, int func)bin_echotc4405,117468
+bin_shift(char *name, char **argv, char *ops, int func)bin_shift4475,119252
+bin_getopts(char *name, char **argv, char *ops, int func)bin_getopts4522,120468
+bin_break(char *name, char **argv, char *ops, int func)bin_break4615,123139
+zexit(int val, int from_signal)zexit4670,124542
+bin_dot(char *name, char **argv, char *ops, int func)bin_dot4711,125466
+bin_emulate(char *nam, char **argv, char *ops, int func)bin_emulate4792,127339
+bin_eval(char *nam, char **argv, char *ops, int func)bin_eval4802,127495
+static char *zbuf;zbuf4824,127872
+static int readfd;readfd4825,127892
+bin_read(char *name, char **args, char *ops, int func)bin_read4840,128406
+zread(void)zread5244,138380
+bin_sched(char *nam, char **argv, char *ops, int func)bin_sched5285,139275
+char **testargs;testargs5396,142619
+testlex(void)testlex5402,142726
+bin_test(char *name, char **argv, char *ops, int func)bin_test5429,143264
+#define pttime(pttime5470,144211
+bin_times(char *name, char **argv, char *ops, int func)bin_times5477,144414
+bin_trap(char *name, char **argv, char *ops, int func)bin_trap5501,144958
+bin_ttyctl(char *name, char **argv, char *ops, int func)bin_ttyctl5577,146739
+bin_let(char *name, char **argv, char *ops, int func)bin_let5592,147014
+bin_umask(char *nam, char **args, char *ops, int func)bin_umask5610,147545
+bin_hashinfo(char *nam, char **args, char *ops, int func)bin_hashinfo5722,150143
+getasg(char *s)getasg5758,151783
+getsignum(char *s)getsignum5791,152370
+
+compat.c,301
+strstr(const char *s, const char *t)strstr39,1513
+gethostname(char *name, int namelen)gethostname57,1821
+gettimeofday(struct timeval *tv, struct timezone *tz)gettimeofday70,2030
+difftime(time_t t2, time_t t1)difftime82,2257
+strerror(int errnum)strerror97,2594
+zgetcwd(void)zgetcwd110,2857
+
+cond.c,246
+evalcond(Cond c)evalcond36,1377
+doaccess(char *s, int c)doaccess176,4776
+static struct stat st;st182,4847
+getstat(char *s)getstat186,4894
+dostat(char *s)dostat204,5277
+dolstat(char *s)dolstat218,5483
+optison(char *s)optison228,5594
+
+exec.c,3405
+#define execerr(execerr34,1352
+static LinkList args INIT_ZERO;INIT_ZERO37,1428
+static int doneps4 INIT_ZERO;INIT_ZERO38,1461
+parse_string(char *s)parse_string44,1540
+zsetlimit(int limnum, char *nam)zsetlimit62,1785
+setlimits(char *nam)setlimits78,2173
+zfork(void)zfork94,2405
+int list_pipe = 0, simple_pline = 0;list_pipe116,2768
+int list_pipe = 0, simple_pline = 0;simple_pline116,2768
+static pid_t list_pipe_pid;list_pipe_pid118,2808
+static int nowait, pline_level = 0;nowait119,2837
+static int nowait, pline_level = 0;pline_level119,2837
+static int list_pipe_child = 0, list_pipe_job;list_pipe_child120,2874
+static int list_pipe_child = 0, list_pipe_job;list_pipe_job120,2874
+static char list_pipe_text[JOBTEXTSIZE];list_pipe_text121,2922
+execcursh(Cmd cmd)execcursh127,3018
+#define POUNDBANGLIMIT POUNDBANGLIMIT138,3241
+zexecve(char *pth, char **argv)zexecve142,3281
+#define MAXCMDLEN MAXCMDLEN232,5744
+isgooderr(int e, char *dir)isgooderr238,5854
+execute(Cmdnam not_used_yet, int dash)execute252,6136
+#define try(try361,9007
+findcmd(char *arg0)findcmd367,9129
+iscom(char *s)iscom422,10138
+isrelative(char *s)isrelative438,10420
+hashcmd(char *arg0, char **pp)hashcmd456,10765
+execstring(char *s, int dont_change_job, int exiting)execstring495,11436
+execlist(List list, int dont_change_job, int exiting)execlist514,12076
+execpline(Sublist l, int how, int last1)execpline624,15468
+int subsh_close = -1;subsh_close796,19449
+execpline2(Pline pline, int how, int input, int output, int last1)execpline2802,19561
+makecline(LinkList list)makecline876,21405
+untokenize(char *s)untokenize906,22120
+clobber_open(struct redir *f)clobber_open920,22321
+#define TCBUFSIZE TCBUFSIZE940,22939
+closemn(struct multio **mfds, int fd)closemn951,23247
+closemnodes(struct multio **mfds)closemnodes988,24039
+closeallelse(struct multio *mn)closeallelse1002,24252
+addfd(int forked, int *save, struct multio **mfds, int fd1, int fd2, int rflag)addfd1031,25284
+addvars(LinkList l, int export)addvars1072,26526
+execcmd(Cmd cmd, int input, int output, int how, int last1)execcmd1154,28337
+save_params(Cmd cmd, LinkList *restore_p, LinkList *remove_p)save_params1772,46240
+restore_params(LinkList restorelist, LinkList removelist)restore_params1820,47363
+fixfds(int *save)fixfds1869,48581
+entersubsh(int how, int cl, int fake)entersubsh1882,48763
+closem(int how)closem1956,50602
+gethere(char *str, int typ)gethere1969,50811
+getherestr(struct redir *fn)getherestr2027,51795
+getoutput(char *cmd, int qt)getoutput2052,52242
+readoutput(int in, int qt)readoutput2125,53870
+parsecmd(char *cmd)parsecmd2173,54747
+getoutputfile(char *cmd)getoutputfile2196,55176
+namedpipe(void)namedpipe2252,56356
+getproc(char *cmd)getproc2271,56666
+getpipe(char *cmd)getpipe2338,58188
+mpipe(int *pp)mpipe2363,58661
+spawnpipes(LinkList l)spawnpipes2374,58818
+execcond(Cmd cmd)execcond2394,59128
+execarith(Cmd cmd)execarith2403,59249
+exectime(Cmd cmd)exectime2418,59462
+execfuncdef(Cmd cmd)execfuncdef2436,59716
+execshfunc(Cmd cmd, Shfunc shf)execshfunc2468,60527
+doshfunc(List list, LinkList doshargs, int flags, int noreturnval)doshfunc2517,61901
+getfpfunc(char *s)getfpfunc2652,65779
+cancd(char *s)cancd2707,66824
+cancd2(char *s)cancd22750,67657
+execsave(void)execsave2764,67907
+execrestore(void)execrestore2793,68687
+
+glob.c,6298
+exists(char *s)exists35,1366
+static int mode;		/* != 0 if we are parsing glob patterns */mode46,1553
+static int pathpos;		/* position in pathbuf                  */pathpos47,1615
+static int matchsz;		/* size of matchbuf                     */matchsz48,1680
+static int matchct;		/* number of matches found              */matchct49,1745
+static char pathbuf[PATH_MAX];	/* pathname buffer                      */pathbuf50,1810
+static char **matchbuf;		/* array of matches                     */matchbuf51,1885
+static char **matchptr;		/* &matchbuf[matchct]                   */matchptr52,1954
+static char *colonmod;		/* colon modifiers in qualifier list    */colonmod53,2023
+static ino_t old_ino;		/* ) remember old file and              */old_ino54,2091
+static dev_t old_dev;		/* ) position in path in case           */old_dev55,2158
+static int old_pos;		/* ) matching multiple directories      */old_pos56,2225
+typedef struct stat *Statptr;	 /* This makes the Ultrix compiler happy.  Go figure. */Statptr58,2292
+#define TT_DAYS TT_DAYS62,2421
+#define TT_HOURS TT_HOURS63,2440
+#define TT_MINS TT_MINS64,2460
+#define TT_WEEKS TT_WEEKS65,2479
+#define TT_MONTHS TT_MONTHS66,2499
+#define TT_BYTES TT_BYTES68,2522
+#define TT_POSIX_BLOCKS TT_POSIX_BLOCKS69,2542
+#define TT_KILOBYTES TT_KILOBYTES70,2569
+#define TT_MEGABYTES TT_MEGABYTES71,2593
+typedef int (*TestMatchFunc) _((struct stat *, long));TestMatchFunc75,2648
+struct qual {qual77,2706
+    struct qual *next;		/* Next qualifier, must match                */next78,2721
+    struct qual *or;		/* Alternative set of qualifiers to match    */or79,2794
+    TestMatchFunc func;		/* Function to call to test match            */func80,2865
+    long data;			/* Argument passed to function               */data81,2939
+    int sense;			/* Whether asserting or negating             */sense82,3005
+    int amc;			/* Flag for which time to test (a, m, c)     */amc83,3071
+    int range;			/* Whether to test <, > or = (as per signum) */range84,3135
+    int units;			/* Multiplier for time or size, respectively */units85,3201
+static struct qual *quals;quals89,3321
+static int qualct, qualorct;qualct92,3397
+static int qualct, qualorct;qualorct92,3397
+static int range, amc, units;range93,3427
+static int range, amc, units;amc93,3427
+static int range, amc, units;units93,3427
+static int gf_nullglob, gf_markdirs, gf_noglobdots, gf_listtypes, gf_follow;gf_nullglob94,3458
+static int gf_nullglob, gf_markdirs, gf_noglobdots, gf_listtypes, gf_follow;gf_markdirs94,3458
+static int gf_nullglob, gf_markdirs, gf_noglobdots, gf_listtypes, gf_follow;gf_noglobdots94,3458
+static int gf_nullglob, gf_markdirs, gf_noglobdots, gf_listtypes, gf_follow;gf_listtypes94,3458
+static int gf_nullglob, gf_markdirs, gf_noglobdots, gf_listtypes, gf_follow;gf_follow94,3458
+char *glob_pre, *glob_suf;glob_pre97,3583
+char *glob_pre, *glob_suf;glob_suf97,3583
+struct complist {complist101,3662
+    Complist next;next102,3681
+    Comp comp;comp103,3701
+    int closure;		/* 1 if this is a (foo/)# */closure104,3717
+    int follow; 		/* 1 to go thru symlinks */follow105,3765
+struct comp {comp107,3816
+    Comp left, right, next, exclude;left108,3831
+    Comp left, right, next, exclude;right108,3831
+    Comp left, right, next, exclude;next108,3831
+    Comp left, right, next, exclude;exclude108,3831
+    char *str;str109,3869
+    int stat;stat110,3885
+#define C_ONEHASH	C_ONEHASH115,4037
+#define C_TWOHASH	C_TWOHASH116,4058
+#define C_CLOSURE	C_CLOSURE117,4079
+#define C_LAST	C_LAST118,4120
+#define C_PATHADD	C_PATHADD119,4139
+#define CLOSUREP(CLOSUREP122,4195
+#define ONEHASHP(ONEHASHP123,4238
+#define TWOHASHP(TWOHASHP124,4281
+#define LASTP(LASTP125,4324
+#define PATHADDP(PATHADDP126,4361
+glob(LinkList list, LinkNode np)glob134,4622
+qgetnum(char **s)qgetnum569,15444
+qgetoctnum(char **s)qgetoctnum586,15694
+notstrcmp(char **a, char **b)notstrcmp605,16104
+insert(char *s)insert643,16928
+file_type(mode_t filemode)file_type731,19135
+haswilds(char *str)haswilds775,20158
+hasbraces(char *str)hasbraces827,21203
+xpandredir(struct redir *fn, LinkList tab)xpandredir917,22907
+dyncat(char *s1, char *s2)dyncat977,24499
+tricat(char *s1, char *s2, char *s3)tricat993,24841
+xpandbraces(LinkList list, LinkNode *np)xpandbraces1009,25159
+matchpat(char *a, char *b)matchpat1161,29657
+get_match_ret(char *s, int b, int e, int fl)get_match_ret1200,30741
+getmatch(char **sp, char *pat, int fl, int n)getmatch1275,32861
+static int addpath _((char *s));addpath1464,37088
+addpath(char *s)addpath1467,37136
+getfullpath(char *s)getfullpath1482,37458
+scanner(Complist q)scanner1497,37799
+#define GF_PATHADD	GF_PATHADD1625,41230
+#define GF_TOPLEV	GF_TOPLEV1626,41292
+static char *pptr;		/* current place in string being matched */pptr1628,41354
+static Comp tail;tail1629,41419
+static int first;		/* are leading dots special? */first1630,41438
+domatch(char *str, Comp c, int fist)domatch1638,41692
+#define untok(untok1647,41836
+excluded(Comp c, char *eptr)excluded1653,41968
+doesmatch(Comp c)doesmatch1673,42299
+#define PAT(PAT1749,44256
+#define PPAT(PPAT1750,44323
+parsepat(char *str)parsepat1882,47579
+parsereg(char *str)parsereg1894,47806
+parsecomplist(void)parsecomplist1909,48100
+parsecomp(int gflag)parsecomp1983,50051
+parsecompsw(int gflag)parsecompsw2127,54319
+tokenize(char *s)tokenize2175,55367
+remnulargs(char *s)remnulargs2251,56528
+qualdev(struct stat *buf, long dv)qualdev2273,56825
+qualnlink(struct stat *buf, long ct)qualnlink2282,56949
+qualuid(struct stat *buf, long uid)qualuid2293,57136
+qualgid(struct stat *buf, long gid)qualgid2302,57242
+qualisdev(struct stat *buf, long junk)qualisdev2311,57360
+qualisblk(struct stat *buf, long junk)qualisblk2325,57597
+qualischar(struct stat *buf, long junk)qualischar2339,57807
+qualmode(struct stat *buf, long mod)qualmode2349,57967
+qualflags(struct stat *buf, long mod)qualflags2358,58103
+qualeqflags(struct stat *buf, long mod)qualeqflags2367,58240
+qualiscom(struct stat *buf, long mod)qualiscom2376,58377
+qualsize(struct stat *buf, long size)qualsize2385,58540
+qualtime(struct stat *buf, long days)qualtime2413,59072
+
+globals.h,11790
+# define EXTERNEXTERN38,1546
+# define EXTERN EXTERN40,1570
+#undef INIT_ZEROINIT_ZERO46,1644
+#undef INIT_ZERO_STRUCTINIT_ZERO_STRUCT47,1662
+#define INIT_ZEROINIT_ZERO48,1687
+#define INIT_ZERO_STRUCTINIT_ZERO_STRUCT49,1706
+int redirtab[TRINANG - OUTANG + 1] =redirtab54,1781
+char nulstring[] = {Nularg, '\0'};nulstring77,2117
+int  nulstrlen   = sizeof(nulstring) - 1;nulstrlen78,2153
+EXTERN char **path INIT_ZERO;		/* $path     */INIT_ZERO86,2326
+EXTERN char **cdpath INIT_ZERO;		/* $cdpath   */INIT_ZERO87,2374
+EXTERN char **fpath INIT_ZERO;		/* $fpath    */INIT_ZERO88,2424
+EXTERN char **watch INIT_ZERO;		/* $watch    */INIT_ZERO89,2473
+EXTERN char **mailpath INIT_ZERO;		/* $mailpath */INIT_ZERO90,2522
+EXTERN char **manpath INIT_ZERO;		/* $manpath  */INIT_ZERO91,2574
+EXTERN char **fignore INIT_ZERO;		/* $fignore  */INIT_ZERO92,2625
+EXTERN char **psvar INIT_ZERO;		/* $psvar    */INIT_ZERO93,2676
+EXTERN char *yytext INIT_ZERO;INIT_ZERO95,2728
+EXTERN int noerrexit INIT_ZERO;INIT_ZERO100,2837
+EXTERN int nohistsave INIT_ZERO;INIT_ZERO104,2918
+EXTERN int errflag INIT_ZERO;INIT_ZERO108,2982
+EXTERN int trapreturn INIT_ZERO;INIT_ZERO112,3055
+EXTERN char *tokstr INIT_ZERO;INIT_ZERO114,3092
+EXTERN int tok, tokfd INIT_ZERO;tok115,3124
+EXTERN int tok, tokfd INIT_ZERO;INIT_ZERO115,3124
+EXTERN int lexstop INIT_ZERO;INIT_ZERO119,3199
+EXTERN struct heredocs *hdocs INIT_ZERO;INIT_ZERO121,3232
+EXTERN int noerrs INIT_ZERO;INIT_ZERO125,3311
+EXTERN int noeval INIT_ZERO;INIT_ZERO129,3416
+EXTERN int curhist INIT_ZERO;INIT_ZERO133,3488
+EXTERN int expanding INIT_ZERO;INIT_ZERO137,3574
+EXTERN int excs INIT_ZERO, exlast INIT_ZERO;INIT_ZERO141,3680
+EXTERN int excs INIT_ZERO, exlast INIT_ZERO;INIT_ZERO141,3680
+EXTERN int isfirstln INIT_ZERO;INIT_ZERO145,3785
+EXTERN int isfirstch INIT_ZERO;INIT_ZERO150,3915
+EXTERN int histentct INIT_ZERO;INIT_ZERO154,3986
+EXTERN Histent histentarr INIT_ZERO;INIT_ZERO158,4057
+EXTERN int histsiz INIT_ZERO;INIT_ZERO162,4134
+EXTERN int histdone INIT_ZERO;INIT_ZERO167,4292
+EXTERN int defev INIT_ZERO;INIT_ZERO171,4386
+EXTERN int incmdpos INIT_ZERO;INIT_ZERO175,4472
+EXTERN int incond INIT_ZERO;INIT_ZERO179,4561
+EXTERN int inredir INIT_ZERO;INIT_ZERO183,4658
+EXTERN int incasepat INIT_ZERO;INIT_ZERO187,4746
+EXTERN int infunc INIT_ZERO;INIT_ZERO191,4822
+EXTERN int isnewlin INIT_ZERO;INIT_ZERO195,4896
+EXTERN LinkList histlist INIT_ZERO;INIT_ZERO199,4968
+EXTERN LinkList dirstack INIT_ZERO;INIT_ZERO203,5038
+EXTERN LinkList bufstack INIT_ZERO;INIT_ZERO207,5109
+EXTERN int inbufct INIT_ZERO;INIT_ZERO211,5199
+EXTERN int inbufflags INIT_ZERO;INIT_ZERO215,5313
+EXTERN int inalmore;inalmore219,5428
+EXTERN int subsh INIT_ZERO;INIT_ZERO223,5489
+EXTERN int breaks INIT_ZERO;INIT_ZERO227,5549
+EXTERN int retflag INIT_ZERO;INIT_ZERO231,5625
+EXTERN char **pathchecked INIT_ZERO;INIT_ZERO235,5706
+EXTERN int loops INIT_ZERO;INIT_ZERO239,5785
+EXTERN int contflag INIT_ZERO;INIT_ZERO243,5848
+EXTERN int thisjob INIT_ZERO;INIT_ZERO247,5919
+EXTERN int curjob INIT_ZERO;INIT_ZERO251,5982
+EXTERN int prevjob INIT_ZERO;INIT_ZERO255,6046
+EXTERN HashTable aliastab INIT_ZERO;INIT_ZERO259,6124
+EXTERN HashTable reswdtab INIT_ZERO;INIT_ZERO263,6215
+EXTERN HashTable paramtab INIT_ZERO;INIT_ZERO267,6302
+EXTERN HashTable cmdnamtab INIT_ZERO;INIT_ZERO271,6404
+EXTERN HashTable shfunctab INIT_ZERO;INIT_ZERO275,6496
+EXTERN HashTable builtintab INIT_ZERO;INIT_ZERO279,6585
+EXTERN HashTable compctltab INIT_ZERO;INIT_ZERO283,6682
+EXTERN HashTable keybindtab INIT_ZERO;INIT_ZERO287,6773
+EXTERN HashTable emkeybindtab INIT_ZERO;INIT_ZERO291,6870
+EXTERN HashTable vikeybindtab INIT_ZERO;INIT_ZERO295,6966
+EXTERN HashTable nameddirtab INIT_ZERO;INIT_ZERO299,7052
+EXTERN struct compctl cc_compos INIT_ZERO_STRUCT, INIT_ZERO_STRUCT303,7131
+			cc_default INIT_ZERO_STRUCT,INIT_ZERO_STRUCT304,7183
+			cc_first INIT_ZERO_STRUCT, INIT_ZERO_STRUCT305,7216
+			cc_dummy INIT_ZERO_STRUCT;INIT_ZERO_STRUCT306,7248
+EXTERN struct job jobtab[MAXJOB]  INIT_ZERO_STRUCT;INIT_ZERO_STRUCT310,7306
+EXTERN struct tms shtms INIT_ZERO_STRUCT;INIT_ZERO_STRUCT314,7386
+EXTERN struct schedcmd *schedcmds INIT_ZERO;INIT_ZERO318,7473
+EXTERN char *hsubl INIT_ZERO;INIT_ZERO322,7575
+EXTERN char *hsubr INIT_ZERO;INIT_ZERO326,7661
+EXTERN uid_t cached_uid INIT_ZERO;INIT_ZERO331,7800
+EXTERN char *cached_username INIT_ZERO;   /* $USERNAME   */INIT_ZERO332,7836
+EXTERN char *zsh_name INIT_ZERO;		/* ZSH_NAME    */INIT_ZERO333,7897
+EXTERN char *underscore INIT_ZERO;	/* $_          */INIT_ZERO335,7952
+EXTERN long lastval INIT_ZERO;            /* $?          */INIT_ZERO336,8006
+EXTERN long mypid INIT_ZERO;		/* $$          */INIT_ZERO337,8067
+EXTERN long lastpid INIT_ZERO;		/* $!          */INIT_ZERO338,8116
+EXTERN long ppid INIT_ZERO;		/* $PPID       */INIT_ZERO339,8167
+EXTERN char *ifs INIT_ZERO;		/* $IFS        */INIT_ZERO340,8215
+EXTERN char *pwd INIT_ZERO;		/* $PWD        */INIT_ZERO341,8263
+EXTERN char *oldpwd INIT_ZERO;		/* $OLDPWD     */INIT_ZERO342,8311
+EXTERN long columns INIT_ZERO;            /* $COLUMNS    */INIT_ZERO344,8364
+EXTERN long lines INIT_ZERO;              /* $LINES      */INIT_ZERO345,8425
+EXTERN char *zoptarg INIT_ZERO;		/* $OPTARG     */INIT_ZERO347,8488
+EXTERN long zoptind INIT_ZERO;		/* $OPTIND     */INIT_ZERO348,8540
+EXTERN char *prompt INIT_ZERO;		/* $PROMPT     */INIT_ZERO349,8591
+EXTERN char *prompt2 INIT_ZERO;		/* etc.        */INIT_ZERO350,8642
+EXTERN char *prompt3 INIT_ZERO;INIT_ZERO351,8694
+EXTERN char *prompt4 INIT_ZERO;INIT_ZERO352,8727
+EXTERN char *rprompt INIT_ZERO;		/* $RPROMPT    */INIT_ZERO353,8760
+EXTERN char *sprompt INIT_ZERO;INIT_ZERO354,8812
+EXTERN char *wordchars INIT_ZERO;INIT_ZERO356,8847
+EXTERN char *rstring INIT_ZERO, *Rstring INIT_ZERO;INIT_ZERO357,8882
+EXTERN char *rstring INIT_ZERO, *Rstring INIT_ZERO;INIT_ZERO357,8882
+EXTERN char *postedit INIT_ZERO;INIT_ZERO358,8935
+EXTERN char *hostnam INIT_ZERO;           /* from gethostname */INIT_ZERO360,8971
+EXTERN char *home INIT_ZERO;              /* $HOME */INIT_ZERO361,9037
+EXTERN char **pparams INIT_ZERO;          /* $argv */INIT_ZERO362,9092
+EXTERN pid_t mypgrp INIT_ZERO;		/* the process group of the shell */INIT_ZERO364,9149
+EXTERN char *argzero INIT_ZERO;           /* $0 */INIT_ZERO366,9222
+EXTERN char *hackzero INIT_ZERO;INIT_ZERO368,9277
+EXTERN char *scriptname INIT_ZERO;        /* name of script being sourced */INIT_ZERO369,9311
+EXTERN long lineno INIT_ZERO;             /* $LINENO       */INIT_ZERO371,9391
+EXTERN long shlvl INIT_ZERO;              /* $SHLVL        */INIT_ZERO372,9454
+EXTERN long lastval2 INIT_ZERO;INIT_ZERO374,9520
+EXTERN time_t lastmailcheck INIT_ZERO;INIT_ZERO378,9595
+EXTERN time_t lastwatch INIT_ZERO;INIT_ZERO382,9706
+EXTERN time_t lastperiodic INIT_ZERO;INIT_ZERO386,9806
+EXTERN struct timeval shtimer INIT_ZERO_STRUCT;INIT_ZERO_STRUCT390,9897
+EXTERN char *nullcmd INIT_ZERO;INIT_ZERO394,9997
+EXTERN char *readnullcmd INIT_ZERO;INIT_ZERO395,10030
+EXTERN LinkList locallist INIT_ZERO;INIT_ZERO399,10127
+EXTERN int locallevel INIT_ZERO;INIT_ZERO403,10211
+EXTERN int sourcelevel INIT_ZERO;INIT_ZERO407,10291
+EXTERN char *fdtable INIT_ZERO;INIT_ZERO417,10821
+EXTERN int fdtable_size INIT_ZERO;INIT_ZERO421,10895
+EXTERN int max_zsh_fd INIT_ZERO;INIT_ZERO425,10993
+EXTERN int coprocin INIT_ZERO;INIT_ZERO429,11066
+EXTERN int coprocout INIT_ZERO;INIT_ZERO433,11138
+EXTERN int SHIN INIT_ZERO;INIT_ZERO437,11201
+EXTERN int SHTTY INIT_ZERO;INIT_ZERO441,11257
+EXTERN FILE *shout INIT_ZERO;INIT_ZERO445,11332
+EXTERN FILE *bshin INIT_ZERO;INIT_ZERO449,11422
+EXTERN int strin INIT_ZERO;INIT_ZERO453,11511
+EXTERN int stophist INIT_ZERO;INIT_ZERO457,11599
+EXTERN int spaceflag INIT_ZERO;INIT_ZERO461,11710
+EXTERN int nocorrect INIT_ZERO;INIT_ZERO465,11785
+EXTERN int histactive INIT_ZERO;INIT_ZERO469,11874
+EXTERN int emulation INIT_ZERO;INIT_ZERO473,11990
+EXTERN char opts[OPT_SIZE] INIT_ZERO_STRUCT;INIT_ZERO_STRUCT477,12097
+EXTERN int lastbase INIT_ZERO;            /* last input base we used */INIT_ZERO479,12146
+EXTERN struct rlimit current_limits[RLIM_NLIMITS];current_limits484,12305
+EXTERN struct rlimit limits[RLIM_NLIMITS];limits485,12357
+EXTERN char *hptr INIT_ZERO;INIT_ZERO490,12452
+EXTERN char *chline INIT_ZERO;INIT_ZERO494,12520
+EXTERN int qbang INIT_ZERO;INIT_ZERO499,12698
+unsigned txtattrmask = 0;txtattrmask504,12776
+EXTERN unsigned txtchange INIT_ZERO;INIT_ZERO511,12906
+EXTERN char *term INIT_ZERO;		/* $TERM */INIT_ZERO513,12946
+EXTERN int termflags INIT_ZERO;INIT_ZERO517,13069
+EXTERN int badcshglob INIT_ZERO;INIT_ZERO521,13136
+EXTERN int hlinesz INIT_ZERO;INIT_ZERO525,13204
+EXTERN int stopmsg INIT_ZERO;INIT_ZERO529,13309
+EXTERN struct ttyinfo shttyinfo INIT_ZERO_STRUCT;INIT_ZERO_STRUCT533,13375
+EXTERN char *ttystrname INIT_ZERO;	/* $TTY */INIT_ZERO535,13429
+EXTERN int ttyfrozen INIT_ZERO;INIT_ZERO539,13522
+EXTERN int useheap INIT_ZERO;INIT_ZERO543,13610
+EXTERN int clwsize INIT_ZERO, clwnum INIT_ZERO, clwpos INIT_ZERO;INIT_ZERO547,13703
+EXTERN int clwsize INIT_ZERO, clwnum INIT_ZERO, clwpos INIT_ZERO;INIT_ZERO547,13703
+EXTERN int clwsize INIT_ZERO, clwnum INIT_ZERO, clwpos INIT_ZERO;INIT_ZERO547,13703
+EXTERN char **clwords INIT_ZERO;INIT_ZERO548,13770
+EXTERN pid_t cmdoutpid INIT_ZERO;INIT_ZERO552,13865
+EXTERN int cmdoutval INIT_ZERO;INIT_ZERO556,13970
+EXTERN struct execstack *exstack INIT_ZERO;INIT_ZERO560,14087
+EXTERN int sigtrapped[VSIGCOUNT] INIT_ZERO_STRUCT;INIT_ZERO_STRUCT565,14275
+EXTERN List sigfuncs[VSIGCOUNT] INIT_ZERO_STRUCT;INIT_ZERO_STRUCT569,14369
+EXTERN int alloc_stackp INIT_ZERO;INIT_ZERO572,14436
+EXTERN int queueing_enabled INIT_ZERO;INIT_ZERO577,14525
+EXTERN sigset_t signal_mask_queue[MAX_QUEUE_SIZE] INIT_ZERO_STRUCT;INIT_ZERO_STRUCT578,14565
+EXTERN int signal_queue[MAX_QUEUE_SIZE] INIT_ZERO_STRUCT;INIT_ZERO_STRUCT579,14634
+EXTERN int queue_front INIT_ZERO;INIT_ZERO580,14693
+EXTERN int queue_rear INIT_ZERO;INIT_ZERO581,14728
+EXTERN int noaliases INIT_ZERO;INIT_ZERO585,14810
+char *ztokens = "#$^*()$=|{}[]`<>?~`,'\"\\";ztokens589,14875
+EXTERN unsigned char bangchar INIT_ZERO, hatchar INIT_ZERO, hashchar INIT_ZERO;INIT_ZERO596,14982
+EXTERN unsigned char bangchar INIT_ZERO, hatchar INIT_ZERO, hashchar INIT_ZERO;INIT_ZERO596,14982
+EXTERN unsigned char bangchar INIT_ZERO, hatchar INIT_ZERO, hashchar INIT_ZERO;INIT_ZERO596,14982
+EXTERN int eofseen INIT_ZERO;INIT_ZERO598,15066
+EXTERN int zleparse INIT_ZERO;INIT_ZERO602,15158
+EXTERN int wordbeg INIT_ZERO;INIT_ZERO604,15193
+EXTERN int parbegin INIT_ZERO;INIT_ZERO606,15227
+EXTERN int parend INIT_ZERO;INIT_ZERO608,15261
+EXTERN struct list dummy_list INIT_ZERO_STRUCT;INIT_ZERO_STRUCT612,15353
+EXTERN int tclen[TC_COUNT] INIT_ZERO_STRUCT;INIT_ZERO_STRUCT616,15437
+EXTERN char *tcstr[TC_COUNT] INIT_ZERO_STRUCT;INIT_ZERO_STRUCT618,15486
+EXTERN int tclines INIT_ZERO, tccolumns INIT_ZERO;INIT_ZERO622,15578
+EXTERN int tclines INIT_ZERO, tccolumns INIT_ZERO;INIT_ZERO622,15578
+char *tccapnams[TC_COUNT] =tccapnams626,15684
+EXTERN unsigned char *cmdstack INIT_ZERO;INIT_ZERO638,15985
+EXTERN int cmdsp INIT_ZERO;INIT_ZERO639,16028
+char *tokstrings[WHILE + 1] = {tokstrings642,16075
+char *cmdnames[] =cmdnames680,17111
+# define x x699,17693
+struct option optns[OPT_SIZE] = {optns698,17658
+# undef xx814,22737
+EXTERN short int typtab[256] INIT_ZERO_STRUCT;INIT_ZERO_STRUCT817,22758
+#undef INIT_ZEROINIT_ZERO820,22844
+#undef INIT_ZERO_STRUCTINIT_ZERO_STRUCT821,22862
+#define INIT_ZERO INIT_ZERO822,22887
+#define INIT_ZERO_STRUCT INIT_ZERO_STRUCT823,22909
+
+hashtable.c,3449
+hasher(char *str)hasher42,1513
+newhashtable(int size)newhashtable56,1708
+addhashnode(HashTable ht, char *nam, void *nodeptr)addhashnode77,2352
+gethashnode(HashTable ht, char *nam)gethashnode131,3641
+gethashnode2(HashTable ht, char *nam)gethashnode2155,4160
+removehashnode(HashTable ht, char *nam)removehashnode174,4640
+disablehashnode(HashNode hn, int flags)disablehashnode212,5427
+enablehashnode(HashNode hn, int flags)enablehashnode221,5555
+hnamcmp(struct hashnode **a, struct hashnode **b)hnamcmp230,5683
+scanhashtable(HashTable ht, int sorted, int flags1, int flags2, ScanFunc scanfunc, int scanflags)scanhashtable246,6523
+scanmatchtable(HashTable ht, Comp com, int flags1, int flags2, ScanFunc scanfunc, int scanflags)scanmatchtable332,9346
+expandhashtable(HashTable ht)expandhashtable395,10857
+emptyhashtable(HashTable ht, int newsize)emptyhashtable423,11508
+#define MAXDEPTH MAXDEPTH456,12310
+printhashtabinfo(HashTable ht)printhashtabinfo460,12344
+#define INITIAL_CMDNAMTAB INITIAL_CMDNAMTAB497,13443
+createcmdnamtable(void)createcmdnamtable503,13530
+emptycmdnamtable(HashTable ht)emptycmdnamtable528,14259
+hashdir(char **dirp)hashdir539,14471
+fillcmdnamtable(HashTable ht)fillcmdnamtable601,15831
+freecmdnamnode(HashNode hn)freecmdnamnode613,15980
+printcmdnamnode(HashNode hn, int printflags)printcmdnamnode628,16250
+createshfunctable(void)createshfunctable683,17487
+removeshfuncnode(HashTable ht, char *nam)removeshfuncnode710,18363
+disableshfuncnode(HashNode hn, int flags)disableshfuncnode728,18796
+enableshfuncnode(HashNode hn, int flags)enableshfuncnode745,19241
+freeshfuncnode(HashNode hn)freeshfuncnode762,19570
+printshfuncnode(HashNode hn, int printflags)printshfuncnode776,19799
+createbuiltintable(void)createbuiltintable820,20798
+printbuiltinnode(HashNode hn, int printflags)printbuiltinnode850,21613
+createreswdtable(void)createreswdtable876,22190
+printreswdnode(HashNode hn, int printflags)printreswdnode906,22969
+createaliastable(void)createaliastable932,23499
+createaliasnode(char *txt, int flags)createaliasnode961,24422
+freealiasnode(HashNode hn)freealiasnode974,24618
+printaliasnode(HashNode hn, int printflags)printaliasnode987,24804
+freeparamnode(HashNode hn)freeparamnode1048,26119
+printparamnode(HashNode hn, int printflags)printparamnode1060,26285
+#define INITIAL_NAMEDDIR INITIAL_NAMEDDIR1134,28041
+int allusersadded;allusersadded1138,28174
+createnameddirtable(void)createnameddirtable1144,28261
+emptynameddirtable(HashTable ht)emptynameddirtable1172,29129
+fillnameddirtable(HashTable ht)fillnameddirtable1184,29420
+addnameddirnode(HashTable ht, char *nam, void *nodeptr)addnameddirnode1210,29974
+removenameddirnode(HashTable ht, char *nam)removenameddirnode1224,30329
+freenameddirnode(HashNode hn)freenameddirnode1237,30581
+printnameddirnode(HashNode hn, int printflags)printnameddirnode1250,30787
+createcompctltable(void)createcompctltable1272,31212
+freecompctl(Compctl cc)freecompctl1295,31888
+freecompctlp(HashNode hn)freecompctlp1332,32557
+#define INITIAL_EMKEYBINDTAB INITIAL_EMKEYBINDTAB1347,33025
+createemkeybindtable(void)createemkeybindtable1351,33072
+emptyemkeybindtable(HashTable ht)emptyemkeybindtable1376,33875
+#define INITIAL_VIKEYBINDTAB INITIAL_VIKEYBINDTAB1387,34230
+createvikeybindtable(void)createvikeybindtable1391,34277
+emptyvikeybindtable(HashTable ht)emptyvikeybindtable1416,35080
+
+hashtable.h,1675
+struct reswd reswds[] =reswds35,1425
+#  define BR(BR71,2368
+#  define BR(BR74,2411
+#define SFN(SFN91,3171
+#define GFN(GFN92,3225
+#define IPDEF1(IPDEF193,3272
+#define IPDEF2(IPDEF2105,3905
+#define LCIPDEF(LCIPDEF116,4455
+#define IPDEF4(IPDEF4133,4929
+#define IPDEF5(IPDEF5140,5187
+#define IPDEF6(IPDEF6146,5469
+#define IPDEF7(IPDEF7149,5625
+#define IPDEF8(IPDEF8165,6134
+#define IPDEF8(IPDEF8174,6533
+#define IPDEF9(IPDEF9185,7075
+special_params[] = {special_params90,3149
+#undef BRBR213,8122
+#define BIN_TYPESET BIN_TYPESET223,8419
+#define BIN_BG BIN_BG224,8444
+#define BIN_FG BIN_FG225,8469
+#define BIN_JOBS BIN_JOBS226,8494
+#define BIN_WAIT BIN_WAIT227,8519
+#define BIN_DISOWN BIN_DISOWN228,8544
+#define BIN_BREAK BIN_BREAK229,8569
+#define BIN_CONTINUE BIN_CONTINUE230,8594
+#define BIN_EXIT BIN_EXIT231,8619
+#define BIN_RETURN BIN_RETURN232,8644
+#define BIN_CD BIN_CD233,8669
+#define BIN_POPD BIN_POPD234,8694
+#define BIN_PUSHD BIN_PUSHD235,8719
+#define BIN_PRINT BIN_PRINT236,8744
+#define BIN_EVAL BIN_EVAL237,8769
+#define BIN_SCHED BIN_SCHED238,8794
+#define BIN_FC BIN_FC239,8819
+#define BIN_PUSHLINE BIN_PUSHLINE240,8844
+#define BIN_LOGOUT BIN_LOGOUT241,8869
+#define BIN_TEST BIN_TEST242,8894
+#define BIN_BRACKET BIN_BRACKET243,8919
+#define BIN_EXPORT BIN_EXPORT244,8944
+#define BIN_ECHO BIN_ECHO245,8969
+#define BIN_DISABLE BIN_DISABLE246,8994
+#define BIN_ENABLE BIN_ENABLE247,9019
+#define BIN_SETOPT BIN_SETOPT250,9094
+#define BIN_UNSETOPT BIN_UNSETOPT251,9119
+#define NULLBINCMD NULLBINCMD253,9146
+#define PREFIX(PREFIX254,9211
+struct builtin builtins[] =builtins259,9356
+
+hist.c,2258
+#define HA_ACTIVE	HA_ACTIVE44,1721
+#define HA_NOSTORE	HA_NOSTORE45,1780
+#define HA_JUNKED	HA_JUNKED46,1847
+#define HA_NOINC	HA_NOINC47,1915
+short *chwords;chwords52,2071
+int chwordlen, chwordpos;chwordlen56,2197
+int chwordlen, chwordpos;chwordpos56,2197
+hwaddc(int c)hwaddc62,2285
+addtoline(int c)addtoline93,3402
+hgetc(void)hgetc116,3876
+safeinungetc(int c)safeinungetc158,5406
+getsubsargs(char *subline)getsubsargs170,5546
+getargc(Histent ehist)getargc198,6008
+histsubchar(int c)histsubchar207,6171
+hungetc(int c)hungetc499,12206
+strinbeg(void)strinbeg532,12887
+strinend(void)strinend543,12988
+hbegin(void)hbegin556,13184
+hend(void)hend583,13807
+remhist(void)remhist671,15900
+int hwgetword = -1;hwgetword687,16296
+hwbegin(int offset)hwbegin693,16347
+hwend(void)hwend711,16766
+histbackword(void)histbackword738,17476
+hwget(char **startptr)hwget748,17649
+hwrep(char *rep)hwrep775,18196
+hgetline(void)hgetline796,18532
+getargspec(int argc, int marg, int evset)getargspec821,18954
+hconsearch(char *str, int *marg)hconsearch859,19582
+hcomsearch(char *str)hcomsearch880,19942
+remtpath(char **junkptr)remtpath895,20173
+remtext(char **junkptr)remtext911,20386
+rembutext(char **junkptr)rembutext924,20565
+remlpaths(char **junkptr)remlpaths937,20781
+makeuppercase(char **junkptr)makeuppercase951,20980
+makelowercase(char **junkptr)makelowercase962,21112
+makecapitals(char **junkptr)makecapitals973,21244
+subst(char **strptr, char *in, char *out, int gbal)subst989,21503
+convamps(char *out, char *in, int inlen)convamps1015,22121
+quietgethist(int ev)quietgethist1042,22653
+quietgetevent(int ev)quietgetevent1063,23075
+gethist(int ev)gethist1072,23187
+getargs(Histent elist, int arg1, int arg2)getargs1086,23357
+upcase(char **x)upcase1104,23785
+downcase(char **x)downcase1114,23889
+quote(char **tr)quote1124,23994
+quotebreak(char **tr)quotebreak1166,24809
+hdynread(int stop)hdynread1201,25486
+hdynread2(int stop)hdynread21228,25955
+inithist(void)inithist1255,26395
+resizehistents(void)resizehistents1263,26518
+readhistfile(char *s, int err)readhistfile1292,27106
+savehistfile(char *s, int err, int app)savehistfile1397,29358
+firsthist(void)firsthist1484,31386
+
+init.c,665
+#define GLOBALSGLOBALS32,1352
+static int noexitct = 0;noexitct35,1389
+main(int argc, char **argv)main39,1428
+loop(int toplevel)loop119,3195
+emulate(const char *zsh_name, int fully)emulate178,4493
+static char *cmd;cmd202,5290
+parseargs(char **argv)parseargs206,5323
+init_io(void)init_io303,8140
+init_shout(void)init_shout403,10329
+init_term(void)init_term432,11022
+setupvals(void)setupvals520,13137
+init_signals(void)init_signals697,18239
+run_init_scripts(void)run_init_scripts746,19245
+init_misc(void)init_misc804,20393
+source(char *s)source824,20727
+sourcehome(char *s)sourcehome877,22659
+compctlsetup(void)compctlsetup902,23163
+
+input.c,1327
+static char *inbuf;		/* Current input buffer */inbuf75,3516
+static char *inbufptr;		/* Pointer into input buffer */inbufptr76,3564
+static char *inbufpush;		/* Character at which to re-push alias */inbufpush77,3620
+static int inbufleft;		/* Characters left in current inputinbufleft78,3687
+static int lastc;		/* used as flag that end of line was reached */lastc81,3771
+struct instacks {instacks88,3947
+    char *buf, *bufptr;buf89,3965
+    char *buf, *bufptr;bufptr89,3965
+    Alias alias;alias90,3989
+    int bufleft, bufct, flags;bufleft91,4006
+    int bufleft, bufct, flags;bufct91,4006
+    int bufleft, bufct, flags;flags91,4006
+static struct instacks *instack, *instacktop;instack93,4040
+static struct instacks *instack, *instacktop;instacktop93,4040
+#define INSTACK_INITIAL	INSTACK_INITIAL101,4451
+#define INSTACK_EXPAND	INSTACK_EXPAND102,4477
+static int instacksz = INSTACK_INITIAL;instacksz104,4503
+shingetline(void)shingetline110,4662
+ingetc(void)ingetc155,5458
+inputline(void)inputline193,6184
+inputsetline(char *str, int flags)inputsetline277,8544
+inungetc(int c)inungetc309,9414
+stuff(char *fn)stuff367,11101
+inerrflush(void)inerrflush399,11675
+inpush(char *str, int flags, Alias inalias)inpush414,12024
+inpoptop(void)inpoptop471,13586
+inpop(void)inpop502,14215
+
+jobs.c,1370
+static struct job zero;		/* static variables are initialized to zero */zero36,1412
+struct timeval dtimeval, now;dtimeval38,1487
+struct timeval dtimeval, now;now38,1487
+dtime(struct timeval *dt, struct timeval *t1, struct timeval *t2)dtime44,1601
+makerunning(Job jn)makerunning64,2014
+findproc(pid_t pid, Job *jptr, Process *pptr)findproc83,2450
+update_process(Process pn, int status)update_process103,2798
+update_job(Job jn)update_job123,3462
+printjob(Job jn, int lng, int synch)printjob232,6994
+deletefilelist(LinkList file_list)deletefilelist380,10931
+deletejob(Job jn)deletejob394,11162
+setprevjob(void)setprevjob416,11527
+addproc(pid_t pid, char *text)addproc440,11967
+havefiles(void)havefiles479,12989
+waitforpid(pid_t pid)waitforpid494,13190
+waitjob(int job, int sig)waitjob516,13612
+waitjobs(void)waitjobs576,15230
+clearjobtab(void)clearjobtab586,15360
+initjob(void)initjob604,15701
+spawnjob(void)spawnjob624,16038
+static long clktck = 0;clktck650,16731
+set_clktck(void)set_clktck653,16771
+should_report_time(Job j)should_report_time685,17494
+printhhmmss(double secs)printhhmmss708,17936
+printtime(struct timeval *real, struct timeinfo *ti, char *desc)printtime725,18308
+dumptime(Job jn)dumptime802,19990
+shelltime(void)shelltime814,20200
+scanjobs(void)scanjobs836,20681
+checkjobs(void)checkjobs849,20906
+
+lex.c,3226
+int len = 0, bsiz = 256;len36,1372
+int len = 0, bsiz = 256;bsiz36,1372
+char *bptr INIT_ZERO;INIT_ZERO37,1398
+struct lexstack {lexstack40,1446
+    struct lexstack *next;next41,1465
+    int incmdpos;incmdpos43,1495
+    int incond;incond44,1514
+    int incasepat;incasepat45,1531
+    int isfirstln;isfirstln46,1551
+    int isfirstch;isfirstch47,1571
+    int histactive;histactive48,1591
+    int histdone;histdone49,1612
+    int spaceflag;spaceflag50,1631
+    int stophist;stophist51,1651
+    int hlinesz;hlinesz52,1670
+    char *hline;hline53,1688
+    char *hptr;hptr54,1706
+    int tok;tok55,1723
+    int isnewlin;isnewlin56,1737
+    char *tokstr;tokstr57,1756
+    char *yytext;yytext58,1775
+    char *bptr;bptr59,1794
+    int bsiz;bsiz60,1811
+    short *chwords;chwords61,1826
+    int chwordlen;chwordlen62,1847
+    int chwordpos;chwordpos63,1867
+    int hwgetword;hwgetword64,1887
+    int lexstop;lexstop65,1907
+    struct heredocs *hdocs;hdocs66,1925
+    unsigned char *cstack;cstack68,1956
+    int csp;csp69,1984
+static struct lexstack *lstack = NULL;lstack72,2004
+lexsave(void)lexsave84,2232
+lexrestore(void)lexrestore129,3258
+yylex(void)yylex171,4322
+ctxtlex(void)ctxtlex204,5029
+#define LX1_BKSLASH LX1_BKSLASH249,5796
+#define LX1_COMMENT LX1_COMMENT250,5819
+#define LX1_NEWLIN LX1_NEWLIN251,5842
+#define LX1_SEMI LX1_SEMI252,5864
+#define LX1_AMPER LX1_AMPER253,5884
+#define LX1_BAR LX1_BAR254,5905
+#define LX1_INPAR LX1_INPAR255,5924
+#define LX1_OUTPAR LX1_OUTPAR256,5945
+#define LX1_INANG LX1_INANG257,5967
+#define LX1_OUTANG LX1_OUTANG258,5989
+#define LX1_OTHER LX1_OTHER259,6012
+#define LX2_BREAK LX2_BREAK261,6036
+#define LX2_OUTPAR LX2_OUTPAR262,6057
+#define LX2_BAR LX2_BAR263,6079
+#define LX2_STRING LX2_STRING264,6098
+#define LX2_INBRACK LX2_INBRACK265,6120
+#define LX2_OUTBRACK LX2_OUTBRACK266,6143
+#define LX2_TILDE LX2_TILDE267,6167
+#define LX2_INPAR LX2_INPAR268,6188
+#define LX2_INBRACE LX2_INBRACE269,6209
+#define LX2_OUTBRACE LX2_OUTBRACE270,6232
+#define LX2_OUTANG LX2_OUTANG271,6256
+#define LX2_INANG LX2_INANG272,6279
+#define LX2_EQUALS LX2_EQUALS273,6301
+#define LX2_BKSLASH LX2_BKSLASH274,6324
+#define LX2_QUOTE LX2_QUOTE275,6348
+#define LX2_DQUOTE LX2_DQUOTE276,6370
+#define LX2_BQUOTE LX2_BQUOTE277,6393
+#define LX2_COMMA LX2_COMMA278,6416
+#define LX2_OTHER LX2_OTHER279,6438
+#define LX2_META LX2_META280,6460
+unsigned char lexact1[256] INIT_ZERO_STRUCT, INIT_ZERO_STRUCT282,6483
+	lexact2[256] INIT_ZERO_STRUCT,INIT_ZERO_STRUCT283,6530
+	lextok2[256] INIT_ZERO_STRUCT;INIT_ZERO_STRUCT284,6563
+initlextabs(void)initlextabs288,6610
+lexinit(void)lexinit319,7323
+add(int c)add331,7495
+#define SETPARBEGIN SETPARBEGIN345,7738
+#define SETPAREND SETPAREND346,7846
+cmd_or_math(int cs_type)cmd_or_math354,8056
+cmd_or_math_sub(void)cmd_or_math_sub382,8508
+gettok(void)gettok404,8791
+gettokstr(int c, int sub)gettokstr645,13649
+dquote_parse(char endchar, int sub)dquote_parse1018,20775
+parsestr(char *s)parsestr1149,23393
+parse_subst_string(char *s)parse_subst_string1185,24182
+exalias(void)exalias1227,25020
+skipcomm(void)skipcomm1296,26670
+
+linklist.c,567
+newlinklist(void)newlinklist38,1374
+insertlinknode(LinkList list, LinkNode node, void *dat)insertlinknode52,1602
+insertlinklist(LinkList l, LinkNode where, LinkList x)insertlinklist71,1956
+getlinknode(LinkList list)getlinknode91,2275
+ugetnode(LinkList list)ugetnode112,2658
+remnode(LinkList list, LinkNode nd)remnode132,2983
+uremnode(LinkList list, LinkNode nd)uremnode151,3294
+freelinklist(LinkList list, FreeFunc freefunc)freelinklist168,3533
+countlinknodes(LinkList list)countlinknodes185,3868
+rolllist(LinkList l, LinkNode nd)rolllist196,4017
+
+loop.c,218
+execfor(Cmd cmd)execfor36,1324
+execselect(Cmd cmd)execselect78,2035
+execwhile(Cmd cmd)execwhile163,3624
+execrepeat(Cmd cmd)execrepeat207,4339
+execif(Cmd cmd)execif242,4903
+execcase(Cmd cmd)execcase274,5338
+
+math.c,2921
+static char *ptr;ptr34,1336
+static long yyval;yyval36,1355
+static LV yylval;yylval37,1374
+static int mlevel = 0;mlevel39,1393
+static int unary = 1;unary43,1469
+#define LR LR49,1608
+#define RL RL50,1621
+#define BOOL BOOL51,1634
+#define M_INPAR M_INPAR53,1650
+#define M_OUTPAR M_OUTPAR54,1668
+#define NOT NOT55,1687
+#define COMP COMP56,1701
+#define POSTPLUS POSTPLUS57,1716
+#define POSTMINUS POSTMINUS58,1735
+#define UPLUS UPLUS59,1755
+#define UMINUS UMINUS60,1771
+#define AND AND61,1788
+#define XOR XOR62,1802
+#define OR OR63,1816
+#define MUL MUL64,1830
+#define DIV DIV65,1845
+#define MOD MOD66,1860
+#define PLUS PLUS67,1875
+#define MINUS MINUS68,1891
+#define SHLEFT SHLEFT69,1908
+#define SHRIGHT SHRIGHT70,1926
+#define LES LES71,1945
+#define LEQ LEQ72,1960
+#define GRE GRE73,1975
+#define GEQ GEQ74,1990
+#define DEQ DEQ75,2005
+#define NEQ NEQ76,2020
+#define DAND DAND77,2035
+#define DOR DOR78,2051
+#define DXOR DXOR79,2066
+#define QUEST QUEST80,2082
+#define COLON COLON81,2099
+#define EQ EQ82,2116
+#define PLUSEQ PLUSEQ83,2130
+#define MINUSEQ MINUSEQ84,2148
+#define MULEQ MULEQ85,2167
+#define DIVEQ DIVEQ86,2184
+#define MODEQ MODEQ87,2201
+#define ANDEQ ANDEQ88,2218
+#define XOREQ XOREQ89,2235
+#define OREQ OREQ90,2252
+#define SHLEFTEQ SHLEFTEQ91,2268
+#define SHRIGHTEQ SHRIGHTEQ92,2288
+#define DANDEQ DANDEQ93,2309
+#define DOREQ DOREQ94,2327
+#define DXOREQ DXOREQ95,2344
+#define COMMA COMMA96,2362
+#define EOI EOI97,2379
+#define PREPLUS PREPLUS98,2394
+#define PREMINUS PREMINUS99,2413
+#define NUM NUM100,2433
+#define ID ID101,2448
+#define POWER POWER102,2462
+#define CID CID103,2479
+#define POWEREQ POWEREQ104,2494
+#define TOKCOUNT TOKCOUNT105,2513
+static int prec[TOKCOUNT] =prec109,2553
+#define TOPPREC TOPPREC124,2859
+#define ARGPREC ARGPREC125,2878
+static int type[TOKCOUNT] =type127,2907
+#define LVCOUNT LVCOUNT142,3200
+static int lvc;lvc146,3255
+static char **lvals;lvals147,3271
+zzlex(void)zzlex152,3303
+#define STACKSZ STACKSZ397,7329
+int mtok;			/* last token */mtok398,7349
+int sp = -1;			/* stack pointer */sp399,7378
+struct mathvalue {mathvalue400,7413
+    LV lval;lval401,7432
+    long val;val402,7445
+static struct mathvalue *stack;stack405,7463
+static void push _((long val, LV lval));push407,7496
+push(long val, LV lval)push410,7550
+getcvar(LV s)getcvar423,7719
+setvar(LV s, long v)setvar435,7857
+notzero(long a)notzero450,8045
+#define pop2(pop2460,8201
+#define pop3(pop3470,8428
+#define nolval(nolval480,8627
+#define pushv(pushv481,8666
+#define pop2lv(pop2lv482,8699
+#define set(set483,8750
+op(int what)op488,8804
+bop(int tk)bop701,11863
+mathevall(char *s, int prek, char **ep)mathevall720,12065
+matheval(char *s)matheval784,13278
+mathevalarg(char *s, char **ss)mathevalarg802,13538
+mathparse(int pc)mathparse819,13777
+
+mem.c,3611
+#  define DEBUG DEBUG84,3965
+int h_m[1025], h_push, h_pop, h_free;h_m90,4053
+int h_m[1025], h_push, h_pop, h_free;h_push90,4053
+int h_m[1025], h_push, h_pop, h_free;h_pop90,4053
+int h_m[1025], h_push, h_pop, h_free;h_free90,4053
+#define H_ISIZE H_ISIZE94,4104
+#define HEAPSIZE HEAPSIZE95,4135
+#define HEAP_ARENA_SIZE HEAP_ARENA_SIZE96,4170
+#define HEAPFREE HEAPFREE97,4228
+global_heapalloc(void)global_heapalloc103,4323
+global_permalloc(void)global_permalloc117,4516
+struct heapstack {heapstack129,4722
+    struct heapstack *next;	/* next one in list for this heap */next130,4742
+    size_t used;used131,4808
+struct heap {heap136,4853
+    struct heap *next;		/* next one                                  */next137,4868
+    size_t used;		/* bytes used from the heap                  */used138,4941
+    struct heapstack *sp;	/* used by pushheap() to save the value used */sp139,5008
+#define arena(arena140,5083
+Heap heaps;heaps145,5170
+pushheap(void)pushheap151,5231
+freeheap(void)freeheap172,5555
+popheap(void)popheap194,5984
+halloc(size_t size)halloc227,6555
+hcalloc(size_t size)hcalloc286,7673
+hrealloc(char *p, int old, int new)hrealloc297,7804
+zalloc(size_t size)zalloc310,8000
+zcalloc(size_t size)zcalloc326,8216
+zrealloc(void *ptr, size_t size)zrealloc349,8818
+dupstring(const char *s)dupstring374,9309
+ztrdup(const char *s)ztrdup387,9484
+   extern int brk _((caddr_t));brk432,11413
+   extern caddr_t sbrk _((int));sbrk435,11483
+   extern int brk _((void *));brk439,11561
+   extern void *sbrk _((int));sbrk442,11630
+# define FREE_RET_T FREE_RET_T448,11736
+# define FREE_ARG_T FREE_ARG_T449,11763
+# define FREE_DO_RETFREE_DO_RET450,11793
+# define MALLOC_RET_T MALLOC_RET_T451,11815
+# define MALLOC_ARG_T MALLOC_ARG_T452,11845
+# define FREE_RET_T FREE_RET_T454,11882
+# define FREE_ARG_T FREE_ARG_T455,11910
+# define MALLOC_RET_T MALLOC_RET_T456,11940
+# define MALLOC_ARG_T MALLOC_ARG_T457,11970
+struct m_shdr {m_shdr462,12083
+    struct m_shdr *next;	/* next one on free list */next463,12100
+struct m_hdr {m_hdr466,12160
+    long len;			/* length of memory block */len467,12176
+    struct m_hdr *next;		/* if free: next on free listnext468,12222
+    struct m_shdr *free;	/* if block of small blocks: free list */free471,12376
+    long used;			/* if block of small blocks: number of usedused472,12444
+#define M_ALIGN M_ALIGN479,12603
+#define M_HSIZE M_HSIZE487,12952
+#define M_ISIZE M_ISIZE488,12992
+#define M_MIN M_MIN489,13024
+struct m_hdr *m_lfree, *m_free;m_lfree494,13198
+struct m_hdr *m_lfree, *m_free;m_free494,13198
+long m_pgsz = 0;m_pgsz498,13260
+char *m_high, *m_low;m_high504,13454
+char *m_high, *m_low;m_low504,13454
+#define M_SIDX(M_SIDX520,14300
+#define M_SNUM M_SNUM521,14336
+#define M_SLEN(M_SLEN522,14359
+#define M_SBLEN(M_SBLEN523,14399
+#define M_BSLEN(M_BSLEN525,14510
+#define M_NSMALL M_NSMALL527,14624
+struct m_hdr *m_small[M_NSMALL];m_small529,14646
+int m_s = 0, m_b = 0;m_s533,14706
+int m_s = 0, m_b = 0;m_b533,14706
+int m_m[1025], m_f[1025];m_m534,14729
+int m_m[1025], m_f[1025];m_f534,14729
+struct m_hdr *m_l;m_l536,14758
+malloc(MALLOC_ARG_T size)malloc541,14824
+zfree(void *p, int sz)zfree755,20496
+free(FREE_ARG_T p)free947,25706
+zsfree(char *p)zsfree961,25967
+realloc(MALLOC_RET_T p, MALLOC_ARG_T size)realloc968,26045
+calloc(MALLOC_ARG_T n, MALLOC_ARG_T size)calloc1012,27260
+bin_mem(char *name, char **argv, char *ops, int func)bin_mem1031,27511
+zfree(void *p, int sz)zfree1169,32359
+zsfree(char *p)zsfree1177,32426
+
+params.c,4090
+static Param argvparam INIT_ZERO_STRUCT;INIT_ZERO_STRUCT34,1349
+createparamtable(void)createparamtable42,1594
+createparam(char *name, int flags)createparam183,6197
+isident(char *s)isident253,8004
+char **garr;garr286,8872
+getarg(char **str, int *inv, Value v, int a2, long *w)getarg290,8900
+getindex(char **pptr, Value v)getindex527,13863
+getvalue(char **pptr, int bracks)getvalue602,15304
+getstrvalue(Value v)getstrvalue689,17135
+static char *nular[] = {"", NULL};nular741,18341
+getarrvalue(Value v)getarrvalue745,18394
+getintvalue(Value v)getintvalue779,19001
+setstrvalue(Value v, char *val)setstrvalue792,19229
+setintvalue(Value v, long val)setintvalue872,21139
+setarrvalue(Value v, char **val)setarrvalue895,21568
+getiparam(char *s)getiparam950,22711
+getsparam(char *s)getsparam963,22888
+getaparam(char *s)getaparam976,23060
+setsparam(char *s, char *val)setsparam988,23254
+setaparam(char *s, char **val)setaparam1026,23990
+setiparam(char *s, long val)setiparam1067,24861
+unsetparam(char *s)unsetparam1092,25285
+unsetparam_pm(Param pm, int altflag)unsetparam_pm1104,25450
+intgetfn(Param pm)intgetfn1155,26725
+intsetfn(Param pm, long x)intsetfn1164,26843
+strgetfn(Param pm)strgetfn1173,26975
+strsetfn(Param pm, char *x)strsetfn1182,27134
+arrgetfn(Param pm)arrgetfn1193,27318
+arrsetfn(Param pm, char **x)arrsetfn1204,27497
+nullsetfn(Param pm, char *x)nullsetfn1218,27794
+intvargetfn(Param pm)intvargetfn1229,28028
+intvarsetfn(Param pm, long x)intvarsetfn1240,28272
+zlevarsetfn(Param pm, long x)zlevarsetfn1251,28521
+strvarsetfn(Param pm, char *x)strvarsetfn1266,28871
+strvargetfn(Param pm)strvargetfn1280,29168
+arrvargetfn(Param pm)arrvargetfn1296,29521
+arrvarsetfn(Param pm, char **x)arrvarsetfn1309,29937
+colonarrgetfn(Param pm)colonarrgetfn1324,30211
+colonarrsetfn(Param pm, char *x)colonarrsetfn1331,30301
+uniqarray(char **x)uniqarray1344,30555
+poundgetfn(Param pm)poundgetfn1366,30928
+randomgetfn(Param pm)randomgetfn1375,31061
+randomsetfn(Param pm, long v)randomsetfn1384,31194
+secondsgetfn(Param pm)secondsgetfn1393,31337
+secondssetfn(Param pm, long x)secondssetfn1402,31484
+usernamegetfn(Param pm)usernamegetfn1412,31666
+usernamesetfn(Param pm, char *x)usernamesetfn1421,31802
+uidgetfn(Param pm)uidgetfn1445,32291
+uidsetfn(Param pm, uid_t x)uidsetfn1454,32411
+euidgetfn(Param pm)euidgetfn1465,32564
+euidsetfn(Param pm, uid_t x)euidsetfn1474,32687
+gidgetfn(Param pm)gidgetfn1485,32842
+gidsetfn(Param pm, gid_t x)gidsetfn1494,32962
+egidgetfn(Param pm)egidgetfn1505,33115
+egidsetfn(Param pm, gid_t x)egidsetfn1514,33238
+ttyidlegetfn(Param pm)ttyidlegetfn1523,33334
+ifsgetfn(Param pm)ifsgetfn1536,33571
+ifssetfn(Param pm, char *x)ifssetfn1545,33686
+static struct localename {localename1555,33861
+    char *name;name1556,33889
+    int category;category1557,33906
+} lc_names[] = {lc_names1558,33925
+setlang(char *x)setlang1576,34204
+lc_allsetfn(Param pm, char *x)lc_allsetfn1588,34416
+langsetfn(Param pm, char *x)langsetfn1599,34567
+lcsetfn(Param pm, char *x)lcsetfn1607,34656
+histsizegetfn(Param pm)histsizegetfn1622,34920
+histsizesetfn(Param pm, long v)histsizesetfn1631,35049
+errnogetfn(Param pm)errnogetfn1642,35230
+dashgetfn(Param pm)dashgetfn1651,35350
+histcharsgetfn(Param pm)histcharsgetfn1669,35732
+histcharssetfn(Param pm, char *x)histcharssetfn1684,35976
+homegetfn(Param pm)homegetfn1703,36308
+homesetfn(Param pm, char *x)homesetfn1712,36426
+wordcharsgetfn(Param pm)wordcharsgetfn1726,36691
+wordcharssetfn(Param pm, char *x)wordcharssetfn1735,36824
+underscoregetfn(Param pm)underscoregetfn1746,37001
+termgetfn(Param pm)termgetfn1755,37134
+termsetfn(Param pm, char *x)termsetfn1764,37252
+arrfixenv(char *s, char **t)arrfixenv1781,37658
+zgetenv(char *name)zgetenv1814,38420
+replenv(char *e, char *value)replenv1830,38711
+mkenvstr(char *name, char *value)mkenvstr1875,39606
+addenv(char *name, char *value)addenv1900,40260
+delenv(char *x)delenv1934,41164
+convbase(char *s, long v, int base)convbase1959,41558
+
+parse.c,1754
+#define YYERROR YYERROR34,1310
+#define YYERRORV YYERRORV35,1358
+#define COND_ERROR(COND_ERROR36,1401
+#define make_list(make_list38,1474
+#define make_sublist(make_sublist39,1516
+#define make_pline(make_pline40,1561
+#define make_cmd(make_cmd41,1604
+#define make_forcmd(make_forcmd42,1645
+#define make_casecmd(make_casecmd43,1686
+#define make_ifcmd(make_ifcmd44,1728
+#define make_whilecmd(make_whilecmd45,1768
+#define make_varnode(make_varnode46,1811
+#define make_cond(make_cond47,1855
+discard_input(void)discard_input50,1910
+parse_event(void)parse_event73,2259
+par_event(void)par_event83,2367
+parse_list(void)parse_list134,3247
+par_list(void)par_list155,3519
+par_list1(void)par_list1183,4040
+par_sublist(void)par_sublist202,4291
+par_sublist2(void)par_sublist2227,4697
+par_pline(void)par_pline252,5080
+par_cmd(void)par_cmd303,5936
+par_for(Cmd c)par_for402,7464
+par_case(Cmd c)par_case468,8715
+par_if(Cmd c)par_if608,11510
+par_while(Cmd c)par_while730,13772
+par_repeat(Cmd c)par_repeat769,14440
+par_subsh(Cmd c)par_subsh810,15133
+par_funcdef(Cmd c)par_funcdef828,15454
+par_time(Cmd c)par_time867,16072
+par_dinbrack(Cmd c)par_dinbrack880,16217
+par_simple(Cmd c)par_simple902,16622
+void (*condlex) _((void)) = yylex;condlex978,18194
+par_cond(void)par_cond986,18299
+par_cond_1(void)par_cond_11012,18680
+par_cond_2(void)par_cond_21042,19167
+par_redir(LinkList l)par_redir1149,21630
+par_wordlist(void)par_wordlist1215,23034
+par_nl_wordlist(void)par_nl_wordlist1233,23239
+par_cond_double(char *a, char *b)par_cond_double1248,23438
+get_cond_num(char *tst)get_cond_num1262,23729
+par_cond_triple(char *a, char *b, char *c)par_cond_triple1278,23985
+yyerror(void)yyerror1303,24632
+
+prototypes.h,2189
+char *malloc _((size_t));malloc71,2197
+char *realloc _((void *, size_t));realloc72,2223
+char *calloc _((size_t, size_t));calloc73,2258
+extern int tgetent _((char *bp, char *name));tgetent77,2323
+extern int tgetnum _((char *id));tgetnum78,2369
+extern int tgetflag _((char *id));tgetflag79,2403
+extern char *tgetstr _((char *id, char **area));tgetstr80,2438
+extern char *tgoto _((char *cm, int destcol, int destline));tgoto81,2487
+extern int tputs _((char *cp, int affcnt, int (*outc) (int)));tputs82,2548
+# define WRITE_ARG_2_T WRITE_ARG_2_T89,2757
+# define WRITE_ARG_2_T WRITE_ARG_2_T91,2793
+# define SELECT_ARG_2_T SELECT_ARG_2_T95,2876
+# define SELECT_ARG_2_T SELECT_ARG_2_T97,2912
+char *mktemp _((char *));mktemp101,2968
+int ioctl _((int d, unsigned long request, void *argp));ioctl107,3158
+int mknod _((const char *pathname, int mode, dev_t device));mknod109,3223
+int nice _((int increment));nice110,3284
+int select _((int nfds, fd_set * readfds, fd_set * writefds, fd_set * exceptfds, struct timeval *timeout));select111,3313
+extern int getrlimit _((int resource, struct rlimit *rlp));getrlimit116,3494
+extern int setrlimit _((int resource, const struct rlimit *rlp));setrlimit117,3554
+extern int getrusage _((int who, struct rusage *rusage));getrusage118,3620
+extern int gettimeofday _((struct timeval *time_value, struct timezone *time_zone));gettimeofday119,3678
+extern int wait3 _((union wait *wait_status, int options, struct rusage *rusage));wait3120,3763
+extern int getdomainname _((char *name, int maxlength));getdomainname121,3846
+extern int select _((int nfds, fd_set * readfds, fd_set * writefds, fd_set * exceptfds, struct timeval *timeout));select122,3903
+extern pid_t getppid(void);getppid126,4066
+extern char *strerror _((int errnum));strerror130,4156
+extern char *strstr _((const char *s, const char *t));strstr136,4329
+extern int gethostname _((char *name, int namelen));gethostname140,4417
+extern void gettimeofday _((struct timeval *tv, struct timezone *tz));gettimeofday144,4504
+extern double difftime _((time_t t2, time_t t1));difftime148,4605
+extern char *strerror _((int errnum));strerror152,4685
+
+signals.c,1463
+static sigset_t blocked_set;blocked_set40,1739
+# define signal_jmp_buf signal_jmp_buf44,1797
+# define signal_setjmp(signal_setjmp45,1838
+# define signal_longjmp(signal_longjmp46,1885
+# define signal_jmp_buf signal_jmp_buf48,1941
+# define signal_setjmp(signal_setjmp49,1979
+# define signal_longjmp(signal_longjmp50,2019
+# define signal_process(signal_process54,2101
+# define signal_reset(signal_reset55,2150
+# define signal_process(signal_process57,2207
+# define signal_reset(signal_reset58,2239
+install_handler(int sig)install_handler67,2459
+intr(void)intr107,3615
+nointr(void)nointr117,3722
+holdintr(void)holdintr127,3840
+noholdintr(void)noholdintr137,3961
+signal_mask(int sig)signal_mask148,4138
+signal_block(sigset_t set)signal_block163,4369
+signal_unblock(sigset_t set)signal_unblock207,5376
+signal_setmask(sigset_t set)signal_setmask253,6451
+static int suspend_longjmp = 0;suspend_longjmp297,7558
+static signal_jmp_buf suspend_jmp_buf;suspend_jmp_buf298,7590
+signal_suspend(int sig, int sig2)signal_suspend303,7647
+# define  WAIT(WAIT349,8897
+#  define WAIT(WAIT352,8991
+#  define WAIT(WAIT354,9075
+handler(int sig)handler362,9186
+killrunjobs(int from_signal)killrunjobs536,13852
+killjb(Job jn, int sig)killjb558,14405
+settrap(int sig, List l)settrap589,15157
+unsettrap(int sig)unsettrap622,15892
+dotrapargs(int sig, int *sigtr, void *sigfn)dotrapargs663,16914
+dotrap(int sig)dotrap726,18500
+
+signals.h,869
+#define SIGNAL_HANDTYPE SIGNAL_HANDTYPE34,1349
+# define killpg(killpg37,1417
+#define SIGZERR SIGZERR40,1469
+#define SIGDEBUG SIGDEBUG41,1500
+#define VSIGCOUNT VSIGCOUNT42,1531
+#define SIGEXIT SIGEXIT43,1562
+# define SV_INTERRUPT SV_INTERRUPT46,1601
+# define sigemptyset(sigemptyset52,1760
+#  define sigfillset(sigfillset54,1814
+#  define sigfillset(sigfillset56,1873
+# define sigaddset(sigaddset58,1936
+# define sigdelset(sigdelset59,1994
+# define sigismember(sigismember60,2052
+#define child_block(child_block63,2150
+#define child_unblock(child_unblock64,2212
+#define child_suspend(child_suspend65,2276
+#define signal_ignore(signal_ignore68,2353
+#define signal_default(signal_default71,2443
+#define MAX_QUEUE_SIZE MAX_QUEUE_SIZE83,2966
+#define queue_signals(queue_signals85,2993
+#define unqueue_signals(unqueue_signals87,3042
+
+subst.c,1502
+prefork(LinkList list, int flags)prefork52,1894
+stringsubst(LinkList list, LinkNode node, int ssub)stringsubst93,3010
+globlist(LinkList list)globlist205,6119
+singsub(char **s)singsub222,6434
+multsub(char **s, char ***a, int *isarr, char *sep)multsub245,7232
+filesub(char **namptr, int assign)filesub286,8037
+filesubstr(char **namptr, int assign)filesubstr324,8867
+#define isend(isend326,8909
+#define isend2(isend2327,8986
+#undef isendisend400,10809
+#undef isend2isend2401,10823
+strcatsub(char **d, char *pb, char *pe, char *src, int l, char *s, int glbsub)strcatsub406,10857
+typedef int (*CompareFn) _((const void *, const void *));CompareFn423,11216
+strpcmp(const void *a, const void *b)strpcmp427,11288
+invstrpcmp(const void *a, const void *b)invstrpcmp438,11475
+cstrpcmp(const void *a, const void *b)cstrpcmp449,11667
+invcstrpcmp(const void *a, const void *b)invcstrpcmp479,12348
+dopadding(char *str, int prenum, int postnum, char *preone, char *postone, char *premul, char *postmul)dopadding509,13036
+get_strarg(char *s)get_strarg619,15915
+get_intarg(char **s)get_intarg661,16394
+#define	isstring(isstring689,16846
+#define isbrack(isbrack690,16927
+paramsubst(LinkList l, LinkNode n, char **str, int qt, int ssub)paramsubst694,17003
+#define UNTOK_AND_ESCAPE(UNTOK_AND_ESCAPE746,18676
+arithsubst(char *a, char **bptr, char *rest)arithsubst1523,35107
+modify(char **str, char **ptr)modify1543,35515
+dstackent(char ch, int val)dstackent1755,39231
+
+system.h,4230
+#define _INCLUDE_POSIX_SOURCE_INCLUDE_POSIX_SOURCE33,1365
+#define _INCLUDE_XOPEN_SOURCE_INCLUDE_XOPEN_SOURCE34,1396
+#define _INCLUDE_HPUX_SOURCE_INCLUDE_HPUX_SOURCE35,1427
+# undef HAVE_TERMIOS_HHAVE_TERMIOS_H41,1577
+# undef HAVE_SYS_UTSNAME_HHAVE_SYS_UTSNAME_H42,1601
+# define _(_46,1658
+# define _(_48,1688
+# define NLENGTH(NLENGTH72,2076
+# define dirent dirent74,2134
+# define NLENGTH(NLENGTH75,2158
+#  define __MALLOC_0_RETURNS_NULL__MALLOC_0_RETURNS_NULL91,2530
+struct timezone {timezone113,2908
+    int tz_minuteswest;tz_minuteswest114,2927
+    int tz_dsttime;tz_dsttime115,2952
+#  define PATH_MAX PATH_MAX153,3963
+#  define PATH_MAX PATH_MAX156,4043
+#  define OPEN_MAX OPEN_MAX164,4253
+#  define OPEN_MAX OPEN_MAX167,4329
+#undef WIFEXITEDWIFEXITED187,4877
+#undef WEXITSTATUSWEXITSTATUS188,4895
+#undef WIFSIGNALEDWIFSIGNALED189,4915
+#undef WTERMSIGWTERMSIG190,4935
+#undef WCOREDUMPWCOREDUMP191,4952
+#undef WIFSTOPPEDWIFSTOPPED192,4970
+#undef WSTOPSIGWSTOPSIG193,4989
+# define WIFEXITED(WIFEXITED199,5094
+# define WEXITSTATUS(WEXITSTATUS202,5162
+# define WIFSIGNALED(WIFSIGNALED205,5232
+# define WTERMSIG(WTERMSIG208,5317
+# define WCOREDUMP(WCOREDUMP211,5377
+# define WIFSTOPPED(WIFSTOPPED214,5439
+# define WSTOPSIG(WSTOPSIG217,5508
+# define VDISABLEVAL VDISABLEVAL239,5981
+# define HAS_TIO HAS_TIO240,6005
+#  define VDISABLEVAL VDISABLEVAL244,6099
+#  define HAS_TIO HAS_TIO245,6125
+# define STRUCT_UTMP STRUCT_UTMP275,6666
+# define ut_time ut_time276,6701
+# define STRUCT_UTMP STRUCT_UTMP279,6755
+# define UTMP_FILE UTMP_FILE284,6886
+# define WTMP_FILE WTMP_FILE288,6977
+# undef  UTMP_FILEUTMP_FILE292,7091
+# define UTMP_FILE UTMP_FILE293,7111
+# undef  WTMP_FILEWTMP_FILE297,7224
+# define WTMP_FILE WTMP_FILE298,7244
+# define UTMP_FILE UTMP_FILE302,7371
+# define WTMP_FILE WTMP_FILE306,7503
+# define DEFAULT_WATCHFMT DEFAULT_WATCHFMT310,7571
+# define DEFAULT_WATCHFMT DEFAULT_WATCHFMT312,7629
+#define DEFAULT_WORDCHARS DEFAULT_WORDCHARS315,7682
+#define DEFAULT_TIMEFMT DEFAULT_TIMEFMT316,7735
+# define GETPGRP(GETPGRP321,7949
+# define GETPGRP(GETPGRP323,7986
+# define getlogin(getlogin327,8050
+# define setpgrp setpgrp331,8116
+#  define setuid(setuid338,8247
+#  define setgid(setgid339,8282
+#  define HAVE_SETUIDHAVE_SETUID340,8317
+#  define seteuid(seteuid348,8465
+#  define setegid(setegid349,8502
+#  define HAVE_SETEUIDHAVE_SETEUID350,8539
+#   define seteuid(seteuid353,8596
+#   define setegid(setegid354,8638
+#   define HAVE_SETEUIDHAVE_SETEUID355,8680
+#  define	RLIMIT_CPU	RLIMIT_CPU367,9129
+#  define	RLIMIT_FSIZE	RLIMIT_FSIZE368,9153
+#  define	RLIMIT_DATA	RLIMIT_DATA369,9179
+#  define	RLIMIT_STACK	RLIMIT_STACK370,9204
+#  define	RLIMIT_CORE	RLIMIT_CORE371,9230
+#  define	RLIMIT_RSS	RLIMIT_RSS372,9255
+#  define	RLIMIT_NOFILE RLIMIT_NOFILE373,9279
+#  define	RLIMIT_OPEN_MAX	RLIMIT_OPEN_MAX374,9308
+#  define	RLIM_NLIMITS	RLIM_NLIMITS375,9349
+#  define	RLIM_INFINITY	RLIM_INFINITY376,9375
+# define RLIMIT_NOFILE RLIMIT_NOFILE382,9539
+# define RLIMIT_VMEM RLIMIT_VMEM385,9633
+# define RLIM_T_IS_QUAD_TRLIM_T_IS_QUAD_T392,9862
+# define RLIM_T RLIM_T396,9924
+# define RLIM_T RLIM_T398,9955
+#define DIGBUFSIZE DIGBUFSIZE404,10207
+#  undef S_ISBLKS_ISBLK410,10415
+#  undef S_ISCHRS_ISCHR413,10459
+#  undef S_ISDIRS_ISDIR416,10503
+#  undef S_ISFIFOS_ISFIFO419,10548
+#  undef S_ISLNKS_ISLNK422,10593
+#  undef S_ISMPBS_ISMPB425,10637
+#  undef S_ISMPCS_ISMPC428,10681
+#  undef S_ISNWKS_ISNWK431,10725
+#  undef S_ISREGS_ISREG434,10769
+#  undef S_ISSOCKS_ISSOCK437,10814
+# define S_IFMT S_IFMT444,10987
+# define S_ISBLK(S_ISBLK447,11063
+# define S_ISCHR(S_ISCHR450,11163
+# define S_ISDIR(S_ISDIR453,11263
+# define S_ISREG(S_ISREG456,11363
+# define S_ISFIFO(S_ISFIFO459,11464
+# define S_ISLNK(S_ISLNK462,11565
+# define S_ISSOCK(S_ISSOCK465,11667
+# define S_ISMPB(S_ISMPB468,11788
+# define S_ISMPC(S_ISMPC469,11837
+# define S_ISNWK(S_ISNWK472,11956
+# define lstat(lstat476,12035
+# define F_OK F_OK480,12133
+# define X_OK X_OK481,12150
+# define W_OK W_OK482,12167
+# define R_OK R_OK483,12184
+
+text.c,1007
+static char *tptr, *tbuf, *tlim;tptr34,1340
+static char *tptr, *tbuf, *tlim;tbuf34,1340
+static char *tptr, *tbuf, *tlim;tlim34,1340
+static int tsiz, tindent, tnewlins;tsiz35,1373
+static int tsiz, tindent, tnewlins;tindent35,1373
+static int tsiz, tindent, tnewlins;tnewlins35,1373
+taddchr(int c)taddchr41,1462
+taddstr(char *s)taddstr59,1701
+taddint(int x)taddint80,1995
+taddnl(void)taddnl92,2163
+getpermtext(struct node *n)getpermtext108,2375
+getjobtext(struct node *n)getjobtext125,2662
+#define gt2(gt2140,2908
+#define _Cond(_Cond147,3046
+#define _Cmd(_Cmd148,3076
+#define _Pline(_Pline149,3104
+#define _Sublist(_Sublist150,3136
+#define _List(_List151,3172
+#define _casecmd(_casecmd152,3202
+#define _ifcmd(_ifcmd153,3247
+#define _whilecmd(_whilecmd154,3288
+gettext2(struct node *n)gettext2158,3346
+getcond(Cond nm, int addpar)getcond374,7134
+getsimptext(Cmd cmd)getsimptext428,8325
+getredirs(Cmd cmd)getredirs451,8698
+taddlist(LinkList l)taddlist503,9673
+
+utils.c,5522
+zwarnnam(char *cmd, char *fmt, char *str, int num)zwarnnam38,1396
+zerr(char *fmt, char *str, int num)zerr49,1567
+zerrnam(char *cmd, char *fmt, char *str, int num)zerrnam68,2033
+putraw(int c)putraw141,3662
+putshout(int c)putshout155,3861
+nicechar(int c)nicechar177,4680
+nicestrlen(char *s)nicestrlen227,5446
+findpwd(char *s)findpwd240,5641
+ispwd(char *s)ispwd257,5922
+static char xbuf[PATH_MAX*2];xbuf269,6164
+slashsplit(char *s)slashsplit273,6212
+xsymlinks(char *s, int flag)xsymlinks305,6797
+xsymlink(char *s)xsymlink363,7930
+fprintdir(char *s, FILE *f)fprintdir381,8213
+get_username(void)get_username400,8618
+static char finddir_full[PATH_MAX];finddir_full419,9032
+static Nameddir finddir_last;finddir_last420,9069
+static int finddir_best;finddir_best421,9100
+static void finddir_scan _((HashNode, int));finddir_scan425,9165
+finddir_scan(HashNode hn, int flags)finddir_scan428,9226
+finddir(char *s)finddir444,9618
+adduserdir(char *s, char *t, int flags, int always)adduserdir475,10447
+getnameddir(char *name)getnameddir525,12134
+dirchar(char c)dirchar568,13356
+dircmp(char *s, char *t)dircmp577,13526
+preprompt(void)preprompt597,13849
+checkmailpath(char **s)checkmailpath675,15847
+freecompcond(void *a)freecompcond762,17772
+freestr(void *a)freestr806,18720
+gettyinfo(struct ttyinfo *ti)gettyinfo813,18774
+settyinfo(struct ttyinfo *ti)settyinfo840,19322
+#   define TCSADRAIN TCSADRAIN847,19463
+adjustwinsize(int from)adjustwinsize883,20430
+movefd(int fd)movefd953,21995
+redup(int x, int y)redup979,22442
+zclose(int fd)zclose997,22781
+gettempname(void)gettempname1016,23151
+has_token(const char *s)has_token1030,23378
+chuck(char *str)chuck1042,23528
+tulower(int c)tulower1050,23605
+tuupper(int c)tuupper1058,23699
+ztrncpy(char *s, char *t, int len)ztrncpy1068,23852
+strucpy(char **s, char *t)strucpy1079,23995
+struncpy(char **s, char *t, int n)struncpy1089,24109
+arrlen(char **s)arrlen1104,24371
+skipparens(char inpar, char outpar, char **s)skipparens1116,24536
+zstrtol(const char *s, char **t, int base)zstrtol1138,24977
+zstrtorlimit(const char *s, char **t, int base)zstrtorlimit1177,25774
+checkrmall(char *s)checkrmall1204,26353
+setblock_stdin(void)setblock_stdin1221,26707
+getquery(char *valid_chars)getquery1239,27020
+static int d;d1292,27972
+static char *guess, *best;guess1293,27987
+static char *guess, *best;best1293,27987
+spscan(HashNode hn, int scanflags)spscan1297,28029
+spckword(char **s, int hist, int cmd, int ask)spckword1313,28305
+ztrftime(char *buf, int bufsize, char *fmt, struct tm *tm)ztrftime1451,31691
+zjoin(char **arr, int delim)zjoin1539,33651
+colonsplit(char *s, int uniq)colonsplit1563,34116
+skipwsep(char **s)skipwsep1593,34742
+spacesplit(char *s, int allownull)spacesplit1610,34956
+findsep(char **s, char *sep)findsep1647,35757
+findword(char **s, char *sep)findword1685,36385
+wordcount(char *s, char *sep, int mul)wordcount1716,36813
+sepjoin(char **s, char *sep)sepjoin1756,37485
+sepsplit(char *s, char *sep, int allownull)sepsplit1786,38021
+getshfunc(char *nam)getshfunc1816,38547
+static int sizetab[N_COUNT] =sizetab1841,39063
+static int flagtab[N_COUNT] =flagtab1855,39402
+allocnode(int type)allocnode1871,40066
+dupstruct(void *a)dupstruct1886,40320
+simplifystruct(struct node *n)simplifystruct1910,40795
+expandstruct(struct node *n, int exp)expandstruct2003,42816
+dupnode(int type, void *a, int argnum)dupnode2190,46838
+freetreenode(int type, void *a, int argnum)freetreenode2233,48010
+dupstruct2(void *a)dupstruct22267,48524
+freestruct(void *a)freestruct2404,51822
+duplist(LinkList l, VFunc func)duplist2511,53824
+duparray(char **arr, VFunc func)duparray2524,54057
+list2arr(LinkList l, VFunc func)list2arr2538,54298
+arr2list(char **arr, VFunc func)arr2list2554,54586
+mkarray(char *s)mkarray2566,54745
+feep(void)feep2577,54903
+freearray(char **s)freearray2589,55047
+equalsplit(char *s, char **t)equalsplit2600,55154
+simplifyright(List l)simplifyright2615,55373
+inittyptab(void)inittyptab2637,55825
+arrdup(char **s)arrdup2693,57501
+spname(char *oldname)spname2705,57685
+mindist(char *dir, char *mindistguess, char *mindistbest)mindist2740,58464
+spdist(char *s, char *t, int thresh)spdist2773,59157
+setcbreak(void)setcbreak2836,60935
+attachtty(pid_t pgrp)attachtty2857,61262
+gettygrp(void)gettygrp2896,61957
+getbaudrate(struct ttyinfo *shttyinfo)getbaudrate2921,62277
+metafy(char *buf, int len, int heap)metafy3044,65490
+unmetafy(char *s, int *len)unmetafy3108,66805
+metalen(char *s, int len)metalen3126,67186
+unmeta(char *file_name)unmeta3146,67654
+ztrcmp(unsigned char const *s1, unsigned char const *s2)ztrcmp3167,68114
+metadiffer(char const *s, char const *r, int len)metadiffer3200,68789
+ztrlen(char const *s)ztrlen3227,69302
+ztrsub(char const *t, char const *s)ztrsub3247,69605
+zreaddir(DIR *dir)zreaddir3266,69914
+zputs(char const *s, FILE *stream)zputs3277,70094
+nicezputs(char const *s, FILE *stream)nicezputs3297,70395
+niceztrlen(char const *s)niceztrlen3319,70780
+hasspecial(char const *s)hasspecial3341,71121
+quotedzputs(char const *s, FILE *stream)quotedzputs3353,71345
+optlookup(char *s)optlookup3428,72799
+optlookupc(char c)optlookupc3460,73379
+dosetopt(int optno, int value, int force)dosetopt3484,73865
+dupstrpfx(const char *s, int len)dupstrpfx3518,74747
+ztrduppfx(const char *s, int len)ztrduppfx3529,74898
+dputs(char *message)dputs3542,75062
+
+version.h,37
+#define ZSH_VERSION ZSH_VERSION1,0
+
+watch.c,656
+static int wtabsz;wtabsz35,1372
+STRUCT_UTMP *wtab;wtab36,1392
+static time_t lastutmpcheck;lastutmpcheck37,1412
+getlogtime(STRUCT_UTMP *u, int inout)getlogtime43,1506
+#define BEGIN3	BEGIN384,2453
+#define END3	END385,2473
+watch3ary(int inout, STRUCT_UTMP *u, char *fmt, int prnt)watch3ary89,2507
+watchlog2(int inout, STRUCT_UTMP *u, char *fmt, int prnt, int fini)watchlog2125,3236
+watchlog(int inout, STRUCT_UTMP *u, char **w, char *fmt)watchlog273,6312
+ucmp(STRUCT_UTMP *u, STRUCT_UTMP *v)ucmp336,7550
+readwtab(void)readwtab347,7776
+dowatch(void)dowatch381,8599
+bin_log(char *nam, char **argv, char *ops, int func)bin_log458,10272
+
+zle.h,13839
+#define ZLEXTERNZLEXTERN33,1359
+#define ZLEXTERN ZLEXTERN35,1384
+#undef INIT_ZEROINIT_ZERO40,1460
+#undef INIT_ZERO_STRUCTINIT_ZERO_STRUCT41,1478
+#define INIT_ZEROINIT_ZERO42,1503
+#define INIT_ZERO_STRUCTINIT_ZERO_STRUCT43,1522
+ZLEXTERN int linesz INIT_ZERO;INIT_ZERO51,1626
+ZLEXTERN int mark INIT_ZERO;INIT_ZERO54,1684
+ZLEXTERN int c INIT_ZERO;INIT_ZERO57,1746
+ZLEXTERN int bindk INIT_ZERO;INIT_ZERO60,1813
+ZLEXTERN int zmult INIT_ZERO;INIT_ZERO63,1870
+ZLEXTERN int vibufspec INIT_ZERO;INIT_ZERO66,1935
+ZLEXTERN int vibufappend INIT_ZERO;INIT_ZERO68,2042
+ZLEXTERN int insmode INIT_ZERO;INIT_ZERO70,2118
+ZLEXTERN int cost;cost74,2200
+ZLEXTERN int baud;baud77,2274
+ZLEXTERN int nlnct;nlnct81,2337
+ZLEXTERN int showinglist;showinglist87,2653
+ZLEXTERN int lastcmd;lastcmd90,2724
+ZLEXTERN int lastcol;lastcol93,2802
+ZLEXTERN int virangeflag;virangeflag96,2867
+ZLEXTERN int wordflag;wordflag99,2941
+ZLEXTERN int vilinerange;vilinerange102,3026
+ZLEXTERN int in_vared INIT_ZERO;INIT_ZERO108,3097
+ZLEXTERN int cs INIT_ZERO;INIT_ZERO111,3156
+ZLEXTERN int ll INIT_ZERO;INIT_ZERO114,3205
+ZLEXTERN int lppth INIT_ZERO;INIT_ZERO117,3264
+ZLEXTERN int lastnamed INIT_ZERO;INIT_ZERO120,3328
+ZLEXTERN int done INIT_ZERO;INIT_ZERO123,3399
+ZLEXTERN int histline INIT_ZERO;INIT_ZERO126,3466
+ZLEXTERN int resetneeded INIT_ZERO;INIT_ZERO129,3546
+ZLEXTERN int zleactive INIT_ZERO;INIT_ZERO132,3626
+ZLEXTERN unsigned char *line INIT_ZERO;INIT_ZERO135,3686
+ZLEXTERN char *lpmpt INIT_ZERO, *rpmpt INIT_ZERO;INIT_ZERO138,3765
+ZLEXTERN char *lpmpt INIT_ZERO, *rpmpt INIT_ZERO;INIT_ZERO138,3765
+ZLEXTERN char *curhistline INIT_ZERO;INIT_ZERO141,3882
+ZLEXTERN char *statusline INIT_ZERO;INIT_ZERO144,3962
+ZLEXTERN int statusll INIT_ZERO;INIT_ZERO145,4000
+ZLEXTERN int addedsuffix INIT_ZERO;INIT_ZERO148,4103
+ZLEXTERN int complexpect INIT_ZERO;INIT_ZERO151,4211
+ZLEXTERN int stackhist INIT_ZERO, stackcs INIT_ZERO;INIT_ZERO155,4387
+ZLEXTERN int stackhist INIT_ZERO, stackcs INIT_ZERO;INIT_ZERO155,4387
+ZLEXTERN int menucmp INIT_ZERO;INIT_ZERO158,4500
+ZLEXTERN int undoing INIT_ZERO;INIT_ZERO161,4577
+ZLEXTERN int inzlefunc INIT_ZERO;INIT_ZERO164,4670
+ZLEXTERN int vichgbufsz INIT_ZERO, vichgbufptr INIT_ZERO, vichgflag INIT_ZERO;INIT_ZERO167,4762
+ZLEXTERN int vichgbufsz INIT_ZERO, vichgbufptr INIT_ZERO, vichgflag INIT_ZERO;INIT_ZERO167,4762
+ZLEXTERN int vichgbufsz INIT_ZERO, vichgbufptr INIT_ZERO, vichgflag INIT_ZERO;INIT_ZERO167,4762
+ZLEXTERN char *vichgbuf INIT_ZERO;INIT_ZERO168,4842
+ZLEXTERN int viinsbegin INIT_ZERO;INIT_ZERO171,4931
+ZLEXTERN int inwhat;inwhat175,5072
+#define IN_NOTHING IN_NOTHING178,5120
+#define IN_CMD IN_CMD180,5170
+#define IN_MATH IN_MATH182,5230
+#define IN_COND IN_COND184,5275
+#define IN_ENV IN_ENV186,5348
+ZLEXTERN int gotmult INIT_ZERO;INIT_ZERO189,5431
+ZLEXTERN int gotvibufspec INIT_ZERO;INIT_ZERO192,5527
+typedef void bindfunc _((void));bindfunc194,5567
+typedef bindfunc *F;F195,5601
+struct key {key197,5625
+    struct hashnode *next;next198,5639
+    char *nam;			/* hash data */nam199,5667
+    int flags;			/* CURRENTLY UNUSED */flags200,5701
+    int func;			/* function code for this key */func201,5742
+    char *str;			/* string corresponding to this key,str202,5792
+    int len;			/* length of string */len204,5884
+    int prefixct;		/* number of strings for which this is a prefix */prefixct205,5923
+struct zlecmd {zlecmd208,6000
+    char *name;			/* name of function */name209,6017
+    F func;			/* handler function */func210,6059
+    int flags;flags211,6097
+struct undoent {undoent216,6139
+    int pref;			/* number of initial chars unchanged */pref217,6157
+    int suff;			/* number of trailing chars unchanged */suff218,6214
+    int len;			/* length of changed chars */len219,6272
+    int cs;			/* cursor pos before change */cs220,6318
+    char *change;		/* NOT null terminated */change221,6364
+#define UNDOCT UNDOCT224,6416
+ZLEXTERN struct undoent undos[UNDOCT] INIT_ZERO_STRUCT;INIT_ZERO_STRUCT226,6437
+ZLEXTERN unsigned char *lastline INIT_ZERO;INIT_ZERO229,6548
+ZLEXTERN int undoct INIT_ZERO, lastcs INIT_ZERO, lastll INIT_ZERO;INIT_ZERO231,6595
+ZLEXTERN int undoct INIT_ZERO, lastcs INIT_ZERO, lastll INIT_ZERO;INIT_ZERO231,6595
+ZLEXTERN int undoct INIT_ZERO, lastcs INIT_ZERO, lastll INIT_ZERO;INIT_ZERO231,6595
+ZLEXTERN char *visrchstr INIT_ZERO;INIT_ZERO233,6665
+ZLEXTERN int visrchsense INIT_ZERO;INIT_ZERO234,6702
+#define ZLE_MOVEMENT	ZLE_MOVEMENT236,6741
+#define ZLE_MENUCMP	ZLE_MENUCMP237,6770
+#define ZLE_UNDO	ZLE_UNDO238,6798
+#define ZLE_YANK	ZLE_YANK239,6823
+#define ZLE_LINEMOVE	ZLE_LINEMOVE240,6848
+#define ZLE_ARG	ZLE_ARG241,6877
+#define ZLE_KILL	ZLE_KILL242,6902
+#define ZLE_HISTSEARCH	ZLE_HISTSEARCH243,6927
+#define ZLE_NEGARG	ZLE_NEGARG244,6958
+#define ZLE_INSERT	ZLE_INSERT245,6985
+#define ZLE_DELETE	ZLE_DELETE246,7012
+#define ZLE_DIGIT	ZLE_DIGIT247,7040
+typedef struct key *Key;Key249,7069
+ZLEXTERN int *bindtab INIT_ZERO, *mainbindtab INIT_ZERO;INIT_ZERO251,7097
+ZLEXTERN int *bindtab INIT_ZERO, *mainbindtab INIT_ZERO;INIT_ZERO251,7097
+ZLEXTERN int altbindtab[256] INIT_ZERO_STRUCT;INIT_ZERO_STRUCT253,7209
+struct cutbuffer {cutbuffer259,7472
+    char *buf;buf260,7492
+    size_t len;len261,7508
+    char flags;flags262,7525
+typedef struct cutbuffer *Cutbuffer;Cutbuffer265,7548
+#define CUTBUFFER_LINE CUTBUFFER_LINE267,7588
+ZLEXTERN struct cutbuffer cutbuf INIT_ZERO_STRUCT;INIT_ZERO_STRUCT271,7696
+#define KRINGCT KRINGCT275,7788
+ZLEXTERN struct cutbuffer kring[KRINGCT] INIT_ZERO_STRUCT;INIT_ZERO_STRUCT276,7807
+ZLEXTERN int kringnum INIT_ZERO;INIT_ZERO277,7867
+ZLEXTERN struct cutbuffer vibuf[35] INIT_ZERO_STRUCT;INIT_ZERO_STRUCT282,8046
+    z_acceptandhold,z_acceptandhold287,8146
+    z_acceptandinfernexthistory,z_acceptandinfernexthistory288,8168
+    z_acceptandmenucomplete,z_acceptandmenucomplete289,8202
+    z_acceptline,z_acceptline290,8232
+    z_acceptlineanddownhistory,z_acceptlineanddownhistory291,8251
+    z_backwardchar,z_backwardchar292,8284
+    z_backwarddeletechar,z_backwarddeletechar293,8305
+    z_backwarddeleteword,z_backwarddeleteword294,8332
+    z_backwardkillline,z_backwardkillline295,8359
+    z_backwardkillword,z_backwardkillword296,8384
+    z_backwardword,z_backwardword297,8409
+    z_beginningofbufferorhistory,z_beginningofbufferorhistory298,8430
+    z_beginningofhistory,z_beginningofhistory299,8465
+    z_beginningofline,z_beginningofline300,8492
+    z_beginningoflinehist,z_beginningoflinehist301,8516
+    z_capitalizeword,z_capitalizeword302,8544
+    z_clearscreen,z_clearscreen303,8567
+    z_completeword,z_completeword304,8587
+    z_copyprevword,z_copyprevword305,8608
+    z_copyregionaskill,z_copyregionaskill306,8629
+    z_deletechar,z_deletechar307,8654
+    z_deletecharorlist,z_deletecharorlist308,8673
+    z_deleteword,z_deleteword309,8698
+    z_describekeybriefly,z_describekeybriefly310,8717
+    z_digitargument,z_digitargument311,8744
+    z_downcaseword,z_downcaseword312,8766
+    z_downhistory,z_downhistory313,8787
+    z_downlineorhistory,z_downlineorhistory314,8807
+    z_downlineorsearch,z_downlineorsearch315,8833
+    z_emacsbackwardword,z_emacsbackwardword316,8858
+    z_emacsforwardword,z_emacsforwardword317,8884
+    z_endofbufferorhistory,z_endofbufferorhistory318,8909
+    z_endofhistory,z_endofhistory319,8938
+    z_endofline,z_endofline320,8959
+    z_endoflinehist,z_endoflinehist321,8977
+    z_exchangepointandmark,z_exchangepointandmark322,8999
+    z_executelastnamedcmd,z_executelastnamedcmd323,9028
+    z_executenamedcmd,z_executenamedcmd324,9056
+    z_expandcmdpath,z_expandcmdpath325,9080
+    z_expandhistory,z_expandhistory326,9102
+    z_expandorcomplete,z_expandorcomplete327,9124
+    z_expandorcompleteprefix,z_expandorcompleteprefix328,9149
+    z_expandword,z_expandword329,9180
+    z_forwardchar,z_forwardchar330,9199
+    z_forwardword,z_forwardword331,9219
+    z_getline,z_getline332,9239
+    z_gosmacstransposechars,z_gosmacstransposechars333,9255
+    z_historybeginningsearchbackward,z_historybeginningsearchbackward334,9285
+    z_historybeginningsearchforward,z_historybeginningsearchforward335,9324
+    z_historyincrementalsearchbackward,z_historyincrementalsearchbackward336,9362
+    z_historyincrementalsearchforward,z_historyincrementalsearchforward337,9403
+    z_historysearchbackward,z_historysearchbackward338,9443
+    z_historysearchforward,z_historysearchforward339,9473
+    z_infernexthistory,z_infernexthistory340,9502
+    z_insertlastword,z_insertlastword341,9527
+    z_killbuffer,z_killbuffer342,9550
+    z_killline,z_killline343,9569
+    z_killregion,z_killregion344,9586
+    z_killwholeline,z_killwholeline345,9605
+    z_killword,z_killword346,9627
+    z_listchoices,z_listchoices347,9644
+    z_listexpand,z_listexpand348,9664
+    z_magicspace,z_magicspace349,9683
+    z_menucomplete,z_menucomplete350,9702
+    z_menuexpandorcomplete,z_menuexpandorcomplete351,9723
+    z_negargument,z_negargument352,9752
+    z_overwritemode,z_overwritemode353,9772
+    z_poundinsert,z_poundinsert354,9794
+    z_prefix,z_prefix355,9814
+    z_pushinput,z_pushinput356,9829
+    z_pushline,z_pushline357,9847
+    z_pushlineoredit,z_pushlineoredit358,9864
+    z_quotedinsert,z_quotedinsert359,9887
+    z_quoteline,z_quoteline360,9908
+    z_quoteregion,z_quoteregion361,9926
+    z_redisplay,z_redisplay362,9946
+    z_reversemenucomplete,z_reversemenucomplete363,9964
+    z_runhelp,z_runhelp364,9992
+    z_selfinsert,z_selfinsert365,10008
+    z_selfinsertunmeta,z_selfinsertunmeta366,10027
+    z_sendbreak,z_sendbreak367,10052
+    z_sendstring,z_sendstring368,10070
+    z_setmarkcommand,z_setmarkcommand369,10089
+    z_spellword,z_spellword370,10112
+    z_transposechars,z_transposechars371,10130
+    z_transposewords,z_transposewords372,10153
+    z_undefinedkey,z_undefinedkey373,10176
+    z_undo,z_undo374,10197
+    z_universalargument,z_universalargument375,10210
+    z_upcaseword,z_upcaseword376,10236
+    z_uphistory,z_uphistory377,10255
+    z_uplineorhistory,z_uplineorhistory378,10273
+    z_uplineorsearch,z_uplineorsearch379,10297
+    z_viaddeol,z_viaddeol380,10320
+    z_viaddnext,z_viaddnext381,10337
+    z_vibackwardblankword,z_vibackwardblankword382,10355
+    z_vibackwardchar,z_vibackwardchar383,10383
+    z_vibackwarddeletechar,z_vibackwarddeletechar384,10406
+    z_vibackwardkillword,z_vibackwardkillword385,10435
+    z_vibackwardword,z_vibackwardword386,10462
+    z_vibeginningofline,z_vibeginningofline387,10485
+    z_vicapslockpanic,z_vicapslockpanic388,10511
+    z_vichange,z_vichange389,10535
+    z_vichangeeol,z_vichangeeol390,10552
+    z_vichangewholeline,z_vichangewholeline391,10572
+    z_vicmdmode,z_vicmdmode392,10598
+    z_videlete,z_videlete393,10616
+    z_videletechar,z_videletechar394,10633
+    z_vidigitorbeginningofline,z_vidigitorbeginningofline395,10654
+    z_vidownlineorhistory,z_vidownlineorhistory396,10687
+    z_viendofline,z_viendofline397,10715
+    z_vifetchhistory,z_vifetchhistory398,10735
+    z_vifindnextchar,z_vifindnextchar399,10758
+    z_vifindnextcharskip,z_vifindnextcharskip400,10781
+    z_vifindprevchar,z_vifindprevchar401,10808
+    z_vifindprevcharskip,z_vifindprevcharskip402,10831
+    z_vifirstnonblank,z_vifirstnonblank403,10858
+    z_viforwardblankword,z_viforwardblankword404,10882
+    z_viforwardblankwordend,z_viforwardblankwordend405,10909
+    z_viforwardchar,z_viforwardchar406,10939
+    z_viforwardword,z_viforwardword407,10961
+    z_viforwardwordend,z_viforwardwordend408,10983
+    z_vigotocolumn,z_vigotocolumn409,11008
+    z_vigotomark,z_vigotomark410,11029
+    z_vigotomarkline,z_vigotomarkline411,11048
+    z_vihistorysearchbackward,z_vihistorysearchbackward412,11071
+    z_vihistorysearchforward,z_vihistorysearchforward413,11103
+    z_viindent,z_viindent414,11134
+    z_viinsert,z_viinsert415,11151
+    z_viinsertbol,z_viinsertbol416,11168
+    z_vijoin,z_vijoin417,11188
+    z_vikilleol,z_vikilleol418,11203
+    z_vikillline,z_vikillline419,11221
+    z_vimatchbracket,z_vimatchbracket420,11240
+    z_viopenlineabove,z_viopenlineabove421,11263
+    z_viopenlinebelow,z_viopenlinebelow422,11287
+    z_vioperswapcases,z_vioperswapcases423,11311
+    z_vipoundinsert,z_vipoundinsert424,11335
+    z_viputafter,z_viputafter425,11357
+    z_viputbefore,z_viputbefore426,11376
+    z_viquotedinsert,z_viquotedinsert427,11396
+    z_virepeatchange,z_virepeatchange428,11419
+    z_virepeatfind,z_virepeatfind429,11442
+    z_virepeatsearch,z_virepeatsearch430,11463
+    z_vireplace,z_vireplace431,11486
+    z_vireplacechars,z_vireplacechars432,11504
+    z_virevrepeatfind,z_virevrepeatfind433,11527
+    z_virevrepeatsearch,z_virevrepeatsearch434,11551
+    z_visetbuffer,z_visetbuffer435,11577
+    z_visetmark,z_visetmark436,11597
+    z_visubstitute,z_visubstitute437,11615
+    z_viswapcase,z_viswapcase438,11636
+    z_viundochange,z_viundochange439,11655
+    z_viunindent,z_viunindent440,11676
+    z_viuplineorhistory,z_viuplineorhistory441,11695
+    z_viyank,z_viyank442,11721
+    z_viyankeol,z_viyankeol443,11736
+    z_viyankwholeline,z_viyankwholeline444,11754
+    z_whereis,z_whereis445,11778
+    z_whichcommand,z_whichcommand446,11794
+    z_yank,z_yank447,11815
+    z_yankpop,z_yankpop448,11828
+    ZLECMDCOUNTZLECMDCOUNT449,11844
+#undef INIT_ZEROINIT_ZERO455,11942
+#undef INIT_ZERO_STRUCTINIT_ZERO_STRUCT456,11960
+#define INIT_ZERO INIT_ZERO457,11985
+#define INIT_ZERO_STRUCT INIT_ZERO_STRUCT458,12007
+
+zle_bindings.c,244
+#define ZLEZLE32,1350
+struct zlecmd zlecmds[] =zlecmds35,1383
+int emacsbind[256] =emacsbind202,9935
+int viinsbind[32] =viinsbind462,17619
+int vicmdbind[128] =vicmdbind498,18576
+int ntvirtualbind[24 + 8 + 2] =ntvirtualbind629,22430
+
+zle_hist.c,2925
+#define ZLEZLE32,1307
+remember_edits(void)remember_edits37,1347
+forget_edits(void)forget_edits56,1728
+uphistory(void)uphistory68,1883
+uplineorhistory(void)uplineorhistory89,2163
+viuplineorhistory(void)viuplineorhistory128,2719
+uplineorsearch(void)uplineorsearch160,3117
+downlineorhistory(void)downlineorhistory199,3671
+vidownlineorhistory(void)vidownlineorhistory238,4223
+downlineorsearch(void)downlineorsearch269,4616
+acceptlineanddownhistory(void)acceptlineanddownhistory308,5163
+downhistory(void)downhistory323,5372
+static int histpos;histpos343,5649
+historysearchbackward(void)historysearchbackward347,5680
+historysearchforward(void)historysearchforward377,6191
+beginningofbufferorhistory(void)beginningofbufferorhistory407,6721
+beginningofhistory(void)beginningofhistory417,6829
+endofbufferorhistory(void)endofbufferorhistory433,7044
+endofhistory(void)endofhistory443,7147
+insertlastword(void)insertlastword457,7329
+qgetevent(int ev)qgetevent514,8477
+zle_get_event(int ev)zle_get_event521,8576
+pushline(void)pushline538,8799
+pushlineoredit(void)pushlineoredit552,9024
+pushinput(void)pushinput577,9461
+getline(void)getline588,9572
+historyincrementalsearchbackward(void)historyincrementalsearchbackward607,9788
+historyincrementalsearchforward(void)historyincrementalsearchforward614,9861
+static struct isrch_spot {isrch_spot619,9922
+    int hl;			/* This spot's histline */hl620,9949
+    unsigned short pos;		/* The search position in our metafied str */pos621,9990
+    unsigned short cs;		/* The visible search position to the user */cs622,10061
+    unsigned short len;		/* The search string's length */len623,10131
+    unsigned short flags;	/* This spot's flags */flags624,10189
+#define ISS_FAILING	ISS_FAILING625,10239
+#define ISS_FORWARD	ISS_FORWARD626,10261
+} *isrch_spots;isrch_spots627,10283
+static int max_spot = 0;max_spot629,10300
+set_isrch_spot(int num, int hl, int pos, int cs, int len, int dir, int nomatch)set_isrch_spot632,10338
+get_isrch_spot(int num, int *hlp, int *posp, int *csp, int *lenp, int *dirp, int *nomatch)get_isrch_spot653,10976
+#define ISEARCH_PROMPT	ISEARCH_PROMPT663,11334
+#define NORM_PROMPT_POS	NORM_PROMPT_POS664,11383
+#define FIRST_SEARCH_CHAR	FIRST_SEARCH_CHAR665,11410
+doisearch(int dir)doisearch669,11470
+acceptandinfernexthistory(void)acceptandinfernexthistory884,16985
+infernexthistory(void)infernexthistory904,17309
+vifetchhistory(void)vifetchhistory928,17648
+getvisrchstr(void)getvisrchstr954,17979
+vihistorysearchforward(void)vihistorysearchforward1045,19793
+vihistorysearchbackward(void)vihistorysearchbackward1054,19901
+virepeatsearch(void)virepeatsearch1063,20011
+virevrepeatsearch(void)virevrepeatsearch1094,20545
+historybeginningsearchbackward(void)historybeginningsearchbackward1107,20822
+historybeginningsearchforward(void)historybeginningsearchforward1135,21332
+
+zle_main.c,1911
+#define ZLEGLOBALSZLEGLOBALS47,2070
+#define ZLEZLE48,2090
+static int emacs_cur_bindtab[256] INIT_ZERO_STRUCT, eofchar, eofsent;INIT_ZERO_STRUCT51,2123
+static int emacs_cur_bindtab[256] INIT_ZERO_STRUCT, eofchar, eofsent;eofchar51,2123
+static int emacs_cur_bindtab[256] INIT_ZERO_STRUCT, eofchar, eofsent;eofsent51,2123
+static int viins_cur_bindtab[256] INIT_ZERO_STRUCT;INIT_ZERO_STRUCT52,2194
+static Key cky;cky54,2249
+static char *keybuf = NULL;keybuf56,2268
+static int buflen;buflen57,2297
+static long keytimeout;keytimeout58,2317
+setterm(void)setterm64,2381
+static char *kungetbuf;kungetbuf187,5730
+static int kungetct, kungetsz;kungetct188,5755
+static int kungetct, kungetsz;kungetsz188,5755
+ungetkey(int ch)ungetkey192,5801
+ungetkeys(char *s, int len)ungetkeys201,5952
+breakread(int fd, char *buf, int n)breakread210,6095
+# define read read220,6303
+getkey(int keytmout)getkey225,6352
+static FILE *bindout;bindout361,9780
+zleread(char *lp, char *rp)zleread367,9876
+getkeycmd(void)getkeycmd530,13724
+#define MAXHOPS MAXHOPS609,15544
+ungetkeycmd(void)ungetkeycmd624,15869
+sendstring(void)sendstring634,15982
+makefunckey(int fun)makefunckey646,16155
+initkeybindings(void)initkeybindings658,16314
+getkeystring(char *s, int *len, int fromwhere, int *misc)getkeystring752,20696
+printbind(char *s, int len, int metanul)printbind878,22932
+printbinding(HashNode hn, int printflags)printbinding910,23507
+bin_bindkey(char *name, char **argv, char *ops, int junc)bin_bindkey928,23895
+freekeynode(HashNode hn)freekeynode1135,29265
+describekeybriefly(void)describekeybriefly1149,29459
+static int func, funcfound;func1183,30296
+static int func, funcfound;funcfound1183,30296
+#define MAXFOUND MAXFOUND1184,30325
+printfuncbind(HashNode hn, int printflags)printfuncbind1187,30360
+whereis(void)whereis1203,30702
+trashzle(void)trashzle1240,31665
+
+zle_misc.c,2437
+#define ZLEZLE32,1352
+selfinsert(void)selfinsert37,1397
+selfinsertunmeta(void)selfinsertunmeta80,2313
+deletechar(void)deletechar90,2424
+backwarddeletechar(void)backwarddeletechar106,2627
+killwholeline(void)killwholeline120,2802
+killbuffer(void)killbuffer138,3098
+backwardkillline(void)backwardkillline146,3171
+gosmacstransposechars(void)gosmacstransposechars167,3468
+transposechars(void)transposechars187,3899
+poundinsert(void)poundinsert228,4576
+acceptline(void)acceptline259,5053
+acceptandhold(void)acceptandhold266,5106
+killline(void)killline275,5242
+killregion(void)killregion296,5531
+copyregionaskill(void)copyregionaskill308,5684
+static int kct, yankb, yanke;kct318,5831
+static int kct, yankb, yanke;yankb318,5831
+static int kct, yankb, yanke;yanke318,5831
+yank(void)yank322,5876
+yankpop(void)yankpop347,6256
+overwritemode(void)overwritemode367,6606
+undefinedkey(void)undefinedkey374,6666
+quotedinsert(void)quotedinsert381,6719
+digitargument(void)digitargument404,7066
+negargument(void)negargument416,7255
+universalargument(void)universalargument426,7384
+copyprevword(void)copyprevword437,7515
+sendbreak(void)sendbreak457,7849
+undo(void)undo464,7904
+quoteregion(void)quoteregion488,8451
+quoteline(void)quoteline512,8866
+makequote(char *str, size_t *len)makequote525,9056
+#define NAMLEN NAMLEN549,9502
+executenamedcommand(char *prmt)executenamedcommand553,9534
+static char *bp;bp694,12824
+static char *truncstr;truncstr695,12842
+static int dontcount, lensb, trunclen;dontcount696,12866
+static int dontcount, lensb, trunclen;lensb696,12866
+static int dontcount, lensb, trunclen;trunclen696,12866
+stradd(char *d)stradd703,13021
+putstr(int d)putstr755,15020
+tsetcap(int cap, int flag)tsetcap766,15137
+static char *buf, *bp1, *bl0, *fm, *pmpt;buf807,16017
+static char *buf, *bp1, *bl0, *fm, *pmpt;bp1807,16017
+static char *buf, *bp1, *bl0, *fm, *pmpt;bl0807,16017
+static char *buf, *bp1, *bl0, *fm, *pmpt;fm807,16017
+static char *buf, *bp1, *bl0, *fm, *pmpt;pmpt807,16017
+static int bracepos, bufspc, pmpth;bracepos808,16060
+static int bracepos, bufspc, pmpth;bufspc808,16060
+static int bracepos, bufspc, pmpth;pmpth808,16060
+putprompt(char *fmin, int *lenp, int *wp, int cnt)putprompt812,16113
+putpromptchar(int doprint, int endchar)putpromptchar865,16989
+pputc(char c)pputc1316,25954
+addbufspc(int need)addbufspc1340,26344
+
+zle_move.c,1382
+#define ZLEZLE32,1306
+static vimarkcs[27], vimarkline[27];vimarkcs35,1336
+static vimarkcs[27], vimarkline[27];vimarkline35,1336
+beginningofline(void)beginningofline39,1384
+endofline(void)endofline59,1643
+beginningoflinehist(void)beginningoflinehist81,1925
+endoflinehist(void)endoflinehist106,2244
+forwardchar(void)forwardchar131,2571
+backwardchar(void)backwardchar142,2673
+setmarkcommand(void)setmarkcommand153,2776
+exchangepointandmark(void)exchangepointandmark160,2827
+vigotocolumn(void)vigotocolumn173,2949
+vimatchbracket(void)vimatchbracket192,3162
+viforwardchar(void)viforwardchar252,4003
+vibackwardchar(void)vibackwardchar270,4245
+viendofline(void)viendofline292,4499
+vibeginningofline(void)vibeginningofline313,4716
+static int vfindchar, vfinddir, tailadd;vfindchar318,4765
+static int vfindchar, vfinddir, tailadd;vfinddir318,4765
+static int vfindchar, vfinddir, tailadd;tailadd318,4765
+vifindnextchar(void)vifindnextchar322,4817
+vifindprevchar(void)vifindprevchar333,4947
+vifindnextcharskip(void)vifindnextcharskip344,5078
+vifindprevcharskip(void)vifindprevcharskip355,5213
+virepeatfind(void)virepeatfind366,5348
+virevrepeatfind(void)virevrepeatfind396,5801
+vifirstnonblank(void)vifirstnonblank410,5980
+visetmark(void)visetmark419,6085
+vigotomark(void)vigotomark435,6274
+vigotomarkline(void)vigotomarkline468,6722
+
+zle_refresh.c,3496
+#define ZLEZLE32,1342
+#define SELECT_ADD_COST(SELECT_ADD_COST36,1395
+#define zputc(zputc37,1433
+#define zwrite(zwrite38,1474
+#define SELECT_ADD_COST(SELECT_ADD_COST40,1545
+#define zputc(zputc41,1573
+#define zwrite(zwrite42,1606
+char **nbuf = NULL,		/* new video buffer line-by-line char array */nbuf50,1933
+    **obuf = NULL;		/* old video buffer line-by-line char array */obuf51,2002
+static char *lpptbuf, *rpptbuf; /* prompt buffers			    */lpptbuf52,2070
+static char *lpptbuf, *rpptbuf; /* prompt buffers			    */rpptbuf52,2070
+static int more_start,		/* more text before start of screen?	    */more_start53,2130
+    more_end,			/* more stuff after end of screen?	    */more_end54,2199
+    olnct,			/* previous number of lines		    */olnct55,2258
+    ovln,			/* previous video cursor position line	    */ovln56,2308
+    lpptlen, rpptlen,           /* length of prompt buffers                 */lpptlen57,2367
+    lpptlen, rpptlen,           /* length of prompt buffers                 */rpptlen57,2367
+    pptw, rpw,                  /* prompt widths on screen                  */pptw58,2447
+    pptw, rpw,                  /* prompt widths on screen                  */rpw58,2447
+    vcs, vln,			/* video cursor position column & line	    */vcs59,2527
+    vcs, vln,			/* video cursor position column & line	    */vln59,2527
+    vmaxln,			/* video maximum number of lines	    */vmaxln60,2590
+    winw, winh, rwinh,		/* window width & height		    */winw61,2645
+    winw, winh, rwinh,		/* window width & height		    */winh61,2645
+    winw, winh, rwinh,		/* window width & height		    */rwinh61,2645
+    winpos;			/* singlelinezle: line's position in window */winpos62,2703
+static unsigned pmpt_attr = 0,	/* text attributes after displaying prompt  */pmpt_attr63,2765
+    rpmpt_attr = 0;		/* text attributes after displaying rprompt */rpmpt_attr64,2844
+resetvideo(void)resetvideo68,2927
+scrollwindow(int tline)scrollwindow123,4140
+#define nextline	nextline140,4446
+#define snextline	snextline165,5044
+int winchanged;			/* window size changed */winchanged189,5629
+int cleareol,			/* clear to end-of-line (if can't cleareod) */cleareol192,5684
+    clearf = 0,			/* alwayslastprompt used immediately before */clearf193,5748
+    hasam;			/* terminal should have auto-margin	    */hasam194,5814
+static int put_rpmpt,		/* whether we should display right-prompt   */put_rpmpt195,5871
+    oput_rpmpt,			/* whether displayed right-prompt last time */oput_rpmpt196,5942
+    oxtabs,			/* oxtabs - tabs expand to spaces if set    */oxtabs197,6008
+    numscrolls, onumscrolls;numscrolls198,6070
+    numscrolls, onumscrolls;onumscrolls198,6070
+refresh(void)refresh203,6185
+#define tcinscost(tcinscost535,16254
+#define tcdelcost(tcdelcost536,16335
+#define tc_delchars(tc_delchars537,16416
+#define tc_inschars(tc_inschars538,16480
+#define tc_upcurs(tc_upcurs539,16544
+#define tc_leftcurs(tc_leftcurs540,16604
+refreshline(int ln)refreshline546,16766
+moveto(int ln, int cl)moveto764,23588
+tcmultout(int cap, int multcap, int ct)tcmultout833,24918
+tc_rightcurs(int cl)tc_rightcurs848,25194
+tc_downcurs(int ct)tc_downcurs904,26735
+tcout(int cap)tcout918,26946
+tcoutarg(int cap, int arg)tcoutarg926,27053
+clearscreen(void)clearscreen937,27236
+redisplay(void)redisplay946,27344
+singlerefresh(void)singlerefresh957,27512
+singmoveto(int pos)singmoveto1063,30192
+genprompts(void)genprompts1090,30618
+
+zle_tricky.c,7325
+#define ZLEZLE32,1351
+    int len;len58,2473
+    char *s;s59,2487
+dopestring;dopestring61,2504
+#define inststr(inststr65,2536
+static int wb, we;wb73,2764
+static int wb, we;we73,2764
+static int offs;offs78,2899
+static int usemenu, useglob;usemenu83,3072
+static int usemenu, useglob;useglob83,3072
+static char **menucur;menucur88,3263
+static int menupos, menulen, menuend, menuwe, menuce, menuinsc;menupos101,4062
+static int menupos, menulen, menuend, menuwe, menuce, menuinsc;menulen101,4062
+static int menupos, menulen, menuend, menuwe, menuce, menuinsc;menuend101,4062
+static int menupos, menulen, menuend, menuwe, menuce, menuinsc;menuwe101,4062
+static int menupos, menulen, menuend, menuwe, menuce, menuinsc;menuce101,4062
+static int menupos, menulen, menuend, menuwe, menuce, menuinsc;menuinsc101,4062
+static LinkList matches, fmatches;matches106,4280
+static LinkList matches, fmatches;fmatches106,4280
+static char **amatches;amatches111,4471
+static int nmatches;nmatches115,4530
+static int validlist;validlist119,4603
+static int ispattern;ispattern123,4710
+static Comp patcomp, filecomp;patcomp129,4966
+static Comp patcomp, filecomp;filecomp129,4966
+static char *lpre, *lsuf;lpre143,5839
+static char *lpre, *lsuf;lsuf143,5839
+static char *rpre, *rsuf;rpre144,5866
+static char *rpre, *rsuf;rsuf144,5866
+static char *ppre, *psuf, *prpre;ppre145,5893
+static char *ppre, *psuf, *prpre;psuf145,5893
+static char *ppre, *psuf, *prpre;prpre145,5893
+static char *fpre, *fsuf;fpre146,5928
+static char *fpre, *fsuf;fsuf146,5928
+static int lpl, lsl, rpl, rsl, fpl, fsl;lpl147,5955
+static int lpl, lsl, rpl, rsl, fpl, fsl;lsl147,5955
+static int lpl, lsl, rpl, rsl, fpl, fsl;rpl147,5955
+static int lpl, lsl, rpl, rsl, fpl, fsl;rsl147,5955
+static int lpl, lsl, rpl, rsl, fpl, fsl;fpl147,5955
+static int lpl, lsl, rpl, rsl, fpl, fsl;fsl147,5955
+static int noreal;noreal148,5997
+static char *parampre = NULL, *qparampre = NULL;parampre155,6322
+static char *parampre = NULL, *qparampre = NULL;qparampre155,6322
+static int qparprelen;qparprelen156,6372
+static char ic;ic161,6553
+static int ab, ae, fab, fae;ab166,6723
+static int ab, ae, fab, fae;ae166,6723
+static int ab, ae, fab, fae;fab166,6723
+static int ab, ae, fab, fae;fae166,6723
+static int addwhat;addwhat170,6839
+static char *firstm, *shortest, *ffirstm, *fshortest;firstm175,7015
+static char *firstm, *shortest, *ffirstm, *fshortest;shortest175,7015
+static char *firstm, *shortest, *ffirstm, *fshortest;ffirstm175,7015
+static char *firstm, *shortest, *ffirstm, *fshortest;fshortest175,7015
+static char *qword;qword179,7135
+static int shortl, fshortl;shortl184,7305
+static int shortl, fshortl;fshortl184,7305
+static int amenu;amenu190,7513
+static int remove_at = -1;remove_at195,7683
+backdelreal(int ct)backdelreal200,7739
+foredelreal(int ct)foredelreal211,7870
+usetab(void)usetab224,8082
+#define COMP_COMPLETE COMP_COMPLETE234,8249
+#define COMP_LIST_COMPLETE COMP_LIST_COMPLETE235,8274
+#define COMP_SPELL COMP_SPELL236,8304
+#define COMP_EXPAND COMP_EXPAND237,8326
+#define COMP_EXPAND_COMPLETE COMP_EXPAND_COMPLETE238,8349
+#define COMP_LIST_EXPAND COMP_LIST_EXPAND239,8381
+#define COMP_ISEXPAND(COMP_ISEXPAND240,8409
+completeword(void)completeword244,8470
+menucomplete(void)menucomplete256,8669
+listchoices(void)listchoices268,8850
+spellword(void)spellword277,8998
+deletecharorlist(void)deletecharorlist285,9092
+expandword(void)expandword301,9336
+expandorcomplete(void)expandorcomplete312,9487
+menuexpandorcomplete(void)menuexpandorcomplete324,9697
+listexpand(void)listexpand336,9893
+reversemenucomplete(void)reversemenucomplete345,10038
+acceptandmenucomplete(void)acceptandmenucomplete369,10531
+static int lincmd, linredir;lincmd393,11090
+static int lincmd, linredir;linredir393,11090
+static int lastambig;lastambig403,11636
+static int haswhat;haswhat409,11871
+#define HAS_SUFFIX HAS_SUFFIX413,11952
+#define HAS_FILES HAS_FILES417,12028
+#define HAS_MISC HAS_MISC424,12352
+#define HAS_PATHPAT HAS_PATHPAT429,12524
+static char *cmdstr;cmdstr435,12700
+checkparams(char *p)checkparams443,12882
+cmphaswilds(char *str)cmphaswilds465,13524
+docomplete(int lst)docomplete520,15130
+do_menucmp(int lst)do_menucmp766,22161
+int addedx;addedx786,22652
+int instring;instring789,22709
+addx(char **ptmp)addx804,23531
+dupstrspace(const char *str)dupstrspace826,24081
+metafy_line(void)metafy_line844,24740
+unmetafy_line(void)unmetafy_line860,25026
+get_comp_string(void)get_comp_string873,25483
+doexpansion(char *s, int lst, int olst, int explincmd)doexpansion1161,34378
+gotword(void)gotword1235,36145
+inststrlen(char *str, int move, int len)inststrlen1250,36501
+quotename(const char *s, char **e, char *te, int *pl)quotename1273,37245
+addmatch(char *s, char *t)addmatch1337,38928
+match_username(nis_name table, nis_object *object, void *userdata)match_username1573,45101
+match_username(int status, char *key, int keylen, char *val, int vallen, dopestring *data)match_username1593,45546
+maketildelist(void)maketildelist1609,45892
+rembslash(char *s)rembslash1668,47540
+getcpat(char *wrd, int cpatindex, char *cpat, int class)getcpat1687,47791
+Compctl ccmain;ccmain1731,48678
+get_ccompctl(Compctl occ, int *compadd, int incmd)get_ccompctl1742,49082
+dumphashtable(HashTable ht, int what)dumphashtable1987,55968
+addhnmatch(HashNode hn, int flags)addhnmatch2004,56253
+getreal(char *str)getreal2014,56478
+gen_matches_files(int dirs, int execs, int all)gen_matches_files2035,56908
+char *expl;expl2156,60530
+char *ccsuffix;ccsuffix2160,60608
+int remsuffix;remsuffix2165,60778
+quotepresuf(char **ps)quotepresuf2169,60808
+int clearflag;clearflag2184,61120
+docompletion(char *s, int lst, int incmd, int untokenized)docompletion2188,61150
+makecomplist(char *s, int incmd, int *delit, int *compadd, int untokenized)makecomplist2264,63327
+invalidatelist(void)invalidatelist3069,85502
+get_user_var(char *nam)get_user_var3098,86026
+strbpcmp(const void *a, const void *b)strbpcmp3150,87111
+makearray(LinkList l)makearray3173,87487
+do_ambiguous(void)do_ambiguous3205,88310
+ztat(char *nam, struct stat *buf, int ls)ztat3279,91219
+do_single(char *str)do_single3297,91560
+do_ambig_menu(void)do_ambig_menu3497,96891
+strpfx(char *s, char *t)strpfx3509,97072
+stripfx(char *s, char *t)stripfx3518,97186
+strsfx(char *s, char *t)strsfx3530,97370
+strisfx(char *s, char *t)strisfx3541,97538
+pfxlen(char *s, char *t)pfxlen3556,97772
+pfxilen(char *s, char *t)pfxilen3567,97907
+sfxlen(char *s, char *t)sfxlen3581,98123
+sfxilen(char *s, char *t)sfxilen3597,98377
+printfmt(char *fmt, int n, int dopr)printfmt3617,98759
+listmatches(void)listmatches3659,99496
+listlist(LinkList l)listlist3890,106059
+selectlist(LinkList l)selectlist3923,106732
+doexpandhist(void)doexpandhist3982,108065
+magicspace(void)magicspace4048,109547
+expandhistory(void)expandhistory4057,109639
+static int cmdwb, cmdwe;cmdwb4063,109704
+static int cmdwb, cmdwe;cmdwe4063,109704
+getcurcmd(void)getcurcmd4067,109746
+processcmd(void)processcmd4105,110453
+expandcmdpath(void)expandcmdpath4129,110803
+expandorcompleteprefix(void)expandorcompleteprefix4164,111481
+
+zle_utils.c,725
+#define ZLEZLE32,1329
+sizeline(int sz)sizeline39,1429
+spaceinline(int ct)spaceinline49,1596
+shiftchars(int to, int cnt)shiftchars65,1789
+backkill(int ct, int dir)backkill81,2004
+forekill(int ct, int dir)forekill91,2114
+cut(int i, int ct, int dir)cut101,2216
+backdel(int ct)backdel169,4119
+foredel(int ct)foredel176,4180
+setline(char const *s)setline183,4235
+findbol(void)findbol194,4412
+findeol(void)findeol205,4518
+findline(int *a, int *b)findline216,4623
+static int lastlinelen;lastlinelen222,4693
+initundo(void)initundo226,4728
+addundo(void)addundo241,4998
+hstrnstr(char *haystack, int pos, char *needle, int len, int dir, int sens)hstrnstr276,6041
+getzlequery(void)getzlequery309,7002
+
+zle_vi.c,2197
+#define ZLEZLE32,1340
+static int lastmult, lastbuf, lastgotmult, lastgotbuf, inrepeat, vichgrepeat;lastmult35,1373
+static int lastmult, lastbuf, lastgotmult, lastgotbuf, inrepeat, vichgrepeat;lastbuf35,1373
+static int lastmult, lastbuf, lastgotmult, lastgotbuf, inrepeat, vichgrepeat;lastgotmult35,1373
+static int lastmult, lastbuf, lastgotmult, lastgotbuf, inrepeat, vichgrepeat;lastgotbuf35,1373
+static int lastmult, lastbuf, lastgotmult, lastgotbuf, inrepeat, vichgrepeat;inrepeat35,1373
+static int lastmult, lastbuf, lastgotmult, lastgotbuf, inrepeat, vichgrepeat;vichgrepeat35,1373
+static void startvichange _((int im));startvichange37,1454
+startvichange(int im)startvichange40,1509
+static void startvitext _((int im));startvitext67,2025
+startvitext(int im)startvitext70,2078
+vigetkey(void)vigetkey80,2210
+getvirange(int wf)getvirange127,2981
+viaddnext(void)viaddnext261,6676
+viaddeol(void)viaddeol270,6768
+viinsert(void)viinsert278,6846
+viinsertbol(void)viinsertbol285,6903
+videlete(void)videlete293,6987
+videletechar(void)videletechar312,7268
+vichange(void)vichange336,7832
+visubstitute(void)visubstitute352,8057
+vichangeeol(void)vichangeeol375,8575
+vichangewholeline(void)vichangewholeline383,8669
+viyank(void)viyank391,8758
+viyankeol(void)viyankeol404,8953
+viyankwholeline(void)viyankwholeline418,9112
+vireplace(void)vireplace440,9438
+vireplacechars(void)vireplacechars456,10172
+vicmdmode(void)vicmdmode489,10723
+viopenlinebelow(void)viopenlinebelow504,10912
+viopenlineabove(void)viopenlineabove514,11042
+vioperswapcase(void)vioperswapcase524,11170
+virepeatchange(void)virepeatchange549,11673
+viindent(void)viindent572,12108
+viunindent(void)viunindent604,12707
+vibackwarddeletechar(void)vibackwarddeletechar636,13318
+vikillline(void)vikillline662,14038
+viputbefore(void)viputbefore673,14162
+viputafter(void)viputafter706,14780
+vijoin(void)vijoin742,15425
+viswapcase(void)viswapcase764,15749
+vicapslockpanic(void)vicapslockpanic785,16090
+visetbuffer(void)visetbuffer797,16311
+vikilleol(void)vikilleol817,16706
+vipoundinsert(void)vipoundinsert833,16943
+viquotedinsert(void)viquotedinsert855,17298
+
+zle_word.c,897
+#define ZLEZLE32,1320
+forwardword(void)forwardword37,1360
+viforwardword(void)viforwardword56,1626
+viforwardblankword(void)viforwardblankword79,1997
+emacsforwardword(void)emacsforwardword98,2279
+viforwardblankwordend(void)viforwardblankwordend117,2555
+viforwardwordend(void)viforwardwordend133,2801
+backwardword(void)backwardword157,3225
+vibackwardword(void)vibackwardword174,3449
+vibackwardblankword(void)vibackwardblankword195,3785
+emacsbackwardword(void)emacsbackwardword212,4025
+backwarddeleteword(void)backwarddeleteword229,4259
+vibackwardkillword(void)vibackwardkillword249,4520
+backwardkillword(void)backwardkillword273,4986
+upcaseword(void)upcaseword293,5247
+downcaseword(void)downcaseword313,5534
+capitalizeword(void)capitalizeword333,5823
+deleteword(void)deleteword358,6257
+killword(void)killword378,6522
+transposewords(void)transposewords398,6787
+
+zsh.h,39119
+# define ABSOLUTEP(ABSOLUTEP39,1618
+# define ABSOLUTEP(ABSOLUTEP41,1674
+#define minimum(minimum45,1823
+typedef int LV;LV48,1886
+# define STOUC(STOUC60,2419
+# define STOUC(STOUC62,2482
+#define Meta	Meta71,2915
+#define DEFAULT_IFS	DEFAULT_IFS76,3069
+#define Pound	Pound79,3129
+#define String	String80,3153
+#define Hat	Hat81,3178
+#define Star	Star82,3200
+#define Inpar	Inpar83,3223
+#define Outpar	Outpar84,3247
+#define Qstring	Qstring85,3272
+#define Equals	Equals86,3305
+#define Bar	Bar87,3330
+#define Inbrace	Inbrace88,3358
+#define Outbrace	Outbrace89,3391
+#define Inbrack	Inbrack90,3417
+#define Outbrack	Outbrack91,3450
+#define Tick	Tick92,3476
+#define Inang	Inang93,3499
+#define Outang	Outang94,3523
+#define Quest	Quest95,3548
+#define Tilde	Tilde96,3572
+#define Qtick	Qtick97,3596
+#define Comma	Comma98,3620
+#define Snull	Snull99,3644
+#define Dnull	Dnull100,3668
+#define Bnull	Bnull101,3692
+#define Nularg	Nularg102,3716
+#define INULL(INULL104,3743
+#define Marker	Marker107,3839
+#define SPECCHARS SPECCHARS111,3929
+    NULLTOK,		/* 0  */NULLTOK114,3991
+    SEPER,SEPER115,4015
+    NEWLIN,NEWLIN116,4027
+    SEMI,SEMI117,4040
+    DSEMI,DSEMI118,4051
+    AMPER,		/* 5  */AMPER119,4063
+    INPAR,INPAR120,4085
+    OUTPAR,OUTPAR121,4097
+    DBAR,DBAR122,4110
+    DAMPER,DAMPER123,4121
+    OUTANG,		/* 10 */OUTANG124,4134
+    OUTANGBANG,OUTANGBANG125,4157
+    DOUTANG,DOUTANG126,4174
+    DOUTANGBANG,DOUTANGBANG127,4188
+    INANG,INANG128,4206
+    INOUTANG,		/* 15 */INOUTANG129,4218
+    DINANG,DINANG130,4243
+    DINANGDASH,DINANGDASH131,4256
+    INANGAMP,INANGAMP132,4273
+    OUTANGAMP,OUTANGAMP133,4288
+    AMPOUTANG,		/* 20 */AMPOUTANG134,4304
+    OUTANGAMPBANG,OUTANGAMPBANG135,4330
+    DOUTANGAMP,DOUTANGAMP136,4350
+    DOUTANGAMPBANG,DOUTANGAMPBANG137,4367
+    TRINANG,TRINANG138,4388
+    BAR,		/* 25 */BAR139,4402
+    BARAMP,BARAMP140,4422
+    INOUTPAR,INOUTPAR141,4435
+    DINPAR,DINPAR142,4450
+    DOUTPAR,DOUTPAR143,4463
+    AMPERBANG,		/* 30 */AMPERBANG144,4477
+    DOUTBRACK,DOUTBRACK145,4503
+    STRING,STRING146,4519
+    ENVSTRING,ENVSTRING147,4532
+    ENVARRAY,ENVARRAY148,4548
+    ENDINPUT,		/* 35 */ENDINPUT149,4563
+    LEXERR,LEXERR150,4588
+    BANG,	/* !         */BANG153,4640
+    DINBRACK,	/* [[        */DINBRACK154,4667
+    INBRACE,    /* {         */INBRACE155,4698
+    OUTBRACE,   /* }         */	/* 40 */OUTBRACE156,4731
+    CASE,	/* case      */CASE157,4773
+    COPROC,	/* coproc    */COPROC158,4800
+    DO,		/* do        */DO159,4829
+    DONE,	/* done      */DONE160,4855
+    ELIF,	/* elif      */ /* 45 */ELIF161,4882
+    ELSE,	/* else      */ELSE162,4918
+    ZEND,	/* end       */ZEND163,4945
+    ESAC,	/* esac      */ESAC164,4972
+    FI,		/* fi        */FI165,4999
+    FOR,	/* for       */ /* 50 */FOR166,5025
+    FOREACH,	/* foreach   */FOREACH167,5060
+    FUNC,	/* function  */FUNC168,5090
+    IF,		/* if        */IF169,5117
+    NOCORRECT,	/* nocorrect */NOCORRECT170,5143
+    REPEAT,	/* repeat    */ /* 55 */REPEAT171,5175
+    SELECT,	/* select    */SELECT172,5213
+    THEN,	/* then      */THEN173,5242
+    TIME,	/* time      */TIME174,5269
+    UNTIL,	/* until     */UNTIL175,5296
+    WHILE	/* while     */ /* 60 */WHILE176,5324
+    WRITE,		/* > */WRITE184,5599
+    WRITENOW,		/* >| */WRITENOW185,5620
+    APP,		/* >> */APP186,5645
+    APPNOW,		/* >>| */APPNOW187,5665
+    ERRWRITE,		/* &>, >& */ERRWRITE188,5689
+    ERRWRITENOW,	/* >&| */ERRWRITENOW189,5718
+    ERRAPP,		/* >>& */ERRAPP190,5746
+    ERRAPPNOW,		/* >>&| */ERRAPPNOW191,5770
+    READ,		/* < */READ192,5798
+    READWRITE,		/* <> */READWRITE193,5818
+    HEREDOC,		/* << */HEREDOC194,5844
+    HEREDOCDASH,	/* <<- */HEREDOCDASH195,5868
+    HERESTR,		/* <<< */HERESTR196,5896
+    MERGEIN,		/* <&n */MERGEIN197,5921
+    MERGEOUT,		/* >&n */MERGEOUT198,5946
+    CLOSE,		/* >&-, <&- */CLOSE199,5972
+    INPIPE,		/* < <(...) */INPIPE200,6000
+    OUTPIPE		/* > >(...) */OUTPIPE201,6029
+#define IS_APPEND_REDIR(IS_APPEND_REDIR204,6064
+#define IS_CLOBBER_REDIR(IS_CLOBBER_REDIR205,6139
+#define IS_ERROR_REDIR(IS_ERROR_REDIR206,6214
+#define IS_READFD(IS_READFD207,6279
+#define IS_REDIROP(IS_REDIROP208,6355
+#define INP_FREE INP_FREE211,6447
+#define INP_ALIAS INP_ALIAS212,6523
+#define INP_HIST INP_HIST213,6599
+#define INP_CONT INP_CONT214,6675
+#define INP_ALCONT INP_ALCONT215,6751
+#define META_REALLOC	META_REALLOC218,6853
+#define META_USEHEAP	META_USEHEAP219,6877
+#define META_STATIC	META_STATIC220,6901
+#define META_DUP	META_DUP221,6924
+#define META_ALLOC	META_ALLOC222,6944
+#define META_NOALLOC	META_NOALLOC223,6966
+#define META_HEAPDUP	META_HEAPDUP224,6990
+typedef struct linknode  *LinkNode;LinkNode231,7110
+typedef struct linklist  *LinkList;LinkList232,7147
+typedef struct hashnode  *HashNode;HashNode233,7184
+typedef struct hashtable *HashTable;HashTable234,7221
+typedef struct reswd     *Reswd;Reswd236,7261
+typedef struct alias     *Alias;Alias237,7295
+typedef struct param     *Param;Param238,7329
+typedef struct cmdnam    *Cmdnam;Cmdnam239,7363
+typedef struct shfunc    *Shfunc;Shfunc240,7398
+typedef struct builtin   *Builtin;Builtin241,7433
+typedef struct nameddir  *Nameddir;Nameddir242,7469
+typedef struct schedcmd  *Schedcmd;Schedcmd244,7508
+typedef struct process   *Process;Process245,7545
+typedef struct job       *Job;Job246,7581
+typedef struct value     *Value;Value247,7613
+typedef struct varasg    *Varasg;Varasg248,7647
+typedef struct cond      *Cond;Cond249,7682
+typedef struct cmd       *Cmd;Cmd250,7715
+typedef struct pline     *Pline;Pline251,7747
+typedef struct sublist   *Sublist;Sublist252,7781
+typedef struct list      *List;List253,7817
+typedef struct comp      *Comp;Comp254,7850
+typedef struct redir     *Redir;Redir255,7883
+typedef struct complist  *Complist;Complist256,7917
+typedef struct heap      *Heap;Heap257,7954
+typedef struct heapstack *Heapstack;Heapstack258,7987
+typedef struct histent   *Histent;Histent259,8025
+typedef struct compctlp  *Compctlp;Compctlp260,8061
+typedef struct compctl   *Compctl;Compctl261,8098
+typedef struct compcond  *Compcond;Compcond262,8134
+typedef struct forcmd    *Forcmd;Forcmd263,8171
+typedef struct asgment  *Asgment;Asgment265,8208
+struct linknode {linknode274,8397
+    LinkNode next;next275,8416
+    LinkNode last;last276,8436
+    void *dat;dat277,8456
+struct linklist {linklist280,8478
+    LinkNode first;first281,8497
+    LinkNode last;last282,8518
+#define addlinknode(addlinknode287,8588
+#define empty(empty288,8644
+#define nonempty(nonempty289,8687
+#define firstnode(firstnode290,8730
+#define getaddrdata(getaddrdata291,8765
+#define getdata(getdata292,8803
+#define setdata(setdata293,8836
+#define lastnode(lastnode294,8875
+#define nextnode(nextnode295,8909
+#define prevnode(prevnode296,8943
+#define peekfirst(peekfirst297,8977
+#define pushnode(pushnode298,9017
+#define incnode(incnode299,9073
+#define gethistent(gethistent300,9111
+struct node {node312,9543
+    int ntype;			/* node type */ntype313,9558
+#define N_LIST N_LIST316,9598
+#define N_SUBLIST N_SUBLIST317,9619
+#define N_PLINE N_PLINE318,9640
+#define N_CMD N_CMD319,9661
+#define N_REDIR N_REDIR320,9682
+#define N_COND N_COND321,9703
+#define N_FOR N_FOR322,9724
+#define N_CASE N_CASE323,9745
+#define N_IF N_IF324,9766
+#define N_WHILE N_WHILE325,9787
+#define N_VARASG N_VARASG326,9808
+#define N_COUNT N_COUNT327,9829
+#define NT_EMPTY NT_EMPTY331,9881
+#define NT_NODE NT_NODE332,9901
+#define NT_STR NT_STR333,9921
+#define NT_LIST NT_LIST334,9941
+#define NT_ARR NT_ARR335,9961
+#define NT_TYPE(NT_TYPE337,9983
+#define NT_N(NT_N338,10016
+#define NT_SET(NT_SET339,10067
+#define NT_NUM(NT_NUM342,10201
+#define NT_HEAP NT_HEAP343,10238
+struct list {list347,10301
+    int ntype;			/* node type */ntype348,10316
+    int type;type349,10350
+    Sublist left;left350,10365
+    List right;right351,10384
+#define Z_TIMED	Z_TIMED356,10500
+#define Z_SYNC	Z_SYNC357,10572
+#define Z_ASYNC	Z_ASYNC358,10643
+#define Z_DISOWN Z_DISOWN359,10715
+struct sublist {sublist363,10825
+    int ntype;			/* node type */ntype364,10843
+    int type;type365,10877
+    int flags;			/* see PFLAGs below */flags366,10892
+    Pline left;left367,10933
+    Sublist right;right368,10950
+#define ORNEXT ORNEXT371,10976
+#define ANDNEXT ANDNEXT372,11006
+#define PFLAG_NOT PFLAG_NOT374,11038
+#define PFLAG_COPROC PFLAG_COPROC375,11076
+struct pline {pline379,11153
+    int ntype;			/* node type */ntype380,11169
+    int type;type381,11203
+    Cmd left;left382,11218
+    Pline right;right383,11233
+#define END	END386,11257
+#define PIPE	PIPE387,11320
+struct cmd {cmd391,11421
+    int ntype;			/* node type                    */ntype392,11435
+    int type;type393,11488
+    int flags;			/* see CFLAGs below             */flags394,11503
+    int lineno;			/* lineno of script for command */lineno395,11556
+	List list;		/* for SUBSH/CURSH/SHFUNC       */list397,11623
+	Forcmd forcmd;forcmd398,11672
+	struct casecmd *casecmd;casecmd399,11689
+	struct ifcmd *ifcmd;ifcmd400,11716
+	struct whilecmd *whilecmd;whilecmd401,11739
+	Sublist pline;pline402,11768
+	Cond cond;cond403,11785
+	void *generic;generic404,11798
+    } u;u405,11815
+    LinkList args;		/* command & argmument List (char *'s)   */args406,11825
+    LinkList redir;		/* i/o redirections (struct redir *'s)   */redir407,11890
+    LinkList vars;		/* param assignments (struct varasg *'s) */vars408,11956
+#define SIMPLE SIMPLE412,12044
+#define SUBSH SUBSH413,12064
+#define CURSH CURSH414,12084
+#define ZCTIME ZCTIME415,12104
+#define FUNCDEF FUNCDEF416,12124
+#define CFOR CFOR417,12144
+#define CWHILE CWHILE418,12164
+#define CREPEAT CREPEAT419,12184
+#define CIF CIF420,12204
+#define CCASE CCASE421,12224
+#define CSELECT CSELECT422,12244
+#define COND COND423,12264
+#define CARITH CARITH424,12284
+#define CFLAG_EXEC	CFLAG_EXEC427,12341
+struct redir {redir431,12432
+    int ntype;			/* node type */ntype432,12448
+    int type;type433,12482
+    int fd1, fd2;fd1434,12497
+    int fd1, fd2;fd2434,12497
+    char *name;name435,12516
+struct cond {cond440,12578
+    int ntype;		/* node type                     */ntype441,12593
+    int type;		/* can be cond_type, or a single */type442,12646
+    void *left, *right;left444,12738
+    void *left, *right;right444,12738
+#define COND_NOT COND_NOT447,12769
+#define COND_AND COND_AND448,12792
+#define COND_OR COND_OR449,12815
+#define COND_STREQ COND_STREQ450,12838
+#define COND_STRNEQ COND_STRNEQ451,12861
+#define COND_STRLT COND_STRLT452,12884
+#define COND_STRGTR COND_STRGTR453,12907
+#define COND_NT COND_NT454,12930
+#define COND_OT COND_OT455,12953
+#define COND_EF COND_EF456,12976
+#define COND_EQ COND_EQ457,12999
+#define COND_NE COND_NE458,13022
+#define COND_LT COND_LT459,13045
+#define COND_GT COND_GT460,13068
+#define COND_LE COND_LE461,13091
+#define COND_GE COND_GE462,13114
+struct forcmd {			/* for/select */forcmd464,13139
+    int ntype;			/* node type                          */ntype466,13228
+    int inflag;			/* if there is an in ... clause       */inflag467,13287
+    char *name;			/* parameter to assign values to      */name468,13347
+    List list;			/* list to look through for each name */list469,13407
+struct casecmd {casecmd472,13472
+    int ntype;			/* node type       */ntype474,13529
+    char **pats;pats475,13569
+    List *lists;		/* list to execute */lists476,13587
+struct ifcmd {ifcmd487,14082
+    int ntype;			/* node type */ntype488,14098
+    List *ifls;ifls489,14132
+    List *thenls;thenls490,14149
+struct whilecmd {whilecmd493,14174
+    int ntype;			/* node type                           */ntype494,14193
+    int cond;			/* 0 for while, 1 for until            */cond495,14253
+    List cont;			/* condition                           */cont496,14312
+    List loop;			/* list to execute until condition met */loop497,14372
+#define MULTIOUNIT MULTIOUNIT502,14535
+struct multio {multio512,14938
+    int ct;			/* # of redirections on this fd                 */ct513,14955
+    int rflag;			/* 0 if open for reading, 1 if open for writing */rflag514,15021
+    int pipe;			/* fd of pipe if ct > 1                         */pipe515,15090
+    int fds[MULTIOUNIT];	/* list of src/dests redirected to/from this fd */fds516,15158
+struct varasg {varasg521,15283
+    int ntype;			/* node type                             */ntype522,15300
+    int type;			/* nonzero means array                   */type523,15362
+    char *name;name524,15423
+    char *str;			/* should've been a union here.  oh well */str525,15440
+    LinkList arr;arr526,15502
+struct value {value531,15577
+    int isarr;isarr532,15593
+    Param pm;		/* parameter node                      */pm533,15609
+    int inv;		/* should we return the index ?        */inv534,15667
+    int a;		/* first element of array slice, or -1 */a535,15724
+    int b;		/* last element of array slice, or -1  */b536,15779
+struct asgment {asgment541,15883
+    struct asgment *next;next542,15901
+    char *name;name543,15928
+    char *value;value544,15945
+#define MAX_ARRLEN MAX_ARRLEN547,15969
+#define MAXJOB MAXJOB555,16174
+struct job {job559,16227
+    pid_t gleader;		/* process group leader of this job  */gleader560,16241
+    pid_t other;		/* subjob id or subshell pid         */other561,16302
+    int stat;                   /* see STATs below                   */stat562,16361
+    char *pwd;			/* current working dir of shell when *pwd563,16434
+    struct process *procs;	/* list of processes                 */procs565,16536
+    LinkList filelist;		/* list of files to delete when done */filelist566,16604
+    int stty_in_env;		/* if STTY=... is present            */stty_in_env567,16669
+    struct ttyinfo *ty;		/* the modes specified by STTY       */ty568,16732
+#define STAT_CHANGED	STAT_CHANGED571,16804
+#define STAT_STOPPED	STAT_STOPPED572,16876
+#define STAT_TIMED	STAT_TIMED573,16948
+#define STAT_DONE	STAT_DONE574,17018
+#define STAT_LOCKED	STAT_LOCKED575,17087
+#define STAT_NOPRINT	STAT_NOPRINT577,17234
+#define STAT_INUSE	STAT_INUSE579,17382
+#define STAT_SUPERJOB	STAT_SUPERJOB580,17452
+#define STAT_SUBJOB	STAT_SUBJOB581,17525
+#define STAT_CURSH	STAT_CURSH582,17596
+#define STAT_NOSTTY	STAT_NOSTTY583,17666
+#define SP_RUNNING SP_RUNNING586,17788
+struct timeinfo {timeinfo588,17859
+    long ut;                    /* user space time   */ut589,17878
+    long st;                    /* system space time */st590,17935
+#define JOBTEXTSIZE JOBTEXTSIZE593,17998
+struct process {process597,18059
+    struct process *next;next598,18077
+    pid_t pid;                  /* process id                       */pid599,18104
+    char text[JOBTEXTSIZE];	/* text to print when 'jobs' is run */text600,18176
+    int status;			/* return code from waitpid/wait3() */status601,18244
+    struct timeinfo ti;ti602,18302
+    struct timeval bgtime;	/* time job was spawned             */bgtime603,18327
+    struct timeval endtime;	/* time job exited                  */endtime604,18394
+struct execstack {execstack607,18468
+    struct execstack *next;next608,18488
+    LinkList args;args610,18519
+    pid_t list_pipe_pid;list_pipe_pid611,18539
+    int nowait;nowait612,18565
+    int pline_level;pline_level613,18582
+    int list_pipe_child;list_pipe_child614,18604
+    int list_pipe_job;list_pipe_job615,18630
+    char list_pipe_text[JOBTEXTSIZE];list_pipe_text616,18654
+    int lastval;lastval617,18693
+    int noeval;noeval618,18711
+    int badcshglob;badcshglob619,18728
+    pid_t cmdoutpid;cmdoutpid620,18749
+    int cmdoutval;cmdoutval621,18771
+    int trapreturn;trapreturn622,18791
+    int noerrs;noerrs623,18812
+    int subsh_close;subsh_close624,18829
+    char *underscore;underscore625,18851
+struct heredocs {heredocs628,18880
+    struct heredocs *next;next629,18899
+    Redir rd;rd630,18927
+typedef void *(*VFunc) _((void *));VFunc637,19055
+typedef void (*FreeFunc) _((void *));FreeFunc638,19092
+typedef unsigned (*HashFunc)       _((char *));HashFunc640,19133
+typedef void     (*TableFunc)      _((HashTable));TableFunc641,19182
+typedef void     (*AddNodeFunc)    _((HashTable, char *, void *));AddNodeFunc642,19234
+typedef void     (*FreeNodeFunc)   _((HashNode));FreeNodeFunc645,19422
+typedef void     (*ScanFunc)       _((HashNode, int));ScanFunc649,19558
+typedef void (*PrintTableStats) _((HashTable));PrintTableStats652,19639
+struct hashtable {hashtable657,19744
+    int hsize;			/* size of nodes[]  (number of hash values)   */hsize659,19790
+    int ct;			/* number of elements                         */ct660,19857
+    HashNode *nodes;		/* array of size hsize                        */nodes661,19921
+    char *tablename;		/* string containing name of the hash table */tablename664,20018
+    HashFunc hash;		/* pointer to hash function for this table    */hash668,20127
+    TableFunc emptytable;	/* pointer to function to empty table         */emptytable669,20197
+    TableFunc filltable;	/* pointer to function to fill table          */filltable670,20273
+    AddNodeFunc addnode;	/* pointer to function to add new node        */addnode671,20348
+    GetNodeFunc getnode;	/* pointer to function to get an enabled node */getnode672,20423
+    GetNodeFunc getnode2;	/* pointer to function to get node            */getnode2673,20498
+    RemoveNodeFunc removenode;	/* pointer to function to delete a node       */removenode675,20628
+    ScanFunc disablenode;	/* pointer to function to disable a node      */disablenode676,20709
+    ScanFunc enablenode;	/* pointer to function to enable a node       */enablenode677,20785
+    FreeNodeFunc freenode;	/* pointer to function to free a node         */freenode678,20860
+    ScanFunc printnode;		/* pointer to function to print a node        */printnode679,20937
+    PrintTableStats printinfo;	/* pointer to function to print table stats */printinfo682,21037
+struct hashnode {hashnode688,21163
+    HashNode next;		/* next in hash chain */next689,21182
+    char *nam;			/* hash key           */nam690,21228
+    int flags;			/* various flags      */flags691,21271
+#define DISABLED	DISABLED697,21504
+struct reswd {reswd701,21590
+    HashNode next;		/* next in hash chain        */next702,21606
+    char *nam;			/* name of reserved word     */nam703,21659
+    int flags;			/* flags                     */flags704,21709
+    int token;			/* corresponding lexer token */token705,21759
+struct alias {alias710,21860
+    HashNode next;		/* next in hash chain       */next711,21876
+    char *nam;			/* hash data                */nam712,21928
+    int flags;			/* flags for alias types    */flags713,21977
+    char *text;			/* expansion of alias       */text714,22026
+    int inuse;			/* alias is being expanded  */inuse715,22076
+#define ALIAS_GLOBAL	ALIAS_GLOBAL719,22159
+struct cmdnam {cmdnam723,22243
+    HashNode next;		/* next in hash chain */next724,22260
+    char *nam;			/* hash data          */nam725,22306
+    int flags;flags726,22349
+	char **name;		/* full pathname for external commands */name728,22378
+	char *cmd;		/* file name for hashed commands       */cmd729,22436
+    u;u731,22499
+#define HASHED	HASHED736,22596
+struct shfunc {shfunc740,22677
+    HashNode next;		/* next in hash chain     */next741,22694
+    char *nam;			/* name of shell function */nam742,22744
+    int flags;			/* various flags          */flags743,22791
+    List funcdef;		/* function definition    */funcdef744,22838
+typedef int (*HandlerFunc) _((char *, char **, char *, int));HandlerFunc749,22950
+struct builtin {builtin751,23015
+    HashNode next;		/* next in hash chain                                 */next752,23033
+    char *nam;			/* name of builtin                                    */nam753,23111
+    int flags;			/* various flags                                      */flags754,23186
+    HandlerFunc handlerfunc;	/* pointer to function that executes this builtin     */handlerfunc755,23261
+    int minargs;		/* minimum number of arguments                        */minargs756,23348
+    int maxargs;		/* maximum number of arguments, or -1 for no limit    */maxargs757,23424
+    int funcid;			/* xbins (see above) for overloaded handlerfuncs      */funcid758,23500
+    char *optstr;		/* string of legal options                            */optstr759,23576
+    char *defopts;		/* options set by default for overloaded handlerfuncs */defopts760,23653
+#define BINF_PLUSOPTS	BINF_PLUSOPTS765,23794
+#define BINF_R	BINF_R766,23842
+#define BINF_PRINTOPTS	BINF_PRINTOPTS767,23907
+#define BINF_FCOPTS	BINF_FCOPTS768,23939
+#define BINF_TYPEOPT	BINF_TYPEOPT769,23968
+#define BINF_ECHOPTS	BINF_ECHOPTS770,23998
+#define BINF_MAGICEQUALS	BINF_MAGICEQUALS771,24028
+#define BINF_PREFIX	BINF_PREFIX772,24115
+#define BINF_DASH	BINF_DASH773,24144
+#define BINF_BUILTIN	BINF_BUILTIN774,24172
+#define BINF_COMMAND	BINF_COMMAND775,24203
+#define BINF_EXEC	BINF_EXEC776,24234
+#define BINF_NOGLOB	BINF_NOGLOB777,24262
+#define BINF_PSPECIAL	BINF_PSPECIAL778,24292
+#define BINF_TYPEOPTS BINF_TYPEOPTS780,24326
+struct param {param784,24436
+    HashNode next;		/* next in hash chain */next785,24452
+    char *nam;			/* hash data          */nam786,24498
+    int flags;			/* PM_* flags         */flags787,24541
+	char **arr;		/* value if declared array   (PM_ARRAY)   */arr791,24638
+	char *str;		/* value if declared string  (PM_SCALAR)  */str792,24698
+	long val;		/* value if declared integer (PM_INTEGER) */val793,24757
+    } u;u794,24815
+	void (*cfn) _((Param, char *));cfn798,24902
+	void (*ifn) _((Param, long));ifn799,24936
+	void (*afn) _((Param, char **));afn800,24968
+    } sets;sets801,25003
+	char *(*cfn) _((Param));cfn805,25093
+	long (*ifn) _((Param));ifn806,25120
+	char **(*afn) _((Param));afn807,25146
+    } gets;gets808,25174
+    int ct;			/* output base or field width            */ct810,25189
+    void *data;			/* used by getfns                        */data811,25248
+    char *env;			/* location in environment, if exported  */env812,25311
+    char *ename;		/* name of corresponding environment var */ename813,25373
+    Param old;			/* old struct for use with local         */old814,25436
+    int level;			/* if (old != NULL), level of localness  */level815,25498
+#define PM_SCALAR	PM_SCALAR821,25619
+#define PM_ARRAY	PM_ARRAY822,25689
+#define PM_INTEGER	PM_INTEGER823,25763
+#define PM_TYPE(PM_TYPE825,25841
+#define PM_LEFT	PM_LEFT827,25901
+#define PM_RIGHT_B	PM_RIGHT_B828,25975
+#define PM_RIGHT_Z	PM_RIGHT_Z829,26051
+#define PM_LOWER	PM_LOWER830,26127
+#define PM_UPPER	PM_UPPER834,26292
+#define PM_UNDEFINED	PM_UNDEFINED835,26366
+#define PM_READONLY	PM_READONLY837,26446
+#define PM_TAGGED	PM_TAGGED838,26523
+#define PM_EXPORTED	PM_EXPORTED839,26598
+#define PM_UNIQUE	PM_UNIQUE840,26675
+#define PM_SPECIAL	PM_SPECIAL841,26751
+#define PM_DONTIMPORT	PM_DONTIMPORT842,26828
+#define PM_UNSET	PM_UNSET843,26908
+struct compctlp {compctlp847,26986
+    HashNode next;		/* next in hash chain               */next848,27005
+    char *nam;			/* command name                     */nam849,27065
+    int flags;			/* CURRENTLY UNUSED                 */flags850,27122
+    Compctl cc;			/* pointer to the compctl desc.     */cc851,27179
+struct nameddir {nameddir856,27302
+    HashNode next;		/* next in hash chain               */next857,27321
+    char *nam;			/* directory name                   */nam858,27381
+    int flags;			/* see below                        */flags859,27438
+    char *dir;			/* the directory in full            */dir860,27495
+    int diff;			/* strlen(.dir) - strlen(.nam)      */diff861,27552
+#define ND_USERNAME	ND_USERNAME866,27683
+#define PRINT_NAMEONLY	PRINT_NAMEONLY870,27812
+#define PRINT_TYPE	PRINT_TYPE871,27844
+#define PRINT_LIST	PRINT_LIST872,27872
+#define PRINT_WHENCE_CSH	PRINT_WHENCE_CSH875,27951
+#define PRINT_WHENCE_VERBOSE	PRINT_WHENCE_VERBOSE876,27984
+#define PRINT_WHENCE_SIMPLE	PRINT_WHENCE_SIMPLE877,28021
+#define PRINT_WHENCE_FUNCDEF	PRINT_WHENCE_FUNCDEF878,28057
+struct schedcmd {schedcmd887,28231
+    struct schedcmd *next;next888,28250
+    char *cmd;			/* command to run */cmd889,28278
+    time_t time;		/* when to run it */time890,28317
+struct histent {histent900,28507
+    char *text;			/* the history line itself          */text901,28525
+    char *zle_text;		/* the edited history line          */zle_text902,28583
+    time_t stim;		/* command started time (datestamp) */stim903,28644
+    time_t ftim;		/* command finished time            */ftim904,28702
+    short *words;		/* Position of words in history     */words905,28760
+    int nwords;			/* Number of words in history line  */nwords907,28863
+    int flags;			/* Misc flags                       */flags908,28921
+#define HIST_OLD	HIST_OLD911,28984
+#define STOPHIST STOPHIST916,29178
+#define ALLOWHIST ALLOWHIST917,29213
+#define HISTFLAG_DONE HISTFLAG_DONE919,29251
+#define HISTFLAG_NOEXEC HISTFLAG_NOEXEC920,29278
+#define HISTFLAG_RECALL HISTFLAG_RECALL921,29305
+struct compcond {compcond928,29476
+    struct compcond *and, *or;	/* the next or'ed/and'ed conditions    */and929,29495
+    struct compcond *and, *or;	/* the next or'ed/and'ed conditions    */or929,29495
+    int type;			/* the type (CCT_*)                    */type930,29569
+    int n;			/* the array length                    */n931,29628
+	    int *a, *b;		/* CCT_POS, CCT_NUMWORDS               */a934,29795
+	    int *a, *b;		/* CCT_POS, CCT_NUMWORDS               */b934,29795
+	r;r936,29860
+	    int *p;p938,29910
+	    char **s;s939,29924
+	s;s941,29944
+	    char **a, **b;a943,29984
+	    char **a, **b;b943,29984
+	l;l945,30009
+    u;u947,30021
+#define CCT_UNUSED CCT_UNUSED950,30035
+#define CCT_POS CCT_POS951,30061
+#define CCT_CURSTR CCT_CURSTR952,30087
+#define CCT_CURPAT CCT_CURPAT953,30113
+#define CCT_WORDSTR CCT_WORDSTR954,30139
+#define CCT_WORDPAT CCT_WORDPAT955,30165
+#define CCT_CURSUF CCT_CURSUF956,30191
+#define CCT_CURPRE CCT_CURPRE957,30217
+#define CCT_CURSUB CCT_CURSUB958,30243
+#define CCT_CURSUBC CCT_CURSUBC959,30269
+#define CCT_NUMWORDS CCT_NUMWORDS960,30295
+#define CCT_RANGESTR CCT_RANGESTR961,30321
+#define CCT_RANGEPAT CCT_RANGEPAT962,30347
+struct compctl {compctl966,30427
+    int refc;			/* reference count                         */refc967,30445
+    struct compctl *next;	/* next compctl for -x                     */next968,30508
+    unsigned long mask;		/* mask of things to complete (CC_*)       */mask969,30581
+    char *keyvar;		/* for -k (variable)                       */keyvar970,30653
+    char *glob;			/* for -g (globbing)                       */glob971,30719
+    char *str;			/* for -s (expansion)                      */str972,30784
+    char *func;			/* for -K (function)                       */func973,30848
+    char *explain;		/* for -X (explanation)                    */explain974,30913
+    char *prefix, *suffix;	/* for -P and -S (prefix, suffix)          */prefix975,30980
+    char *prefix, *suffix;	/* for -P and -S (prefix, suffix)          */suffix975,30980
+    char *subcmd;		/* for -l (command name to use)            */subcmd976,31054
+    char *hpat;			/* for -H (history pattern)                */hpat977,31120
+    int hnum;			/* for -H (number of events to search)     */hnum978,31185
+    struct compctl *ext;	/* for -x (first of the compctls after -x) */ext979,31248
+    struct compcond *cond;	/* for -x (condition for this compctl)     */cond980,31320
+    struct compctl *xor;	/* for + (next of the xor'ed compctls)     */xor981,31394
+#define CC_FILES	CC_FILES985,31499
+#define CC_COMMPATH	CC_COMMPATH986,31524
+#define CC_REMOVE	CC_REMOVE987,31552
+#define CC_OPTIONS	CC_OPTIONS988,31578
+#define CC_VARS	CC_VARS989,31605
+#define CC_BINDINGS	CC_BINDINGS990,31630
+#define CC_ARRAYS	CC_ARRAYS991,31658
+#define CC_INTVARS	CC_INTVARS992,31684
+#define CC_SHFUNCS	CC_SHFUNCS993,31711
+#define CC_PARAMS	CC_PARAMS994,31738
+#define CC_ENVVARS	CC_ENVVARS995,31764
+#define CC_JOBS	CC_JOBS996,31792
+#define CC_RUNNING	CC_RUNNING997,31818
+#define CC_STOPPED	CC_STOPPED998,31846
+#define CC_BUILTINS	CC_BUILTINS999,31874
+#define CC_ALREG	CC_ALREG1000,31903
+#define CC_ALGLOB	CC_ALGLOB1001,31929
+#define CC_USERS	CC_USERS1002,31956
+#define CC_DISCMDS	CC_DISCMDS1003,31982
+#define CC_EXCMDS	CC_EXCMDS1004,32010
+#define CC_SCALARS	CC_SCALARS1005,32037
+#define CC_READONLYS	CC_READONLYS1006,32065
+#define CC_SPECIALS	CC_SPECIALS1007,32095
+#define CC_DELETE	CC_DELETE1008,32124
+#define CC_NAMED	CC_NAMED1009,32151
+#define CC_QUOTEFLAG	CC_QUOTEFLAG1010,32177
+#define CC_EXTCMDS	CC_EXTCMDS1011,32207
+#define CC_RESWDS	CC_RESWDS1012,32235
+#define CC_RESERVED	CC_RESERVED1014,32264
+  EMULATE_CSH, /* C shell */EMULATE_CSH1025,32564
+  EMULATE_KSH, /* Korn shell */EMULATE_KSH1026,32594
+  EMULATE_SH,  /* Bourne shell */EMULATE_SH1027,32627
+  EMULATE_ZSH  /* `native' mode */EMULATE_ZSH1028,32662
+struct option {option1033,32735
+    char *name;			/* full name */name1034,32752
+    char id_zsh;		/* single letter name in zsh/csh mode */id_zsh1035,32787
+    char id_ksh;		/* single letter name in ksh/sh mode */id_ksh1036,32847
+    unsigned char flags;	/* see below */flags1037,32906
+#define optid(optid1040,32954
+#define OPT_CSH	OPT_CSH1045,33184
+#define OPT_KSH	OPT_KSH1046,33246
+#define OPT_SH	OPT_SH1047,33308
+#define OPT_ZSH	OPT_ZSH1048,33368
+#define OPT_ALL	OPT_ALL1050,33432
+#define OPT_BOURNE	OPT_BOURNE1051,33483
+#define OPT_BSHELL	OPT_BSHELL1052,33520
+#define OPT_NONBOURNE	OPT_NONBOURNE1053,33565
+#define OPT_NONZSH	OPT_NONZSH1054,33612
+#define OPT_EMULATE	OPT_EMULATE1056,33655
+#define OPT_SPECIAL	OPT_SPECIAL1057,33719
+#define OPT_REV	OPT_REV1061,33861
+    OPT_INVALID,OPT_INVALID1066,33927
+    ALLEXPORT,ALLEXPORT1067,33945
+    ALWAYSLASTPROMPT,ALWAYSLASTPROMPT1068,33961
+    ALWAYSTOEND,ALWAYSTOEND1069,33984
+    APPENDHISTORY,APPENDHISTORY1070,34002
+    AUTOCD,AUTOCD1071,34022
+    AUTOLIST,AUTOLIST1072,34035
+    AUTOMENU,AUTOMENU1073,34050
+    AUTONAMEDIRS,AUTONAMEDIRS1074,34065
+    AUTOPARAMKEYS,AUTOPARAMKEYS1075,34084
+    AUTOPARAMSLASH,AUTOPARAMSLASH1076,34104
+    AUTOPUSHD,AUTOPUSHD1077,34125
+    AUTOREMOVESLASH,AUTOREMOVESLASH1078,34141
+    AUTORESUME,AUTORESUME1079,34163
+    BADPATTERN,BADPATTERN1080,34180
+    BANGHIST,BANGHIST1081,34197
+    BEEP,BEEP1082,34212
+    BGNICE,BGNICE1083,34223
+    BRACECCL,BRACECCL1084,34236
+    BSDECHO,BSDECHO1085,34251
+    CDABLEVARS,CDABLEVARS1086,34265
+    CHASELINKS,CHASELINKS1087,34282
+    CLOBBER,CLOBBER1088,34299
+    COMPLETEALIASES,COMPLETEALIASES1089,34313
+    COMPLETEINWORD,COMPLETEINWORD1090,34335
+    CORRECT,CORRECT1091,34356
+    CORRECTALL,CORRECTALL1092,34370
+    CSHJUNKIEHISTORY,CSHJUNKIEHISTORY1093,34387
+    CSHJUNKIELOOPS,CSHJUNKIELOOPS1094,34410
+    CSHJUNKIEQUOTES,CSHJUNKIEQUOTES1095,34431
+    CSHNULLGLOB,CSHNULLGLOB1096,34453
+    EQUALS,EQUALS1097,34471
+    ERREXIT,ERREXIT1098,34484
+    EXECOPT,EXECOPT1099,34498
+    EXTENDEDGLOB,EXTENDEDGLOB1100,34512
+    EXTENDEDHISTORY,EXTENDEDHISTORY1101,34531
+    FLOWCONTROL,FLOWCONTROL1102,34553
+    FUNCTIONARGZERO,FUNCTIONARGZERO1103,34571
+    GLOBOPT,GLOBOPT1104,34593
+    GLOBASSIGN,GLOBASSIGN1105,34607
+    GLOBCOMPLETE,GLOBCOMPLETE1106,34624
+    GLOBDOTS,GLOBDOTS1107,34643
+    GLOBSUBST,GLOBSUBST1108,34658
+    HASHCMDS,HASHCMDS1109,34674
+    HASHDIRS,HASHDIRS1110,34689
+    HASHLISTALL,HASHLISTALL1111,34704
+    HISTALLOWCLOBBER,HISTALLOWCLOBBER1112,34722
+    HISTBEEP,HISTBEEP1113,34745
+    HISTIGNOREDUPS,HISTIGNOREDUPS1114,34760
+    HISTIGNORESPACE,HISTIGNORESPACE1115,34781
+    HISTNOSTORE,HISTNOSTORE1116,34803
+    HISTVERIFY,HISTVERIFY1117,34821
+    HUP,HUP1118,34838
+    IGNOREBRACES,IGNOREBRACES1119,34848
+    IGNOREEOF,IGNOREEOF1120,34867
+    INTERACTIVE,INTERACTIVE1121,34883
+    INTERACTIVECOMMENTS,INTERACTIVECOMMENTS1122,34901
+    KSHARRAYS,KSHARRAYS1123,34927
+    KSHOPTIONPRINT,KSHOPTIONPRINT1124,34943
+    LISTAMBIGUOUS,LISTAMBIGUOUS1125,34964
+    LISTBEEP,LISTBEEP1126,34984
+    LISTTYPES,LISTTYPES1127,34999
+    LOCALOPTIONS,LOCALOPTIONS1128,35015
+    LOGINSHELL,LOGINSHELL1129,35034
+    LONGLISTJOBS,LONGLISTJOBS1130,35051
+    MAGICEQUALSUBST,MAGICEQUALSUBST1131,35070
+    MAILWARNING,MAILWARNING1132,35092
+    MARKDIRS,MARKDIRS1133,35110
+    MENUCOMPLETE,MENUCOMPLETE1134,35125
+    MONITOR,MONITOR1135,35144
+    MULTIOS,MULTIOS1136,35158
+    NOMATCH,NOMATCH1137,35172
+    NOTIFY,NOTIFY1138,35186
+    NULLGLOB,NULLGLOB1139,35199
+    NUMERICGLOBSORT,NUMERICGLOBSORT1140,35214
+    OVERSTRIKE,OVERSTRIKE1141,35236
+    PATHDIRS,PATHDIRS1142,35253
+    POSIXBUILTINS,POSIXBUILTINS1143,35268
+    PRINTEIGHTBIT,PRINTEIGHTBIT1144,35288
+    PRINTEXITVALUE,PRINTEXITVALUE1145,35308
+    PRIVILEGED,PRIVILEGED1146,35329
+    PROMPTCR,PROMPTCR1147,35346
+    PROMPTSUBST,PROMPTSUBST1148,35361
+    PUSHDIGNOREDUPS,PUSHDIGNOREDUPS1149,35379
+    PUSHDMINUS,PUSHDMINUS1150,35401
+    PUSHDSILENT,PUSHDSILENT1151,35418
+    PUSHDTOHOME,PUSHDTOHOME1152,35436
+    RCEXPANDPARAM,RCEXPANDPARAM1153,35454
+    RCQUOTES,RCQUOTES1154,35474
+    RCS,RCS1155,35489
+    RECEXACT,RECEXACT1156,35499
+    RMSTARSILENT,RMSTARSILENT1157,35514
+    SHFILEEXPANSION,SHFILEEXPANSION1158,35533
+    SHGLOB,SHGLOB1159,35555
+    SHINSTDIN,SHINSTDIN1160,35568
+    SHOPTIONLETTERS,SHOPTIONLETTERS1161,35584
+    SHORTLOOPS,SHORTLOOPS1162,35606
+    SHWORDSPLIT,SHWORDSPLIT1163,35623
+    SINGLECOMMAND,SINGLECOMMAND1164,35641
+    SINGLELINEZLE,SINGLELINEZLE1165,35661
+    SUNKEYBOARDHACK,SUNKEYBOARDHACK1166,35681
+    UNSET,UNSET1167,35703
+    VERBOSE,VERBOSE1168,35715
+    WINNTCONVERTBACKSLASH,WINNTCONVERTBACKSLASH1170,35743
+    WINNTIGNORECASE,WINNTIGNORECASE1171,35771
+    WINNTLAMEPATHFIX,WINNTLAMEPATHFIX1172,35793
+    WINNTNOASSOCIATIONS,WINNTNOASSOCIATIONS1173,35816
+    WINNTNOQUOTEPROTECT,WINNTNOQUOTEPROTECT1174,35842
+    WINNTWAITFORGUIAPPS,WINNTWAITFORGUIAPPS1175,35868
+    XTRACE,XTRACE1177,35908
+    USEZLE,USEZLE1178,35921
+    OPT_SIZEOPT_SIZE1179,35934
+#undef issetisset1182,35954
+#define isset(isset1183,35968
+#define unset(unset1184,35996
+#define defset(defset1185,36025
+#define interact interact1187,36086
+#define jobbing jobbing1188,36125
+#define islogin islogin1189,36160
+struct ttyinfo {ttyinfo1197,36384
+    struct termios tio;tio1200,36440
+    struct winsize winsize;winsize1212,36663
+#define SGTTYFLAG SGTTYFLAG1221,36851
+#define SGTTYFLAG SGTTYFLAG1223,36931
+#define SGTABTYPE SGTABTYPE1226,37004
+#define SGTABTYPE SGTABTYPE1229,37059
+#define SGTABTYPE SGTABTYPE1231,37100
+#define TERM_BAD	TERM_BAD1237,37181
+#define TERM_UNKNOWN	TERM_UNKNOWN1238,37252
+#define TERM_NOUP	TERM_NOUP1239,37307
+#define TERM_SHORT	TERM_SHORT1240,37367
+#define TERM_NARROW	TERM_NARROW1241,37425
+#define TCCLEARSCREEN TCCLEARSCREEN1245,37525
+#define TCLEFT TCLEFT1246,37552
+#define TCMULTLEFT TCMULTLEFT1247,37579
+#define TCRIGHT TCRIGHT1248,37606
+#define TCMULTRIGHT TCMULTRIGHT1249,37633
+#define TCUP TCUP1250,37660
+#define TCMULTUP TCMULTUP1251,37687
+#define TCDOWN TCDOWN1252,37714
+#define TCMULTDOWN TCMULTDOWN1253,37741
+#define TCDEL TCDEL1254,37768
+#define TCMULTDEL TCMULTDEL1255,37795
+#define TCINS TCINS1256,37822
+#define TCMULTINS TCMULTINS1257,37849
+#define TCCLEAREOD TCCLEAREOD1258,37876
+#define TCCLEAREOL TCCLEAREOL1259,37903
+#define TCINSLINE TCINSLINE1260,37930
+#define TCDELLINE TCDELLINE1261,37957
+#define TCNEXTTAB TCNEXTTAB1262,37984
+#define TCBOLDFACEBEG TCBOLDFACEBEG1263,38011
+#define TCSTANDOUTBEG TCSTANDOUTBEG1264,38038
+#define TCUNDERLINEBEG TCUNDERLINEBEG1265,38065
+#define TCALLATTRSOFF TCALLATTRSOFF1266,38092
+#define TCSTANDOUTEND TCSTANDOUTEND1267,38119
+#define TCUNDERLINEEND TCUNDERLINEEND1268,38146
+#define TC_COUNT TC_COUNT1269,38173
+#define tccan(tccan1271,38202
+#define TXTBOLDFACE TXTBOLDFACE1273,38233
+#define TXTSTANDOUT TXTSTANDOUT1274,38261
+#define TXTUNDERLINE TXTUNDERLINE1275,38289
+#define TXTDIRTY TXTDIRTY1276,38317
+#define txtisset(txtisset1278,38347
+#define txtset(txtset1279,38389
+#define txtunset(txtunset1280,38432
+#define TXTNOBOLDFACE	TXTNOBOLDFACE1282,38478
+#define TXTNOSTANDOUT	TXTNOSTANDOUT1283,38506
+#define TXTNOUNDERLINE	TXTNOUNDERLINE1284,38534
+#define txtchangeisset(txtchangeisset1286,38565
+#define txtchangeset(txtchangeset1287,38610
+#define cmdpush(cmdpush1295,38834
+# define cmdpop(cmdpop1297,38933
+# define cmdpop(cmdpop1302,39069
+#define CS_FOR CS_FOR1305,39133
+#define CS_WHILE CS_WHILE1306,39160
+#define CS_REPEAT CS_REPEAT1307,39187
+#define CS_SELECT CS_SELECT1308,39214
+#define CS_UNTIL CS_UNTIL1309,39241
+#define CS_IF CS_IF1310,39268
+#define CS_IFTHEN CS_IFTHEN1311,39295
+#define CS_ELSE CS_ELSE1312,39322
+#define CS_ELIF CS_ELIF1313,39349
+#define CS_MATH CS_MATH1314,39376
+#define CS_COND CS_COND1315,39403
+#define CS_CMDOR CS_CMDOR1316,39430
+#define CS_CMDAND CS_CMDAND1317,39457
+#define CS_PIPE CS_PIPE1318,39484
+#define CS_ERRPIPE CS_ERRPIPE1319,39511
+#define CS_FOREACH CS_FOREACH1320,39538
+#define CS_CASE CS_CASE1321,39565
+#define CS_FUNCDEF CS_FUNCDEF1322,39592
+#define CS_SUBSH CS_SUBSH1323,39619
+#define CS_CURSH CS_CURSH1324,39646
+#define CS_ARRAY CS_ARRAY1325,39673
+#define CS_QUOTE CS_QUOTE1326,39700
+#define CS_DQUOTE CS_DQUOTE1327,39727
+#define CS_BQUOTE CS_BQUOTE1328,39754
+#define CS_CMDSUBST CS_CMDSUBST1329,39781
+#define CS_MATHSUBST CS_MATHSUBST1330,39808
+#define CS_ELIFTHEN CS_ELIFTHEN1331,39835
+#define CS_HEREDOC CS_HEREDOC1332,39862
+#define CS_HEREDOCD CS_HEREDOCD1333,39889
+#define CS_BRACE CS_BRACE1334,39916
+#define CS_BRACEPAR CS_BRACEPAR1335,39943
+# define HEAPALLOC	HEAPALLOC1342,40062
+# define PERMALLOC	PERMALLOC1344,40135
+# define LASTALLOC	LASTALLOC1346,40208
+# define LASTALLOC_RETURN LASTALLOC_RETURN1351,40336
+# define HEAPALLOC	HEAPALLOC1355,40472
+# define PERMALLOC	PERMALLOC1358,40567
+# define LASTALLOC	LASTALLOC1361,40662
+# define LASTALLOC_RETURN LASTALLOC_RETURN1366,40806
+# define DPUTS(DPUTS1376,41032
+# define MUSTUSEHEAP(MUSTUSEHEAP1377,41081
+# define DPUTS(DPUTS1381,41217
+# define MUSTUSEHEAP(MUSTUSEHEAP1382,41238
+#define ZSIG_TRAPPED	ZSIG_TRAPPED1391,41411
+#define ZSIG_IGNORED	ZSIG_IGNORED1392,41440
+#define ZSIG_FUNC	ZSIG_FUNC1393,41469
+
+ztype.h,877
+#define IDIGIT IDIGIT32,1316
+#define IALNUM IALNUM33,1343
+#define IBLANK IBLANK34,1370
+#define INBLANK INBLANK35,1397
+#define ITOK ITOK36,1424
+#define ISEP ISEP37,1451
+#define IALPHA IALPHA38,1478
+#define IIDENT IIDENT39,1505
+#define IUSER IUSER40,1532
+#define ICNTRL ICNTRL41,1559
+#define IWORD IWORD42,1586
+#define ISPECIAL ISPECIAL43,1613
+#define IMETA IMETA44,1640
+#define IWSEP IWSEP45,1667
+#define _icom(_icom46,1694
+#define idigit(idigit47,1736
+#define ialnum(ialnum48,1770
+#define iblank(iblank49,1804
+#define inblank(inblank50,1868
+#define itok(itok51,1922
+#define isep(isep52,1952
+#define ialpha(ialpha53,1982
+#define iident(iident54,2016
+#define iuser(iuser55,2050
+#define icntrl(icntrl56,2102
+#define iword(iword57,2136
+#define ispecial(ispecial58,2168
+#define imeta(imeta59,2206
+#define iwsep(iwsep60,2238
+
+ntport/bogus.c,801
+static struct passwd pass_bogus;pass_bogus43,1765
+static char username[20];username44,1799
+static char homedir[256];homedir45,1826
+static char *this_shell="zsh";this_shell46,1853
+static char dummy[2]={0,0};dummy48,1887
+gid_t getuid(void) {getuid50,1918
+gid_t getgid(void) {getgid53,1955
+gid_t geteuid(void) {geteuid56,1992
+gid_t getegid(void) {getegid59,2030
+struct passwd * getpwnam(char *name) {getpwnam62,2068
+struct passwd * getpwuid(uid_t uid) {getpwuid89,2629
+struct group * getgrnam(char *name) {getgrnam114,3143
+struct group * getgrgid(gid_t gid) {getgrgid118,3202
+char * ttyname(int fd) {ttyname122,3260
+int times(struct tms * ignore) {times127,3343
+int bin_log(char *nam, char **argv, char *ops, int func){bin_log130,3393
+void dowatch(void){dowatch133,3467
+
+ntport/console.c,3175
+#define WIN32_LEAN_AND_MEANWIN32_LEAN_AND_MEAN39,1720
+void ScrollBuf(HANDLE,CONSOLE_SCREEN_BUFFER_INFO*,int);ScrollBuf45,1835
+void NT_MoveToLineOrChar(int ,int ) ;NT_MoveToLineOrChar46,1892
+void NT_MoveToLineOrCharAbs(int ,int ) ;NT_MoveToLineOrCharAbs47,1931
+void set_attr(int ,int ) ;set_attr48,1973
+void set_console_attributes(int,int);set_console_attributes49,2001
+int nt_scroll_old(int line1 , int line2,int howmany) ;nt_scroll_old50,2040
+#define saysay53,2100
+#define make_err_strmake_err_str54,2113
+#define xmalloc(xmalloc57,2139
+#define xfree(xfree58,2208
+WORD gwFg, gwBg, gwIsAlreadyIntense;gwFg60,2261
+WORD gwFg, gwBg, gwIsAlreadyIntense;gwBg60,2261
+WORD gwFg, gwBg, gwIsAlreadyIntense;gwIsAlreadyIntense60,2261
+char eolbuf[81];eolbuf62,2301
+HANDLE ghstdout;ghstdout69,2496
+CONSOLE_SCREEN_BUFFER_INFO gscrbuf;gscrbuf70,2514
+unsigned int oldcp, dontmuckwithmycodepage;oldcp71,2551
+unsigned int oldcp, dontmuckwithmycodepage;dontmuckwithmycodepage71,2551
+void redo_console(void) {redo_console75,2671
+void nt_term_init() {nt_term_init89,2974
+void set_cooked_and_flags(STARTUPINFO *si) {set_cooked_and_flags115,3469
+int nt_ClearEOL( void) {nt_ClearEOL143,4355
+int nt_cursor_right(void) {nt_cursor_right197,5913
+int nt_cursor_left(void) {nt_cursor_left202,5987
+void nt_move_next_tab(void) {nt_move_next_tab206,6059
+void NT_MoveToLineOrChar(int where,int line) {NT_MoveToLineOrChar222,6411
+void ScrollBuf(HANDLE hOut, CONSOLE_SCREEN_BUFFER_INFO *scrbuf,int where) {ScrollBuf256,7441
+int nt_scroll(int line1 , int line2,int howmany) {nt_scroll286,8144
+int nt_scroll_old(int line1 , int line2,int howmany) {nt_scroll_old319,8903
+void NT_MoveToLineOrCharAbs(int where,int line) {NT_MoveToLineOrCharAbs345,9629
+int nt_getsize(int * lins, int * cols) {nt_getsize376,10578
+void nt_move_cursor(int cursor, int line) {nt_move_cursor387,10906
+void nt_put_cr(void){nt_put_cr403,11274
+void nt_put_nl(void){nt_put_nl407,11333
+void NT_ClearEOD(void) {NT_ClearEOD410,11387
+void NT_ClearScreen(void) {NT_ClearScreen435,12011
+void NT_ClearScreen_WholeBuffer(void) {NT_ClearScreen_WholeBuffer462,12699
+void nt_term_standout_on(void) {nt_term_standout_on487,13330
+void nt_term_standout_off(void) {nt_term_standout_off498,13551
+void nt_term_bold_on(void) {nt_term_bold_on506,13749
+void nt_term_bold_off(void) {nt_term_bold_off509,13818
+void set_attr(int turnon,int attribs) {set_attr513,13890
+#define ANSI_30 ANSI_30534,14354
+#define ANSI_31 ANSI_31535,14376
+#define ANSI_32 ANSI_32536,14398
+#define ANSI_33 ANSI_33537,14420
+#define ANSI_34 ANSI_34538,14442
+#define ANSI_35 ANSI_35539,14464
+#define ANSI_36 ANSI_36540,14486
+#define ANSI_37 ANSI_37541,14508
+#define ANSI_40 ANSI_40543,14532
+#define ANSI_41 ANSI_41544,14554
+#define ANSI_42 ANSI_42545,14576
+#define ANSI_43 ANSI_43546,14598
+#define ANSI_44 ANSI_44547,14620
+#define ANSI_45 ANSI_45548,14642
+#define ANSI_46 ANSI_46549,14664
+#define ANSI_47 ANSI_47550,14686
+int ParseAnsi(char *ptr, FILE* outfile) {ParseAnsi556,14829
+void set_console_attributes(int foreg,int attribs) {set_console_attributes684,17100
+
+ntport/dirent.c,1406
+#define WIN32_LEAN_AND_MEANWIN32_LEAN_AND_MEAN37,1445
+#define xmalloc(xmalloc46,1631
+#define xfree(xfree47,1700
+#define IS_WINDOWS_9x(IS_WINDOWS_9x50,1780
+HANDLE open_enum(char *,WIN32_FIND_DATA*);open_enum52,1846
+void close_enum(DIR*) ;close_enum53,1890
+int enum_next_share(DIR*);enum_next_share54,1915
+typedef struct _enum_h {_enum_h55,1943
+	unsigned char *netres;netres56,1969
+	HANDLE henum;henum57,1994
+} nethandle_t;nethandle_t58,2010
+static int inode= 1; // useless piece that some unix programs needinode60,2028
+DIR * opendir(char *buf) {opendir61,2096
+int closedir(DIR *dptr){closedir160,4152
+void rewinddir(DIR *dptr) {rewinddir173,4353
+struct dirent *readdir(DIR *dir) {readdir199,4955
+static int ginited = 0;ginited242,5988
+static HANDLE hmpr;hmpr243,6013
+typedef DWORD (__stdcall *open_fn)(DWORD,DWORD,DWORD,NETRESOURCE *, HANDLE*);open_fn245,6036
+typedef DWORD (__stdcall *close_fn)( HANDLE);close_fn246,6115
+typedef DWORD (__stdcall *enum_fn)( HANDLE,DWORD * ,void *,DWORD*);enum_fn247,6162
+static open_fn p_WNetOpenEnum;p_WNetOpenEnum250,6235
+static close_fn p_WNetCloseEnum;p_WNetCloseEnum251,6267
+static enum_fn  p_WNetEnumResource;p_WNetEnumResource252,6301
+HANDLE open_enum(char *server, WIN32_FIND_DATA *fdata) {open_enum254,6340
+void close_enum(DIR*dptr) {close_enum300,7464
+int enum_next_share(DIR *dir) {enum_next_share309,7629
+
+ntport/dirent.h,815
+#define DIRENT_HDIRENT_H36,1455
+#define WIN32_LEAN_AND_MEANWIN32_LEAN_AND_MEAN39,1525
+#define NAME_MAX NAME_MAX42,1578
+#define IS_ROOT IS_ROOT44,1607
+#define IS_NET IS_NET45,1629
+#define d_fileno d_fileno47,1653
+struct dirent {dirent48,1677
+	long            d_ino;d_ino49,1694
+	int             d_off;d_off50,1719
+	unsigned short  d_reclen;d_reclen51,1744
+	char            d_name[NAME_MAX+1];d_name52,1772
+	HANDLE dd_fd;dd_fd56,1834
+	int dd_loc;dd_loc57,1850
+	int dd_size;dd_size58,1864
+	int flags;flags59,1879
+	char orig_dir_name[NAME_MAX +1];orig_dir_name60,1892
+	struct dirent *dd_buf;dd_buf61,1927
+}DIR;DIR62,1952
+DIR *opendir(char*);opendir64,1961
+struct dirent *readdir(DIR*);readdir65,1983
+int closedir(DIR*);closedir66,2014
+void rewinddir(DIR*);rewinddir67,2035
+
+ntport/except.c,487
+#define WIN32_LEAN_AND_MEANWIN32_LEAN_AND_MEAN3,69
+#define xmalloc(xmalloc8,166
+#define MAXSYMBOLNAMELENGTH MAXSYMBOLNAMELENGTH10,237
+#define SYM_HANDLE SYM_HANDLE12,271
+#define MACHINE_TYPE MACHINE_TYPE15,336
+#define MACHINE_TYPE MACHINE_TYPE17,409
+#define MACHINE_TYPE MACHINE_TYPE19,482
+#define MACHINE_TYPE MACHINE_TYPE21,553
+LONG WINAPI MyExceptionFilter ( EXCEPTION_POINTERS * lpep) {MyExceptionFilter28,661
+void init_exceptions(void) {init_exceptions114,3090
+
+ntport/fork.c,5170
+#define WIN32_LEAN_AND_MEANWIN32_LEAN_AND_MEAN41,1730
+typedef unsigned long u_long;u_long51,1932
+typedef unsigned long memalign_t;memalign_t52,1963
+typedef unsigned long caddr_t;caddr_t53,1998
+typedef void *ptr_t;ptr_t54,2030
+typedef unsigned char U_char;	U_char55,2052
+typedef unsigned int U_int;U_int56,2084
+typedef unsigned short U_short;U_short57,2113
+typedef unsigned long U_long;U_long58,2146
+#define __P(__P60,2179
+#define MEMALIGN(MEMALIGN61,2197
+union overhead {overhead63,2249
+	union overhead *ov_next;	/* when free */ov_next64,2267
+		U_char  ovu_magic;	/* magic number */ovu_magic66,2321
+		U_char  ovu_index;	/* bucket # */ovu_index67,2362
+		U_short ovu_size;	/* actual block size */ovu_size69,2414
+		U_int   ovu_rmagic;	/* range magic number */ovu_rmagic70,2459
+	}       ovu;ovu72,2515
+#define	ov_magic	ov_magic73,2530
+#define	ov_index	ov_index74,2562
+#define	ov_size	ov_size75,2594
+#define	ov_rmagic	ov_rmagic76,2625
+#define	MAGIC	MAGIC79,2665
+#define RMAGIC	RMAGIC80,2719
+#define	RSLOP	RSLOP82,2790
+#define	RSLOP	RSLOP84,2828
+#define ROUNDUP	ROUNDUP88,2858
+#define	NBUCKETS NBUCKETS90,2879
+static	int	findbucket	__P((union overhead *, int));findbucket92,2925
+static	void	morecore	__P((int));morecore93,2978
+extern void copy_fds(void);copy_fds95,3014
+extern void restore_fds(void);restore_fds96,3043
+extern void start_sigchild_thread(HANDLE,DWORD);start_sigchild_thread97,3075
+extern void close_copied_fds(void);close_copied_fds98,3125
+void stack_probe(void *ptr) ;stack_probe108,3495
+void heap_init(void);heap_init109,3526
+extern int fork_copy_user_mem(HANDLE );fork_copy_user_mem114,3636
+unsigned long __fork_seg_begin = 0;__fork_seg_begin116,3679
+unsigned long __forked = 0;__forked118,3718
+unsigned long  *__fork_stack_begin = 0;__fork_stack_begin119,3747
+HANDLE __hforkparent=0, __hforkchild=0;__hforkparent120,3788
+HANDLE __hforkparent=0, __hforkchild=0;__hforkchild120,3788
+jmp_buf __fork_context = {0};__fork_context121,3829
+unsigned long __heap_base = 0;__heap_base122,3860
+unsigned long __heap_size = 0;__heap_size123,3892
+unsigned long __heap_top = 0;__heap_top124,3924
+char   *__memtop = NULL;		/* PWP: top of current memory */__memtop126,3957
+char   *__membot = NULL;		/* PWP: bottom of allocatable memory */__membot127,4017
+union overhead *__nextf[NBUCKETS] = {0};__nextf128,4084
+U_int __nmalloc[NBUCKETS]={0};__nmalloc129,4126
+int     __realloc_srchlen = 4;	__realloc_srchlen131,4160
+unsigned long __fork_seg_end = 0;__fork_seg_end132,4193
+u_long _old_exr = 0; // Saved exception registration for longjmp_old_exr137,4261
+NT_TIB * (* myNtCurrentTeb)(void);myNtCurrentTeb158,5128
+#define GETEXCEPTIONREGIST(GETEXCEPTIONREGIST160,5166
+#define GETSTACKBASE(GETSTACKBASE161,5234
+void *get_teb(void) {get_teb163,5296
+#define FORK_TIMEOUT FORK_TIMEOUT179,5573
+#define FORK_TIMEOUT FORK_TIMEOUT181,5611
+int fork_init(void) {fork_init188,5749
+int fork(void) {fork218,6357
+void stack_probe (void *ptr) {stack_probe370,9455
+void heap_init(void) {heap_init382,9726
+void * sbrk(int delta) {sbrk415,10468
+#define CGETS(CGETS487,13436
+#define xprintf xprintf488,13460
+#define __P(__P489,13478
+#define NULL NULL493,13514
+void showall(void*,void*);showall503,13681
+void *sbrk(int);sbrk504,13709
+char   *memtop = NULL;		/* PWP: top of current memory */memtop509,13815
+char   *membot = NULL;		/* PWP: bottom of allocatable memory */membot510,13873
+typedef unsigned char U_char;	/* we don't really have signed chars */U_char525,14236
+typedef unsigned int U_int;U_int526,14307
+typedef unsigned short U_short;U_short527,14336
+typedef unsigned long U_long;U_long528,14369
+#define MEMALIGN(MEMALIGN543,14938
+union overhead {overhead545,14990
+	union overhead *ov_next;	/* when free */ov_next546,15008
+		U_char  ovu_magic;	/* magic number */ovu_magic548,15062
+		U_char  ovu_index;	/* bucket # */ovu_index549,15103
+		U_short ovu_size;	/* actual block size */ovu_size551,15155
+		U_int   ovu_rmagic;	/* range magic number */ovu_rmagic552,15200
+	}       ovu;ovu554,15256
+#define	ov_magic	ov_magic555,15271
+#define	ov_index	ov_index556,15303
+#define	ov_size	ov_size557,15335
+#define	ov_rmagic	ov_rmagic558,15366
+#define	MAGIC	MAGIC561,15406
+#define RMAGIC	RMAGIC562,15460
+#define	RSLOP	RSLOP564,15531
+#define	RSLOP	RSLOP566,15569
+#define ROUNDUP	ROUNDUP570,15599
+#define	NBUCKETS NBUCKETS577,15820
+union overhead *nextf[NBUCKETS] = {0};nextf578,15864
+U_int nmalloc[NBUCKETS];nmalloc584,16016
+static	int	findbucket	__P((union overhead *, int));findbucket587,16058
+static	void	morecore	__P((int));morecore588,16111
+# define CHECK(CHECK594,16185
+# define CHECK(CHECK601,16341
+fmalloc(nbytes)fmalloc610,16513
+morecore(bucket)morecore672,18243
+ffree(cp)ffree727,19726
+fcalloc(i, j)fcalloc765,20768
+static int     realloc_srchlen = 4;	realloc_srchlen796,21694
+#undef reallocrealloc800,21767
+extern void* realloc(void*,size_t);realloc801,21783
+frealloc(cp, nbytes)frealloc804,21835
+findbucket(freep, srchlen)findbucket877,24017
+showall(v, c)showall906,24595
+
+ntport/globals.c,405
+#define WIN32_LEAN_AND_MEANWIN32_LEAN_AND_MEAN40,1724
+#undef dprintfdprintf49,1915
+dprintf(char *format, ...)dprintf51,1937
+int fork_copy_user_mem(HANDLE hproc) {fork_copy_user_mem62,2128
+#define xmalloc(xmalloc100,2947
+#define xfree(xfree101,3016
+#define XFER_BUFFER_SIZE XFER_BUFFER_SIZE102,3067
+int is_gui(char *exename) {is_gui104,3100
+int is_9x_gui(char *prog) {is_9x_gui197,5031
+
+ntport/io.c,1090
+#define WIN32_LEAN_AND_MEANWIN32_LEAN_AND_MEAN44,1774
+#define CR CR53,1950
+extern void make_err_str(unsigned int ,char *,int ) ;make_err_str56,1998
+extern void generic_handler(int);generic_handler57,2053
+int consoleread(HANDLE , unsigned char * ,int ) ;consoleread58,2088
+extern int f_isset(int,int);f_isset60,2141
+#define xmalloc(xmalloc62,2173
+#define xfree(xfree63,2242
+INPUT_RECORD girec[2048];girec65,2295
+HANDLE __h_con_alarm=0;__h_con_alarm66,2322
+HANDLE __h_con_int=0;__h_con_int67,2347
+unsigned short __nt_want_vcode;__nt_want_vcode69,2372
+static unsigned char *auxbuf;auxbuf71,2407
+static int auxsize;auxsize72,2438
+int force_read(int fd, unsigned char * buf, int howmany) {force_read78,2534
+int nt_read(int fd, unsigned char * buf, int howmany) {nt_read109,3195
+int nt_write(int fd, unsigned char * buf, int howmany) {nt_write182,4518
+int consoleread(HANDLE hInput, unsigned char * buf,int howmany) {consoleread212,5118
+int nt_creat(char *filename, int mode) {nt_creat369,8871
+int nt_open(char *filename, int perms,...) { nt_open401,9501
+
+ntport/ntb1.c,43
+unsigned long bookend1=0;bookend142,1790
+
+ntport/ntb2.c,43
+unsigned long bookend2=0;bookend242,1794
+
+ntport/ntbin.c,724
+#define WIN32_LEAN_AND_MEANWIN32_LEAN_AND_MEAN1,0
+char start_usage[] = start_usage9,155
+extern void make_err_str(unsigned int error,char *buf,int size) ;make_err_str16,393
+int bin_start (char *name, char **v, char *ops, int func) {bin_start31,651
+int bin_title (char *name, char **v, char *ops, int func) {bin_title164,3752
+int bin_cls (char *name, char **v, char *ops, int func) {bin_cls197,4428
+typedef BOOL (__stdcall *shell_ex_func)(LPSHELLEXECUTEINFO);shell_ex_func202,4584
+static HANDLE hShellDll;hShellDll204,4648
+static shell_ex_func pShellExecuteEx;pShellExecuteEx205,4674
+void init_shell_dll(void) {init_shell_dll207,4715
+void try_shell_ex(char **argv,int exitsuccess) {try_shell_ex216,4916
+
+ntport/ntport.h,10396
+#define NTPORT_HNTPORT_H46,1790
+#define WIN32_LEAN_AND_MEANWIN32_LEAN_AND_MEAN47,1808
+#define INIT_ZERO INIT_ZERO60,2079
+#define INIT_ZERO_STRUCT INIT_ZERO_STRUCT61,2101
+#define malloc malloc62,2132
+#define free free63,2156
+#define realloc realloc64,2178
+#define calloc calloc65,2204
+#define heap_alloc(heap_alloc67,2230
+#define heap_free(heap_free68,2302
+#define heap_realloc(heap_realloc69,2357
+#define HAVENOUTMPHAVENOUTMP72,2472
+#define HAVENOLIMITHAVENOLIMIT73,2492
+#define FUNCPROTOFUNCPROTO74,2513
+#  define S_ISDIR(S_ISDIR81,2681
+#  define S_ISCHR(S_ISCHR84,2811
+#  define S_ISBLK(S_ISBLK87,2941
+#  define S_ISREG(S_ISREG90,3071
+#  define S_ISFIFO(S_ISFIFO93,3202
+#  define S_ISNAM(S_ISNAM96,3334
+#  define S_ISLNK(S_ISLNK99,3464
+#  define S_ISSOCK(S_ISSOCK102,3596
+#define getpid getpid107,3729
+#define mygetpgrp(mygetpgrp108,3770
+#define tcgetpgrp tcgetpgrp109,3795
+#define tcsetpgrp(tcsetpgrp110,3834
+#define setpgid(setpgid111,3860
+#define strlen(strlen113,3886
+#define close(close115,3925
+#define execv(execv116,3955
+#define open open118,3994
+#define read(read119,4017
+#define write(write120,4059
+#define creat(creat121,4103
+#define _exit(_exit122,4141
+#define chdir(chdir124,4178
+#define fgetc(fgetc126,4210
+#define fputs(fputs127,4240
+#define putc(putc128,4278
+#define fflush(fflush129,4320
+#define fputc(fputc130,4354
+#define fprintf fprintf131,4398
+#define puts(puts132,4426
+#define putchar(putchar133,4454
+#define fclose(fclose134,4496
+#define _get_osfhandle _get_osfhandle135,4528
+#define _open_osfhandle _open_osfhandle136,4571
+#define clearerr clearerr137,4616
+#define dup2 dup2138,4646
+#define fdopen fdopen139,4669
+#define fgets fgets140,4695
+#define fileno fileno141,4720
+#define fopen fopen142,4746
+#define fread fread143,4771
+#define fseek fseek144,4796
+#define ftell ftell145,4821
+#define fwrite fwrite146,4846
+#define isatty isatty147,4872
+#define lseek lseek148,4898
+#define printf printf149,4923
+#define access access150,4949
+#define fstat(fstat151,4975
+#define stat(stat152,5014
+#define setvbuf(setvbuf153,5051
+#define setpgrp(setpgrp154,5078
+#undef stdinstdin156,5107
+#undef stdoutstdout157,5121
+#undef stderrstderr158,5136
+#define stdin stdin159,5151
+#define stdout stdout160,5184
+#define stderr stderr161,5219
+#define dup(dup163,5256
+#define sleep(sleep164,5284
+#define getwd(getwd166,5320
+#define L_SET L_SET169,5367
+#define L_XTND L_XTND170,5393
+#define L_INCR L_INCR171,5419
+#define S_IXUSR S_IXUSR172,5445
+#define S_IXGRP S_IXGRP173,5470
+#define S_IXOTH S_IXOTH174,5495
+#define NOFILE NOFILE176,5522
+#define ARG_MAX ARG_MAX177,5542
+#define MAXSIG MAXSIG178,5564
+#define NCARGS NCARGS179,5586
+#define F_OK F_OK189,5742
+#define X_OK X_OK190,5758
+#define W_OK W_OK191,5774
+#define R_OK R_OK192,5790
+#define XD_OK XD_OK193,5806
+#define IS_WINDOWS_9x(IS_WINDOWS_9x196,5858
+typedef int uid_t;uid_t197,5922
+typedef int gid_t;gid_t198,5942
+typedef int pid_t;pid_t199,5962
+typedef int mode_t;mode_t200,5982
+typedef void sigret_t;sigret_t201,6003
+typedef long rlim_t;rlim_t202,6027
+typedef unsigned char u_char;u_char203,6049
+struct timeval{timeval204,6080
+	long tv_sec;tv_sec205,6097
+	long tv_usec;tv_usec206,6112
+struct timezone{timezone208,6132
+	int tz_minuteswest;tz_minuteswest209,6150
+	int dsttime;dsttime210,6172
+struct rusage {rusage212,6191
+	 struct timeval ru_utime; /* user time used */ru_utime214,6210
+	 struct timeval ru_stime; /* system time used */ru_stime215,6259
+	 long ru_maxrss;          /* maximum resident set size */ru_maxrss216,6310
+	 long ru_ixrss;      /* integral shared memory size */ru_ixrss217,6370
+	 long ru_idrss;      /* integral unshared data size */ru_idrss218,6427
+	 long ru_isrss;      /* integral unshared stack size */ru_isrss219,6484
+	 long ru_minflt;          /* page reclaims */ru_minflt220,6542
+	 long ru_majflt;          /* page faults */ru_majflt221,6590
+	 long ru_nswap;      /* swaps */ru_nswap222,6636
+	 long ru_inblock;         /* block input operations */ru_inblock223,6671
+	 long ru_oublock;         /* block output operations */ru_oublock224,6728
+	 long ru_msgsnd;          /* messages sent */ru_msgsnd225,6786
+	 long ru_msgrcv;          /* messages received */ru_msgrcv226,6834
+	 long ru_nsignals;        /* signals received */ru_nsignals227,6886
+	 long ru_nvcsw;      /* voluntary context switches */ru_nvcsw228,6937
+	 long ru_nivcsw;          /* involuntary context switches */ru_nivcsw229,6993
+struct passwd {passwd231,7060
+	  char    *pw_name;       /* user name */pw_name232,7077
+	  char    *pw_passwd;     /* user password */pw_passwd233,7121
+	  uid_t   pw_uid;         /* user id */pw_uid234,7169
+	  gid_t   pw_gid;         /* group id */pw_gid235,7211
+	  char    *pw_gecos;      /* real name */pw_gecos236,7254
+	  char    *pw_dir;        /* home directory */pw_dir237,7298
+	  char    *pw_shell;      /* shell program */pw_shell238,7347
+struct group {group240,7401
+	  char    *gr_name;        /* group name */gr_name241,7417
+	  char    *gr_passwd;      /* group password */gr_passwd242,7463
+	  gid_t   gr_gid;          /* group id */gr_gid243,7513
+	  char    **gr_mem;        /* group members */gr_mem244,7557
+char *			ttyname(int);ttyname248,7628
+struct passwd*  getpwuid(uid_t ) ;getpwuid249,7652
+struct group *  getgrgid(gid_t ) ;getgrgid250,7688
+struct passwd*  getpwnam(char* ) ;getpwnam251,7724
+struct group*  getgrnam(char* ) ;getgrnam252,7760
+gid_t 			getuid(void) ;getuid253,7795
+gid_t 			getgid(void) ;getgid254,7820
+gid_t 			geteuid(void) ;geteuid255,7845
+gid_t 			getegid(void) ;getegid256,7871
+void			nt_free(void *);nt_free257,7897
+extern void dprintf(char *,...);dprintf260,7938
+#define DBreak(DBreak261,7972
+#define dprintf dprintf263,8011
+#define DBreak(DBreak264,8037
+#define USE(USE267,8071
+#define pipe(pipe268,8097
+void nt_init(void);nt_init271,8129
+void gethostname(char*,int);gethostname272,8150
+void set_default_path(char**);set_default_path273,8180
+int  nt_read(int, unsigned char*,int);nt_read274,8212
+int  force_read(int, unsigned char*,int);force_read275,8252
+int  tc_putc(char,FILE*);tc_putc276,8295
+int  nt_write(int, unsigned char*,int);nt_write277,8322
+int  nt_creat(char*,int);nt_creat278,8363
+int  nt_close(int);nt_close279,8390
+int  nt_open(char*,int ,...);nt_open280,8411
+char* forward_slash_get_cwd(char * ,int) ;forward_slash_get_cwd281,8442
+void  nt_execve(char *,char**,char**);nt_execve282,8486
+void  nt_exec(char *,char**);nt_exec283,8526
+int   pipe(int*);pipe284,8557
+extern void fix_path_for_child(void) ;fix_path_for_child286,8578
+extern int copy_quote_and_fix_slashes(char *,char *, int * );copy_quote_and_fix_slashes287,8618
+extern void concat_args_and_quote(char **,char **,unsigned int *, char **,concat_args_and_quote288,8681
+extern int nt_chdir(char*);nt_chdir292,8784
+extern void caseify_pwd(char *);caseify_pwd293,8813
+extern int is_pathext(char *);is_pathext294,8847
+int  nt_fgetc(FILE*);nt_fgetc297,8896
+int	 nt_dup(int);nt_dup298,8919
+int  nt_fputs(char*,FILE*);nt_fputs299,8938
+int  nt_putc(char,FILE*);nt_putc300,8967
+int  nt_fflush(FILE*);nt_fflush301,8994
+int  nt_fputc(char, FILE*);nt_fputc302,9018
+int  nt_fprintf(FILE*,char*,...);nt_fprintf303,9047
+int  nt_puts(char*);nt_puts304,9082
+int  nt_putchar(char);nt_putchar305,9104
+int  nt_fclose(FILE*);nt_fclose306,9128
+int  nt_fputs(char *, FILE*);nt_fputs307,9152
+unsigned long  __nt_get_osfhandle(int);__nt_get_osfhandle308,9183
+int __nt_open_osfhandle(long, int);__nt_open_osfhandle309,9224
+int nt_clearerr(FILE*);nt_clearerr310,9261
+int  nt_dup2(int,int );nt_dup2311,9286
+FILE* nt_fdopen(int,char*);nt_fdopen312,9311
+char *  nt_fgets(char *,int, FILE*);nt_fgets313,9340
+int nt_fileno(FILE*);nt_fileno314,9378
+FILE *nt_fopen(char *,char*);nt_fopen315,9401
+int nt_fread(void *,size_t,size_t,FILE*);nt_fread316,9432
+int nt_fwrite(void*,size_t,size_t,FILE*);nt_fwrite317,9475
+int nt_fseek(FILE*,long,int);nt_fseek318,9518
+long nt_ftell(FILE*);nt_ftell319,9549
+int  nt_isatty(int);nt_isatty320,9572
+int  nt_lseek(int,long,int);nt_lseek321,9594
+int nt_printf(char*,...);nt_printf322,9624
+int nt_access(char*,int);nt_access323,9651
+int nt_fstat(int, struct stat *) ;nt_fstat324,9678
+int nt_stat(char *, struct stat *) ;nt_stat325,9714
+extern void copy_fds(void);copy_fds326,9752
+extern void restore_fds(void);restore_fds327,9781
+extern void start_sigchild_thread(HANDLE,DWORD);start_sigchild_thread328,9813
+extern void close_copied_fds(void);close_copied_fds329,9863
+int   gettimeofday(struct timeval *, struct timezone *) ;gettimeofday335,9983
+char * getlogin(void);getlogin336,10042
+extern int fork_init(void);fork_init339,10082
+extern int fork(void);fork340,10111
+extern void *fmalloc(int);fmalloc341,10135
+extern void ffree(void *);ffree342,10163
+extern void *frealloc(void*,int);frealloc343,10191
+extern void *fcalloc(int,int);fcalloc344,10226
+int bin_start (char *name, char **argv, char *ops, int func) ;bin_start347,10275
+int bin_title (char *name, char **argv, char *ops, int func) ;bin_title348,10339
+int bin_cls (char *name, char **argv, char *ops, int func) ;bin_cls349,10403
+int bin_ps (char *name, char **argv, char *ops, int func) ;bin_ps351,10477
+int bin_shutdown(char *name, char **argv, char *ops, int func) ;bin_shutdown352,10538
+int is_gui(char*);is_gui355,10621
+int is_9x_gui(char*);is_9x_gui356,10641
+#define execve(execve358,10666
+typedef struct param *Param;Param360,10714
+char * semicolonarrgetfn (Param pm);semicolonarrgetfn361,10744
+void semicolonarrsetfn (Param pm, char *x);semicolonarrsetfn362,10782
+extern void init_shell_dll(void);init_shell_dll364,10829
+extern void try_shell_ex(char**,int);try_shell_ex365,10864
+extern void init_plister(void);init_plister367,10905
+#define STRUCT_UTMP STRUCT_UTMP376,11164
+#define getppid(getppid377,11190
+struct tms {tms379,11213
+	clock_t tms_utime;tms_utime380,11227
+	clock_t tms_stime;tms_stime381,11248
+	clock_t tms_cutime;tms_cutime382,11269
+	clock_t tms_cstime;tms_cstime383,11291
+extern int kill(int,int);kill385,11317
+extern int nice(int);nice386,11344
+
+ntport/ps.c,2362
+#define WIN32_LEAN_AND_MEANWIN32_LEAN_AND_MEAN1,0
+#define p_malloc(p_malloc8,136
+#define p_realloc(p_realloc9,206
+#define p_free(p_free10,285
+#define REGKEY_PERF REGKEY_PERF12,339
+#define REGSUBKEY_COUNTERS REGSUBKEY_COUNTERS13,427
+#define PROCESS_COUNTER PROCESS_COUNTER14,467
+#define PROCESSID_COUNTER PROCESSID_COUNTER15,506
+typedef struct _pslist {_pslist17,550
+	DWORD pid;pid18,576
+	HANDLE hwnd;hwnd19,589
+	char exename[MAX_PATH];exename20,604
+	char title[80];title21,630
+}pslist;pslist22,648
+typedef BOOL (WINAPI *walker)(HANDLE,LPPROCESSENTRY32);walker25,662
+typedef HANDLE (WINAPI *create_snapshot)(DWORD,DWORD);create_snapshot26,719
+static walker proc32First;proc32First27,775
+static walker proc32Next;proc32Next28,803
+static create_snapshot createSnapshot;createSnapshot29,830
+typedef BOOL (WINAPI *enumproc)(DWORD *,DWORD,DWORD *);enumproc31,872
+typedef BOOL (WINAPI *enummod)(HANDLE,HMODULE*,DWORD,DWORD*);enummod32,929
+typedef DWORD(WINAPI *getfilename_ex)(HANDLE,HANDLE , char*,DWORD);getfilename_ex33,992
+typedef DWORD (WINAPI *getbasename)(HANDLE,HMODULE,char*,DWORD);getbasename34,1061
+static enumproc enum_processes;enum_processes35,1127
+static enummod enum_process_modules;enum_process_modules36,1160
+static getfilename_ex getfilenameex;getfilenameex37,1198
+static getbasename GetModuleBaseNameA;GetModuleBaseNameA38,1236
+typedef DWORD (*plist_proc)(void);plist_proc41,1280
+DWORD Win95Lister(void);Win95Lister42,1316
+DWORD NTLister(void);NTLister43,1342
+plist_proc ProcessListFunc;ProcessListFunc45,1367
+pslist *processlist;processlist46,1396
+static unsigned long numprocs, g_dowindows;numprocs47,1418
+static unsigned long numprocs, g_dowindows;g_dowindows47,1418
+extern void make_err_str(unsigned int error,char *buf,int size) ;make_err_str51,1494
+BOOL CALLBACK enum_wincb(HWND hwnd,LONG nump) {enum_wincb53,1563
+DWORD Win95Lister(void) {Win95Lister71,1954
+DWORD NTLister(void) {NTLister110,2679
+DWORD NTLister_old_style( void) {NTLister_old_style157,3652
+void init_plister(void) {init_plister342,8050
+int bin_ps (char *name, char **v, char *ops, int func) {bin_ps389,9426
+static char shutdown_usage[]= {"shutdown -[r|l][f] now\n-r reboots, -l logs\shutdown_usage420,10155
+int bin_shutdown(char *name, char **v, char *ops, int func){bin_shutdown425,10427
+
+ntport/signal.c,2583
+#define WIN32_LEAN_AND_MEANWIN32_LEAN_AND_MEAN1,0
+#define SIGBAD(SIGBAD11,163
+#define fast_sigmember(fast_sigmember12,220
+int generic_handler(DWORD);generic_handler14,278
+int ctrl_handler(DWORD);ctrl_handler15,307
+typedef struct _child_list {_child_list17,335
+	DWORD dwProcessId;dwProcessId18,365
+	DWORD exitcode;exitcode19,386
+	struct _child_list *next;next20,404
+}ChildListNode;ChildListNode21,432
+Sigfunc *handlers[NSIG]={0};handlers23,451
+static unsigned long gPending[NSIG]={0};gPending24,481
+static unsigned long gBlockMask = 0;gBlockMask25,523
+static ChildListNode *clist_h=NULL; //head of listclist_h26,561
+static ChildListNode *clist_t=NULL; // tail of listclist_t27,613
+static CRITICAL_SECTION sigcritter;sigcritter29,668
+static HANDLE hmainthr;hmainthr30,705
+static HANDLE hsigsusp;hsigsusp31,730
+static int __is_suspended;__is_suspended32,755
+void nt_init_signals(void) {nt_init_signals37,860
+void suspend_main_thread(void) {suspend_main_thread61,1425
+void resume_main_thread(void) {resume_main_thread66,1567
+int sigaddset(sigset_t *set, int signo) {sigaddset71,1707
+int sigdelset(sigset_t *set, int signo) {sigdelset80,1853
+int sigismember(const sigset_t *set, int signo) {sigismember90,2006
+void deliver_pending(void) {deliver_pending99,2169
+int sigprocmask(int how, const sigset_t *set, sigset_t*oset) {sigprocmask116,2429
+int sigsuspend(const sigset_t *mask) {sigsuspend143,2917
+int sigaction(int signo, const struct sigaction *act, struct sigaction *oact) {sigaction165,3355
+void inc_pending(int signo) {inc_pending185,3747
+int ctrl_handler(DWORD event) {ctrl_handler190,3883
+int generic_handler(DWORD signo) {generic_handler195,3987
+Sigfunc *_nt_signal(int signal, Sigfunc * handler) {_nt_signal300,6365
+int waitpid(pid_t pid, int *statloc, int options) {waitpid318,6664
+HANDLE __halarm=0;__halarm343,7132
+unsigned int __alarm_set=0;__alarm_set344,7152
+void CALLBACK alarm_callback( unsigned long interval) {alarm_callback346,7183
+unsigned int alarm(unsigned int seconds) {alarm380,7973
+void add_to_child_list(DWORD dwpid,DWORD exitcode) {add_to_child_list410,8489
+void sig_child_callback(DWORD pid,DWORD exitcode) {sig_child_callback434,9069
+struct thread_args {thread_args452,9423
+	DWORD pid;pid453,9445
+	HANDLE hproc;hproc454,9458
+void sigchild_thread(struct thread_args *args) {sigchild_thread456,9478
+void start_sigchild_thread(HANDLE hproc, DWORD pid) {start_sigchild_thread465,9728
+int kill (int pid, int sig) {kill484,10087
+int nice(int niceness) {nice572,13466
+
+ntport/signal.h,2273
+#define SIGNAL_HSIGNAL_H40,1740
+#define NSIG NSIG43,1762
+#define SIGINT	SIGINT47,1839
+#define SIGBREAK SIGBREAK48,1859
+#define SIGHUP	SIGHUP49,1880
+#define	SIGTERM	SIGTERM51,1971
+#define SIGKILL	SIGKILL52,2006
+#define SIGILL	SIGILL54,2045
+#define SIGFPE	SIGFPE55,2065
+#define SIGALRM	SIGALRM56,2085
+#define SIGWINCH	SIGWINCH57,2106
+#define SIGSEGV SIGSEGV58,2127
+#define SIGSTOP SIGSTOP59,2149
+#define SIGPIPE SIGPIPE60,2170
+#define SIGCHLD SIGCHLD61,2191
+#define SIGCONT	SIGCONT62,2212
+#define SIGTSTP SIGTSTP63,2234
+#define SIGTTOU SIGTTOU64,2255
+#define SIGTTIN SIGTTIN65,2276
+#define SIGABRT SIGABRT66,2297
+#define SIGQUIT SIGQUIT68,2321
+#define SIG_DFL SIG_DFL72,2378
+#define SIG_IGN SIG_IGN73,2443
+#define SIG_SGE SIG_SGE74,2500
+#define SIG_ACK SIG_ACK75,2561
+#define SIG_ERR SIG_ERR80,2683
+#define SIG_BLOCK SIG_BLOCK83,2750
+#define SIG_UNBLOCK SIG_UNBLOCK84,2771
+#define SIG_SETMASK SIG_SETMASK85,2794
+#undef signalsignal87,2819
+#define signal signal88,2834
+typedef unsigned long sigset_t;sigset_t90,2863
+typedef void Sigfunc (int);Sigfunc91,2896
+struct sigaction {sigaction93,2927
+	Sigfunc *sa_handler;sa_handler94,2947
+	sigset_t sa_mask;sa_mask95,2970
+	int sa_flags;sa_flags96,2990
+#define sigemptyset(sigemptyset100,3014
+#define sigfillset(sigfillset101,3053
+void (* _nt_signal(int, void (*)(int)))(int);_nt_signal105,3137
+int sigaddset(sigset_t*, int);sigaddset107,3186
+int sigdelset(sigset_t*,int);sigdelset108,3218
+unsigned int alarm(unsigned int);alarm109,3249
+int sigismember(const sigset_t *set, int);sigismember111,3286
+int sigprocmask(int ,const sigset_t*,sigset_t*);sigprocmask112,3330
+int sigaction(int, const struct sigaction *, struct sigaction*);sigaction113,3380
+int sigsuspend(const sigset_t *sigmask);sigsuspend114,3446
+#define WNOHANG WNOHANG116,3490
+#define WUNTRACED WUNTRACED117,3509
+#define WIFEXITED(WIFEXITED119,3532
+#define WEXITSTATUS(WEXITSTATUS120,3556
+#define WIFSIGNALED(WIFSIGNALED124,3692
+#define WTERMSIG(WTERMSIG125,3763
+#define WCOREDUMP(WCOREDUMP126,3836
+#define WIFSTOPPED(WIFSTOPPED127,3860
+#define WSTOPSIG(WSTOPSIG128,3885
+int waitpid(pid_t, int*,int);waitpid130,3910
+int times(struct tms*);times131,3941
+
+ntport/stdio.c,3164
+#define WIN32_LEAN_AND_MEANWIN32_LEAN_AND_MEAN41,1730
+#define STDIO_CSTDIO_C48,1888
+#define __MAX_OPEN_FILES __MAX_OPEN_FILES51,1928
+#define MY_O_APPEND MY_O_APPEND53,1959
+typedef struct _myfile {_myfile56,2019
+	unsigned long  handle;handle57,2045
+	unsigned long flags;flags58,2070
+} MY_FILE;MY_FILE59,2093
+typedef unsigned long u_long;u_long61,2107
+#define INVHL INVHL62,2138
+MY_FILE __gOpenFiles[__MAX_OPEN_FILES]={0};__gOpenFiles64,2185
+MY_FILE __gOpenFilesCopy[__MAX_OPEN_FILES]={0};__gOpenFilesCopy65,2230
+MY_FILE *my_stdin=0, *my_stdout=0, *my_stderr=0;my_stdin67,2281
+MY_FILE *my_stdin=0, *my_stdout=0, *my_stderr=0;my_stdout67,2281
+MY_FILE *my_stdin=0, *my_stdout=0, *my_stderr=0;my_stderr67,2281
+void init_stdio(void) {init_stdio70,2335
+int f_isset(int fd, int flags) {f_isset88,2821
+int f_hisset(u_long fd, int flags) {f_hisset91,2901
+void restore_fds(void ) {restore_fds99,3084
+void close_copied_fds(void ) {close_copied_fds113,3575
+void copy_fds(void ) {copy_fds122,3808
+int nt_clearerr(FILE* ignore) {nt_clearerr138,4230
+FILE* nt_fdopen(int fd, char *mode) {nt_fdopen141,4278
+int nt_fileno(FILE *stream) {nt_fileno144,4357
+u_long __nt_get_osfhandle(int fd) {__nt_get_osfhandle155,4538
+int __nt_open_osfhandle(long h1, int mode) {__nt_open_osfhandle158,4622
+int nt_write2(u_long hfile,void *buf,int howmany) {nt_write2172,4916
+int nt_fflush(FILE *stream) {nt_fflush205,5618
+int nt_fputc(char c, FILE *stream) {nt_fputc210,5695
+int nt_fprintf(FILE *stream,char *format,...) {nt_fprintf222,5864
+int nt_printf(char *format,...) {nt_printf241,6204
+int nt_puts(char * str) {nt_puts258,6517
+int nt_putchar(char c) {nt_putchar268,6718
+int nt_fclose(FILE *fp) {nt_fclose271,6786
+int nt_close(int fd) {nt_close279,6945
+int nt_fgetc(FILE *instream) {nt_fgetc289,7133
+int nt_fputs(char *str, FILE*outstream) {nt_fputs299,7288
+int nt_putc(char ch, FILE*outstream) {nt_putc303,7405
+int nt_access(char *filename, int mode) {nt_access308,7517
+HANDLE nt_open2(char *filename, int perms) { nt_open2372,8855
+FILE * nt_fopen(char *file, char *perms) {nt_fopen436,10300
+int nt_seek(HANDLE h1, long offset, int how) {nt_seek480,11167
+int nt_fseek(FILE *stream,long offset, int how) {nt_fseek505,11586
+int nt_lseek(int fd,long offset, int how) {nt_lseek510,11733
+long nt_ftell(FILE* stream) {nt_ftell515,11868
+int nt_isatty(int fd) {nt_isatty521,12013
+int nt_fread(void *buffer, size_t size, size_t count,FILE*stream) {nt_fread525,12134
+int nt_fwrite(void *buffer, size_t size, size_t count,FILE*stream) {nt_fwrite546,12498
+int nt_dup(int fdin) {nt_dup576,13104
+int nt_dup2(int fdorig,int fdcopy) {nt_dup2597,13534
+char *nt_fgets(char *string,int num, FILE* stream) {nt_fgets633,14341
+int nt_pipe2(HANDLE hpipe[2]) {nt_pipe2679,15174
+int nt_pipe(int hpipe[2]) {nt_pipe689,15389
+int is_server(char *name) {is_server697,15593
+int nt_stat(char *filename, struct stat *stbuf) {nt_stat724,16012
+#undef fstatfstat740,16403
+#undef _open_osfhandle_open_osfhandle741,16417
+#undef closeclose742,16441
+int nt_fstat(int fd, struct stat *stbuf) {nt_fstat743,16455
+
+ntport/support.c,1938
+#define WIN32_LEAN_AND_MEANWIN32_LEAN_AND_MEAN39,1722
+extern void init_stdio(void);init_stdio46,1854
+extern void nt_term_init(void);nt_term_init47,1885
+extern void nt_init_signals(void);nt_init_signals48,1918
+extern void init_exceptions(void);init_exceptions49,1954
+DWORD gdwPlatform = 0;gdwPlatform51,1992
+OSVERSIONINFO gosver;gosver52,2016
+int gisWin95; // if detection failsgisWin9553,2039
+void nt_init(void) {nt_init57,2112
+void gethostname(char *buf, int len) {gethostname137,4018
+void set_default_path(char **path) {set_default_path140,4090
+int gettimeofday(struct timeval *tv, struct timezone *tz) {gettimeofday180,5035
+char *getlogin(void) {getlogin190,5228
+void make_err_str(unsigned int error,char *buf,int size) {make_err_str193,5273
+char * forward_slash_get_cwd(char * path,int size) {forward_slash_get_cwd205,5514
+static void quoteProtect(char *, char *) ;quoteProtect220,5755
+void nt_execve_wrapped(char *prog, char**args, char**envir ) {nt_execve_wrapped221,5799
+void nt_execve(char *prog, char**args, char**envir ) {nt_execve412,9907
+static void quoteProtect(char *dest, char *src) {quoteProtect425,10269
+int nt_chdir (char *path) {nt_chdir441,10636
+void caseify_pwd(char *curwd) {caseify_pwd451,10827
+unsigned char * def_ext = ".com;.exe;.cmd;.bat;";def_ext491,11476
+int is_pathext(char *extension) {is_pathext493,11529
+extern void mainCRTStartup(void *);mainCRTStartup524,12059
+extern void heap_init(void);heap_init525,12096
+void silly_entry(void *peb) {silly_entry526,12126
+void fix_path_for_child(void){fix_path_for_child553,12806
+int copy_quote_and_fix_slashes(char *source,char *target, int *hasdot ) {copy_quote_and_fix_slashes581,13453
+void concat_args_and_quote(char **args, char **cstr, unsigned int *clen,concat_args_and_quote625,14257
+static char xtractbuf[256];xtractbuf718,16352
+char * fmt_pwd_for_prompt(char *dir) {fmt_pwd_for_prompt719,16381
+
+ntport/termcap.c,1595
+#define bcopy(bcopy26,963
+#define BUFSIZE BUFSIZE41,1337
+int bufsize = 128;bufsize43,1364
+#define BUFSIZE BUFSIZE45,1391
+#define TERMCAP_FILE TERMCAP_FILE50,1453
+memory_out ()memory_out54,1513
+xmalloc (size)xmalloc61,1612
+xrealloc (ptr, size)xrealloc72,1761
+static char *term_entry;term_entry86,2092
+static char *tgetst1 ();tgetst188,2120
+find_capability (bp, cap)find_capability95,2286
+tgetnum (cap)tgetnum107,2481
+tgetflag (cap)tgetflag117,2654
+tgetstr (cap, area)tgetstr130,3040
+static char esctab[]esctab144,3475
+tgetst1 (ptr, area)tgetst1158,3879
+short ospeed;ospeed230,5182
+int tputs_baud_rate;tputs_baud_rate232,5258
+char PC;PC233,5280
+static int speeds[] =speeds238,5367
+tputs (str, nlines, outfun)tputs250,5656
+struct bufferbuffer314,6975
+    char *beg;beg316,6995
+    int size;size317,7011
+    char *ptr;ptr318,7026
+    int ateof;ateof319,7042
+    int full;full320,7058
+static int scan_file ();scan_file325,7133
+static char *gobble_line ();gobble_line326,7159
+static int compare_contin ();compare_contin327,7189
+static int name_match ();name_match328,7220
+valid_filename_p (fn)valid_filename_p332,7263
+scan_file (str, fd, bufp)scan_file515,12011
+name_match (line, name)name_match555,12821
+compare_contin (str1, str2)compare_contin571,13180
+gobble_line (fd, bufp, append_end)gobble_line612,14323
+#undef NULLNULL662,15470
+int main (int argc, char **argv)main667,15515
+tprint (char *cap)tprint691,15918
+char * termstr="ansi-pc-color:\termstr735,17212
+int tgetent (char *ptr, char *term) {tgetent745,17544
+
+ntport/termcap.h,813
+#define _TERMCAP_H _TERMCAP_H19,805
+extern int tgetent (char *buffer, const char *termtype);tgetent23,841
+extern int tgetnum (const char *name);tgetnum25,899
+extern int tgetflag (const char *name);tgetflag26,938
+extern char *tgetstr (const char *name, char **area);tgetstr27,978
+extern void tputs (const char *string, int nlines, int (*outfun) (int));tputs31,1070
+extern char *tparam (const char *ctlstring, char *buffer, int size, ...);tparam33,1144
+extern char *tgoto (const char *cstring, int hpos, int vpos);tgoto38,1254
+extern int tgetent ();tgetent42,1343
+extern int tgetnum ();tgetnum44,1367
+extern int tgetflag ();tgetflag45,1390
+extern char *tgetstr ();tgetstr46,1414
+extern void tputs ();tputs51,1478
+extern char *tparam ();tparam53,1501
+extern char *tgoto ();tgoto58,1561
+
+ntport/tparam.c,464
+#define bcopy(bcopy20,877
+memory_out ()memory_out31,1063
+xmalloc (size)xmalloc38,1162
+xrealloc (ptr, size)xrealloc49,1311
+static char *tparam1 ();tparam171,2044
+tparam (string, outstring, len, arg0, arg1, arg2, arg3)tparam75,2097
+char *BC;BC90,2404
+char *UP;UP91,2415
+static char tgoto_buf[50];tgoto_buf93,2428
+tgoto (cm, hpos, vpos)tgoto96,2466
+tparam1 (string, outstring, len, up, left, argp)tparam1109,2688
+main (argc, argv)main294,7300
+
+ntport/tparse.c,1486
+#define AL AL43,1786
+#define BL BL44,1802
+#define BT BT45,1818
+#define CD CD46,1834
+#define CE CE47,1850
+#define CL CL48,1866
+#define CR CR49,1882
+#define DC DC50,1901
+#define DL DL51,1917
+#define DO DO52,1933
+#define HO HO53,1949
+#define KB KB54,1965
+#define KD KD55,1984
+#define KH KH56,2000
+#define KF KF57,2016
+#define KR KR58,2032
+#define KU KU59,2048
+#define LE LE60,2064
+#define ND ND61,2080
+#define SE SE62,2096
+#define SF SF63,2112
+#define SO SO64,2131
+#define TA TA65,2147
+#define UE UE66,2166
+#define UP UP67,2182
+#define US US68,2198
+#define UPPER_LE UPPER_LE69,2214
+#define UPPER_RI UPPER_RI70,2236
+#define UPPER_UP UPPER_UP71,2258
+#define UPPER_DO UPPER_DO72,2280
+static char mult_buf[6];mult_buf76,2352
+static int  curr_pos;curr_pos77,2378
+static int state;state78,2401
+#define PARSING_MULT PARSING_MULT79,2420
+int move_cursor(char,int) ;move_cursor81,2446
+extern void NT_MoveToLineOrChar(int,int);NT_MoveToLineOrChar82,2475
+extern void nt_move_next_tab(void);nt_move_next_tab83,2518
+extern int nt_ClearEOL( void) ;nt_ClearEOL84,2555
+extern void NT_ClearEOD( void) ;NT_ClearEOD85,2588
+extern void NT_ClearScreen(void) ;NT_ClearScreen86,2622
+extern void nt_term_standout_on(void);nt_term_standout_on88,2660
+extern void nt_term_standout_off(void);nt_term_standout_off89,2700
+int tc_putc(char c, FILE* outstream) {tc_putc90,2741
+int move_cursor(char c,int howmany) {move_cursor172,4185
+
+ntport/zsh_nt.c,373
+char ** semicolonsplit(char *, int );semicolonsplit41,1742
+void semicolon_arrfixenv(char *, char **);semicolon_arrfixenv42,1781
+semicolonarrgetfn(Param pm)semicolonarrgetfn46,1841
+semicolonarrsetfn(Param pm, char *x)semicolonarrsetfn53,1935
+semicolonsplit(char *s, int uniq)semicolonsplit64,2193
+semicolon_arrfixenv(char *s, char **t)semicolon_arrfixenv93,2826

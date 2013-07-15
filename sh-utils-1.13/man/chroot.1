@@ -1,0 +1,28 @@
+.TH CHROOT 1L "GNU Shell Utilities" "FSF" \" -*- nroff -*-
+.SH NAME
+chroot \- run command or interactive shell with special root directory
+.SH SYNOPSIS
+.B chroot
+[\-\-help] [\-\-version]
+directory [command...]
+.SH DESCRIPTION
+This documentation is no longer being maintained and may be inaccurate
+or incomplete.  The Texinfo documentation is now the authoritative source.
+.PP
+This manual page documents the GNU version of
+.BR chroot .
+.B chroot
+runs a command with the root directory for file name translation changed to
+the specified directory.
+If no command is given,
+.B chroot
+runs an interactive shell.  The `SHELL' environment variable specifies the
+shell program; the default is /bin/sh.
+.SS OPTIONS
+.I "\-\-help"
+Print a usage message on standard output and exit successfully.
+.TP
+.I "\-\-version"
+Print version information on standard output then exit successfully.
+.SS NOTES
+On many systems only the super-user can change root directory.

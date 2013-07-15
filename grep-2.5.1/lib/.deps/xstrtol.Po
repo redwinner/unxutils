@@ -1,0 +1,24 @@
+xstrtol.o : \
+ xstrtol.c ../config.h d:/app/mingw/include/stdio.h \
+  d:/app/mingw/include/_mingw.h d:/app/mingw/include/stddef.h \
+  d:/app/mingw/lib/gcc-lib/mingw32/3.2.3/include/stddef.h \
+  d:/app/mingw/include/stdarg.h \
+  d:/app/mingw/lib/gcc-lib/mingw32/3.2.3/include/stdarg.h \
+  d:/app/mingw/include/stdlib.h d:/app/mingw/include/string.h \
+  d:/app/mingw/include/assert.h d:/app/mingw/include/ctype.h \
+  d:/app/mingw/include/errno.h d:/app/mingw/include/limits.h xstrtol.h
+xstrtol.c :
+../config.h :
+d:/app/mingw/include/stdio.h :
+d:/app/mingw/include/_mingw.h :
+d:/app/mingw/include/stddef.h :
+d:/app/mingw/lib/gcc-lib/mingw32/3.2.3/include/stddef.h :
+d:/app/mingw/include/stdarg.h :
+d:/app/mingw/lib/gcc-lib/mingw32/3.2.3/include/stdarg.h :
+d:/app/mingw/include/stdlib.h :
+d:/app/mingw/include/string.h :
+d:/app/mingw/include/assert.h :
+d:/app/mingw/include/ctype.h :
+d:/app/mingw/include/errno.h :
+d:/app/mingw/include/limits.h :
+xstrtol.h :

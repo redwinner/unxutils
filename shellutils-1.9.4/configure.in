@@ -1,0 +1,177 @@
+dnl Process this file with autoconf to produce a configure script.
+AC_INIT(src/stty.c)
+AC_CONFIG_HEADER(config.h)
+AC_SUBST(PROGS)dnl
+AC_SUBST(MAN)dnl
+
+# We want these before the checks, so the checks can modify their values.
+test -z "$CFLAGS" && CFLAGS=-g auto_cflags=1
+
+AC_PROG_CC
+
+# If we're using gcc and the user hasn't specified CFLAGS, add -O to CFLAGS.
+test -n "$GCC" && test -n "$auto_cflags" && CFLAGS="$CFLAGS -O"
+
+AC_SUBST(CFLAGS)dnl
+AC_SUBST(LDFLAGS)dnl
+
+AC_PROG_CPP
+AC_EXEEXT
+AC_GCC_TRADITIONAL
+AC_PROG_INSTALL
+AC_PROG_RANLIB
+AC_PROG_YACC
+AC_AIX
+AC_MINIX
+AC_ISC_POSIX
+AC_SCO_INTL
+AC_FUNC_CHECK(uname, PROGS="$PROGS uname" MAN="$MAN uname.1" have_uname=1)
+echo checking for shadow password routines
+AC_HEADER_EGREP(sp_pwdp, shadow.h, AC_DEFINE(HAVE_SHADOW_H))
+AC_CONST
+AC_STDC_HEADERS
+AC_HAVE_FUNCS(strerror ftime memcpy bcopy gettimeofday syslog initgroups \
+	      isascii)
+
+# This check must be performed before HAVE_SYSLOG_H can be defined.
+case "$DEFS" in
+*-DHAVE_SYSLOG*) ;;
+*)
+  # syslog is not in the default libraries.  See if it's in some other.
+  saved_LIBS="$LIBS"
+  for lib in bsd socket inet; do
+    echo checking for syslog in -l$lib
+    LIBS="$saved_LIBS -l$lib"
+    AC_HAVE_FUNCS(syslog)
+    case "$DEFS" in
+    *-DHAVE_SYSLOG*) break ;;
+    *) ;;
+    esac
+    LIBS="$saved_LIBS"
+  done
+  ;;
+esac
+
+# SCO-ODT-3.0 is reported to need -los to link programs using initgroups
+case "$DEFS" in
+*-DHAVE_INITGROUPS*) ;;
+*)
+  # initgroups is not in the default libraries.  See if it's in some other.
+  saved_LIBS="$LIBS"
+  for lib in os; do
+    echo checking for initgroups in -l$lib
+    LIBS="$saved_LIBS -l$lib"
+    AC_HAVE_FUNCS(initgroups)
+    case "$DEFS" in
+    *-DHAVE_INITGROUPS*) break ;;
+    *) ;;
+    esac
+    LIBS="$saved_LIBS"
+  done
+  ;;
+esac
+
+AC_HAVE_HEADERS(string.h fcntl.h limits.h syslog.h sys/time.h unistd.h \
+		sys/timeb.h float.h)
+AC_UID_T
+AC_GETGROUPS_T
+AC_SIZE_T
+AC_REPLACE_FUNCS(gethostname getusershell memcmp mktime stime \
+		 strcspn strstr strtol strtoul strtod)
+
+case "$LIBOBJS" in
+*memcmp*) ;;
+*)
+echo "checking if memcmp is 8-bit clean"
+AC_TEST_PROGRAM([
+main()
+{
+  char c0 = 0x40, c1 = 0x80, c2 = 0x81;
+  exit(memcmp(&c0, &c2, 1) < 0 && memcmp(&c1, &c2, 1) < 0 ? 0 : 1);
+}
+],[
+test -n "$verbose" && echo "	memcmp is 8-bit clean"
+],[
+test -n "$verbose" && echo "	memcmp is NOT 8-bit clean -- using replacement"
+LIBOBJS="$LIBOBJS memcmp.o"
+])
+  ;;
+esac
+
+AC_COMPILE_CHECK(setpriority,
+[#include <sys/time.h>
+#include <sys/resource.h>],
+[setpriority(0, 0, 0);],
+PROGS="$PROGS nice nohup" MAN="$MAN nice.1 nohup.1")
+case "$PROGS" in
+*nice*) ;;
+*)
+AC_COMPILE_CHECK(nice, , nice();, 
+AC_DEFINE(NICE_PRIORITY) PROGS="$PROGS nice nohup" MAN="$MAN nice.1 nohup.1") ;;
+esac
+
+case "$LIBOBJS" in
+*gethostname*) test -n "$have_uname" && AC_DEFINE(HAVE_UNAME)
+;;
+esac
+
+AC_COMPILE_CHECK(ut_host in struct utmp,
+[#include <sys/types.h>
+#include <utmp.h>], [struct utmp ut; ut.ut_host;],
+AC_DEFINE(HAVE_UT_HOST))
+
+case "$DEFS" in
+*HAVE_UT_HOST*) ;;
+*) AC_COMPILE_CHECK(ut_host in struct utmpx,
+[#include <sys/types.h>
+#include <utmpx.h>], [struct utmpx ut; ut.ut_host;],
+AC_DEFINE(HAVE_UTMPX_H)
+AC_DEFINE(HAVE_UT_HOST)) ;;
+esac
+
+AC_COMPILE_CHECK(POSIX termios,
+[#include <sys/types.h>
+#include <unistd.h>
+#include <termios.h>],
+[/* SunOS 4.0.3 has termios.h but not the library calls.  */
+tcgetattr(0, 0);], have_termios=1)
+if test -n "$have_termios"; then
+PROGS="$PROGS stty" MAN="$MAN stty.1"
+AC_COMPILE_CHECK(c_line in struct termios,
+[#include <sys/types.h>
+#include <termios.h>], [struct termios t; t.c_line;], AC_DEFINE(HAVE_C_LINE))
+AC_COMPILE_CHECK(TIOCGWINSZ in termios.h,
+[#include <sys/types.h>
+#include <termios.h>], [int x = TIOCGWINSZ;], have_tiocgwinsz=1)
+fi
+
+if test -z "$have_tiocgwinsz"; then
+AC_COMPILE_CHECK(TIOCGWINSZ in sys/ioctl.h,
+[#include <sys/types.h>
+#include <sys/ioctl.h>], [int x = TIOCGWINSZ;],
+AC_DEFINE(GWINSZ_IN_SYS_IOCTL))
+AC_HEADER_CHECK([sys/ptem.h], have_ptem=1
+AC_DEFINE(WINSIZE_IN_PTEM))
+fi
+
+AC_VPRINTF
+AC_ALLOCA
+AC_STRUCT_TM
+AC_TIME_WITH_SYS_TIME
+AC_TIMEZONE
+AC_XENIX_DIR
+AC_IRIX_SUN
+AC_STAT_MACROS_BROKEN
+
+# Needed on SysV for shadow passwords.
+AC_HAVE_LIBRARY(sec)
+
+# Needed on Linux for shadow passwords.
+AC_HAVE_LIBRARY(shadow)
+
+# SCO-ODT-3.0 is reported to need this library for crypt.  
+AC_HAVE_LIBRARY(ufc)
+
+AC_OUTPUT(Makefile lib/Makefile src/Makefile man/Makefile, [
+# Makefile uses this timestamp file to record whether config.h is up to date.
+touch stamp-config])

@@ -1,0 +1,1670 @@
+# Dutch messages for GNU fileutils.
+# Copyright (C) 1996 Free Software Foundation, Inc.
+# Erick Branderhorst <branderh@debian.org>, 1996.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fileutils 3.13\n"
+"POT-Creation-Date: 1997-01-26 00:26-0600\n"
+"PO-Revision-Date: 1996-08-02 12:45 MET DST\n"
+"Last-Translator: Erick Branderhorst <branderh@debian.org>\n"
+"Language-Team: Dutch <nl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: lib/rpmatch.c:87
+msgid "^[yY]"
+msgstr ""
+
+#: lib/rpmatch.c:90
+msgid "^[nN]"
+msgstr ""
+
+#: src/chgrp.c:117
+#, c-format
+msgid "group of %s changed to %s\n"
+msgstr "groep van %s verandert in %s\n"
+
+#: src/chgrp.c:119
+#, c-format
+msgid "group of %s retained as %s\n"
+msgstr "groep van %s `retained' als %s\n"
+
+#: src/chgrp.c:131
+msgid "can not change to null group"
+msgstr "kan niet veranderen naar nul groep"
+
+#: src/chgrp.c:140
+#, c-format
+msgid "invalid group name `%s'"
+msgstr "ongeldige groepsnaam `%s'"
+
+#: src/chgrp.c:144
+msgid "group number"
+msgstr "groepnummer"
+
+#: src/chgrp.c:147
+#, c-format
+msgid "invalid group number `%s'"
+msgstr "ongeldig groepsnummer `%s'"
+
+#: src/chgrp.c:195
+#, c-format
+msgid "you are not a member of group `%s'"
+msgstr "je bent geen lid van groep `%s'"
+
+#: src/chgrp.c:200
+#, c-format
+msgid "%s: invalid group number"
+msgstr "%s: ongeldig groepsnummer"
+
+#: src/chgrp.c:243 src/chmod.c:183 src/chmod.c:329 src/chown.c:200
+#: src/cp.c:462 src/cp.c:543 src/cp.c:699 src/cp.c:1237 src/dircolors.c:132
+#: src/du.c:576 src/install.c:273 src/ln.c:134 src/ln.c:262 src/mkdir.c:135
+#: src/mkfifo.c:129 src/mknod.c:132 src/mv.c:286 src/mv.c:363 src/mvdir.c:160
+msgid "virtual memory exhausted"
+msgstr "geen geheugen meer beschikbaar"
+
+#: src/chgrp.c:273 src/chmod.c:213 src/chown.c:230 src/cp-aux.c:31
+#: src/dd.c:1086 src/df.c:552 src/dircolors.c:102 src/du.c:215
+#: src/install.c:589 src/ln.c:312 src/ls.c:2737 src/mkdir.c:56 src/mkfifo.c:56
+#: src/mknod.c:61 src/mv.c:376 src/mvdir.c:77 src/rm.c:527 src/rmdir.c:82
+#: src/sync.c:35 src/touch.c:241
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr "Probeer `%s --help' voor meer informatie.\n"
+
+#: src/chgrp.c:277
+#, c-format
+msgid "Usage: %s [OPTION]... GROUP FILE...\n"
+msgstr "Gebruik: %s [OPTIE]... GROEP BESTAND...\n"
+
+#: src/chgrp.c:278
+#, fuzzy
+msgid ""
+"Change the group membership of each FILE to GROUP.\n"
+"\n"
+"  -c, --changes           like verbose but report only when a change is "
+"made\n"
+"  -h, --no-dereference    affect symbolic links instead of any referenced "
+"file\n"
+"                          (available only on systems with lchown system "
+"call)\n"
+"  -f, --silent, --quiet   suppress most error messages\n"
+"  -R, --recursive         change files and directories recursively\n"
+"  -v, --verbose           output a diagnostic for every file processed\n"
+"      --help              display this help and exit\n"
+"      --version           output version information and exit\n"
+msgstr ""
+"Verander de groep van elk BESTAND in GROEP.\n"
+"\n"
+"  -c, --changes           zoals --verbose maar alleen als er iets verandert\n"
+"  -h, --no-dereference    affect symbolic links instead of any referenced "
+"file\n"
+"                          (available only on systems with lchown system "
+"call)\n"
+"  -f, --silent, --quiet   onderdruk vrijwel alle foutmeldingen\n"
+"  -v, --verbose           toon informatie voor elk bestand (processed?)\n"
+"  -R, --recursive         verander bestand en directory's (recursively?)\n"
+"      --help              toon hulptekst en be\\353indig programma\n"
+"      --version           toon versie-informatie en be\\353indig programma\n"
+
+#: src/chgrp.c:290 src/chmod.c:234 src/chown.c:254 src/cp-aux.c:86
+#: src/dd.c:1121 src/df.c:576 src/dircolors.c:121 src/du.c:238
+#: src/install.c:625 src/ln.c:347 src/ls.c:2805 src/mkdir.c:70 src/mkfifo.c:68
+#: src/mknod.c:79 src/mv.c:407 src/rm.c:543 src/rmdir.c:94 src/sync.c:46
+#: src/touch.c:262
+msgid ""
+"\n"
+"Report bugs to fileutils-bugs@gnu.ai.mit.edu"
+msgstr ""
+
+#: src/chgrp.c:348 src/chmod.c:320 src/chown.c:314 src/install.c:263
+#: src/mkdir.c:123 src/mkfifo.c:118 src/mknod.c:140 src/rm.c:173
+#: src/rmdir.c:137
+msgid "too few arguments"
+msgstr "te veel argumenten"
+
+#: src/chgrp.c:355 src/chown.c:321
+msgid "--no-dereference (-h) is not supported on this system"
+msgstr "--no-dereference (-h) wordt niet ondersteund op dit systeem"
+
+#: src/chmod.c:89
+#, c-format
+msgid "mode of %s changed to %04o (%s)\n"
+msgstr "mode van %s verandert in %04o (%s)\n"
+
+#: src/chmod.c:92
+#, c-format
+msgid "mode of %s retained as %04o (%s)\n"
+msgstr "mode van %s `retained' als %04o (%s)\n"
+
+#: src/chmod.c:217
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... MODE[,MODE]... FILE...\n"
+"  or:  %s [OPTION]... OCTAL_MODE FILE...\n"
+msgstr ""
+"Gebruik: %s [OPTIE]... MODE[,MODE]... BESTAND...\n"
+"   of:   %s [OPTIE]... OCTALE_MODE BESTAND...\n"
+
+#: src/chmod.c:222
+msgid ""
+"\n"
+"  -c, --changes           like verbose but report only when a change is "
+"made\n"
+"  -f, --silent, --quiet   suppress most error messages\n"
+"  -v, --verbose           output a diagnostic for every file processed\n"
+"  -R, --recursive         change files and directories recursively\n"
+"      --help              display this help and exit\n"
+"      --version           output version information and exit\n"
+"\n"
+"Each MODE is one or more of the letters ugoa, one of the symbols +-= and\n"
+"one or more of the letters rwxXstugo.\n"
+msgstr ""
+"\n"
+"  -c, --changes           zoals --verbose maar alleen als er iets verandert\n"
+"  -f, --silent, --quiet   onderdruk vrijwel alle foutmeldingen\n"
+"  -v, --verbose           toon informatie voor elk bestand (processed?)\n"
+"  -R, --recursive         verander bestanden en directory's (recursively?)\n"
+"      --help              toon hulptekst en be\\353indig programma\n"
+"      --version           toon versie-informatie en be\\353indig programma\n"
+"\n"
+"Elke MODE is een of meer letters `ugoa', een van de symbolen `+-=' en\n"
+"een of meer letters `rwxXstugo'.\n"
+
+#: src/chmod.c:286 src/chmod.c:327 src/mkfifo.c:127 src/mknod.c:130
+msgid "invalid mode"
+msgstr "ongeldige mode"
+
+#: src/chown.c:117
+#, c-format
+msgid "owner of %s changed to "
+msgstr "eigenaar van %s verandert in "
+
+#: src/chown.c:119
+#, c-format
+msgid "owner of %s retained as "
+msgstr "eigenaar van %s `retained' als "
+
+#: src/chown.c:234
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... OWNER[.[GROUP]] FILE...\n"
+"  or:  %s [OPTION]... .[GROUP] FILE...\n"
+msgstr ""
+"Gebruik: %s [OPTIE]... EIGENAAR[.[GROEP]] BESTAND...\n"
+"   of:   %s [OPTIE]... .[GROEP] BESTAND...\n"
+
+#: src/chown.c:239
+#, fuzzy
+msgid ""
+"Change the owner and/or group of each FILE to OWNER and/or GROUP.\n"
+"\n"
+"  -c, --changes          be verbose whenever change occurs\n"
+"  -h, --no-dereference   affect symbolic links instead of any referenced "
+"file\n"
+"                         (available only on systems with lchown system "
+"call)\n"
+"  -f, --silent, --quiet  suppress most error messages\n"
+"  -R, --recursive        operate on files and directories recursively\n"
+"  -v, --verbose          explain what is being done\n"
+"      --help             display this help and exit\n"
+"      --version          output version information and exit\n"
+"\n"
+"Owner is unchanged if missing.  Group is unchanged if missing, but changed\n"
+"to login group if implied by a period.  A colon may replace the period.\n"
+msgstr ""
+"Verander de eigenaar en/of groep van elk BESTAND in EIGENAAR en/of GROEP.\n"
+"\n"
+"  -c, --changes          toon veranderingen\n"
+"  -h, --no-dereference   affect symbolic links instead of any referenced "
+"file\n"
+"                         (available only on systems with lchown system "
+"call)\n"
+"  -f, --silent, --quiet  onderdruk vrijwel alle foutmeldingen\n"
+"  -v, --verbose          toon wat er gedaan wordt\n"
+"  -R, --recursive        verander bestanden en directory's (recursively?)\n"
+"      --help             toon hulptekst en be\\353indig programm\n"
+"      --version          toon versie-informatie en be\\353indig programma\n"
+"\n"
+"Als EIGENAAR ontbreekt wordt deze niet gewijzigd.  Als GROEP ontbreekt "
+"wordt\n"
+"deze niet gewijzigd, behalve als een `.' is gegeven dan wordt GROEP de "
+"login\n"
+"groep.  Een `,' mag de `.' vervangen.\n"
+
+#: src/cp-aux.c:35 src/mv.c:380
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... SOURCE DEST\n"
+"  or:  %s [OPTION]... SOURCE... DIRECTORY\n"
+msgstr ""
+"Gebruik: %s [OPTIE]... BRON BESTEMMING\n"
+"   of:   %s [OPTIE]... BRON... DIRECTORY\n"
+
+#: src/cp-aux.c:40
+#, fuzzy
+msgid ""
+"Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.\n"
+"\n"
+"  -a, --archive                same as -dpR\n"
+"  -b, --backup                 make backup before removal\n"
+"  -d, --no-dereference         preserve links\n"
+"  -f, --force                  remove existing destinations, never prompt\n"
+"  -i, --interactive            prompt before overwrite\n"
+"  -l, --link                   link files instead of copying\n"
+"  -p, --preserve               preserve file attributes if possible\n"
+"  -P, --parents                append source path to DIRECTORY\n"
+"  -r                           copy recursively, non-directories as files\n"
+"      --sparse=WHEN            control creation of sparse files\n"
+"  -R, --recursive              copy directories recursively\n"
+"  -s, --symbolic-link          make symbolic links instead of copying\n"
+"  -S, --suffix=SUFFIX          override the usual backup suffix\n"
+"  -u, --update                 copy only when the SOURCE file is newer\n"
+"                                 than the destination file or when the\n"
+"                                 destination file is missing\n"
+"  -v, --verbose                explain what is being done\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"  -x, --one-file-system        stay on this file system\n"
+"      --help                   display this help and exit\n"
+"      --version                output version information and exit\n"
+"\n"
+"By default, sparse SOURCE files are detected by a crude heuristic and the\n"
+"corresponding DEST file is made sparse as well.  That is the behavior\n"
+"selected by --sparse=auto.  Specify --sparse=always to create a sparse DEST\n"
+"file whenever the SOURCE file contains a long enough sequence of zero "
+"bytes.\n"
+"Use --sparse=never to inhibit creation of sparse files.\n"
+"\n"
+msgstr ""
+"Kopieer BRON naar BESTEMMING, of (meerdere) BRON(nen) naar DIRECTORY.\n"
+"\n"
+"  -a, --archive                zelfde als -dpR\n"
+"  -b, --backup                 maak reservekopie voordat verwijderd wordt\n"
+"  -d, --no-dereference         behoud verwijzingen\n"
+"  -f, --force                  verwijder bestaande bestemmingen, `prompt' "
+"nooit\n"
+"  -i, --interactive            prompt voordat overschreven wordt\n"
+"  -l, --link                   maak verwijzingen naar bestanden in plaats "
+"van\n"
+"                               kopieen\n"
+"  -p, --preserve               behoud bestandsattributen indien mogelijk\n"
+"  -r                           kopieer recursief, geen directories als \n"
+"                               bestanden\n"
+"      --sparse=WHEN            control creation of sparse files\n"
+"  -s, --symbolic-link          maak symbolische verwijzingen in plaats van\n"
+"                               kopieen\n"
+"  -u, --update                 kopieer alleen oudere of zeer nieuwe "
+"bestanden\n"
+"  -v, --verbose                toon wat gedaan wordt\n"
+"  -x, --one-file-system        blijf op dit bestandssysteem\n"
+"  -P, --parents                append source path to DIRECTORY\n"
+"  -R, --recursive              kopieer directories recursief\n"
+"  -S, --suffix=SUFFIX          overschrijf het gebruikelijke backup "
+"toevoegsel\n"
+"  -V, --version-control=WORD   overschrijf de gebruikelijk versie kontrolle\n"
+"      --help                   toon hulp-tekst en be\\353indig programma\n"
+"      --version                toon versie-informatie en be\\353indig "
+"programma\n"
+"\n"
+"By default, sparse SOURCE files are detected by a crude heuristic and the\n"
+"corresponding DEST file is made sparse as well.  That is the behavior\n"
+"selected by --sparse=auto.  Specify --sparse=always to create a sparse DEST\n"
+"file whenever the SOURCE file contains a long enough sequence of zero "
+"bytes.\n"
+"Use --sparse=never to inhibit creation of sparse files.\n"
+"\n"
+"Het backup achtervoegsel is ~, tenzij gegeven door SIMPLE_BACKUP_SUFFIX.  \n"
+"De versiekontrole mag gegeven zijn door VERSION_CONTROL, waarden zijn:\n"
+"\n"
+"  t, numbered     maak genummerde backups\n"
+"  nil, existing   nummer als genummerde backups bestaan, ander `simple'\n"
+"  never, simple   maak altijd `simple backups'  \n"
+
+#: src/cp-aux.c:72 src/install.c:617 src/ln.c:339 src/mv.c:399
+msgid ""
+"The backup suffix is ~, unless set with SIMPLE_BACKUP_SUFFIX.  The\n"
+"version control may be set with VERSION_CONTROL, values are:\n"
+"\n"
+"  t, numbered     make numbered backups\n"
+"  nil, existing   numbered if numbered backups exist, simple otherwise\n"
+"  never, simple   always make simple backups\n"
+msgstr ""
+"Het reserve-kopie-achtervoegsel is ~, tenzij ingesteld met\n"
+"SIMPLE_BACKUP_SUFFIX.  De versie controlle mag worden ingesteld met\n"
+"VERSION_CONTROL, mogelijke waarden zijn:\n"
+"\n"
+"  t, numbered     maak genummerde reserve-kopiekn\n"
+"  nil, existing   maak genummerde reserve-kopiekn als er reeds genummerde \n"
+"                  reserve-kopiekn bestaan, anders simpel\n"
+"  never, simple   maak altijd simpele reserve-kopiekn\n"
+
+#: src/cp-aux.c:80
+msgid ""
+"\n"
+"As a special case, cp makes a backup of SOURCE when the force and backup\n"
+"options are given and SOURCE and DEST are the same name for an existing,\n"
+"regular file.\n"
+msgstr ""
+"\n"
+"Als een speciaal geval, kan cp een reserve-kopie maken van BRON als de\n"
+"opties `force' en `backup' gegeven zijn en BRON en BESTEMMING dezelfde\n"
+"zijn voor een bestaand gewoon bestand.\n"
+
+#: src/cp.c:268
+msgid "sparse type"
+msgstr "sparse type (FIXME)"
+
+#: src/cp.c:326 src/ln.c:404
+msgid "symbolic links are not supported on this system"
+msgstr "symbolische verwijzingen worden niet ondersteund op dit systeem"
+
+#: src/cp.c:366
+msgid "cannot make both hard and symbolic links"
+msgstr "kan geen absolute en symbolische verwijzingen maken"
+
+#: src/cp.c:406 src/mv.c:481
+msgid "missing file arguments"
+msgstr "ontbrekende bestandsargumenten"
+
+#: src/cp.c:411
+msgid "missing destination file"
+msgstr "ontbrekend bestemmingsbestand"
+
+#: src/cp.c:518
+msgid "when preserving paths, last argument must be a directory"
+msgstr "bij `preserving' paden, moet het laatste argument een directory zijn"
+
+#: src/cp.c:579
+#, fuzzy, c-format
+msgid "copying multiple files, but last argument (%s) is not a directory"
+msgstr ""
+"bij kopieeren meerdere bestanden, moet het laatste argument een directory "
+"zijn"
+
+#: src/cp.c:633
+#, c-format
+msgid "%s: omitting directory"
+msgstr "%s: directory weggelaten"
+
+#: src/cp.c:658 src/install.c:391 src/ln.c:213 src/mv.c:252
+#, c-format
+msgid "`%s' and `%s' are the same file"
+msgstr "`%s' en `%s' zijn het zelfde bestand"
+
+#: src/cp.c:668
+#, c-format
+msgid "%s: cannot overwrite directory with non-directory"
+msgstr "%s: kan directory niet overschrijven door een niet-directory (??)"
+
+#: src/cp.c:682
+#, c-format
+msgid "%s: overwrite `%s', overriding mode %04o? "
+msgstr "%s: overschrijven `%s', overschrijven mode %04o? "
+
+#: src/cp.c:688
+#, c-format
+msgid "%s: overwrite `%s'? "
+msgstr "%s: overschrijven `%s'? "
+
+#: src/cp.c:708
+#, c-format
+msgid "backing up `%s' would destroy source;  `%s' not copied"
+msgstr "bewaren `%s' zal bron vernietigen;  `%s' niet gekopieerd"
+
+#: src/cp.c:720 src/ln.c:270 src/mv.c:294
+#, c-format
+msgid "cannot backup `%s'"
+msgstr "kan `%s' niet bewaren"
+
+#: src/cp.c:748
+#, c-format
+msgid "cannot remove old link to `%s'"
+msgstr "kan oude verwijzing naar `%s' niet verwijderen"
+
+#: src/cp.c:788
+#, c-format
+msgid "%s: cannot copy cyclic symbolic link"
+msgstr "%s: kan cyclische symbolische verwijzing niet kopieren"
+
+#: src/cp.c:806
+#, c-format
+msgid "cannot create directory `%s'"
+msgstr "kan directory `%s' niet aanmaken"
+
+#: src/cp.c:844
+#, c-format
+msgid "%s: can make relative symbolic links only in current directory"
+msgstr ""
+"%s: kan relatieve symbolische verwijzingen alleen maken in huidige directory"
+
+#: src/cp.c:854
+#, c-format
+msgid "cannot create link `%s'"
+msgstr "kan verwijzing `%s' niet aanmaken"
+
+#: src/cp.c:875
+#, c-format
+msgid "cannot create fifo `%s'"
+msgstr "kan `fifo' `%s' niet aanmaken"
+
+#: src/cp.c:889
+#, c-format
+msgid "cannot create special file `%s'"
+msgstr "kan speciaal bestand `%s' niet aanmaken"
+
+#: src/cp.c:904
+#, c-format
+msgid "cannot read symbolic link `%s'"
+msgstr "kan symbolische verwijzing `%s' niet lezen"
+
+#: src/cp.c:911
+#, c-format
+msgid "cannot create symbolic link `%s'"
+msgstr "kan symbolische verwijzing `%s' niet aanmaken"
+
+#: src/cp.c:954
+#, c-format
+msgid "%s: unknown file type"
+msgstr "%s: onbekend bestandstype"
+
+#: src/cp.c:1007 src/ln.c:303 src/mv.c:339
+#, c-format
+msgid "cannot un-backup `%s'"
+msgstr "kan `%s' niet terugzetten"
+
+#: src/cp.c:1084 src/mkdir.c:148
+#, c-format
+msgid "cannot make directory `%s'"
+msgstr "kan directory `%s' niet aanmaken"
+
+#: src/cp.c:1095 src/cp.c:1116
+#, c-format
+msgid "`%s' exists but is not a directory"
+msgstr "`%s' bestaat maar is geen directory"
+
+#: src/cp.c:1300
+#, c-format
+msgid "cannot create regular file `%s'"
+msgstr "kan gewoon bestand `%s' niet aanmaken"
+
+#: src/dircolors.c:106
+#, c-format
+msgid "Usage: %s [OPTION]... [FILE]\n"
+msgstr "Gebruik: %s [OPTIE]... [BESTAND]\n"
+
+#: src/dircolors.c:107
+#, fuzzy
+msgid ""
+"Output commands to set the LS_COLORS environment variable.\n"
+"\n"
+"Determine format of output:\n"
+"  -b, --sh, --bourne-shell    output Bourne shell code to set LS_COLORS\n"
+"  -c, --csh, --c-shell        output C shell code to set LS_COLORS\n"
+"  -p, --print-database        output defaults\n"
+"      --help                  display this help and exit\n"
+"      --version               output version information and exit\n"
+"\n"
+"If FILE is specified, read it to determine which colors to use for which\n"
+"file types and extensions.  Otherwise, a precompiled database is used.\n"
+"For details on the format of these files, run `dircolors --print-database'.\n"
+msgstr ""
+"Uitvoer commando's voor instellen van de LS_COLOR omgevings variabele.\n"
+"\n"
+"Bepaal format van de uitvoer:\n"
+"  -b, --sh, --bourne-shell    toon Bourne shell code voor instellen "
+"LS_COLOR\n"
+"  -c, --csh, --c-shell        toon C shell code voor instellen LS_COLOR\n"
+"  -p, --print-data-base       toon standaard-instellingen\n"
+"  -h, --help                  toon hulp-tekst en beëindig programma\n"
+"      --version               toon versie-informatie en beëindig programma\n"
+
+#: src/dircolors.c:363
+#, c-format
+msgid "%s:%lu: unrecognized keyword `%s'"
+msgstr "%s:%lu: onbekend sleutelwoord `%s'"
+
+#: src/dircolors.c:455
+msgid ""
+"the options to output dircolors' internal database and\n"
+"to select a shell syntax are mutually exclusive"
+msgstr ""
+"de opties voor het tonen van dircolors' interne database en het\n"
+"selecteren van een shell syntax kunnen niet tegelijk gebruikt worden"
+
+#: src/dircolors.c:463
+msgid ""
+"no FILE arguments may be used with the option to output\n"
+"dircolors' internal database"
+msgstr ""
+"BESTAND argumenten mogen niet gebruikt worden tezamen met een optie\n"
+"voor het tonen van dircolors' interne database"
+
+#: src/dircolors.c:470 src/mknod.c:142
+msgid "too many arguments"
+msgstr "te veel argumenten"
+
+#: src/dircolors.c:492
+msgid "no SHELL environment variable, and no shell type option given"
+msgstr "Geen SHELL variabele en geen mode optie gespecificeerd"
+
+#: src/dircolors.c:526 src/ls.c:747
+msgid "write error"
+msgstr "fout bij schrijven"
+
+#: src/dd.c:358 src/dd.c:362 src/dircolors.c:529
+msgid "standard input"
+msgstr "standaardinvoer"
+
+#: src/dd.c:361
+#, c-format
+msgid "%s is closed"
+msgstr "%s is gesloten"
+
+#: src/dd.c:363 src/dd.c:383
+msgid "standard output"
+msgstr "standaarduitvoer"
+
+#: src/dd.c:832
+#, c-format
+msgid "unrecognized option `%s'"
+msgstr "onbekende optie `%s'"
+
+#: src/dd.c:847
+#, c-format
+msgid "invalid number `%s'"
+msgstr "ongeldig nummer `%s'"
+
+#: src/dd.c:871
+#, c-format
+msgid "unrecognized option `%s=%s'"
+msgstr "onbekende optie `%s=%s'"
+
+#: src/dd.c:957
+#, c-format
+msgid "%s: invalid conversion"
+msgstr "%s: ongeldige conversie"
+
+#: src/dd.c:977
+msgid ""
+"only one conv in {ascii,ebcdic,ibm}, {lcase,ucase}, {block,unblock}, "
+"{unblock,sync}"
+msgstr ""
+"slechts een conversie in {ascii,ebcdic,ibm}, {lcase,ucase}, \n"
+"{block,unblock}, {unblock,sync}"
+
+#: src/dd.c:1039
+#, c-format
+msgid "%u+%u records in\n"
+msgstr "%u+%u records in\n"
+
+#: src/dd.c:1040
+#, c-format
+msgid "%u+%u records out\n"
+msgstr "%u+%u records uit\n"
+
+#: src/dd.c:1044
+msgid "truncated record"
+msgstr "afgebroken record"
+
+#: src/dd.c:1045
+msgid "truncated records"
+msgstr "afgebroken records"
+
+#: src/dd.c:1090
+#, c-format
+msgid "Usage: %s [OPTION]...\n"
+msgstr "Gebruik: %s [OPTIE]...\n"
+
+#: src/dd.c:1091
+#, fuzzy
+msgid ""
+"Copy a file, converting and formatting according to the options.\n"
+"\n"
+"  bs=BYTES        force ibs=BYTES and obs=BYTES\n"
+"  cbs=BYTES       convert BYTES bytes at a time\n"
+"  conv=KEYWORDS   convert the file as per the comma separated keyword list\n"
+"  count=BLOCKS    copy only BLOCKS input blocks\n"
+"  ibs=BYTES       read BYTES bytes at a time\n"
+"  if=FILE         read from FILE instead of stdin\n"
+"  obs=BYTES       write BYTES bytes at a time\n"
+"  of=FILE         write to FILE instead of stdout, don't truncate file\n"
+"  seek=BLOCKS     skip BLOCKS obs-sized blocks at start of output\n"
+"  skip=BLOCKS     skip BLOCKS ibs-sized blocks at start of input\n"
+"      --help      display this help and exit\n"
+"      --version   output version information and exit\n"
+"\n"
+"BYTES may be suffixed: by xM for multiplication by M, by c for x1,\n"
+"by w for x2, by b for x512, by k for x1024.  Each KEYWORD may be:\n"
+"\n"
+"  ascii     from EBCDIC to ASCII\n"
+"  ebcdic    from ASCII to EBCDIC\n"
+"  ibm       from ASCII to alternated EBCDIC\n"
+"  block     pad newline-terminated records with spaces to cbs-size\n"
+"  unblock   replace trailing spaces in cbs-size records with newline\n"
+"  lcase     change upper case to lower case\n"
+"  ucase     change lower case to upper case\n"
+"  swab      swap every pair of input bytes\n"
+"  noerror   continue after read errors\n"
+"  sync      pad every input block with NULs to ibs-size\n"
+msgstr ""
+"Copy a file, converting and formatting according to the options.\n"
+"\n"
+"  bs=BYTES        force ibs=BYTES and obs=BYTES\n"
+"  cbs=BYTES       convert BYTES bytes at a time\n"
+"  conv=KEYWORDS   convert the file as per the comma separated keyword list\n"
+"  count=BLOCKS    copy only BLOCKS input blocks\n"
+"  ibs=BYTES       read BYTES bytes at a time\n"
+"  if=FILE         read from FILE instead of stdin\n"
+"  obs=BYTES       write BYTES bytes at a time\n"
+"  of=FILE         write to FILE instead of stdout, don't truncate file\n"
+"  seek=BLOCKS     skip BLOCKS obs-sized blocks at start of output\n"
+"  skip=BLOCKS     skip BLOCKS ibs-sized blocks at start of input\n"
+"      --help      display this help and exit\n"
+"      --version   output version information and exit\n"
+"\n"
+"BYTES may be suffixed: by xM for multiplication by M, by c for x1,\n"
+"by w for x2, by b for x512, by k for x1024.  Each KEYWORD may be:\n"
+"\n"
+"  ascii     from EBCDIC to ASCII\n"
+"  ebcdic    from ASCII to EBCDIC\n"
+"  ibm       from ASCII to alternated EBCDIC\n"
+"  block     pad newline-terminated records with spaces to cbs-size \n"
+"  unblock   replace trailing spaces in cbs-size records with newline\n"
+"  lcase     change upper case to lower case\n"
+"  ucase     change lower case to upper case\n"
+"  swab      swap every pair of input bytes\n"
+"  noerror   continue after read errors\n"
+"  sync      pad every input block with NULs to ibs-size\n"
+
+#: src/df.c:556 src/du.c:219 src/ls.c:2741
+#, c-format
+msgid "Usage: %s [OPTION]... [FILE]...\n"
+msgstr "Gebruik: %s [OPTIE]... [BESTAND]...\n"
+
+#: src/df.c:557
+#, fuzzy
+msgid ""
+"Show information about the filesystem on which each FILE resides,\n"
+"or all filesystems by default.\n"
+"\n"
+"  -a, --all             include filesystems having 0 blocks\n"
+"  -h, --human-readable  print sizes in human readable format (e.g., 1K 234M "
+"2G)\n"
+"  -i, --inodes          list inode information instead of block usage\n"
+"  -k, --kilobytes       use 1024-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -m, --megabytes       use 1024K-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"      --no-sync         do not invoke sync before getting usage info "
+"(default)\n"
+"  -P, --portability     use the POSIX output format\n"
+"      --sync            invoke sync before getting usage info\n"
+"  -t, --type=TYPE       limit listing to filesystems of type TYPE\n"
+"  -T, --print-type      print filesystem type\n"
+"  -x, --exclude-type=TYPE   limit listing to filesystems not of type TYPE\n"
+"  -v                    (ignored)\n"
+"      --help            display this help and exit\n"
+"      --version         output version information and exit\n"
+msgstr ""
+"Toon informatie over het bestandssyteem waar BESTAND staat. Standaard wordt\n"
+"informatie over alle bestandssystemen getoond.\n"
+"\n"
+"  -a, --all             includeer bestandssystemen met 0 blokken\n"
+"  -h, --human-readable  toon groottes op leesbare wijze (vb. 1K 234M 2G)\n"
+"  -i, --inodes          toon `inode' informatie in plaats van blokgebruik\n"
+"  -k, --kilobytes       1024-byte blokken, niet 512 ondanks POSIXLY_CORRECT\n"
+"  -m, --megabytes       1024-byte blokken, niet 512 ondanks POSIXLY_CORRECT\n"
+"      --no-sync         do not invoke sync before getting usage info "
+"(default)\n"
+"      --sync            invoke sync before getting usage info\n"
+"  -t, --type=TYPE       limit listing to filesystems of type TYPE\n"
+"  -x, --exclude-type=TYPE   limit listing to filesystems not of type TYPE\n"
+"  -v                    (ignored)\n"
+"  -P, --portability     gebruik POSIX uitvoer formaat\n"
+"  -T, --print-type      toon bestandssysteem type\n"
+"      --help            toon hulp-tekst en be\\353indig programma\n"
+"      --version         toon hulp-tekst en be\\353indig programma\n"
+
+#: src/df.c:681
+msgid ""
+"the option for counting 1MB blocks may not be used\n"
+"with the portable output format"
+msgstr ""
+"de optie om 1MB blokken te tellen mag niet gebruikt \n"
+"worden bij het portabel uitvoer formaat"
+
+#: src/df.c:686
+msgid ""
+"the option for printing with adaptive units may not be used\n"
+"with the portable output format"
+msgstr ""
+"de optie voor het tonen van aangepaste eenheden mag niet gebruikt\n"
+"worden samen met het portabel uitvoer formaat"
+
+#: src/df.c:701
+#, c-format
+msgid "file system type `%s' both selected and excluded"
+msgstr "bestandssysteem type `%s' beide geselecteerd en geexcludeerd"
+
+#: src/df.c:746
+msgid "cannot read table of mounted filesystems"
+msgstr "kan tabel van `gemounte' bestandssystemen niet lezen"
+
+#: src/du.c:220
+#, fuzzy
+msgid ""
+"Summarize disk usage of each FILE, recursively for directories.\n"
+"\n"
+"  -a, --all             write counts for all files, not just directories\n"
+"  -b, --bytes           print size in bytes\n"
+"  -c, --total           produce a grand total\n"
+"  -D, --dereference-args  dereference PATHs when symbolic link\n"
+"  -h, --human-readable  print sizes in human readable format (e.g., 1K 234M "
+"2G)\n"
+"  -k, --kilobytes       use 1024-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -l, --count-links     count sizes many times if hard linked\n"
+"  -L, --dereference     dereference all symbolic links\n"
+"  -m, --megabytes       use 1024K-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -S, --separate-dirs   do not include size of subdirectories\n"
+"  -s, --summarize       display only a total for each argument\n"
+"  -x, --one-file-system  skip directories on different filesystems\n"
+"      --help            display this help and exit\n"
+"      --version         output version information and exit\n"
+msgstr ""
+"Vat schijf gebruik samen van elk BESTAND, recursief voor directories.\n"
+"\n"
+"  -a, --all             toon aantallen voor alle bestanden, niet alleen\n"
+"                        voor directories\n"
+"  -b, --bytes           toon grootte in bytes\n"
+"  -c, --total           produceer een `grand totale'\n"
+"  -h, --human-readable  toon groottes op leesbare wijze (vb. 1K 234M 2G)\n"
+"  -k, --kilobytes       1024-byte blokken, niet 512 ondanks POSIXLY_CORRECT\n"
+"  -l, --count-links     count sizes many times if hard linked\n"
+"  -m, --megabytes       1024-byte blokken, niet 512 ondanks POSIXLY_CORRECT\n"
+"  -s, --summarize       toon slecht een totaal voor elk argument\n"
+"  -x, --one-file-system  sla directories over op andere bestandssystemen\n"
+"  -D, --dereference-args  dereference PATHs when symbolic link\n"
+"  -L, --dereference     dereference all symbolic links\n"
+"  -S, --separate-dirs   toon niet de grootte van subdirectories\n"
+"      --help            toon hulp-tekst en beëindig programma\n"
+"      --version         toon versie-informatie en beëindig programma\n"
+
+#: src/du.c:347
+msgid "cannot both summarize and show all entries"
+msgstr "sommeren en alle ingangen tonen kan niet gelijktijdig"
+
+#: src/du.c:431
+msgid "current directory"
+msgstr "huidige directory"
+
+#: src/du.c:466 src/mvdir.c:107
+msgid "starting directory"
+msgstr "beginnen directory"
+
+#: src/du.c:481
+#, c-format
+msgid "%ld\ttotal\n"
+msgstr "%ld\ttotaal\n"
+
+#: src/du.c:551
+#, c-format
+msgid "cannot change to directory %s"
+msgstr "kan niet naar directory %s veranderen"
+
+#: src/du.c:570 src/du.c:602
+#, c-format
+msgid "cannot change to `..' from directory %s"
+msgstr "kan niet naar `..' vanuit directory %s"
+
+#: src/install.c:256
+msgid "the strip option may not be used when installing a directory"
+msgstr ""
+"de strip optie mag niet worden gebruikt bij installatie van een directory"
+
+#: src/install.c:271 src/mkdir.c:133
+#, c-format
+msgid "invalid mode `%s'"
+msgstr "ongeldige mode `%s'"
+
+#: src/install.c:378
+#, fuzzy, c-format
+msgid "`%s' is a directory"
+msgstr "%s: is een directory"
+
+#: src/install.c:385
+#, c-format
+msgid "`%s' is not a regular file"
+msgstr "`%s' is geen gewoon bestand"
+
+#: src/install.c:526
+msgid "fork system call failed"
+msgstr ""
+
+#: src/install.c:530
+msgid "cannot run strip"
+msgstr "kan strip niet uitvoeren"
+
+#: src/install.c:556
+#, c-format
+msgid "invalid user `%s'"
+msgstr "ongeldige gebruiker `%s'"
+
+#: src/install.c:574
+#, c-format
+msgid "invalid group `%s'"
+msgstr "ongeldige groep `%s'"
+
+#: src/install.c:593
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... SOURCE DEST           (1st format)\n"
+"  or:  %s [OPTION]... SOURCE... DIRECTORY   (2nd format)\n"
+"  or:  %s -d [OPTION]... DIRECTORY...       (3rd format)\n"
+msgstr ""
+"Gebruik: %s [OPTIE]... BRON BESTEMMING       (1ste formaat)\n"
+"   of:   %s [OPTIE]... BRON... DIRECTORY     (2de formaat)\n"
+"   of:   %s -d [OPTIE]... DIRECTORY...       (3de formaat)\n"
+
+#: src/install.c:599
+#, fuzzy
+msgid ""
+"In first two formats, copy SOURCE to DEST or multiple SOURCE(s) to\n"
+"DIRECTORY, while setting permission modes and owner/group.  In third\n"
+"format, make all components of the given DIRECTORY(ies).\n"
+"\n"
+"  -b, --backup        make backup before removal\n"
+"  -c                  (ignored)\n"
+"  -d, --directory     create [leading] directories, mandatory for 3rd "
+"format\n"
+"  -g, --group=GROUP   set group ownership, instead of process' current "
+"group\n"
+"  -m, --mode=MODE     set permission mode (as in chmod), instead of "
+"rw-r--r--\n"
+"  -o, --owner=OWNER   set ownership (super-user only)\n"
+"  -s, --strip         strip symbol tables, only for 1st and 2nd formats\n"
+"  -S, --suffix=SUFFIX override the usual backup suffix\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"      --help          display this help and exit\n"
+"      --version       output version information and exit\n"
+"\n"
+msgstr ""
+"Bij de eerste twee methoden, kopieer BRON naar BESTEMMING of meerdere "
+"BRONNEN\n"
+"naar DIRECTORY, onderwijl de permissies mode en eigenaar/groep instellende.\n"
+"Bij de derde methode, maak alle componenten van de gegeven "
+"DIRECTORY(i\\353n).\n"
+"\n"
+"  -c                  (genegeerd)\n"
+"  -d, --directory     maak [tussenliggend] directories, verplicht bij "
+"methode 3\n"
+"  -g, --group=GROEP   stel groep in, in plaats van huidige proces groep\n"
+"  -m, --mode=MODE     stel permissie in (als `chmod'), in plaats van "
+"rw-r--r--\n"
+"  -o, --owner=EIGENAAR   stel eigenaar in (alleen voor super-gebruiker)\n"
+"  -s, --strip         verwijder symbooltabellen, alleen bij methode 1 en 2\n"
+"  -b, --backup        maak reserve-kopie voor verwijdering\n"
+"  -S, --suffix=SUFFIX   overschrijf gebruikelijk "
+"reserve-kopie-achtervoegsel\n"
+"  -V, --version-control=WORD   overschrijf de gebruikelijke "
+"versie-kontrolle\n"
+"      --help          toon hulp-tekst en be\\353indig programma\n"
+"      --version       toon versie-informatie en be\\353indig programma\n"
+"\n"
+"Het reserve-kopie-achtervoegsel is ~, tenzij anders ingesteld met\n"
+"SIMPLE_BACKUP_SUFFIX.  De versie kontrolle mag ingesteld worden met\n"
+"VERSION_CONTROL, waarden zijn:\n"
+"\n"
+"  t, numbered     maak genummerde reserve-kopien\n"
+"  nil, existing   genummerd als genummerde kopien bestaan, anders simpel\n"
+"  never, simple   maak altijde simpele reserve-kopien\n"
+
+#: src/ln.c:178
+#, c-format
+msgid "%s: hard link not allowed for directory"
+msgstr "%s: absolute verwijzingen zijn niet toegestaan voor directories"
+
+#: src/ln.c:243 src/mv.c:258
+#, c-format
+msgid "%s: cannot overwrite directory"
+msgstr "%s: kan directory niet overschrijven"
+
+#: src/ln.c:248 src/mv.c:277
+#, c-format
+msgid "%s: replace `%s'? "
+msgstr "%s: vervang `%s'? "
+
+#: src/ln.c:254
+#, c-format
+msgid "%s: File exists"
+msgstr "%s: Bestand bestaat"
+
+#: src/ln.c:279 src/mv.c:148 src/mv.c:329
+#, c-format
+msgid "cannot remove `%s'"
+msgstr "kan `%s' niet verwijderen"
+
+#: src/ln.c:290
+#, c-format
+msgid "create %s %s to %s\n"
+msgstr "maak %s(FIXME?)verwijzing %s naar %s\n"
+
+#: src/ln.c:297
+#, c-format
+msgid "cannot create %s `%s' to `%s'"
+msgstr "kan %s `%s' naar `%s' niet aanmaken"
+
+#: src/ln.c:316
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... SOURCE [DEST]\n"
+"  or:  %s [OPTION]... SOURCE... DIRECTORY\n"
+msgstr ""
+"Gebruik: %s [OPTIE]... BRON [BESTEMMING]\n"
+"   of:   %s [OPTIE]... BRON... DIRECTORY\n"
+
+#: src/ln.c:321
+#, fuzzy
+msgid ""
+"Link SOURCE to DEST (. by default), or multiple SOURCE(s) to DIRECTORY.\n"
+"Makes hard links by default, symbolic links with -s.\n"
+"\n"
+"  -b, --backup                 make backups for removed files\n"
+"  -d, -F, --directory          hard link directories (super-user only)\n"
+"  -f, --force                  remove existing destinations\n"
+"  -n, --no-dereference         treat destination that is a symlink to a\n"
+"                                 directory as if it were a normal file\n"
+"  -i, --interactive            prompt whether to remove destinations\n"
+"  -s, --symbolic               make symbolic links instead of hard links\n"
+"  -S, --suffix=SUFFIX          override the usual backup suffix\n"
+"  -v, --verbose                print name of each file before linking\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"      --help                   display this help and exit\n"
+"      --version                output version information and exit\n"
+"\n"
+msgstr ""
+"Verwijs BRON naar BESTEMMING (. is standaard), of BRON(NEN) naar DIRECTORY.\n"
+"Maak standaard absolute verwijzingen, symbolische verwijzingen met optie "
+"-s.\n"
+"\n"
+"  -b, --backup                 maak reserve-kopie voor verwijderde "
+"bestanden\n"
+"  -d, -F, --directory          absolute verwijzing directories (alleen su)\n"
+"  -f, --force                  verwijder bestaande bestemming\n"
+"  -n, --no-dereference         behandel bestemming (een symbolische "
+"verwijzing\n"
+"                               naar een directory) als een gewoon bestand\n"
+"  -i, --interactive            prompt voor het verwijderen bestemmingen\n"
+"  -s, --symbolic               maak symbolische verwijzingen in plaats van \n"
+"                               absolute verwijzingen\n"
+"  -v, --verbose                toon voor aanmaken verwijzing de "
+"bestandsnaam\n"
+"  -S, --suffix=SUFFIX          overschrijf de gebruikelijke reservekopie "
+"suffix\n"
+"  -V, --version-control=WORD   overschrijf de gebruikelijke versie "
+"kontrolle\n"
+"      --help                   toon hulp-tekst en bekindig programma\n"
+"      --version                toon versie-informatie en bekindig programma\n"
+"\n"
+"Het reserve-kopie-achtervoegsel is ~, tenzij anders ingesteld met\n"
+"SIMPLE_BACKUP_SUFFIX.  De versie kontrolle mag ingesteld worden met\n"
+"VERSION_CONTROL, waarden zijn:\n"
+"\n"
+"  t, numbered     maak genummerde reserve-kopien\n"
+"  nil, existing   genummerd als genummerde kopien bestaan, anders simpel\n"
+"  never, simple   maak altijde simpele reserve-kopien\n"
+
+#: src/ln.c:433 src/mv.c:482
+msgid "missing file argument"
+msgstr "ontbrekend bestandsargument"
+
+#: src/ln.c:444
+msgid "symbolic link"
+msgstr "symbolische verwijzing"
+
+#: src/ln.c:449
+msgid "hard link"
+msgstr "harde verwijzing"
+
+#: src/ln.c:452
+msgid "link"
+msgstr "verwijzing"
+
+#: src/ln.c:490
+msgid "when making multiple links, last argument must be a directory"
+msgstr ""
+"bij het maken van meerdere verwijzingen moet het laatste argument een\n"
+"directory zijn"
+
+#: src/ls.c:835
+#, c-format
+msgid "ignoring invalid width in environment variable COLUMNS: %s"
+msgstr "negeer ongeldige breedte in omgevings variabele COLUMNS: %s"
+
+#: src/ls.c:862
+#, c-format
+msgid "ignoring invalid tab size in environment variable TABSIZE: %s"
+msgstr "negeer ongeldige tab grootte in omgevings variabele TABSIZE: %s"
+
+#: src/ls.c:964
+#, c-format
+msgid "invalid line width: %s"
+msgstr "ongeldige regel breedte: %s"
+
+#: src/ls.c:1028
+#, c-format
+msgid "invalid tab size: %s"
+msgstr "ongeldige tab grootte: %s"
+
+#: src/ls.c:1048
+msgid "sort type"
+msgstr "sorteer type"
+
+#: src/ls.c:1058
+msgid "time type"
+msgstr "tijd type"
+
+#: src/ls.c:1068
+msgid "format type"
+msgstr "formaat type"
+
+#: src/ls.c:1080
+msgid "colorization criterion"
+msgstr "colorization voorwaarde"
+
+#: src/ls.c:1407
+#, c-format
+msgid "unrecognized prefix: %s"
+msgstr "niet herkend voorvoegsel: %s"
+
+#: src/ls.c:1429
+msgid "unparsable value for LS_COLORS environment variable"
+msgstr "unparsable waarde voor LS_COLORS omgevings variabele"
+
+#: src/ls.c:2742
+#, fuzzy
+msgid ""
+"List information about the FILEs (the current directory by default).\n"
+"Sort entries alphabetically if none of -cftuSUX nor --sort.\n"
+"\n"
+"  -a, --all                  do not hide entries starting with .\n"
+"  -A, --almost-all           do not list implied . and ..\n"
+"  -b, --escape               print octal escapes for nongraphic characters\n"
+"  -B, --ignore-backups       do not list implied entries ending with ~\n"
+"  -c                         sort by change time; with -l: show ctime\n"
+"  -C                         list entries by columns\n"
+"      --color[=WHEN]         control whether color is used to distinguish "
+"file\n"
+"                               types.  WHEN may be `never', `always', or "
+"`auto'\n"
+"  -d, --directory            list directory entries instead of contents\n"
+"  -D, --dired                generate output designed for Emacs' dired mode\n"
+"  -f                         do not sort, enable -aU, disable -lst\n"
+"  -F, --classify             append a character for typing each entry\n"
+"      --format=WORD          across -x, commas -m, horizontal -x, long -l,\n"
+"                               single-column -1, verbose -l, vertical -C\n"
+"      --full-time            list both full date and full time\n"
+msgstr ""
+"Toon informatie over BESTAND(en) (de huidige directory is standaard)\n"
+"Sorteer ingangen alphabetisch als de opties -cftuSUX of --sort ontbreken.\n"
+"\n"
+"  -A, --almost-all           toon . en .. niet\n"
+"  -a, --all                  toon ingangen beginnende met .\n"
+"  -B, --ignore-backups       toon ingangen eindigend op ~ niet\n"
+"  -b, --escape               toon octale escapes voor niet grafische "
+"karakters\n"
+"  -C                         toon ingangen als kollomen\n"
+"  -c                         sorteer volgens bestands-aanpassings-tijd;\n"
+"                             met -l: toon deze aanpassings-tijd\n"
+"(FIXME) --color[=WORD]         colorize entries according to WORD \n"
+"                             yes, no, or tty (if output is terminal)\n"
+"  -D, --dired                generate output well suited to Emacs' dired "
+"mode\n"
+"  -d, --directory            list directory entries instead of contents\n"
+"  -F, --classify             append a character for typing each entry\n"
+"  -f                         do not sort, enable -aU, disable -lst\n"
+"      --format=WORD          across -x, commas -m, horizontal -x, long -l,\n"
+"                               single-column -1, verbose -l, vertical -C\n"
+"      --full-time            list both full date and full time\n"
+
+#: src/ls.c:2762
+#, fuzzy
+msgid ""
+"  -g                         (ignored)\n"
+"  -G, --no-group             inhibit display of group information\n"
+"  -i, --inode                print index number of each file\n"
+"  -I, --ignore=PATTERN       do not list implied entries matching shell "
+"PATTERN\n"
+"  -k, --kilobytes            use 1024 blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -l                         use a long listing format\n"
+"  -L, --dereference          list entries pointed to by symbolic links\n"
+"  -m                         fill width with a comma separated list of "
+"entries\n"
+"  -n, --numeric-uid-gid      list numeric UIDs and GIDs instead of names\n"
+"  -N, --literal              print raw entry names (don't treat e.g. "
+"control\n"
+"                               characters specially)\n"
+"  -o                         use long listing format without group info\n"
+"  -p                         append a character for typing each entry\n"
+"  -q, --hide-control-chars   print ? instead of non graphic characters\n"
+"  -Q, --quote-name           enclose entry names in double quotes\n"
+"  -r, --reverse              reverse order while sorting\n"
+"  -R, --recursive            list subdirectories recursively\n"
+"  -s, --size                 print size of each file, in blocks\n"
+msgstr ""
+"(FIXME)  -G, --no-group             inhibit display of group information\n"
+"  -g                         (ignored)\n"
+"  -I, --ignore=PATTERN       do not list implied entries matching shell "
+"PATTERN\n"
+"  -i, --inode                print index number of each file\n"
+"  -k, --kilobytes            use 1024 blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -L, --dereference          list entries pointed to by symbolic links\n"
+"  -l                         use a long listing format\n"
+"  -m                         fill width with a comma separated list of "
+"entries\n"
+"  -N, --literal              print raw entry names (don't treat e.g. "
+"control\n"
+"                               characters specially)\n"
+"  -n, --numeric-uid-gid      list numeric UIDs and GIDs instead of names\n"
+"  -o                         use long listing format without group info\n"
+"  -p                         append a character for typing each entry\n"
+"  -Q, --quote-name           enclose entry names in double quotes\n"
+"  -q, --hide-control-chars   print ? instead of non graphic characters\n"
+"  -R, --recursive            list subdirectories recursively\n"
+"  -r, --reverse              reverse order while sorting\n"
+"  -S                         sort by file size\n"
+
+#: src/ls.c:2782
+#, fuzzy
+msgid ""
+"  -S                         sort by file size\n"
+"      --sort=WORD            ctime -c, extension -X, none -U, size -S,\n"
+"                             status -c, time -t, atime -u, access -u, use "
+"-u\n"
+"      --time=WORD            show time as WORD instead of modification "
+"time:\n"
+"                             atime, access, use, ctime or status\n"
+"  -t                         sort by modification time; with -l: show mtime\n"
+"  -T, --tabsize=COLS         assume tab stops at each COLS instead of 8\n"
+"  -u                         sort by last access time; with -l: show atime\n"
+"  -U                         do not sort; list entries in directory order\n"
+"  -w, --width=COLS           assume screen width instead of current value\n"
+"  -x                         list entries by lines instead of by columns\n"
+"  -X                         sort alphabetically by entry extension\n"
+"  -1                         list one file per line\n"
+"      --help                 display this help and exit\n"
+"      --version              output version information and exit\n"
+"\n"
+"By default, color is not used to distinguish types of files.  That is\n"
+"equivalent to using --color=none.  Using the --color option without the\n"
+"optional WHEN argument is equivalent to using --color=always.  With\n"
+"--color=auto, color codes are output only if standard output is connected\n"
+"to a terminal (tty).\n"
+msgstr ""
+"(FIXME)  -s, --size                 print block size of each file\n"
+"      --sort=WORD            ctime -c, extension -X, none -U, size -S,\n"
+"                               status -c, time -t\n"
+"      --time=WORD            atime -u, access -u, use -u\n"
+"  -T, --tabsize=COLS         assume tab stops at each COLS instead of 8\n"
+"  -t                         sort by modification time; with -l: show mtime\n"
+"  -U                         do not sort; list entries in directory order\n"
+"  -u                         sort by last access time; with -l: show atime\n"
+"  -w, --width=COLS           assume screen width instead of current value\n"
+"  -x                         list entries by lines instead of by columns\n"
+"  -X                         sort alphabetically by entry extension\n"
+"  -1                         list one file per line\n"
+"      --help                 display this help and exit\n"
+"      --version              output version information and exit\n"
+
+#: src/mkdir.c:60
+#, c-format
+msgid "Usage: %s [OPTION] DIRECTORY...\n"
+msgstr "Gebruik: %s [OPTIE] DIRECTORY...\n"
+
+#: src/mkdir.c:61
+#, fuzzy
+msgid ""
+"Create the DIRECTORY(ies), if they do not already exist.\n"
+"\n"
+"  -m, --mode=MODE   set permission mode (as in chmod), not rwxrwxrwx - "
+"umask\n"
+"  -p, --parents     no error if existing, make parent directories as needed\n"
+"      --verbose     print a message for each created directory\n"
+"      --help        display this help and exit\n"
+"      --version     output version information and exit\n"
+msgstr ""
+"Maak de DIRECTORY(iken), als ze nog niet bestaan.\n"
+"\n"
+"  -p, --parents     maak indien nodig tussen liggende directorikn\n"
+"  -m, --mode=MODE   stel permissie in (als met `chmod'), niet rwxrwxrwx - "
+"umask\n"
+"      --verbose     print een melding voor elke aangemaakte directory\n"
+"      --help        toon hulp-tekst en bekindig programma\n"
+"      --version     toon versie-informatie en bekindig programma\n"
+
+#. --verbose
+#: src/mkdir.c:105
+#, c-format
+msgid "created directory `%s'"
+msgstr "directory `%s' aangemaakt"
+
+#: src/mkfifo.c:60
+#, c-format
+msgid "Usage: %s [OPTION] NAME...\n"
+msgstr "Gebruik: %s [OPTIE] NAAM...\n"
+
+#: src/mkfifo.c:61
+msgid ""
+"Create named pipes (FIFOs) with the given NAMEs.\n"
+"\n"
+"  -m, --mode=MODE   set permission mode (as in chmod), not 0666 - umask\n"
+"      --help        display this help and exit\n"
+"      --version     output version information and exit\n"
+msgstr ""
+"Maak benoemde `pipes' (FIFOs) met de gegeven NAAM (namen).\n"
+"\n"
+"  -m, --mode=MODE   zet permissie mode (als in chmod), niet 0666 - umask\n"
+"      --help        toon hulp-tekst en be\\353indig programma\n"
+"      --version     toon versie-informatie en be\\353indig programma\n"
+
+#: src/mkfifo.c:91 src/mknod.c:213
+msgid "fifo files not supported"
+msgstr "fifo bestanden worden niet ondersteund"
+
+#: src/mkfifo.c:137
+#, c-format
+msgid "cannot make fifo `%s'"
+msgstr "kan fifo `%s' niet aanmaken"
+
+#: src/mknod.c:65
+#, c-format
+msgid "Usage: %s [OPTION]... NAME TYPE [MAJOR MINOR]\n"
+msgstr "Gebruik: %s [OPTIE]... NAAM TYPE [MAJOR MINOR]\n"
+
+#: src/mknod.c:66
+#, fuzzy
+msgid ""
+"Create the special file NAME of the given TYPE.\n"
+"\n"
+"  -m, --mode=MODE   set permission mode (as in chmod), not 0666 - umask\n"
+"      --help        display this help and exit\n"
+"      --version     output version information and exit\n"
+"\n"
+"MAJOR MINOR are forbidden for TYPE p, mandatory otherwise.  TYPE may be:\n"
+"\n"
+"  b      create a block (buffered) special file\n"
+"  c, u   create a character (unbuffered) special file\n"
+"  p      create a FIFO\n"
+msgstr ""
+"Maak het speciale bestand NAAM van het gegeven TYPE.\n"
+"\n"
+"  -m, --mode=MODE   zet permissie (als met `chmod'), niet 0666 - umask\n"
+"      --help        toon hulp-tekst en be\\353indig programma\n"
+"      --version     toon versie-informatie en be\\353indig programma\n"
+"\n"
+"MAJOR MINOR zijn niet toegestaan voor TYPE p, anders zijn ze verplicht.\n"
+"TYPE mag het volgende zijn:\n"
+"\n"
+"  b      maak een speciaal (gebufferd) blok-bestand\n"
+"  c, u   maak een speciaal (niet gebufferde) karakter-bestand\n"
+"  p      maak een FIFO (pijp)\n"
+
+#: src/mknod.c:144
+msgid "wrong number of arguments"
+msgstr "onjuis aantal argumenten"
+
+#: src/mknod.c:156
+msgid "block special files not supported"
+msgstr "speciale blok bestanden worden niet ondersteund"
+
+#: src/mknod.c:160
+msgid ""
+"when creating block special files, major and minor device\n"
+"numbers must be specified"
+msgstr ""
+"bij aanmaken speciale blok bestanden, moeten major en minor apparaat "
+"nummers\n"
+"moeten gespecificeerd worden"
+
+#: src/mknod.c:168 src/mknod.c:197
+#, c-format
+msgid "invalid major device number `%s'"
+msgstr "ongeldig major device nummer `%s'"
+
+#: src/mknod.c:172 src/mknod.c:201
+#, c-format
+msgid "invalid minor device number `%s'"
+msgstr "ongeldig minor device nummer `%s'"
+
+#: src/mknod.c:185
+msgid "character special files not supported"
+msgstr "character special bestanden worden niet ondersteund"
+
+#: src/mknod.c:189
+msgid ""
+"when creating character special files, major and minor device\n"
+"numbers must be specified"
+msgstr ""
+"bij aanmaken speciale karakter-bestanden, moeten major en minor apparaat\n"
+"nummers worden gespecificeerd"
+
+#: src/mknod.c:217
+msgid "major and minor device numbers may not be specified for fifo files"
+msgstr ""
+"major en minor apparaat nummers zijn niet toegestaan bij fifo bestanden"
+
+#: src/mv.c:141
+#, c-format
+msgid "cannot move `%s' across filesystems: Not a regular file"
+msgstr "kan `%s' niet verplaatsen via bestandssyteem: Geen gewoon bestand"
+
+#: src/mv.c:269
+#, c-format
+msgid "%s: replace `%s', overriding mode %04o? "
+msgstr "%s: vervang `%s', overschrijven mode %04o? "
+
+#: src/mv.c:318
+#, c-format
+msgid "cannot move `%s' to `%s'"
+msgstr "kan `%s' niet verplaatsen naar `%s'"
+
+#: src/mv.c:385
+#, fuzzy
+msgid ""
+"Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.\n"
+"\n"
+"  -b, --backup                 make backup before removal\n"
+"  -f, --force                  remove existing destinations, never prompt\n"
+"  -i, --interactive            prompt before overwrite\n"
+"  -S, --suffix=SUFFIX          override the usual backup suffix\n"
+"  -u, --update                 move only older or brand new files\n"
+"  -v, --verbose                explain what is being done\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"      --help                   display this help and exit\n"
+"      --version                output version information and exit\n"
+"\n"
+msgstr ""
+"Hernoem BRON in BESTEMMING, of verplaats BRON(nen) naar DIRECTORY.\n"
+"\n"
+"  -b, --backup                 maak reserve-kopie alvorens verwijderen\n"
+"  -f, --force                  verwijder bestaande bestemmingen, prompt "
+"niet\n"
+"  -i, --interactive            prompt alvorens overschrijven\n"
+"  -u, --update                 verplaats alleen oude of nagelnieuwe "
+"bestanden\n"
+"  -v, --verbose                laat zien wat er gedaan wordt\n"
+"  -S, --suffix=SUFFIX          overschrijf het reserve-kopie-achtervoegsel\n"
+"  -V, --version-control=WORD   overschrijf de gebruikelijke versie "
+"kontrolle\n"
+"      --help                   toon hulp-tekst en bekindig programma\n"
+"      --version                toon versie-informatie en bekindig programma\n"
+"\n"
+"Het reserve-kopie-achtervoegsel is ~, tenzij anders ingesteld met\n"
+"SIMPLE_BACKUP_SUFFIX.  De versie kontrolle mag ingesteld worden met\n"
+"VERSION_CONTROL, waarden zijn:\n"
+"\n"
+"  t, numbered     maak genummerde reserve-kopien\n"
+"  nil, existing   genummerd als genummerde kopien bestaan, anders simpel\n"
+"  never, simple   maak altijde simpele reserve-kopien\n"
+
+#: src/mv.c:493
+msgid "when moving multiple files, last argument must be a directory"
+msgstr ""
+"bij verplaatsen meerdere bestanden moet het laatste argument een directory "
+"zijn"
+
+#: src/mvdir.c:81
+#, c-format
+msgid "Usage: %s [OPTION]... EXISTING_DIR NEW_DIR\n"
+msgstr "Gebruik: %s [OPTIE]... BESTAANDE_DIR NIEUWE_DIR\n"
+
+#: src/mvdir.c:82
+msgid ""
+"Rename EXISTING_DIR to NEW_DIR.\n"
+"\n"
+"   --help      display this help and exit\n"
+"   --version   output version information and exit\n"
+msgstr ""
+"Hernoem BESTAANDE_DIR in NIEUWE_DIR.\n"
+"\n"
+"   --help      toon hulp-tekst en be\\353indig programma\n"
+"   --version   toon versie-informatie en be\\353indig programma\n"
+
+#: src/mvdir.c:105
+msgid "cannot get current directory"
+msgstr "kan huidige directory niet krijgen"
+
+#: src/mvdir.c:165
+msgid "cannot rename `.' or `..'"
+msgstr "kan `.' of `..' niet hernoemen"
+
+#: src/mvdir.c:175
+#, c-format
+msgid "`%s' is not a directory"
+msgstr "`%s' is niet een directory"
+
+#: src/mvdir.c:177 src/mvdir.c:179
+#, c-format
+msgid "cannot write to `%s'"
+msgstr "kan niet schrijven naar `%s'"
+
+#: src/mvdir.c:198
+#, c-format
+msgid "`%s' is an ancestor of `%s'"
+msgstr "`%s' is een `ancestor' van `%s'"
+
+#: src/mvdir.c:213 src/mvdir.c:234
+#, c-format
+msgid "cannot link `%s' to `%s'"
+msgstr "kan geen verwijzing maken van `%s' naar `%s'"
+
+#: src/mvdir.c:215 src/mvdir.c:232
+#, c-format
+msgid "cannot unlink `%s'"
+msgstr "kan verwijzing naar `%s' niet ongedaan maken"
+
+#: src/rm.c:213
+msgid "cannot remove `.' or `..'"
+msgstr "kan `.' of `..' niet verwijderen"
+
+#: src/rm.c:250
+#, c-format
+msgid "%s: remove %s`%s', overriding mode %04o? "
+msgstr "%s: verwijder %s`%s', `overriding mode' %04o? "
+
+#: src/rm.c:252 src/rm.c:261
+msgid "directory "
+msgstr "directory "
+
+#: src/rm.c:260
+#, c-format
+msgid "%s: remove %s`%s'? "
+msgstr "%s: verwijder %s`%s'? "
+
+#: src/rm.c:290
+#, c-format
+msgid "%s: is a directory"
+msgstr "%s: is een directory"
+
+#: src/rm.c:298
+#, c-format
+msgid "%s: descend directory `%s', overriding mode %04o? "
+msgstr "%s: `descend' directory `%s', overschrijven mode %04o? "
+
+#: src/rm.c:306
+#, c-format
+msgid "%s: descend directory `%s'? "
+msgstr "%s: `descend' directory `%s'? "
+
+#: src/rm.c:320
+#, c-format
+msgid "%s: remove directory `%s' (might be nonempty)? "
+msgstr "%s: (mogelijkerwijs niet lege) directory `%s' verwijderen?"
+
+#: src/rm.c:323
+#, c-format
+msgid "%s: remove directory `%s'? "
+msgstr "%s: directory `%s' verwijderen? "
+
+#: src/rm.c:498
+#, c-format
+msgid ""
+"%s: WARNING: Circular directory structure.\n"
+"This almost certainly means that you have a corrupted file system.\n"
+"NOTIFY YOUR SYSTEM MANAGER.\n"
+"Cycle detected:\n"
+"%s\n"
+"is the same file as\n"
+msgstr ""
+"%s: LET OP: Circulaire directory structuur.\n"
+"Dit betekent vrijwel zeker dat je met het bestandssysteem corrupt is.\n"
+"WAARSCHUW UW SYSTEEM BEHEERDER\n"
+"Circle gedetecteerd:\n"
+"%s\n"
+"is hetzelfde bestand als\n"
+
+#: src/rm.c:510
+#, c-format
+msgid "%s: continue? "
+msgstr "%s: doorgaan? "
+
+#: src/rm.c:531 src/touch.c:245
+#, c-format
+msgid "Usage: %s [OPTION]... FILE...\n"
+msgstr "Gebruik: %s [OPTIE]... BESTAND...\n"
+
+#: src/rm.c:532
+#, fuzzy
+msgid ""
+"Remove (unlink) the FILE(s).\n"
+"\n"
+"  -d, --directory       unlink directory, even if non-empty (super-user "
+"only)\n"
+"  -f, --force           ignore nonexistent files, never prompt\n"
+"  -i, --interactive     prompt before any removal\n"
+"  -r, -R, --recursive   remove the contents of directories recursively\n"
+"  -v, --verbose         explain what is being done\n"
+"      --help            display this help and exit\n"
+"      --version         output version information and exit\n"
+msgstr ""
+"Verwijder BESTAND(en) of verwijzing(en).\n"
+"\n"
+"  -d, --directory       verwijder directory-verwijzing, zelfs indien "
+"niet-leeg\n"
+"                        (alleen de super-user kan dit)\n"
+"  -f, --force           negeer niet bestaande bestanden, prompt nooit\n"
+"  -i, --interactive     prompt alvorens iets te verwijderen\n"
+"  -v, --verbose         laat zien wat er gedaan wordt\n"
+"  -r, -R, --recursive   verwijder de inhoud van de onderliggende "
+"directories\n"
+"      --help            toon hulp\\255tekst en bekindig programma\n"
+"      --version         toon versie\\255informatie en bekindig programma\n"
+
+#: src/rmdir.c:86
+#, c-format
+msgid "Usage: %s [OPTION]... DIRECTORY...\n"
+msgstr "Gebruik: %s [OPIE]... DIRECTORY...\n"
+
+#: src/rmdir.c:87
+msgid ""
+"Remove the DIRECTORY(ies), if they are empty.\n"
+"\n"
+"  -p, --parents   remove explicit parent directories if being emptied\n"
+"      --help      display this help and exit\n"
+"      --version   output version information and exit\n"
+msgstr ""
+"Verwijder de DIRECTORY(ies), mits ze leeg zijn.\n"
+"\n"
+"  -p, --parents   verwijder explicite parent directories if being emptied\n"
+"      --help      toon hulp-tekst en be\\353indig programma\n"
+"      --version   toon versie-informatie en be\\353indig programma\n"
+
+#: src/sync.c:39
+#, c-format
+msgid "Usage: %s [OPTION]\n"
+msgstr "Gebruik: %s [OPTIE]\n"
+
+#: src/sync.c:40
+msgid ""
+"Force changed blocks to disk, update the super block.\n"
+"\n"
+"  --help      display this help and exit\n"
+"  --version   output version information and exit\n"
+msgstr ""
+"Force gewijzigde blokken naar schijf, update superblok.\n"
+"\n"
+"  --help      toon hulp-tekst en be\\353indig programma\n"
+"  --version   toon versie-informatie en be\\353indig programma\n"
+
+#: src/sync.c:62
+msgid "ignoring all arguments"
+msgstr "alle argumenten worden genegeerd"
+
+#: src/touch.c:246
+msgid ""
+"Update the access and modification times of each FILE to the current time.\n"
+"\n"
+"  -a                     change only the access time\n"
+"  -c                     do not create any files\n"
+"  -d, --date=STRING      parse STRING and use it instead of current time\n"
+"  -f                     (ignored)\n"
+"  -m                     change only the modification time\n"
+"  -r, --reference=FILE   use this file's times instead of current time\n"
+"  -t STAMP               use MMDDhhmm[[CC]YY][.ss] instead of current time\n"
+"      --time=WORD        access -a, atime -a, mtime -m, modify -m, use -a\n"
+"      --help             display this help and exit\n"
+"      --version          output version information and exit\n"
+"\n"
+"STAMP may be used without -t if none of -drt, nor --, are used.\n"
+msgstr ""
+"Verander de toegangs- en aanpassingstijd van elk BESTAND in de huidige "
+"tijd.\n"
+"\n"
+"  -a                     verander alleen de toegangstijd\n"
+"  -c                     maak geen bestanden aan\n"
+"  -d, --date=STRING      parse STRING en gebruik dit in plaats van huidige "
+"tijd\n"
+"  -f                     (genegeerd)\n"
+"  -m                     verander alleen de aanpassingstijd\n"
+"  -r, --reference=FILE   gebruik deze bestandstijden in plaats van huidige "
+"tijd\n"
+"  -t STAMP               gebruik MMDDhhmm[[CC]YY][.ss] i.p.v. huidige tijd\n"
+"      --time=WORD        toegang -a, atime -a, mtime -m, aanpassing -m, use "
+"-a\n"
+"      --help             toon hulp-tekst en bekindig programma\n"
+"      --version          toon versie-informatie en bekindig programma\n"
+"\n"
+"STAMP mag worden gebruik zonder -t als geen van de opties -drt of -- zijn \n"
+"gebruikt.\n"
+
+#: src/touch.c:302 src/touch.c:322
+#, c-format
+msgid "invalid date format `%s'"
+msgstr "ongeldig datum opmaak `%s'"
+
+#: src/touch.c:330
+msgid "time selector"
+msgstr "tijd selektor (??)"
+
+#: src/touch.c:356
+msgid "cannot specify times from more than one source"
+msgstr "kan geen tijden specificeren van meer dan een bron"
+
+#: src/touch.c:386
+msgid "file arguments missing"
+msgstr "bestandsargumenten ontbreken"
+
+#~ msgid "cannot find mount point for %s"
+#~ msgstr "kan `mount point' voor %s niet vinden"
+
+#~ msgid "cannot fork"
+#~ msgstr "kan niet `forken'"
+
+#~ msgid "Memory exhausted"
+#~ msgstr "geen geheugen meer beschikbaar"

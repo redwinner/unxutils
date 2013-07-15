@@ -1,0 +1,357 @@
+{\rtf1\windows \deff0{\fonttbl
+{\f0\fswiss MS Sans Serif;}{\f1\fmodern Courier New;}{\f2\ftech Symbol;}}\fs20
+\page #{\footnote hcAbout}${\footnote \pard{}About this help file}\pard{\fs24\b About this help file}\par\par\pard{}This file was made with the help of {\ul Makertf 3.12b-1}{\v hcMakertf} from the input file sed.texi.\par\par{{START-INFO-DIR-ENTRY
+\pard{}* sed: (sed).                   Stream EDitor.\line
+END-INFO-DIR-ENTRY\par
+\pard{}}This file documents {\scaps\fs16{}sed}, a stream editor.\par
+\par
+\pard{}Published by the Free Software Foundation, 59 Temple Place - Suite 330 Boston, MA 02111-1307, USA\par
+\par
+\pard{}Copyright (C) 1998 Free Software Foundation, Inc.\par
+\par
+\pard{}Permission is granted to make and distribute verbatim copies of this manual provided the copyright notice and this permission notice are preserved on all copies.\par
+\par
+\pard{}Permission is granted to copy and distribute modified versions of this manual under the conditions for verbatim copying, provided that the entire resulting derived work is distributed under the terms of a permission notice identical to this one.\par
+\par
+\pard{}Permission is granted to copy and distribute translations of this manual into another language, under the above conditions for modified versions, except that this permission notice may be stated in a translation approved by the Foundation.  }\par
+\par
+\page\pard Node: {\b Top}, \keepn Next: {\uldb Introduction}{\v Introduction}, Prev: {\uldb (dir)}{\v Top @dir.hlp}, Up: {\uldb (dir)}{\v Top @dir.hlp}\tab\tab{\uldb About this help file}{\v hcAbout}\line
+K{\footnote K Top}
+#{\footnote Top}
+{\par
+\pard\pard{}This document was produced for version 3.02 of {\scaps\fs16{}GNU} {\scaps\fs16{}sed}.  }\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Introduction}{\v Introduction}\tab Introduction\par
+{\uldb Invoking SED}{\v Invoking_SED}\tab Invocation\par
+{\uldb sed Programs}{\v sed_Programs}\tab {\scaps\fs16{}sed} programs\par
+{\uldb Examples}{\v Examples}\tab Some sample scripts\par
+{\uldb Limitations}{\v Limitations}\tab About the (non-)limitations on line length\par
+{\uldb Other Resources}{\v Other_Resources}\tab Other resources for learning about {\scaps\fs16{}sed}\par
+{\uldb Reporting Bugs}{\v Reporting_Bugs}\tab Reporting bugs\par
+{\uldb Concept Index}{\v Concept_Index}\tab A menu with all the topics in this manual.\par
+{\uldb Command and Option Index}{\v Command_and_Option_Index}\tab A menu with all {\scaps\fs16{}sed} commands and command-line options.\par
+\pard{}}\par
+\page\pard Node: {\b Introduction}, \keepn Next: {\uldb Invoking SED}{\v Invoking_SED}, Prev: {\uldb Top}{\v Top}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Introduction}
+#{\footnote Introduction}
+${\footnote \pard{}Introduction}\par
+\pard{\fs24\b Introduction}\par
+\par
+\pard{}{K{\footnote K Stream editor}}{\scaps\fs16{}sed} is a stream editor.  A stream editor is used to perform basic text transformations on an input stream (a file or input from a pipeline).  While in some ways similar to an editor which permits scripted edits (such as {\scaps\fs16{}ed}), {\scaps\fs16{}sed} works by making only one pass over the input(s), and is consequently more efficient.  But it is {\scaps\fs16{}sed}'s ability to filter text in a pipeline which particularly distinguishes it from other types of editors.\par
+\par
+\page\pard Node: {\b Invoking SED}, \keepn Next: {\uldb sed Programs}{\v sed_Programs}, Prev: {\uldb Introduction}{\v Introduction}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Invoking SED}
+#{\footnote Invoking_SED}
+${\footnote \pard{}Invocation}\par
+\pard{\fs24\b Invocation}\par
+\par
+{\scaps\fs16{}\pard{}sed} may be invoked with the following command-line options:\par
+\par
+{\pard{}{\f1{}-V}\par
+\pard{}{\f1{}--version}\par
+\pard\li720{}{K{\footnote K -V}}{K{\footnote K -version}}{K{\footnote K Version, printing}}Print out the version of {\scaps\fs16{}sed} that is being run and a copyright notice, then exit.\par
+\par
+\pard{}{\f1{}-h}\par
+\pard{}{\f1{}--help}\par
+\pard\li720{}{K{\footnote K -h}}{K{\footnote K -help}}{K{\footnote K Usage summary, printing}}Print a usage message briefly summarizing these command-line options and the bug-reporting address, then exit.\par
+\par
+\pard{}{\f1{}-n}\par
+\pard{}{\f1{}--quiet}\par
+\pard{}{\f1{}--silent}\par
+\pard\li720{}{K{\footnote K -n}}{K{\footnote K -quiet}}{K{\footnote K -silent}}By default, {\scaps\fs16{}sed} will print out the pattern space at then end of each cycle through the script.  These options disable this automatic printing, and {\scaps\fs16{}sed} will only produce output when explicitly told to via the {\f1{}p} command.\par
+\par
+\pard{}{\f1{}-e {\i script}}\par
+\pard{}{\f1{}--expression={\i script}}\par
+\pard\li720{}{K{\footnote K -e}}{K{\footnote K -expression}}{K{\footnote K Script, from command line}}Add the commands in {\i script} to the set of commands to be run while processing the input.\par
+\par
+\pard{}{\f1{}-f {\i script-file}}\par
+\pard{}{\f1{}--file={\i script-file}}\par
+\pard\li720{}{K{\footnote K -f}}{K{\footnote K -file}}{K{\footnote K Script, from a file}}Add the commands contained in the file {\i script-file} to the set of commands to be run while processing the input.\par
+\par
+\pard{}}\par
+\pard{}If no {\f1{}-e}, {\f1{}-f}, {\f1{}--expression}, or {\f1{}--file} options are given on the command-line, then the first non-option argument on the command line is taken to be the {\i script} to be executed.\par
+\par
+\pard{}{K{\footnote K Files to be processed as input}}If any command-line parameters remain after processing the above, these parameters are interpreted as the names of input files to be processed.  {K{\footnote K Standard input, processing as input}}A file name of {\f1{}-} refers to the standard input stream.  The standard input will processed if no file names are specified.\par
+\par
+\page\pard Node: {\b sed Programs}, \keepn Next: {\uldb Examples}{\v Examples}, Prev: {\uldb Invoking SED}{\v Invoking_SED}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K sed Programs}
+#{\footnote sed_Programs}
+${\footnote {\scaps\fs16{}\pard{}sed} Programs}\par
+\pard{\fs24\b {\scaps\fs16{}sed} Programs}\par
+\par
+\pard{}{K{\footnote K {\scaps\fs16{}sed} program structure}}{K{\footnote K Script structure}}A {\scaps\fs16{}sed} program consists of one or more {\scaps\fs16{}sed} commands, passed in by one or more of the {\f1{}-e}, {\f1{}-f}, {\f1{}--expression}, and {\f1{}--file} options, or the first non-option argument if zero of these options are used.  This document will refer to "the" {\scaps\fs16{}sed} script; this will be understood to mean the in-order catenation of all of the {\i script}s and {\i script-file}s passed in.\par
+\par
+\pard{}Each {\scaps\fs16{}sed} command consists of an optional address or address range, followed by a one-character command name and any additional command-specific code.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Addresses}{\v Addresses}\tab Selecting lines with {\scaps\fs16{}sed}\par
+{\uldb Regular Expressions}{\v Regular_Expressions}\tab Overview of regular expression syntax\par
+{\uldb Data Spaces}{\v Data_Spaces}\tab Where {\scaps\fs16{}sed} buffers data\par
+{\uldb Common Commands}{\v Common_Commands}\tab Often used commands\par
+{\uldb Other Commands}{\v Other_Commands}\tab Less frequently used commands\par
+{\uldb Programming Commands}{\v Programming_Commands}\tab Commands for die-hard {\scaps\fs16{}sed} programmers\par
+\pard{}}\par
+\page\pard Node: {\b Addresses}, \keepn Next: {\uldb Regular Expressions}{\v Regular_Expressions}, Prev: {\uldb sed Programs}{\v sed_Programs}, Up: {\uldb sed Programs}{\v sed_Programs}\line
+K{\footnote K Addresses}
+#{\footnote Addresses}
+${\footnote \pard{}Selecting lines with {\scaps\fs16{}sed}}\par
+\pard{\fs24\b Selecting lines with {\scaps\fs16{}sed}}\par
+\par
+\pard{}{K{\footnote K Addresses, in {\scaps\fs16{}sed} scripts}}{K{\footnote K Line selection}}{K{\footnote K Selecting lines to process}} Addresses in a {\scaps\fs16{}sed} script can be in any of the following forms: {\par
+\pard{}{\f1{}{\i number}}\par
+\pard\li720{}{K{\footnote K Address, numeric}}{K{\footnote K Line, selecting by number}}Specifying a line number will match only that line in the input.  (Note that {\scaps\fs16{}sed} counts lines continuously across all input files.)\par
+\par
+\pard{}{\f1{}{\i first}~{\i step}}\par
+\pard\li720{}{K{\footnote K {\scaps\fs16{}GNU} extensions, {\f1{}{\i n}~{\i m}} addresses}}This {\scaps\fs16{}GNU} extension matches every {\i step}th line starting with line {\i first}.  In particular, lines will be selected when there exists a non-negative {\i n} such that the current line-number equals {\i first} + ({\i n} * {\i step}).  Thus, to select the odd-numbered lines, one would use {\f1{}1~2}; to pick every third line starting with the second, {\f1{}2~3} would be used; to pick every fifth line starting with the tenth, use {\f1{}10~5}; and {\f1{}50~0} is just an obscure way of saying {\f1{}50}.\par
+\par
+\pard{}{\f1{}$}\par
+\pard\li720{}{K{\footnote K Address, last line}}{K{\footnote K Last line, selecting}}{K{\footnote K Line, selecting last}}This address matches the last line of the last file of input.\par
+\par
+\pard{}{\f1{}/{\i regexp}/}\par
+\pard\li720{}{K{\footnote K Address, as a regular expression}}{K{\footnote K Line, selecting by regular expression match}}This will select any line which matches the regular expression {\i regexp}.  If {\i regexp} itself includes any {\f1{}/} characters, each must be escaped by a backslash ({\f1{}\'5C}).\par
+\par
+\pard{}{\f1{}\'5C%{\i regexp}%}\par
+\pard\li720{}(The {\f1{}%} may be replaced by any other single character.)\par
+\par
+\pard\li720{}{K{\footnote K Slash character, in regular expressions}}This also matches the regular expression {\i regexp}, but allows one to use a different delimiter than {\f1{}/}.  This is particularly useful if the {\i regexp} itself contains a lot of {\f1{}/}s, since it avoids the tedious escaping of every {\f1{}/}.  If {\i regexp} itself includes any delimiter characters, each must be escaped by a backslash ({\f1{}\'5C}).\par
+\par
+\pard{}{\f1{}/{\i regexp}/I}\par
+\pard{}{\f1{}\'5C%{\i regexp}%I}\par
+\pard\li720{}{K{\footnote K {\scaps\fs16{}GNU} extensions, {\f1{}I} modifier}}The {\f1{}I} modifier to regular-expression matching is a {\scaps\fs16{}GNU} extension which causes the {\i regexp} to be matched in a case-insensitive manner.\par
+\par
+\pard{}}\par
+\pard{}If no addresses are given, then all lines are matched; if one address is given, then only lines matching that address are matched.\par
+\par
+\pard{}{K{\footnote K Range of lines}}{K{\footnote K Several lines, selecting}}An address range can be specified by specifying two addresses separated by a comma ({\f1{},}).  An address range matches lines starting from where the first address matches, and continues until the second address matches (inclusively).  If the second address is a {\i regexp}, then checking for the ending match will start with the line {\i following} the line which matched the first address.  If the second address is a {\i number} less than (or equal to) the line matching the first address, then only the one line is matched.\par
+\par
+\pard{}{K{\footnote K Excluding lines}}{K{\footnote K Selecting non-matching lines}}Appending the {\f1{}!} character to the end of an address specification will negate the sense of the match.  That is, if the {\f1{}!} character follows an address range, then only lines which do {\i not} match the address range will be selected.  This also works for singleton addresses, and, perhaps perversely, for the null address.\par
+\par
+\page\pard Node: {\b Regular Expressions}, \keepn Next: {\uldb Data Spaces}{\v Data_Spaces}, Prev: {\uldb Addresses}{\v Addresses}, Up: {\uldb sed Programs}{\v sed_Programs}\line
+K{\footnote K Regular Expressions}
+#{\footnote Regular_Expressions}
+${\footnote \pard{}Overview of regular expression syntax}\par
+\pard{\fs24\b Overview of regular expression syntax}\par
+\par
+\pard{}[[I may add a brief overview of regular expressions at a later date; for now see any of the various other documentations for regular expressions, such as the {\scaps\fs16{}awk} info page.]]\par
+\par
+\page\pard Node: {\b Data Spaces}, \keepn Next: {\uldb Common Commands}{\v Common_Commands}, Prev: {\uldb Regular Expressions}{\v Regular_Expressions}, Up: {\uldb sed Programs}{\v sed_Programs}\line
+K{\footnote K Data Spaces}
+#{\footnote Data_Spaces}
+${\footnote \pard{}Where {\scaps\fs16{}sed} buffers data}\par
+\pard{\fs24\b Where {\scaps\fs16{}sed} buffers data}\par
+\par
+\pard{}{K{\footnote K Buffer spaces, pattern and hold}}{K{\footnote K Spaces, pattern and hold}}{K{\footnote K Pattern space, definition}}{K{\footnote K Hold space, definition}}{\scaps\fs16{}sed} maintains two data buffers: the active {\i pattern} space, and the auxiliary {\i hold} space.  In "normal" operation, {\scaps\fs16{}sed} reads in one line from the input stream and places it in the pattern space.  This pattern space is where text manipulations occur.  The hold space is initially empty, but there are commands for moving data between the pattern and hold spaces.\par
+\par
+\page\pard Node: {\b Common Commands}, \keepn Next: {\uldb Other Commands}{\v Other_Commands}, Prev: {\uldb Data Spaces}{\v Data_Spaces}, Up: {\uldb sed Programs}{\v sed_Programs}\line
+K{\footnote K Common Commands}
+#{\footnote Common_Commands}
+${\footnote \pard{}Often used commands}\par
+\pard{\fs24\b Often used commands}\par
+\par
+\pard{}If you use {\scaps\fs16{}sed} at all, you will quite likely want to know these commands.\par
+\par
+{\pard{}{\f1{}#}\par
+\pard\li720{}[No addresses allowed.]\par
+\par
+\pard\li720{}{K{\footnote K # (comment) command}}{K{\footnote K Comments, in scripts}}The {\f1{}#} "command" begins a comment; the comment continues until the next newline.\par
+\par
+\pard\li720{}{K{\footnote K Portability, comments}}If you are concerned about portability, be aware that some implementations of {\scaps\fs16{}sed} (which are not POSIX.2 conformant) may only support a single one-line comment, and then only when the very first character of the script is a {\f1{}#}.\par
+\par
+\pard\li720{}{K{\footnote K -n, forcing from within a script}}{K{\footnote K Caveat -- #n on first line}}Warning: if the first two characters of the {\scaps\fs16{}sed} script are {\f1{}#n}, then the {\f1{}-n} (no-autoprint) option is forced.  If you want to put a comment in the first line of your script and that comment begins with the letter `n' and you do not want this behavior, then be sure to either use a capital `N', or place at least one space before the `n'.\par
+\par
+\pard{}{\f1{}s/{\i regexp}/{\i replacement}/{\i flags}}\par
+\pard\li720{}(The {\f1{}/} characters may be uniformly replaced by any other single character within any given {\f1{}s} command.)\par
+\par
+\pard\li720{}{K{\footnote K s (substitute) command}}{K{\footnote K Substitution of text}}{K{\footnote K Replacing text matching regexp}}The {\f1{}/} character (or whatever other character is used in its stead) can appear in the {\i regexp} or {\i replacement} only if it is preceded by a {\f1{}\'5C} character.  Also newlines may appear in the {\i regexp} using the two character sequence {\f1{}\'5Cn}.\par
+\par
+\pard\li720{}The {\f1{}s} command attempts to match the pattern space against the supplied {\i regexp}.  If the match is successful, then that portion of the pattern space which was matched is replaced with {\i replacement}.\par
+\par
+\pard\li720{}{K{\footnote K Backreferences, in regular expressions}}{K{\footnote K Parenthesized substrings}}The {\i replacement} can contain {\f1{}\'5C{\i n}} ({\i n} being a number from 1 to 9, inclusive) references, which refer to the portion of the match which is contained between the {\i n}th {\f1{}\'5C(} and its matching {\f1{}\'5C)}.  Also, the {\i replacement} can contain unescaped {\f1{}&} characters which will reference the whole matched portion of the pattern space.  To include a literal {\f1{}\'5C}, {\f1{}&}, or newline in the final replacement, be sure to precede the desired {\f1{}\'5C}, {\f1{}&}, or newline in the {\i replacement} with a {\f1{}\'5C}.\par
+\par
+\pard\li720{}{K{\footnote K s command, option flags}}{K{\footnote K Substitution of text, options}}{K{\footnote K Replacing text matching regexp, options}}The {\f1{}s} command can be followed with zero or more of the following {\i flags}:\par
+\par
+{\pard\li720{}{\f1{}g}\par
+\pard\li1440{}{K{\footnote K Global substitution}}{K{\footnote K Replacing all text matching regexp in a line}}Apply the replacement to {\i all} matches to the {\i regexp}, not just the first.\par
+\par
+\pard\li720{}{\f1{}p}\par
+\pard\li1440{}{K{\footnote K Printing text after substitution}}If the substitution was made, then print the new pattern space.\par
+\par
+\pard\li720{}{\f1{}{\i number}}\par
+\pard\li1440{}{K{\footnote K Replacing only {\i n}th match of regexp in a line}}Only replace the {\i number}th match of the {\i regexp}.\par
+\par
+\pard\li720{}{\f1{}w {\i file-name}}\par
+\pard\li1440{}{K{\footnote K Write result of a substitution to file}}If the substitution was made, then write out the result to the named file.\par
+\par
+\pard\li720{}{\f1{}I}\par
+\pard\li1440{}(This is a {\scaps\fs16{}GNU} extension.)\par
+\par
+\pard\li1440{}{K{\footnote K {\scaps\fs16{}GNU} extensions, {\f1{}I} modifier}}{K{\footnote K Case-insensitive matching}}Match {\i regexp} in a case-insensitive manner.\par
+\pard\li720{}}\par
+\pard{}{\f1{}q}\par
+\pard\li720{}[At most one address allowed.]\par
+\par
+\pard\li720{}{K{\footnote K q (quit) command}}{K{\footnote K Quitting}}Exit {\scaps\fs16{}sed} without processing any more commands or input.  Note that the current pattern space is printed if auto-print is not disabled.\par
+\par
+\pard{}{\f1{}d}\par
+\pard\li720{}{K{\footnote K d (delete) command}}{K{\footnote K Deleting lines}}Delete the pattern space; immediately start next cycle.\par
+\par
+\pard{}{\f1{}p}\par
+\pard\li720{}{K{\footnote K p (print) command}}{K{\footnote K Print selected lines}}Print out the pattern space (to the standard output).  This command is usually only used in conjunction with the {\f1{}-n} command-line option.\par
+\par
+\pard\li720{}{K{\footnote K Caveat -- {\f1{}p} command and -n flag}}Note: some implementations of {\scaps\fs16{}sed}, such as this one, will double-print lines when auto-print is not disabled and the {\f1{}p} command is given.  Other implementations will only print the line once.  Both ways conform with the POSIX.2 standard, and so neither way can be considered to be in error.  {K{\footnote K Portability, {\f1{}p} command and -n flag}}Portable {\scaps\fs16{}sed} scripts should thus avoid relying on either behavior; either use the {\f1{}-n} option and explicitly print what you want, or avoid use of the {\f1{}p} command (and also the {\f1{}p} flag to the {\f1{}s} command).\par
+\par
+\pard{}{\f1{}n}\par
+\pard\li720{}{K{\footnote K n (next-line) command}}{K{\footnote K Next input line, replace pattern space with}}{K{\footnote K Read next input line}}If auto-print is not disabled, print the pattern space, then, regardless, replace the pattern space with the next line of input.  If there is no more input then {\scaps\fs16{}sed} exits without processing any more commands.\par
+\par
+\pard{}{\f1{}\'7B {\i commands} \'7D}\par
+\pard\li720{}{K{\footnote K \'7B\'7D command grouping}}{K{\footnote K Grouping commands}}{K{\footnote K Command groups}}A group of commands may be enclosed between {\f1{}\'7B} and {\f1{}\'7D} characters.  (The {\f1{}\'7D} must appear in a zero-address command context.)  This is particularly useful when you want a group of commands to be triggered by a single address (or address-range) match.\par
+\par
+\pard{}}\par
+\page\pard Node: {\b Other Commands}, \keepn Next: {\uldb Programming Commands}{\v Programming_Commands}, Prev: {\uldb Common Commands}{\v Common_Commands}, Up: {\uldb sed Programs}{\v sed_Programs}\line
+K{\footnote K Other Commands}
+#{\footnote Other_Commands}
+${\footnote \pard{}Less frequently used commands}\par
+\pard{\fs24\b Less frequently used commands}\par
+\par
+\pard{}Though perhaps less frequently used than those in the previous section, some very small yet useful {\scaps\fs16{}sed} scripts can be built with these commands.\par
+\par
+{\pard{}{\f1{}y/{\i source-chars}/{\i dest-chars}/}\par
+\pard\li720{}(The {\f1{}/} characters may be uniformly replaced by any other single character within any given {\f1{}y} command.)\par
+\par
+\pard\li720{}{K{\footnote K y (transliterate) command}}{K{\footnote K Transliteration}}Transliterate any characters in the pattern space which match any of the {\i source-chars} with the corresponding character in {\i dest-chars}.\par
+\par
+\pard\li720{}Instances of the {\f1{}/} (or whatever other character is used in its stead), {\f1{}\'5C}, or newlines can appear in the {\i source-chars} or {\i dest-chars} lists, provide that each instance is escaped by a {\f1{}\'5C}.  The {\i source-chars} and {\i dest-chars} lists {\i must} contain the same number of characters (after de-escaping).\par
+\par
+\pard{}{\f1{}a\'5C}\par
+\pard{}{\f1{}{\i text}}\par
+\pard\li720{}[At most one address allowed.]\par
+\par
+\pard\li720{}{K{\footnote K a (append text lines) command}}{K{\footnote K Adding a block of text after a line}}{K{\footnote K Text, appending}}Queue the lines of text which follow this command (each but the last ending with a {\f1{}\'5C}, which will be removed from the output) to be output at the end of the current cycle, or when the next input line is read.\par
+\par
+\pard{}{\f1{}i\'5C}\par
+\pard{}{\f1{}{\i text}}\par
+\pard\li720{}[At most one address allowed.]\par
+\par
+\pard\li720{}{K{\footnote K i (insert text lines) command}}{K{\footnote K Inserting a block of text before a line}}{K{\footnote K Text, insertion}}Immediately output the lines of text which follow this command (each but the last ending with a {\f1{}\'5C}, which will be removed from the output).\par
+\par
+\pard{}{\f1{}c\'5C}\par
+\pard{}{\f1{}{\i text}}\par
+\pard\li720{}{K{\footnote K c (change to text lines) command}}{K{\footnote K Replace specific input lines}}{K{\footnote K Selected lines, replacing}}Delete the lines matching the address or address-range, and output the lines of text which follow this command (each but the last ending with a {\f1{}\'5C}, which will be removed from the output) in place of the last line (or in place of each line, if no addresses were specified).  A new cycle is started after this command is done, since the pattern space will have been deleted.\par
+\par
+\pard{}{\f1{}=}\par
+\pard\li720{}[At most one address allowed.]\par
+\par
+\pard\li720{}{K{\footnote K = (print line number) command}}{K{\footnote K Print line number}}{K{\footnote K Line number, print}}Print out the current input line number (with a trailing newline).\par
+\par
+\pard{}{\f1{}l}\par
+\pard\li720{}{K{\footnote K l (list unambiguously) command}}{K{\footnote K List pattern space}}{K{\footnote K Print unambiguous representation of pattern space}}Print the pattern space in an unambiguous form: non-printable characters (and the {\f1{}\'5C} character) are printed in C-style escaped form; long lines are split, with a trailing {\f1{}\'5C} character to indicate the split; the end of each line is marked with a {\f1{}$}.\par
+\par
+\pard{}{\f1{}r {\i filename}}\par
+\pard\li720{}[At most one address allowed.]\par
+\par
+\pard\li720{}{K{\footnote K r (read file) command}}{K{\footnote K Read text from a file}}{K{\footnote K Insert text from a file}}Queue the contents of {\i filename} to be read and inserted into the output stream at the end of the current cycle, or when the next input line is read.  Note that if {\i filename} cannot be read, it is treated as if it were an empty file, without any error indication.\par
+\par
+\pard{}{\f1{}w {\i filename}}\par
+\pard\li720{}{K{\footnote K w (write file) command}}{K{\footnote K Write to a file}}Write the pattern space to {\i filename}.  The {\i filename} will be created (or truncated) before the first input line is read; all {\f1{}w} commands (including instances of {\f1{}w} flag on successful {\f1{}s} commands) which refer to the same {\i filename} are output through the same {\scaps\fs16{}FILE} stream.\par
+\par
+\pard{}{\f1{}D}\par
+\pard\li720{}{K{\footnote K D (delete first line) command}}{K{\footnote K Delete first line from pattern space}}Delete text in the pattern space up to the first newline.  If any text is left, restart cycle with the resultant pattern space (without reading a new line of input), otherwise start a normal new cycle.\par
+\par
+\pard{}{\f1{}N}\par
+\pard\li720{}{K{\footnote K N (append Next line) command}}{K{\footnote K Next input line, append to pattern space}}{K{\footnote K Append next input line to pattern space}}Add a newline to the pattern space, then append the next line of input to the pattern space.  If there is no more input then {\scaps\fs16{}sed} exits without processing any more commands.\par
+\par
+\pard{}{\f1{}P}\par
+\pard\li720{}{K{\footnote K P (print first line) command}}{K{\footnote K Print first line from pattern space}}Print out the portion of the pattern space up to the first newline.\par
+\par
+\pard{}{\f1{}h}\par
+\pard\li720{}{K{\footnote K h (hold) command}}{K{\footnote K Copy pattern space into hold space}}{K{\footnote K Replace hold space with copy of pattern space}}{K{\footnote K Hold space, copying pattern space into}}Replace the contents of the hold space with the contents of the pattern space.\par
+\par
+\pard{}{\f1{}H}\par
+\pard\li720{}{K{\footnote K H (append Hold) command}}{K{\footnote K Append pattern space to hold space}}{K{\footnote K Hold space, appending from pattern space}}Append a newline to the contents of the hold space, and then append the contents of the pattern space to that of the hold space.\par
+\par
+\pard{}{\f1{}g}\par
+\pard\li720{}{K{\footnote K g (get) command}}{K{\footnote K Copy hold space into pattern space}}{K{\footnote K Replace pattern space with copy of hold space}}{K{\footnote K Hold space, copy into pattern space}}Replace the contents of the pattern space with the contents of the hold space.\par
+\par
+\pard{}{\f1{}G}\par
+\pard\li720{}{K{\footnote K G (appending Get) command}}{K{\footnote K Append hold space to pattern space}}{K{\footnote K Hold space, appending to pattern space}}Append a newline to the contents of the pattern space, and then append the contents of the hold space to that of the pattern space.\par
+\par
+\pard{}{\f1{}x}\par
+\pard\li720{}{K{\footnote K x (eXchange) command}}{K{\footnote K Exchange hold space with pattern space}}{K{\footnote K Hold space, exchange with pattern space}}Exchange the contents of the hold and pattern spaces.\par
+\par
+\pard{}}\par
+\page\pard Node: {\b Programming Commands}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Other Commands}{\v Other_Commands}, Up: {\uldb sed Programs}{\v sed_Programs}\line
+K{\footnote K Programming Commands}
+#{\footnote Programming_Commands}
+${\footnote \pard{}Commands for die-hard {\scaps\fs16{}sed} programmers}\par
+\pard{\fs24\b Commands for die-hard {\scaps\fs16{}sed} programmers}\par
+\par
+\pard{}In most cases, use of these commands indicates that you are probably better off programming in something like {\scaps\fs16{}perl}.  But occasionally one is committed to sticking with {\scaps\fs16{}sed}, and these commands can enable one to write quite convoluted scripts.\par
+\par
+\pard{}{K{\footnote K Flow of control in scripts}}{\par
+\pard{}{\f1{}: {\i label}}\par
+\pard\li720{}[No addresses allowed.]\par
+\par
+\pard\li720{}{K{\footnote K : (label) command}}{K{\footnote K Labels, in scripts}}Specify the location of {\i label} for the {\f1{}b} and {\f1{}t} commands.  In all other respects, a no-op.\par
+\par
+\pard{}{\f1{}b {\i label}}\par
+\pard\li720{}{K{\footnote K b (branch) command}}{K{\footnote K Branch to a label, unconditionally}}{K{\footnote K Goto, in scripts}}Unconditionally branch to {\i label}.  The {\i label} may be omitted, in which case the next cycle is started.\par
+\par
+\pard{}{\f1{}t {\i label}}\par
+\pard\li720{}{K{\footnote K t (conditional branch) command}}{K{\footnote K Branch to a label, if {\f1{}s///} succeeded}}{K{\footnote K Conditional branch}}Branch to {\i label} only if there has been a successful {\f1{}s}ubstitution since the last input line was read or {\f1{}t} branch was taken.  The {\i label} may be omitted, in which case the next cycle is started.\par
+\par
+\pard{}}\par
+\page\pard Node: {\b Examples}, \keepn Next: {\uldb Limitations}{\v Limitations}, Prev: {\uldb sed Programs}{\v sed_Programs}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Examples}
+#{\footnote Examples}
+${\footnote \pard{}Some sample scripts}\par
+\pard{\fs24\b Some sample scripts}\par
+\par
+\pard{}[[Not this release, sorry.  But check out the scripts in the testsuite directory, and the amazing dc.sed script in the top-level directory of this distribution.]]\par
+\par
+\page\pard Node: {\b Limitations}, \keepn Next: {\uldb Other Resources}{\v Other_Resources}, Prev: {\uldb Examples}{\v Examples}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Limitations}
+#{\footnote Limitations}
+${\footnote \pard{}About the (non-)limitations on line length}\par
+\pard{\fs24\b About the (non-)limitations on line length}\par
+\par
+\pard{}{K{\footnote K {\scaps\fs16{}GNU} extensions, unlimited line length}}{K{\footnote K Portability, line length limitations}}For those who want to write portable {\scaps\fs16{}sed} scripts, be aware that some implementations have been known to limit line lengths (for the pattern and hold spaces) to be no more than 4000 bytes.  The POSIX.2 standard specifies that conforming {\scaps\fs16{}sed} implementations shall support at least 8192 byte line lengths.  {\scaps\fs16{}GNU} {\scaps\fs16{}sed} has no built-in limit on line length; as long as {\scaps\fs16{}sed} can malloc() more (virtual) memory, it will allow lines as long as you care to feed it (or construct within it).\par
+\par
+\page\pard Node: {\b Other Resources}, \keepn Next: {\uldb Reporting Bugs}{\v Reporting_Bugs}, Prev: {\uldb Limitations}{\v Limitations}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Other Resources}
+#{\footnote Other_Resources}
+${\footnote \pard{}Other resources for learning about {\scaps\fs16{}sed}}\par
+\pard{\fs24\b Other resources for learning about {\scaps\fs16{}sed}}\par
+\par
+\pard{}{K{\footnote K Addtional reading about {\scaps\fs16{}sed}}}In addition to several books that have been written about {\scaps\fs16{}sed} (either specifically or as chapters in books which discuss shell programming), one can find out more about {\scaps\fs16{}sed} (including suggestions of a few books) from the FAQ for the seders mailing list, available from any of: {\par
+\pard\keep\li720\f1{} `http://www.dbnet.ece.ntua.gr/~george/sed/sedfaq.html'\line
+ `http://www.ptug.org/sed/sedfaq.htm'\line
+ `http://www.wollery.demon.co.uk/sedtut10.txt'\par
+\pard\f0{}}\par
+\pard{}There is an informal "seders" mailing list manually maintained by Al Aab.  To subscribe, send e-mail to <af137@torfree.net> with a brief description of your interest.\par
+\par
+\page\pard Node: {\b Reporting Bugs}, \keepn Next: {\uldb Concept Index}{\v Concept_Index}, Prev: {\uldb Other Resources}{\v Other_Resources}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Reporting Bugs}
+#{\footnote Reporting_Bugs}
+${\footnote \pard{}Reporting bugs}\par
+\pard{\fs24\b Reporting bugs}\par
+\par
+\pard{}{K{\footnote K Bugs, reporting}}Email bug reports to <bug-gnu-utils@gnu.org>.  Be sure to include the word "sed" somewhere in the "Subject:" field.\par
+\par
+\page\pard Node: {\b Concept Index}, \keepn Next: {\uldb Command and Option Index}{\v Command_and_Option_Index}, Prev: {\uldb Reporting Bugs}{\v Reporting_Bugs}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Concept Index}
+#{\footnote Concept_Index}
+${\footnote \pard{}Concept Index}\par
+\pard{\fs24\b Concept Index}\par
+\par
+\pard{}This is a general index of all issues discussed in this manual, with the exception of the {\scaps\fs16{}sed} commands and command-line options.\par
+\par
+{\fi-2880\li2880\tx2880Adding a block of text after a line:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Address, as a regular expression:\tab {\uldb Addresses}{\v Addresses}.\par}{\fi-2880\li2880\tx2880Address, last line:\tab {\uldb Addresses}{\v Addresses}.\par}{\fi-2880\li2880\tx2880Address, numeric:\tab {\uldb Addresses}{\v Addresses}.\par}{\fi-2880\li2880\tx2880Addresses, in sed scripts:\tab {\uldb Addresses}{\v Addresses}.\par}{\fi-2880\li2880\tx2880Addtional reading about sed:\tab {\uldb Other Resources}{\v Other_Resources}.\par}{\fi-2880\li2880\tx2880Append hold space to pattern space:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Append next input line to pattern space:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Append pattern space to hold space:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Backreferences, in regular expressions:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Branch to a label, if {\f1{}s///} succeeded:\tab {\uldb Programming Commands}{\v Programming_Commands}.\par}{\fi-2880\li2880\tx2880Branch to a label, unconditionally:\tab {\uldb Programming Commands}{\v Programming_Commands}.\par}{\fi-2880\li2880\tx2880Buffer spaces, pattern and hold:\tab {\uldb Data Spaces}{\v Data_Spaces}.\par}{\fi-2880\li2880\tx2880Bugs, reporting:\tab {\uldb Reporting Bugs}{\v Reporting_Bugs}.\par}{\fi-2880\li2880\tx2880Case-insensitive matching:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Caveat -- #n on first line:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Caveat -- {\f1{}p} command and -n flag:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Command groups:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Comments, in scripts:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Conditional branch:\tab {\uldb Programming Commands}{\v Programming_Commands}.\par}{\fi-2880\li2880\tx2880Copy hold space into pattern space:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Copy pattern space into hold space:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Delete first line from pattern space:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Deleting lines:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Exchange hold space with pattern space:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Excluding lines:\tab {\uldb Addresses}{\v Addresses}.\par}{\fi-2880\li2880\tx2880Files to be processed as input:\tab {\uldb Invoking SED}{\v Invoking_SED}.\par}{\fi-2880\li2880\tx2880Flow of control in scripts:\tab {\uldb Programming Commands}{\v Programming_Commands}.\par}{\fi-2880\li2880\tx2880Global substitution:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880GNU extensions, unlimited line length:\tab {\uldb Limitations}{\v Limitations}.\par}{\fi-2880\li2880\tx2880GNU extensions, {\f1{}I} modifier <1>:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880GNU extensions, {\f1{}I} modifier:\tab {\uldb Addresses}{\v Addresses}.\par}{\fi-2880\li2880\tx2880GNU extensions, {\f1{}{\i n}~{\i m}} addresses:\tab {\uldb Addresses}{\v Addresses}.\par}{\fi-2880\li2880\tx2880Goto, in scripts:\tab {\uldb Programming Commands}{\v Programming_Commands}.\par}{\fi-2880\li2880\tx2880Grouping commands:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Hold space, appending from pattern space:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Hold space, appending to pattern space:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Hold space, copy into pattern space:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Hold space, copying pattern space into:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Hold space, definition:\tab {\uldb Data Spaces}{\v Data_Spaces}.\par}{\fi-2880\li2880\tx2880Hold space, exchange with pattern space:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Insert text from a file:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Inserting a block of text before a line:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Labels, in scripts:\tab {\uldb Programming Commands}{\v Programming_Commands}.\par}{\fi-2880\li2880\tx2880Last line, selecting:\tab {\uldb Addresses}{\v Addresses}.\par}{\fi-2880\li2880\tx2880Line number, print:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Line selection:\tab {\uldb Addresses}{\v Addresses}.\par}{\fi-2880\li2880\tx2880Line, selecting by number:\tab {\uldb Addresses}{\v Addresses}.\par}{\fi-2880\li2880\tx2880Line, selecting by regular expression match:\tab {\uldb Addresses}{\v Addresses}.\par}{\fi-2880\li2880\tx2880Line, selecting last:\tab {\uldb Addresses}{\v Addresses}.\par}{\fi-2880\li2880\tx2880List pattern space:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Next input line, append to pattern space:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Next input line, replace pattern space with:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Parenthesized substrings:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Pattern space, definition:\tab {\uldb Data Spaces}{\v Data_Spaces}.\par}{\fi-2880\li2880\tx2880Portability, comments:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Portability, line length limitations:\tab {\uldb Limitations}{\v Limitations}.\par}{\fi-2880\li2880\tx2880Portability, {\f1{}p} command and -n flag:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Print first line from pattern space:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Print line number:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Print selected lines:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Print unambiguous representation of pattern space:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Printing text after substitution:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Quitting:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Range of lines:\tab {\uldb Addresses}{\v Addresses}.\par}{\fi-2880\li2880\tx2880Read next input line:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Read text from a file:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Replace hold space with copy of pattern space:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Replace pattern space with copy of hold space:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Replace specific input lines:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Replacing all text matching regexp in a line:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Replacing only {\i n}th match of regexp in a line:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Replacing text matching regexp:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Replacing text matching regexp, options:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Script structure:\tab {\uldb sed Programs}{\v sed_Programs}.\par}{\fi-2880\li2880\tx2880Script, from a file:\tab {\uldb Invoking SED}{\v Invoking_SED}.\par}{\fi-2880\li2880\tx2880Script, from command line:\tab {\uldb Invoking SED}{\v Invoking_SED}.\par}{\fi-2880\li2880\tx2880sed program structure:\tab {\uldb sed Programs}{\v sed_Programs}.\par}{\fi-2880\li2880\tx2880Selected lines, replacing:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Selecting lines to process:\tab {\uldb Addresses}{\v Addresses}.\par}{\fi-2880\li2880\tx2880Selecting non-matching lines:\tab {\uldb Addresses}{\v Addresses}.\par}{\fi-2880\li2880\tx2880Several lines, selecting:\tab {\uldb Addresses}{\v Addresses}.\par}{\fi-2880\li2880\tx2880Slash character, in regular expressions:\tab {\uldb Addresses}{\v Addresses}.\par}{\fi-2880\li2880\tx2880Spaces, pattern and hold:\tab {\uldb Data Spaces}{\v Data_Spaces}.\par}{\fi-2880\li2880\tx2880Standard input, processing as input:\tab {\uldb Invoking SED}{\v Invoking_SED}.\par}{\fi-2880\li2880\tx2880Stream editor:\tab {\uldb Introduction}{\v Introduction}.\par}{\fi-2880\li2880\tx2880Substitution of text:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Substitution of text, options:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Text, appending:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Text, insertion:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Transliteration:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880Usage summary, printing:\tab {\uldb Invoking SED}{\v Invoking_SED}.\par}{\fi-2880\li2880\tx2880Version, printing:\tab {\uldb Invoking SED}{\v Invoking_SED}.\par}{\fi-2880\li2880\tx2880Write result of a substitution to file:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880Write to a file:\tab {\uldb Other Commands}{\v Other_Commands}.\par}\page\pard Node: {\b Command and Option Index}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Concept Index}{\v Concept_Index}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Command and Option Index}
+#{\footnote Command_and_Option_Index}
+${\footnote \pard{}Command and Option Index}\par
+\pard{\fs24\b Command and Option Index}\par
+\par
+\pard{}This is an alphabetical list of all {\scaps\fs16{}sed} commands and command-line opions.\par
+\par
+{\fi-2880\li2880\tx2880{\f1{}# (comment) command}:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}--expression}:\tab {\uldb Invoking SED}{\v Invoking_SED}.\par}{\fi-2880\li2880\tx2880{\f1{}--file}:\tab {\uldb Invoking SED}{\v Invoking_SED}.\par}{\fi-2880\li2880\tx2880{\f1{}--help}:\tab {\uldb Invoking SED}{\v Invoking_SED}.\par}{\fi-2880\li2880\tx2880{\f1{}--quiet}:\tab {\uldb Invoking SED}{\v Invoking_SED}.\par}{\fi-2880\li2880\tx2880{\f1{}--silent}:\tab {\uldb Invoking SED}{\v Invoking_SED}.\par}{\fi-2880\li2880\tx2880{\f1{}--version}:\tab {\uldb Invoking SED}{\v Invoking_SED}.\par}{\fi-2880\li2880\tx2880{\f1{}-e}:\tab {\uldb Invoking SED}{\v Invoking_SED}.\par}{\fi-2880\li2880\tx2880{\f1{}-f}:\tab {\uldb Invoking SED}{\v Invoking_SED}.\par}{\fi-2880\li2880\tx2880{\f1{}-h}:\tab {\uldb Invoking SED}{\v Invoking_SED}.\par}{\fi-2880\li2880\tx2880{\f1{}-n, forcing from within a script}:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}-n}:\tab {\uldb Invoking SED}{\v Invoking_SED}.\par}{\fi-2880\li2880\tx2880{\f1{}-V}:\tab {\uldb Invoking SED}{\v Invoking_SED}.\par}{\fi-2880\li2880\tx2880{\f1{}: (label) command}:\tab {\uldb Programming Commands}{\v Programming_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}= (print line number) command}:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}\'7B\'7D command grouping}:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}a (append text lines) command}:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}b (branch) command}:\tab {\uldb Programming Commands}{\v Programming_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}c (change to text lines) command}:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}D (delete first line) command}:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}d (delete) command}:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}G (appending Get) command}:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}g (get) command}:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}H (append Hold) command}:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}h (hold) command}:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}i (insert text lines) command}:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}l (list unambiguously) command}:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}N (append Next line) command}:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}n (next-line) command}:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}P (print first line) command}:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}p (print) command}:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}q (quit) command}:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}r (read file) command}:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}s (substitute) command}:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}s command, option flags}:\tab {\uldb Common Commands}{\v Common_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}t (conditional branch) command}:\tab {\uldb Programming Commands}{\v Programming_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}w (write file) command}:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}x (eXchange) command}:\tab {\uldb Other Commands}{\v Other_Commands}.\par}{\fi-2880\li2880\tx2880{\f1{}y (transliterate) command}:\tab {\uldb Other Commands}{\v Other_Commands}.\par}\page K{\footnote Makertf}#{\footnote hcMakertf}${\footnote \pard{}About Makertf}\pard{\fs24\b About Makertf}\par\par\pard{}Makertf is a program that converts "Texinfo" files into "Rich Text Format" (RTF) files. It can be used to make WinHelp Files from GNU manuals and other documentation written in Texinfo. Visit http://www.snafu.de/~cschenk/makertf for more information.}

@@ -1,0 +1,8 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:571: checking for a BSD compatible install
+configure:644: checking whether build environment is sane
+configure:678: checking whether make sets ${MAKE}
+configure:711: checking whether to enable maintainer-specific portions of Makefiles
+configure:736: checking for ln

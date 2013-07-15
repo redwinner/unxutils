@@ -1,0 +1,64 @@
+# Summary of pending email for GNU sharutils 4.1.
+# Last updated: Sunday, November 06, 1994.
+
+rmail/announce
+ 1. 31 Aug 93 <ian@cygnus.com> uuencode/uudecode
+ 2. 02 Sep 94 <pinard@IRO.UMontreal.CA> Release: GNU shar 4.0
+ 3. 30 Oct 94 <pinard@IRO.UMontreal.CA> Prerelease: GNU sharutils 4.0.1
+
+rmail/shar-archive-headers
+ 1. 15 Oct 94 <dickey@clark.net> shar 4.0 vs cshar
+ 2. 15 Oct 94 <pinard> Re: shar 4.0 vs cshar
+ 3. 19 Oct 94 <Joerg.Heitkoetter@Germany.EU.net> GNU Shar 4.1 extensions?
+ 4. 19 Oct 94 <Joerg.Heitkoetter@Germany.EU.net> GNU Shar 4.1 extensions?
+ 5. 19 Oct 94 <pinard> Re: GNU Shar 4.1 extensions?
+ 6. 23 Oct 94 <Joerg.Heitkoetter@Germany.EU.net> Re: GNU Shar 4.1 extensions? 
+ 7. 23 Oct 94 <Joerg.Heitkoetter@Germany.EU.net> shar-4.0-4.1.patch
+
+rmail/shar-documentation
+ 1. Tue Sep  6 <lvirden@cas.org> Re: Solution for [Re: shar 4.0 make shar.dvi p
+ 2. Tue Sep  6 <lvirden@cas.org> Re: Solution for [Re: shar 4.0 make shar.dvi p
+ 3. 09 Sep 94 <gaumondp@ere.umontreal.ca> Comments about shar-4.0
+ 4. 11 Sep 94 <davidsen@tmr.com> Re: shar 4.0 [was: Re: disk buffering in Linux
+ 5. 12 Sep 94 <pinard> Say a word about GNU touch
+ 6. 16 Sep 94 <djm@va.pubnix.com> comments on shar 4.0 doc
+ 7. 10 Sep 94 <Mailer-Daemon@ileaf.com> Returned mail: Host unknown
+ 8. 03 Sep 94 <pinard> GNU shar 4.0
+
+rmail/shar-walkdown-bug
+ 1. 12 Sep 94 <schwab@issan.informatik.uni-dortmund.de> Shar 4.0: bug in walkdo
+ 2. 13 Sep 94 <interran@uluru.stanford.edu> Re: Shar 4.0: bug in walkdown
+
+rmail/shar-without-fork
+ 1. 07 Sep 94 <schwab@issan.informatik.uni-dortmund.de> Shar 4.0: avoid fork() 
+
+rmail/unshar-new-o-option
+ 1. 09 Sep 94 <gaumondp@ere.umontreal.ca> Suggestion for unshar 4.0
+
+rmail/unshar-slowness
+ 1. 31 Oct 94 <pinard> Re: sharutils-4.0.1
+
+rmail/unshar-standalone
+ 1. 03 Sep 94 <agulbra@nvg.unit.no> shar/unshar
+ 2. 06 Sep 94 <agulbra@pvv.unit.no> Re: shar/unshar
+
+rmail/uu-bigger-specs
+ 1. 05 Sep 93 <mathew@mantis.co.UK> Re: uuencode/uudecode
+ 2. 07 Sep 93 <mathew@mantis.co.uk> Re: GNU uudecode: why no GNU btoa?
+ 3. 03 Mar 94 <iwj@cam-orl.co.UK> uuencode 1.0: Ultrix, use of spaces, no table
+ 4. 02 Jul 94 <bcochavy@ilux39.iil.intel.com> Some slight patchs for uuencode-1
+
+rmail/uu-documentation
+ 1. 02 Sep 93 <ian@cygnus.com> DOS uuencode and uudecode
+ 2. 13 Oct 93 <unknown> Re: uuencode
+ 3. 17 Jul 89 <peter%essex.ac.uk%NSFNET-RELAY.AC.UK@IRO.UMontreal.CA> uudecode 
+ 4. 02 Dec 90 <jik@athena.mit.edu> Re: uudecode alias security hole?
+ 5. 17 Jun 91 <jik@cats.ucsc.edu> Re: is uudecode dangerous?
+ 6. 19 Jun 91 <wcs@cbnewsh.att.com> Re: is uudecode dangerous? ; chown?
+ 7. 01 Mar 90 <root@cca.ucsf.edu> Re: which archiver/compresser/encoder/decoder
+ 8. 03 Nov 94 <pinard@IRO.UMontreal.CA> Re: Documentation diffs, & a comment.
+
+rmail/uu-new-w-option
+ 1. 29 Oct 94 <tembel!shields> New `uudecode -w' option for easy multipart deco
+ 2. 29 Oct 94 <pinard> Re: New `uudecode -w' option for easy multipart decoding
+ 3. 29 Oct 94 <tembel!shields> Re: New `uudecode -w' option for easy multipart 

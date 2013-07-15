@@ -1,0 +1,10 @@
+This directory contains the GNU diff, diff3, sdiff, and cmp utilities 
+modified to work with WIN32. All Windows specific sections should be 
+labeled by WIN32 defines.
+To build from the sources, just put the Windows gcc-2.95.2 on your path,
+type make and keep you fingers crossed. The Cygwin-gcc with the -mnocygwin
+flag may work, too.
+
+Karl M. Syring 05/12/00
+
+Report Windows specific bugs to syring@email.com

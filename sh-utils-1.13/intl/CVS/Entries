@@ -1,0 +1,27 @@
+/Makefile/1.1.1.1/Wed Apr 26 08:11:43 2000//
+/bindtextdom.c/1.1.1.1/Fri Sep  3 12:12:10 1999//
+/cat-compat.c/1.1.1.1/Fri Sep  3 12:12:10 1999//
+/changelog/1.1.1.1/Fri Sep  3 12:12:10 1999//
+/dcgettext.c/1.1.1.1/Fri Sep  3 12:12:10 1999//
+/dgettext.c/1.1.1.1/Fri Sep  3 12:12:10 1999//
+/explodename.c/1.1.1.1/Fri Sep  3 12:12:10 1999//
+/finddomain.c/1.1.1.1/Fri Sep  3 12:12:11 1999//
+/gettext.c/1.1.1.1/Fri Sep  3 12:12:11 1999//
+/gettext.h/1.1.1.1/Fri Sep  3 12:12:11 1999//
+/gettextp.h/1.1.1.1/Fri Sep  3 12:12:11 1999//
+/hash-string.h/1.1.1.1/Fri Sep  3 12:12:11 1999//
+/intl-compat.c/1.1.1.1/Fri Sep  3 12:12:11 1999//
+/l10nflist.c/1.1.1.1/Fri Sep  3 12:12:11 1999//
+/libgettext.h/1.1.1.1/Fri Sep  3 12:12:12 1999//
+/libintl.h/1.1.1.1/Fri Sep  3 12:12:12 1999//
+/linux-msg.sed/1.1.1.1/Fri Sep  3 12:12:12 1999//
+/loadinfo.h/1.1.1.1/Fri Sep  3 12:12:12 1999//
+/loadmsgcat.c/1.1.1.1/Fri Sep  3 12:12:12 1999//
+/localealias.c/1.1.1.1/Fri Sep  3 12:12:13 1999//
+/makefile.in/1.1.1.1/Fri Sep  3 12:12:13 1999//
+/po2tbl.sed/1.1.1.1/Wed Apr 26 08:11:15 2000//
+/po2tbl.sed.in/1.1.1.1/Fri Sep  3 12:12:13 1999//
+/textdomain.c/1.1.1.1/Fri Sep  3 12:12:13 1999//
+/version/1.1.1.1/Fri Sep  3 12:12:13 1999//
+/xopen-msg.sed/1.1.1.1/Fri Sep  3 12:12:13 1999//
+D

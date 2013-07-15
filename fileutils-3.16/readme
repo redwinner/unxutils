@@ -1,0 +1,110 @@
+These are the GNU file management utilities.  Most of these programs
+have significant advantages over their Unix counterparts, such as
+greater speed, additional options, and fewer arbitrary limits.
+
+The programs that can be built with this package are: chgrp, chown,
+chmod, cp, dd, df, du, install, ln, dir, vdir, ls, mkdir, mvdir, mkfifo,
+mknod, mv, rm, rmdir, sync and touch.  But mvdir is built only on systems
+that lack the rename system call.
+
+The programs cat, cut, expand, head, paste, split, tac, tail and
+unexpand, which used to be part of the fileutils, are now part of the
+textutils.  cmp is now part of the diff distribution.
+
+See the file NEWS for a list of major changes in the current release.
+
+See the file INSTALL for compilation and installation instructions.
+
+If you are using a version of the Linux libc that predates 4.4.1,
+you should get a newer version.  The old libraries contain getopt
+functions that are incompatible with several of these utilities.  For
+instance, when built with the obsolete getopt functions, `chmod +x'
+will give usage errors instead of the expected results.
+
+The fileutils are intended to be POSIX.2 compliant (with BSD and other
+extensions), like the rest of the GNU system.  They are almost there,
+but a few incompatibilities remain.
+
+The skeletal man pages that were provided with earlier versions of this
+package have been converted to Texinfo documentation.  Although the
+Texinfo documentation is improved and much better organized (thanks to
+Karl Berry and Franc,ois Pinard) it is still not up to the standard of
+other GNU manuals.  Although the man pages are still being distributed
+and installed, they are no longer being updated.
+
+The ls, dir, and vdir commands are all separate executables instead of
+one program that checks argv[0] because people often rename these
+programs to things like gls, gnuls, l, etc.  Renaming a program
+file shouldn't affect how it operates, so that people can get the
+behavior they want with whatever name they want.
+
+On (old?) Sequents, the GNU install and chgrp utilities work only when
+run as root, because the Sequent chown system call doesn't allow non-root
+users to change files' groups, unlike on every other known Unix.
+(The Sequent /bin/chgrp is setuid root.  Don't try making GNU chgrp
+setuid root unless you add security checks to it.)
+
+A warning about du for HP-UX users: GNU du (and I'm sure BSD-derived
+versions) counts the st_blocks field of the `struct stat' for each
+file.  (It's best to use st_blocks where available, instead of
+st_size, because otherwise you get wildly wrong answers for sparse
+files like coredumps, and it counts indirect blocks.)  Chris Torek in
+a comp.unix.wizards posting stated that in 4BSD st_blocks is always
+counted in 512 byte blocks.  On HP-UX filesystems, however, st_blocks
+is counted in 1024 byte blocks.  When GNU du is compiled on HP-UX, it
+assumes that st_blocks counts 1024-byte blocks, because locally
+mounted filesystems do; so to get the number of 512-byte blocks, it
+doubles the st_blocks value.  (The HP-UX du seems to do the same
+thing.)  This gives the correct numbers on HP-UX filesystems.  But for
+4BSD filesystems mounted on HP-UX machines, it gives twice the correct
+numbers; similarly, for HP-UX filesystems, du on 4BSD machines gives
+half the correct numbers.  GNU ls with the -s option has the same
+problem.  I know of no way to determine for a given filesystem or file
+what units st_blocks is measured in.  The f_bsize element of `struct
+statfs' does not work, because its meaning varies between different
+versions of Unix.
+
+The GNU cp, mv, and ln commands can make backups of files that they
+are about to overwrite or remove.  Backup file names will end up being
+the same as the original file names for files that are at the system's
+filename length limit; when that happens, the new file will silently
+replace the backup file that was just made.  This happens with GNU
+Emacs, also.  I am not aware of a clean, portable solution to this
+problem.
+
+Special thanks to Jim Meyering, Brian Matthews, Bruce Evans, Karl Berry,
+Kaveh Ghazi, and Franc,ois Pinard for help with debugging and porting
+these programs.  Many thanks to all of the people who have taken the
+time to submit problem reports and fixes.  Contributed changes are
+attributed in the ChangeLog file.
+
+Note that the distributed man pages are no longer being updated.
+The authoritative documentation is in texinfo form in the doc directory.
+
+INSTALLATION NOTE:
+On some systems (at least HPUX (9.xx?), Interactive (ISC) 4.1a, and
+probably other SVR3-based systems) `make install' fails because the
+running `install' program cannot be unlinked.  If you experience that
+problem, you can work around it by rerunning configure and telling it
+to use the install-sh script to install files.
+
+If you use a Bourne-compatible shell, type this:
+
+  INSTALL="`pwd`/install-sh -c" ./configure
+
+or if you have the env program type
+
+  env INSTALL="`pwd`/install-sh -c" ./configure
+
+
+These programs all recognize the `--version' option.  When reporting
+bugs, please include in the subject line both the package name/version
+and the name of the program for which you found a problem.
+
+For general documentation on the coding and usage standards
+this distribution follows, see the GNU standards document
+ftp://prep.ai.mit.edu/pub/gnu/standards.*, especially the `Makefile
+Conventions', `Configuration', and `User Interfaces' sections.
+
+Mail suggestions and bug reports for these programs to
+fileutils-bugs@gnu.ai.mit.edu.

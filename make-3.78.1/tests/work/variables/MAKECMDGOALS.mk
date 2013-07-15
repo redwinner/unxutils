@@ -1,0 +1,3 @@
+
+.DEFAULT all:
+	@echo $(MAKECMDGOALS)

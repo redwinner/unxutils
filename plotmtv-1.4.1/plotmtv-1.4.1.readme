@@ -1,0 +1,32 @@
+Collection Name:	plotMTV
+Source From:		ftp://ftp.x.org/contrib/applications
+Download Date:		05/09/97
+
+A very nice plotting program.  Publication 2-D and 3-D plots of several
+types.
+
+---
+Compiled On:		storm.cise.ufl.edu	(sun4-sol2.5)
+	 By:		sbeck
+       Date:		05/09/97
+
+xmkmf
+make World
+
+DEPOT=/depot/collections0/plotmtv-1.4.1
+mkdir -p $DEPOT/bin
+mkdir -p $DEPOT/doc/plotmtv
+mkdir -p $DEPOT/man/man1
+
+cp Bin/* $DEPOT/bin
+strip $DEPOT/bin/*
+cp Docs/plotmtv.man $DEPOT/man/man1/plotmtv.1x
+cp Docs/DataFormat.ps.Z $DEPOT/doc/plotmtv
+
+---
+Compiled On:		hail.cise.ufl.edu	(sgi-irix6.2)
+	 By:		sbeck
+       Date:		05/09/97
+
+Same as above.
+

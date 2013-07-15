@@ -1,0 +1,72 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:554: checking for a BSD compatible install
+configure:607: checking whether build environment is sane
+configure:664: checking whether make sets ${MAKE}
+configure:710: checking for working aclocal
+configure:723: checking for working autoconf
+configure:736: checking for working automake
+configure:749: checking for working autoheader
+configure:762: checking for working makeinfo
+configure:782: checking for gcc
+configure:859: checking whether the C compiler (gcc  ) works
+configure:873: gcc -o conftest    conftest.c  1>&5
+configure:893: checking whether the C compiler (gcc  ) is a cross-compiler
+configure:898: checking whether we are using GNU C
+configure:907: gcc -E conftest.c
+configure:922: checking whether gcc accepts -g
+configure:950: checking how to run the C preprocessor
+configure:971: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1012: checking for minix/config.h
+configure:1022: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1018: minix/config.h: No such file or directory
+configure: failed program was:
+#line 1017 "configure"
+#include "confdefs.h"
+#include <minix/config.h>
+configure:1066: checking for flex
+configure:1098: checking for flex
+configure:1131: checking for yywrap in -lfl
+configure:1150: gcc -o conftest -g -O2   conftest.c -lfl   1>&5
+configure:1173: checking lex output file root
+configure:1194: checking whether yytext is a pointer
+configure:1213: gcc -o conftest -g -O2   conftest.c  -lfl 1>&5
+configure:1239: checking for bison
+configure:1279: checking for a BSD compatible install
+configure:1331: checking for ranlib
+configure:1358: checking whether make sets ${MAKE}
+configure:1390: checking for stdarg.h
+configure:1400: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1390: checking for stddef.h
+configure:1400: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1390: checking for stdlib.h
+configure:1400: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1390: checking for string.h
+configure:1400: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1390: checking for limits.h
+configure:1400: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1390: checking for unistd.h
+configure:1400: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1390: checking for lib.h
+configure:1400: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1396: lib.h: No such file or directory
+configure: failed program was:
+#line 1395 "configure"
+#include "confdefs.h"
+#include <lib.h>
+configure:1427: checking for working const
+configure:1481: gcc -c -g -O2  conftest.c 1>&5
+configure:1502: checking for ANSI C header files
+configure:1515: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1582: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1606: checking for size_t
+configure:1639: checking for ptrdiff_t
+configure:1673: checking for vprintf
+configure:1701: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1780: checking for isgraph
+configure:1808: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1780: checking for setvbuf
+configure:1808: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1836: checking if long strings are accepted by the C compiler
+configure:1849: gcc -c -g -O -I. -I.  conftest.c 1>&5

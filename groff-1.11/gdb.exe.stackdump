@@ -1,0 +1,23 @@
+  559   11754 [main] gdb 1970 exception: trapped!
+16069   27823 [main] gdb 1970 exception: code 0xC0000005 at 0x4018A3
+14131   41954 [main] gdb 1970 exception: ax 0x254FBB4 bx 0x257E3B8 cx 0x0 dx 0x0
+12098   54052 [main] gdb 1970 exception: si 0x257E15C di 0x574AE0 bp 0x257E01C sp 0x257E014
+21187   75239 [main] gdb 1970 exception: exception is: STATUS_ACCESS_VIOLATION
+12935   88174 [main] gdb 1970 stack: Stack trace:
+11917  100091 [main] gdb 1970 stack: frame 0: sp = 0x257DE24, pc = 0x6100B000
+19807  119898 [main] gdb 1970 stack: frame 1: sp = 0x257DE48, pc = 0x6100B3EA
+44015  163913 [main] gdb 1970 stack: frame 2: sp = 0x257DE64, pc = 0x77F96666
+33623  197536 [main] gdb 1970 stack: frame 3: sp = 0x257DE88, pc = 0x77F8912B
+43987  241523 [main] gdb 1970 stack: frame 4: sp = 0x257DF14, pc = 0x77F763BA
+33607  275130 [main] gdb 1970 stack: frame 5: sp = 0x257E01C, pc = 0x47B2F8
+32950  308080 [main] gdb 1970 stack: frame 6: sp = 0x257E04C, pc = 0x4D22C5
+33582  341662 [main] gdb 1970 stack: frame 7: sp = 0x257E38C, pc = 0x47ABBA
+32954  374616 [main] gdb 1970 stack: frame 8: sp = 0x257E3AC, pc = 0x47B2CC
+44671  419287 [main] gdb 1970 stack: frame 9: sp = 0x257E44C, pc = 0x478DF7
+32918  452205 [main] gdb 1970 stack: frame 10: sp = 0x257E49C, pc = 0x478CEC
+33622  485827 [main] gdb 1970 stack: frame 11: sp = 0x257E55C, pc = 0x478907
+32912  518739 [main] gdb 1970 stack: frame 12: sp = 0x257E59C, pc = 0x472B53
+33576  552315 [main] gdb 1970 stack: frame 13: sp = 0x257E5CC, pc = 0x4D22C5
+43990  596305 [main] gdb 1970 stack: frame 14: sp = 0x257E90C, pc = 0x472A6B
+33587  629892 [main] gdb 1970 stack: frame 15: sp = 0x257E9CC, pc = 0x660228B0
+32944  662836 [main] gdb 1970 stack: End of stack trace (more stack frames may be present)

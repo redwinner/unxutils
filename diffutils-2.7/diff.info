@@ -1,0 +1,128 @@
+This is Info file diff.info, produced by Makeinfo version 1.68 from the
+input file ./diff.texi.
+
+   This file documents the the GNU `diff', `diff3', `sdiff', and `cmp'
+commands for showing the differences between text files and the `patch'
+command for using their output to update files.
+
+   Copyright (C) 1992, 1993, 1994 Free Software Foundation, Inc.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that
+the entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+
+Indirect:
+diff.info-1: 1015
+diff.info-2: 48289
+diff.info-3: 98092
+diff.info-4: 144176
+
+Tag Table:
+(Indirect)
+Node: Top1015
+Node: Overview2420
+Node: Comparison5564
+Node: Hunks8182
+Node: White Space9608
+Node: Blank Lines10833
+Node: Case Folding11597
+Node: Specified Folding12010
+Node: Brief13100
+Node: Binary14351
+Node: Output Formats17691
+Node: Sample diff Input18383
+Node: Normal19876
+Node: Detailed Normal20805
+Node: Example Normal22530
+Node: Context23253
+Node: Context Format24801
+Node: Detailed Context25574
+Node: Example Context27130
+Node: Less Context28623
+Node: Unified Format29755
+Node: Detailed Unified30534
+Node: Example Unified31518
+Node: Sections32517
+Node: Specified Headings33261
+Node: C Function Headings34808
+Node: Alternate Names35627
+Node: Side by Side36524
+Node: Side by Side Format38664
+Node: Example Side by Side39561
+Node: Scripts40888
+Node: ed Scripts41286
+Node: Detailed ed42481
+Node: Example ed44222
+Node: Forward ed44660
+Node: RCS45422
+Node: If-then-else46632
+Node: Line Group Formats48289
+Node: Line Formats53971
+Node: Detailed If-then-else57233
+Node: Example If-then-else59134
+Node: Comparing Directories60186
+Node: Adjusting Output63301
+Node: Tabs63720
+Node: Pagination65242
+Node: diff Performance65661
+Node: Comparing Three Files67607
+Node: Sample diff3 Input68468
+Node: Detailed diff3 Normal69417
+Node: diff3 Hunks71197
+Node: Example diff3 Normal72483
+Node: diff3 Merging73507
+Node: Which Changes75717
+Node: Marking Conflicts77123
+Node: Bypassing ed79580
+Node: Merging Incomplete Lines80935
+Node: Saving the Changed File81652
+Node: Interactive Merging82262
+Node: sdiff Option Summary82960
+Node: Merge Commands84060
+Node: Merging with patch85198
+Node: patch Input87305
+Node: Imperfect87968
+Node: Changed White Space88705
+Node: Reversed Patches89456
+Node: Inexact91041
+Node: Empty Files94395
+Node: Multiple Patches94959
+Node: patch Messages96271
+Node: Making Patches98092
+Node: Invoking cmp101390
+Node: cmp Options101994
+Node: Invoking diff103425
+Node: diff Options104891
+Node: Invoking diff3115487
+Node: diff3 Options116118
+Node: Invoking patch119720
+Node: patch Directories121660
+Node: Backups123475
+Node: Rejects126022
+Node: patch Options126572
+Node: Invoking sdiff131429
+Node: sdiff Options132539
+Node: Incomplete Lines135856
+Node: Projects137481
+Node: Shortcomings138175
+Node: Changing Structure139170
+Node: Special Files140118
+Node: Unusual File Names141064
+Node: Arbitrary Limits141686
+Node: Large Files142115
+Node: Ignoring Changes142987
+Node: Bugs143531
+Node: Concept Index144176
+
+End Tag Table

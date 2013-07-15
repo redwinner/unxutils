@@ -1,0 +1,21 @@
+  740   14904 [main] troff 2071 exception: trapped!
+37471   52375 [main] troff 2071 exception: code 0xC0000094 at 0x43A905
+32942   85317 [main] troff 2071 exception: ax 0xA031C30 bx 0xA031C30 cx 0x44E2A4 dx 0x0
+33590  118907 [main] troff 2071 exception: si 0x44E2A4 di 0xA0316D0 bp 0x254FBF4 sp 0x254FB6C
+55062  173969 [main] troff 2071 exception: exception is: STATUS_INTEGER_DIVIDE_BY_ZERO
+22575  196544 [main] troff 2071 stack: Stack trace:
+32865  229409 [main] troff 2071 stack: frame 0: sp = 0x254F984, pc = 0x6100B000
+22526  251935 [main] troff 2071 stack: frame 1: sp = 0x254F9A8, pc = 0x6100B3EA
+44008  295943 [main] troff 2071 stack: frame 2: sp = 0x254F9C4, pc = 0x77F96666
+22485  318428 [main] troff 2071 stack: frame 3: sp = 0x254F9E8, pc = 0x77F8912B
+21841  340269 [main] troff 2071 stack: frame 4: sp = 0x254FA74, pc = 0x77F763BA
+33589  373858 [main] troff 2071 stack: frame 5: sp = 0x254FBF4, pc = 0x43ADCE
+21837  395695 [main] troff 2071 stack: frame 6: sp = 0x254FC34, pc = 0x431502
+66883  462578 [main] troff 2071 stack: frame 7: sp = 0x254FCD4, pc = 0x431D5A
+43994  506572 [main] troff 2071 stack: frame 8: sp = 0x254FE04, pc = 0x610044C6
+22624  529196 [main] troff 2071 stack: frame 9: sp = 0x254FF8C, pc = 0x610046FD
+32819  562015 [main] troff 2071 stack: frame 10: sp = 0x254FF94, pc = 0x44804E
+22500  584515 [main] troff 2071 stack: frame 11: sp = 0x254FFA4, pc = 0x40103A
+44053  628568 [main] troff 2071 stack: frame 12: sp = 0x254FFC0, pc = 0x77F1BA06
+22537  651105 [main] troff 2071 stack: frame 13: sp = 0x254FFF0, pc = 0x0
+32880  683985 [main] troff 2071 stack: End of stack trace

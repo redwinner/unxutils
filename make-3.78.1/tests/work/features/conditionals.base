@@ -1,0 +1,5 @@
+arg1 NOT equal arg2
+arg2 equals arg5
+arg3 NOT equal arg4
+variable is undefined
+arg4 is defined

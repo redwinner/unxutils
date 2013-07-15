@@ -1,0 +1,3 @@
+apptype.lo : \
+ apptype.c
+apptype.c :

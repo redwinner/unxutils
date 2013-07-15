@@ -1,0 +1,5 @@
+
+  - make uptime work at least for Linux and any other system on which
+    boot time is easy to get.
+
+  - allow configure-time replacement of regex with rx, as in textutils

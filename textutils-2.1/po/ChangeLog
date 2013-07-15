@@ -1,0 +1,45 @@
+2002-03-12  Jim Meyering  <meyering@lucent.com>
+
+	* LINGUAS: Remove zh, on advice from Abel Cheung.
+	People should use zh_TW (or zh_CN, once it appears here).
+
+2002-03-10  Jim Meyering  <meyering@lucent.com>
+
+	* LINGUAS: Add zh_TW.
+
+2002-02-19  Bruno Haible  <bruno@clisp.org>
+
+	* remove-potcdate.sin: New file.
+	* Makefile.in.in (DISTFILES.common): Add remove-potcdate.sin.
+	(.SUFFIXES): Add .sed and .sin.
+	(.sin.sed): New rule.
+	($(DOMAIN).pot-update): Depend on remove-potcdate.sed. If the old
+	POT file exists and the new POT file differs from it only in the
+	first POT-Creation-Date line, keep the old POT file. So the PO files
+	don't need to be remade, and automake's "distcheck" target succeeds.
+	(mostlyclean): Remove remove-potcdate.sed and additional temporary
+	files.
+	Reported by Jim Meyering.
+
+2002-02-17  Jim Meyering  <meyering@lucent.com>
+
+	* Makefile.in.in ($(DOMAIN).pot-update): Remove/replace the .pot
+	file only if the new one is different (modulo the creation date).
+
+2002-02-16  Jim Meyering  <meyering@lucent.com>
+
+	* LINGUAS: Add Catalan (ca).
+
+2002-02-16  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.in.in: Upgrade to gettext-0.11.
+	* Rules-quot: New file, from gettext-0.11.
+	* boldquot.sed: New file, from gettext-0.11.
+	* en@boldquot.header: New file, from gettext-0.11.
+	* en@quot.header: New file, from gettext-0.11.
+	* insert-header.sin: New file, from gettext-0.11.
+	* quot.sed: New file, from gettext-0.11.
+
+2001-09-22  gettextize  <bug-gnu-utils@gnu.org>
+
+	* Makefile.in.in: Upgrade to gettext-0.10.40.

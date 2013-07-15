@@ -1,0 +1,13 @@
+11621   15582 [main] sh 1002 exception: trapped!
+33628   49210 [main] sh 1002 exception: code 0xC0000005 at 0x0
+10691   59901 [main] sh 1002 exception: ax 0x0 bx 0xA019920 cx 0xA037AD0 dx 0xA0348E0
+22500   82401 [main] sh 1002 exception: si 0xB8 di 0x246F954 bp 0x2 sp 0x246F908
+10754   93155 [main] sh 1002 exception: exception is: STATUS_ACCESS_VIOLATION
+11407  104562 [main] sh 1002 stack: Stack trace:
+10769  115331 [main] sh 1002 stack: frame 0: sp = 0x246F718, pc = 0x6100B000
+11417  126748 [main] sh 1002 stack: frame 1: sp = 0x246F73C, pc = 0x6100B3EA
+71027  197775 [main] sh 1002 stack: frame 2: sp = 0x246F758, pc = 0x77F97396
+39490  237265 [main] sh 1002 stack: frame 3: sp = 0x246F77C, pc = 0x77F8926B
+22517  259782 [main] sh 1002 stack: frame 4: sp = 0x246F808, pc = 0x77F76406
+32996  292778 [main] sh 1002 handle_exceptions: Exception: STATUS_ACCESS_VIOLATION
+22430  315208 [main] sh 1002 handle_exceptions: Error while dumping state (probably corrupted stack)

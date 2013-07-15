@@ -1,0 +1,1 @@
+tar %1 - %2 |gzip >%2.tar.gz

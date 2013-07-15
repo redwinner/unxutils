@@ -1,0 +1,55 @@
+2001-01-03  Bruno Haible  <haible@clisp.cons.org>
+
+	* gettext.m4: Check for argz.h, limits.h, malloc.h, string.h,
+	unistd.h, sys/param.h, mmap, mempcpy, munmap, stpcpy, strcasecmp,
+	strchr, strdup, __argz_count, __argz_stringify, __argz_next.
+
+2000-12-06  Bruno Haible  <haible@clisp.cons.org>
+
+	* microsoft.m4: Remove file.
+	* Makefile.am (EXTRA_DIST): Remove it.
+
+2000-12-05  Bruno Haible  <haible@clisp.cons.org>
+
+	* codeset.m4: New file, from libiconv-1.5.
+	* glibc21.m4: New file, from libiconv-1.5.
+	* Makefile.am (EXTRA_DIST): Add them.
+
+	* libtool.m4: New file.
+	* Makefile.am (EXTRA_DIST): Add it.
+
+2000-06-28  François Pinard  <pinard@iro.umontreal.ca>
+
+	* Makefile.am (EXTRA_DIST):
+
+	* flex.m4:
+
+2000-06-27  François Pinard  <pinard@iro.umontreal.ca>
+
+	* flex.m4: New, from elsewhere.
+	* utimbuf.m4: New, from elsewhere.
+
+2000-01-28  François Pinard  <pinard@iro.umontreal.ca>
+
+	* lcmessage.m4: New, from elsewhere.
+
+1999-12-14  François Pinard  <pinard@iro.umontreal.ca>
+
+	* Makefile.am: Adapt to the gettext scheme used in wdiff.
+
+	* gettext.m4: New file.  Have getcwd checked at configuration time.
+	* nls.m4: Deleted.
+
+1998-10-20  François Pinard  <pinard@iro.umontreal.ca>
+
+	* Makefile.am (AUTOMAKE_OPTIONS): Add --gnits.
+
+	* atconfig.m4: New, from elsewhere.
+	* echo.m4: Deleted.
+	* Makefile.am: Adjusted.
+
+1998-03-31  François Pinard  <pinard@iro.umontreal.ca>
+
+	* malloc.m4, realloc.m4: New files, from elsewhere.
+	* echo.m4, microsoft.m4, nls.m4: New, out of acinclude.m4.
+	* Makefile.am: New file.

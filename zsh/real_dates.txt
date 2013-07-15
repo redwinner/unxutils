@@ -1,0 +1,7 @@
+total 705
+-rw-rw-r--   1 amol     amol        12879 Jun 14 14:49 ChangeLog
+-rw-rw-r--   1 amol     amol        12892 Jun 14 14:49 Changelog.html
+-rw-rw-r--   1 amol     amol         5624 Sep  7  1999 README
+-rw-r--r--   1 amol     amol         3847 Dec  8  1997 example.zshrc
+-rw-rw-r--   1 amol     amol       216053 Jun 14 14:49 zsh.exe.gz
+-rw-rw-r--   1 amol     amol       462835 Mar 19 11:04 zshsrc.tar.gz

@@ -1,0 +1,190 @@
+{\rtf1\windows \deff0{\fonttbl
+{\f0\fswiss MS Sans Serif;}{\f1\fmodern Courier New;}{\f2\ftech Symbol;}}\fs20
+\page #{\footnote hcAbout}${\footnote \pard{}About this help file}\pard{\fs24\b About this help file}\par\par\pard{}This file was made with the help of {\ul Makertf 3.12b-1}{\v hcMakertf} from the input file jwhois.texi.\par\par{START-INFO-DIR-ENTRY
+\pard{}* jwhois: (jwhois).     Whois client.\line
+END-INFO-DIR-ENTRY\par
+\pard{}}\par
+{\pard{}This file documents {\scaps\fs16{}jwhois}, a Whois client.\par
+\par
+\pard{}Copyright (C) 1999  Free Software Foundation, Inc.\par
+\par
+\pard{}Permission is granted to make and distribute verbatim copies of this manual provided the copyright notice and this permission notice are preserved on all copies.\par
+\par
+\pard{}Permission is granted to copy and distribute modified versions of this manual under the conditions for verbatim copying, provided that the entire resulting derived work is distributed under the terms of a permission notice identical to this one.  }\par
+\par
+\page\pard Node: {\b Top}, \keepn Next: {\uldb Introduction}{\v Introduction}, Prev: {\uldb (dir)}{\v Top @dir.hlp}, Up: {\uldb (dir)}{\v Top @dir.hlp}\tab\tab{\uldb About this help file}{\v hcAbout}\line
+K{\footnote K Top}
+#{\footnote Top}
+\par
+\pard\pard{}This file documents the GNU jwhois package, en extended Whois client.  This is edition 2.4, for jwhois version 2.4, last updated 28 December 1999.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Introduction}{\v Introduction}\tab Introduction\par
+{\uldb Invocation}{\v Invocation}\tab How to invoke jwhois\par
+{\uldb RIPE Extensions}{\v RIPE_Extensions}\tab Extensions for RIPE databases\par
+{\uldb Site Configuration}{\v Site_Configuration}\tab Defining a list of Whois servers\par
+{\uldb Cache Functionality}{\v Cache_Functionality}\tab Cache Functionality\par
+{\uldb Reporting bugs}{\v Reporting_bugs}\tab Reporting bugs\par
+\pard{}}\par
+\page\pard Node: {\b Introduction}, \keepn Next: {\uldb Invocation}{\v Invocation}, Prev: {\uldb Top}{\v Top}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Introduction}
+#{\footnote Introduction}
+${\footnote \pard{}Introduction}\par
+\pard{\fs24\b Introduction}\par
+\par
+{\scaps\fs16{}\pard{}jwhois} is an Internet Whois client that queries hosts for information according to RFC 954 - NICNAME/WHOIS. {\scaps\fs16{}jwhois} is configured via a configuration file that contains information about all known Whois servers.  Upon execution, the host to query is selected based on the information in the configuration file.\par
+\par
+\pard{}The configuration file is highly customizable and makes heavy use of regular expressions.\par
+\par
+\page\pard Node: {\b Invocation}, \keepn Next: {\uldb RIPE Extensions}{\v RIPE_Extensions}, Prev: {\uldb Introduction}{\v Introduction}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Invocation}
+#{\footnote Invocation}
+${\footnote \pard{}Invocation}\par
+\pard{\fs24\b Invocation}\par
+\par
+{\scaps\fs16{}\pard{}jwhois} uses the following command-line options: {\par
+\pard{}{\f1{}--version}\par
+\pard\li720{}Print the program version and licensing information.\par
+\par
+\pard{}{\f1{}--help}\par
+\pard\li720{}Print a usage message summarizing the command-line options.\par
+\par
+\pard{}{\f1{}-c FILE}\par
+
+\pard{}{\f1{}--config=FILE}\par
+\pard\li720{}Reads configuration from FILE instead of from the default system global configuration file.\par
+\par
+\pard{}{\f1{}-h HOST}\par
+
+\pard{}{\f1{}--host=HOST}\par
+\pard\li720{}Overrides any specifications in the configuration file and queries HOST directly.\par
+\par
+\pard{}{\f1{}-p PORT}\par
+
+\pard{}{\f1{}--port=PORT}\par
+\pard\li720{}Specifies a port number to use when querying a HOST\par
+\par
+\pard{}{\f1{}-f}\par
+
+\pard{}{\f1{}--force-lookup}\par
+\pard\li720{}This option forces the client to look up an entry from the source Whois server, even if a current copy is available in the system cache.\par
+\par
+\pard{}{\f1{}-d}\par
+
+\pard{}{\f1{}--disable-cache}\par
+\pard\li720{}This disables the cache functionality.\par
+\par
+\pard{}{\f1{}-v}\par
+
+\pard{}{\f1{}--verbose}\par
+\pard\li720{}Enables verbose debugging output where available.\par
+\par
+\pard{}}\par
+\pard{}The query can optionally contain the character {\f1{}@} followed by a host name to direct the search to that host. This works exactly like specifying the host with {\f1{}--host}.\par
+\par
+\page\pard Node: {\b RIPE Extensions}, \keepn Next: {\uldb Site Configuration}{\v Site_Configuration}, Prev: {\uldb Invocation}{\v Invocation}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K RIPE Extensions}
+#{\footnote RIPE_Extensions}
+${\footnote \pard{}RIPE Extensions}\par
+\pard{\fs24\b RIPE Extensions}\par
+\par
+\pard{}RIPE (R\'E9seaux IP Europ\'E9ens) has defined a number of options that can be used against a RIPE-compatible whois server (ripe.net, apnic.net and others).  Unfortunately, there is really no way of telling whether a host we are connecting to is RIPE-compatible or not.  RIPE extensions are therefore not directly incorporated into the {\scaps\fs16{}jwhois} client.  A list of the options can be found in RIPE Document 157 which you can get from the RIPE ftp server, <URL:ftp://ftp.ripe.net/ripe/docs/>.\par
+\par
+\pard{}It is possible to use these options together with {\scaps\fs16{}jwhois} by changing the format of the query slightly. If you were to search for all entries in the RIPE database which lists the admin-c, tech-c or zone-c as CO19-RIPE, you could use the following command syntax:\par
+\par
+{\pard\keep\li720\f1{}$ jwhois -h whois.ripe.net -- -i admin-c,tech-c,zone-c CO19-RIPE\par
+\pard\f0{}}\par
+{\f1{}\pard{}--} is used to separate the RIPE options from the jwhois options.\par
+\par
+\page\pard Node: {\b Site Configuration}, \keepn Next: {\uldb Cache Functionality}{\v Cache_Functionality}, Prev: {\uldb RIPE Extensions}{\v RIPE_Extensions}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Site Configuration}
+#{\footnote Site_Configuration}
+${\footnote \pard{}Site Configuration}\par
+\pard{\fs24\b Site Configuration}\par
+\par
+{\scaps\fs16{}\pard{}jwhois} is configurable via its configuration file, normally called {\f1{}jwhois.conf}. This file is looked for in the sysconfdir that was specified when compiling the program (default is {\f1{}/usr/local/etc/} on most systems).\par
+\par
+\pard{}If no configuration file can be found, {\scaps\fs16{}jwhois} will default all queries to <URL:whois.internic.net>.\par
+\par
+\pard{}An example configuration file that includes most known Whois servers can be found in the {\f1{}example} subdirectory of the official distribution.\par
+\par
+\pard{}The configuration file is split into a number of blocks. Each block can contain a number of different options which are explained in the sections below. You can also get an overview of the syntax by looking at the example configuration file included in the distribution.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Global}{\v Global}\tab Global configuration options\par
+{\uldb Whois-servers}{\v Whois_servers}\tab Whois server configuration\par
+{\uldb Content-redirect}{\v Content_redirect}\tab The content-redirect block\par
+\pard{}}\par
+\page\pard Node: {\b Global}, \keepn Next: {\uldb Whois-servers}{\v Whois_servers}, Prev: {\uldb }{\v }, Up: {\uldb Site Configuration}{\v Site_Configuration}\line
+K{\footnote K Global}
+#{\footnote Global}
+${\footnote \pard{}Global}\par
+\pard{\fs24\b Global}\par
+\par
+\pard{}The only available global options are related to the cache features in jwhois See {\uldb Cache Functionality}{\v Cache_Functionality}.  By default, the location of the configuration file is {\f1{}/usr/local/var/jwhois.db}, but this can be changed at compile time. The option {\f1{}cachefile} also changes the location.\par
+\par
+\pard{}The default expire time for all cached objects it 7 days (168 hours). this can be changed with the {\f1{}cacheexpire} option. The value is the number of hours that objects is considered to be current.\par
+\par
+\pard{}Example:\par
+\par
+{\pard\keep\li720\f1{}cachefile = "/var/lib/jwhois.db";\line
+cacheexpire = 168;\par
+\pard\f0{}}\par
+\page\pard Node: {\b Whois-servers}, \keepn Next: {\uldb Content-redirect}{\v Content_redirect}, Prev: {\uldb Global}{\v Global}, Up: {\uldb Site Configuration}{\v Site_Configuration}\line
+K{\footnote K Whois-servers}
+#{\footnote Whois_servers}
+${\footnote \pard{}Whois-servers}\par
+\pard{\fs24\b Whois-servers}\par
+\par
+\pard{}When making a query, {\scaps\fs16{}jwhois} looks at the {\f1{}whois-servers} block to determine which host to send the query to. The option {\f1{}type} can be set to change between two different kinds of matching; {\f1{}cidr} or {\f1{}regex}.\par
+\par
+{\f1{}\pard{}regex} matches using standard regular expressions.  {\f1{}cidr} matches using CIDR net blocks.\par
+\par
+\pard{}The value of all objects can take one of two forms. Either a hostname or the special option {\f1{}struct}. The later asks {\scaps\fs16{}jwhois} to look at another option block in the configuration file.\par
+\par
+\pard{}When matching using CIDR net blocks, the key can take the special value {\f1{}default} which matches everything.\par
+\par
+{\pard\keep\li720\f1{}whois-servers \'7B\line
+        type = regex;\line
+        ".*-[A-Z]+$" = "struct handles";\line
+        ".*" = "whois.internic.net";\line
+\'7D;\line
+handles \'7B\line
+        type = regex;\line
+        ".*-RIPE$" = "whois.ripe.net";\line
+        default = "whois.arin.net";\line
+\'7D;\par
+\pard\f0{}}\par
+\page\pard Node: {\b Content-redirect}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Whois-servers}{\v Whois_servers}, Up: {\uldb Site Configuration}{\v Site_Configuration}\line
+K{\footnote K Content-redirect}
+#{\footnote Content_redirect}
+${\footnote \pard{}Content-redirect}\par
+\pard{\fs24\b Content-redirect}\par
+\par
+{\f1{}\pard{}content-redirect} is a special block designed to parse the output returned by a Whois server looking for special regular expressions and then sending the same query to the Whois server gotten from the regular expression.\par
+\par
+\pard{}The key value is the name of the Whois server that this expression is applicable to. This is matched using regular expressions. The value is the regexp that is looked for in the output, with hostname and optional port number enclosed in so called subexpressions or groups.\par
+\par
+{\pard\keep\li720\f1{}content-redirect \'7B\line
+        ".*" = ".*Whois Server: \'5C\'5C(.*\'5C\'5C)";\line
+\'7D;\par
+\pard\f0{}}\par
+\page\pard Node: {\b Cache Functionality}, \keepn Next: {\uldb Reporting bugs}{\v Reporting_bugs}, Prev: {\uldb Site Configuration}{\v Site_Configuration}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Cache Functionality}
+#{\footnote Cache_Functionality}
+${\footnote \pard{}Cache Functionality}\par
+\pard{\fs24\b Cache Functionality}\par
+\par
+{\scaps\fs16{}\pard{}jwhois} implements support for maintaining a cache of Whois data received from Whois servers. This is NOT enabled by default but has to be compiled into the client specifically. The design is such that a central database is maintained by the client and because all users should have access to that database, the program must have the set-group-on-execution bit set and the database must be both read and writable by the group.\par
+\par
+\pard{}The configuration options available are {\scaps\fs16{}cachefile} and {\scaps\fs16{}cacheexpire} which sets the database filename and the expire time for cached object.  When an object expires from the cache, it is reloaded from the Whois server the next time it is requested. The expire time is measured in hours.\par
+\par
+\page\pard Node: {\b Reporting bugs}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Cache Functionality}{\v Cache_Functionality}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Reporting bugs}
+#{\footnote Reporting_bugs}
+${\footnote \pard{}Reporting bugs}\par
+\pard{\fs24\b Reporting bugs}\par
+\par
+\pard{}Email bug reports to {\f1{}bug-jwhois@gnu.org}.\par
+\par
+\page K{\footnote Makertf}#{\footnote hcMakertf}${\footnote \pard{}About Makertf}\pard{\fs24\b About Makertf}\par\par\pard{}Makertf is a program that converts "Texinfo" files into "Rich Text Format" (RTF) files. It can be used to make WinHelp Files from GNU manuals and other documentation written in Texinfo. Visit http://www.snafu.de/~cschenk/makertf for more information.}

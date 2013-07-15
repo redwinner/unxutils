@@ -1,0 +1,9 @@
+*** work/features/vpathplus.base	Thu Mar 02 20:08:33 2000
+--- work/features/vpathplus.log	Thu Mar 02 20:08:33 2000
+***************
+*** 1,2 ****
+! cat bar.d > bar.c
+! cat work/foo.c bar.c > foo.b 2>/dev/null || exit 1
+--- 1,2 ----
+! The name specified is not recognized as an
+! internal or external command, operable program or batch file.

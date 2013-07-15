@@ -1,0 +1,26 @@
+Tasks for GNU fileutils (listed in order of decreasing priority):
+
+  unify textutils/fileutils/sh-utils
+  libitize
+  update copyright dates
+  make help/version output conformant
+
+  ls: test suite to exercize -l and -l --full-time with various LANG settings
+
+  mv: move non-regular files between partitions.  This will probably
+    involve factoring out and librarizing cp's copying code.
+
+  ls: recognize --format="%a %b..." strftime formats
+  ls: add new % formats to get the 10 bytes of the permissions string
+    (both individually and as groups)
+
+  cp, mv, ln, install: make --verbose report on backup files
+
+  chmod, chown (maybe others): Don't strip slashes unless configure
+      detects that e.g. lstat can't deal with them.
+
+fix automake's
+  rm -f $(libexec_PROGRAMS)
+rule of clean-libexecPROGRAMS
+
+  chown/chgrp/chmod: add new option: --reference=FILE see +utils/chown

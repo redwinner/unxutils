@@ -1,0 +1,63 @@
+#!/bin/sh
+
+export LANG; LANG=C
+
+case $# in
+0) exec make consistency-real;;
+esac
+
+srcdir=$1
+bindir=$2
+libdir=$srcdir/libidu
+
+m_flag="-m $libdir/id-lang.map"
+
+errors=
+
+cmd="$bindir/mkid $m_flag $srcdir"
+echo $cmd
+if eval $cmd; then
+    files="`$bindir/fnid || exit 1`"
+
+    if $bindir/xtokid $m_flag $files |sort -u >ID.xti &&
+	$bindir/lid |sed -e 's/[ 	].*//' |sort -u >ID.lid &&
+	cmp -s ID.xti ID.lid
+    then
+	rm -f ID.xti ID.lid
+	echo "Good.  xtokid and lid agree."
+    else
+	mv ID.xti ID.bad-xti
+	mv ID.fid ID.bad-fid
+	1>&2 echo "Oops!  xtokid and lid disagree--look in ID.bad-{xtokid,lid}"
+	errors=t
+    fi
+
+    xtokid_file=$$.xti
+    fid_file=$$.fid
+
+    for file in $files
+    do
+	if $bindir/fid $file >$fid_file &&
+	    $bindir/xtokid $m_flag $file |sort -u >$xtokid_file &&
+	    cmp -s $xtokid_file $fid_file;
+	then
+	    echo "Good.  xtokid and fid agree for $file"
+	else
+	    1>&2 echo "Oops!  xtokid and fid disagree for $file--look in $file.bad-{xtokid,fid}"
+	    mv $xtokid_file $file.bad-xti
+	    mv $fid_file $file.bad-fid
+	    errors=t
+	fi
+    done
+    rm -f $xtokid_file $fid_file
+else
+    1>&2 echo "Oops!  mkid failed."
+    errors=t
+fi
+
+case x$errors in
+xt) echo "Some checks failed."
+    exit 1;;
+*)  echo "All checks successful."
+    exit 0;;
+esac

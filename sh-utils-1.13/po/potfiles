@@ -1,0 +1,26 @@
+	../src/basename.c \
+	../src/date.c \
+	../src/dirname.c \
+	../src/echo.c \
+	../src/env.c \
+	../src/expr.c \
+	../src/factor.c \
+	../src/hostname.c \
+	../src/id.c \
+	../src/logname.c \
+	../src/nice.c \
+	../src/pathchk.c \
+	../src/printenv.c \
+	../src/printf.c \
+	../src/pwd.c \
+	../src/seq.c \
+	../src/sleep.c \
+	../src/stty.c \
+	../src/su.c \
+	../src/tee.c \
+	../src/test.c \
+	../src/tty.c \
+	../src/uname.c \
+	../src/who-users.c \
+	../src/whoami.c \
+	../src/yes.c

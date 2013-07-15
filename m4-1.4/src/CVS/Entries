@@ -1,0 +1,19 @@
+/Makefile.in/1.1.1.1/Wed Aug 16 00:20:06 2000//
+/ansi2knr.1/1.1.1.1/Wed Aug 16 00:20:06 2000//
+/ansi2knr.c/1.1.1.1/Wed Aug 16 00:20:06 2000//
+/builtin.c/1.1.1.1/Wed Aug 16 00:20:06 2000//
+/debug.c/1.1.1.1/Wed Aug 16 00:20:06 2000//
+/eval.c/1.1.1.1/Wed Aug 16 00:20:06 2000//
+/format.c/1.1.1.1/Wed Aug 16 00:20:06 2000//
+/freeze.c/1.1.1.1/Wed Aug 16 00:20:06 2000//
+/input.c/1.1.1.1/Wed Aug 16 00:20:06 2000//
+/m4.c/1.1.1.1/Wed Aug 16 00:20:06 2000//
+/m4.h/1.1.1.1/Wed Aug 16 00:20:06 2000//
+/macro.c/1.1.1.1/Wed Aug 16 00:20:06 2000//
+/makefile/1.1.1.1/Wed Aug 16 00:20:06 2000//
+/makefile.w32/1.1.1.1/Wed Aug 16 00:20:06 2000//
+/output.c/1.1.1.1/Wed Aug 16 00:20:06 2000//
+/path.c/1.1.1.1/Wed Aug 16 00:20:06 2000//
+/stackovf.c/1.1.1.1/Wed Aug 16 00:20:06 2000//
+/symtab.c/1.1.1.1/Wed Aug 16 00:20:06 2000//
+D

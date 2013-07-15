@@ -1,0 +1,32 @@
+# Generated automatically from atconfig.in by configure.					-*- shell-script -*-
+# Configurable variable values for building test suites.
+# Copyright © 1998 Progiciels Bourbeau-Pinard inc.
+# François Pinard <pinard@iro.umontreal.ca>, 1998.
+
+# Snippet (1
+# This debugging script has been automatically generated from `make check'.
+
+at_package=recode
+at_version=3.5
+# Snippet )1
+# Snippet (2
+at_n=-n
+at_c=''
+test -f atlocal && . ./atlocal
+
+# LC_MESSAGES is always shadowed by LC_ALL.  Here are the only cases:
+# - GNU:       LANGUAGE -> LC_ALL -> LC_MESSAGES -> LANG
+# - POSIX:     LC_ALL -> LC_MESSAGES -> LANG
+# - XPG4:      LC_ALL -> LANG
+# - SysV/XPG2: LANG
+export LANGUAGE; LANGUAGE=C
+export LANG; LANG=C
+export LC_ALL; LC_ALL=C
+
+srcdir=.
+top_srcdir=..
+# Use absolute file notations, as the test might change directories.
+at_srcdir=`cd . && pwd`
+at_top_srcdir=`cd .. && pwd`
+export PATH; PATH=`pwd`:`cd ../src && pwd`:$PATH
+# Snippet )2

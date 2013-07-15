@@ -1,0 +1,14 @@
+int main _((int argc, char **argv));
+void loop _((int toplevel));
+void emulate _((const char *zsh_name, int fully));
+void parseargs _((char **argv));
+void init_io _((void));
+void init_shout _((void));
+int init_term _((void));
+void setupvals _((void));
+void init_signals _((void));
+void run_init_scripts _((void));
+void init_misc _((void));
+int source _((char *s));
+void sourcehome _((char *s));
+void compctlsetup _((void));

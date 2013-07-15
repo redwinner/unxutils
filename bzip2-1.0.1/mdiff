@@ -1,0 +1,28 @@
+214a215
+> #   include <sys/utime.h>
+1140a1142,1160
+>    
+> #elif defined(__MINGW32__)
+>    IntNative      retVal;
+>    struct MY_STAT statBuf;
+>    struct utimbuf   uTimBuf;
+> 
+>    retVal = MY_LSTAT ( srcName, &statBuf );
+>    ERROR_IF_NOT_ZERO ( retVal );
+>    uTimBuf.actime = statBuf.st_atime;
+>    uTimBuf.modtime = statBuf.st_mtime;
+> 
+>    retVal = chmod ( dstName, statBuf.st_mode );
+>    ERROR_IF_NOT_ZERO ( retVal );
+> 
+>    retVal = utime ( dstName, &uTimBuf );
+>    ERROR_IF_NOT_ZERO ( retVal );
+> 
+> //   retVal = chown ( dstName, statBuf.st_uid, statBuf.st_gid );
+>    
+1141a1162
+>    
+1149c1170
+< #if BZ_UNIX
+---
+> #if BZ_UNIX || defined(__MINGW32__)

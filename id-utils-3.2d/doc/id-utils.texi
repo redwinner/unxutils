@@ -1,0 +1,1265 @@
+\input texinfo
+@comment %**start of header
+@setfilename id-utils.info
+@settitle ID database utilities
+@comment %**end of header
+
+@include version.texi
+
+@c Define new indices for file names and options.
+@defcodeindex fl
+@defcodeindex op
+
+@c Put everything in one index (arbitrarily chosen to be the concept index).
+@syncodeindex fl cp
+@syncodeindex fn cp
+@syncodeindex ky cp
+@syncodeindex op cp
+@syncodeindex pg cp
+@syncodeindex vr cp
+
+@ifinfo
+@format
+START-INFO-DIR-ENTRY
+* ID database: (id-utils).              Identifier database utilities.
+* mkid: (id-utils)mkid invocation.      Creating an ID database.
+* lid: (id-utils)lid invocation.        Matching words and patterns.
+* fid: (id-utils)fid invocation.        Listing a file's tokens.
+* fnid: (id-utils)fnid invocation.      Looking up file names.
+* xtokid: (id-utils)xtokid invocation.  Testing mkid scanners.
+END-INFO-DIR-ENTRY
+@end format
+@end ifinfo
+
+@ifinfo
+This file documents the @file{id-utils} database utilities.
+
+Copyright (C) 1996, 1999 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+@ignore
+Permission is granted to process this file through TeX and print the
+results, provided the printed document carries copying permission
+notice identical to this one except for the removal of this paragraph
+(this paragraph not being relevant to the printed manual).
+
+@end ignore
+Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided that the entire
+resulting derived work is distributed under the terms of a permission
+notice identical to this one.
+
+Permission is granted to copy and distribute translations of this manual
+into another language, under the above conditions for modified versions,
+except that this permission notice may be stated in a translation.
+@end ifinfo
+
+@titlepage
+@title ID database utilities
+@subtitle Programs for simple, fast, high-capacity cross-referencing
+@subtitle for version @value{VERSION}
+@author Greg McGary
+@author Tom Horsley
+@end titlepage
+
+@ifinfo
+@c ************* gkm *********************************************************
+@node Top
+@top ID utilities
+
+This manual documents version @value{VERSION} of the ID utilities.
+
+@menu
+* Introduction::                Overview of the tools with tutorial.
+* Quick start::                 Quick start procedure.
+* Common options::              Common command-line options.
+* mkid invocation::             Creating an ID database.
+* lid invocation::              Querying an ID database by token.
+* fid invocation::              Listing a file's tokens.
+* fnid invocation::             Looking up file names.
+* xtokid invocation::           Testing language scanners.
+* Past and Future::             History and future directions.
+* Index::                       General index.
+@end menu
+@end ifinfo
+
+@c ************* gkm *********************************************************
+@node Introduction
+@chapter Introduction
+
+@cindex overview
+@cindex introduction
+@cindex ID database, definition of
+
+An @dfn{ID database} is a binary file containing a list of file names, a
+list of tokens, and a sparse matrix indicating which tokens
+appear in which files.
+
+With this database and some tools to query it (described in this
+manual), many text-searching tasks become simpler and faster.  For
+example, you can list all files that reference a particular
+@code{#include} file throughout a huge source hierarchy, search for all
+the memos containing references to a project, or automatically invoke an
+editor on all files containing references to some function or variable.
+Anyone with a large software project to maintain, or a large set of text
+files to organize, can benefit from the ID utilities.
+
+Although the name `ID' is short for `identifier', the ID utilities
+handle more than just identifiers; they also treat other kinds of
+tokens, most notably numeric constants, and the contents of certain
+character strings.  Thus, this manual will use the word @dfn{token} as a
+term that is inclusive of identifiers, numbers and strings.
+
+There are several programs in the ID utilities family:
+
+@table @file
+
+@item mkid
+scans files for tokens and builds the ID database file.
+
+@item lid
+queries the ID database for tokens, then reports matching file names or
+matching lines.
+
+@item fid
+lists all tokens recorded in the database for given files, or
+tokens common to two files.
+
+@item fnid
+matches the file names in the database, rather than the tokens.
+
+@item xtokid
+extracts raw tokens---helps with testing of new @file{mkid} scanners.
+
+@end table
+
+In addition, the ID utilities have historically provided several query
+programs which are specializations of @file{lid}:
+
+@table @file
+
+@item gid
+(alias for @samp{lid -R grep})
+lists all lines containing the requested pattern.
+
+@item eid
+(alias for @samp{lid -R edit})
+invokes an editor on all files containing the requested pattern, and
+if possible, initiates a text search for that pattern.
+
+@item aid
+(alias for @samp{lid -ils}) treats the requested pattern
+as a case-insensitive literal substring.
+
+@end table
+
+@cindex bugs, reporting
+Please report bugs to @samp{bug-gnu-utils@@gnu.ai.mit.edu}.  Remember to
+include the version number, machine architecture, input files, and any
+other information needed to reproduce the bug: your input, what you
+expected, what you got, and why it is wrong.  Diffs are welcome, but
+please include a description of the problem as well, since this is
+sometimes difficult to infer.  @xref{Bugs, , , gcc, GNU CC}.
+
+@c ************* gkm *********************************************************
+@node Quick start
+@chapter Quick Start Procedure
+
+@table @bullet
+
+Unpack the distribution.
+
+Type @file{./configure}
+
+Type @samp{make}
+
+Type @samp{make install} as a user with the appropriate privileges
+(e.g., @samp{bin} or perhaps even @samp{root}).
+
+Type @samp{cd /usr/include; mkid} to build an ID database covering
+all of the system header files.
+
+Type @samp{lid FILE}, then @samp{gid strtok}, then @samp{aid stdout}.
+
+@end table
+
+You have just built, installed and used the most common commands of the
+GNU ID utilities.  If you ever need help remembering which system header
+files contain a particular declaration, or reference a particular symbol,
+you'll want to keep the ID file you built in @file{/usr/include} for
+later use.  If your working directory is elsewhere at the time, simply
+provide the @samp{-f /usr/include} option to @file{lid} (@pxref{Reading
+options}).
+
+@c ************* gkm *********************************************************
+@node Common options
+@chapter Common command-line options
+
+@cindex common command-line options
+
+Certain options, and regular expression syntax, are shared by various
+groupings of the ID utilities.  We describe these in the sections below,
+rather than repeating them for each program.
+
+@menu
+* Universal options::     Options common to all programs.
+* Extraction options::    Options for programs that extract tokens from source files.
+* Walker options::        Options for programs that walk file and directory trees.
+* Reading options::       Options for programs that read ID databases.
+* Writing options::       Options for programs that write ID databases.
+* File listing options::  Options for programs that list file names.
+@end menu
+
+@c ************* gkm *********************************************************
+@node Universal options
+@section Options Common to All Programs
+
+@table @samp
+
+@item --help
+@opindex --help
+@cindex help, online
+Print a usage message listing all available options, then exit successfully.
+
+@item --version
+@opindex --version
+@cindex version number, finding
+Print the version number, then exit successfully.
+
+@end table
+
+@c ************* gkm *********************************************************
+@node Reading options
+@section Options for Programs that Read ID Databases
+
+@table @samp
+
+@item -f @var{filename}
+@itemx --file=@var{filename}
+@opindex -f
+@opindex --file
+@cindex ID database file name
+
+@var{Filename} is the ID database to read when processing queries.  At
+present, only a single @samp{--file} option is processed, but in future
+releases, more than one ID database may be named on the command line.
+
+@item $IDPATH
+@cindex ID database file name
+
+@samp{IDPATH} is an environment variable that contains a
+colon-separated list of ID database names.  If this variable is present,
+and no @samp{--file} options are presented on the command line, the ID
+databases named in @samp{IDPATH} are implied.@footnote{At present, this
+feature isn't fully implemented, since only the first of a list of ID
+database names is processed.}
+
+@end table
+
+If no ID databases are specified either on the command line or via the
+@samp{IDPATH} environment variable, then the ID utilities search for a
+file named @file{ID} in the current working directory, and then in
+successive parent directories.
+
+@c ************* gkm *********************************************************
+@node Writing options
+@section Options for Programs that Write ID Databases
+
+@table @samp
+
+@item -o @var{filename}
+@itemx --output=@var{filename}
+@opindex -o
+@opindex --output
+@cindex ID database file name
+
+The @samp{--output} option names the file in which to write a new ID
+database.  If no @samp{--output} (or @samp{--file}) option is present,
+an output file named @file{ID} is implied.
+
+@item -f @var{filename}
+@itemx --file=@var{filename}
+@opindex -f
+@opindex --file
+@cindex ID database file name
+
+This is a synonym for @samp{--output}
+
+@end table
+
+@c ************* gkm *********************************************************
+@node Walker options
+@section Options for Programs that Walk File and Directory Trees.
+
+The programs @file{mkid} and @file{xtokid} accept the names of files and
+directories on the command line.  Files are scanned if there is a
+scanner available and enabled for the file's source language.
+Directories are recursively descended, searching for files whose names
+match the rules listed in the @emph{language map} file (@pxref{Language
+map}).
+
+The following option controls the file tree walker:
+
+@table @samp
+
+@item -p @var{names}
+@itemx --prune=@var{names}
+@opindex -p
+@opindex --prune
+@cindex file tree pruning
+
+One or more file or directory names may appear in @var{names}.  The file
+tree walker will stop short at these files and directories and their
+contents will not be scanned.
+
+@end table
+
+@c ************* gkm *********************************************************
+@node File listing options
+@section Options for Programs that List File Names
+
+The programs @file{lid} and @file{fnid} can print lists of file names as
+the result of queries.  The following option controls how these lists
+are formatted:
+
+@table @samp
+
+@item -S @var{style}
+@itemx --separator=@var{style}
+@opindex -S
+@opindex --separator
+@cindex file name separator
+
+@var{Style} may be one of @samp{braces}, @samp{space} or @samp{newline}.
+
+The @var{style} of @samp{braces} means that file names with common
+directory prefix and common suffix are printed using the shell's brace
+notation in order to compress the output.  For example,
+@file{../src/foo.c ../src/bar.c} can be printed in brace notation as
+@file{../src/@{foo,bar@}.c}.
+
+The @var{style}s of @samp{space} and @samp{newline} mean that file names
+are separated spaces or by newlines, respectively.
+
+If the list of files is being printed on a terminal, brace notation is
+the default.  If not, file names are separated by spaces if the
+@var{key} is included in the output, and by newlines the @var{key style}
+is @samp{none} (@pxref{lid invocation}).
+
+@end table
+
+@c ************* gkm *********************************************************
+@node Extraction options
+@section Options for Programs that Scan Source Files
+
+@file{mkid} and @file{xtokid} walk file trees, select source files by
+name, and extract tokens from source files.  They accept the following
+options:
+
+@table @samp
+
+@item -m @var{mapfile}
+@itemx --lang-map=@var{mapfile}
+@opindex -m
+@opindex --lang-map
+@cindex language map file
+
+@var{mapfile} contains rules for determining the source languages from
+file names @xref{Language map}.
+
+@item -i @var{languages}
+@itemx --include=@var{languages}
+@opindex -i
+@opindex --include
+@cindex include languages
+
+The @samp{--include} option names @var{languages} whose source files
+should be scanned and incorporated into the ID database.  By default,
+all languages known to the ID utilities are enabled.
+
+@item -x @var{languages}
+@itemx --exclude=@var{languages}
+@opindex -x
+@opindex --exclude
+@cindex exclude languages
+
+The @samp{--exclude} option names @var{languages} whose source files
+should @var{not} be scanned.  The default list of excluded languages is
+empty.  Note that only one of @samp{--include} or @samp{--exclude} may
+be specified on the command line for a single run.
+
+@item -l @var{language}:@var{options}
+@itemx --lang-option=@var{language}:@var{options}
+@opindex -l
+@opindex --lang-option
+@cindex language-specific option
+
+Language-specific scanners also accept options.  @var{Language} denotes
+the desired scanner, and @var{option} are the command-line options that
+should be passed through to it.  For example, to pass the @var{-x
+--coke-bottle} options to the scanner for the language @var{swizzle},
+pass this: @var{-l swizzle:"-x --coke-bottle"}, or this:
+@var{-lang-option=swizzle:"-x --coke-bottle"}, or this: @var{-l
+swizzle-x -l swizzle:--coke-bottle}.  Use the @samp{--help} option to
+see the command-line option summary for
+
+@end table
+
+@cindex scanners
+
+To determine which tokens to extract from a file and store in the
+database, @file{mkid} calls a @dfn{scanner}; we say a scanner
+@dfn{recognizes} a particular language.  Scanners for several languages
+are built-in to @file{mkid}; you can add your own scanners as well, as
+explained in @ref{Defining scanners}.
+
+The ID utilities determine which scanner to use for a particular file by
+consulting the language-map file.  Scanners for several are already
+built-in to the ID utilities.  You can see which languages have built-in
+scanners, and examine their language-specific options by invoking
+@samp{mkid --help} or @samp{xtokid --help}.
+
+@menu
+* Language map::                Mapping file names to source languages.
+* C/C++ scanner::               For the C and C++ programming language.
+* Assembler scanner::           For assembly language.
+* Text scanner::                For documents or other non-source code.
+* Defining scanners::           Defining new scanners in the source code.
+@end menu
+
+@c ************* gkm *********************************************************
+@node Language map
+@subsection Mapping file names to source languages
+
+The file @file{id-lang.map}, installed by default in
+@file{$(prefix)/share/id-lang.map}, contains rules for mapping file
+names to source languages.  Each rule comprises three parts: a shell
+@var{glob} pattern, a language name, and language-specific scanner
+options.
+
+The special pattern @samp{**} denotes the default source language.  This is
+the language that's assigned to file names that don't match any other
+pattern.
+
+The special pattern @samp{***} should be followed by a file name.  The
+named file should contain more language-map rules and is included at
+this point.
+
+The order in which rules are presented in a language-map file is
+significant.  This order influences the order in which files are
+displayed as the result of queries.  For example, the distributed
+language-map file places all rules for C @var{.h} files ahead of
+@var{.c} files, so that in general, declarations will precede
+definitions in query output.  The same thing is done for C++ and its
+many different source file name extensions.
+
+Here is a pared-down version of the @file{id-lang.map} file distributed
+with the ID utilities:
+
+@example
+
+# Default language
+**			IGNORE	# Although this is listed first,
+				# the default language pattern is
+				# logically matched last.
+
+# Backup files
+*~			IGNORE
+*.bak			IGNORE
+*.bk[0-9]		IGNORE
+
+# SCCS files
+[sp].*			IGNORE
+
+# list header files before code files
+*.h			C
+*.h.in			C
+*.H			C++
+*.hh			C++
+*.hpp			C++
+*.hxx			C++
+
+# list C `meta' files next
+*.l			C
+*.lex			C
+*.y			C
+*.yacc			C
+
+# list C code files after header files
+*.c			C
+*.C			C++
+*.cc			C++
+*.cpp			C++
+*.cxx			C++
+
+# list assembly language after C
+*.[sS]			asm --comment=;
+*.asm			asm --comment=;
+
+# [nt]roff
+*.[0-9]			roff
+*.ms			roff
+*.me			roff
+*.mm			roff
+
+# TeX and friends
+*.tex			TeX
+*.ltx			TeX
+*.texi			texinfo
+*.texinfo		texinfo
+
+@end example
+
+@c ************* gkm *********************************************************
+@node C/C++ scanner
+@subsection C/C++ Language Scanner
+
+@cindex C scanner, predefined
+
+The C scanner is the most commonly used.  Files that match the glob
+pattern @file{*.h}, @file{*.c}, as well as @file{yacc} files that match
+@file{*.y} or @file{*.yacc}, and @file{lex} files that match @file{*.l}
+or @file{*.lex}, are processed with this scanner.
+
+Scanner-specific options (Note, these options are presented
+@var{without} the required @samp{-l} or @samp{--lang-option=} prefix):
+
+@table @samp
+
+@item -k @var{character-class}
+@itemx --keep=@var{character-class}
+@opindex -k
+@opindex --keep
+@opindex -l C:-k
+@opindex -l C:--keep
+@opindex --lang-option=C:-k
+@opindex --lang-option=C:--keep
+
+Consider the characters in @var{character-class} as valid constituents of
+identifier names.  For example, if you are indexing C code that contains
+@samp{$} in some of its identifiers, you can include these by using
+@samp{--lang-option=C:--keep=$}, or @samp{-l C:"-k $"} (if you don't like
+to type so much).
+
+@item -i @var{character-class}
+@itemx --ignore=@var{character-class}
+@opindex -i
+@opindex --ignore
+@opindex -l C:-i
+@opindex -l C:--ignore
+@opindex --lang-option=C:-i
+@opindex --lang-option=C:--ignore
+
+Consider the characters in @var{character-class} as valid constituents of
+identifier names, but discard all tokens containing these characters.
+For example, if some C code has identifiers containing @samp{$}, but you
+don't want these cluttering up your ID database, use
+@samp{--lang-option=C:--ignore=$}, or the terser equivalent @samp{-l
+C:"-i $"}.
+
+@item -u
+@itemx --strip-underscore
+@opindex -u
+@opindex --strip-underscore
+@opindex -l C:-u
+@opindex -l C:--strip-underscore
+@opindex --lang-option=C:-u
+@opindex --lang-option=C:--strip-underscore
+
+Strip one leading underscore from C identifiers encapsulated as
+character strings.  This option is useful if you are indexing C code
+that contains symbol-table name strings for systems that prepend an
+underscore to external symbols.  By default, the leading underscore is
+retained.
+
+@end table
+
+@c ************* gkm *********************************************************
+@node Assembler scanner
+@subsection Assembly Language Scanner
+
+@cindex assembler scanner
+@cindex assembly language scanner
+
+Assembly languages use a variety of commenting conventions, and allow a
+variety of special characters to @emph{dirty up} local symbols,
+preventing name space conflicts with symbols defined by higher-level
+languages.  Also, some compilation systems prepend an underscore to
+external symbols.  The options listed below are designed to address
+these differences.
+
+@table @samp
+
+@item -c @var{character-class}
+@itemx --comment=@var{character-class}
+@opindex -c
+@opindex --comment
+@opindex -l asm:-c
+@opindex -l asm:--comment
+@opindex --lang-option=asm:-c
+@opindex --lang-option=asm:--comment
+
+The characters in @var{character-class} are considered left delimiters
+for comments that extend until the end of the current line.
+
+@item -k @var{character-class}
+@itemx --keep=@var{character-class}
+@opindex -k
+@opindex --keep
+@opindex -l asm:-k
+@opindex -l asm:--keep
+@opindex --lang-option=asm:-k
+@opindex --lang-option=asm:--keep
+
+Consider the characters of @var{character-class} as valid constituents of
+identifier names.  For example, if you are indexing assembly code that
+prepends @samp{.} to assembler directives, and prepends @samp{%} to
+register names, you can keep these characters in the tokens by specifying
+@samp{--lang-option=asm:--keep=.%}, or @samp{-l asm:"-k .%"}.
+
+@item -i @var{character-class}
+@itemx --ignore=@var{character-class}
+@opindex -i
+@opindex --ignore
+@opindex -l asm:-i
+@opindex -l asm:--ignore
+@opindex --lang-option=asm:-i
+@opindex --lang-option=asm:--ignore
+
+Consider the characters of @var{character-class} as valid constituents
+of identifier names, but discard all tokens containing these characters.
+For example, if you don't want to clutter your ID database with
+assembler directives that begin with a leading @samp{.} or with
+assembler labels that contain @samp{@@}, use
+@samp{--lang-option=asm:--ignore=.@@}, or @samp{-l asm:"-i .@@"}.
+
+@item -u
+@itemx --strip-underscore
+@opindex -u
+@opindex --strip-underscore
+@opindex -l asm:-u
+@opindex -l asm:--strip-underscore
+@opindex --lang-option=asm:-u
+@opindex --lang-option=asm:--strip-underscore
+
+Strip one leading underscore from identifiers.  This option is useful if
+your compilation system prepends an underscore to external symbols.  By
+stripping the underscore, you can canonicalize such names and bring them
+into conformance the way they are expressed in the C language.  By
+default, the leading underscore is retained.
+
+@item -n
+@itemx --no-cpp
+@opindex -n
+@opindex --no-cpp
+@opindex -l asm:-n
+@opindex -l asm:--no-cpp
+@opindex --lang-option=asm:-n
+@opindex --lang-option=asm:--no-cpp
+
+Do not recognize C preprocessor directives.  By default, such lines are
+handled in the same way as they are by the C language scanner.
+
+@end table
+
+@c ************* gkm *********************************************************
+@node Text scanner
+@subsection Text Scanner
+
+@cindex text scanner
+
+The plain text scanner is intended for human-language documents, or as the
+scanner of last resort for files that have no scanner that is more
+specific.  It is customizable to the extent that character classes can
+be designated as token constituents or as token delimiters.  The default
+token constituents are the alpha-numerics; all other characters are
+considered token delimiters.
+
+@table @samp
+
+@item -i @var{character-class}
+@itemx --include=@var{character-class}
+@opindex -i
+@opindex --include
+@opindex -l text:-i
+@opindex -l text:--include
+@opindex --lang-option=text:-i
+@opindex --lang-option=text:--include
+
+Include characters belonging to @var{character-class} in tokens.
+
+@item -x @var{character-class}
+@itemx --exclude=@var{character-class}
+@opindex -x
+@opindex --exclude
+@opindex -l text:-x
+@opindex -l text:--exclude
+@opindex --lang-option=text:-x
+@opindex --lang-option=text:--exclude
+
+Exclude characters belonging to @var{character-class} from tokens, i.e., treat
+them as token delimiters.
+
+@end table
+
+@c ************* gkm *********************************************************
+@node Defining scanners
+@subsection Defining New Scanners in the Source Code
+
+@flindex scanners.c
+@cindex scanners, defining in source code
+
+@vindex languages_0
+
+To add a new scanner in source code, you should add a new section to the
+file @file{scanners.c}.  It might be easiest to clone one of the
+existing scanners and modify it as necessary.  For the hypothetical
+language @var{foo}, you must define the functions @code{get_token_foo},
+@code{parse_args_foo}, @code{help_me_foo}, as well as the tables
+@code{long_options_foo} and @code{args_foo}.  If your scanner is
+modeled after one of the existing scanners, you'll also need a
+character-attribute table @code{ctype_foo}.
+
+This is not a terribly difficult programming task, but it requires
+recompiling and installing the new version of @file{mkid} and @file{xtokid}.
+You should use @file{xtokid} to test the operation of the new scanner.
+
+Once these functions and tables are ready, add function prototypes and
+an entry to the @code{languages_0} table near the beginning of the file.
+
+Be warned that the existing scanners are built for speed, not elegance
+or readability.  You might wish to create a new scanner that's easier to
+read and understand if you don't feel that speed is so important.
+
+@c ************* gkm *********************************************************
+@node mkid invocation
+@chapter @samp{mkid}: Creating an ID Database
+@cindex creating databases
+@cindex databases, creating
+@cindex ID file format
+@cindex architecture-independence
+@cindex sharing ID files
+
+@file{mkid} builds an ID database.  It accepts the names of files and/or
+directories on the command line, selects files that have an enabled
+scanner, then extracts and stores tokens from those files.  The
+resulting ID database is architecture- and byte-order-independent so it
+can be shared among all systems.
+
+The primary virtues of @file{mkid} are speed and high capacity.  The
+size of the source trees it can index is limited only by available
+system memory.  @file{mkid}'s indexing algorithm is very space-efficient
+and exhibits excellent locality-of-reference, and so is capable of
+operating with a working-set size that is only half the size of its
+virtual address space.  A typical @sc{UNIX}-like operating system with
+16 megabytes of system memory should be able to build an ID database
+covering approximately 12,000-14,000 source files totaling
+approximately 50--100 Megabytes.  A 66 MHz 486 computer can build such
+a large ID database in approximately 10-15 minutes.
+
+@pindex cron
+In a future release, @file{mkid} will be able to incrementally update an
+ID database much faster than it can build one from scratch.  Until this
+feature becomes available, it might be a good idea to schedule a
+@file{cron} job to regularly update large ID databases during off-hours.
+
+@file{mkid} writes the ID file, therefore it accepts the @samp{--output}
+(and @samp{--file}) options as described in @ref{Writing options}.
+@file{mkid} extracts tokens from source files, therefore it accepts the
+@samp{--lang-map}, @samp{--include}, @samp{--exclude}, and
+@samp{--lang-option} options, as well as the language-specific scanner
+options, all of which are described in @ref{Extraction options}.
+@file{mkid} walks file trees, therefore it handles file and directory
+names on its command line and the @samp{--prune} option as described in
+@ref{Walker options}.
+
+In addition, @file{mkid} accepts the following command-line options:
+
+@table @samp
+
+@item -s
+@itemx --statistics
+@opindex -s
+@opindex --statistics
+@cindex statistics
+
+@file{mkid} reports statistics about resource usage at the end of its
+run.
+
+@item -v
+@itemx --verbose
+@opindex -v
+@opindex --verbose
+@cindex @file{mkid} progress
+
+@file{mkid} reports statistics about each file as it is scanned, and
+about the resource usage of its indexing algorithm at regular intervals.
+
+@end table
+
+@c ************* gkm *********************************************************
+@node lid invocation
+@chapter @code{lid}: Querying an ID Database by Token
+
+The @file{lid} program accepts @var{patterns} on the command line which
+it matches against the tokens stored in an ID database.  The
+interpretation of a @var{pattern} is determined by the makeup of the
+@var{pattern} string itself, or can be overridden by command-line
+options.  If a @var{pattern} contains regular expression meta-characters,
+it is used to perform a regular-expression substring search.  If no such
+meta-characters are present, @var{pattern} is used to perform a literal
+word search.  (By default, all searches are sensitive to alphabetic
+case.)  If no @var{pattern} is supplied on the command line, @file{lid}
+lists every entry in the ID database.
+
+@file{lid} reads the ID database, therefore it accepts the @samp{--file}
+option, and consults the @samp{IDPATH} environment variable, as
+described in @ref{Reading options}.  @file{lid} lists file names,
+therefore it accepts the @samp{--separator} option, as described in
+@ref{File listing options}.
+
+In addition, @code{lid} accepts the following command-line options:
+
+@table @samp
+
+@item -i
+@itemx --ignore-case
+@opindex -i
+@opindex --ignore-case
+@cindex alphabetic case, ignoring differences in
+@cindex ignoring differences in alphabetic case
+
+Ignoring differences in alphabetic case between the @var{pattern} and
+the tokens in the ID database.
+
+@item -l
+@itemx --literal
+@opindex -l
+@opindex --literal
+
+Match @var{pattern} as a literal string.  Use this option if
+@var{pattern} contains regular-expression meta-characters, but you don't
+wish to perform a regular-expression search.
+
+@item -r
+@itemx --regexp
+@opindex -r
+@opindex --regexp
+
+Match @var{pattern} as an @emph{extended} regular expression@footnote{Extended
+regular expressions are the same as those accepted by @file{egrep}.}.
+Use this option if no regular-expression expression meta-characters are
+present in @var{pattern}, but you wish to force a regular-expression
+search (note: in this case, a @emph{literal substring} search might be
+faster).
+
+@item -w
+@itemx --word
+@opindex -w
+@opindex --word
+
+Match @var{pattern} using a word-delimited (non substring) search.  This
+is the default for literal searches.
+
+@item -s
+@itemx --substring
+@opindex -s
+@opindex --substring
+
+Match @var{pattern} using a substring (non word-delimited) search.  This
+is the default for regular expression searches.
+
+@item -k @var{style}
+@itemx --key=@var{style}
+@opindex -k
+@opindex --substring
+
+@var{Style} can be one of @samp{token}, @samp{pattern} or @samp{none}.
+This option controls how the subject of the query is presented.  This is
+best illustrated by example:
+
+@example
+$ lid --key=token '^dest.'
+destaddr       libsys/memcpy.c
+destination    libsys/regex.c
+destlst        libsys/rx.c
+destpos        libsys/rx.c
+destset        libsys/rx.h libsys/rx.c
+
+$ lid --key=pattern '^dest.'
+^dest.         libsys/rx.h libsys/@{memcpy,regex,rx@}.c
+
+$ lid --key=none '^dest.'
+libsys/rx.h libsys/@{memcpy,regex,rx@}.c
+@end example
+
+When @samp{--key} is either @samp{token} or @samp{pattern}, the first
+column of output is a @var{token} or @var{pattern}, respectively.  When
+@samp{--key} is @samp{none}, neither of these is printed, and the file
+name list begins immediately.  The default is @samp{token}.
+
+@item -R @var{style}
+@itemx --result=@var{style}
+@opindex -R
+@opindex --result
+
+@var{Style} can be one of @samp{filenames}, @samp{grep}, @samp{edit} or
+@samp{none}.  This option controls how the value associated with the
+query's @var{key} presented.  When @var{style} is @samp{filenames}, a
+list of file names is printed (this is the default).  When @var{style}
+is @samp{grep}, the lines that match @var{pattern} are printed in the
+same format as @samp{egrep -n}.  When @var{style} is @samp{edit}, the
+file names are passed to an editor, and if possible @var{pattern} is
+passed as an initial search string (@pxref{eid invocation}).  When
+@var{style} is @samp{none}, the file names are not processed in any way.
+This can be useful if you wish to see what tokens match a @var{pattern},
+but don't care about where they reside.
+
+@item -d
+@itemx -o
+@itemx -x
+@opindex -d
+@opindex -o
+@opindex -x
+@cindex radix of numeric matches, specifying
+@cindex numeric matches, specifying radix of
+
+These options may be used in any combination to specify the radix of
+numeric matches.  @samp{-d} allows matching on decimal numbers,
+@samp{-o} on octal numbers, and @samp{-x} on hexadecimal numbers.  Any
+combination of these options may be used.  The default is to match all
+three radixes.
+
+@item -F @var{range}
+@itemx --frequency=@var{range}
+@opindex -F
+@opindex --frequency
+@cindex single matches, showing
+
+Match tokens whose occurrence count falls in @var{range}.  @var{Range}
+may be expressed as a single number @var{n}, or as a range
+@var{n@code{..}m}.  Either limit of the range may be omitted (e.g.,
+@var{@code{..}m}, or @var{n..@code{..}}).  If the lower limit @var{n} is
+omitted, it defaults to @code{1}.  If the upper limit is omitted, it
+defaults in the present implementation to @code{65535}, the maximum
+value of an unsigned 16-bit integer.
+
+Particularly useful queries are @samp{lid -F1}, which helps locate
+identifiers that are defined but never used, or are used but never
+defined.  Similarly, @code{lid -F2} can help find functions that possess
+a prototype declaration and a definition, but are never called.
+
+@item -a @var{number}
+@itemx --ambiguous=@var{number}
+@opindex -a
+@opindex --ambiguous
+@cindex ambiguous identifier names, finding
+
+List identifiers (not numbers) that are ambiguous for the first
+@var{number} characters.  This feature might be in useful when porting
+programs to ancient pea-brained compilers that don't support long
+identifier names.  However, the best long-term option is to set such
+systems on fire.
+
+@end table
+
+@menu
+* lid aliases::                 Aliases for specialized lid queries
+* Emacs gid interface::         GNU Emacs query interface
+* eid invocation::              Invoking an editor on query results
+@end menu
+
+@c ************* gkm *********************************************************
+@node lid aliases
+@section Aliases for Specialized @file{lid} Queries
+
+Historically, the ID utilities have provided several query interfaces
+which are specializations of @code{lid} (@pxref{lid invocation}).
+
+@table @file
+
+@item gid
+(alias for @samp{lid -R grep})
+lists all lines containing the requested pattern.
+
+@item eid
+(alias for @samp{lid -R edit})
+invokes an editor on all files containing the requested pattern, and
+optionally initiates a text search for that pattern.
+
+@item aid
+(alias for @samp{lid -ils}) treats the requested pattern
+as a case-insensitive literal substring.
+
+@end table
+
+@c ***************************************************************************
+@node Emacs gid interface
+@section GNU Emacs query interface
+
+@cindex Emacs interface to @code{gid}
+@flindex id-utils.el @r{interface to Emacs}
+
+@vindex load-path
+The @code{id-utils} source distribution comes with a file @file{id-utils.el},
+which defines a GNU Emacs interface to @code{gid}.  To install it, put
+@file{id-utils.el} somewhere that Emacs will find it (i.e., in your
+@code{load-path}) and put
+
+@example
+(autoload 'gid "gid" nil t)
+@end example
+
+@noindent in one of Emacs' initialization files, e.g., @file{~/.emacs}.
+You will then be able to use @kbd{M-x gid} to run the command.
+
+@findex gid @r{Emacs function}
+The @code{gid} function prompts you with the word around point.  If you
+want to search for something else, simply delete the line and type the
+pattern of interest.
+
+@flindex *compilation* @r{Emacs buffer}
+The function then runs the @code{gid} program in a @samp{*compilation*}
+buffer, so the normal @code{next-error} function can be used to visit
+all the places the identifier is found (@pxref{Compilation,,, emacs, The
+GNU Emacs Manual}).
+
+@c ************* gkm *********************************************************
+@node eid invocation
+@section @code{eid}: Invoking an Editor on Query Results
+
+@pindex eid
+
+@samp{lid -R edit} is an editing interface for the ID utilities that is
+most commonly used with @file{vi}.  Emacs users should use the interface
+defined in @code{id-utils.el} (@pxref{Emacs gid interface}).  The ID
+utilities include an alias called @file{eid}, and for the sake of
+brevity, we'll use this alias for the remainder of this section.
+@file{eid} performs a @file{lid}-style, then asks if you wish to edit
+the files.  If your query yields more than one line of output, you will
+be prompted after each line.  This is the prompt you'll see:
+
+@example
+Edit? [y1-9^S/nq]
+@end example
+
+@noindent
+You may respond with:
+
+@table @samp
+
+@item y
+Edit all files listed.
+
+@item 1@dots{}9
+Edit all files starting at the @math{@var{n} + 1}'st file.
+
+@item /@var{string} @r{or} @kbd{CTRL-S}@var{regexp}
+Search into the file list, and begin editing with the first file name
+that matches the regular expression @var{regexp}.
+
+@item n
+Don't edit any files.  If another line of query output is pending,
+advance to that line, for which another @samp{Edit?} prompt will appear.
+
+@item q
+Quit---don't edit any files, and don't process any more lines of query
+output.
+
+@end table
+
+Here is an example:
+
+@example
+prompt$ eid FILE \^print
+FILE           @{ansi2knr,fid,filenames,idfile,idx,lid,misc,@dots{}@}.c
+Edit? [y1-9^S/nq] n
+^print         @{ansi2knr,fid,getopt,getopt1,lid,mkid,regex,scanners@}.c
+Edit? [y1-9^S/nq] 2
+@end example
+
+@noindent This will start editing at @file{getopt}.c.
+
+@code{eid} invokes the editor defined by the environment variable
+@samp{VISUAL}.  If @samp{VISUAL} is undefined, it uses the environment
+variable @samp{EDITOR} instead.  If @samp{EDITOR} is undefined, it
+defaults to @file{vi}.  It is possible for @file{eid} to pass the editor
+an initial search pattern so that your cursor will immediately alight on
+the token of interest.  This feature is controlled by the following
+environment variables:
+
+@table @samp
+
+@item EIDARG
+@vindex EIDARG
+@cindex search for token, initial
+A printf(3) format string for the editor argument to search for the
+matching token.  For @code{vi}, this should be @samp{+/%s/}.
+
+@item EIDLDEL
+@vindex EIDLDEL
+@cindex left delimiter editor argument
+@cindex beginning-of-word editor argument
+The regular-expression meta-character(s) for delimiting the beginning of
+a word (the `@file{eid} Left DELimiter').  @code{eid} inserts this in
+front of the matching token when a word-search is desired.  For
+@file{vi}, this should be @samp{\<}.
+
+@item EIDRDEL
+@vindex EIDRDEL
+@cindex right delimiter editor argument
+@cindex end-of-word editor argument
+The regular-expression meta-character(s) for delimiting the end of
+a word (the `@file{eid} Right DELimiter').  @code{eid} inserts this in
+end of the matching token when a word-search is desired.  For
+@file{vi}, this should be @samp{\>}.
+
+@end table
+
+@c ************* gkm *********************************************************
+@node fid invocation
+@chapter @code{fid}: Listing a file's tokens
+
+@pindex fid
+@cindex tokens in a file
+@cindex tokens common to two files
+
+@file{fid} prints the tokens found in a given file.  If two file names
+are passed on the command line, @file{fid} prints the tokens that are
+common to both files (i.e., the @emph{set intersection} of the two token
+sets).
+
+@file{fid} reads the ID database, therefore it accepts the @samp{--file}
+option, and consults the @samp{IDPATH} environment variable, as
+described in @ref{Reading options}.
+
+If the standard output is attached to a terminal, the printed tokens are
+separated by spaces.  Otherwise, the tokens are printed one per line.
+
+@c ************* gkm *********************************************************
+@node fnid invocation
+@chapter @code{fnid}: Looking up filenames
+
+@pindex fnid
+@cindex filenames, matching
+@cindex matching filenames
+
+@file{fnid} queries the list of file names stored in the ID database.
+It accepts shell @emph{wildcard} patterns on the command line.  If no
+pattern is supplied, @file{*} is implied.  @file{fnid} prints the
+file names that match the given patterns.
+
+@file{fnid} prints file names, and as such accepts the
+@samp{--separator} option as described in @ref{File listing options}.
+
+For example, the command:
+
+@example
+fnid \*.c
+@end example
+
+@noindent lists all the @file{.c} files in the database.  (The @samp{\}
+here protects the @samp{*} from being expanded by the shell.)
+
+@c ************* gkm *********************************************************
+@node xtokid invocation
+@chapter @file{xtokid}: Testing Language Scanners
+
+@file{xtokid} accepts the names of files and/or directories on the
+command line, then extracts and prints a stream of tokens from those
+files for which it has a valid, enabled scanner.  This is useful
+primarily for debugging new @file{mkid} scanners (@pxref{Defining
+scanners}).
+
+@file{xtokid} extracts tokens from source files, therefore it accepts
+the @samp{--lang-map}, @samp{--include}, @samp{--exclude}, and
+@samp{--lang-option} options, as well as the language-specific scanner
+options, all of which are described in @ref{Extraction options}.
+@file{xtokid} walks file trees, therefore it handles file and directory
+names on its command line and the @samp{--prune} option as described in
+@ref{Walker options}.
+
+The name @samp{xtokid} indicates that it is the ``eXtract TOKens ID
+utility''.
+
+@c ************* gkm *********************************************************
+@node Past and Future
+@chapter Past and Future
+
+@cindex history
+
+@pindex look @r{and @file{mkid} 1}
+@cindex McGary, Greg
+Greg McGary conceived of the ideas behind the ID utilities when he
+began working on the Unix kernel in 1984.  He needed a navigation tool
+to help him find his way around the expansive, unfamiliar landscape.
+The first @code{id-utils}-like tools were shell scripts, and produced an
+ASCII database that looks much like the output of @samp{lid ".*"}.  It
+took over an hour on a @sc{vax 11/750} to build a database for a
+@sc{4.1bsd} derived kernel.  The first version of @file{lid} used the
+@sc{unix} system utility @code{look}, modified to handle very long
+lines.
+
+In 1986, Greg rewrote the shell scripts in C to improve performance.
+Build times for the ID file were shortened by an order of magnitude.
+The ID utilities were first posted to @samp{comp.sources.unix} in
+September 1987 under the name @code{id}.
+
+@cindex Horsley, Tom
+@cindex Scofield, Doug
+@cindex Leonard, Bill
+@cindex Berry, Karl
+Over the next few years, several versions diverged from the original
+source.  Tom Horsley at Harris Computer Systems Division stepped forward
+to take over maintenance and integrated some of the fixes from divergent
+versions.  A first release of the renamed @file{mkid} @w{version 2} was
+posted to @file{alt.sources} near the end of 1990.  At that time, Tom
+wrote a Texinfo manual with the encouragement the net community.
+(Tom especially thanks Doug Scofield and Bill Leonard whom he dragooned
+into helping proofread and edit---they found several problems in the
+initial version.)  Karl Berry revamped the manual for Texinfo style,
+indexing, and organization in 1995.
+
+In January 1995, Greg McGary reemerged as the primary maintainer and
+launched development of @file{mkid} version 3, whose primary new feature
+is an efficient algorithm for building databases that is linear in both
+time and space over the size of the input text.  (The old algorithm was
+quadratic in space so it was incapable of handling very large source
+trees.)  For the first time, the code was released under the GNU Public
+License.
+
+In June 1996, the package was renamed again to @code{id-utils} and was
+released for the first time under FSF copyright as part of the GNU
+system.  All programs had their command-line arguments completely
+revised.  The @file{mkid} and @file{xtokid} programs also gained a
+file-tree walker, so that directory names can be passed on the command
+line instead of the names of every individual file.  Greg reorganized
+and rewrote most of the Texinfo manual to reflect these changes.
+
+@pindex cscope
+@pindex grep
+@cindex future
+Future releases of @code{id-utils} might include:
+
+@table @bullet
+
+an optional coupling with GNU @code{grep}, so that @code{grep} can use
+an ID database for hints
+
+a @code{cscope} work-alike query interface
+
+incremental update of the ID database.
+
+@end table
+
+@c ***************************************************************************
+@node Index
+@unnumbered Index
+
+@printindex cp
+
+@contents
+@bye

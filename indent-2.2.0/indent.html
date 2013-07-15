@@ -1,0 +1,1628 @@
+<p>This is Edition 2.2.0 of <cite>The <code>indent</code> Manual</cite>,
+for Indent Version 2.2.0, last updated 24 July 1999.
+
+<p>Copyright (C) 1989, 1992, 1993, 1994, 1995, 1996 Free Software Foundation, Inc. 
+Copyright (C) 1995, 1996 Joseph Arceneaux. 
+Copyright (C) 1999 Carlo Wood.
+
+<p>Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+<html><head>
+<title>@code{indent}:  Indent and Format C Program Source</title>
+</head><body>
+<h1><a name="Top"><code>indent</code>:  Indent and Format C Program Source</a></h1>
+The <code>indent</code> program
+changes the appearance of a C program by inserting or deleting whitespace.
+
+<p>This is Edition 2.2.0, 24 July 1999, of <cite>The <code>indent</code> Manual</cite>,
+for Indent Version 2.2.0.
+
+<h4>Menu</h4>
+<menu><li>
+
+<li><a href="#Indent%20Program">Indent Program</a>: 
+              The <code>indent</code> Program
+<li><a href="#Option%20Summary">Option Summary</a>: 
+              Option Summary
+<li><a href="#Index">Index</a>: 
+                       Index
+</menu>
+
+<p><hr>[ Next: <a rel=next href="#Option%20Summary">Option Summary</a>
+ | Previous: <a rel=previous href="#Top">Top</a>
+ | Up: <a rel=up href="#Top">Top</a>
+ ]<p>
+
+<h1><a name="Indent%20Program">The <code>indent</code> Program</a></h1>
+The <code>indent</code> program
+can be used to make code easier to read.  It can also convert from one
+style of writing C to another.
+
+<code>indent</code> understands a substantial amount about the syntax of C,
+but it also attempts to cope with incomplete and misformed syntax.
+
+<p>In version 1.2 and more recent versions, the GNU style of indenting is
+the default.
+
+<h4>Menu</h4>
+<menu><li>
+
+<li><a href="#Invoking%20indent">Invoking indent</a>: 
+             Invoking <code>indent</code>
+<li><a href="#Backup%20files">Backup files</a>: 
+                Backup Files
+<li><a href="#Common%20styles">Common styles</a>: 
+               Common styles
+<li><a href="#Blank%20lines">Blank lines</a>: 
+                 Blank lines
+<li><a href="#Comments">Comments</a>: 
+                    Comments
+<li><a href="#Statements">Statements</a>: 
+                  Statements
+<li><a href="#Declarations">Declarations</a>: 
+                Declarations
+<li><a href="#Indentation">Indentation</a>: 
+                 Indentation
+<li><a href="#Breaking%20long%20lines">Breaking long lines</a>: 
+         Breaking long lines
+<li><a href="#Disabling%20Formatting">Disabling Formatting</a>: 
+        Disabling Formatting
+<li><a href="#Miscellaneous%20options">Miscellaneous options</a>: 
+       Miscellaneous options
+<li><a href="#Bugs">Bugs</a>: 
+                 	Bugs
+<li><a href="#Copyright">Copyright</a>: 
+                   Copyright
+</menu>
+
+<p><hr>[ Next: <a rel=next href="#Backup%20files">Backup files</a>
+ | Up: <a rel=up href="#Indent%20Program">Indent Program</a>
+ ]<p>
+
+<h2><a name="Invoking%20indent">Invoking <code>indent</code></a></h2>
+
+<p>As of version 1.3, the format of the <code>indent</code> command is:
+
+<pre>
+indent [OPTIONS] [INPUT-FILES]
+
+indent [OPTIONS] [SINGLE-INPUT-FILE] [-o OUTPUT-FILE]
+</pre>
+
+<p>This format is different from earlier versions and other versions of
+<code>indent</code>.
+
+<p>In the first form, one or more input files are specified.  <code>indent</code>
+makes a backup copy of each file, and the original file is replaced with
+its indented version.  See [<a href="#Backup%20files">Backup files</a>], for an explanation of how
+backups are made.
+
+<p>In the second form, only one input file is specified.  In this case, or
+when the standard input is used, you may specify an output file after
+the <code>-o</code> option.
+
+<p>To cause <code>indent</code> to write to standard output, use the <code>-st</code>
+option.  This is only allowed when there is only one input file, or when
+the standard input is used.
+
+<p>If no input files are named, the standard input is read for input. 
+Also, if a filename named <code>-</code> is specified, then the standard input
+is read.
+
+<p>As an example, each of the following commands will input the program
+<code>slithy_toves.c</code> and write its indented text to
+<code>slithy_toves.out</code>:
+
+<pre>
+indent slithy_toves.c -o slithy_toves.out
+
+indent -st slithy_toves.c &gt; slithy_toves.out
+
+cat slithy_toves.c | indent -o slithy_toves.out
+</pre>
+
+<p>Most other options to <code>indent</code> control how programs are formatted. 
+As of version 1.2, <code>indent</code> also recognizes a long name for each
+option name.  Long options are prefixed by either <code>--</code> or
+<code>+</code>.[<a rel=footnote href="#fn-1">1</a>] In most of this document,
+the traditional, short names are used for the sake of brevity. 
+See [<a href="#Option%20Summary">Option Summary</a>], for a list of options, including both long and
+short names.
+
+<p>Here is another example:
+
+<pre>
+indent -br test/metabolism.c -l85
+</pre>
+
+<p>This will indent the program <code>test/metabolism.c</code> using the
+<code>-br</code> and <code>-l85</code> options, write the output back to
+<code>test/metabolism.c</code>, and write the original contents of
+<code>test/metabolism.c</code> to a backup file in the directory <code>test</code>.
+
+<p>Equivalent invocations using long option names for this example would
+be:
+
+<pre>
+indent --braces-on-if-line --line-length185 test/metabolism.c
+
+indent +braces-on-if-line +line-length185 test/metabolism.c
+</pre>
+
+<p>If you find that you often use <code>indent</code> with the same options, you
+may put those options into a file named <code>.indent.pro</code>. 
+<code>indent</code> will first look for <code>.indent.pro</code> in the current
+directory and use that if found.  Otherwise, <code>indent</code> will search
+your home directory for <code>.indent.pro</code> and use that file if it is
+found.  This behaviour is different from that of other versions of
+<code>indent</code>, which load both files if they both exist.
+
+<p>The format of <code>.indent.pro</code> is simply a list of options, just as
+they would appear on the command line, separated by white space (tabs,
+spaces, and newlines).  Options in <code>.indent.pro</code> may be surrounded by C
+or C++ comments, in which case they are ignored.
+
+<p>Command line switches are handled <em>after</em> processing
+<code>.indent.pro</code>.  Options specified later override arguments
+specified earlier, with one exception: Explicitly specified options
+always override background options (see [<a href="#Common%20styles">Common styles</a>].).  You can
+prevent <code>indent</code> from reading an <code>.indent.pro</code> file by
+specifying the <code>-npro</code> option.
+
+<p><hr>[ Next: <a rel=next href="#Common%20styles">Common styles</a>
+ | Previous: <a rel=previous href="#Invoking%20indent">Invoking indent</a>
+ | Up: <a rel=up href="#Indent%20Program">Indent Program</a>
+ ]<p>
+
+<h2><a name="Backup%20files">Backup Files</a></h2>
+As of version 1.3, GNU <code>indent</code> makes GNU-style backup files, the
+same way GNU Emacs does.  This means that either <strong>simple</strong> or
+<strong>numbered</strong> backup filenames may be made.
+
+<p>Simple backup file names are generated by appending a suffix to the
+original file name.  The default for this suffix is the
+one-character string <code>~</code> (tilde).  Thus, the backup file for
+<code>python.c</code> would be <code>python.c~</code>.
+
+<p>Instead of the default, you may specify any string as a suffix by
+setting the environment variable <code>SIMPLE_BACKUP_SUFFIX</code> to
+your preferred suffix.
+
+<p>Numbered backup versions of a file <code>momewraths</code> look like
+<code>momewraths.c.~23~</code>, where 23 is the version of this particular
+backup.  When making a numbered backup of the file <code>src/momewrath.c</code>,
+the backup file will be named <code>src/momewrath.c.~V~</code>, where
+V is one greater than the highest version currently existing in
+the directory <code>src</code>.
+
+<p>The type of backup file made is controlled by the value of the
+environment variable <code>VERSION_CONTROL</code>.  If it is the string
+<code>simple</code>, then only simple backups will be made.  If its value is
+the string <code>numbered</code>, then numbered backups will be made.  If its
+value is <code>numbered-existing</code>, then numbered backups will be made if
+there <em>already exist</em> numbered backups for the file being indented;
+otherwise, a simple backup is made.  If <code>VERSION_CONTROL</code> is not
+set, then <code>indent</code> assumes the behaviour of
+<code>numbered-existing</code>.
+
+<p>Other versions of <code>indent</code> use the suffix <code>.BAK</code> in naming
+backup files.  This behaviour can be emulated by setting
+<code>SIMPLE_BACKUP_SUFFIX</code> to <code>.BAK</code>.
+
+<p>Note also that other versions of <code>indent</code> make backups in the
+current directory, rather than in the directory of the source file as
+GNU <code>indent</code> now does.
+
+<p><hr>[ Next: <a rel=next href="#Blank%20lines">Blank lines</a>
+ | Previous: <a rel=previous href="#Backup%20files">Backup files</a>
+ | Up: <a rel=up href="#Indent%20Program">Indent Program</a>
+ ]<p>
+
+<h2><a name="Common%20styles">Common styles</a></h2>
+There are several common styles of C code, including the GNU style, the
+Kernighan &amp; Ritchie style, and the original Berkeley style.  A style may
+be selected with a single <strong>background</strong> option, which specifies a set
+of values for all other options.  However, explicitly specified options
+always override options implied by a background option.
+
+<p>As of version 1.2, the default style of GNU <code>indent</code> is the GNU
+style.  Thus, it is no longer neccessary to specify the option
+<code>-gnu</code> to obtain this format, although doing so will not cause an
+error.  Option settings which correspond to the GNU style are:
+
+<pre>
+-nbad -bap -nbc -bbo -bl -bli2 -bls -ncdb -nce -cp1 -cs -di2
+-ndj -nfc1 -nfca -hnl -i2 -ip5 -lp -pcs -psl -nsc -nsob
+</pre>
+
+<p>The GNU coding style is that preferred by the GNU project.  It is the
+style that the GNU Emacs C mode encourages and which is used in the C
+portions of GNU Emacs.  (People interested in writing programs for
+Project GNU should get a copy of <cite>The GNU Coding Standards</cite>, which
+also covers semantic and portability issues such as memory usage, the
+size of integers, etc.)
+
+<p>The Kernighan &amp; Ritchie style is used throughout their well-known book
+<cite>The C Programming Language</cite>.  It is enabled with the <code>-kr</code>
+option.  The Kernighan &amp; Ritchie style corresponds to the following set
+of options:
+
+<pre>
+-nbad -bap -bbo -nbc -br -brs -c33 -cd33 -ncdb -ce -ci4 -cli0
+-cp33 -cs -d0 -di1 -nfc1 -nfca -hnl -i4 -ip0 -l75 -lp -npcs
+-npsl -nsc -nsob -nss
+</pre>
+
+<p>Kernighan &amp; Ritchie style does not put comments to the right of code in
+the same column at all times (nor does it use only one space to the
+right of the code), so for this style <code>indent</code> has arbitrarily
+chosen column 33.
+
+<p>The style of the original Berkeley <code>indent</code> may be obtained by
+specifying <code>-orig</code> (or by specifyfying <code>--original</code>, using the
+long option name).  This style is equivalent to the following settings:
+
+<pre>
+-nbad -nbap -bbo -bc -br -brs -c33 -cd33 -cdb -ce -ci4 -cli0
+-cp33 -di16 -fc1 -fca -hnl -i4 -ip4 -l75 -lp -npcs -psl -sc
+-nsob -nss -ts8
+</pre>
+
+<p><hr>[ Next: <a rel=next href="#Comments">Comments</a>
+ | Previous: <a rel=previous href="#Common%20styles">Common styles</a>
+ | Up: <a rel=up href="#Indent%20Program">Indent Program</a>
+ ]<p>
+
+<h2><a name="Blank%20lines">Blank lines</a></h2>
+
+<p>Various programming styles use blank lines in different places. 
+<code>indent</code> has a number of options to insert or delete blank lines in
+specific places.
+
+<p>The <code>-bad</code> option causes <code>indent</code> to force a blank line after
+every block of declarations.  The <code>-nbad</code> option causes
+<code>indent</code> not to force such blank lines.
+
+<p>The <code>-bap</code> option forces a blank line after every procedure body. 
+The <code>-nbap</code> option forces no such blank line.
+
+<p>The <code>-bbb</code> option forces a blank line before every boxed comment. 
+(See [<a href="#Comments">Comments</a>]) The <code>-nbbb</code> option does not force such blank lines.
+
+<p>The <code>-sob</code> option causes <code>indent</code> to swallow optional blank
+lines (that is, any optional blank lines present in the input will be
+removed from the output).  If the <code>-nsob</code> is specified, any blank
+lines present in the input file will be copied to the output file.
+
+<h4>Menu</h4>
+<menu><li>
+
+<li><a href="#-bad">-bad</a>: 
+                        More on the <code>-bad</code> option. 
+<li><a href="#-bap">-bap</a>: 
+                        More on the <code>-bap</code> option. 
+</menu>
+
+<p><hr>[ Next: <a rel=next href="#-bap">-bap</a>
+ | Up: <a rel=up href="#Blank%20lines">Blank lines</a>
+ ]<p>
+
+<h3><a name="-bad">-blank-lines-after-declarations</a></h3>
+The <code>-bad</code> option forces a blank line after every block of
+declarations.  The <code>-nbad</code> option does not add any such blank
+lines.
+
+<p>For example, given the input
+<pre>
+char *foo;
+char *bar;
+/* This separates blocks of declarations.  */
+int baz;
+</pre>
+
+<code>indent -bad</code> produces
+
+<pre>
+char *foo;
+char *bar;
+
+/* This separates blocks of declarations.  */
+int baz;
+</pre>
+
+<p>and <code>indent -nbad</code> produces
+
+<pre>
+char *foo;
+char *bar;
+/* This separates blocks of declarations.  */
+int baz;
+</pre>
+
+<p><hr>[ Previous: <a rel=previous href="#-bad">-bad</a>
+ | Up: <a rel=up href="#Blank%20lines">Blank lines</a>
+ ]<p>
+
+<h3><a name="-bap">-blank-lines-after-procedures</a></h3>
+The <code>-bap</code> option forces a blank line after every procedure body.
+
+<p>For example, given the input
+
+<pre>
+int
+foo ()
+{
+  puts("Hi");
+}
+/* The procedure bar is even less interesting.  */
+char *
+bar ()
+{
+  puts("Hello");
+}
+</pre>
+
+<code>indent -bap</code> produces
+
+<pre>
+int
+foo ()
+{
+  puts ("Hi");
+}
+
+/* The procedure bar is even less interesting.  */
+char *
+bar ()
+{
+  puts ("Hello");
+}
+</pre>
+
+<p>and <code>indent -nbap</code> produces
+
+<pre>
+int
+foo ()
+{
+  puts ("Hi");
+}
+/* The procedure bar is even less interesting.  */
+char *
+bar ()
+{
+  puts ("Hello");
+}
+</pre>
+
+<p>No blank line will be added after the procedure <code>foo</code>.
+
+<p><hr>[ Next: <a rel=next href="#Statements">Statements</a>
+ | Previous: <a rel=previous href="#Blank%20lines">Blank lines</a>
+ | Up: <a rel=up href="#Indent%20Program">Indent Program</a>
+ ]<p>
+
+<h2><a name="Comments">Comments</a></h2>
+
+<code>indent</code> formats both C and C++ comments. C comments are begun with
+<code>/*</code>, terminated with <code>*/</code> and may contain newline characters. 
+C++ comments begin with the delimiter <code>//</code> and end at the newline.
+
+<code>indent</code> handles comments differently depending upon their context. 
+<code>indent</code> attempts to distinguish amongst comments which follow
+statements, comments which follow declarations, comments following
+preprocessor directives, and comments which are not preceded by code of
+any sort, i.e., they begin the text of the line (although not
+neccessarily in column 1).
+
+<code>indent</code> further distinguishes between comments found outside of
+procecures and aggregates, and those found within them.  In particular,
+comments beginning a line found within a procedure will be indented to
+the column at which code is currently indented.  The exception to this a
+comment beginning in the leftmost column;  such a comment is output
+at that column.
+
+<code>indent</code> attempts to leave <strong>boxed comments</strong> unmodified.  The
+general idea of such a comment is that it is enclosed in a rectangle or
+"box" of stars or dashes to visually set it apart.  More precisely,
+boxed comments are defined as those in which the initial <code>/*</code> is
+followed immediately by the character <code>*</code>, <code>=</code>, <code>_</code>, or
+<code>-</code>, or those in which the beginning comment delimiter (<code>/*</code>)
+is on a line by itself, and the following line begins with a <code>*</code> in
+the same column as the star of the opening delimiter.
+
+<p>Examples of boxed comments are:
+
+<pre>
+/**********************
+ * Comment in a box!! *
+ **********************/
+
+       /*
+        * A different kind of scent,
+        * for a different kind of comment.
+        */
+</pre>
+
+<code>indent</code> attempts to leave boxed comments exactly as they are found
+in the source file.  Thus the indentation of the comment is unchanged,
+and its length is not checked in any way.  The only alteration made is
+that an embedded tab character may be converted into the appropriate
+number of spaces.
+
+<p>If the <code>-bbb</code> option is specified, all such boxed comments will be
+preceded by a blank line, unless such a comment is preceded by code.
+
+<p>Comments which are not boxed comments may be formatted, which means that
+the line is broken to fit within a right margin and left-filled with
+whitespace.  Single newlines are equivalent to a space, but blank lines
+(two or more newlines in a row) are taken to mean a paragraph break. 
+Formatting of comments which begin after the first column is enabled
+with the <code>-fca</code> option.  To format those beginning in column one,
+specify <code>-fc1</code>.  Such formatting is disabled by default.
+
+<p>The right margin for formatting defaults to 78, but may be changed with
+the <code>-lc</code> option.  If the margin specified does not allow the
+comment to be printed, the margin will be automatically extended for the
+duration of that comment.  The margin is not respected if the comment is
+not being formatted.
+
+<p>If the comment begins a line (i.e., there is no program text to its
+left), it will be indented to the column it was found in unless the
+comment is within a block of code.  In that case, such a comment will be
+aligned with the indented code of that block (unless the comment began
+in the first column).  This alignment may be affected by the <code>-d</code>
+option, which specifies an amount by which such comments are moved to
+the <em>left</em>, or unindented.  For example, <code>-d2</code> places comments
+two spaces to the left of code.  By default, comments are aligned with
+code, unless they begin in the first column, in which case they are left
+there by default - to get them aligned with the code, specify <code>-fc1</code>.
+
+<p>Comments to the right of code will appear by default in column 33. 
+This may be changed with one of three options.  <code>-c</code> will specify
+the column for comments following code, <code>-cd</code> specifies the
+column for comments following declarations, and <code>-cp</code> specifies
+the column for comments following preprocessor directives <code>#else</code>
+and <code>#endif</code>.
+
+<p>If the code to the left of the comment exceeds the beginning column,
+the comment column will be extended to the next tabstop column past
+the end of the code, or in the case of preprocessor directives, to one
+space past the end of the directive.  This extension lasts only for
+the output of that particular comment.
+
+<p>The <code>-cdb</code> option places the comment delimiters on blank lines. 
+Thus, a single line comment like <code>/* Loving hug */</code> can be
+transformed into:
+
+<pre>
+/*
+   Loving hug
+ */
+</pre>
+
+<p>Stars can be placed at the beginning of multi-line comments with the
+<code>-sc</code> option.  Thus, the single-line comment above can be
+transformed (with <code>-cdb -sc</code>) into:
+
+<pre>
+/*
+ * Loving hug
+ */
+</pre>
+
+<p><hr>[ Next: <a rel=next href="#Declarations">Declarations</a>
+ | Previous: <a rel=previous href="#Comments">Comments</a>
+ | Up: <a rel=up href="#Indent%20Program">Indent Program</a>
+ ]<p>
+
+<h2><a name="Statements">Statements</a></h2>
+The <code>-br</code> or <code>-bl</code> option specifies how to format braces.
+
+<p>The <code>-br</code> option formats statement braces like this:
+
+<pre>
+if (x &gt; 0) {
+  x--;
+}
+</pre>
+
+<p>The <code>-bl</code> option formats them like this:
+
+<pre>
+if (x &gt; 0)
+  {
+    x--;
+  }
+</pre>
+
+<p>If you use the <code>-bl</code> option, you may also want to specify the
+<code>-bli</code> option.  This option specifies the number of spaces by
+which braces are indented.  <code>-bli2</code>, the default, gives the
+result shown above.  <code>-bli0</code> results in the following:
+
+<pre>
+if (x &gt; 0)
+{
+  x--;
+}
+</pre>
+
+<p>If you are using the <code>-br</code> option, you probably want to also use
+the <code>-ce</code> option.  This causes the <code>else</code> in an if-then-else
+construct to cuddle up to the immediately preceding <code>}</code>.  For
+example, with <code>-br -ce</code> you get the following:
+
+<pre>
+if (x &gt; 0) {
+  x--;
+} else {
+  fprintf (stderr, "...something wrong?\n");
+}
+</pre>
+
+<p>With <code>-br -nce</code> that code would appear as
+
+<pre>
+if (x &gt; 0) {
+  x--;
+}
+else {
+  fprintf (stderr, "...something wrong?\n");
+}
+</pre>
+
+<p>The <code>-cli</code> option specifies the number of spaces that case labels
+should be indented to the right of the containing <code>switch</code>
+statement.
+
+<p>The default gives code like:
+
+<pre>
+switch (i)
+  {
+  case 0:
+    break;
+  case 1:
+    {
+      ++i;
+    }
+  default:
+    break;
+  }
+</pre>
+
+<p>Using the <code>-cli2</code> that would become:
+
+<pre>
+switch (i)
+  {
+    case 0:
+      break;
+    case 1:
+      {
+	++i;
+      }
+    default:
+      break;
+  }
+</pre>
+
+<p>The indentation of the braces below a case statement can be
+controlled with the <code>-cbiN</code> option.  For example,
+using <code>-cli2 -cbi0</code> results in:
+
+<pre>
+switch (i)
+  {
+    case 0:
+      break;
+    case 1:
+    {
+      ++i;
+    }
+    default:
+      break;
+  }
+</pre>
+
+<p>If a semicolon is on the same line as a <code>for</code> or <code>while</code>
+statement, the <code>-ss</code> option will cause a space to be placed before
+the semicolon.  This emphasizes the semicolon, making it clear that the
+body of the <code>for</code> or <code>while</code> statement is an empty statement. 
+<code>-nss</code> disables this feature.
+
+<p>The <code>-pcs</code> option causes a space to be placed between the name of
+the procedure being called and the <code>(</code> (for example, <code>puts ("Hi");</code>.  The <code>-npcs</code> option would give <code>puts("Hi");</code>).
+
+<p>If the <code>-cs</code> option is specified, <code>indent</code> puts a space after
+a cast operator.
+
+<p>The <code>-bs</code> option ensures that there is a space between the
+keyword <code>sizeof</code> and its argument.  In some versions, this is
+known as the <code>Bill_Shannon</code> option.
+
+<p><hr>[ Next: <a rel=next href="#Indentation">Indentation</a>
+ | Previous: <a rel=previous href="#Statements">Statements</a>
+ | Up: <a rel=up href="#Indent%20Program">Indent Program</a>
+ ]<p>
+
+<h2><a name="Declarations">Declarations</a></h2>
+By default <code>indent</code> will line up identifiers, in the column
+specified by the <code>-di</code> option.  For example, <code>-di16</code> makes
+things look like:
+
+<pre>
+int             foo;
+char           *bar;
+</pre>
+
+<p>Using a small value (such as one or two) for the <code>-di</code> option can
+be used to cause the indentifiers to be placed in the first available
+position, for example
+
+<pre>
+int foo;
+char *bar;
+</pre>
+
+<p>The value given to the <code>-di</code> option will still affect variables
+which are put on separate lines from their types, for example
+<code>-di2</code> will lead to
+
+<pre>
+int
+  foo;
+</pre>
+
+<p>If the <code>-bc</code> option is specified, a newline is forced after each
+comma in a declaration.  For example,
+
+<pre>
+int a,
+  b,
+  c;
+</pre>
+
+<p>With the <code>-nbc</code> option this would look like
+
+<pre>
+int a, b, c;
+</pre>
+
+<p>The <code>-psl</code> option causes the type of a procedure being defined to
+be placed on the line before the name of the procedure.  This style is
+required for the <code>etags</code> program to work correctly, as well as some
+of the <code>c-mode</code> functions of Emacs.
+
+<p>You must use the <code>-T</code>
+option to tell <code>indent</code> the name of all the typenames in your
+program that are defined by <code>typedef</code>.  <code>-T</code> can be specified
+more than once, and all names specified are used.  For example, if your
+program contains
+
+<pre>
+typedef unsigned long CODE_ADDR;
+typedef enum {red, blue, green} COLOR;
+</pre>
+
+<p>you would use the options <code>-T CODE_ADDR -T COLOR</code>.
+
+<p>The `-brs' or `-bls' option specifies how to format braces in struct
+declarations. 
+The `-brs' option formats braces like this:
+
+<pre>
+struct foo {
+  int x;
+};
+</pre>
+
+<p>The `-bls' option formats them like this:
+
+<pre>
+struct foo
+{
+  int x;
+};
+</pre>
+
+<p><hr>[ Next: <a rel=next href="#Breaking%20long%20lines">Breaking long lines</a>
+ | Previous: <a rel=previous href="#Declarations">Declarations</a>
+ | Up: <a rel=up href="#Indent%20Program">Indent Program</a>
+ ]<p>
+
+<h2><a name="Indentation">Indentation</a></h2>
+One issue in the formatting of code is how far each line should be
+indented from the left margin.  When the beginning of a statement such
+as <code>if</code> or <code>for</code> is encountered, the indentation level is
+increased by the value specified by the <code>-i</code> option.  For example,
+use <code>-i8</code> to specify an eight character indentation for each
+level.  When a statement is broken across two lines, the second line is
+indented by a number of additional spaces specified by the <code>-ci</code>
+option.  <code>-ci</code> defaults to 0.  However, if the <code>-lp</code> option is
+specified, and a line has a left parenthesis which is not closed on that
+line, then continuation lines will be lined up to start at the character
+position just after the left parenthesis.  This processing also applies
+to <code>[</code> and applies to <code>{</code> when it occurs in initialization
+lists.  For example, a piece of continued code might look like this with
+<code>-nlp -ci3</code> in effect:
+
+<pre>
+  p1 = first_procedure (second_procedure (p2, p3),
+     third_procedure (p4, p5));
+</pre>
+
+<p>With <code>-lp</code> in effect the code looks somewhat clearer:
+
+<pre>
+  p1 = first_procedure (second_procedure (p2, p3),
+                        third_procedure (p4, p5));
+</pre>
+
+<p>When a statement is broken inbetween two or more paren pairs (...),
+each extra pair causes the indentation level extra indentation:
+
+<pre>
+if ((((i &lt; 2 &amp;&amp;
+        k &gt; 0) || p == 0) &amp;&amp;
+    q == 1) ||
+  n = 0)
+</pre>
+
+<p>The option `-ipN' can be used to set the extra offset per paren. 
+For instance, `-ip0' would format the above as:
+
+<pre>
+if ((((i &lt; 2 &amp;&amp;
+  k &gt; 0) || p == 0) &amp;&amp;
+  q == 1) ||
+  n = 0)
+</pre>
+
+<code>indent</code> assumes that tabs are placed at regular intervals of both
+input and output character streams.  These intervals are by default 8
+columns wide, but (as of version 1.2) may be changed by the <code>-ts</code>
+option.  Tabs are treated as the equivalent number of spaces.
+
+<p>The indentation of type declarations in old-style function definitions
+is controlled by the <code>-ip</code> parameter.  This is a numeric parameter
+specifying how many spaces to indent type declarations.  For example,
+the default <code>-ip5</code> makes definitions look like this:
+
+<pre>
+char *
+create_world (x, y, scale)
+     int x;
+     int y;
+     float scale;
+{
+  . . .
+}
+</pre>
+
+<p>For compatibility with other versions of indent, the option <code>-nip</code>
+is provided, which is equivalent to <code>-ip0</code>.
+
+<p>ANSI C allows white space to be placed on preprocessor command lines
+between the character <code>#</code> and the command name.  By default,
+<code>indent</code> removes this space, but specifying the <code>-lps</code> option
+directs <code>indent</code> to leave this space unmodified.
+
+<p><hr>[ Next: <a rel=next href="#Disabling%20Formatting">Disabling Formatting</a>
+ | Previous: <a rel=previous href="#Indentation">Indentation</a>
+ | Up: <a rel=up href="#Indent%20Program">Indent Program</a>
+ ]<p>
+
+<h2><a name="Breaking%20long%20lines">Breaking long lines</a></h2>
+With the option <code>-lN</code>, or <code>--line-lengthN</code>, it is
+possible to specify the maximum length of a line of C code, not including
+possible comments that follow it.
+
+<p>When lines become longer then the specified line length, <code>GNU indent</code>
+tries to break the line at a logical place.  This is new as of version 2.1
+however and not very intelligent or flexible yet.
+
+<p>Currently there are two options that allows one to interfere with the
+algorithm that determines where to break a line.
+
+<p>The <code>-bbo</code> option causes <code>GNU indent</code> to prefer to break long
+lines before the boolean operators <code>&amp;&amp;</code> and <code>||</code>.  The <code>-nbbo</code>
+option causes <code>GNU indent</code> not have that preference.  For example,
+the default option <code>-bbo</code> (together with <code>--line-length60</code> and
+<code>--ignore-newlines</code>) makes code look like this:
+
+<pre>
+  if (mask
+      &amp;&amp; ((mask[0] == '\0')
+          || (mask[1] == '\0'
+              &amp;&amp; ((mask[0] == '0') || (mask[0] == '*')))))
+</pre>
+
+<p>Using the option <code>-nbbo</code> will make it look like this:
+
+<pre>
+  if (mask &amp;&amp;
+      ((mask[0] == '\0') ||
+       (mask[1] == '\0' &amp;&amp;
+        ((mask[0] == '0') || (mask[0] == '*')))))
+</pre>
+
+<p>The default <code>-hnl</code> however, honours newlines in the input file by
+giving them the highest possible priority to break lines at.  For example,
+when the input file looks like this:
+
+<pre>
+  if (mask
+      &amp;&amp; ((mask[0] == '\0')
+      || (mask[1] == '\0' &amp;&amp; ((mask[0] == '0') || (mask[0] == '*')))))
+</pre>
+
+<p>then using the option <code>-hnl</code>, or <code>--honour-newlines</code>, together
+with the previously mentioned <code>-nbbo</code> and <code>--line-length60</code>, will
+cause the output not to be what is given in the last example but instead
+will prefer to break at the positions where the code was broken in the
+input file:
+
+<pre>
+  if (mask
+      &amp;&amp; ((mask[0] == '\0')
+          || (mask[1] == '\0' &amp;&amp;
+              ((mask[0] == '0') || (mask[0] == '*')))))
+</pre>
+
+<p>The idea behind this option is that lines which are too long, but are already
+broken up, will not be touched by <code>GNU indent</code>.  Really messy code
+should be run through <code>indent</code> at least once using the
+<code>--ignore-newlines</code> option though.
+
+<p><hr>[ Next: <a rel=next href="#Miscellaneous%20options">Miscellaneous options</a>
+ | Previous: <a rel=previous href="#Breaking%20long%20lines">Breaking long lines</a>
+ | Up: <a rel=up href="#Indent%20Program">Indent Program</a>
+ ]<p>
+
+<h2><a name="Disabling%20Formatting">Disabling Formatting</a></h2>
+Formatting of C code may be disabled for portions of a program by
+embedding special <strong>control comments</strong> in the program.  To turn off
+formatting for a section of a program, place the disabling control
+comment <code>/* *INDENT-OFF* */</code> on a line by itself just before that
+section.  Program text scanned after this control comment is output
+precisely as input with no modifications until the corresponding
+enabling comment is scanned on a line by itself.  The disabling control
+comment is <code>/* *INDENT-ON* */</code>, and any text following the comment
+on the line is also output unformatted.  Formatting begins again with
+the input line following the enabling control comment.
+
+<p>More precisely, <code>indent</code> does not attempt to verify the closing
+delimiter (<code>*/</code>) for these C comments, and any whitespace on the
+line is totally transparent.
+
+<p>These control comments also function in their C++ formats, namely
+<code>// *INDENT-OFF*</code> and <code>// *INDENT-ON*</code>.
+
+<p>It should be noted that the internal state of <code>indent</code> remains
+unchanged over the course of the unformatted section.  Thus, for
+example, turning off formatting in the middle of a function and
+continuing it after the end of the function may lead to bizarre
+results.  It is therefore wise to be somewhat modular in selecting code
+to be left unformatted.
+
+<p>As a historical note, some earlier versions of <code>indent</code> produced
+error messages beginning with <code>*INDENT**</code>.  These versions of
+<code>indent</code> were written to ignore any input text lines which began
+with such error messages.  I have removed this incestuous feature from
+<code>GNU indent</code>.
+
+<p><hr>[ Next: <a rel=next href="#Bugs">Bugs</a>
+ | Previous: <a rel=previous href="#Disabling%20Formatting">Disabling Formatting</a>
+ | Up: <a rel=up href="#Indent%20Program">Indent Program</a>
+ ]<p>
+
+<h2><a name="Miscellaneous%20options">Miscellaneous options</a></h2>
+To find out what version of <code>indent</code> you have, use the command
+<code>indent -version</code>.  This will report the version number of
+<code>indent</code>, without doing any of the normal processing.
+
+<p>The <code>-v</code> option can be used to turn on verbose mode.  When in
+verbose mode, <code>indent</code> reports when it splits one line of input
+into two more more lines of output, and gives some size statistics at
+completion.
+
+<p><hr>[ Next: <a rel=next href="#Copyright">Copyright</a>
+ | Previous: <a rel=previous href="#Miscellaneous%20options">Miscellaneous options</a>
+ | Up: <a rel=up href="#Indent%20Program">Indent Program</a>
+ ]<p>
+
+<h2><a name="Bugs">Bugs</a></h2>
+When <code>indent</code> is run twice on a file, with the same profile,
+it should <em>never</em> change that file the second time.  With the
+current design of <code>indent</code> this can not be garanteed however
+and it has not been extensively tested.
+
+<code>Indent</code> does not understand C.  In some cases this leads to
+the inability to join lines.  The result is that running a file
+through <code>indent</code> is <em>irreversable</em>, even if the used input
+file was the result of running <code>indent</code> with a given profile
+(<code>.indent.pro</code>).
+
+<p>While an attempt was made to get <code>indent</code> working for C++, is
+will not do a good job on any C++ source except the real simple.
+
+<code>Indent</code> does not look at the given <code>--line-length</code> option
+when writing comments to the output file.  This results often in comments
+being put far to the right.  In order to prohibit <code>indent</code> from
+joining a broken line that has a comment at the end, make sure that the
+comments start on the first line of the break.
+
+<code>Indent</code> does not count lines and comments (see the <code>-v</code> option)
+when <code>indent</code> is turned off with <code>/* *INDENT-OFF* */</code>.
+
+<p><hr>[ Previous: <a rel=previous href="#Bugs">Bugs</a>
+ | Up: <a rel=up href="#Indent%20Program">Indent Program</a>
+ ]<p>
+
+<h2><a name="Copyright">Copyright</a></h2>
+The following copyright notice applies to the <code>indent</code> program. 
+The copyright and copying permissions for this manual appear near the
+beginning of indent.texinfo and indent.info, and near the end of indent.1.
+
+<blockquote>
+Copyright (c) 1999 Carlo Wood. 
+Copyright (c) 1995, 1996 Joseph Arceneaux. 
+Copyright (c) 1989, 1992, 1993, 1994, 1995, 1996 Free Software Foundation
+Copyright (c) 1985 Sun Microsystems, Inc. 
+Copyright (c) 1980 The Regents of the University of California. 
+Copyright (c) 1976 Board of Trustees of the University of Illinois. 
+All rights reserved.
+
+<p>Redistribution and use in source and binary forms are permitted
+provided that the above copyright notice and this paragraph are
+duplicated in all such forms and that any documentation,
+advertising materials, and other materials related to such
+distribution and use acknowledge that the software was developed
+by the University of California, Berkeley, the University of Illinois,
+Urbana, and Sun Microsystems, Inc.  The name of either University
+or Sun Microsystems may not be used to endorse or promote products
+derived from this software without specific prior written permission. 
+THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR
+PURPOSE. 
+</blockquote>
+
+<p><hr>[ Next: <a rel=next href="#Index">Index</a>
+ | Previous: <a rel=previous href="#Indent%20Program">Indent Program</a>
+ | Up: <a rel=up href="#Top">Top</a>
+ ]<p>
+
+<h1><a name="Option%20Summary">Option Summary</a></h1>
+Here is a list of all the options for <code>indent</code>, alphabetized by
+short option.  It is followed by a cross key alphabetized by long option.
+
+<dl compact>
+<dt><code>-bad</code>
+<dd><dt><code>--blank-lines-after-declarations</code>
+<dd>Force blank lines after the declarations.<br>
+
+<p>See [<a href="#Blank%20lines">Blank lines</a>].
+
+<dt><code>-bap</code>
+<dd><dt><code>--blank-lines-after-procedures</code>
+<dd>Force blank lines after procedure bodies.<br>
+
+<p>See [<a href="#Blank%20lines">Blank lines</a>].
+
+<dt><code>-bbb</code>
+<dd><dt><code>--blank-lines-after-block-comments</code>
+<dd>Force blank lines after block comments.<br>
+
+<p>See [<a href="#Blank%20lines">Blank lines</a>].
+
+<dt><code>-bbo</code>
+<dd><dt><code>--break-before-boolean-operator</code>
+<dd>Prefer to break long lines before boolean operators.<br>
+
+<p>See [<a href="#Breaking%20long%20lines">Breaking long lines</a>].
+
+<dt><code>-bc</code>
+<dd><dt><code>--blank-lines-after-commas</code>
+<dd>Force newline after comma in declaration.<br>
+
+<p>See [<a href="#Declarations">Declarations</a>].
+
+<dt><code>-bl</code>
+<dd><dt><code>--braces-after-if-line</code>
+<dd>Put braces on line after <code>if</code>, etc.<br>
+
+<p>See [<a href="#Statements">Statements</a>].
+
+<dt><code>-bliN</code>
+<dd><dt><code>--brace-indentN</code>
+<dd>Indent braces N spaces.<br>
+
+<p>See [<a href="#Statements">Statements</a>].
+
+<dt><code>-bls</code>
+<dd><dt><code>--braces-after-struct-decl-line</code>
+<dd>Put braces on the line after <code>struct</code> declaration lines.<br>
+
+<p>See [<a href="#Declarations">Declarations</a>].
+
+<dt><code>-br</code>
+<dd><dt><code>--braces-on-if-line</code>
+<dd>Put braces on line with <code>if</code>, etc. and structure declarations.<br>
+
+<p>See [<a href="#Statements">Statements</a>].
+
+<dt><code>-brs</code>
+<dd><dt><code>--braces-on-struct-decl-line</code>
+<dd>Put braces on <code>struct</code> declaration line.<br>
+
+<p>See [<a href="#Declarations">Declarations</a>].
+
+<dt><code>-bs</code>
+<dd><dt><code>--Bill-Shannon</code>
+<dd><dt><code>--blank-before-sizeof</code>
+<dd>Put a space between <code>sizeof</code> and its argument.<br>
+
+<p>See [<a href="#Statements">Statements</a>]
+
+<dt><code>-cN</code>
+<dd><dt><code>--comment-indentationN</code>
+<dd>Put comments to the right of code in column N.<br>
+
+<p>See [<a href="#Comments">Comments</a>].
+
+<dt><code>-cbiN</code>
+<dd><dt><code>--case-brace-indentationN</code>
+<dd>Indent braces after a case label N spaces.<br>
+
+<p>See [<a href="#Statements">Statements</a>].
+
+<dt><code>-cdN</code>
+<dd><dt><code>--declaration-comment-columnN</code>
+<dd>Put comments to the right of the declarations in column N.<br>
+
+<p>See [<a href="#Comments">Comments</a>].
+
+<dt><code>-cdb</code>
+<dd><dt><code>--comment-delimiters-on-blank-lines</code>
+<dd>Put comment delimiters on blank lines.<br>
+
+<p>See [<a href="#Comments">Comments</a>].
+
+<dt><code>-ce</code>
+<dd><dt><code>--cuddle-else</code>
+<dd>Cuddle else and preceeding <code>}</code>.<br>
+
+<p>See [<a href="#Comments">Comments</a>].
+
+<dt><code>-ciN</code>
+<dd><dt><code>--continuation-indentationN</code>
+<dd>Continuation indent of N spaces.<br>
+
+<p>See [<a href="#Statements">Statements</a>].
+
+<dt><code>-cliN</code>
+<dd><dt><code>--case-indentationN</code>
+<dd>Case label indent of N spaces.<br>
+
+<p>See [<a href="#Statements">Statements</a>].
+
+<dt><code>-cpN</code>
+<dd><dt><code>--else-endif-columnN</code>
+<dd>Put comments to the right of <code>#else</code> and
+<code>#endif</code> statements in column N.<br>
+
+<p>See [<a href="#Comments">Comments</a>].
+
+<dt><code>-cs</code>
+<dd><dt><code>--space-after-cast</code>
+<dd>Put a space after a cast operator.<br>
+
+<p>See [<a href="#Statements">Statements</a>].
+
+<dt><code>-dN</code>
+<dd><dt><code>--line-comments-indentationN</code>
+<dd>Set indentation of comments not to the right
+of code to N spaces.<br>
+
+<p>See [<a href="#Comments">Comments</a>].
+
+<dt><code>-diN</code>
+<dd><dt><code>--declaration-indentationN</code>
+<dd>Put variables in column N.<br>
+
+<p>See [<a href="#Declarations">Declarations</a>].
+
+<dt><code>-fc1</code>
+<dd><dt><code>--format-first-column-comments</code>
+<dd>Format comments in the first column.<br>
+
+<p>See [<a href="#Comments">Comments</a>].
+
+<dt><code>-fca</code>
+<dd><dt><code>--format-all-comments</code>
+<dd>Do not disable all formatting of comments.<br>
+
+<p>See [<a href="#Comments">Comments</a>]
+
+<dt><code>-gnu</code>
+<dd><dt><code>--gnu-style</code>
+<dd>Use GNU coding style.  This is the default.<br>
+
+<p>See [<a href="#Common%20styles">Common styles</a>].
+
+<dt><code>-hnl</code>
+<dd><dt><code>--honour-newlines</code>
+<dd>Prefer to break long lines at the position of newlines in the input.<br>
+
+<p>See [<a href="#Breaking%20long%20lines">Breaking long lines</a>].
+
+<dt><code>-iN</code>
+<dd><dt><code>--indent-levelN</code>
+<dd>Set indentation level to N spaces.<br>
+
+<p>See [<a href="#Indentation">Indentation</a>].
+
+<dt><code>-ipN</code>
+<dd><dt><code>--parameter-indentationN</code>
+<dd>Indent parameter types in old-style function
+definitions by N spaces.<br>
+
+<p>See [<a href="#Indentation">Indentation</a>].
+
+<dt><code>-kr</code>
+<dd><dt><code>--k-and-r-style</code>
+<dd>Use Kernighan &amp; Ritchie coding style.<br>
+
+<p>See [<a href="#Common%20styles">Common styles</a>].
+
+<dt><code>-lN</code>
+<dd><dt><code>--line-lengthN</code>
+<dd>Set maximum line length for non-comment lines to N.<br>
+
+<p>See [<a href="#Breaking%20long%20lines">Breaking long lines</a>].
+
+<dt><code>-lcN</code>
+<dd><dt><code>--comment-line-lengthN</code>
+<dd>Set maximum line length for comment formatting to N.<br>
+
+<p>See [<a href="#Comments">Comments</a>].
+
+<dt><code>-lp</code>
+<dd><dt><code>--continue-at-parentheses</code>
+<dd>Line up continued lines at parentheses.<br>
+
+<p>See [<a href="#Indentation">Indentation</a>].
+
+<dt><code>-lps</code>
+<dd><dt><code>--leave-preprocessor-space</code>
+<dd>Leave space between <code>#</code> and preprocessor directive.<br>
+
+<p>See [<a href="#Indentation">Indentation</a>].
+
+<dt><code>-nbad</code>
+<dd><dt><code>--no-blank-lines-after-declarations</code>
+<dd>Do not force blank lines after declarations.<br>
+
+<p>See [<a href="#Blank%20lines">Blank lines</a>].
+
+<dt><code>-nbap</code>
+<dd><dt><code>--no-blank-lines-after-procedures</code>
+<dd>Do not force blank lines after procedure bodies.<br>
+
+<p>See [<a href="#Blank%20lines">Blank lines</a>].
+
+<dt><code>-nbbo</code>
+<dd><dt><code>--break-after-boolean-operator</code>
+<dd>Do not prefer to break long lines before boolean operators.<br>
+
+<p>See [<a href="#Breaking%20long%20lines">Breaking long lines</a>].
+
+<dt><code>-nbc</code>
+<dd><dt><code>--no-blank-lines-after-commas</code>
+<dd>Do not force newlines after commas in declarations.<br>
+
+<p>See [<a href="#Declarations">Declarations</a>].
+
+<dt><code>-ncdb</code>
+<dd><dt><code>--no-comment-delimiters-on-blank-lines</code>
+<dd>Do not put comment delimiters on blank lines.<br>
+
+<p>See [<a href="#Comments">Comments</a>].
+
+<dt><code>-nce</code>
+<dd><dt><code>--dont-cuddle-else</code>
+<dd>Do not cuddle <code>}</code> and <code>else</code>.<br>
+
+<p>See [<a href="#Statements">Statements</a>].
+
+<dt><code>-ncs</code>
+<dd><dt><code>--no-space-after-casts</code>
+<dd>Do not put a space after cast operators.<br>
+
+<p>See [<a href="#Statements">Statements</a>].
+
+<dt><code>-nfc1</code>
+<dd><dt><code>--dont-format-first-column-comments</code>
+<dd>Do not format comments in the first column as normal.<br>
+
+<p>See [<a href="#Comments">Comments</a>].
+
+<dt><code>-nfca</code>
+<dd><dt><code>--dont-format-comments</code>
+<dd>Do not format any comments.<br>
+
+<p>See [<a href="#Comments">Comments</a>].
+
+<dt><code>-nhnl</code>
+<dd><dt><code>--ignore-newlines</code>
+<dd>Do not prefer to break long lines at the position of newlines in the input.<br>
+
+<p>See [<a href="#Breaking%20long%20lines">Breaking long lines</a>].
+
+<dt><code>-nip</code>
+<dd><dt><code>--no-parameter-indentation</code>
+<dd>Zero width indentation for parameters.<br>
+
+<p>See [<a href="#Indentation">Indentation</a>]
+
+<dt><code>-nlp</code>
+<dd><dt><code>--dont-line-up-parentheses</code>
+<dd>Do not line up parentheses.<br>
+
+<p>See [<a href="#Statements">Statements</a>].
+
+<dt><code>-npcs</code>
+<dd><dt><code>--no-space-after-function-call-names</code>
+<dd>Do not put space after the function in function calls.<br>
+
+<p>See [<a href="#Statements">Statements</a>].
+
+<dt><code>-npsl</code>
+<dd><dt><code>--dont-break-procedure-type</code>
+<dd>Put the type of a procedure on the same line as its name.<br>
+
+<p>See [<a href="#Declarations">Declarations</a>].
+
+<dt><code>-nsc</code>
+<dd><dt><code>--dont-star-comments</code>
+<dd>Do not put the <code>*</code> character at the left of comments.<br>
+
+<p>See [<a href="#Comments">Comments</a>].
+
+<dt><code>-nsob</code>
+<dd><dt><code>--leave-optional-blank-lines</code>
+<dd>Do not swallow optional blank lines.<br>
+
+<p>See [<a href="#Blank%20lines">Blank lines</a>].
+
+<dt><code>-nss</code>
+<dd><dt><code>--dont-space-special-semicolon</code>
+<dd>Do not force a space before the semicolon after certain statements. 
+Disables <code>-ss</code>.<br>
+
+<p>See [<a href="#Statements">Statements</a>].
+
+<dt><code>-nv</code>
+<dd><dt><code>--no-verbosity</code>
+<dd>Disable verbose mode.<br>
+
+<p>See [<a href="#Miscellaneous%20options">Miscellaneous options</a>].
+
+<dt><code>-orig</code>
+<dd><dt><code>--original</code>
+<dd>Use the original Berkeley coding style.<br>
+
+<p>See [<a href="#Common%20styles">Common styles</a>].
+
+<dt><code>-npro</code>
+<dd><dt><code>--ignore-profile</code>
+<dd>Do not read <code>.indent.pro</code> files.<br>
+
+<p>See [<a href="#Invoking%20indent">Invoking indent</a>].
+
+<dt><code>-pcs</code>
+<dd><dt><code>--space-after-procedure-calls</code>
+<dd>Insert a space between the name of the
+procedure being called and the <code>(</code>.<br>
+
+<p>See [<a href="#Statements">Statements</a>].
+
+<dt><code>-piN</code>
+<dd><dt><code>--paren-indentationN</code>
+<dd>Specify the extra indentation per open parentheses '(' when a
+statement is broken. 
+See [<a href="#Statements">Statements</a>].
+
+<dt><code>-psl</code>
+<dd><dt><code>--procnames-start-lines</code>
+<dd>Put the type of a procedure on the line before its name.<br>
+
+<p>See [<a href="#Declarations">Declarations</a>].
+
+<dt><code>-sbiN</code>
+<dd><dt><code>--struct-brace-indentationN</code>
+<dd>Indent braces of a struct, union or enum N spaces.<br>
+
+<p>See [<a href="#Statements">Statements</a>].
+
+<dt><code>-sc</code>
+<dd><dt><code>--start-left-side-of-comments</code>
+<dd>Put the <code>*</code> character at the left of comments.<br>
+
+<p>See [<a href="#Comments">Comments</a>].
+
+<dt><code>-sob</code>
+<dd><dt><code>--swallow-optional-blank-lines</code>
+<dd>Swallow optional blank lines.<br>
+
+<p>See [<a href="#Blank%20lines">Blank lines</a>].
+
+<dt><code>-ss</code>
+<dd><dt><code>--space-special-semicolon</code>
+<dd>On one-line <code>for</code> and <code>while</code> statments,
+force a blank before the semicolon.<br>
+
+<p>See [<a href="#Statements">Statements</a>].
+
+<dt><code>-st</code>
+<dd><dt><code>--standard-output</code>
+<dd>Write to standard output.<br>
+
+<p>See [<a href="#Invoking%20indent">Invoking indent</a>].
+
+<dt><code>-T</code>
+<dd>Tell <code>indent</code> the name of typenames.<br>
+
+<p>See [<a href="#Declarations">Declarations</a>].
+
+<dt><code>-tsN</code>
+<dd><dt><code>--tab-sizeN</code>
+<dd>Set tab size to N spaces.<br>
+
+<p>See [<a href="#Indentation">Indentation</a>].
+
+<dt><code>-v</code>
+<dd><dt><code>--verbose</code>
+<dd>Enable verbose mode.<br>
+
+<p>See [<a href="#Miscellaneous%20options">Miscellaneous options</a>].
+
+<dt><code>-version</code>
+<dd>Output the version number of <code>indent</code>.<br>
+
+<p>See [<a href="#Miscellaneous%20options">Miscellaneous options</a>]. 
+</dl>
+
+<h3>Options' Cross Key</h3>
+Here is a list of options alphabetized by long option, to help you find
+the corresponding short option.
+
+<pre>
+--blank-lines-after-block-comments              -bbb
+--blank-lines-after-commas                      -bc
+--blank-lines-after-declarations                -bad
+--blank-lines-after-procedures                  -bap
+--braces-after-if-line                          -bl
+--brace-indent                                  -bli
+--braces-after-struct-decl-line                 -bls
+--braces-on-if-line                             -br
+--braces-on-struct-decl-line                    -brs
+--break-after-boolean-operator                  -nbbo
+--break-before-boolean-operator                 -bbo
+--case-indentation                              -cliN
+--case-brace-indentation                        -cbiN
+--comment-delimiters-on-blank-lines             -cdb
+--comment-indentation                           -cN
+--continuation-indentation                      -ciN
+--continue-at-parentheses                       -lp
+--cuddle-else                                   -ce
+--declaration-comment-column                    -cdN
+--declaration-indentation                       -diN
+--dont-break-procedure-type                     -npsl
+--dont-cuddle-else                              -nce
+--dont-format-comments                          -nfca
+--dont-format-first-column-comments             -nfc1
+--dont-line-up-parentheses                      -nlp
+--dont-space-special-semicolon                  -nss
+--dont-star-comments                            -nsc
+--else-endif-column                             -cpN
+--format-all-comments                           -fca
+--format-first-column-comments                  -fc1
+--gnu-style                                     -gnu
+--honour-newlines                               -hnl
+--ignore-newlines                               -nhnl
+--ignore-profile                                -npro
+--indent-level                                  -iN
+--k-and-r-style                                 -kr
+--leave-optional-blank-lines                    -nsob
+--leave-preprocessor-space                      -lps
+--line-comments-indentation                     -dN
+--line-length                                   -lN
+--no-blank-lines-after-commas                   -nbc
+--no-blank-lines-after-declarations             -nbad
+--no-blank-lines-after-procedures               -nbap
+--no-comment-delimiters-on-blank-lines          -ncdb
+--no-space-after-casts                          -ncs
+--no-parameter-indentation                      -nip
+--no-space-after-function-call-names            -npcs
+--no-verbosity                                  -nv
+--original                                      -orig
+--parameter-indentation                         -ipN
+--paren-indentation                             -piN
+--procnames-start-lines                         -psl
+--space-after-cast                              -cs
+--space-after-procedure-calls                   -pcs
+--space-special-semicolon                       -ss
+--standard-output                               -st
+--start-left-side-of-comments                   -sc
+--struct-brace-indentation                      -sbiN
+--swallow-optional-blank-lines                  -sob
+--tab-size                                      -tsN
+--verbose                                       -v
+</pre>
+
+<p><hr>[ Previous: <a rel=previous href="#Option%20Summary">Option Summary</a>
+ | Up: <a rel=up href="#Top">Top</a>
+ ]<p>
+
+<h1><a name="Index">Index</a></h1>
+
+<h4>Menu</h4>
+<menu>
+<li><code>--blank-after-sizeof</code>: <a href="#Statements">Statements</a>
+<li><code>--blank-lines-after-block-comments</code>: <a href="#Blank%20lines">Blank lines</a>
+<li><code>--blank-lines-after-commas</code>: <a href="#Declarations">Declarations</a>
+<li><code>--blank-lines-after-declarations</code>: <a href="#-bad">-bad</a>
+<li><code>--blank-lines-after-procedures</code>: <a href="#-bap">-bap</a>
+<li><code>--brace-indentN</code>: <a href="#Statements">Statements</a>
+<li><code>--braces-after-if-line</code>: <a href="#Statements">Statements</a>
+<li><code>--braces-on-if-line</code>: <a href="#Statements">Statements</a>
+<li><code>--break-after-boolean-operator</code>: <a href="#Breaking%20long%20lines">Breaking long lines</a>
+<li><code>--break-before-boolean-operator</code>: <a href="#Breaking%20long%20lines">Breaking long lines</a>
+<li><code>--case-brace-indentationN</code>: <a href="#Statements">Statements</a>
+<li><code>--case-indentationN</code>: <a href="#Statements">Statements</a>
+<li><code>--comment-delimiters-on-blank-lines</code>: <a href="#Comments">Comments</a>
+<li><code>--comment-indentationN</code>: <a href="#Comments">Comments</a>
+<li><code>--continuation-indentationN</code>: <a href="#Indentation">Indentation</a>
+<li><code>--continue-at-parentheses</code>: <a href="#Indentation">Indentation</a>
+<li><code>--cuddle-else</code>: <a href="#Statements">Statements</a>
+<li><code>--declaration-comment-columnN</code>: <a href="#Comments">Comments</a>
+<li><code>--declaration-indentationN</code>: <a href="#Declarations">Declarations</a>
+<li><code>--dont-break-procedure-type</code>: <a href="#Declarations">Declarations</a>
+<li><code>--dont-cuddle-else</code>: <a href="#Statements">Statements</a>
+<li><code>--dont-format-comments</code>: <a href="#Comments">Comments</a>
+<li><code>--dont-format-first-column-comments</code>: <a href="#Comments">Comments</a>
+<li><code>--dont-line-up-parentheses</code>: <a href="#Indentation">Indentation</a>
+<li><code>--dont-space-special-semicolon</code>: <a href="#Statements">Statements</a>
+<li><code>--dont-star-comments</code>: <a href="#Comments">Comments</a>
+<li><code>--else-endif-columnN</code>: <a href="#Comments">Comments</a>
+<li><code>--format-all-comments</code>: <a href="#Comments">Comments</a>
+<li><code>--format-first-column-comments</code>: <a href="#Comments">Comments</a>
+<li><code>--gnu-style</code>: <a href="#Common%20styles">Common styles</a>
+<li><code>--honour-newlines</code>: <a href="#Breaking%20long%20lines">Breaking long lines</a>
+<li><code>--ignore-newlines</code>: <a href="#Breaking%20long%20lines">Breaking long lines</a>
+<li><code>--ignore-profile</code>: <a href="#Invoking%20indent">Invoking indent</a>
+<li><code>--indent-levelN</code>: <a href="#Indentation">Indentation</a>
+<li><code>--k-and-r-style</code>: <a href="#Common%20styles">Common styles</a>
+<li><code>--leave-optional-blank-lines</code>: <a href="#Blank%20lines">Blank lines</a>
+<li><code>--leave-preprocessor-space</code>: <a href="#Indentation">Indentation</a>
+<li><code>--line-comments-indentationN</code>: <a href="#Comments">Comments</a>
+<li><code>--line-lengthN</code>: <a href="#Breaking%20long%20lines">Breaking long lines</a>
+<li><code>--no-blank-lines-after-block-comments</code>: <a href="#Blank%20lines">Blank lines</a>
+<li><code>--no-blank-lines-after-commas</code>: <a href="#Declarations">Declarations</a>
+<li><code>--no-blank-lines-after-declarations</code>: <a href="#-bad">-bad</a>
+<li><code>--no-blank-lines-after-procedures</code>: <a href="#-bap">-bap</a>
+<li><code>--no-comment-delimiters-on-blank-lines</code>: <a href="#Comments">Comments</a>
+<li><code>--no-parameter-indentation</code>: <a href="#Indentation">Indentation</a>
+<li><code>--no-space-after-casts</code>: <a href="#Statements">Statements</a>
+<li><code>--no-space-after-function-call-names</code>: <a href="#Statements">Statements</a>
+<li><code>--no-verbosity</code>: <a href="#Miscellaneous%20options">Miscellaneous options</a>
+<li><code>--original</code>: <a href="#Common%20styles">Common styles</a>
+<li><code>--output-file</code>: <a href="#Invoking%20indent">Invoking indent</a>
+<li><code>--parameter-indentationN</code>: <a href="#Indentation">Indentation</a>
+<li><code>--procnames-start-lines</code>: <a href="#Declarations">Declarations</a>
+<li><code>--remove-preprocessor-space</code>: <a href="#Indentation">Indentation</a>
+<li><code>--space-after-cast</code>: <a href="#Statements">Statements</a>
+<li><code>--space-after-procedure-calls</code>: <a href="#Statements">Statements</a>
+<li><code>--space-special-semicolon</code>: <a href="#Statements">Statements</a>
+<li><code>--standard-output</code>: <a href="#Invoking%20indent">Invoking indent</a>
+<li><code>--star-left-side-of-comments</code>: <a href="#Comments">Comments</a>
+<li><code>--swallow-optional-blank-lines</code>: <a href="#Blank%20lines">Blank lines</a>
+<li><code>--tab-sizeN</code>: <a href="#Indentation">Indentation</a>
+<li><code>--verbose</code>: <a href="#Miscellaneous%20options">Miscellaneous options</a>
+<li><code>-bad</code>: <a href="#-bad">-bad</a>
+<li><code>-bap</code>: <a href="#-bap">-bap</a>
+<li><code>-bbb</code>: <a href="#Blank%20lines">Blank lines</a>
+<li><code>-bbo</code>: <a href="#Breaking%20long%20lines">Breaking long lines</a>
+<li><code>-bc</code>: <a href="#Declarations">Declarations</a>
+<li><code>-bl</code>: <a href="#Statements">Statements</a>
+<li><code>-bliN</code>: <a href="#Statements">Statements</a>
+<li><code>-br</code>: <a href="#Statements">Statements</a>
+<li><code>-bs</code>: <a href="#Statements">Statements</a>
+<li><code>-cbiN</code>: <a href="#Statements">Statements</a>
+<li><code>-cdb</code>: <a href="#Comments">Comments</a>
+<li><code>-cdN</code>: <a href="#Comments">Comments</a>
+<li><code>-ce</code>: <a href="#Statements">Statements</a>
+<li><code>-ciN</code>: <a href="#Indentation">Indentation</a>
+<li><code>-cliN</code>: <a href="#Statements">Statements</a>
+<li><code>-cN</code>: <a href="#Comments">Comments</a>
+<li><code>-cpN</code>: <a href="#Comments">Comments</a>
+<li><code>-cs</code>: <a href="#Statements">Statements</a>
+<li><code>-dce</code>: <a href="#Statements">Statements</a>
+<li><code>-diN</code>: <a href="#Declarations">Declarations</a>
+<li><code>-dN</code>: <a href="#Comments">Comments</a>
+<li><code>-fc1</code>: <a href="#Comments">Comments</a>
+<li><code>-fca</code>: <a href="#Comments">Comments</a>
+<li><code>-gnu</code>: <a href="#Common%20styles">Common styles</a>
+<li><code>-hnl</code>: <a href="#Breaking%20long%20lines">Breaking long lines</a>
+<li><code>-iN</code>: <a href="#Indentation">Indentation</a>
+<li><code>-ipN</code>: <a href="#Indentation">Indentation</a>
+<li><code>-kr</code>: <a href="#Common%20styles">Common styles</a>
+<li><code>-lN</code>: <a href="#Breaking%20long%20lines">Breaking long lines</a>
+<li><code>-lp</code>: <a href="#Indentation">Indentation</a>
+<li><code>-lps</code>: <a href="#Indentation">Indentation</a>
+<li><code>-nbad</code>: <a href="#-bad">-bad</a>
+<li><code>-nbap</code>: <a href="#-bap">-bap</a>
+<li><code>-nbbb</code>: <a href="#Blank%20lines">Blank lines</a>
+<li><code>-nbbo</code>: <a href="#Breaking%20long%20lines">Breaking long lines</a>
+<li><code>-nbc</code>: <a href="#Declarations">Declarations</a>
+<li><code>-ncdb</code>: <a href="#Comments">Comments</a>
+<li><code>-ncs</code>: <a href="#Statements">Statements</a>
+<li><code>-nfc1</code>: <a href="#Comments">Comments</a>
+<li><code>-nfca</code>: <a href="#Comments">Comments</a>
+<li><code>-nhnl</code>: <a href="#Breaking%20long%20lines">Breaking long lines</a>
+<li><code>-nip</code>: <a href="#Indentation">Indentation</a>
+<li><code>-nlp</code>: <a href="#Indentation">Indentation</a>
+<li><code>-nlps</code>: <a href="#Indentation">Indentation</a>
+<li><code>-npcs</code>: <a href="#Statements">Statements</a>
+<li><code>-npro</code>: <a href="#Invoking%20indent">Invoking indent</a>
+<li><code>-npsl</code>: <a href="#Declarations">Declarations</a>
+<li><code>-nsc</code>: <a href="#Comments">Comments</a>
+<li><code>-nsob</code>: <a href="#Blank%20lines">Blank lines</a>
+<li><code>-nss</code>: <a href="#Statements">Statements</a>
+<li><code>-nv</code>: <a href="#Miscellaneous%20options">Miscellaneous options</a>
+<li><code>-o</code>: <a href="#Invoking%20indent">Invoking indent</a>
+<li><code>-orig</code>: <a href="#Common%20styles">Common styles</a>
+<li><code>-pcs</code>: <a href="#Statements">Statements</a>
+<li><code>-psl</code>: <a href="#Declarations">Declarations</a>
+<li><code>-sc</code>: <a href="#Comments">Comments</a>
+<li><code>-sob</code>: <a href="#Blank%20lines">Blank lines</a>
+<li><code>-ss</code>: <a href="#Statements">Statements</a>
+<li><code>-st</code>: <a href="#Invoking%20indent">Invoking indent</a>
+<li><code>-T</code>: <a href="#Declarations">Declarations</a>
+<li><code>-tsN</code>: <a href="#Indentation">Indentation</a>
+<li><code>-v</code>: <a href="#Miscellaneous%20options">Miscellaneous options</a>
+<li><code>-version</code>: <a href="#Miscellaneous%20options">Miscellaneous options</a>
+<li><code><code>.indent.pro</code> file</code>: <a href="#Invoking%20indent">Invoking indent</a>
+<li><code><code>etags</code> requires <code>-psl</code></code>: <a href="#Declarations">Declarations</a>
+<li><code>Beginning <code>indent</code></code>: <a href="#Invoking%20indent">Invoking indent</a>
+<li><code>Berkeley style</code>: <a href="#Common%20styles">Common styles</a>
+<li><code>Blank lines</code>: <a href="#Blank%20lines">Blank lines</a>
+<li><code>Comments</code>: <a href="#Comments">Comments</a>
+<li><code>GNU style</code>: <a href="#Common%20styles">Common styles</a>
+<li><code>Initialization file</code>: <a href="#Invoking%20indent">Invoking indent</a>
+<li><code>Invoking <code>indent</code></code>: <a href="#Invoking%20indent">Invoking indent</a>
+<li><code>Kernighan &amp; Ritchie style</code>: <a href="#Common%20styles">Common styles</a>
+<li><code>Long options, use of</code>: <a href="#Invoking%20indent">Invoking indent</a>
+<li><code>Original Berkeley style</code>: <a href="#Common%20styles">Common styles</a>
+<li><code>Output File Specification</code>: <a href="#Invoking%20indent">Invoking indent</a>
+<li><code>Standard Output</code>: <a href="#Invoking%20indent">Invoking indent</a>
+<li><code>Starting <code>indent</code></code>: <a href="#Invoking%20indent">Invoking indent</a>
+<li><code>Typenames</code>: <a href="#Declarations">Declarations</a>
+<li><code>Using Standard Input</code>: <a href="#Invoking%20indent">Invoking indent</a>
+</menu>
+
+<hr><h4>Footnotes</h4>
+<dl compact>
+<dt>[<a name="fn-1">1</a>]<dd> <code>+</code> is being superseded by <code>--</code> to
+maintain consistency with the POSIX standard.
+
+</dl><hr>
+
+</body></html>
+

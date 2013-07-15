@@ -1,0 +1,1778 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:563: checking host system type
+configure:615: checking for a BSD compatible install
+configure:672: checking whether build environment is sane
+configure:729: checking whether make sets ${MAKE}
+configure:776: checking for working aclocal
+configure:789: checking for working autoconf
+configure:802: checking for working automake
+configure:815: checking for working autoheader
+configure:828: checking for working makeinfo
+configure:845: checking for gnutar
+configure:845: checking for gtar
+configure:845: checking for tar
+configure:896: checking for perl5.003 or newer
+configure:927: checking for gcc
+configure:1040: checking whether the C compiler (gcc   ) works
+configure:1056: gcc -o conftest    conftest.c  1>&5
+configure:1082: checking whether the C compiler (gcc   ) is a cross-compiler
+configure:1087: checking whether we are using GNU C
+configure:1096: gcc -E conftest.c
+configure:1115: checking whether gcc accepts -g
+configure:1147: checking how to run the C preprocessor
+configure:1168: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1228: checking whether gcc needs -traditional
+configure:1235: sgtty.h: No such file or directory
+configure:1253: termio.h: No such file or directory
+configure:1276: checking for ranlib
+configure:1304: checking for AIX
+configure:1329: checking for minix/config.h
+configure:1339: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1335: minix\config.h: No such file or directory
+configure: failed program was:
+#line 1334 "configure"
+#include "confdefs.h"
+#include <minix/config.h>
+configure:1379: checking build system type
+configure:1434: checking for getconf
+configure:1464: checking for CFLAGS value to request large file support
+configure:1502: checking for LDFLAGS value to request large file support
+configure:1514: checking for LIBS value to request large file support
+configure:1569: checking for _FILE_OFFSET_BITS
+configure:1594: checking for _LARGEFILE_SOURCE
+configure:1623: checking for _LARGE_FILES
+configure:1658: checking for gcc option to accept ANSI C
+configure:1712: gcc  -c -g -O2  conftest.c 1>&5
+configure:1738: checking for function prototypes
+configure:1902: checking for fcntl.h
+configure:1912: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1902: checking for float.h
+configure:1912: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1902: checking for limits.h
+configure:1912: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1902: checking for memory.h
+configure:1912: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1902: checking for stdlib.h
+configure:1912: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1902: checking for string.h
+configure:1912: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1902: checking for unistd.h
+configure:1912: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1902: checking for values.h
+configure:1912: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1939: checking whether stat file-mode macros are broken
+configure:1995: checking for ANSI C header files
+configure:2008: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2075: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:2100: checking whether byte ordering is bigendian
+configure:2118: gcc -c -g -O2  conftest.c 1>&5
+configure:2109: sys\param.h: No such file or directory
+configure: failed program was:
+#line 2107 "configure"
+#include "confdefs.h"
+#include <sys/types.h>
+#include <sys/param.h>
+int main() {
+
+#if !BYTE_ORDER || !BIG_ENDIAN || !LITTLE_ENDIAN
+ bogus endian macros
+#endif
+; return 0; }
+configure:2166: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:2190: checking for working const
+configure:2244: gcc -c -g -O2  conftest.c 1>&5
+configure:2265: checking for inline
+configure:2279: gcc -c -g -O2  conftest.c 1>&5
+configure:2305: checking for long double
+configure:2353: checking for dirent.h that defines DIR
+configure:2366: gcc -c -g -O2  conftest.c 1>&5
+configure:2391: checking for opendir in -ldir
+configure:2410: gcc -o conftest -g -O2   conftest.c -ldir   1>&5
+ld: cannot open -ldir: No such file or directory
+configure: failed program was:
+#line 2399 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char opendir();
+
+int main() {
+opendir()
+; return 0; }
+configure:2474: checking for member st_blksize in aggregate type struct stat
+configure:2487: gcc -c -g -O2  conftest.c 1>&5
+configure: In function `main':
+configure:2483: structure has no member named `st_blksize'
+configure: failed program was:
+#line 2479 "configure"
+#include "confdefs.h"
+#include <sys/types.h>
+#include <sys/stat.h>
+int main() {
+struct stat foo; foo.st_blksize;
+; return 0; }
+configure:2511: checking for inttypes.h
+configure:2524: gcc -c -g -O2  conftest.c 1>&5
+configure:2518: inttypes.h: No such file or directory
+configure: failed program was:
+#line 2516 "configure"
+#include "confdefs.h"
+#include <sys/types.h>
+#include <inttypes.h>
+int main() {
+uintmax_t i = (uintmax_t) -1;
+; return 0; }
+configure:2546: checking for unsigned long long
+configure:2559: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:2580: checking for uid_t in sys/types.h
+configure:2628: checking type of array argument to getgroups
+configure:2661: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\ccgsaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:2652: undefined reference to `getgroups'
+configure: failed program was:
+#line 2636 "configure"
+#include "confdefs.h"
+
+/* Thanks to Mike Rendell for this test.  */
+#include <sys/types.h>
+#define NGID 256
+#undef MAX
+#define MAX(x, y) ((x) > (y) ? (x) : (y))
+main()
+{
+  gid_t gidset[NGID];
+  int i, n;
+  union { gid_t gval; long lval; }  val;
+
+  val.lval = -1;
+  for (i = 0; i < NGID; i++)
+    gidset[i] = val.gval;
+  n = getgroups (sizeof (gidset) / MAX (sizeof (int), sizeof (gid_t)) - 1,
+                 gidset);
+  /* Exit non-zero if getgroups seems to require an array of ints.  This
+     happens when gid_t is short but getgroups modifies an array of ints.  */
+  exit ((n > 0 && gidset[n] != val.gval) ? 1 : 0);
+}
+
+configure:2702: checking for unistd.h
+configure:2739: checking for mode_t
+configure:2778: checking for unistd.h
+configure:2815: checking for off_t
+configure:2854: checking for unistd.h
+configure:2891: checking for pid_t
+configure:2927: checking return type of signal handlers
+configure:2949: gcc -c -g -O2  conftest.c 1>&5
+configure:2971: checking for unistd.h
+configure:3008: checking for size_t
+configure:3044: checking for uid_t in sys/types.h
+configure:3081: checking for unistd.h
+configure:3118: checking for ino_t
+configure:3157: checking for unistd.h
+configure:3194: checking for ssize_t
+configure:3234: checking for strerror in -lcposix
+configure:3253: gcc -o conftest -g -O2   conftest.c -lcposix   1>&5
+ld: cannot open -lcposix: No such file or directory
+configure: failed program was:
+#line 3242 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char strerror();
+
+int main() {
+strerror()
+; return 0; }
+configure:3277: checking for fseeko
+configure:3306: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\cczqaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:3300: undefined reference to `fseeko'
+configure: failed program was:
+#line 3282 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char fseeko(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char fseeko();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_fseeko) || defined (__stub___fseeko)
+choke me
+#else
+f = fseeko;
+#endif
+
+; return 0; }
+configure:3277: checking for isascii
+configure:3306: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:3277: checking for mempcpy
+configure:3306: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\ccnucaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:3300: undefined reference to `mempcpy'
+configure: failed program was:
+#line 3282 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char mempcpy(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char mempcpy();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_mempcpy) || defined (__stub___mempcpy)
+choke me
+#else
+f = mempcpy;
+#endif
+
+; return 0; }
+configure:3277: checking for strchr
+configure:3306: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:3277: checking for strerror
+configure:3306: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:3277: checking for strrchr
+configure:3306: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:3333: checking for working alloca.h
+configure:3345: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:3339: alloca.h: No such file or directory
+configure: failed program was:
+#line 3338 "configure"
+#include "confdefs.h"
+#include <alloca.h>
+int main() {
+char *p = alloca(2 * sizeof(int));
+; return 0; }
+configure:3366: checking for alloca
+configure:3399: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:3567: checking whether time.h and sys/time.h may both be included
+configure:3581: gcc -c -g -O2  conftest.c 1>&5
+configure:3605: checking for sys/time.h
+configure:3615: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:3605: checking for unistd.h
+configure:3644: checking for alarm
+configure:3673: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\cc4raaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:3667: undefined reference to `alarm'
+configure: failed program was:
+#line 3649 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char alarm(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char alarm();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_alarm) || defined (__stub___alarm)
+choke me
+#else
+f = alarm;
+#endif
+
+; return 0; }
+configure:3698: checking for working mktime
+configure:3856: gcc -o conftest -g -O2   conftest.c  1>&5
+configure: failed program was:
+#line 3706 "configure"
+#include "confdefs.h"
+/* Test program from Paul Eggert (eggert@twinsun.com)
+   and Tony Leneis (tony@plaza.ds.adp.com).  */
+#if TIME_WITH_SYS_TIME
+# include <sys/time.h>
+# include <time.h>
+#else
+# if HAVE_SYS_TIME_H
+#  include <sys/time.h>
+# else
+#  include <time.h>
+# endif
+#endif
+
+#if HAVE_UNISTD_H
+# include <unistd.h>
+#endif
+
+#if !HAVE_ALARM
+# define alarm(X) /* empty */
+#endif
+
+/* Work around redefinition to rpl_putenv by other config tests.  */
+#undef putenv
+
+static time_t time_t_max;
+
+/* Values we'll use to set the TZ environment variable.  */
+static const char *const tz_strings[] = {
+  (const char *) 0, "TZ=GMT0", "TZ=JST-9",
+  "TZ=EST+3EDT+2,M10.1.0/00:00:00,M2.3.0/00:00:00"
+};
+#define N_STRINGS (sizeof (tz_strings) / sizeof (tz_strings[0]))
+
+/* Fail if mktime fails to convert a date in the spring-forward gap.
+   Based on a problem report from Andreas Jaeger.  */
+static void
+spring_forward_gap ()
+{
+  /* glibc (up to about 1998-10-07) failed this test) */
+  struct tm tm;
+
+  /* Use the portable POSIX.1 specification "TZ=PST8PDT,M4.1.0,M10.5.0"
+     instead of "TZ=America/Vancouver" in order to detect the bug even
+     on systems that don't support the Olson extension, or don't have the
+     full zoneinfo tables installed.  */
+  putenv ("TZ=PST8PDT,M4.1.0,M10.5.0");
+
+  tm.tm_year = 98;
+  tm.tm_mon = 3;
+  tm.tm_mday = 5;
+  tm.tm_hour = 2;
+  tm.tm_min = 0;
+  tm.tm_sec = 0;
+  tm.tm_isdst = -1;
+  if (mktime (&tm) == (time_t)-1)
+    exit (1);
+}
+
+static void
+mktime_test (now)
+     time_t now;
+{
+  struct tm *lt;
+  if ((lt = localtime (&now)) && mktime (lt) != now)
+    exit (1);
+  now = time_t_max - now;
+  if ((lt = localtime (&now)) && mktime (lt) != now)
+    exit (1);
+}
+
+static void
+irix_6_4_bug ()
+{
+  /* Based on code from Ariel Faigon.  */
+  struct tm tm;
+  tm.tm_year = 96;
+  tm.tm_mon = 3;
+  tm.tm_mday = 0;
+  tm.tm_hour = 0;
+  tm.tm_min = 0;
+  tm.tm_sec = 0;
+  tm.tm_isdst = -1;
+  mktime (&tm);
+  if (tm.tm_mon != 2 || tm.tm_mday != 31)
+    exit (1);
+}
+
+static void
+bigtime_test (j)
+     int j;
+{
+  struct tm tm;
+  time_t now;
+  tm.tm_year = tm.tm_mon = tm.tm_mday = tm.tm_hour = tm.tm_min = tm.tm_sec = j;
+  now = mktime (&tm);
+  if (now != (time_t) -1)
+    {
+      struct tm *lt = localtime (&now);
+      if (! (lt
+	     && lt->tm_year == tm.tm_year
+	     && lt->tm_mon == tm.tm_mon
+	     && lt->tm_mday == tm.tm_mday
+	     && lt->tm_hour == tm.tm_hour
+	     && lt->tm_min == tm.tm_min
+	     && lt->tm_sec == tm.tm_sec
+	     && lt->tm_yday == tm.tm_yday
+	     && lt->tm_wday == tm.tm_wday
+	     && ((lt->tm_isdst < 0 ? -1 : 0 < lt->tm_isdst)
+		  == (tm.tm_isdst < 0 ? -1 : 0 < tm.tm_isdst))))
+	exit (1);
+    }
+}
+
+int
+main ()
+{
+  time_t t, delta;
+  int i, j;
+
+  /* This test makes some buggy mktime implementations loop.
+     Give up after 60 seconds; a mktime slower than that
+     isn't worth using anyway.  */
+  alarm (60);
+
+  for (time_t_max = 1; 0 < time_t_max; time_t_max *= 2)
+    continue;
+  time_t_max--;
+  delta = time_t_max / 997; /* a suitable prime number */
+  for (i = 0; i < N_STRINGS; i++)
+    {
+      if (tz_strings[i])
+	putenv (tz_strings[i]);
+
+      for (t = 0; t <= time_t_max - delta; t += delta)
+	mktime_test (t);
+      mktime_test ((time_t) 60 * 60);
+      mktime_test ((time_t) 60 * 60 * 24);
+
+      for (j = 1; 0 < j; j *= 2)
+        bigtime_test (j);
+      bigtime_test (j - 1);
+    }
+  irix_6_4_bug ();
+  spring_forward_gap ();
+  exit (0);
+}
+
+configure:3876: checking for working memcmp
+configure:3915: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:3935: checking whether we are using the GNU C Library
+configure:3942: features.h: No such file or directory
+configure:3965: checking for version 2 of the GNU C Library
+configure:3972: features.h: No such file or directory
+configure:3998: checking for strerror in -lcposix
+configure:4041: checking whether to enable assertions
+configure:4061: checking for utime.h
+configure:4071: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:4067: utime.h: No such file or directory
+configure: failed program was:
+#line 4066 "configure"
+#include "confdefs.h"
+#include <utime.h>
+configure:4099: checking for struct utimbuf
+configure:4125: gcc -c -g -O2  conftest.c 1>&5
+configure: In function `main':
+configure:4121: storage size of `x' isn't known
+configure: failed program was:
+#line 4104 "configure"
+#include "confdefs.h"
+
+#ifdef TIME_WITH_SYS_TIME
+# include <sys/time.h>
+# include <time.h>
+#else
+# ifdef HAVE_SYS_TIME_H
+#  include <sys/time.h>
+# else
+#  include <time.h>
+# endif
+#endif
+#ifdef HAVE_UTIME_H
+# include <utime.h>
+#endif
+      
+int main() {
+static struct utimbuf x; x.actime = x.modtime;
+; return 0; }
+configure:4148: checking for d_type member in directory struct
+configure:4176: gcc -o conftest -g -O2   conftest.c  1>&5
+configure: In function `main':
+configure:4172: structure has no member named `d_type'
+configure: failed program was:
+#line 4153 "configure"
+#include "confdefs.h"
+       
+#include <sys/types.h>
+#ifdef HAVE_DIRENT_H
+# include <dirent.h>
+#else /* not HAVE_DIRENT_H */
+# define dirent direct
+# ifdef HAVE_SYS_NDIR_H
+#  include <sys/ndir.h>
+# endif /* HAVE_SYS_NDIR_H */
+# ifdef HAVE_SYS_DIR_H
+#  include <sys/dir.h>
+# endif /* HAVE_SYS_DIR_H */
+# ifdef HAVE_NDIR_H
+#  include <ndir.h>
+# endif /* HAVE_NDIR_H */
+#endif /* HAVE_DIRENT_H */
+       
+int main() {
+struct dirent dp; dp.d_type = 0;
+; return 0; }
+configure:4200: checking for d_ino member in directory struct
+configure:4228: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:4392: checking for strings.h
+configure:4402: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:4398: strings.h: No such file or directory
+configure: failed program was:
+#line 4397 "configure"
+#include "confdefs.h"
+#include <strings.h>
+configure:4509: checking whether free is declared
+configure:4525: gcc -c -g -O2  conftest.c 1>&5
+configure:4509: checking whether lseek is declared
+configure:4525: gcc -c -g -O2  conftest.c 1>&5
+configure:4509: checking whether malloc is declared
+configure:4525: gcc -c -g -O2  conftest.c 1>&5
+configure:4509: checking whether memchr is declared
+configure:4525: gcc -c -g -O2  conftest.c 1>&5
+configure:4509: checking whether realloc is declared
+configure:4525: gcc -c -g -O2  conftest.c 1>&5
+configure:4509: checking whether stpcpy is declared
+configure:4525: gcc -c -g -O2  conftest.c 1>&5
+configure: In function `main':
+configure:4540: `stpcpy' undeclared (first use in this function)
+configure:4540: (Each undeclared identifier is reported only once
+configure:4540: for each function it appears in.)
+configure: failed program was:
+#line 4514 "configure"
+#include "confdefs.h"
+
+#include <stdio.h>
+#ifdef HAVE_STRING_H
+# if !STDC_HEADERS && HAVE_MEMORY_H
+#  include <memory.h>
+# endif
+# include <string.h>
+#else
+# ifdef HAVE_STRINGS_H
+#  include <strings.h>
+# endif
+#endif
+#ifdef HAVE_STDLIB_H
+# include <stdlib.h>
+#endif
+#ifdef HAVE_UNISTD_H
+# include <unistd.h>
+#endif
+
+int main() {
+
+#ifndef stpcpy
+char *(*pfn) = (char *(*)) stpcpy
+#endif
+      
+; return 0; }
+configure:4509: checking whether strstr is declared
+configure:4525: gcc -c -g -O2  conftest.c 1>&5
+configure:4557: checking for strerror
+configure:4557: checking for strerror_r
+configure:4586: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\cchtaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:4580: undefined reference to `strerror_r'
+configure: failed program was:
+#line 4562 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char strerror_r(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char strerror_r();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_strerror_r) || defined (__stub___strerror_r)
+choke me
+#else
+f = strerror_r;
+#endif
+
+; return 0; }
+configure:4557: checking for vprintf
+configure:4586: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:4557: checking for doprnt
+configure:4586: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\ccqucaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:4580: undefined reference to `doprnt'
+configure: failed program was:
+#line 4562 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char doprnt(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char doprnt();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_doprnt) || defined (__stub___doprnt)
+choke me
+#else
+f = doprnt;
+#endif
+
+; return 0; }
+configure:4611: checking for ANSI C header files
+configure:4719: checking for bzero
+configure:4748: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\cchqaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:4742: undefined reference to `bzero'
+configure: failed program was:
+#line 4724 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char bzero(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char bzero();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_bzero) || defined (__stub___bzero)
+choke me
+#else
+f = bzero;
+#endif
+
+; return 0; }
+configure:4719: checking for bcopy
+configure:4748: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\ccEdaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:4742: undefined reference to `bcopy'
+configure: failed program was:
+#line 4724 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char bcopy(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char bcopy();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_bcopy) || defined (__stub___bcopy)
+choke me
+#else
+f = bcopy;
+#endif
+
+; return 0; }
+configure:4719: checking for isascii
+configure:4719: checking for btowc
+configure:4748: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\ccpsaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:4742: undefined reference to `btowc'
+configure: failed program was:
+#line 4724 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char btowc(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char btowc();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_btowc) || defined (__stub___btowc)
+choke me
+#else
+f = btowc;
+#endif
+
+; return 0; }
+configure:4776: checking for alloca.h
+configure:4776: checking for libintl.h
+configure:4786: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:4782: libintl.h: No such file or directory
+configure: failed program was:
+#line 4781 "configure"
+#include "confdefs.h"
+#include <libintl.h>
+configure:4776: checking for wctype.h
+configure:4786: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:4782: wctype.h: No such file or directory
+configure: failed program was:
+#line 4781 "configure"
+#include "confdefs.h"
+#include <wctype.h>
+configure:4776: checking for wchar.h
+configure:4786: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:4813: checking for ANSI C header files
+configure:4919: checking for working alloca.h
+configure:4952: checking for alloca
+configure:5158: checking for lchown
+configure:5187: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\ccooaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:5181: undefined reference to `lchown'
+configure: failed program was:
+#line 5163 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char lchown(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char lchown();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_lchown) || defined (__stub___lchown)
+choke me
+#else
+f = lchown;
+#endif
+
+; return 0; }
+configure:5256: checking for working chown
+configure:5293: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\cc5saaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:5283: undefined reference to `chown'
+configure: failed program was:
+#line 5264 "configure"
+#include "confdefs.h"
+
+#   include <sys/types.h>
+#   include <sys/stat.h>
+#   include <fcntl.h>
+#   ifdef HAVE_UNISTD_H
+#    include <unistd.h>
+#   endif
+
+    int
+    main ()
+    {
+      char *f = "conftestchown";
+      struct stat before, after;
+
+      if (creat (f, 0600) < 0)
+        exit (1);
+      if (stat (f, &before) < 0)
+        exit (1);
+      if (chown (f, (uid_t) -1, (gid_t) -1) == -1)
+        exit (1);
+      if (stat (f, &after) < 0)
+        exit (1);
+      exit ((before.st_uid == after.st_uid
+	     && before.st_gid == after.st_gid) ? 0 : 1);
+    }
+	      
+configure:5322: checking for localtime_r
+configure:5351: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\ccIqaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:5345: undefined reference to `localtime_r'
+configure: failed program was:
+#line 5327 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char localtime_r(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char localtime_r();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_localtime_r) || defined (__stub___localtime_r)
+choke me
+#else
+f = localtime_r;
+#endif
+
+; return 0; }
+configure:5385: checking whether lstat accepts an empty string
+configure:5407: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\cc4raaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:5402: undefined reference to `lstat'
+configure: failed program was:
+#line 5393 "configure"
+#include "confdefs.h"
+
+#   include <sys/types.h>
+#   include <sys/stat.h>
+
+    int
+    main ()
+    {
+      struct stat sbuf;
+      exit (lstat ("", &sbuf) ? 1 : 0);
+    }
+	  
+configure:5434: checking whether stat accepts an empty string
+configure:5456: gcc -o conftest -g -O2   conftest.c  1>&5
+configure: failed program was:
+#line 5442 "configure"
+#include "confdefs.h"
+
+#   include <sys/types.h>
+#   include <sys/stat.h>
+
+    int
+    main ()
+    {
+      struct stat sbuf;
+      exit (stat ("", &sbuf) ? 1 : 0);
+    }
+	  
+configure:5488: checking for working realloc
+configure:5507: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:5539: checking for working malloc
+configure:5558: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:5588: checking for string.h
+configure:5625: checking for working readdir
+configure:5737: gcc -o conftest -g -O2   conftest.c  1>&5
+configure: In function `create_300_file_dir':
+configure:5669: too many arguments to function `mkdir'
+configure: failed program was:
+#line 5637 "configure"
+#include "confdefs.h"
+  
+#   include <stdio.h>
+#   include <sys/types.h>
+#   if HAVE_STRING_H
+#    include <string.h>
+#   endif
+
+#   ifdef HAVE_DIRENT_H
+#    include <dirent.h>
+#    define NLENGTH(direct) (strlen((direct)->d_name))
+#   else /* not HAVE_DIRENT_H */
+#    define dirent direct
+#    define NLENGTH(direct) ((direct)->d_namlen)
+#    ifdef HAVE_SYS_NDIR_H
+#     include <sys/ndir.h>
+#    endif /* HAVE_SYS_NDIR_H */
+#    ifdef HAVE_SYS_DIR_H
+#     include <sys/dir.h>
+#    endif /* HAVE_SYS_DIR_H */
+#    ifdef HAVE_NDIR_H
+#     include <ndir.h>
+#    endif /* HAVE_NDIR_H */
+#   endif /* HAVE_DIRENT_H */
+
+#   define DOT_OR_DOTDOT(Basename)      (Basename[0] == '.' && (Basename[1] == '\0' 			     || (Basename[1] == '.' && Basename[2] == '\0')))
+
+    static void
+    create_300_file_dir (const char *dir)
+    {
+      int i;
+
+      if (mkdir (dir, 0700))
+	abort ();
+      if (chdir (dir))
+	abort ();
+
+      for (i = 0; i < 300; i++)
+	{
+	  char file_name[4];
+	  FILE *out;
+
+	  sprintf (file_name, "%03d", i);
+	  out = fopen (file_name, "w");
+	  if (!out)
+	    abort ();
+	  if (fclose (out) == EOF)
+	    abort ();
+	}
+
+      if (chdir (".."))
+	abort ();
+    }
+
+    static void
+    remove_dir (const char *dir)
+    {
+      DIR *dirp;
+
+      if (chdir (dir))
+	abort ();
+
+      dirp = opendir (".");
+      if (dirp == NULL)
+	abort ();
+
+      while (1)
+	{
+	  struct dirent *dp = readdir (dirp);
+	  if (dp == NULL)
+	    break;
+
+	  if (DOT_OR_DOTDOT (dp->d_name))
+	    continue;
+
+	  if (unlink (dp->d_name))
+	    abort ();
+	}
+      closedir (dirp);
+
+      if (chdir (".."))
+	abort ();
+
+      if (rmdir (dir))
+	exit (1);
+    }
+
+    int
+    main ()
+    {
+      const char *dir = "conf-dir";
+      create_300_file_dir (dir);
+      remove_dir (dir);
+      exit (0);
+    }
+  
+configure:5981: checking whether clearerr_unlocked is declared
+configure:5998: gcc -c -g -O2  conftest.c 1>&5
+configure: In function `main':
+configure:5995: `clearerr_unlocked' undeclared (first use in this function)
+configure:5995: (Each undeclared identifier is reported only once
+configure:5995: for each function it appears in.)
+configure: failed program was:
+#line 5986 "configure"
+#include "confdefs.h"
+#include <stdio.h>
+			    
+int main() {
+
+#ifndef clearerr_unlocked
+char *(*pfn) = (char *(*)) clearerr_unlocked
+#endif
+      
+; return 0; }
+configure:5981: checking whether feof_unlocked is declared
+configure:5998: gcc -c -g -O2  conftest.c 1>&5
+configure: In function `main':
+configure:5995: `feof_unlocked' undeclared (first use in this function)
+configure:5995: (Each undeclared identifier is reported only once
+configure:5995: for each function it appears in.)
+configure: failed program was:
+#line 5986 "configure"
+#include "confdefs.h"
+#include <stdio.h>
+			    
+int main() {
+
+#ifndef feof_unlocked
+char *(*pfn) = (char *(*)) feof_unlocked
+#endif
+      
+; return 0; }
+configure:5981: checking whether ferror_unlocked is declared
+configure:5998: gcc -c -g -O2  conftest.c 1>&5
+configure: In function `main':
+configure:5995: `ferror_unlocked' undeclared (first use in this function)
+configure:5995: (Each undeclared identifier is reported only once
+configure:5995: for each function it appears in.)
+configure: failed program was:
+#line 5986 "configure"
+#include "confdefs.h"
+#include <stdio.h>
+			    
+int main() {
+
+#ifndef ferror_unlocked
+char *(*pfn) = (char *(*)) ferror_unlocked
+#endif
+      
+; return 0; }
+configure:5981: checking whether fflush_unlocked is declared
+configure:5998: gcc -c -g -O2  conftest.c 1>&5
+configure: In function `main':
+configure:5995: `fflush_unlocked' undeclared (first use in this function)
+configure:5995: (Each undeclared identifier is reported only once
+configure:5995: for each function it appears in.)
+configure: failed program was:
+#line 5986 "configure"
+#include "confdefs.h"
+#include <stdio.h>
+			    
+int main() {
+
+#ifndef fflush_unlocked
+char *(*pfn) = (char *(*)) fflush_unlocked
+#endif
+      
+; return 0; }
+configure:5981: checking whether fputc_unlocked is declared
+configure:5998: gcc -c -g -O2  conftest.c 1>&5
+configure: In function `main':
+configure:5995: `fputc_unlocked' undeclared (first use in this function)
+configure:5995: (Each undeclared identifier is reported only once
+configure:5995: for each function it appears in.)
+configure: failed program was:
+#line 5986 "configure"
+#include "confdefs.h"
+#include <stdio.h>
+			    
+int main() {
+
+#ifndef fputc_unlocked
+char *(*pfn) = (char *(*)) fputc_unlocked
+#endif
+      
+; return 0; }
+configure:5981: checking whether fread_unlocked is declared
+configure:5998: gcc -c -g -O2  conftest.c 1>&5
+configure: In function `main':
+configure:5995: `fread_unlocked' undeclared (first use in this function)
+configure:5995: (Each undeclared identifier is reported only once
+configure:5995: for each function it appears in.)
+configure: failed program was:
+#line 5986 "configure"
+#include "confdefs.h"
+#include <stdio.h>
+			    
+int main() {
+
+#ifndef fread_unlocked
+char *(*pfn) = (char *(*)) fread_unlocked
+#endif
+      
+; return 0; }
+configure:5981: checking whether fwrite_unlocked is declared
+configure:5998: gcc -c -g -O2  conftest.c 1>&5
+configure: In function `main':
+configure:5995: `fwrite_unlocked' undeclared (first use in this function)
+configure:5995: (Each undeclared identifier is reported only once
+configure:5995: for each function it appears in.)
+configure: failed program was:
+#line 5986 "configure"
+#include "confdefs.h"
+#include <stdio.h>
+			    
+int main() {
+
+#ifndef fwrite_unlocked
+char *(*pfn) = (char *(*)) fwrite_unlocked
+#endif
+      
+; return 0; }
+configure:5981: checking whether getc_unlocked is declared
+configure:5998: gcc -c -g -O2  conftest.c 1>&5
+configure: In function `main':
+configure:5995: `getc_unlocked' undeclared (first use in this function)
+configure:5995: (Each undeclared identifier is reported only once
+configure:5995: for each function it appears in.)
+configure: failed program was:
+#line 5986 "configure"
+#include "confdefs.h"
+#include <stdio.h>
+			    
+int main() {
+
+#ifndef getc_unlocked
+char *(*pfn) = (char *(*)) getc_unlocked
+#endif
+      
+; return 0; }
+configure:5981: checking whether getchar_unlocked is declared
+configure:5998: gcc -c -g -O2  conftest.c 1>&5
+configure: In function `main':
+configure:5995: `getchar_unlocked' undeclared (first use in this function)
+configure:5995: (Each undeclared identifier is reported only once
+configure:5995: for each function it appears in.)
+configure: failed program was:
+#line 5986 "configure"
+#include "confdefs.h"
+#include <stdio.h>
+			    
+int main() {
+
+#ifndef getchar_unlocked
+char *(*pfn) = (char *(*)) getchar_unlocked
+#endif
+      
+; return 0; }
+configure:5981: checking whether putc_unlocked is declared
+configure:5998: gcc -c -g -O2  conftest.c 1>&5
+configure: In function `main':
+configure:5995: `putc_unlocked' undeclared (first use in this function)
+configure:5995: (Each undeclared identifier is reported only once
+configure:5995: for each function it appears in.)
+configure: failed program was:
+#line 5986 "configure"
+#include "confdefs.h"
+#include <stdio.h>
+			    
+int main() {
+
+#ifndef putc_unlocked
+char *(*pfn) = (char *(*)) putc_unlocked
+#endif
+      
+; return 0; }
+configure:5981: checking whether putchar_unlocked is declared
+configure:5998: gcc -c -g -O2  conftest.c 1>&5
+configure: In function `main':
+configure:5995: `putchar_unlocked' undeclared (first use in this function)
+configure:5995: (Each undeclared identifier is reported only once
+configure:5995: for each function it appears in.)
+configure: failed program was:
+#line 5986 "configure"
+#include "confdefs.h"
+#include <stdio.h>
+			    
+int main() {
+
+#ifndef putchar_unlocked
+char *(*pfn) = (char *(*)) putchar_unlocked
+#endif
+      
+; return 0; }
+configure:6089: checking for working fnmatch
+configure:6104: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\cc2saaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:6101: undefined reference to `fnmatch'
+configure: failed program was:
+#line 6100 "configure"
+#include "confdefs.h"
+main() { exit (fnmatch ("a*", "abc", 0) != 0); }
+configure:6137: checking for AFS
+configure:6151: checking for stdlib.h
+configure:6189: checking whether <inttypes.h> defines strtoumax as a macro
+configure:6195: inttypes.h: No such file or directory
+configure:6219: checking for strtoumax
+configure:6248: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\ccZpaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:6242: undefined reference to `strtoumax'
+configure: failed program was:
+#line 6224 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char strtoumax(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char strtoumax();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_strtoumax) || defined (__stub___strtoumax)
+choke me
+#else
+f = strtoumax;
+#endif
+
+; return 0; }
+configure:6281: checking for strtoull
+configure:6310: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\ccgsaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:6304: undefined reference to `strtoull'
+configure: failed program was:
+#line 6286 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char strtoull(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char strtoull();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_strtoull) || defined (__stub___strtoull)
+choke me
+#else
+f = strtoull;
+#endif
+
+; return 0; }
+configure:6361: checking for working re_compile_pattern
+configure:6388: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:6372: regex.h: No such file or directory
+configure: failed program was:
+#line 6369 "configure"
+#include "confdefs.h"
+	
+#include <stdio.h>
+#include <regex.h>
+	  int
+	  main ()
+	  {
+	    static struct re_pattern_buffer regex;
+	    const char *s;
+	    re_set_syntax (RE_SYNTAX_POSIX_EGREP);
+	    /* Add this third left square bracket, , to balance the
+	       three right ones below.  Otherwise autoconf-2.14 chokes.  */
+	    s = re_compile_pattern ("a[[:]:]b\n", 9, &regex);
+	    /* This should fail with _Invalid character class name_ error.  */
+	    exit (s ? 0 : 1);
+	  }
+	
+configure:6453: checking for strcasecmp
+configure:6482: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:6453: checking for strncasecmp
+configure:6482: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:6511: checking for dup2
+configure:6540: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:6569: checking for memchr
+configure:6598: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:6627: checking for memmove
+configure:6656: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:6685: checking for getpagesize
+configure:6714: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:6750: checking whether setvbuf arguments are reversed
+configure:6772: gcc -o conftest -g -O2   conftest.c  1>&5
+configure: In function `main':
+configure:6765: warning: passing arg 2 of `setvbuf' makes pointer from integer without a cast
+configure:6765: warning: passing arg 3 of `setvbuf' makes integer from pointer without a cast
+configure: failed program was:
+#line 6758 "configure"
+#include "confdefs.h"
+#include <stdio.h>
+/* If setvbuf has the reversed format, exit 0. */
+main () {
+  /* This call has the arguments reversed.
+     A reversed system may check and see that the address of main
+     is not _IOLBF, _IONBF, or _IOFBF, and return nonzero.  */
+  if (setvbuf(stdout, _IOLBF, (char *) main, BUFSIZ) != 0)
+    exit(1);
+  putc('\r', stdout);
+  exit(0);			/* Non-reversed systems segv here.  */
+}
+configure:6798: checking for getline
+configure:6827: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\cctqaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:6821: undefined reference to `getline'
+configure: failed program was:
+#line 6803 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char getline(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char getline();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_getline) || defined (__stub___getline)
+choke me
+#else
+f = getline;
+#endif
+
+; return 0; }
+configure:6944: checking for getdelim
+configure:6973: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\ccYiaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:6967: undefined reference to `getdelim'
+configure: failed program was:
+#line 6949 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char getdelim(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char getdelim();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_getdelim) || defined (__stub___getdelim)
+choke me
+#else
+f = getdelim;
+#endif
+
+; return 0; }
+configure:7005: checking for localtime_r
+configure:7062: checking for strftime
+configure:7091: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:7120: checking for vprintf
+configure:7229: checking for memcpy
+configure:7258: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:7241: warning: conflicting types for built-in function `memcpy'
+configure:7229: checking for memset
+configure:7258: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:7241: warning: conflicting types for built-in function `memset'
+configure:7229: checking for stpcpy
+configure:7258: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\ccYiaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:7252: undefined reference to `stpcpy'
+configure: failed program was:
+#line 7234 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char stpcpy(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char stpcpy();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_stpcpy) || defined (__stub___stpcpy)
+choke me
+#else
+f = stpcpy;
+#endif
+
+; return 0; }
+configure:7229: checking for strpbrk
+configure:7258: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:7229: checking for strtol
+configure:7258: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:7229: checking for strtoul
+configure:7258: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:7286: checking for working strtod
+configure:7324: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:7447: checking for error_at_line
+configure:7459: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\cc9qaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:7455: undefined reference to `error_at_line'
+configure: failed program was:
+#line 7452 "configure"
+#include "confdefs.h"
+
+int main() {
+error_at_line(0, 0, "", 0, "");
+; return 0; }
+configure:7480: checking for nl_langinfo
+configure:7509: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\cchtaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:7503: undefined reference to `nl_langinfo'
+configure: failed program was:
+#line 7485 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char nl_langinfo(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char nl_langinfo();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_nl_langinfo) || defined (__stub___nl_langinfo)
+choke me
+#else
+f = nl_langinfo;
+#endif
+
+; return 0; }
+configure:7537: checking for langinfo.h
+configure:7547: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:7543: langinfo.h: No such file or directory
+configure: failed program was:
+#line 7542 "configure"
+#include "confdefs.h"
+#include <langinfo.h>
+configure:7578: checking for unistd.h
+configure:7617: checking for getpagesize
+configure:7671: checking for working mmap
+configure:7819: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:7704: sys\mman.h: No such file or directory
+configure: failed program was:
+#line 7679 "configure"
+#include "confdefs.h"
+
+/* Thanks to Mike Haertel and Jim Avera for this test.
+   Here is a matrix of mmap possibilities:
+	mmap private not fixed
+	mmap private fixed at somewhere currently unmapped
+	mmap private fixed at somewhere already mapped
+	mmap shared not fixed
+	mmap shared fixed at somewhere currently unmapped
+	mmap shared fixed at somewhere already mapped
+   For private mappings, we should verify that changes cannot be read()
+   back from the file, nor mmap's back from the file at a different
+   address.  (There have been systems where private was not correctly
+   implemented like the infamous i386 svr4.0, and systems where the
+   VM page cache was not coherent with the filesystem buffer cache
+   like early versions of FreeBSD and possibly contemporary NetBSD.)
+   For shared mappings, we should conversely verify that changes get
+   propogated back to all the places they're supposed to be.
+
+   Grep wants private fixed already mapped.
+   The main things grep needs to know about mmap are:
+   * does it exist and is it safe to write into the mmap'd area
+   * how to use it (BSD variants)  */
+#include <sys/types.h>
+#include <fcntl.h>
+#include <sys/mman.h>
+
+/* This mess was copied from the GNU getpagesize.h.  */
+#ifndef HAVE_GETPAGESIZE
+# ifdef HAVE_UNISTD_H
+#  include <unistd.h>
+# endif
+
+/* Assume that all systems that can run configure have sys/param.h.  */
+# ifndef HAVE_SYS_PARAM_H
+#  define HAVE_SYS_PARAM_H 1
+# endif
+
+# ifdef _SC_PAGESIZE
+#  define getpagesize() sysconf(_SC_PAGESIZE)
+# else /* no _SC_PAGESIZE */
+#  ifdef HAVE_SYS_PARAM_H
+#   include <sys/param.h>
+#   ifdef EXEC_PAGESIZE
+#    define getpagesize() EXEC_PAGESIZE
+#   else /* no EXEC_PAGESIZE */
+#    ifdef NBPG
+#     define getpagesize() NBPG * CLSIZE
+#     ifndef CLSIZE
+#      define CLSIZE 1
+#     endif /* no CLSIZE */
+#    else /* no NBPG */
+#     ifdef NBPC
+#      define getpagesize() NBPC
+#     else /* no NBPC */
+#      ifdef PAGESIZE
+#       define getpagesize() PAGESIZE
+#      endif /* PAGESIZE */
+#     endif /* no NBPC */
+#    endif /* no NBPG */
+#   endif /* no EXEC_PAGESIZE */
+#  else /* no HAVE_SYS_PARAM_H */
+#   define getpagesize() 8192	/* punt totally */
+#  endif /* no HAVE_SYS_PARAM_H */
+# endif /* no _SC_PAGESIZE */
+
+#endif /* no HAVE_GETPAGESIZE */
+
+#ifdef __cplusplus
+extern "C" { void *malloc(unsigned); }
+#else
+char *malloc();
+#endif
+
+int
+main()
+{
+	char *data, *data2, *data3;
+	int i, pagesize;
+	int fd;
+
+	pagesize = getpagesize();
+
+	/*
+	 * First, make a file with some known garbage in it.
+	 */
+	data = malloc(pagesize);
+	if (!data)
+		exit(1);
+	for (i = 0; i < pagesize; ++i)
+		*(data + i) = rand();
+	umask(0);
+	fd = creat("conftestmmap", 0600);
+	if (fd < 0)
+		exit(1);
+	if (write(fd, data, pagesize) != pagesize)
+		exit(1);
+	close(fd);
+
+	/*
+	 * Next, try to mmap the file at a fixed address which
+	 * already has something else allocated at it.  If we can,
+	 * also make sure that we see the same garbage.
+	 */
+	fd = open("conftestmmap", O_RDWR);
+	if (fd < 0)
+		exit(1);
+	data2 = malloc(2 * pagesize);
+	if (!data2)
+		exit(1);
+	data2 += (pagesize - ((int) data2 & (pagesize - 1))) & (pagesize - 1);
+	if (data2 != mmap(data2, pagesize, PROT_READ | PROT_WRITE,
+	    MAP_PRIVATE | MAP_FIXED, fd, 0L))
+		exit(1);
+	for (i = 0; i < pagesize; ++i)
+		if (*(data + i) != *(data2 + i))
+			exit(1);
+
+	/*
+	 * Finally, make sure that changes to the mapped area
+	 * do not percolate back to the file as seen by read().
+	 * (This is a bug on some variants of i386 svr4.0.)
+	 */
+	for (i = 0; i < pagesize; ++i)
+		*(data2 + i) = *(data2 + i) + 1;
+	data3 = malloc(pagesize);
+	if (!data3)
+		exit(1);
+	if (read(fd, data3, pagesize) != pagesize)
+		exit(1);
+	for (i = 0; i < pagesize; ++i)
+		if (*(data + i) != *(data3 + i))
+			exit(1);
+	close(fd);
+	unlink("conftestmmap");
+	exit(0);
+}
+
+configure:7847: checking for argz.h
+configure:7857: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:7853: argz.h: No such file or directory
+configure: failed program was:
+#line 7852 "configure"
+#include "confdefs.h"
+#include <argz.h>
+configure:7847: checking for limits.h
+configure:7847: checking for locale.h
+configure:7857: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:7847: checking for nl_types.h
+configure:7857: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:7853: nl_types.h: No such file or directory
+configure: failed program was:
+#line 7852 "configure"
+#include "confdefs.h"
+#include <nl_types.h>
+configure:7847: checking for malloc.h
+configure:7857: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:7847: checking for string.h
+configure:7847: checking for unistd.h
+configure:7847: checking for sys/param.h
+configure:7857: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:7853: sys\param.h: No such file or directory
+configure: failed program was:
+#line 7852 "configure"
+#include "confdefs.h"
+#include <sys/param.h>
+configure:7887: checking for getcwd
+configure:7916: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:7887: checking for munmap
+configure:7916: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\cctqaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:7910: undefined reference to `munmap'
+configure: failed program was:
+#line 7892 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char munmap(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char munmap();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_munmap) || defined (__stub___munmap)
+choke me
+#else
+f = munmap;
+#endif
+
+; return 0; }
+configure:7887: checking for putenv
+configure:7916: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:7887: checking for setenv
+configure:7916: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\cc2saaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:7910: undefined reference to `setenv'
+configure: failed program was:
+#line 7892 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char setenv(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char setenv();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_setenv) || defined (__stub___setenv)
+choke me
+#else
+f = setenv;
+#endif
+
+; return 0; }
+configure:7887: checking for setlocale
+configure:7916: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:7887: checking for strchr
+configure:7887: checking for strcasecmp
+configure:7887: checking for strdup
+configure:7916: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:7887: checking for __argz_count
+configure:7916: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\ccXqaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:7910: undefined reference to `__argz_count'
+configure: failed program was:
+#line 7892 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char __argz_count(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char __argz_count();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub___argz_count) || defined (__stub_____argz_count)
+choke me
+#else
+f = __argz_count;
+#endif
+
+; return 0; }
+configure:7887: checking for __argz_stringify
+configure:7916: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\ccSraaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:7910: undefined reference to `__argz_stringify'
+configure: failed program was:
+#line 7892 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char __argz_stringify(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char __argz_stringify();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub___argz_stringify) || defined (__stub_____argz_stringify)
+choke me
+#else
+f = __argz_stringify;
+#endif
+
+; return 0; }
+configure:7887: checking for __argz_next
+configure:7916: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\cctqaaaa.o: In function `main':
+//D/usr/local/textutils-2.0/configure:7910: undefined reference to `__argz_next'
+configure: failed program was:
+#line 7892 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char __argz_next(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char __argz_next();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub___argz_next) || defined (__stub_____argz_next)
+choke me
+#else
+f = __argz_next;
+#endif
+
+; return 0; }
+configure:8008: checking for LC_MESSAGES
+configure:8020: gcc -o conftest -g -O2   conftest.c  1>&5
+configure: In function `main':
+configure:8017: `LC_MESSAGES' undeclared (first use in this function)
+configure:8017: (Each undeclared identifier is reported only once
+configure:8017: for each function it appears in.)
+configure: failed program was:
+#line 8013 "configure"
+#include "confdefs.h"
+#include <locale.h>
+int main() {
+return LC_MESSAGES
+; return 0; }
+configure:8041: checking whether NLS is requested
+configure:8061: checking whether included gettext is requested
+configure:8080: checking for libintl.h
+configure:8420: checking whether catgets can be used
+configure:8693: checking for msgfmt
+configure:8727: checking for gmsgfmt
+configure:8763: checking for xgettext
+configure:8860: checking for catalogs to be installed

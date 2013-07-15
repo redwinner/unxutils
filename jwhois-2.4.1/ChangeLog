@@ -1,0 +1,247 @@
+Tue Jan 25 16:10:48 2000  Jonas Oberg  <jonas@coyote.org>
+
+	* Released 2.4.1
+	
+	* example/jwhois.conf: Added more CIDR blocks
+	Changed registry for .no and added -NORID handles (from
+	Pål Løberg)
+
+	* configure.in: Added generation of jwhois.spec
+
+	* Makefile.am (EXTRA_DIST): Added distribution of jwhois.spec
+
+	* jwhois.spec.in: Added (from Ryan Weaver)
+
+Sat Jan 22 09:20:14 2000  Jonas Oberg  <jonas@coyote.org>
+
+	* src/jwhois.c (make_connect): Output [host]\n -before- doing a
+	resolver query (speeds up output so the user doesn't think it's
+	hung)
+
+	* src/utils.c (fdread): Check return value from read correctly
+
+	* example/jwhois.conf: corrected \. to be \\.
+
+Sun Dec 12 03:58:23 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* Released 2.4
+	
+	* src/jwhois.c (split_host_from_query): Added
+	(main): Added possibility to make 'foo@bar.org' queries
+
+	* example/jwhois.conf: Added lots of data from Oren Tirosh
+
+	* configure.in: Added check for malloc.h
+
+	* src/lookup.c: Added include of malloc.h
+
+Thu Dec  2 19:28:35 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* src/init.c (help_version): Added this to replace version and help
+
+	* example/jwhois.conf: Changed .de to whois.ripe.net
+
+	* src/jconfig.c (jconfig_parse_file): Fixed minor bugg in strncpy()
+
+Wed Dec 02 10:46:55 1999  Peter Karlsson <peter@softwolevs.pp.se>
+
+        * src/lookup.c: Fixed a cosmetic problem with the routine that
+                        prints the address in a redirection.
+
+Wed Dec 01 23:59:59 1999  Peter Karlsson <peter@softwolves.pp.se>
+
+        * example/jwhois.conf: Added an entry for .no
+
+Wed Dec  1 20:23:06 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* Bumped to 2.3.1
+
+	* example/jwhois.conf: Fixed regexp for struct cidr-block
+
+	* src/lookup.c (find_cidr): Fixed bug (this function now works)
+
+Wed Dec 01 18:44:00 1999  Peter Karlsson  <peter@softwolves.pp.se>
+
+        * po/sv.po: Added Swedish translation
+
+Wed Dec 01 16:18:54 1999  Joans Oberg  <jonas@coyote.org>
+
+        * src/utils.c (readfd): Fixed nasty bug (didn't \0 terminate)
+
+	* Makefile.am: Added debian/ and macros/ to EXTRA_DISTS
+
+	* example/jwhois.conf: Fixed content-redirect to look the way it
+	should
+
+Sun Nov 28 20:57:34 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* Bumped to 2.3
+
+	* doc/jwhois.texi: Rewrote parts for new release
+
+	* src/init.c (parse_args): Fixed output of --version and --help
+
+Sat Nov 27 14:39:11 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* Went through and added i18n support
+
+	* src/jconfig.c (jconfig_parse_file): Added (replaces lexer.l)
+	Note: Must escape groups with \\ instead of \ now.
+
+	* src/init.c (parse_args): Removed datadir search of jwhois.conf
+
+Thu Nov 25 13:33:47 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* src/jwhois.c (main): Fixed bug when creating qstring
+	(main): Fixed bug when outputing qstring instead of host
+
+Tue Nov 23 14:03:28 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* configure.in: Check for db1/ndbm.h
+
+	* src/cache.c: Fallback include of db1/ndbm.h
+
+Mon Nov 22 19:31:06 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* src/dns.c: Added
+
+	* src/cache.c: Rewritten to fit new structure
+
+	* src/jwhois.c (main): Changed to use new structure
+
+	* src/init.c: Added
+
+	* src/jwhois.c (make_connect): Added
+
+	* src/lookup.c: Added
+
+	* src/utils.c (fdread): Added
+
+Sat Nov 20 01:20:47 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* src/gai_strerror.c (EAI_*: Added definitions
+
+	* src/jwhois.c (query_host): Changed to use cache functions
+	(main): Added extra options for cache functionality control
+
+	* src/cache.c (cache_store): Changed to support the content-redirect
+	block from the configuration file to redirect searches to other hosts.
+
+	* src/cache.c: Added
+
+	* doc/jwhois.texi (Cache Functionality): Added section
+	explaining how cache works.
+
+	* example/jwhois.conf: Added content-redirect block and some
+	extended information on cache configuration options.
+
+	* configure.in: Added options for cache configuration
+	Added warning and disabling of cache if no dbm libraries found
+
+	* README: Added information from INSTALL and info on cache
+
+1999-11-11  Jonas Oberg  <jonas@poledra.coyote.org>
+
+	* configure.in: Added tentative checks for gdbm and ndbm.
+
+Wed Oct 27 16:40:21 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* src/jwhois.c (main): Added --loop-args as recommended by RIPE
+
+	* configure.in, src/gai_strerror.c: Added internal gai_strerror
+	for systems lacking this.
+
+Sun Oct 24 15:16:29 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* src/jwhois.c (query_host): Bugfix for little-endian machines
+	(reported by phil@psidev.net)
+
+Tue Oct 23 23:31:34 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* Released 2.2
+
+	* Cleanup of example jwhois.conf
+
+Tue Oct  5 16:42:08 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* Released 2.2pre4
+
+	* src/jwhois.c (query_host): Now checking whois port against
+	/etc/services et al if not using getaddrinfo()
+
+	* doc/jwhois.texi: Added direntry
+
+1999-10-04  Jonas Oberg  <jonas@coyote.org>
+
+	* Released 2.2pre3
+
+1999-10-03  Jonas Oberg  <jor@circuitous-route.coyote.org>
+
+	* src/jwhois.c (query_host): Converted to getaddrinfo and
+	added conditionals in case getaddrinfo should be missing
+	(revert back to gethostbyname et al)
+	(lookup_host): Changed separator between port number and
+	IP/host to space from colon to maintain a decent compatibility with
+	IPv6 hosts.
+
+1999-10-02  Jonas Oberg  <jor@circuitous-route.coyote.org>
+
+	* src/string.c (strncasecmp): Added function
+
+	* src/jconfig.c (jconfig_getone): Added function
+
+	* src/jwhois.c (main,find_cidr,find_regex): Finalized structure of
+	configuration file
+
+	* configure.in: Fixed so that libnsl is linked only if gethostbyname
+	is in it and not when gethostbyname is in libc.
+
+	* Released version 2.2pre0
+
+	* example/jwhois.conf: Added initial support for IP CIDR block
+
+	* src/jwhois.c (find_ip): Added support for IP CIDR blocks
+
+	* src/getopt.c, src/getopt1.c: Added conditionals
+
+	* configure.in: Added check for getopt_long, regexec and removed
+	linking against libfl,libl
+
+	* src/lexer.l: Added %option noyywrap
+
+Sun Sep 26 11:15:40 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* Released version 2.1
+	
+	* configure.in: Added check for strcasecmp
+
+	* src/string.c (strcasecmp): Added function.
+
+	* src/jconfig.c (jconfig_add): Added support for line numbers.
+	(jconfig_next): Now handles comparations correctly.
+
+	* src/lexer.l: Counting line numbers for each option.
+
+	* src/jwhois.c (main): Changed default location of configuration
+	file to SYSCONFDIR.
+
+	* doc/jwhois.texi (RIPE Extensions): Added information on RIPE
+	extensions and how to use them.
+
+	* example/jwhois.conf: Added RIPE, ARIN and APNIC handles
+
+Thu Aug 19 16:21:07 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* src/jwhois.c (help, query_host, make_query, main): added support
+	for specifying port numbers
+
+Thu Jul 29 13:57:56 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* example/jwhois.conf: replaced whois.dk.net with joshua.ripe.net
+	after being informed by Klaus Alexander Seistrup <kas@magnetic-ink.dk>
+	and verified this with <tech@dk-hostmaster.dk>
+
+Wed Jul 28 21:22:07 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* Released version 2.0
+

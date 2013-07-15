@@ -1,0 +1,19 @@
+*** work/functions/word.base	Thu Mar 02 20:08:50 2000
+--- work/functions/word.log	Thu Mar 02 20:08:50 2000
+***************
+*** 1,12 ****
+! 6
+! 2058
+! word.pl
+! 
+! word.pl
+! 
+! FORCE.pl word.pl
+! FORCE.pl word.pl
+! word.pl general_test2.pl FORCE.pl word.pl generic_test.perl MAKEFILES_variable.pl
+! generic_test.perl MAKEFILES_variable.pl
+! 
+! word.pl general_test2.pl FORCE.pl word.pl
+--- 1,2 ----
+! The name specified is not recognized as an
+! internal or external command, operable program or batch file.

@@ -1,0 +1,14 @@
+WinDebug\variable.obj 
+WinDebug\rule.obj 
+WinDebug\remote-stub.obj 
+WinDebug\commands.obj 
+WinDebug\file.obj 
+WinDebug\getloadavg.obj 
+WinDebug\default.obj 
+WinDebug\signame.obj 
+WinDebug\expand.obj 
+WinDebug\dir.obj 
+WinDebug\main.obj 
+WinDebug\getopt1.obj 
+WinDebug\job.obj 
+WinDebug\read.obj 

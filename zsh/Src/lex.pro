@@ -1,0 +1,14 @@
+void lexsave _((void));
+void lexrestore _((void));
+void yylex _((void));
+void ctxtlex _((void));
+void initlextabs _((void));
+void lexinit _((void));
+void add _((int c));
+int gettok _((void));
+int gettokstr _((int c, int sub));
+int dquote_parse _((char endchar, int sub));
+int parsestr _((char *s));
+int parse_subst_string _((char *s));
+int exalias _((void));
+int skipcomm _((void));

@@ -1,0 +1,6 @@
+cc -c work/main.c
+cc -c kbd.c
+cc -c commands.c
+cc -c display.c
+cc -c insert.c
+cc -o edit main.o kbd.o commands.o display.o insert.o

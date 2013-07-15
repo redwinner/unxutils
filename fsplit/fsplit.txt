@@ -1,0 +1,30 @@
+This is a recompile of fsplit, as taken from the BSD 4.2 Lite
+distribution found, e.g. on Walnut Creek CD-ROM or ftp sites
+(ftp.cdrom.com).
+
+fsplit splits a multi-routine Fortran file into individual files.
+
+
+now:      ftp://ftp-os2.cdrom.com/os2/incoming/fsplit.zip
+move to:  ftp://ftp-os2.cdrom.com/os2/dev32/fsplit.zip
+
+now:      ftp://ftp-os2.nmsu.edu/incoming/fsplit.zip
+move to:  ftp://ftp-os2.nmsu.edu/os2/dev32/fsplit.zip
+
+The original source file, the diff file, and the source file for 
+OS/2 are included. The only change needed was replacing a call to 
+link() by one to rename(). Seems to do the trick.
+
+
+fsplit requires emx09b to be installed in order to run. The emxrt.zip
+runtime library can be found on the ftp sites mentioned above.
+To install just unzip, put the executable in your path, and in case
+you use man put the man page in your man/man1 directory.
+
+As always -- no warranties of any form expressed or implied, you
+use this at your own risk. See also the source code for further
+copyright, usage, and related information.
+
+
+Have fun.                                                     21-Apr-1996
+Stefan A. Deutscher         sasd@utk.edu / stefand@elphy.irz.hu-berlin.de

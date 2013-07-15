@@ -1,0 +1,2261 @@
+{\rtf1\windows \deff0{\fonttbl
+{\f0\fswiss MS Sans Serif;}{\f1\fmodern Courier New;}{\f2\ftech Symbol;}}\fs20
+\page #{\footnote hcAbout}${\footnote \pard{}About this help file}\pard{\fs24\b About this help file}\par\par\pard{}This file was made with the help of {\ul Makertf 3.12b-1}{\v hcMakertf} from the input file m4.texi.\par\par{}{{START-INFO-DIR-ENTRY\line
+* m4: (m4).			A powerful macro processor.\line
+END-INFO-DIR-ENTRY\par
+\pard{}}}\par
+{\pard{}This file documents the GNU {\f1{}m4} utility.\par
+\par
+\pard{}Copyright (C) 1989, 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.\par
+\par
+\pard{}Permission is granted to make and distribute verbatim copies of this manual provided the copyright notice and this permission notice are preserved on all copies.\par
+\par
+\pard{}Permission is granted to copy and distribute modified versions of this manual under the conditions for verbatim copying, provided that the entire resulting derived work is distributed under the terms of a permission notice identical to this one.\par
+\par
+\pard{}Permission is granted to copy and distribute translations of this manual into another language, under the above conditions for modified versions, except that this permission notice may be stated in a translation approved by the Foundation.  }\par
+\par
+{\page\pard Node: {\b Top}, \keepn Next: {\uldb Preliminaries}{\v Preliminaries}, Prev: {\uldb (dir)}{\v Top @dir.hlp}, Up: {\uldb (dir)}{\v Top @dir.hlp}\tab\tab{\uldb About this help file}{\v hcAbout}\line
+K{\footnote K Top}
+#{\footnote Top}
+${\footnote \pard{}GNU {\f1{}m4}}\par
+\pard\pard{\fs24\b GNU {\f1{}m4}}\par
+\par
+\pard{}GNU {\f1{}m4} is an implementation of the traditional UNIX macro processor.  It is mostly SVR4 compatible, although it has some extensions (for example, handling more than 9 positional parameters to macros).  {\f1{}m4} also has builtin functions for including files, running shell commands, doing arithmetic, etc.  Autoconf needs GNU {\f1{}m4} for generating {\f1{}configure} scripts, but not for running them.\par
+\par
+\pard{}GNU {\f1{}m4} was originally written by Rene' Seindal, with subsequent changes by Franc,ois Pinard and other volunteers on the Internet.  All names and email addresses can be found in the file {\f1{}THANKS} from the GNU {\f1{}m4} distribution.\par
+\par
+\pard{}This is release 1.4.  It is now to be considered stable, future releases are only meant to fix bugs, increase speed, or improve documentation.  However...\par
+\par
+\pard{}An experimental feature, which would improve {\f1{}m4} usefulness, allows for changing the syntax for what is a \'A2word\'A2 in {\f1{}m4}.  You should use: {\par
+\pard\keep\li720\f1{}./configure --enable-changeword\par
+\pard\f0{}}\par
+\pard{}if you want this feature compiled in.  The current implementation slows down {\f1{}m4} considerably and is hardly acceptable.  So, it might go away, do not count on it yet.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Preliminaries}{\v Preliminaries}\tab Introduction and preliminaries\par
+{\uldb Syntax}{\v Syntax}\tab Lexical and syntactic conventions\par
+\par
+ \par
+{\uldb Macros}{\v Macros}\tab How to invoke macros\par
+{\uldb Definitions}{\v Definitions}\tab How to define new macros\par
+{\uldb Conditionals}{\v Conditionals}\tab Conditionals and loops\par
+\par
+ \par
+{\uldb Debugging}{\v Debugging}\tab How to debug macros and input\par
+\par
+ \par
+{\uldb Input Control}{\v Input_Control}\tab Input control\par
+{\uldb File Inclusion}{\v File_Inclusion}\tab File inclusion\par
+{\uldb Diversions}{\v Diversions}\tab Diverting and undiverting output\par
+\par
+ \par
+{\uldb Text handling}{\v Text_handling}\tab Macros for text handling\par
+{\uldb Arithmetic}{\v Arithmetic}\tab Macros for doing arithmetic\par
+{\uldb UNIX commands}{\v UNIX_commands}\tab Macros for running UNIX commands\par
+{\uldb Miscellaneous}{\v Miscellaneous}\tab Miscellaneous builtin macros\par
+{\uldb Frozen files}{\v Frozen_files}\tab Fast loading of frozen states\par
+\par
+ \par
+{\uldb Compatibility}{\v Compatibility}\tab Compatibility with other versions of m4\par
+{\uldb Concept index}{\v Concept_index}\tab Index for many concepts\par
+{\uldb Macro index}{\v Macro_index}\tab Index for all m4 macros\par
+\par
+  --- The Detailed Node Listing ---\par
+\par
+  Introduction and preliminaries\par
+\par
+ \par
+{\uldb Intro}{\v Intro}\tab Introduction to {\f1{}m4}\par
+{\uldb History}{\v History}\tab Historical references\par
+\par
+ \par
+{\uldb Invoking m4}{\v Invoking_m4}\tab Invoking {\f1{}m4}\par
+{\uldb Bugs}{\v Bugs}\tab Problems and bugs\par
+{\uldb Manual}{\v Manual}\tab Using this manual\par
+\par
+  Lexical and syntactic conventions\par
+\par
+ \par
+{\uldb Names}{\v Names}\tab Macro names\par
+{\uldb Quoted strings}{\v Quoted_strings}\tab Quoting input to m4\par
+{\uldb Other tokens}{\v Other_tokens}\tab Other kinds of input tokens\par
+{\uldb Comments}{\v Comments}\tab Comments in m4 input\par
+\par
+  How to invoke macros\par
+\par
+ \par
+{\uldb Invocation}{\v Invocation}\tab Macro invocation\par
+{\uldb Inhibiting Invocation}{\v Inhibiting_Invocation}\tab Preventing macro invocation\par
+{\uldb Macro Arguments}{\v Macro_Arguments}\tab Macro arguments\par
+{\uldb Quoting Arguments}{\v Quoting_Arguments}\tab On Quoting Arguments to macros\par
+{\uldb Macro expansion}{\v Macro_expansion}\tab Expanding macros\par
+\par
+  How to define new macros\par
+\par
+ \par
+{\uldb Define}{\v Define}\tab Defining a new macro\par
+{\uldb Arguments}{\v Arguments}\tab Arguments to macros\par
+{\uldb Pseudo Arguments}{\v Pseudo_Arguments}\tab Pseudo arguments to macros\par
+{\uldb Undefine}{\v Undefine}\tab Deleting a macro\par
+{\uldb Defn}{\v Defn}\tab Renaming macros\par
+{\uldb Pushdef}{\v Pushdef}\tab Temporarily redefining macros\par
+\par
+ \par
+{\uldb Indir}{\v Indir}\tab Indirect call of macros\par
+{\uldb Builtin}{\v Builtin}\tab Indirect call of builtins\par
+\par
+  Conditionals, loops and recursion\par
+\par
+ \par
+{\uldb Ifdef}{\v Ifdef}\tab Testing if a macro is defined\par
+{\uldb Ifelse}{\v Ifelse}\tab If-else construct, or multibranch\par
+{\uldb Loops}{\v Loops}\tab Loops and recursion in m4\par
+\par
+  How to debug macros and input\par
+\par
+ \par
+{\uldb Dumpdef}{\v Dumpdef}\tab Displaying macro definitions\par
+{\uldb Trace}{\v Trace}\tab Tracing macro calls\par
+{\uldb Debug Levels}{\v Debug_Levels}\tab Controlling debugging output\par
+{\uldb Debug Output}{\v Debug_Output}\tab Saving debugging output\par
+\par
+  Input control\par
+\par
+ \par
+{\uldb Dnl}{\v Dnl}\tab Deleting whitespace in input\par
+{\uldb Changequote}{\v Changequote}\tab Changing the quote characters\par
+{\uldb Changecom}{\v Changecom}\tab Changing the comment delimiters\par
+{\uldb Changeword}{\v Changeword}\tab Changing the lexical structure of words\par
+{\uldb M4wrap}{\v M4wrap}\tab Saving input until end of input\par
+\par
+  File inclusion\par
+\par
+ \par
+{\uldb Include}{\v Include}\tab Including named files\par
+{\uldb Search Path}{\v Search_Path}\tab Searching for include files\par
+\par
+  Diverting and undiverting output\par
+\par
+ \par
+{\uldb Divert}{\v Divert}\tab Diverting output\par
+{\uldb Undivert}{\v Undivert}\tab Undiverting output\par
+{\uldb Divnum}{\v Divnum}\tab Diversion numbers\par
+{\uldb Cleardiv}{\v Cleardiv}\tab Discarding diverted text\par
+\par
+  Macros for text handling\par
+\par
+ \par
+{\uldb Len}{\v Len}\tab Calculating length of strings\par
+{\uldb Index}{\v Index}\tab Searching for substrings\par
+{\uldb Regexp}{\v Regexp}\tab Searching for regular expressions\par
+{\uldb Substr}{\v Substr}\tab Extracting substrings\par
+{\uldb Translit}{\v Translit}\tab Translating characters\par
+{\uldb Patsubst}{\v Patsubst}\tab Substituting text by regular expression\par
+{\uldb Format}{\v Format}\tab Formatting strings (printf-like)\par
+\par
+  Macros for doing arithmetic\par
+\par
+ \par
+{\uldb Incr}{\v Incr}\tab Decrement and increment operators\par
+{\uldb Eval}{\v Eval}\tab Evaluating integer expressions\par
+\par
+  Running UNIX commands\par
+\par
+ \par
+{\uldb Syscmd}{\v Syscmd}\tab Executing simple commands\par
+{\uldb Esyscmd}{\v Esyscmd}\tab Reading the output of commands\par
+{\uldb Sysval}{\v Sysval}\tab Exit codes\par
+{\uldb Maketemp}{\v Maketemp}\tab Making names for temporary files\par
+\par
+  Miscellaneous builtin macros\par
+\par
+ \par
+{\uldb Errprint}{\v Errprint}\tab Printing error messages\par
+{\uldb M4exit}{\v M4exit}\tab Exiting from m4\par
+\par
+  Compatibility with other versions of {\f1{}m4}\par
+\par
+ \par
+{\uldb Extensions}{\v Extensions}\tab Extensions in GNU m4\par
+{\uldb Incompatibilities}{\v Incompatibilities}\tab Facilities in System V m4 not in GNU m4\par
+{\uldb Other Incompat}{\v Other_Incompat}\tab Other incompatibilities\par
+\pard{}}\par
+}\page\pard Node: {\b Preliminaries}, \keepn Next: {\uldb Syntax}{\v Syntax}, Prev: {\uldb Top}{\v Top}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Preliminaries}
+#{\footnote Preliminaries}
+${\footnote \pard{}Introduction and preliminaries}\par
+\pard{\fs24\b Introduction and preliminaries}\par
+\par
+\pard{}This first chapter explains what is GNU {\f1{}m4}, where {\f1{}m4} comes from, how to read and use this documentation, how to call the {\f1{}m4} program and how to report bugs about it.  It concludes by giving tips for reading the remainder of the manual.\par
+\par
+\pard{}The following chapters then detail all the features of the {\f1{}m4} language.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Intro}{\v Intro}\tab Introduction to {\f1{}m4}\par
+{\uldb History}{\v History}\tab Historical references\par
+{\uldb Invoking m4}{\v Invoking_m4}\tab Invoking {\f1{}m4}\par
+{\uldb Bugs}{\v Bugs}\tab Problems and bugs\par
+{\uldb Manual}{\v Manual}\tab Using this manual\par
+\pard{}}\par
+\page\pard Node: {\b Intro}, \keepn Next: {\uldb History}{\v History}, Prev: {\uldb Preliminaries}{\v Preliminaries}, Up: {\uldb Preliminaries}{\v Preliminaries}\line
+K{\footnote K Intro}
+#{\footnote Intro}
+${\footnote \pard{}Introduction to {\f1{}m4}}\par
+\pard{\fs24\b Introduction to {\f1{}m4}}\par
+\par
+{\f1{}\pard{}m4} is a macro processor, in the sense that it copies its input to the output, expanding macros as it goes.  Macros are either builtin or user-defined, and can take any number of arguments.  Besides just doing macro expansion, {\f1{}m4} has builtin functions for including named files, running UNIX commands, doing integer arithmetic, manipulating text in various ways, recursion, etc...  {\f1{}m4} can be used either as a front-end to a compiler, or as a macro processor in its own right.\par
+\par
+\pard{}The {\f1{}m4} macro processor is widely available on all UNIXes.  Usually, only a small percentage of users are aware of its existence.  However, those who do often become commited users.  The growing popularity of GNU Autoconf, which prerequires GNU {\f1{}m4} for {\i generating} the {\f1{}configure} scripts, is an incentive for many to install it, while these people will not themselves program in {\f1{}m4}.  GNU {\f1{}m4} is mostly compatible with the System V, Release 3 version, except for some minor differences.  See {\uldb Compatibility}{\v Compatibility} for more details.\par
+\par
+\pard{}Some people found {\f1{}m4} to be fairly addictive.  They first use {\f1{}m4} for simple problems, then take bigger and bigger challenges, learning how to write complex {\f1{}m4} sets of macros along the way.  Once really addicted, users pursue writing of sophisticated {\f1{}m4} applications even to solve simple problems, devoting more time debugging their {\f1{}m4} scripts than doing real work.  Beware that {\f1{}m4} may be dangerous for the health of compulsive programmers.\par
+\par
+\page\pard Node: {\b History}, \keepn Next: {\uldb Invoking m4}{\v Invoking_m4}, Prev: {\uldb Intro}{\v Intro}, Up: {\uldb Preliminaries}{\v Preliminaries}\line
+K{\footnote K History}
+#{\footnote History}
+${\footnote \pard{}Historical references}\par
+\pard{\fs24\b Historical references}\par
+\par
+\pard{}The historical notes included here are fairly incomplete, and not authoritative at all.  Please knowledgeable users help us to more properly write this section.\par
+\par
+{\f1{}\pard{}GPM} has been an important ancestor of {\f1{}m4}.  See C. Stratchey: "A General Purpose Macro generator", Computer Journal 8,3 (1965), pp. 225 ff.  {\f1{}GPM} is also succintly described into David Gries classic "Compiler Construction for Digital Computers".\par
+\par
+\pard{}While {\f1{}GPM} was {\i pure}, {\f1{}m4} was meant to deal more with the true intricacies of real life: macros could be recognized with being pre-announced, skipping whitespace or end-of-lines was made easier, more constructs were builtin instead of derived, etc.\par
+\par
+\pard{}Originally, {\f1{}m4} was the engine for Rational FORTRAN preprocessor, that is, the {\f1{}ratfor} equivalent of {\f1{}cpp}.\par
+\par
+\page\pard Node: {\b Invoking m4}, \keepn Next: {\uldb Bugs}{\v Bugs}, Prev: {\uldb History}{\v History}, Up: {\uldb Preliminaries}{\v Preliminaries}\line
+K{\footnote K Invoking m4}
+#{\footnote Invoking_m4}
+${\footnote \pard{}Invoking {\f1{}m4}}\par
+\pard{\fs24\b Invoking {\f1{}m4}}\par
+\par
+\pard{}The format of the {\f1{}m4} command is:\par
+\par
+{{\f1{}\pard\keep\li720\f1{}m4} [{\i option}...] [{\i macro-definitions}...] [{\i input-file}...]\par
+\pard\f0{}}\par
+\pard{}{K{\footnote K command line, options}}{K{\footnote K options, command line}}All options begin with {\f1{}-}, or if long option names are used, with a {\f1{}--}.  A long option name need not be written completely, and unambigous prefix is sufficient.  {\f1{}m4} understands the following options:\par
+\par
+{\pard{}{\f1{}--version}\par
+\pard\li720{}Print the version number of the program on standard output, then immediately exit {\f1{}m4} without reading any {\i input-files}.\par
+\par
+\pard{}{\f1{}--help}\par
+\pard\li720{}Print an help summary on standard output, then immediately exit {\f1{}m4} without reading any {\i input-files}.\par
+\par
+\pard{}{\f1{}-G}\par
+\pard{}{\f1{}--traditional}\par
+\pard\li720{}Suppress all the extensions made in this implementation, compared to the System V version.  See {\uldb Compatibility}{\v Compatibility}, for a list of these.\par
+\par
+\pard{}{\f1{}-E}\par
+\pard{}{\f1{}--fatal-warnings}\par
+\pard\li720{}Stop execution and exit {\f1{}m4} once the first warning has been issued, considering all of them to be fatal.\par
+\par
+\pard{}{\f1{}-d{\i flags}}\par
+\pard{}{\f1{}--debug={\i flags}}\par
+\pard\li720{}Set the debug-level according to the flags {\i flags}.  The debug-level controls the format and amount of information presented by the debugging functions.  See {\uldb Debug Levels}{\v Debug_Levels} for more details on the format and meaning of {\i flags}.\par
+\par
+\pard{}{\f1{}-l{\i num}}\par
+\pard{}{\f1{}--arglength={\i num}}\par
+\pard\li720{}Restrict the size of the output generated by macro tracing.  See {\uldb Debug Levels}{\v Debug_Levels} for more details.\par
+\par
+\pard{}{\f1{}-o{\i file}}\par
+\pard{}{\f1{}--error-output={\i file}}\par
+\pard\li720{}Redirect debug and trace output to the named file.  Error messages are still printed on the standard error output.  See {\uldb Debug Output}{\v Debug_Output} for more details.\par
+\par
+\pard{}{\f1{}-I{\i dir}}\par
+\pard{}{\f1{}--include={\i dir}}\par
+\pard\li720{}Make {\f1{}m4} search {\i dir} for included files that are not found in the current working directory.  See {\uldb Search Path}{\v Search_Path} for more details.\par
+\par
+\pard{}{\f1{}-e}\par
+\pard{}{\f1{}--interactive}\par
+\pard\li720{}Makes this invocation of {\f1{}m4} interactive.  This means that all output will be unbuffered, and interrupts will be ignored.\par
+\par
+\pard{}{\f1{}-s}\par
+\pard{}{\f1{}--synclines}\par
+\pard\li720{}Generate synchronisation lines, for use by the C preprocessor or other similar tools.  This is useful, for example, when {\f1{}m4} is used as a front end to a compiler.  Source file name and line number information is conveyed by directives of the form {\f1{}#line {\i linenum} "{\i filename}"}, which are inserted as needed into the middle of the input.  Such directives mean that the following line originated or was expanded from the contents of input file {\i filename} at line {\i linenum}.  The {\f1{}"{\i filename}"} part is often omitted when the file name did not change from the previous directive.\par
+\par
+\pard\li720{}Synchronisation directives are always given on complete lines per themselves.  When a synchronisation discrepancy occurs in the middle of an output line, the associated synchronisation directive is delayed until the beginning of the next generated line.\par
+\par
+\pard{}{\f1{}-P}\par
+\pard{}{\f1{}--prefix-builtins}\par
+\pard\li720{}Internally modify {\i all} builtin macro names so they all start with the prefix {\f1{}m4_}.  For example, using this option, one should write {\f1{}m4_define} instead of {\f1{}define}, and {\f1{}m4___file__} instead of {\f1{}__file__}.\par
+\par
+\pard{}{\f1{}-W{\i REGEXP}}\par
+\pard{}{\f1{}--word-regexp={\i REGEXP}}\par
+\pard\li720{}Use an alternative syntax for macro names.  This experimental option might not be present on all GNU {\f1{}m4} implementations.  (see {\uldb Changeword}{\v Changeword}).\par
+\par
+\pard{}{\f1{}-H{\i n}}\par
+\pard{}{\f1{}--hashsize={\i n}}\par
+\pard\li720{}Make the internal hash table for symbol lookup be {\i n} entries big.  The number should be prime.  The default is 509 entries.  It should not be necessary to increase this value, unless you define an excessive number of macros.\par
+\par
+\pard{}{\f1{}-L{\i n}}\par
+\pard{}{\f1{}--nesting-limit={\i n}}\par
+\pard\li720{}Artificially limit the nesting of macro calls to {\i n} levels, stopping program execution if this limit is ever exceeded.  When not specified, nesting is limited to 250 levels.\par
+\par
+\pard\li720{}The precise effect of this option might be more correctly associated with textual nesting than dynamic recursion.  It has been useful when some complex {\f1{}m4} input was generated by mechanical means.  Most users would never need this option.  If shown to be obtrusive, this option (which is still experimental) might well disappear.\par
+\par
+\pard\li720{}This option does {\i not} have the ability to break endless rescanning loops, while these do not necessarily consume much memory or stack space.  Through clever usage of rescanning loops, one can request complex, time-consuming computations to {\f1{}m4} with useful results.  Putting limitations in this area would break {\f1{}m4} power.  There are many pathological cases: {\f1{}define(`a', `a')a} is only the simplest example (but see {\uldb Compatibility}{\v Compatibility}).  Expecting GNU {\f1{}m4} to detect these would be a little like expecting a compiler system to detect and diagnose endless loops: it is a quite {\i hard} problem in general, if not undecidable!\par
+\par
+\pard{}{\f1{}-Q}\par
+\pard{}{\f1{}--quiet}\par
+\pard{}{\f1{}--silent}\par
+\pard\li720{}Suppress warnings about missing or superflous arguments in macro calls.\par
+\par
+\pard{}{\f1{}-B}\par
+\pard{}{\f1{}-S}\par
+\pard{}{\f1{}-T}\par
+\pard\li720{}These options are present for compatibility with System V {\f1{}m4}, but do nothing in this implementation.\par
+\par
+\pard{}{\f1{}-N{\i n}}\par
+\pard{}{\f1{}--diversions={\i n}}\par
+\pard\li720{}These options are present only for compatibility with previous versions of GNU {\f1{}m4}, and were controlling the number of possible diversions which could be used at the same time.  They do nothing, because there is no fixed limit anymore.\par
+\par
+\pard{}}\par
+\pard{}{K{\footnote K macro definitions, on the command line}}{K{\footnote K command line, macro definitions on the}}Macro definitions and deletions can be made on the command line, by using the {\f1{}-D} and {\f1{}-U} options.  They have the following format:\par
+\par
+{\pard{}{\f1{}-D{\i name}}\par
+\pard{}{\f1{}-D{\i name}={\i value}}\par
+\pard{}{\f1{}--define={\i name}}\par
+\pard{}{\f1{}--define={\i name}={\i value}}\par
+\pard\li720{}This enters {\i name} into the symbol table, before any input files are read.  If {\f1{}={\i value}} is missing, the value is taken to be the empty string.  The {\i value} can be any string, and the macro can be defined to take arguments, just as if it was defined from within the input.\par
+\par
+\pard{}{\f1{}-U{\i name}}\par
+\pard{}{\f1{}--undefine={\i name}}\par
+\pard\li720{}This deletes any predefined meaning {\i name} might have.  Obviously, only predefined macros can be deleted in this way.\par
+\par
+\pard{}{\f1{}-t{\i name}}\par
+\pard{}{\f1{}--trace={\i name}}\par
+\pard\li720{}This enters {\i name} into the symbol table, as undefined but traced.  The macro will consequently be traced from the point it is defined.\par
+\par
+\pard{}{\f1{}-F{\i file}}\par
+\pard{}{\f1{}--freeze-state {\i file}}\par
+\pard\li720{}Once execution is finished, write out the frozen state on the specified {\i file} (see {\uldb Frozen files}{\v Frozen_files}).\par
+\par
+\pard{}{\f1{}-R{\i file}}\par
+\pard{}{\f1{}--reload-state {\i file}}\par
+\pard\li720{}Before execution starts, recover the internal state from the specified frozen {\i file} (see {\uldb Frozen files}{\v Frozen_files}).\par
+\par
+\pard{}}\par
+\pard{}{K{\footnote K command line, filenames on the}}{K{\footnote K filenames, on the command line}}The remaining arguments on the command line are taken to be input file names.  If no names are present, the standard input is read.  A file name of {\f1{}-} is taken to mean the standard input.\par
+\par
+\pard{}The input files are read in the sequence given.  The standard input can only be read once, so the filename {\f1{}-} should only appear once on the command line.\par
+\par
+\page\pard Node: {\b Bugs}, \keepn Next: {\uldb Manual}{\v Manual}, Prev: {\uldb Invoking m4}{\v Invoking_m4}, Up: {\uldb Preliminaries}{\v Preliminaries}\line
+K{\footnote K Bugs}
+#{\footnote Bugs}
+${\footnote \pard{}Problems and bugs}\par
+\pard{\fs24\b Problems and bugs}\par
+\par
+\pard{}If you have problems with GNU {\f1{}m4} or think you've found a bug, please report it.  Before reporting a bug, make sure you've actually found a real bug.  Carefully reread the documentation and see if it really says you can do what you're trying to do.  If it's not clear whether you should be able to do something or not, report that too; it's a bug in the documentation!\par
+\par
+\pard{}Before reporting a bug or trying to fix it yourself, try to isolate it to the smallest possible input file that reproduces the problem.  Then send us the input file and the exact results {\f1{}m4} gave you.  Also say what you expected to occur; this will help us decide whether the problem was really in the documentation.\par
+\par
+\pard{}Once you've got a precise problem, send e-mail to (Internet) {\f1{}bug-gnu-utils@prep.ai.mit.edu} or (UUCP) {\f1{}mit-eddie!prep.ai.mit.edu!bug-gnu-utils}.  Please include the version number of {\f1{}m4} you are using.  You can get this information with the command {\f1{}m4 --version}.\par
+\par
+\pard{}Non-bug suggestions are always welcome as well.  If you have questions about things that are unclear in the documentation or are just obscure features, please report them too.\par
+\par
+\page\pard Node: {\b Manual}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Bugs}{\v Bugs}, Up: {\uldb Preliminaries}{\v Preliminaries}\line
+K{\footnote K Manual}
+#{\footnote Manual}
+${\footnote \pard{}Using this manual}\par
+\pard{\fs24\b Using this manual}\par
+\par
+\pard{}This manual contains a number of examples of {\f1{}m4} input and output, and a simple notation is used to distinguish input, output and error messages from {\f1{}m4}.  Examples are set out from the normal text, and shown in a fixed width font, like this\par
+\par
+{\pard\keep\li720\f1{}This is an example of an example!\par
+\pard\f0{}}\par
+\pard{}To distinguish input from output, all output from {\f1{}m4} is prefixed by the string {\f1{}=>}, and all error messages by the string {\f1{}error-->}.  Thus\par
+\par
+{\pard\keep\li720\f1{}Example of input line\line
+=>Output line from m4\line
+error-->and an error message\par
+\pard\f0{}}\par
+\pard{}As each of the predefined macros in {\f1{}m4} is described, a prototype call of the macro will be shown, giving descriptive names to the arguments, e.g.,\par
+\par
+{\pard\keep\li720\f1{}regexp({\i string}, {\i regexp}, opt {\i replacement})\par
+\pard\f0{}}\par
+\pard{}All macro arguments in {\f1{}m4} are strings, but some are given special interpretation, e.g., as numbers, filenames, regular expressions, etc.\par
+\par
+\pard{}The {\f1{}opt} before the third argument shows that this argument is optional--if it is left out, it is taken to be the empty string.  An ellipsis ({\f1{}...}) last in the argument list indicates that any number of arguments may follow.\par
+\par
+\pard{}This document consistently writes and uses \'A2builtin\'A2, without an hyphen, as if it were an English word.  This is how the {\f1{}builtin} primitive is spelled within {\f1{}m4}.\par
+\par
+\page\pard Node: {\b Syntax}, \keepn Next: {\uldb Macros}{\v Macros}, Prev: {\uldb Preliminaries}{\v Preliminaries}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Syntax}
+#{\footnote Syntax}
+${\footnote \pard{}Lexical and syntactic conventions}\par
+\pard{\fs24\b Lexical and syntactic conventions}\par
+\par
+\pard{}{K{\footnote K input tokens}}{K{\footnote K tokens}}As {\f1{}m4} reads its input, it separates it into \'A2tokens\'A2.  A token is either a name, a quoted string, or any single character, that is not a part of either a name or a string.  Input to {\f1{}m4} can also contain comments.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Names}{\v Names}\tab Macro names\par
+{\uldb Quoted strings}{\v Quoted_strings}\tab Quoting input to m4\par
+{\uldb Other tokens}{\v Other_tokens}\tab Other kinds of input tokens\par
+{\uldb Comments}{\v Comments}\tab Comments in m4 input\par
+\pard{}}\par
+\page\pard Node: {\b Names}, \keepn Next: {\uldb Quoted strings}{\v Quoted_strings}, Prev: {\uldb Syntax}{\v Syntax}, Up: {\uldb Syntax}{\v Syntax}\line
+K{\footnote K Names}
+#{\footnote Names}
+${\footnote \pard{}Names}\par
+\pard{\fs24\b Names}\par
+\par
+\pard{}{K{\footnote K names}}A name is any sequence of letters, digits, and the character {\f1{}_} (underscore), where the first character is not a digit.  If a name has a macro definition, it will be subject to macro expansion (see {\uldb Macros}{\v Macros}).\par
+\par
+\pard{}Examples of legal names are: {\f1{}foo}, {\f1{}_tmp}, and {\f1{}name01}.\par
+\par
+\page\pard Node: {\b Quoted strings}, \keepn Next: {\uldb Other tokens}{\v Other_tokens}, Prev: {\uldb Names}{\v Names}, Up: {\uldb Syntax}{\v Syntax}\line
+K{\footnote K Quoted strings}
+#{\footnote Quoted_strings}
+${\footnote \pard{}Quoted strings}\par
+\pard{\fs24\b Quoted strings}\par
+\par
+\pard{}{K{\footnote K quoted string}}A quoted string is a sequence of characters surrounded by the quotes {\f1{}`} and {\f1{}'}, where the number of start and end quotes within the string balances.  The value of a string token is the text, with one level of quotes stripped off.  Thus\par
+\par
+{\pard\keep\li720\f1{}`'\par
+\pard\f0{}}\par
+\pard{}is the empty string, and\par
+\par
+{\pard\keep\li720\f1{}``quoted''\par
+\pard\f0{}}\par
+\pard{}is the string\par
+\par
+{\pard\keep\li720\f1{}`quoted'\par
+\pard\f0{}}\par
+\pard{}The quote characters can be changed at any time, using the builtin macro {\f1{}changequote}.  See {\uldb Changequote}{\v Changequote} for more information.\par
+\par
+\page\pard Node: {\b Other tokens}, \keepn Next: {\uldb Comments}{\v Comments}, Prev: {\uldb Quoted strings}{\v Quoted_strings}, Up: {\uldb Syntax}{\v Syntax}\line
+K{\footnote K Other tokens}
+#{\footnote Other_tokens}
+${\footnote \pard{}Other tokens}\par
+\pard{\fs24\b Other tokens}\par
+\par
+\pard{}Any character, that is neither a part of a name, nor of a quoted string, is a token by itself.\par
+\par
+\page\pard Node: {\b Comments}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Other tokens}{\v Other_tokens}, Up: {\uldb Syntax}{\v Syntax}\line
+K{\footnote K Comments}
+#{\footnote Comments}
+${\footnote \pard{}Comments}\par
+\pard{\fs24\b Comments}\par
+\par
+\pard{}{K{\footnote K comments}}Comments in {\f1{}m4} are normally delimited by the characters {\f1{}#} and newline.  All characters between the comment delimiters are ignored, but the entire comment (including the delimiters) is passed through to the output--comments are {\i not} discarded by {\f1{}m4}.\par
+\par
+\pard{}Comments cannot be nested, so the first newline after a {\f1{}#} ends the comment.  The commenting effect of the begin comment character can be inhibited by quoting it.\par
+\par
+\pard{}The comment delimiters can be changed to any string at any time, using the builtin macro {\f1{}changecom}.  See {\uldb Changecom}{\v Changecom} for more information.\par
+\par
+\page\pard Node: {\b Macros}, \keepn Next: {\uldb Definitions}{\v Definitions}, Prev: {\uldb Syntax}{\v Syntax}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Macros}
+#{\footnote Macros}
+${\footnote \pard{}How to invoke macros}\par
+\pard{\fs24\b How to invoke macros}\par
+\par
+\pard{}This chapter covers macro invocation, macro arguments and how macro expansion is treated.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Invocation}{\v Invocation}\tab Macro invocation\par
+{\uldb Inhibiting Invocation}{\v Inhibiting_Invocation}\tab Preventing macro invocation\par
+{\uldb Macro Arguments}{\v Macro_Arguments}\tab Macro arguments\par
+{\uldb Quoting Arguments}{\v Quoting_Arguments}\tab On Quoting Arguments to macros\par
+{\uldb Macro expansion}{\v Macro_expansion}\tab Expanding macros\par
+\pard{}}\par
+\page\pard Node: {\b Invocation}, \keepn Next: {\uldb Inhibiting Invocation}{\v Inhibiting_Invocation}, Prev: {\uldb Macros}{\v Macros}, Up: {\uldb Macros}{\v Macros}\line
+K{\footnote K Invocation}
+#{\footnote Invocation}
+${\footnote \pard{}Macro invocation}\par
+\pard{\fs24\b Macro invocation}\par
+\par
+\pard{}{K{\footnote K macro invocation}}Macro invocations has one of the forms\par
+\par
+{\pard\keep\li720\f1{}name\par
+\pard\f0{}}\par
+\pard{}which is a macro invocation without any arguments, or\par
+\par
+{\pard\keep\li720\f1{}name(arg1, arg2, ..., arg{\i n})\par
+\pard\f0{}}\par
+\pard{}which is a macro invocation with {\i n} arguments.  Macros can have any number of arguments.  All arguments are strings, but different macros might interpret the arguments in different ways.\par
+\par
+\pard{}The opening parenthesis {\i must} follow the {\i name} directly, with no spaces in between.  If it does not, the macro is called with no arguments at all.\par
+\par
+\pard{}For a macro call to have no arguments, the parentheses {\i must} be left out.  The macro call\par
+\par
+{\pard\keep\li720\f1{}name()\par
+\pard\f0{}}\par
+\pard{}is a macro call with one argument, which is the empty string, not a call with no arguments.\par
+\par
+\page\pard Node: {\b Inhibiting Invocation}, \keepn Next: {\uldb Macro Arguments}{\v Macro_Arguments}, Prev: {\uldb Invocation}{\v Invocation}, Up: {\uldb Macros}{\v Macros}\line
+K{\footnote K Inhibiting Invocation}
+#{\footnote Inhibiting_Invocation}
+${\footnote \pard{}Preventing macro invocation}\par
+\pard{\fs24\b Preventing macro invocation}\par
+\par
+\pard{}An innovation of the {\f1{}m4} language, compared to some of its predecessors (like Stratchey's {\f1{}GPM}, for example), is the ability to recognize macro calls without resorting to any special, prefixed invocation character.  While generally useful, this feature might sometimes be the source of spurious, unwanted macro calls.  So, GNU {\f1{}m4} offers several mechanisms or techniques for inhibiting the recognition of names as macro calls.\par
+\par
+\pard{}First of all, many builtin macros cannot meaningfully be called without arguments.  For any of these macros, whenever an opening parenthesis does not immediately follow their name, the builtin macro call is not triggered.  This solves the most usual cases, like for {\f1{}include} or {\f1{}eval}.  Later in this document, the sentence "This macro is recognized only when given arguments" refers to this specific provision.\par
+\par
+\pard{}There is also a command call option ({\f1{}--prefix-builtins}, or {\f1{}-P}) which requires all builtin macro names to be prefixed by {\f1{}m4_} for them to be recognized.  The option has no effect whatsoever on user defined macros.  For example, with this option, one has to write {\f1{}m4_dnl} and even {\f1{}m4_m4exit}.\par
+\par
+\pard{}If your version of GNU {\f1{}m4} has the {\f1{}changeword} feature compiled in, there it offers far more flexibility in specifying the syntax of macro names, both builtin or user-defined.  See {\uldb Changeword}{\v Changeword} for more information on this experimental feature.\par
+\par
+\pard{}Of course, the simplest way to prevent a name to be interpreted as a call to an existing macro is to quote it.  The remainder of this section studies a little more deeply how quoting affects macro invocation, and how quoting can be used to inhibit macro invocation.\par
+\par
+\pard{}Even if quoting is usually done over the whole macro name, it can also be done over only a few characters of this name.  It is also possible to quote the empty string, but this works only {\i inside} the name.  For example:\par
+\par
+{\pard\keep\li720\f1{}`divert'\line
+`d'ivert\line
+di`ver't\line
+div`'ert\par
+\pard\f0{}}\par
+\pard{}all yield the string {\f1{}divert}.  While in both:\par
+\par
+{\pard\keep\li720\f1{}`'divert\line
+divert`'\par
+\pard\f0{}}\par
+\pard{}the {\f1{}divert} builtin macro will be called.\par
+\par
+\pard{}The output of macro evaluations is always rescanned.  The following example would yield the string {\f1{}de}, exactly as if {\f1{}m4} has been given {\f1{}substr(abcde, 3, 2)} as input:\par
+\par
+{\pard\keep\li720\f1{}define(`x', `substr(ab')\line
+define(`y', `cde, 3, 2)')\line
+x`'y\par
+\pard\f0{}}\par
+\pard{}Unquoted strings on either side of a quoted string are subject to being recognized as macro names.  In the following example, quoting the empty string allows for the {\f1{}dnl} macro to be recognized as such:\par
+\par
+{\pard\keep\li720\f1{}define(`macro', `di$1')\line
+macro(v)`'dnl\par
+\pard\f0{}}\par
+\pard{}Without the quotes, this would rather yield the string {\f1{}divdnl} followed by an end of line.\par
+\par
+\pard{}Quoting may prevent recognizing as a macro name the concatenation of a macro expansion with the surrounding characters.  In this example:\par
+\par
+{\pard\keep\li720\f1{}define(`macro', `di$1')\line
+macro(v)`ert'\par
+\pard\f0{}}\par
+\pard{}the input will produce the string {\f1{}divert}.  If the quote was removed, the {\f1{}divert} builtin would be called instead.\par
+\par
+\page\pard Node: {\b Macro Arguments}, \keepn Next: {\uldb Quoting Arguments}{\v Quoting_Arguments}, Prev: {\uldb Inhibiting Invocation}{\v Inhibiting_Invocation}, Up: {\uldb Macros}{\v Macros}\line
+K{\footnote K Macro Arguments}
+#{\footnote Macro_Arguments}
+${\footnote \pard{}Macro arguments}\par
+\pard{\fs24\b Macro arguments}\par
+\par
+\pard{}{K{\footnote K macros, arguments to}}{K{\footnote K arguments to macros}}When a name is seen, and it has a macro definition, it will be expanded as a macro.\par
+\par
+\pard{}If the name is followed by an opening parenthesis, the arguments will be collected before the macro is called.  If too few arguments are supplied, the missing arguments are taken to be the empty string.  If there are too many arguments, the excess arguments are ignored.\par
+\par
+\pard{}Normally {\f1{}m4} will issue warnings if a builtin macro is called with an inappropriate number of arguments, but it can be suppressed with the {\f1{}-Q} command line option.  For user defined macros, there is no check of the number of arguments given.\par
+\par
+\pard{}Macros are expanded normally during argument collection, and whatever commas, quotes and parentheses that might show up in the resulting expanded text will serve to define the arguments as well.  Thus, if {\i foo} expands to {\f1{}, b, c}, the macro call\par
+\par
+{\pard\keep\li720\f1{}bar(a foo, d)\par
+\pard\f0{}}\par
+\pard{}is a macro call with four arguments, which are {\f1{}a }, {\f1{}b}, {\f1{}c} and {\f1{}d}.  To understand why the first argument contains whitespace, remember that leading unquoted whitespace is never part of an argument, but trailing whitespace always is.\par
+\par
+\page\pard Node: {\b Quoting Arguments}, \keepn Next: {\uldb Macro expansion}{\v Macro_expansion}, Prev: {\uldb Macro Arguments}{\v Macro_Arguments}, Up: {\uldb Macros}{\v Macros}\line
+K{\footnote K Quoting Arguments}
+#{\footnote Quoting_Arguments}
+${\footnote \pard{}Quoting macro arguments}\par
+\pard{\fs24\b Quoting macro arguments}\par
+\par
+\pard{}{K{\footnote K quoted macro arguments}}{K{\footnote K macros, quoted arguments to}}{K{\footnote K arguments, quoted macro}}Each argument has leading unquoted whitespace removed.  Within each argument, all unquoted parentheses must match.  For example, if {\i foo} is a macro,\par
+\par
+{\pard\keep\li720\f1{}foo(() (`(') `(')\par
+\pard\f0{}}\par
+\pard{}is a macro call, with one argument, whose value is {\f1{}() (() (}.\par
+\par
+\pard{}It is common practice to quote all arguments to macros, unless you are sure you want the arguments expanded.  Thus, in the above example with the parentheses, the `right' way to do it is like this:\par
+\par
+{\pard\keep\li720\f1{}foo(`() (() (')\par
+\pard\f0{}}\par
+\pard{}It is, however, in certain cases necessary to leave out quotes for some arguments, and there is nothing wrong in doing it.  It just makes life a bit harder, if you are not careful.\par
+\par
+\page\pard Node: {\b Macro expansion}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Quoting Arguments}{\v Quoting_Arguments}, Up: {\uldb Macros}{\v Macros}\line
+K{\footnote K Macro expansion}
+#{\footnote Macro_expansion}
+${\footnote \pard{}Macro expansion}\par
+\pard{\fs24\b Macro expansion}\par
+\par
+\pard{}{K{\footnote K macros, expansion of}}{K{\footnote K expansion of macros}}When the arguments, if any, to a macro call have been collected, the macro is expanded, and the expansion text is pushed back onto the input (unquoted), and reread.  The expansion text from one macro call might therefore result in more macros being called, if the calls are included, completely or partially, in the first macro calls' expansion.\par
+\par
+\pard{}Taking a very simple example, if {\i foo} expands to {\f1{}bar}, and {\i bar} expands to {\f1{}Hello world}, the input\par
+\par
+{\pard\keep\li720\f1{}foo\par
+\pard\f0{}}\par
+\pard{}will expand first to {\f1{}bar}, and when this is reread and expanded, into {\f1{}Hello world}.\par
+\par
+\page\pard Node: {\b Definitions}, \keepn Next: {\uldb Conditionals}{\v Conditionals}, Prev: {\uldb Macros}{\v Macros}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Definitions}
+#{\footnote Definitions}
+${\footnote \pard{}How to define new macros}\par
+\pard{\fs24\b How to define new macros}\par
+\par
+\pard{}{K{\footnote K macros, how to define new}}{K{\footnote K defining new macros}}Macros can be defined, redefined and deleted in several different ways.  Also, it is possible to redefine a macro, without losing a previous value, which can be brought back at a later time.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Define}{\v Define}\tab Defining a new macro\par
+{\uldb Arguments}{\v Arguments}\tab Arguments to macros\par
+{\uldb Pseudo Arguments}{\v Pseudo_Arguments}\tab Pseudo arguments to macros\par
+{\uldb Undefine}{\v Undefine}\tab Deleting a macro\par
+{\uldb Defn}{\v Defn}\tab Renaming macros\par
+{\uldb Pushdef}{\v Pushdef}\tab Temporarily redefining macros\par
+\par
+ \par
+{\uldb Indir}{\v Indir}\tab Indirect call of macros\par
+{\uldb Builtin}{\v Builtin}\tab Indirect call of builtins\par
+\pard{}}\par
+\page\pard Node: {\b Define}, \keepn Next: {\uldb Arguments}{\v Arguments}, Prev: {\uldb Definitions}{\v Definitions}, Up: {\uldb Definitions}{\v Definitions}\line
+K{\footnote K Define}
+#{\footnote Define}
+${\footnote \pard{}Defining a macro}\par
+\pard{\fs24\b Defining a macro}\par
+\par
+\pard{}{K{\footnote K define}}The normal way to define or redefine macros is to use the builtin {\f1{}define}:\par
+\par
+{\pard\keep\li720\f1{}define({\i name} [, {\i expansion}])\par
+\pard\f0{}}\par
+\pard{}which defines {\i name} to expand to {\i expansion}.  If {\i expansion} is not given, it is taken to be empty.\par
+\par
+\pard{}The expansion of {\f1{}define} is void.\par
+\par
+\pard{}The following example defines the macro {\i foo} to expand to the text {\f1{}Hello World.}.\par
+\par
+{\pard\keep\li720\f1{}define(`foo', `Hello world.')\line
+=>\line
+foo\line
+=>Hello world.\par
+\pard\f0{}}\par
+\pard{}The empty line in the output is there because the newline is not a part of the macro definition, and it is consequently copied to the output.  This can be avoided by use of the macro {\f1{}dnl}.  See {\uldb Dnl}{\v Dnl}, for details.\par
+\par
+\pard{}The macro {\f1{}define} is recognized only with parameters.\par
+\par
+\page\pard Node: {\b Arguments}, \keepn Next: {\uldb Pseudo Arguments}{\v Pseudo_Arguments}, Prev: {\uldb Define}{\v Define}, Up: {\uldb Definitions}{\v Definitions}\line
+K{\footnote K Arguments}
+#{\footnote Arguments}
+${\footnote \pard{}Arguments to macros}\par
+\pard{\fs24\b Arguments to macros}\par
+\par
+\pard{}{K{\footnote K macros, arguments to}}{K{\footnote K Arguments to macros}}Macros can have arguments.  The {\i n}th argument is denoted by {\f1{}$n} in the expansion text, and is replaced by the {\i n}th actual argument, when the macro is expanded.  Here is a example of a macro with two arguments.  It simply exchanges the order of the two arguments.\par
+\par
+{\pard\keep\li720\f1{}define(`exch', `$2, $1')\line
+=>\line
+exch(arg1, arg2)\line
+=>arg2, arg1\par
+\pard\f0{}}\par
+\pard{}This can be used, for example, if you like the arguments to {\f1{}define} to be reversed.\par
+\par
+{\pard\keep\li720\f1{}define(`exch', `$2, $1')\line
+=>\line
+define(exch(``expansion text'', ``macro''))\line
+=>\line
+macro\line
+=>expansion text\par
+\pard\f0{}}\par
+\pard{}See {\uldb Quoting Arguments}{\v Quoting_Arguments}, for an explanation of the double quotes.\par
+\par
+\pard{}{K{\footnote K GNU extensions}}GNU {\f1{}m4} allows the number following the {\f1{}$} to consist of one or more digits, allowing macros to have any number of arguments.  This is not so in UNIX implementations of {\f1{}m4}, which only recognize one digit.\par
+\par
+\pard{}As a special case, the zero'th argument, {\f1{}$0}, is always the name of the macro being expanded.\par
+\par
+{\pard\keep\li720\f1{}define(`test', ``Macro name: $0'')\line
+=>\line
+test\line
+=>Macro name: test\par
+\pard\f0{}}\par
+\pard{}If you want quoted text to appear as part of the expansion text, remember that quotes can be nested in quoted strings.  Thus, in\par
+\par
+{\pard\keep\li720\f1{}define(`foo', `This is macro `foo'.')\line
+=>\line
+foo\line
+=>This is macro foo.\par
+\pard\f0{}}\par
+\pard{}The {\f1{}foo} in the expansion text is {\i not} expanded, since it is a quoted string, and not a name.\par
+\par
+\page\pard Node: {\b Pseudo Arguments}, \keepn Next: {\uldb Undefine}{\v Undefine}, Prev: {\uldb Arguments}{\v Arguments}, Up: {\uldb Definitions}{\v Definitions}\line
+K{\footnote K Pseudo Arguments}
+#{\footnote Pseudo_Arguments}
+${\footnote \pard{}Special arguments to macros}\par
+\pard{\fs24\b Special arguments to macros}\par
+\par
+\pard{}{K{\footnote K special arguments to macros}}{K{\footnote K macros, special arguments to}}{K{\footnote K arguments to macros, special}}There is a special notation for the number of actual arguments supplied, and for all the actual arguments.\par
+\par
+\pard{}The number of actual arguments in a macro call is denoted by {\f1{}$#} in the expansion text.  Thus, a macro to display the number of arguments given can be\par
+\par
+{\pard\keep\li720\f1{}define(`nargs', `$#')\line
+=>\line
+nargs\line
+=>0\line
+nargs()\line
+=>1\line
+nargs(arg1, arg2, arg3)\line
+=>3\par
+\pard\f0{}}\par
+\pard{}The notation {\f1{}$*} can be used in the expansion text to denote all the actual arguments, unquoted, with commas in between.  For example\par
+\par
+{\pard\keep\li720\f1{}define(`echo', `$*')\line
+=>\line
+echo(arg1,    arg2, arg3 , arg4)\line
+=>arg1,arg2,arg3 ,arg4\par
+\pard\f0{}}\par
+\pard{}Often each argument should be quoted, and the notation {\f1{}$@} handles that.  It is just like {\f1{}$*}, except that it quotes each argument.  A simple example of that is:\par
+\par
+{\pard\keep\li720\f1{}define(`echo', `$@')\line
+=>\line
+echo(arg1,    arg2, arg3 , arg4)\line
+=>arg1,arg2,arg3 ,arg4\par
+\pard\f0{}}\par
+\pard{}Where did the quotes go?  Of course, they were eaten, when the expanded text were reread by {\f1{}m4}.  To show the difference, try\par
+\par
+{\pard\keep\li720\f1{}define(`echo1', `$*')\line
+=>\line
+define(`echo2', `$@')\line
+=>\line
+define(`foo', `This is macro `foo'.')\line
+=>\line
+echo1(foo)\line
+=>This is macro This is macro foo..\line
+echo2(foo)\line
+=>This is macro foo.\par
+\pard\f0{}}\par
+\pard{}See {\uldb Trace}{\v Trace}, if you do not understand this.\par
+\par
+\pard{}A {\f1{}$} sign in the expansion text, that is not followed by anything {\f1{}m4} understands, is simply copied to the macro expansion, as any other text is.\par
+\par
+{\pard\keep\li720\f1{}define(`foo', `$$$ hello $$$')\line
+=>\line
+foo\line
+=>$$$ hello $$$\par
+\pard\f0{}}\par
+\pard{}If you want a macro to expand to something like {\f1{}$12}, put a pair of quotes after the {\f1{}$}.  This will prevent {\f1{}m4} from interpreting the {\f1{}$} sign as a reference to an argument.\par
+\par
+\page\pard Node: {\b Undefine}, \keepn Next: {\uldb Defn}{\v Defn}, Prev: {\uldb Pseudo Arguments}{\v Pseudo_Arguments}, Up: {\uldb Definitions}{\v Definitions}\line
+K{\footnote K Undefine}
+#{\footnote Undefine}
+${\footnote \pard{}Deleting a macro}\par
+\pard{\fs24\b Deleting a macro}\par
+\par
+\pard{}{K{\footnote K macros, how to delete}}{K{\footnote K deleting macros}}{K{\footnote K undefining macros}}{K{\footnote K undefine}}A macro definition can be removed with {\f1{}undefine}:\par
+\par
+{\pard\keep\li720\f1{}undefine({\i name})\par
+\pard\f0{}}\par
+\pard{}which removes the macro {\i name}.  The macro name must necessarily be quoted, since it will be expanded otherwise.\par
+\par
+\pard{}The expansion of {\f1{}undefine} is void.\par
+\par
+{\pard\keep\li720\f1{}foo\line
+=>foo\line
+define(`foo', `expansion text')\line
+=>\line
+foo\line
+=>expansion text\line
+undefine(`foo')\line
+=>\line
+foo\line
+=>foo\par
+\pard\f0{}}\par
+\pard{}It is not an error for {\i name} to have no macro definition.  In that case, {\f1{}undefine} does nothing.\par
+\par
+\pard{}The macro {\f1{}undefine} is recognized only with parameters.\par
+\par
+\page\pard Node: {\b Defn}, \keepn Next: {\uldb Pushdef}{\v Pushdef}, Prev: {\uldb Undefine}{\v Undefine}, Up: {\uldb Definitions}{\v Definitions}\line
+K{\footnote K Defn}
+#{\footnote Defn}
+${\footnote \pard{}Renaming macros}\par
+\pard{\fs24\b Renaming macros}\par
+\par
+\pard{}{K{\footnote K macros, how to rename}}{K{\footnote K renaming macros}}{K{\footnote K defn}}It is possible to rename an already defined macro.  To do this, you need the builtin {\f1{}defn}:\par
+\par
+{\pard\keep\li720\f1{}defn({\i name})\par
+\pard\f0{}}\par
+\pard{}which expands to the {\i quoted definition} of {\i name}.  If the argument is not a defined macro, the expansion is void.\par
+\par
+\pard{}If {\i name} is a user-defined macro, the quoted definition is simply the quoted expansion text.  If, instead, {\i name} is a builtin, the expansion is a special token, which points to the builtin's internal definition.  This token is only meaningful as the second argument to {\f1{}define} (and {\f1{}pushdef}), and is ignored in any other context.\par
+\par
+\pard{}Its normal use is best understood through an example, which shows how to rename {\f1{}undefine} to {\f1{}zap}:\par
+\par
+{\pard\keep\li720\f1{}define(`zap', defn(`undefine'))\line
+=>\line
+zap(`undefine')\line
+=>\line
+undefine(`zap')\line
+=>undefine(zap)\par
+\pard\f0{}}\par
+\pard{}In this way, {\f1{}defn} can be used to copy macro definitions, and also definitions of builtin macros.  Even if the original macro is removed, the other name can still be used to access the definition.\par
+\par
+\pard{}The macro {\f1{}defn} is recognized only with parameters.\par
+\par
+\page\pard Node: {\b Pushdef}, \keepn Next: {\uldb Indir}{\v Indir}, Prev: {\uldb Defn}{\v Defn}, Up: {\uldb Definitions}{\v Definitions}\line
+K{\footnote K Pushdef}
+#{\footnote Pushdef}
+${\footnote \pard{}Temporarily redefining macros}\par
+\pard{\fs24\b Temporarily redefining macros}\par
+\par
+\pard{}{K{\footnote K macros, temporary redefinition of}}{K{\footnote K temporary redefinition of macros}}{K{\footnote K redefinition of macros, temporary}}It is possible to redefine a macro temporarily, reverting to the previous definition at a later time.  {K{\footnote K popdef}}{K{\footnote K pushdef}}This is done with the builtins {\f1{}pushdef} and {\f1{}popdef}:\par
+\par
+{\pard\keep\li720\f1{}pushdef({\i name} [, {\i expansion}])\line
+popdef({\i name})\par
+\pard\f0{}}\par
+\pard{}which are quite analogous to {\f1{}define} and {\f1{}undefine}.\par
+\par
+\pard{}These macros work in a stack-like fashion.  A macro is temporarily redefined with {\f1{}pushdef}, which replaces an existing definition of {\i name}, while saving the previous definition, before the new one is installed.  If there is no previous definition, {\f1{}pushdef} behaves exactly like {\f1{}define}.\par
+\par
+\pard{}If a macro has several definitions (of which only one is accessible), the topmost definition can be removed with {\f1{}popdef}.  If there is no previous definition, {\f1{}popdef} behaves like {\f1{}undefine}.\par
+\par
+{\pard\keep\li720\f1{}define(`foo', `Expansion one.')\line
+=>\line
+foo\line
+=>Expansion one.\line
+pushdef(`foo', `Expansion two.')\line
+=>\line
+foo\line
+=>Expansion two.\line
+popdef(`foo')\line
+=>\line
+foo\line
+=>Expansion one.\line
+popdef(`foo')\line
+=>\line
+foo\line
+=>foo\par
+\pard\f0{}}\par
+\pard{}If a macro with several definitions is redefined with {\f1{}define}, the topmost definition is {\i replaced} with the new definition.  If it is removed with {\f1{}undefine}, {\i all} the definitions are removed, and not only the topmost one.\par
+\par
+{\pard\keep\li720\f1{}define(`foo', `Expansion one.')\line
+=>\line
+foo\line
+=>Expansion one.\line
+pushdef(`foo', `Expansion two.')\line
+=>\line
+foo\line
+=>Expansion two.\line
+define(`foo', `Second expansion two.')\line
+=>\line
+foo\line
+=>Second expansion two.\line
+undefine(`foo')\line
+=>\line
+foo\line
+=>foo\par
+\pard\f0{}}\par
+\pard{}It is possible to temporarily redefine a builtin with {\f1{}pushdef} and {\f1{}defn}.\par
+\par
+\pard{}The macros {\f1{}pushdef} and {\f1{}popdef} are recognized only with parameters.\par
+\par
+\page\pard Node: {\b Indir}, \keepn Next: {\uldb Builtin}{\v Builtin}, Prev: {\uldb Pushdef}{\v Pushdef}, Up: {\uldb Definitions}{\v Definitions}\line
+K{\footnote K Indir}
+#{\footnote Indir}
+${\footnote \pard{}Indirect call of macros}\par
+\pard{\fs24\b Indirect call of macros}\par
+\par
+\pard{}{K{\footnote K indirect call of macros}}{K{\footnote K call of macros, indirect}}{K{\footnote K macros, indirect call of}}{K{\footnote K GNU extensions}}{K{\footnote K indir}}Any macro can be called indirectly with {\f1{}indir}:\par
+\par
+{\pard\keep\li720\f1{}indir({\i name}, ...)\par
+\pard\f0{}}\par
+\pard{}which results in a call to the macro {\i name}, which is passed the rest of the arguments.  This can be used to call macros with "illegal" names ({\f1{}define} allows such names to be defined):\par
+\par
+{\pard\keep\li720\f1{}define(`$$internal$macro', `Internal macro (name `$0')')\line
+=>\line
+$$internal$macro\line
+=>$$internal$macro\line
+indir(`$$internal$macro')\line
+=>Internal macro (name $$internal$macro)\par
+\pard\f0{}}\par
+\pard{}The point is, here, that larger macro packages can have private macros defined, that will not be called by accident.  They can {\i only} be called through the builtin {\f1{}indir}.\par
+\par
+\page\pard Node: {\b Builtin}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Indir}{\v Indir}, Up: {\uldb Definitions}{\v Definitions}\line
+K{\footnote K Builtin}
+#{\footnote Builtin}
+${\footnote \pard{}Indirect call of builtins}\par
+\pard{\fs24\b Indirect call of builtins}\par
+\par
+\pard{}{K{\footnote K indirect call of builtins}}{K{\footnote K call of builtins, indirect}}{K{\footnote K builtins, indirect call of}}{K{\footnote K GNU extensions}}{K{\footnote K builtin}}Builtin macros can be called indirectly with {\f1{}builtin}:\par
+\par
+{\pard\keep\li720\f1{}builtin({\i name}, ...)\par
+\pard\f0{}}\par
+\pard{}which results in a call to the builtin {\i name}, which is passed the rest of the arguments.  This can be used, if {\i name} has been given another definition that has covered the original.\par
+\par
+\pard{}The macro {\f1{}builtin} is recognized only with parameters.\par
+\par
+\page\pard Node: {\b Conditionals}, \keepn Next: {\uldb Debugging}{\v Debugging}, Prev: {\uldb Definitions}{\v Definitions}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Conditionals}
+#{\footnote Conditionals}
+${\footnote \pard{}Conditionals, loops and recursion}\par
+\pard{\fs24\b Conditionals, loops and recursion}\par
+\par
+\pard{}Macros, expanding to plain text, perhaps with arguments, are not quite enough.  We would like to have macros expand to different things, based on decisions taken at run-time.  E.g., we need some kind of conditionals.  Also, we would like to have some kind of loop construct, so we could do something a number of times, or while some condition is true.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Ifdef}{\v Ifdef}\tab Testing if a macro is defined\par
+{\uldb Ifelse}{\v Ifelse}\tab If-else construct, or multibranch\par
+{\uldb Loops}{\v Loops}\tab Loops and recursion in m4\par
+\pard{}}\par
+\page\pard Node: {\b Ifdef}, \keepn Next: {\uldb Ifelse}{\v Ifelse}, Prev: {\uldb Conditionals}{\v Conditionals}, Up: {\uldb Conditionals}{\v Conditionals}\line
+K{\footnote K Ifdef}
+#{\footnote Ifdef}
+${\footnote \pard{}Testing macro definitions}\par
+\pard{\fs24\b Testing macro definitions}\par
+\par
+\pard{}{K{\footnote K conditionals}}{K{\footnote K ifdef}}There are two different builtin conditionals in {\f1{}m4}.  The first is {\f1{}ifdef}:\par
+\par
+{\pard\keep\li720\f1{}ifdef({\i name}, {\i string-1}, opt {\i string-2})\par
+\pard\f0{}}\par
+\pard{}which makes it possible to test whether a macro is defined or not.  If {\i name} is defined as a macro, {\f1{}ifdef} expands to {\i string-1}, otherwise to {\i string-2}.  If {\i string-2} is omitted, it is taken to be the empty string (according to the normal rules).\par
+\par
+{\pard\keep\li720\f1{}ifdef(`foo', ``foo' is defined', ``foo' is not defined')\line
+=>foo is not defined\line
+define(`foo', `')\line
+=>\line
+ifdef(`foo', ``foo' is defined', ``foo' is not defined')\line
+=>foo is defined\par
+\pard\f0{}}\par
+\pard{}The macro {\f1{}ifdef} is recognized only with parameters.\par
+\par
+\page\pard Node: {\b Ifelse}, \keepn Next: {\uldb Loops}{\v Loops}, Prev: {\uldb Ifdef}{\v Ifdef}, Up: {\uldb Conditionals}{\v Conditionals}\line
+K{\footnote K Ifelse}
+#{\footnote Ifelse}
+${\footnote \pard{}Comparing strings}\par
+\pard{\fs24\b Comparing strings}\par
+\par
+\pard{}{K{\footnote K comparing strings}}{K{\footnote K ifelse}}The other conditional, {\f1{}ifelse}, is much more powerful.  It can be used as a way to introduce a long comment, as an if-else construct, or as a multibranch, depending on the number of arguments supplied:\par
+\par
+{\pard\keep\li720\f1{}ifelse({\i comment})\line
+ifelse({\i string-1}, {\i string-2}, {\i equal}, opt {\i not-equal})\line
+ifelse({\i string-1}, {\i string-2}, {\i equal}, ...)\par
+\pard\f0{}}\par
+\pard{}Used with only one argument, the {\f1{}ifelse} simply discards it and produces no output.  This is a common {\f1{}m4} idiom for introducing a block comment, as an alternative to repeatedly using {\f1{}dnl}.  This special usage is recognized by GNU {\f1{}m4}, so that in this case, the warning about missing arguments is never triggered.\par
+\par
+\pard{}If called with three or four arguments, {\f1{}ifelse} expands into {\i equal}, if {\i string-1} and {\i string-2} are equal (character for character), otherwise it expands to {\i not-equal}.\par
+\par
+{\pard\keep\li720\f1{}ifelse(foo, bar, `true')\line
+=>\line
+ifelse(foo, foo, `true')\line
+=>true\line
+ifelse(foo, bar, `true', `false')\line
+=>false\line
+ifelse(foo, foo, `true', `false')\line
+=>true\par
+\pard\f0{}}\par
+\pard{}{K{\footnote K multibranches}}However, {\f1{}ifelse} can take more than four arguments.  If given more than four arguments, {\f1{}ifelse} works like a {\f1{}case} or {\f1{}switch} statement in traditional programming languages.  If {\i string-1} and {\i string-2} are equal, {\f1{}ifelse} expands into {\i equal}, otherwise the procedure is repeated with the first three arguments discarded.  This calls for an example:\par
+\par
+{\pard\keep\li720\f1{}ifelse(foo, bar, `third', gnu, gnats, `sixth', `seventh')\line
+=>seventh\par
+\pard\f0{}}\par
+\pard{}Naturally, the normal case will be slightly more advanced than these examples.  A common use of {\f1{}ifelse} is in macros implementing loops of various kinds.\par
+\par
+\pard{}The macro {\f1{}ifelse} is recognized only with parameters.\par
+\par
+\page\pard Node: {\b Loops}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Ifelse}{\v Ifelse}, Up: {\uldb Conditionals}{\v Conditionals}\line
+K{\footnote K Loops}
+#{\footnote Loops}
+${\footnote \pard{}Loops and recursion}\par
+\pard{\fs24\b Loops and recursion}\par
+\par
+\pard{}{K{\footnote K recursive macros}}{K{\footnote K macros, recursive}}There is no direct support for loops in {\f1{}m4}, but macros can be recursive.  There is no limit on the number of recursion levels, other than those enforced by your hardware and operating system.\par
+\par
+\pard{}{K{\footnote K loops}}Loops can be programmed using recursion and the conditionals described previously.\par
+\par
+\pard{}{K{\footnote K shift}}There is a builtin macro, {\f1{}shift}, which can, among other things, be used for iterating through the actual arguments to a macro:\par
+\par
+{\pard\keep\li720\f1{}shift(...)\par
+\pard\f0{}}\par
+\pard{}It takes any number of arguments, and expands to all but the first argument, separated by commas, with each argument quoted.\par
+\par
+{\pard\keep\li720\f1{}shift(bar)\line
+=>\line
+shift(foo, bar, baz)\line
+=>bar,baz\par
+\pard\f0{}}\par
+\pard{}An example of the use of {\f1{}shift} is this macro, which reverses the order of its arguments:\par
+\par
+{\pard\keep\li720\f1{}define(`reverse', `ifelse($#, 0, , $#, 1, ``$1'',\line
+			  `reverse(shift($@)), `$1'')')\line
+=>\line
+reverse\line
+=>\line
+reverse(foo)\line
+=>foo\line
+reverse(foo, bar, gnats, and gnus)\line
+=>and gnus, gnats, bar, foo\par
+\pard\f0{}}\par
+\pard{}While not a very interesting macro, it does show how simple loops can be made with {\f1{}shift}, {\f1{}ifelse} and recursion.\par
+\par
+\pard{}{K{\footnote K forloops}}{K{\footnote K loops, counting}}{K{\footnote K counting loops}}Here is an example of a loop macro that implements a simple forloop.  It can, for example, be used for simple counting:\par
+\par
+{\pard\keep\li720\f1{}forloop(`i', 1, 8, `i ')\line
+=>1 2 3 4 5 6 7 8\par
+\pard\f0{}}\par
+\pard{}The arguments are a name for the iteration variable, the starting value, the final value, and the text to be expanded for each iteration.  With this macro, the macro {\f1{}i} is defined only within the loop.  After the loop, it retains whatever value it might have had before.\par
+\par
+\pard{}For-loops can be nested, like\par
+\par
+{\pard\keep\li720\f1{}forloop(`i', 1, 4, `forloop(`j', 1, 8, `(i, j) ')\line
+')\line
+=>(1, 1) (1, 2) (1, 3) (1, 4) (1, 5) (1, 6) (1, 7) (1, 8)\line
+=>(2, 1) (2, 2) (2, 3) (2, 4) (2, 5) (2, 6) (2, 7) (2, 8)\line
+=>(3, 1) (3, 2) (3, 3) (3, 4) (3, 5) (3, 6) (3, 7) (3, 8)\line
+=>(4, 1) (4, 2) (4, 3) (4, 4) (4, 5) (4, 6) (4, 7) (4, 8)\line
+=>\par
+\pard\f0{}}\par
+\pard{}The implementation of the {\f1{}forloop} macro is fairly straightforward.  The {\f1{}forloop} macro itself is simply a wrapper, which saves the previous definition of the first argument, calls the internal macro {\f1{}_forloop}, and re-establishes the saved definition of the first argument.\par
+\par
+\pard{}The macro {\f1{}_forloop} expands the fourth argument once, and tests to see if it is finished.  If it has not finished, it increments the iteration variable (using the predefined macro {\f1{}incr}, see {\uldb Incr}{\v Incr}), and recurses.\par
+\par
+\pard{}Here is the actual implementation of {\f1{}forloop}:\par
+\par
+{\pard\keep\li720\f1{}define(`forloop',\line
+       `pushdef(`$1', `$2')_forloop(`$1', `$2', `$3', `$4')popdef(`$1')')\line
+define(`_forloop',\line
+       `$4`'ifelse($1, `$3', ,\line
+		   `define(`$1', incr($1))_forloop(`$1', `$2', `$3', `$4')')')\par
+\pard\f0{}}\par
+\pard{}Notice the careful use of quotes.  Only three macro arguments are unquoted, each for its own reason.  Try to find out {\i why} these three arguments are left unquoted, and see what happens if they are quoted.\par
+\par
+\pard{}Now, even though these two macros are useful, they are still not robust enough for general use. They lack even basic error handling of cases like start value less than final value, and the first argument not being a name.  Correcting these errors are left as an exercise to the reader.\par
+\par
+\page\pard Node: {\b Debugging}, \keepn Next: {\uldb Input Control}{\v Input_Control}, Prev: {\uldb Conditionals}{\v Conditionals}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Debugging}
+#{\footnote Debugging}
+${\footnote \pard{}How to debug macros and input}\par
+\pard{\fs24\b How to debug macros and input}\par
+\par
+\pard{}When writing macros for {\f1{}m4}, most of the time they woould not work as intended (as is the case with most programming languages).  There is a little support for macro debugging in {\f1{}m4}.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Dumpdef}{\v Dumpdef}\tab Displaying macro definitions\par
+{\uldb Trace}{\v Trace}\tab Tracing macro calls\par
+{\uldb Debug Levels}{\v Debug_Levels}\tab Controlling debugging output\par
+{\uldb Debug Output}{\v Debug_Output}\tab Saving debugging output\par
+\pard{}}\par
+\page\pard Node: {\b Dumpdef}, \keepn Next: {\uldb Trace}{\v Trace}, Prev: {\uldb Debugging}{\v Debugging}, Up: {\uldb Debugging}{\v Debugging}\line
+K{\footnote K Dumpdef}
+#{\footnote Dumpdef}
+${\footnote \pard{}Displaying macro definitions}\par
+\pard{\fs24\b Displaying macro definitions}\par
+\par
+\pard{}{K{\footnote K displaying macro definitions}}{K{\footnote K macros, displaying definitions}}{K{\footnote K definitions, displaying macro}}{K{\footnote K dumpdef}}If you want to see what a name expands into, you can use the builtin {\f1{}dumpdef}:\par
+\par
+{\pard\keep\li720\f1{}dumpdef(...)\par
+\pard\f0{}}\par
+\pard{}which accepts any number of arguments.  If called without any arguments, it displays the definitions of all known names, otherwise it displays the definitions of the names given.  The output is printed directly on the standard error output.\par
+\par
+\pard{}The expansion of {\f1{}dumpdef} is void.\par
+\par
+{\pard\keep\li720\f1{}define(`foo', `Hello world.')\line
+=>\line
+dumpdef(`foo')\line
+error-->foo:	`Hello world.'\line
+=>\line
+dumpdef(`define')\line
+error-->define:	<define>\line
+=>\par
+\pard\f0{}}\par
+\pard{}The last example shows how builtin macros definitions are displayed.\par
+\par
+\pard{}See {\uldb Debug Levels}{\v Debug_Levels} for information on controlling the details of the display.\par
+\par
+\page\pard Node: {\b Trace}, \keepn Next: {\uldb Debug Levels}{\v Debug_Levels}, Prev: {\uldb Dumpdef}{\v Dumpdef}, Up: {\uldb Debugging}{\v Debugging}\line
+K{\footnote K Trace}
+#{\footnote Trace}
+${\footnote \pard{}Tracing macro calls}\par
+\pard{\fs24\b Tracing macro calls}\par
+\par
+\pard{}{K{\footnote K tracing macro expansion}}{K{\footnote K macro expansion, tracing}}{K{\footnote K expansion, tracing macro}}{K{\footnote K traceon}}{K{\footnote K traceoff}}It is possible to trace macro calls and expansions through the builtins {\f1{}traceon} and {\f1{}traceoff}:\par
+\par
+{\pard\keep\li720\f1{}traceon(...)\line
+traceoff(...)\par
+\pard\f0{}}\par
+\pard{}When called without any arguments, {\f1{}traceon} and {\f1{}traceoff} will turn tracing on and off, respectively,  for all defined macros.  When called with arguments, only the named macros are affected.\par
+\par
+\pard{}The expansion of {\f1{}traceon} and {\f1{}traceoff} is void.\par
+\par
+\pard{}Whenever a traced macro is called and the arguments have been collected, the call is displayed.  If the expansion of the macro call is not void, the expansion can be displayed after the call.  The output is printed directly on the standard error output.\par
+\par
+{\pard\keep\li720\f1{}define(`foo', `Hello World.')\line
+=>\line
+define(`echo', `$@')\line
+=>\line
+traceon(`foo', `echo')\line
+=>\line
+foo\line
+error-->m4trace: -1- foo -> `Hello World.'\line
+=>Hello World.\line
+echo(gnus, and gnats)\line
+error-->m4trace: -1- echo(`gnus', `and gnats') -> ``gnus',`and gnats''\line
+=>gnus,and gnats\par
+\pard\f0{}}\par
+\pard{}The number between dashes is the depth of the expansion.  It is one most of the time, signifying an expansion at the outermost level, but it increases when macro arguments contain unquoted macro calls.\par
+\par
+\pard{}See {\uldb Debug Levels}{\v Debug_Levels} for information on controlling the details of the display.\par
+\par
+\page\pard Node: {\b Debug Levels}, \keepn Next: {\uldb Debug Output}{\v Debug_Output}, Prev: {\uldb Trace}{\v Trace}, Up: {\uldb Debugging}{\v Debugging}\line
+K{\footnote K Debug Levels}
+#{\footnote Debug_Levels}
+${\footnote \pard{}Controlling debugging output}\par
+\pard{\fs24\b Controlling debugging output}\par
+\par
+\pard{}{K{\footnote K controlling debugging output}}{K{\footnote K debugging output, controlling}}The {\f1{}-d} option to {\f1{}m4} controls the amount of details presented, when using the macros described in the preceding sections.\par
+\par
+\pard{}The {\i flags} following the option can be one or more of the following:\par
+\par
+{\pard{}{\f1{}t}\par
+\pard\li720{}Trace all macro calls made in this invocation of {\f1{}m4}.\par
+\par
+\pard{}{\f1{}a}\par
+\pard\li720{}Show the actual arguments in each macro call.  This applies to all macro calls if the {\f1{}t} flag is used, otherwise only the macros covered by calls of {\f1{}traceon}.\par
+\par
+\pard{}{\f1{}e}\par
+\pard\li720{}Show the expansion of each macro call, if it is not void.  This applies to all macro calls if the {\f1{}t} flag is used, otherwise only the macros covered by calls of {\f1{}traceon}.\par
+\par
+\pard{}{\f1{}q}\par
+\pard\li720{}Quote actual arguments and macro expansions in the display with the current quotes.\par
+\par
+\pard{}{\f1{}c}\par
+\pard\li720{}Show several trace lines for each macro call.  A line is shown when the macro is seen, but before the arguments are collected; a second line when the arguments have been collected and a third line after the call has completed.\par
+\par
+\pard{}{\f1{}x}\par
+\pard\li720{}Add a unique `macro call id' to each line of the trace output.  This is useful in connection with the {\f1{}c} flag above.\par
+\par
+\pard{}{\f1{}f}\par
+\pard\li720{}Show the name of the current input file in each trace output line.\par
+\par
+\pard{}{\f1{}l}\par
+\pard\li720{}Show the the current input line number in each trace output line.\par
+\par
+\pard{}{\f1{}p}\par
+\pard\li720{}Print a message when a named file is found through the path search mecanism (see {\uldb Search Path}{\v Search_Path}), giving the actual filename used.\par
+\par
+\pard{}{\f1{}i}\par
+\pard\li720{}Print a message each time the current input file is changed, giving file name and input line number.\par
+\par
+\pard{}{\f1{}V}\par
+\pard\li720{}A shorthand for all of the above flags.\par
+\pard{}}\par
+\pard{}If no flags are specified with the {\f1{}-d} option, the default is {\f1{}aeq}. The examples in the previous two sections assumed the default flags.\par
+\par
+\pard{}{K{\footnote K GNU extensions}}{K{\footnote K debugmode}}There is a builtin macro {\f1{}debugmode}, which allows on-the-fly control of the debugging output format:\par
+\par
+{\pard\keep\li720\f1{}debugmode(opt {\i flags})\par
+\pard\f0{}}\par
+\pard{}The argument {\i flags} should be a subset of the letters listed above.  As special cases, if the argument starts with a {\f1{}+}, the flags are added to the current debug flags, and if it starts with a {\f1{}-}, they are removed.  If no argument is present, the debugging flags are set to zero (as if no {\f1{}-d} was given), and with an empty argument the flags are reset to the default.\par
+\par
+\page\pard Node: {\b Debug Output}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Debug Levels}{\v Debug_Levels}, Up: {\uldb Debugging}{\v Debugging}\line
+K{\footnote K Debug Output}
+#{\footnote Debug_Output}
+${\footnote \pard{}Saving debugging output}\par
+\pard{\fs24\b Saving debugging output}\par
+\par
+\pard{}{K{\footnote K saving debugging output}}{K{\footnote K debugging output, saving}}{K{\footnote K output, saving debugging}}{K{\footnote K GNU extensions}}{K{\footnote K debugfile}}Debug and tracing output can be redirected to files using either the {\f1{}-o} option to {\f1{}m4}, or with the builtin macro {\f1{}debugfile}:\par
+\par
+{\pard\keep\li720\f1{}debugfile(opt {\i filename})\par
+\pard\f0{}}\par
+\pard{}will send all further debug and trace output to {\i filename}.  If {\i filename} is empty, debug and trace output are discarded and if {\f1{}debugfile} is called without any arguments, debug and trace output are sent to the standard error output.\par
+\par
+\page\pard Node: {\b Input Control}, \keepn Next: {\uldb File Inclusion}{\v File_Inclusion}, Prev: {\uldb Debugging}{\v Debugging}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Input Control}
+#{\footnote Input_Control}
+${\footnote \pard{}Input control}\par
+\pard{\fs24\b Input control}\par
+\par
+\pard{}This chapter describes various builtin macros for controlling the input to {\f1{}m4}.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Dnl}{\v Dnl}\tab Deleting whitespace in input\par
+{\uldb Changequote}{\v Changequote}\tab Changing the quote characters\par
+{\uldb Changecom}{\v Changecom}\tab Changing the comment delimiters\par
+{\uldb Changeword}{\v Changeword}\tab Changing the lexical structure of words\par
+{\uldb M4wrap}{\v M4wrap}\tab Saving input until end of input\par
+\pard{}}\par
+\page\pard Node: {\b Dnl}, \keepn Next: {\uldb Changequote}{\v Changequote}, Prev: {\uldb Input Control}{\v Input_Control}, Up: {\uldb Input Control}{\v Input_Control}\line
+K{\footnote K Dnl}
+#{\footnote Dnl}
+${\footnote \pard{}Deleting whitespace in input}\par
+\pard{\fs24\b Deleting whitespace in input}\par
+\par
+\pard{}{K{\footnote K deleting whitespace in input}}{K{\footnote K dnl}}The builtin {\f1{}dnl} reads and discards all characters, up to and including the first newline:\par
+\par
+{\pard\keep\li720\f1{}dnl\par
+\pard\f0{}}\par
+\pard{}and it is often used in connection with {\f1{}define}, to remove the newline that follow the call to {\f1{}define}.  Thus\par
+\par
+{\pard\keep\li720\f1{}define(`foo', `Macro `foo'.')dnl A very simple macro, indeed.\line
+foo\line
+=>Macro foo.\par
+\pard\f0{}}\par
+\pard{}The input up to and including the next newline is discarded, as opposed to the way comments are treated (see {\uldb Comments}{\v Comments}).\par
+\par
+\pard{}Usually, {\f1{}dnl} is immediately followed by an end of line or some other whitespace.  GNU {\f1{}m4} will produce a warning diagnostic if {\f1{}dnl} is followed by an open parenthesis.  In this case, {\f1{}dnl} will collect and process all arguments, looking for a matching close parenthesis.  All predictable side effects resulting from this collection will take place.  {\f1{}dnl} will return no output.  The input following the matching close parenthesis up to and including the next newline, on whatever line containing it, will still be discarded.\par
+\par
+\page\pard Node: {\b Changequote}, \keepn Next: {\uldb Changecom}{\v Changecom}, Prev: {\uldb Dnl}{\v Dnl}, Up: {\uldb Input Control}{\v Input_Control}\line
+K{\footnote K Changequote}
+#{\footnote Changequote}
+${\footnote \pard{}Changing the quote characters}\par
+\pard{\fs24\b Changing the quote characters}\par
+\par
+\pard{}{K{\footnote K changing the quote delimiters}}{K{\footnote K quote delimiters, changing the}}{K{\footnote K changequote}}The default quote delimiters can be changed with the builtin {\f1{}changequote}:\par
+\par
+{\pard\keep\li720\f1{}changequote(opt {\i start}, opt {\i end})\par
+\pard\f0{}}\par
+\pard{}where {\i start} is the new start-quote delimiter and {\i end} is the new end-quote delimiter.  If any of the arguments are missing, the default quotes ({\f1{}`} and {\f1{}'}) are used instead of the void arguments.\par
+\par
+\pard{}The expansion of {\f1{}changequote} is void.\par
+\par
+{\pard\keep\li720\f1{}changequote([, ])\line
+=>\line
+define([foo], [Macro [foo].])\line
+=>\line
+foo\line
+=>Macro foo.\par
+\pard\f0{}}\par
+\pard{}If no single character is appropriate, {\i start} and {\i end} can be of any length.\par
+\par
+{\pard\keep\li720\f1{}changequote([[, ]])\line
+=>\line
+define([[foo]], [[Macro [[[foo]]].]])\line
+=>\line
+foo\line
+=>Macro [foo].\par
+\pard\f0{}}\par
+\pard{}Changing the quotes to the empty strings will effectively disable the quoting mechanism, leaving no way to quote text.\par
+\par
+{\pard\keep\li720\f1{}define(`foo', `Macro `FOO'.')\line
+=>\line
+changequote(, )\line
+=>\line
+foo\line
+=>Macro `FOO'.\line
+`foo'\line
+=>`Macro `FOO'.'\par
+\pard\f0{}}\par
+\pard{}There is no way in {\f1{}m4} to quote a string containing an unmatched left quote, except using {\f1{}changequote} to change the current quotes.\par
+\par
+\pard{}Neither quote string should start with a letter or {\f1{}_} (underscore), as they will be confused with names in the input.  Doing so disables the quoting mechanism.\par
+\par
+\page\pard Node: {\b Changecom}, \keepn Next: {\uldb Changeword}{\v Changeword}, Prev: {\uldb Changequote}{\v Changequote}, Up: {\uldb Input Control}{\v Input_Control}\line
+K{\footnote K Changecom}
+#{\footnote Changecom}
+${\footnote \pard{}Changing comment delimiters}\par
+\pard{\fs24\b Changing comment delimiters}\par
+\par
+\pard{}{K{\footnote K changing comment delimiters}}{K{\footnote K comment delimiters, changing}}{K{\footnote K changecom}}The default comment delimiters can be changed with the builtin macro {\f1{}changecom}:\par
+\par
+{\pard\keep\li720\f1{}changecom(opt {\i start}, opt {\i end})\par
+\pard\f0{}}\par
+\pard{}where {\i start} is the new start-comment delimiter and {\i end} is the new end-comment delimiter.  If any of the arguments are void, the default comment delimiters ({\f1{}#} and newline) are used instead of the void arguments.  The comment delimiters can be of any length.\par
+\par
+\pard{}The expansion of {\f1{}changecom} is void.\par
+\par
+{\pard\keep\li720\f1{}define(`comment', `COMMENT')\line
+=>\line
+# A normal comment\line
+=># A normal comment\line
+changecom(`/*', `*/')\line
+=>\line
+# Not a comment anymore\line
+=># Not a COMMENT anymore\line
+But: /* this is a comment now */ while this is not a comment\line
+=>But: /* this is a comment now */ while this is not a COMMENT\par
+\pard\f0{}}\par
+\pard{}{K{\footnote K comments, copied to output}}Note how comments are copied to the output, much as if they were quoted strings.  If you want the text inside a comment expanded, quote the start comment delimiter.\par
+\par
+\pard{}Calling {\f1{}changecom} without any arguments disables the commenting mechanism completely.\par
+\par
+{\pard\keep\li720\f1{}define(`comment', `COMMENT')\line
+=>\line
+changecom\line
+=>\line
+# Not a comment anymore\line
+=># Not a COMMENT anymore\par
+\pard\f0{}}\par
+\page\pard Node: {\b Changeword}, \keepn Next: {\uldb M4wrap}{\v M4wrap}, Prev: {\uldb Changecom}{\v Changecom}, Up: {\uldb Input Control}{\v Input_Control}\line
+K{\footnote K Changeword}
+#{\footnote Changeword}
+${\footnote \pard{}Changing the lexical structure of words}\par
+\pard{\fs24\b Changing the lexical structure of words}\par
+\par
+\pard{}{K{\footnote K lexical structure of words}}{K{\footnote K words, lexical structure of}}{K{\footnote K changeword}}{\par
+\pard\li720{}The macro {\f1{}changeword} and all associated functionnality is experimental.  It is only available if the {\f1{}--enable-changeword} option was given to {\f1{}configure}, at GNU {\f1{}m4} installation time.  The functionnality might change or even go away in the future.  {\i Do not rely on it}.  Please direct your comments about it the same way you would do for bugs.\par
+\pard{}}\par
+\pard{}A file being processed by {\f1{}m4} is split into quoted strings, words (potential macro names) and simple tokens (any other single character).  Initially a word is defined by the following regular expression:\par
+\par
+{\pard\keep\li720\f1{}[_a-zA-Z][_a-zA-Z0-9]*\par
+\pard\f0{}}\par
+\pard{}Using {\f1{}changeword}, you can change this regular expression.  Relaxing {\f1{}m4}'s lexical rules might be useful (for example) if you wanted to apply translations to a file of numbers:\par
+\par
+{\pard\keep\li720\f1{}changeword(`[_a-zA-Z0-9]+')\line
+define(1, 0)\line
+=>1\par
+\pard\f0{}}\par
+\pard{}Tightening the lexical rules is less useful, because it will generally make some of the builtins unavailable.  You could use it to prevent accidental call of builtins, for example:\par
+\par
+{\pard\keep\li720\f1{}define(`_indir', defn(`indir'))\line
+changeword(`_[_a-zA-Z0-9]*')\line
+esyscmd(foo)\line
+_indir(`esyscmd', `ls')\par
+\pard\f0{}}\par
+\pard{}Because {\f1{}m4} constructs its words a character at a time, there is a restriction on the regular expressions that may be passed to {\f1{}changeword}.  This is that if your regular expression accepts {\f1{}foo}, it must also accept {\f1{}f} and {\f1{}fo}.\par
+\par
+{\f1{}\pard{}changeword} has another function.  If the regular expression supplied contains any bracketed subexpressions, then text outside the first of these is discarded before symbol lookup.  So:\par
+\par
+{\pard\keep\li720\f1{}changecom(`/*', `*/')\line
+changeword(`#\'5C([_a-zA-Z0-9]*\'5C)')\line
+#esyscmd(ls)\par
+\pard\f0{}}\par
+{\f1{}\pard{}m4} now requires a {\f1{}#} mark at the beginning of every macro invocation, so one can use {\f1{}m4} to preprocess shell scripts without getting {\f1{}shift} commands swallowed, and plain text without losing various common words.\par
+\par
+{\f1{}\pard{}m4}'s macro substitution is based on text, while TeX's is based on tokens.  {\f1{}changeword} can throw this difference into relief.  For example, here is the same idea represented in TeX and {\f1{}m4}.  First, the TeX version:\par
+\par
+{\pard\keep\li720\f1{}\'5Cdef\'5Ca\'7B\'5Cmessage\'7BHello\'7D\'7D\line
+\'5Ccatcode`\'5C@=0\line
+\'5Ccatcode`\'5C\'5C=12\line
+=>@a\line
+=>@bye\par
+\pard\f0{}}\par
+\pard{}Then, the {\f1{}m4} version:\par
+\par
+{\pard\keep\li720\f1{}define(a, `errprint(`Hello')')\line
+changeword(`@\'5C([_a-zA-Z0-9]*\'5C)')\line
+=>@a\par
+\pard\f0{}}\par
+\pard{}In the TeX example, the first line defines a macro {\f1{}a} to print the message {\f1{}Hello}.  The second line defines <@> to be usable instead of <\'5C> as an escape character.  The third line defines <\'5C> to be a normal printing character, not an escape.  The fourth line invokes the macro {\f1{}a}.  So, when TeX is run on this file, it displays the message {\f1{}Hello}.\par
+\par
+\pard{}When the {\f1{}m4} example is passed through {\f1{}m4}, it outputs {\f1{}errprint(Hello)}.  The reason for this is that TeX does lexical analysis of macro definition when the macro is {\i defined}.  {\f1{}m4} just stores the text, postponing the lexical analysis until the macro is {\i used}.\par
+\par
+\pard{}You should note that using {\f1{}changeword} will slow {\f1{}m4} down by a factor of about seven.\par
+\par
+\page\pard Node: {\b M4wrap}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Changeword}{\v Changeword}, Up: {\uldb Input Control}{\v Input_Control}\line
+K{\footnote K M4wrap}
+#{\footnote M4wrap}
+${\footnote \pard{}Saving input}\par
+\pard{\fs24\b Saving input}\par
+\par
+\pard{}{K{\footnote K saving input}}{K{\footnote K input, saving}}{K{\footnote K m4wrap}}It is possible to `save' some text until the end of the normal input has been seen.  Text can be saved, to be read again by {\f1{}m4} when the normal input has been exhausted.  This feature is normally used to initiate cleanup actions before normal exit, e.g., deleting temporary files.\par
+\par
+\pard{}To save input text, use the builtin {\f1{}m4wrap}:\par
+\par
+{\pard\keep\li720\f1{}m4wrap({\i string}, ...)\par
+\pard\f0{}}\par
+\pard{}which stores {\i string} and the rest of the arguments in a safe place, to be reread when end of input is reached.\par
+\par
+{\pard\keep\li720\f1{}define(`cleanup', `This is the `cleanup' actions.\line
+')\line
+=>\line
+m4wrap(`cleanup')\line
+=>\line
+This is the first and last normal input line.\line
+=>This is the first and last normal input line.\line
+^D\line
+=>This is the cleanup actions.\par
+\pard\f0{}}\par
+\pard{}The saved input is only reread when the end of normal input is seen, and not if {\f1{}m4exit} is used to exit {\f1{}m4}.\par
+\par
+\pard{}It is safe to call {\f1{}m4wrap} from saved text, but then the order in which the saved text is reread is undefined.  If {\f1{}m4wrap} is not used recursively, the saved pieces of text are reread in the opposite order in which they were saved (LIFO--last in, first out).\par
+\par
+\page\pard Node: {\b File Inclusion}, \keepn Next: {\uldb Diversions}{\v Diversions}, Prev: {\uldb Input Control}{\v Input_Control}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K File Inclusion}
+#{\footnote File_Inclusion}
+${\footnote \pard{}File inclusion}\par
+\pard{\fs24\b File inclusion}\par
+\par
+\pard{}{K{\footnote K file inclusion}}{K{\footnote K inclusion, of files}} {\f1{}m4} allows you to include named files at any point in the input.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Include}{\v Include}\tab Including named files\par
+{\uldb Search Path}{\v Search_Path}\tab Searching for include files\par
+\pard{}}\par
+\page\pard Node: {\b Include}, \keepn Next: {\uldb Search Path}{\v Search_Path}, Prev: {\uldb File Inclusion}{\v File_Inclusion}, Up: {\uldb File Inclusion}{\v File_Inclusion}\line
+K{\footnote K Include}
+#{\footnote Include}
+${\footnote \pard{}Including named files}\par
+\pard{\fs24\b Including named files}\par
+\par
+\pard{}{K{\footnote K include}}{K{\footnote K sinclude}}There are two builtin macros in {\f1{}m4} for including files:\par
+\par
+{\pard\keep\li720\f1{}include({\i filename})\line
+sinclude({\i filename})\par
+\pard\f0{}}\par
+\pard{}both of which cause the file named {\i filename} to be read by {\f1{}m4}.  When the end of the file is reached, input is resumed from the previous input file.\par
+\par
+\pard{}The expansion of {\f1{}include} and {\f1{}sinclude} is therefore the contents of {\i filename}.\par
+\par
+\pard{}It is an error for an {\f1{}include}d file not to exist.  If you do not want error messages about non-existent files, {\f1{}sinclude} can be used to include a file, if it exists, expanding to nothing if it does not.\par
+\par
+{\pard\keep\li720\f1{}include(`no-such-file')\line
+=>\line
+error-->30.include:2: m4: Cannot open no-such-file: No such file or directory\line
+sinclude(`no-such-file')\line
+=>\par
+\pard\f0{}}\par
+\pard{}Assume in the following that the file {\f1{}incl.m4} contains the lines: {\par
+\pard\keep\li720\f1{}Include file start\line
+foo\line
+Include file end\par
+\pard\f0{}}\par
+\pard{}Normally file inclusion is used to insert the contents of a file into the input stream.  The contents of the file will be read by {\f1{}m4} and macro calls in the file will be expanded:\par
+\par
+{\pard\keep\li720\f1{}define(`foo', `FOO')\line
+=>\line
+include(`incl.m4')\line
+=>Include file start\line
+=>FOO\line
+=>Include file end\line
+=>\par
+\pard\f0{}}\par
+\pard{}The fact that {\f1{}include} and {\f1{}sinclude} expand to the contents of the file can be used to define macros that operate on entire files.  Here is an example, which defines {\f1{}bar} to expand to the contents of {\f1{}incl.m4}:\par
+\par
+{\pard\keep\li720\f1{}define(`bar', include(`incl.m4'))\line
+=>\line
+This is `bar':  >>>bar<<<\line
+=>This is bar:  >>>Include file start\line
+=>foo\line
+=>Include file end\line
+=><<<\par
+\pard\f0{}}\par
+\pard{}This use of {\f1{}include} is not trivial, though, as files can contain quotes, commas and parentheses, which can interfere with the way the {\f1{}m4} parser works.\par
+\par
+\pard{}The builtin macros {\f1{}include} and {\f1{}sinclude} are recognized only when given arguments.\par
+\par
+\page\pard Node: {\b Search Path}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Include}{\v Include}, Up: {\uldb File Inclusion}{\v File_Inclusion}\line
+K{\footnote K Search Path}
+#{\footnote Search_Path}
+${\footnote \pard{}Searching for include files}\par
+\pard{\fs24\b Searching for include files}\par
+\par
+\pard{}{K{\footnote K search path for included files}}{K{\footnote K included files, search path for}}{K{\footnote K GNU extensions}}GNU {\f1{}m4} allows included files to be found in other directories than the current working directory.\par
+\par
+\pard{}If a file is not found in the current working directory, and the file name is not absolute, the file will be looked for in a specified search path.  First, the directories specified with the {\f1{}-I} option will be searched, in the order found on the command line.  Second, if the {\f1{}M4PATH} environment variable is set, it is expected to contain a colon-separated list of directories, which will be searched in order.\par
+\par
+\pard{}If the automatic search for include-files causes trouble, the {\f1{}p} debug flag (see {\uldb Debug Levels}{\v Debug_Levels}) can help isolate the problem.\par
+\par
+\page\pard Node: {\b Diversions}, \keepn Next: {\uldb Text handling}{\v Text_handling}, Prev: {\uldb File Inclusion}{\v File_Inclusion}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Diversions}
+#{\footnote Diversions}
+${\footnote \pard{}Diverting and undiverting output}\par
+\pard{\fs24\b Diverting and undiverting output}\par
+\par
+\pard{}Diversions are a way of temporarily saving output.  The output of {\f1{}m4} can at any time be diverted to a temporary file, and be reinserted into the output stream, \'A2undiverted\'A2, again at a later time.\par
+\par
+\pard{}Numbered diversions are counted from 0 upwards, diversion number 0 being the normal output stream.  The number of simultaneous diversions is limited mainly by the memory used to describe them, because GNU {\f1{}m4} tries to keep diversions in memory.  However, there is a limit to the overall memory usable by all diversions taken altogether (512K, currently).  When this maximum is about to be exceeded, a temporary file is opened to receive the contents of the biggest diversion still in memory, freeing this memory for other diversions.  So, it is theoretically possible that the number of diversions be limited by the number of available file descriptors.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Divert}{\v Divert}\tab Diverting output\par
+{\uldb Undivert}{\v Undivert}\tab Undiverting output\par
+{\uldb Divnum}{\v Divnum}\tab Diversion numbers\par
+{\uldb Cleardiv}{\v Cleardiv}\tab Discarding diverted text\par
+\pard{}}\par
+\page\pard Node: {\b Divert}, \keepn Next: {\uldb Undivert}{\v Undivert}, Prev: {\uldb Diversions}{\v Diversions}, Up: {\uldb Diversions}{\v Diversions}\line
+K{\footnote K Divert}
+#{\footnote Divert}
+${\footnote \pard{}Diverting output}\par
+\pard{\fs24\b Diverting output}\par
+\par
+\pard{}{K{\footnote K diverting output to files}}{K{\footnote K output, diverting to files}}{K{\footnote K files, diverting output to}}{K{\footnote K divert}}Output is diverted using {\f1{}divert}:\par
+\par
+{\pard\keep\li720\f1{}divert(opt {\i number})\par
+\pard\f0{}}\par
+\pard{}where {\i number} is the diversion to be used.  If {\i number} is left out, it is assumed to be zero.\par
+\par
+\pard{}The expansion of {\f1{}divert} is void.\par
+\par
+\pard{}When all the {\f1{}m4} input will have been processed, all existing diversions are automatically undiverted, in numerical order.\par
+\par
+{\pard\keep\li720\f1{}divert(1)\line
+This text is diverted.\line
+divert\line
+=>\line
+This text is not diverted.\line
+=>This text is not diverted.\line
+^D\line
+=>\line
+=>This text is diverted.\par
+\pard\f0{}}\par
+\pard{}Several calls of {\f1{}divert} with the same argument do not overwrite the previous diverted text, but append to it.\par
+\par
+\pard{}If output is diverted to a non-existent diversion, it is simply discarded.  This can be used to suppress unwanted output.  A common example of unwanted output is the trailing newlines after macro definitions.  Here is how to avoid them.\par
+\par
+{\pard\keep\li720\f1{}divert(-1)\line
+define(`foo', `Macro `foo'.')\line
+define(`bar', `Macro `bar'.')\line
+divert\line
+=>\par
+\pard\f0{}}\par
+\pard{}This is a common programming idiom in {\f1{}m4}.\par
+\par
+\page\pard Node: {\b Undivert}, \keepn Next: {\uldb Divnum}{\v Divnum}, Prev: {\uldb Divert}{\v Divert}, Up: {\uldb Diversions}{\v Diversions}\line
+K{\footnote K Undivert}
+#{\footnote Undivert}
+${\footnote \pard{}Undiverting output}\par
+\pard{\fs24\b Undiverting output}\par
+\par
+\pard{}{K{\footnote K undivert}}Diverted text can be undiverted explicitly using the builtin {\f1{}undivert}:\par
+\par
+{\pard\keep\li720\f1{}undivert(opt {\i number}, ...)\par
+\pard\f0{}}\par
+\pard{}which undiverts the diversions given by the arguments, in the order given.  If no arguments are supplied, all diversions are undiverted, in numerical order.\par
+\par
+\pard{}The expansion of {\f1{}undivert} is void.\par
+\par
+{\pard\keep\li720\f1{}divert(1)\line
+This text is diverted.\line
+divert\line
+=>\line
+This text is not diverted.\line
+=>This text is not diverted.\line
+undivert(1)\line
+=>\line
+=>This text is diverted.\line
+=>\par
+\pard\f0{}}\par
+\pard{}Notice the last two blank lines.  One of them comes from the newline following {\f1{}undivert}, the other from the newline that followed the {\f1{}divert}!  A diversion often starts with a blank line like this.\par
+\par
+\pard{}When diverted text is undiverted, it is {\i not} reread by {\f1{}m4}, but rather copied directly to the current output, and it is therefore not an error to undivert into a diversion.\par
+\par
+\pard{}When a diversion has been undiverted, the diverted text is discarded, and it is not possible to bring back diverted text more than once.\par
+\par
+{\pard\keep\li720\f1{}divert(1)\line
+This text is diverted first.\line
+divert(0)undivert(1)dnl\line
+=>\line
+=>This text is diverted first.\line
+undivert(1)\line
+=>\line
+divert(1)\line
+This text is also diverted but not appended.\line
+divert(0)undivert(1)dnl\line
+=>\line
+=>This text is also diverted but not appended.\par
+\pard\f0{}}\par
+\pard{}Attempts to undivert the current diversion are silently ignored.\par
+\par
+\pard{}{K{\footnote K GNU extensions}}{K{\footnote K file inclusion}}{K{\footnote K inclusion, of files}}GNU {\f1{}m4} allows named files to be undiverted.  Given a non-numeric argument, the contents of the file named will be copied, uninterpreted, to the current output.  This complements the builtin {\f1{}include} (see {\uldb Include}{\v Include}).  To illustrate the difference, assume the file {\f1{}foo} contains the word {\f1{}bar}:\par
+\par
+{\pard\keep\li720\f1{}define(`bar', `BAR')\line
+=>\line
+undivert(`foo')\line
+=>bar\line
+=>\line
+include(`foo')\line
+=>BAR\line
+=>\par
+\pard\f0{}}\par
+\page\pard Node: {\b Divnum}, \keepn Next: {\uldb Cleardiv}{\v Cleardiv}, Prev: {\uldb Undivert}{\v Undivert}, Up: {\uldb Diversions}{\v Diversions}\line
+K{\footnote K Divnum}
+#{\footnote Divnum}
+${\footnote \pard{}Diversion numbers}\par
+\pard{\fs24\b Diversion numbers}\par
+\par
+\pard{}{K{\footnote K diversion numbers}}{K{\footnote K divnum}}The builtin {\f1{}divnum}:\par
+\par
+{\pard\keep\li720\f1{}divnum\par
+\pard\f0{}}\par
+\pard{}expands to the number of the current diversion.\par
+\par
+{\pard\keep\li720\f1{}Initial divnum\line
+=>Initial 0\line
+divert(1)\line
+Diversion one: divnum\line
+divert(2)\line
+Diversion two: divnum\line
+divert\line
+=>\line
+^D\line
+=>\line
+=>Diversion one: 1\line
+=>\line
+=>Diversion two: 2\par
+\pard\f0{}}\par
+\pard{}The last call of {\f1{}divert} without argument is necessary, since the undiverted text would otherwise be diverted itself.\par
+\par
+\page\pard Node: {\b Cleardiv}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Divnum}{\v Divnum}, Up: {\uldb Diversions}{\v Diversions}\line
+K{\footnote K Cleardiv}
+#{\footnote Cleardiv}
+${\footnote \pard{}Discarding diverted text}\par
+\pard{\fs24\b Discarding diverted text}\par
+\par
+\pard{}{K{\footnote K discarding diverted text}}{K{\footnote K diverted text, discarding}}Often it is not known, when output is diverted, whether the diverted text is actually needed.  Since all non-empty diversion are brought back on the main output stream when the end of input is seen, a method of discarding a diversion is needed.  If all diversions should be discarded, the easiest is to end the input to {\f1{}m4} with {\f1{}divert(-1)} followed by an explicit {\f1{}undivert}:\par
+\par
+{\pard\keep\li720\f1{}divert(1)\line
+Diversion one: divnum\line
+divert(2)\line
+Diversion two: divnum\line
+divert(-1)\line
+undivert\line
+^D\par
+\pard\f0{}}\par
+\pard{}No output is produced at all.\par
+\par
+\pard{}Clearing selected diversions can be done with the following macro:\par
+\par
+{\pard\keep\li720\f1{}define(`cleardivert',\line
+`pushdef(`_num', divnum)divert(-1)undivert($@)divert(_num)popdef(`_num')')\line
+=>\par
+\pard\f0{}}\par
+\pard{}It is called just like {\f1{}undivert}, but the effect is to clear the diversions, given by the arguments.  (This macro has a nasty bug!  You should try to see if you can find it and correct it.)\par
+\par
+\page\pard Node: {\b Text handling}, \keepn Next: {\uldb Arithmetic}{\v Arithmetic}, Prev: {\uldb Diversions}{\v Diversions}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Text handling}
+#{\footnote Text_handling}
+${\footnote \pard{}Macros for text handling}\par
+\pard{\fs24\b Macros for text handling}\par
+\par
+\pard{}There are a number of builtins in {\f1{}m4} for manipulating text in various ways, extracting substrings, searching, substituting, and so on.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Len}{\v Len}\tab Calculating length of strings\par
+{\uldb Index}{\v Index}\tab Searching for substrings\par
+{\uldb Regexp}{\v Regexp}\tab Searching for regular expressions\par
+{\uldb Substr}{\v Substr}\tab Extracting substrings\par
+{\uldb Translit}{\v Translit}\tab Translating characters\par
+{\uldb Patsubst}{\v Patsubst}\tab Substituting text by regular expression\par
+{\uldb Format}{\v Format}\tab Formatting strings (printf-like)\par
+\pard{}}\par
+\page\pard Node: {\b Len}, \keepn Next: {\uldb Index}{\v Index}, Prev: {\uldb Text handling}{\v Text_handling}, Up: {\uldb Text handling}{\v Text_handling}\line
+K{\footnote K Len}
+#{\footnote Len}
+${\footnote \pard{}Calculating length of strings}\par
+\pard{\fs24\b Calculating length of strings}\par
+\par
+\pard{}{K{\footnote K length of strings}}{K{\footnote K strings, length of}}{K{\footnote K len}}The length of a string can be calculated by {\f1{}len}:\par
+\par
+{\pard\keep\li720\f1{}len({\i string})\par
+\pard\f0{}}\par
+\pard{}which expands to the length of {\i string}, as a decimal number.\par
+\par
+{\pard\keep\li720\f1{}len()\line
+=>0\line
+len(`abcdef')\line
+=>6\par
+\pard\f0{}}\par
+\pard{}The builtin macro {\f1{}len} is recognized only when given arguments.\par
+\par
+\page\pard Node: {\b Index}, \keepn Next: {\uldb Regexp}{\v Regexp}, Prev: {\uldb Len}{\v Len}, Up: {\uldb Text handling}{\v Text_handling}\line
+K{\footnote K Index}
+#{\footnote Index}
+${\footnote \pard{}Searching for substrings}\par
+\pard{\fs24\b Searching for substrings}\par
+\par
+\pard{}{K{\footnote K index}}Searching for substrings is done with {\f1{}index}:\par
+\par
+{\pard\keep\li720\f1{}index({\i string}, {\i substring})\par
+\pard\f0{}}\par
+\pard{}which expands to the index of the first occurrence of {\i substring} in {\i string}.  The first character in {\i string} has index 0.  If {\i substring} does not occur in {\i string}, {\f1{}index} expands to {\f1{}-1}.\par
+\par
+{\pard\keep\li720\f1{}index(`gnus, gnats, and armadillos', `nat')\line
+=>7\line
+index(`gnus, gnats, and armadillos', `dag')\line
+=>-1\par
+\pard\f0{}}\par
+\pard{}The builtin macro {\f1{}index} is recognized only when given arguments.\par
+\par
+\page\pard Node: {\b Regexp}, \keepn Next: {\uldb Substr}{\v Substr}, Prev: {\uldb Index}{\v Index}, Up: {\uldb Text handling}{\v Text_handling}\line
+K{\footnote K Regexp}
+#{\footnote Regexp}
+${\footnote \pard{}Searching for regular expressions}\par
+\pard{\fs24\b Searching for regular expressions}\par
+\par
+\pard{}{K{\footnote K regular expressions}}{K{\footnote K GNU extensions}}{K{\footnote K regexp}}Searching for regular expressions is done with the builtin {\f1{}regexp}:\par
+\par
+{\pard\keep\li720\f1{}regexp({\i string}, {\i regexp}, opt {\i replacement})\par
+\pard\f0{}}\par
+\pard{}which searches for {\i regexp} in {\i string}.  The syntax for regular expressions is the same as in GNU Emacs.  See {\uldb Syntax of Regular Expressions}{\v Regexps @emacs.hlp}.\par
+\par
+\pard{}If {\i replacement} is omitted, {\f1{}regexp} expands to the index of the first match of {\i regexp} in {\i string}.  If {\i regexp} does not match anywhere in {\i string}, it expands to -1.\par
+\par
+{\pard\keep\li720\f1{}regexp(`GNUs not Unix', `\'5C<[a-z]\'5Cw+')\line
+=>5\line
+regexp(`GNUs not Unix', `\'5C<Q\'5Cw*')\line
+=>-1\par
+\pard\f0{}}\par
+\pard{}If {\i replacement} is supplied, {\f1{}regexp} changes the expansion to this argument, with {\f1{}\'5C{\i n}} substituted by the text matched by the {\i n}th parenthesized sub-expression of {\i regexp}, {\f1{}\'5C&} being the text the entire regular expression matched.\par
+\par
+{\pard\keep\li720\f1{}regexp(`GNUs not Unix', `\'5Cw\'5C(\'5Cw+\'5C)$', `*** \'5C& *** \'5C1 ***')\line
+=>*** Unix *** nix ***\par
+\pard\f0{}}\par
+\pard{}The builtin macro {\f1{}regexp} is recognized only when given arguments.\par
+\par
+\page\pard Node: {\b Substr}, \keepn Next: {\uldb Translit}{\v Translit}, Prev: {\uldb Regexp}{\v Regexp}, Up: {\uldb Text handling}{\v Text_handling}\line
+K{\footnote K Substr}
+#{\footnote Substr}
+${\footnote \pard{}Extracting substrings}\par
+\pard{\fs24\b Extracting substrings}\par
+\par
+\pard{}{K{\footnote K extracting substrings}}{K{\footnote K substrings, extracting}}{K{\footnote K substr}}Substrings are extracted with {\f1{}substr}:\par
+\par
+{\pard\keep\li720\f1{}substr({\i string}, {\i from}, opt {\i length})\par
+\pard\f0{}}\par
+\pard{}which expands to the substring of {\i string}, which starts at index {\i from}, and extends for {\i length} characters, or to the end of {\i string}, if {\i length} is omitted.  The starting index of a string is always 0.\par
+\par
+{\pard\keep\li720\f1{}substr(`gnus, gnats, and armadillos', 6)\line
+=>gnats, and armadillos\line
+substr(`gnus, gnats, and armadillos', 6, 5)\line
+=>gnats\par
+\pard\f0{}}\par
+\pard{}The builtin macro {\f1{}substr} is recognized only when given arguments.\par
+\par
+\page\pard Node: {\b Translit}, \keepn Next: {\uldb Patsubst}{\v Patsubst}, Prev: {\uldb Substr}{\v Substr}, Up: {\uldb Text handling}{\v Text_handling}\line
+K{\footnote K Translit}
+#{\footnote Translit}
+${\footnote \pard{}Translating characters}\par
+\pard{\fs24\b Translating characters}\par
+\par
+\pard{}{K{\footnote K translating characters}}{K{\footnote K characters, translating}}{K{\footnote K translit}}Character translation is done with {\f1{}translit}:\par
+\par
+{\pard\keep\li720\f1{}translit({\i string}, {\i chars}, {\i replacement})\par
+\pard\f0{}}\par
+\pard{}which expands to {\i string}, with each character that occurs in {\i chars} translated into the character from {\i replacement} with the same index.\par
+\par
+\pard{}If {\i replacement} is shorter than {\i chars}, the excess characters are deleted from the expansion.  If {\i replacement} is omitted, all characters in {\i string}, that are present in {\i chars} are deleted from the expansion.\par
+\par
+\pard{}Both {\i chars} and {\i replacement} can contain character-ranges, e.g., {\f1{}a-z} (meaning all lowercase letters) or {\f1{}0-9} (meaning all digits).  To include a dash {\f1{}-} in {\i chars} or {\i replacement}, place it first or last.\par
+\par
+\pard{}It is not an error for the last character in the range to be `larger' than the first.  In that case, the range runs backwards, i.e., {\f1{}9-0} means the string {\f1{}9876543210}.\par
+\par
+{\pard\keep\li720\f1{}translit(`GNUs not Unix', `A-Z')\line
+=>s not nix\line
+translit(`GNUs not Unix', `a-z', `A-Z')\line
+=>GNUS NOT UNIX\line
+translit(`GNUs not Unix', `A-Z', `z-a')\line
+=>tmfs not fnix\par
+\pard\f0{}}\par
+\pard{}The first example deletes all uppercase letters, the second converts lowercase to uppercase, and the third `mirrors' all uppercase letters, while converting them to lowercase.  The two first cases are by far the most common.\par
+\par
+\pard{}The builtin macro {\f1{}translit} is recognized only when given arguments.\par
+\par
+\page\pard Node: {\b Patsubst}, \keepn Next: {\uldb Format}{\v Format}, Prev: {\uldb Translit}{\v Translit}, Up: {\uldb Text handling}{\v Text_handling}\line
+K{\footnote K Patsubst}
+#{\footnote Patsubst}
+${\footnote \pard{}Substituting text by regular expression}\par
+\pard{\fs24\b Substituting text by regular expression}\par
+\par
+\pard{}{K{\footnote K regular expressions}}{K{\footnote K pattern substitution}}{K{\footnote K substitution by regular expression}}{K{\footnote K GNU extensions}}{K{\footnote K patsubst}}Global substitution in a string is done by {\f1{}patsubst}:\par
+\par
+{\pard\keep\li720\f1{}patsubst({\i string}, {\i regexp}, opt {\i replacement})\par
+\pard\f0{}}\par
+\pard{}which searches {\i string} for matches of {\i regexp}, and substitutes {\i replacement} for each match.  The syntax for regular expressions is the same as in GNU Emacs.\par
+\par
+\pard{}The parts of {\i string} that are not covered by any match of {\i regexp} are copied to the expansion.  Whenever a match is found, the search proceeds from the end of the match, so a character from {\i string} will never be substituted twice.  If {\i regexp} matches a string of zero length, the start position for the search is incremented, to avoid infinite loops.\par
+\par
+\pard{}When a replacement is to be made, {\i replacement} is inserted into the expansion, with {\f1{}\'5C{\i n}} substituted by the text matched by the {\i n}th parenthesized sub-expression of {\i regexp}, {\f1{}\'5C&} being the text the entire regular expression matched.\par
+\par
+\pard{}The {\i replacement} argument can be omitted, in which case the text matched by {\i regexp} is deleted.\par
+\par
+{\pard\keep\li720\f1{}patsubst(`GNUs not Unix', `^', `OBS: ')\line
+=>OBS: GNUs not Unix\line
+patsubst(`GNUs not Unix', `\'5C<', `OBS: ')\line
+=>OBS: GNUs OBS: not OBS: Unix\line
+patsubst(`GNUs not Unix', `\'5Cw*', `(\'5C&)')\line
+=>(GNUs)() (not)() (Unix)\line
+patsubst(`GNUs not Unix', `\'5Cw+', `(\'5C&)')\line
+=>(GNUs) (not) (Unix)\line
+patsubst(`GNUs not Unix', `[A-Z][a-z]+')\line
+=>GN not\par
+\pard\f0{}}\par
+\pard{}Here is a slightly more realistic example, which capitalizes individual word or whole sentences, by substituting calls of the macros {\f1{}upcase} and {\f1{}downcase} into the strings.\par
+\par
+{\pard\keep\li720\f1{}define(`upcase', `translit(`$*', `a-z', `A-Z')')dnl\line
+define(`downcase', `translit(`$*', `A-Z', `a-z')')dnl\line
+define(`capitalize1',\line
+     `regexp(`$1', `^\'5C(\'5Cw\'5C)\'5C(\'5Cw*\'5C)', `upcase(`\'5C1')`'downcase(`\'5C2')')')dnl\line
+define(`capitalize',\line
+     `patsubst(`$1', `\'5Cw+', `capitalize1(`\'5C&')')')dnl\line
+capitalize(`GNUs not Unix')\line
+=>Gnus Not Unix\par
+\pard\f0{}}\par
+\pard{}The builtin macro {\f1{}patsubst} is recognized only when given arguments.\par
+\par
+\page\pard Node: {\b Format}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Patsubst}{\v Patsubst}, Up: {\uldb Text handling}{\v Text_handling}\line
+K{\footnote K Format}
+#{\footnote Format}
+${\footnote \pard{}Formatted output}\par
+\pard{\fs24\b Formatted output}\par
+\par
+\pard{}{K{\footnote K formatted output}}{K{\footnote K output, formatted}}{K{\footnote K GNU extensions}}{K{\footnote K format}}Formatted output can be made with {\f1{}format}:\par
+\par
+{\pard\keep\li720\f1{}format({\i format-string}, ...)\par
+\pard\f0{}}\par
+\pard{}which works much like the C function {\f1{}printf}.  The first argument is a format string, which can contain {\f1{}%} specifications, and the expansion of {\f1{}format} is the formatted string.\par
+\par
+\pard{}Its use is best described by a few examples:\par
+\par
+{\pard\keep\li720\f1{}define(`foo', `The brown fox jumped over the lazy dog')\line
+=>\line
+format(`The string "%s" is %d characters long', foo, len(foo))\line
+=>The string "The brown fox jumped over the lazy dog" is 38 characters long\par
+\pard\f0{}}\par
+\pard{}Using the {\f1{}forloop} macro defined in See {\uldb Loops}{\v Loops}, this example shows how {\f1{}format} can be used to produce tabular output.\par
+\par
+{\pard\keep\li720\f1{}forloop(`i', 1, 10, `format(`%6d squared is %10d\line
+', i, eval(i**2))')\line
+=>     1 squared is	    1\line
+=>     2 squared is	    4\line
+=>     3 squared is	    9\line
+=>     4 squared is	   16\line
+=>     5 squared is	   25\line
+=>     6 squared is	   36\line
+=>     7 squared is	   49\line
+=>     8 squared is	   64\line
+=>     9 squared is	   81\line
+=>    10 squared is	  100\par
+\pard\f0{}}\par
+\pard{}The builtin {\f1{}format} is modeled after the ANSI C {\f1{}printf} function, and supports the normal {\f1{}%} specifiers: {\f1{}c}, {\f1{}s}, {\f1{}d}, {\f1{}o}, {\f1{}x}, {\f1{}X}, {\f1{}u}, {\f1{}e}, {\f1{}E} and {\f1{}f}; it supports field widths and precisions, and the modifiers {\f1{}+}, {\f1{}-}, {\f1{} }, {\f1{}0}, {\f1{}#}, {\f1{}h} and {\f1{}l}.  For more details on the functioning of {\f1{}printf}, see the C Library Manual.\par
+\par
+\page\pard Node: {\b Arithmetic}, \keepn Next: {\uldb UNIX commands}{\v UNIX_commands}, Prev: {\uldb Text handling}{\v Text_handling}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Arithmetic}
+#{\footnote Arithmetic}
+${\footnote \pard{}Macros for doing arithmetic}\par
+\pard{\fs24\b Macros for doing arithmetic}\par
+\par
+\pard{}{K{\footnote K arithmetic}}{K{\footnote K integer arithmetic}}Integer arithmetic is included in {\f1{}m4}, with a C-like syntax.  As convenient shorthands, there are builtins for simple increment and decrement operations.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Incr}{\v Incr}\tab Decrement and increment operators\par
+{\uldb Eval}{\v Eval}\tab Evaluating integer expressions\par
+\pard{}}\par
+\page\pard Node: {\b Incr}, \keepn Next: {\uldb Eval}{\v Eval}, Prev: {\uldb Arithmetic}{\v Arithmetic}, Up: {\uldb Arithmetic}{\v Arithmetic}\line
+K{\footnote K Incr}
+#{\footnote Incr}
+${\footnote \pard{}Decrement and increment operators}\par
+\pard{\fs24\b Decrement and increment operators}\par
+\par
+\pard{}{K{\footnote K decrement operator}}{K{\footnote K increment operator}}{K{\footnote K incr}}{K{\footnote K decr}}Increment and decrement of integers are supported using the builtins {\f1{}incr} and {\f1{}decr}:\par
+\par
+{\pard\keep\li720\f1{}incr({\i number})\line
+decr({\i number})\par
+\pard\f0{}}\par
+\pard{}which expand to the numerical value of {\i number}, incremented, or decremented, respectively, by one.\par
+\par
+{\pard\keep\li720\f1{}incr(4)\line
+=>5\line
+decr(7)\line
+=>6\par
+\pard\f0{}}\par
+\pard{}The builtin macros {\f1{}incr} and {\f1{}decr} are recognized only when given arguments.\par
+\par
+\page\pard Node: {\b Eval}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Incr}{\v Incr}, Up: {\uldb Arithmetic}{\v Arithmetic}\line
+K{\footnote K Eval}
+#{\footnote Eval}
+${\footnote \pard{}Evaluating integer expressions}\par
+\pard{\fs24\b Evaluating integer expressions}\par
+\par
+\pard{}{K{\footnote K integer expression evaluation}}{K{\footnote K evaluation, of integer expressions}}{K{\footnote K expressions, evaluation of integer}}{K{\footnote K eval}}Integer expressions are evaluated with {\f1{}eval}:\par
+\par
+{\pard\keep\li720\f1{}eval({\i expression}, opt {\i radix}, opt {\i width})\par
+\pard\f0{}}\par
+\pard{}which expands to the value of {\i expression}.\par
+\par
+\pard{}Expressions can contain the following operators, listed in order of decreasing precedence.\par
+\par
+{\pard{}{\f1{}-}\par
+\pard\li720{}Unary minus\par
+\par
+\pard{}{\f1{}**}\par
+\pard\li720{}Exponentiation\par
+\par
+\pard{}{\f1{}*  /  %}\par
+\pard\li720{}Multiplication, division and modulo\par
+\par
+\pard{}{\f1{}+  -}\par
+\pard\li720{}Addition and subtraction\par
+\par
+\pard{}{\f1{}<<  >>}\par
+\pard\li720{}Shift left or right\par
+\par
+\pard{}{\f1{}==  !=  >  >=  <  <=}\par
+\pard\li720{}Relational operators\par
+\par
+\pard{}{\f1{}!}\par
+\pard\li720{}Logical negation\par
+\par
+\pard{}{\f1{}~}\par
+\pard\li720{}Bitwise negation\par
+\par
+\pard{}{\f1{}&}\par
+\pard\li720{}Bitwise and\par
+\par
+\pard{}{\f1{}^}\par
+\pard\li720{}Bitwise exclusive-or\par
+\par
+\pard{}{\f1{}|}\par
+\pard\li720{}Bitwise or\par
+\par
+\pard{}{\f1{}&&}\par
+\pard\li720{}Logical and\par
+\par
+\pard{}{\f1{}||}\par
+\pard\li720{}Logical or\par
+\pard{}}\par
+\pard{}All operators, except exponentiation, are left associative.\par
+\par
+\pard{}Note that many {\f1{}m4} implementations use {\f1{}^} as an alternate operator for the exponentiation, while many others use {\f1{}^} for the bitwise exclusive-or.  GNU {\f1{}m4} changed its behavior: it used to exponentiate for {\f1{}^}, it now computes the bitwise exclusive-or.\par
+\par
+\pard{}Numbers without special prefix are given decimal.  A simple {\f1{}0} prefix introduces an octal number.  {\f1{}0x} introduces an hexadecimal number.  {\f1{}0b} introduces a binary number.  {\f1{}0r} introduces a number expressed in any radix between 1 and 36: the prefix should be immediately followed by the decimal expression of the radix, a colon, then the digits making the number.  For any radix, the digits are {\f1{}0}, {\f1{}1}, {\f1{}2}, ....  Beyond {\f1{}9}, the digits are {\f1{}a}, {\f1{}b} ... up to {\f1{}z}.  Lower and upper case letters can be used interchangeably in numbers prefixes and as number digits.\par
+\par
+\pard{}Parentheses may be used to group subexpressions whenever needed.  For the relational operators, a true relation returns {\f1{}1}, and a false relation return {\f1{}0}.\par
+\par
+\pard{}Here are a few examples of use of {\f1{}eval}.\par
+\par
+{\pard\keep\li720\f1{}eval(-3 * 5)\line
+=>-15\line
+eval(index(`Hello world', `llo') >= 0)\line
+=>1\line
+define(`square', `eval(($1)**2)')\line
+=>\line
+square(9)\line
+=>81\line
+square(square(5)+1)\line
+=>676\line
+define(`foo', `666')\line
+=>\line
+eval(`foo'/6)\line
+error-->51.eval:14: m4: Bad expression in eval: foo/6\line
+=>\line
+eval(foo/6)\line
+=>111\par
+\pard\f0{}}\par
+\pard{}As the second to last example shows, {\f1{}eval} does not handle macro names, even if they expand to a valid expression (or part of a valid expression).  Therefore all macros must be expanded before they are passed to {\f1{}eval}.\par
+\par
+\pard{}If {\i radix} is specified, it specifies the radix to be used in the expansion.  The default radix is 10.  The result of {\f1{}eval} is always taken to be signed.  The {\i width} argument specifies a minimum output width.  The result is zero-padded to extend the expansion to the requested width.\par
+\par
+{\pard\keep\li720\f1{}eval(666, 10)\line
+=>666\line
+eval(666, 11)\line
+=>556\line
+eval(666, 6)\line
+=>3030\line
+eval(666, 6, 10)\line
+=>0000003030\line
+eval(-666, 6, 10)\line
+=>-000003030\par
+\pard\f0{}}\par
+\pard{}Take note that {\i radix} cannot be larger than 36.\par
+\par
+\pard{}The builtin macro {\f1{}eval} is recognized only when given arguments.\par
+\par
+\page\pard Node: {\b UNIX commands}, \keepn Next: {\uldb Miscellaneous}{\v Miscellaneous}, Prev: {\uldb Arithmetic}{\v Arithmetic}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K UNIX commands}
+#{\footnote UNIX_commands}
+${\footnote \pard{}Running UNIX commands}\par
+\pard{\fs24\b Running UNIX commands}\par
+\par
+\pard{}{K{\footnote K executing UNIX commands}}{K{\footnote K running UNIX commands}}{K{\footnote K UNIX commands, running}}{K{\footnote K commands, running UNIX}}There are a few builtin macros in {\f1{}m4} that allow you to run UNIX commands from within {\f1{}m4}.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Syscmd}{\v Syscmd}\tab Executing simple commands\par
+{\uldb Esyscmd}{\v Esyscmd}\tab Reading the output of commands\par
+{\uldb Sysval}{\v Sysval}\tab Exit codes\par
+{\uldb Maketemp}{\v Maketemp}\tab Making names for temporary files\par
+\pard{}}\par
+\page\pard Node: {\b Syscmd}, \keepn Next: {\uldb Esyscmd}{\v Esyscmd}, Prev: {\uldb UNIX commands}{\v UNIX_commands}, Up: {\uldb UNIX commands}{\v UNIX_commands}\line
+K{\footnote K Syscmd}
+#{\footnote Syscmd}
+${\footnote \pard{}Executing simple commands}\par
+\pard{\fs24\b Executing simple commands}\par
+\par
+\pard{}{K{\footnote K syscmd}}Any shell command can be executed, using {\f1{}syscmd}:\par
+\par
+{\pard\keep\li720\f1{}syscmd({\i shell-command})\par
+\pard\f0{}}\par
+\pard{}which executes {\i shell-command} as a shell command.\par
+\par
+\pard{}The expansion of {\f1{}syscmd} is void, {\i not} the output from {\i shell-command}!  Output or error messages from {\i shell-command} are not read by {\f1{}m4}.  See {\uldb Esyscmd}{\v Esyscmd} if you need to process the command output.\par
+\par
+\pard{}Prior to executing the command, {\f1{}m4} flushes its output buffers.  The default standard input, output and error of {\i shell-command} are the same as those of {\f1{}m4}.\par
+\par
+\pard{}The builtin macro {\f1{}syscmd} is recognized only when given arguments.\par
+\par
+\page\pard Node: {\b Esyscmd}, \keepn Next: {\uldb Sysval}{\v Sysval}, Prev: {\uldb Syscmd}{\v Syscmd}, Up: {\uldb UNIX commands}{\v UNIX_commands}\line
+K{\footnote K Esyscmd}
+#{\footnote Esyscmd}
+${\footnote \pard{}Reading the output of commands}\par
+\pard{\fs24\b Reading the output of commands}\par
+\par
+\pard{}{K{\footnote K esyscmd}}{K{\footnote K GNU extensions}}If you want {\f1{}m4} to read the output of a UNIX command, use {\f1{}esyscmd}:\par
+\par
+{\pard\keep\li720\f1{}esyscmd({\i shell-command})\par
+\pard\f0{}}\par
+\pard{}which expands to the standard output of the shell command {\i shell-command}.\par
+\par
+\pard{}Prior to executing the command, {\f1{}m4} flushes its output buffers.  The default standard input and error output of {\i shell-command} are the same as those of {\f1{}m4}.  The error output of {\i shell-command} is not a part of the expansion: it will appear along with the error output of {\f1{}m4}.\par
+\par
+\pard{}Assume you are positioned into the {\f1{}checks} directory of GNU {\f1{}m4} distribution, then:\par
+\par
+{\pard\keep\li720\f1{}define(`vice', `esyscmd(grep Vice ../COPYING)')\line
+=>\line
+vice\line
+=>  Ty Coon, President of Vice\line
+=>\par
+\pard\f0{}}\par
+\pard{}Note how the expansion of {\f1{}esyscmd} has a trailing newline.\par
+\par
+\pard{}The builtin macro {\f1{}esyscmd} is recognized only when given arguments.\par
+\par
+\page\pard Node: {\b Sysval}, \keepn Next: {\uldb Maketemp}{\v Maketemp}, Prev: {\uldb Esyscmd}{\v Esyscmd}, Up: {\uldb UNIX commands}{\v UNIX_commands}\line
+K{\footnote K Sysval}
+#{\footnote Sysval}
+${\footnote \pard{}Exit codes}\par
+\pard{\fs24\b Exit codes}\par
+\par
+\pard{}{K{\footnote K exit code from UNIX commands}}{K{\footnote K UNIX commands, exit code from}}{K{\footnote K commands, exit code from UNIX}}{K{\footnote K sysval}}To see whether a shell command succeeded, use {\f1{}sysval}:\par
+\par
+{\pard\keep\li720\f1{}sysval\par
+\pard\f0{}}\par
+\pard{}which expands to the exit status of the last shell command run with {\f1{}syscmd} or {\f1{}esyscmd}.\par
+\par
+{\pard\keep\li720\f1{}syscmd(`false')\line
+=>\line
+ifelse(sysval, 0, zero, non-zero)\line
+=>non-zero\line
+syscmd(`true')\line
+=>\line
+sysval\line
+=>0\par
+\pard\f0{}}\par
+\page\pard Node: {\b Maketemp}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Sysval}{\v Sysval}, Up: {\uldb UNIX commands}{\v UNIX_commands}\line
+K{\footnote K Maketemp}
+#{\footnote Maketemp}
+${\footnote \pard{}Making names for temporary files}\par
+\pard{\fs24\b Making names for temporary files}\par
+\par
+\pard{}{K{\footnote K temporary filenames}}{K{\footnote K files, names of temporary}}{K{\footnote K maketemp}}Commands specified to {\f1{}syscmd} or {\f1{}esyscmd} might need a temporary file, for output or for some other purpose.  There is a builtin macro, {\f1{}maketemp}, for making temporary file names:\par
+\par
+{\pard\keep\li720\f1{}maketemp({\i template})\par
+\pard\f0{}}\par
+\pard{}which expands to a name of a non-existent file, made from the string {\i template}, which should end with the string {\f1{}XXXXXX}.  The six {\f1{}X}'s are then replaced, usually with something that includes the process id of the {\f1{}m4} process, in order to make the filename unique.\par
+\par
+{\pard\keep\li720\f1{}maketemp(`/tmp/fooXXXXXX')\line
+=>/tmp/fooa07346\line
+maketemp(`/tmp/fooXXXXXX')\line
+=>/tmp/fooa07346\par
+\pard\f0{}}\par
+\pard{}As seen in the example, several calls of {\f1{}maketemp} might expand to the same string, since the selection criteria is whether the file exists or not.  If a file has not been created before the next call, the two macro calls might expand to the same name.\par
+\par
+\pard{}The builtin macro {\f1{}maketemp} is recognized only when given arguments.\par
+\par
+\page\pard Node: {\b Miscellaneous}, \keepn Next: {\uldb Frozen files}{\v Frozen_files}, Prev: {\uldb UNIX commands}{\v UNIX_commands}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Miscellaneous}
+#{\footnote Miscellaneous}
+${\footnote \pard{}Miscellaneous builtin macros}\par
+\pard{\fs24\b Miscellaneous builtin macros}\par
+\par
+\pard{}This chapter describes various builtins, that do not really belong in any of the previous chapters.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Errprint}{\v Errprint}\tab Printing error messages\par
+{\uldb M4exit}{\v M4exit}\tab Exiting from m4\par
+\pard{}}\par
+\page\pard Node: {\b Errprint}, \keepn Next: {\uldb M4exit}{\v M4exit}, Prev: {\uldb Miscellaneous}{\v Miscellaneous}, Up: {\uldb Miscellaneous}{\v Miscellaneous}\line
+K{\footnote K Errprint}
+#{\footnote Errprint}
+${\footnote \pard{}Printing error messages}\par
+\pard{\fs24\b Printing error messages}\par
+\par
+\pard{}{K{\footnote K printing error messages}}{K{\footnote K error messages, printing}}{K{\footnote K messages, printing error}}{K{\footnote K errprint}}You can print error messages using {\f1{}errprint}:\par
+\par
+{\pard\keep\li720\f1{}errprint({\i message}, ...)\par
+\pard\f0{}}\par
+\pard{}which simply prints {\i message} and the rest of the arguments on the standard error output.\par
+\par
+\pard{}The expansion of {\f1{}errprint} is void.\par
+\par
+{\pard\keep\li720\f1{}errprint(`Illegal arguments to forloop\line
+')\line
+error-->Illegal arguments to forloop\line
+=>\par
+\pard\f0{}}\par
+\pard{}A trailing newline is {\i not} printed automatically, so it must be supplied as part of the argument, as in the example.  (BSD flavored {\f1{}m4}'s do append a trailing newline on each {\f1{}errprint} call).\par
+\par
+\pard{}To make it possible to specify the location of the error, two utility builtins exist:\par
+\par
+\pard{}{K{\footnote K file}}{K{\footnote K line}}{\par
+\pard\keep\li720\f1{}__file__\line
+__line__\par
+\pard\f0{}}\par
+\pard{}which expands to the quoted name of the current input file, and the current input line number in that file.\par
+\par
+{\pard\keep\li720\f1{}errprint(`m4:'__file__:__line__: `Input error\line
+')\line
+error-->m4:56.errprint:2: Input error\line
+=>\par
+\pard\f0{}}\par
+\page\pard Node: {\b M4exit}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Errprint}{\v Errprint}, Up: {\uldb Miscellaneous}{\v Miscellaneous}\line
+K{\footnote K M4exit}
+#{\footnote M4exit}
+${\footnote \pard{}Exiting from {\f1{}m4}}\par
+\pard{\fs24\b Exiting from {\f1{}m4}}\par
+\par
+\pard{}{K{\footnote K exiting from {\f1{}m4}}}{K{\footnote K m4exit}}If you need to exit from {\f1{}m4} before the entire input has been read, you can use {\f1{}m4exit}:\par
+\par
+{\pard\keep\li720\f1{}m4exit(opt {\i code})\par
+\pard\f0{}}\par
+\pard{}which causes {\f1{}m4} to exit, with exit code {\i code}.  If {\i code} is left out, the exit code is zero.\par
+\par
+{\pard\keep\li720\f1{}define(`fatal_error', `errprint(`m4: '__file__: __line__`: fatal error: $*\line
+')m4exit(1)')\line
+=>\line
+fatal_error(`This is a BAD one, buster')\line
+error-->m4: 57.m4exit: 5: fatal error: This is a BAD one, buster\par
+\pard\f0{}}\par
+\pard{}After this macro call, {\f1{}m4} will exit with exit code 1.  This macro is only intended for error exits, since the normal exit procedures are not followed, e.g., diverted text is not undiverted, and saved text (see {\uldb M4wrap}{\v M4wrap}) is not reread.\par
+\par
+\page\pard Node: {\b Frozen files}, \keepn Next: {\uldb Compatibility}{\v Compatibility}, Prev: {\uldb Miscellaneous}{\v Miscellaneous}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Frozen files}
+#{\footnote Frozen_files}
+${\footnote \pard{}Fast loading of frozen states}\par
+\pard{\fs24\b Fast loading of frozen states}\par
+\par
+\pard{}{K{\footnote K fast loading of frozen files}}{K{\footnote K frozen files for fast loading}}{K{\footnote K initialization, frozen states}}{K{\footnote K dumping into frozen file}}{K{\footnote K reloading a frozen file}}{K{\footnote K GNU extensions}}Some bigger {\f1{}m4} applications may be built over a common base containing hundreds of definitions and other costly initializations.  Usually, the common base is kept in one or more declarative files, which files are listed on each {\f1{}m4} invocation prior to the user's input file, or else, {\f1{}include}'d from this input file.\par
+\par
+\pard{}Reading the common base of a big application, over and over again, may be time consuming.  GNU {\f1{}m4} offers some machinery to speed up the start of an application using lengthy common bases.  Presume the user repeatedly uses:\par
+\par
+{\pard\keep\li720\f1{}m4 base.m4 input.m4\par
+\pard\f0{}}\par
+\pard{}with a varying contents of {\f1{}input.m4}, but a rather fixed contents for {\f1{}base.m4}.  Then, the user might rather execute:\par
+\par
+{\pard\keep\li720\f1{}m4 -F base.m4f base.m4\par
+\pard\f0{}}\par
+\pard{}once, and further execute, as often as needed:\par
+\par
+{\pard\keep\li720\f1{}m4 -R base.m4f input.m4\par
+\pard\f0{}}\par
+\pard{}with the varying input.  The first call, containing the {\f1{}-F} option, only reads and executes file {\f1{}base.m4}, so defining various application macros and computing other initializations.  Only once the input file {\f1{}base.m4} has been completely processed, GNU {\f1{}m4} produces on {\f1{}base.m4f} a \'A2frozen\'A2 file, that is, a file which contains a kind of snapshot of the {\f1{}m4} internal state.\par
+\par
+\pard{}Later calls, containing the {\f1{}-R} option, are able to reload the internal state of {\f1{}m4}'s memory, from {\f1{}base.m4f}, {\i prior} to reading any other input files.  By this mean, instead of starting with a virgin copy of {\f1{}m4}, input will be read after having effectively recovered the effect of a prior run.  In our example, the effect is the same as if file {\f1{}base.m4} has been read anew.  However, this effect is achieved a lot faster.\par
+\par
+\pard{}Only one frozen file may be created or read in any one {\f1{}m4} invocation.  It is not possible to recover two frozen files at once.  However, frozen files may be updated incrementally, through using {\f1{}-R} and {\f1{}-F} options simultaneously.  For example, if some care is taken, the command:\par
+\par
+{\pard\keep\li720\f1{}m4 file1.m4 file2.m4 file3.m4 file4.m4\par
+\pard\f0{}}\par
+\pard{}could be broken down in the following sequence, accumulating the same output:\par
+\par
+{\pard\keep\li720\f1{}m4 -F file1.m4f file1.m4\line
+m4 -R file1.m4f -F file2.m4f file2.m4\line
+m4 -R file2.m4f -F file3.m4f file3.m4\line
+m4 -R file3.m4f file4.m4\par
+\pard\f0{}}\par
+\pard{}Some care is necessary because not every effort has been made for this to work in all cases.  In particular, the trace attribute of macros is not handled, nor the current setting of {\f1{}changeword}.  Also, interactions for some options of {\f1{}m4} being used in one call and not for the next, have not been fully analyzed yet.  On the other end, you may be confident that stacks of {\f1{}pushdef}'ed definitions are handled correctly, so are {\f1{}undefine}'d or renamed builtins, changed strings for quotes or comments.\par
+\par
+\pard{}When an {\f1{}m4} run is to be frozen, the automatic undiversion which takes place at end of execution is inhibited.  Instead, all positively numbered diversions are saved into the frozen file.  The active diversion number is also transmitted.\par
+\par
+\pard{}A frozen file to be reloaded need not reside in the current directory.  It is looked up the same way as an {\f1{}include} file (see {\uldb Search Path}{\v Search_Path}).\par
+\par
+\pard{}Frozen files are sharable across architectures.  It is safe to write a frozen file one one machine and read it on another, given that the second machine uses the same, or a newer version of GNU {\f1{}m4}.  These are simple (editable) text files, made up of directives, each starting with a capital letter and ending with a newline (<NL>).  Wherever a directive is expected, the character {\f1{}#} introduces a comment line, empty lines are also ignored.  In the following descriptions, {\i length}s always refer to corresponding {\i string}s.  Numbers are always expressed in decimal.  The directives are:\par
+\par
+{\pard{}{\f1{}V {\i number} <NL>}\par
+\pard\li720{}Confirms the format of the file.  {\i number} should be 1.\par
+\par
+\pard{}{\f1{}C {\i length1} , {\i length2} <NL> {\i string1} {\i string2} <NL>}\par
+\pard\li720{}Uses {\i string1} and {\i string2} as the beginning comment and end comment strings.\par
+\par
+\pard{}{\f1{}Q {\i length1} , {\i length2} <NL> {\i string1} {\i string2} <NL>}\par
+\pard\li720{}Uses {\i string1} and {\i string2} as the beginning quote and end quote strings.\par
+\par
+\pard{}{\f1{}F {\i length1} , {\i length2} <NL> {\i string1} {\i string2} <NL>}\par
+\pard\li720{}Defines, through {\f1{}pushdef}, a definition for {\i string1} expanding to the function whose builtin name is {\i string2}.\par
+\par
+\pard{}{\f1{}T {\i length1} , {\i length2} <NL> {\i string1} {\i string2} <NL>}\par
+\pard\li720{}Defines, though {\f1{}pushdef}, a definition for {\i string1} expanding to the text given by {\i string2}.\par
+\par
+\pard{}{\f1{}D {\i number}, {\i length} <NL> {\i string} <NL>}\par
+\pard\li720{}Selects diversion {\i number}, making it current, then copy {\i string} in the current diversion.  {\i number} may be a negative number for a non-existing diversion.  To merely specify an active selection, use this command with an empty {\i string}.  With 0 as the diversion {\i number}, {\i string} will be issued on standard output at reload time, however this may not be produced from within {\f1{}m4}.\par
+\par
+\pard{}}\par
+\page\pard Node: {\b Compatibility}, \keepn Next: {\uldb Concept index}{\v Concept_index}, Prev: {\uldb Frozen files}{\v Frozen_files}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Compatibility}
+#{\footnote Compatibility}
+${\footnote \pard{}Compatibility with other versions of {\f1{}m4}}\par
+\pard{\fs24\b Compatibility with other versions of {\f1{}m4}}\par
+\par
+\pard{}{K{\footnote K compatibility}}This chapter describes the differences between this implementation of {\f1{}m4}, and the implementation found under UNIX, notably System V, Release 3.\par
+\par
+\pard{}There are also differences in BSD flavors of {\f1{}m4}.  No attempt is made to summarize these here.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Extensions}{\v Extensions}\tab Extensions in GNU m4\par
+{\uldb Incompatibilities}{\v Incompatibilities}\tab Facilities in System V m4 not in GNU m4\par
+{\uldb Other Incompat}{\v Other_Incompat}\tab Other incompatibilities\par
+\pard{}}\par
+\page\pard Node: {\b Extensions}, \keepn Next: {\uldb Incompatibilities}{\v Incompatibilities}, Prev: {\uldb Compatibility}{\v Compatibility}, Up: {\uldb Compatibility}{\v Compatibility}\line
+K{\footnote K Extensions}
+#{\footnote Extensions}
+${\footnote \pard{}Extensions in GNU {\f1{}m4}}\par
+\pard{\fs24\b Extensions in GNU {\f1{}m4}}\par
+\par
+\pard{}{K{\footnote K GNU extensions}}This version of {\f1{}m4} contains a few facilities, that do not exist in System V {\f1{}m4}.  These extra facilities are all suppressed by using the {\f1{}-G} command line option, unless overridden by other command line options.\par
+\par
+{\pard\fi-720\li720\tx144\tx720{}\tab{}{\f2\'B7}\tab{}In the {\f1{}$}{\i n} notation for macro arguments, {\i n} can contain several digits, while the System V {\f1{}m4} only accepts one digit.  This allows macros in GNU {\f1{}m4} to take any number of arguments, and not only nine (see {\uldb Arguments}{\v Arguments}).\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}{\f2\'B7}\tab{}Files included with {\f1{}include} and {\f1{}sinclude} are sought in a user specified search path, if they are not found in the working directory.  The search path is specified by the {\f1{}-I} option and the {\f1{}M4PATH} environment variable (see {\uldb Search Path}{\v Search_Path}).\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}{\f2\'B7}\tab{}Arguments to {\f1{}undivert} can be non-numeric, in which case the named file will be included uninterpreted in the output (see {\uldb Undivert}{\v Undivert}).\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}{\f2\'B7}\tab{}Formatted output is supported through the {\f1{}format} builtin, which is modeled after the C library function {\f1{}printf} (see {\uldb Format}{\v Format}).\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}{\f2\'B7}\tab{}Searches and text substitution through regular expressions are supported by the {\f1{}regexp} (see {\uldb Regexp}{\v Regexp}) and {\f1{}patsubst} (see {\uldb Patsubst}{\v Patsubst}) builtins.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}{\f2\'B7}\tab{}The output of shell commands can be read into {\f1{}m4} with {\f1{}esyscmd} (see {\uldb Esyscmd}{\v Esyscmd}).\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}{\f2\'B7}\tab{}There is indirect access to any builtin macro with {\f1{}builtin} (see {\uldb Builtin}{\v Builtin}).\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}{\f2\'B7}\tab{}Macros can be called indirectly through {\f1{}indir} (see {\uldb Indir}{\v Indir}).\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}{\f2\'B7}\tab{}The name of the current input file and the current input line number are accessible through the builtins {\f1{}__file__} and {\f1{}__line__} (see {\uldb Errprint}{\v Errprint}).\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}{\f2\'B7}\tab{}The format of the output from {\f1{}dumpdef} and macro tracing can be controlled with {\f1{}debugmode} (see {\uldb Debug Levels}{\v Debug_Levels}).\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}{\f2\'B7}\tab{}The destination of trace and debug output can be controlled with {\f1{}debugfile} (see {\uldb Debug Output}{\v Debug_Output}).\par
+\pard{}}\par
+\pard{}In addition to the above extensions, GNU {\f1{}m4} implements the following command line options: {\f1{}-F}, {\f1{}-G}, {\f1{}-I}, {\f1{}-L}, {\f1{}-R}, {\f1{}-V}, {\f1{}-W}, {\f1{}-d}, {\f1{}-l}, {\f1{}-o} and {\f1{}-t}.  See {\uldb Invoking m4}{\v Invoking_m4}, for a description of these options.\par
+\par
+\pard{}Also, the debugging and tracing facilities in GNU {\f1{}m4} are much more extensive than in most other versions of {\f1{}m4}.\par
+\par
+\page\pard Node: {\b Incompatibilities}, \keepn Next: {\uldb Other Incompat}{\v Other_Incompat}, Prev: {\uldb Extensions}{\v Extensions}, Up: {\uldb Compatibility}{\v Compatibility}\line
+K{\footnote K Incompatibilities}
+#{\footnote Incompatibilities}
+${\footnote \pard{}Facilities in System V {\f1{}m4} not in GNU {\f1{}m4}}\par
+\pard{\fs24\b Facilities in System V {\f1{}m4} not in GNU {\f1{}m4}}\par
+\par
+\pard{}The version of {\f1{}m4} from System V contains a few facilities that have not been implemented in GNU {\f1{}m4} yet.\par
+\par
+{\pard\fi-720\li720\tx144\tx720{}\tab{}{\f2\'B7}\tab{}System V {\f1{}m4} supports multiple arguments to {\f1{}defn}.  This is not implemented in GNU {\f1{}m4}.  Its usefulness is unclear to me.\par
+\pard{}}\par
+\page\pard Node: {\b Other Incompat}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Incompatibilities}{\v Incompatibilities}, Up: {\uldb Compatibility}{\v Compatibility}\line
+K{\footnote K Other Incompat}
+#{\footnote Other_Incompat}
+${\footnote \pard{}Other incompatibilities}\par
+\pard{\fs24\b Other incompatibilities}\par
+\par
+\pard{}There are a few other incompatibilities between this implementation of {\f1{}m4}, and the System V version.\par
+\par
+{\pard\fi-720\li720\tx144\tx720{}\tab{}{\f2\'B7}\tab{}GNU {\f1{}m4} implements sync lines differently from System V {\f1{}m4}, when text is being diverted.  GNU {\f1{}m4} outputs the sync lines when the text is being diverted, and System V {\f1{}m4} when the diverted text is being brought back.\par
+\par
+\pard\li720{}The problem is which lines and filenames should be attached to text that is being, or has been, diverted.  System V {\f1{}m4} regards all the diverted text as being generated by the source line containing the {\f1{}undivert} call, whereas GNU {\f1{}m4} regards the diverted text as being generated at the time it is diverted.\par
+\par
+\pard\li720{}I expect the sync line option to be used mostly when using {\f1{}m4} as a front end to a compiler.  If a diverted line causes a compiler error, the error messages should most probably refer to the place where the diversion were made, and not where it was inserted again.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}{\f2\'B7}\tab{}GNU {\f1{}m4} makes no attempt at prohiting autoreferential definitions like:\par
+\par
+{\pard\keep\li1440\f1{}define(`x', `x')\line
+define(`x', `x ')\par
+\pard\li720\f0{}}\par
+\pard\li720{}There is nothing inherently wrong with defining {\f1{}x} to return {\f1{}x}.  The wrong thing is to expand {\f1{}x} unquoted.  In {\f1{}m4}, one might use macros to hold strings, as we do for variables in other programming languages, further checking them with:\par
+\par
+{\pard\keep\li1440\f1{}ifelse(defn(`{\i holder}'), `{\i value}', ...)\par
+\pard\li720\f0{}}\par
+\pard\li720{}In cases like this one, an interdiction for a macro to hold its own name would be a useless limitation.  Of course, this leave more rope for the GNU {\f1{}m4} user to hang himself!  Rescanning hangs may be avoided through careful programming, a little like for endless loops in traditional programming languages.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}{\f2\'B7}\tab{}{K{\footnote K gnu}}GNU {\f1{}m4} without {\f1{}-G} option will define the macro {\f1{}__gnu__} to expand to the empty string.\par
+\par
+\pard\li720{}{K{\footnote K unix}}On UNIX systems, GNU {\f1{}m4} without the {\f1{}-G} option will define the macro {\f1{}__unix__}, otherwise the macro {\f1{}unix}.  Both will expand to the empty string.\par
+\pard{}}\par
+\page\pard Node: {\b Concept index}, \keepn Next: {\uldb Macro index}{\v Macro_index}, Prev: {\uldb Compatibility}{\v Compatibility}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Concept index}
+#{\footnote Concept_index}
+${\footnote \pard{}Concept index}\par
+\pard{\fs24\b Concept index}\par
+\par
+{\fi-2880\li2880\tx2880arguments to macros:\tab {\uldb Macro Arguments}{\v Macro_Arguments}.\par}{\fi-2880\li2880\tx2880Arguments to macros:\tab {\uldb Arguments}{\v Arguments}.\par}{\fi-2880\li2880\tx2880arguments to macros, special:\tab {\uldb Pseudo Arguments}{\v Pseudo_Arguments}.\par}{\fi-2880\li2880\tx2880arguments, quoted macro:\tab {\uldb Quoting Arguments}{\v Quoting_Arguments}.\par}{\fi-2880\li2880\tx2880arithmetic:\tab {\uldb Arithmetic}{\v Arithmetic}.\par}{\fi-2880\li2880\tx2880builtins, indirect call of:\tab {\uldb Builtin}{\v Builtin}.\par}{\fi-2880\li2880\tx2880call of builtins, indirect:\tab {\uldb Builtin}{\v Builtin}.\par}{\fi-2880\li2880\tx2880call of macros, indirect:\tab {\uldb Indir}{\v Indir}.\par}{\fi-2880\li2880\tx2880changing comment delimiters:\tab {\uldb Changecom}{\v Changecom}.\par}{\fi-2880\li2880\tx2880changing the quote delimiters:\tab {\uldb Changequote}{\v Changequote}.\par}{\fi-2880\li2880\tx2880characters, translating:\tab {\uldb Translit}{\v Translit}.\par}{\fi-2880\li2880\tx2880command line, filenames on the:\tab {\uldb Invoking m4}{\v Invoking_m4}.\par}{\fi-2880\li2880\tx2880command line, macro definitions on the:\tab {\uldb Invoking m4}{\v Invoking_m4}.\par}{\fi-2880\li2880\tx2880command line, options:\tab {\uldb Invoking m4}{\v Invoking_m4}.\par}{\fi-2880\li2880\tx2880commands, exit code from UNIX:\tab {\uldb Sysval}{\v Sysval}.\par}{\fi-2880\li2880\tx2880commands, running UNIX:\tab {\uldb UNIX commands}{\v UNIX_commands}.\par}{\fi-2880\li2880\tx2880comment delimiters, changing:\tab {\uldb Changecom}{\v Changecom}.\par}{\fi-2880\li2880\tx2880comments:\tab {\uldb Comments}{\v Comments}.\par}{\fi-2880\li2880\tx2880comments, copied to output:\tab {\uldb Changecom}{\v Changecom}.\par}{\fi-2880\li2880\tx2880comparing strings:\tab {\uldb Ifelse}{\v Ifelse}.\par}{\fi-2880\li2880\tx2880compatibility:\tab {\uldb Compatibility}{\v Compatibility}.\par}{\fi-2880\li2880\tx2880conditionals:\tab {\uldb Ifdef}{\v Ifdef}.\par}{\fi-2880\li2880\tx2880controlling debugging output:\tab {\uldb Debug Levels}{\v Debug_Levels}.\par}{\fi-2880\li2880\tx2880counting loops:\tab {\uldb Loops}{\v Loops}.\par}{\fi-2880\li2880\tx2880debugging output, controlling:\tab {\uldb Debug Levels}{\v Debug_Levels}.\par}{\fi-2880\li2880\tx2880debugging output, saving:\tab {\uldb Debug Output}{\v Debug_Output}.\par}{\fi-2880\li2880\tx2880decrement operator:\tab {\uldb Incr}{\v Incr}.\par}{\fi-2880\li2880\tx2880defining new macros:\tab {\uldb Definitions}{\v Definitions}.\par}{\fi-2880\li2880\tx2880definitions, displaying macro:\tab {\uldb Dumpdef}{\v Dumpdef}.\par}{\fi-2880\li2880\tx2880deleting macros:\tab {\uldb Undefine}{\v Undefine}.\par}{\fi-2880\li2880\tx2880deleting whitespace in input:\tab {\uldb Dnl}{\v Dnl}.\par}{\fi-2880\li2880\tx2880discarding diverted text:\tab {\uldb Cleardiv}{\v Cleardiv}.\par}{\fi-2880\li2880\tx2880displaying macro definitions:\tab {\uldb Dumpdef}{\v Dumpdef}.\par}{\fi-2880\li2880\tx2880diversion numbers:\tab {\uldb Divnum}{\v Divnum}.\par}{\fi-2880\li2880\tx2880diverted text, discarding:\tab {\uldb Cleardiv}{\v Cleardiv}.\par}{\fi-2880\li2880\tx2880diverting output to files:\tab {\uldb Divert}{\v Divert}.\par}{\fi-2880\li2880\tx2880dumping into frozen file:\tab {\uldb Frozen files}{\v Frozen_files}.\par}{\fi-2880\li2880\tx2880error messages, printing:\tab {\uldb Errprint}{\v Errprint}.\par}{\fi-2880\li2880\tx2880evaluation, of integer expressions:\tab {\uldb Eval}{\v Eval}.\par}{\fi-2880\li2880\tx2880executing UNIX commands:\tab {\uldb UNIX commands}{\v UNIX_commands}.\par}{\fi-2880\li2880\tx2880exit code from UNIX commands:\tab {\uldb Sysval}{\v Sysval}.\par}{\fi-2880\li2880\tx2880exiting from {\f1{}m4}:\tab {\uldb M4exit}{\v M4exit}.\par}{\fi-2880\li2880\tx2880expansion of macros:\tab {\uldb Macro expansion}{\v Macro_expansion}.\par}{\fi-2880\li2880\tx2880expansion, tracing macro:\tab {\uldb Trace}{\v Trace}.\par}{\fi-2880\li2880\tx2880expressions, evaluation of integer:\tab {\uldb Eval}{\v Eval}.\par}{\fi-2880\li2880\tx2880extracting substrings:\tab {\uldb Substr}{\v Substr}.\par}{\fi-2880\li2880\tx2880fast loading of frozen files:\tab {\uldb Frozen files}{\v Frozen_files}.\par}{\fi-2880\li2880\tx2880file inclusion <1>:\tab {\uldb Undivert}{\v Undivert}.\par}{\fi-2880\li2880\tx2880file inclusion:\tab {\uldb File Inclusion}{\v File_Inclusion}.\par}{\fi-2880\li2880\tx2880filenames, on the command line:\tab {\uldb Invoking m4}{\v Invoking_m4}.\par}{\fi-2880\li2880\tx2880files, diverting output to:\tab {\uldb Divert}{\v Divert}.\par}{\fi-2880\li2880\tx2880files, names of temporary:\tab {\uldb Maketemp}{\v Maketemp}.\par}{\fi-2880\li2880\tx2880forloops:\tab {\uldb Loops}{\v Loops}.\par}{\fi-2880\li2880\tx2880formatted output:\tab {\uldb Format}{\v Format}.\par}{\fi-2880\li2880\tx2880frozen files for fast loading:\tab {\uldb Frozen files}{\v Frozen_files}.\par}{\fi-2880\li2880\tx2880GNU extensions <1>:\tab {\uldb Builtin}{\v Builtin}.\par}{\fi-2880\li2880\tx2880GNU extensions <2>:\tab {\uldb Format}{\v Format}.\par}{\fi-2880\li2880\tx2880GNU extensions <3>:\tab {\uldb Undivert}{\v Undivert}.\par}{\fi-2880\li2880\tx2880GNU extensions <4>:\tab {\uldb Regexp}{\v Regexp}.\par}{\fi-2880\li2880\tx2880GNU extensions <5>:\tab {\uldb Patsubst}{\v Patsubst}.\par}{\fi-2880\li2880\tx2880GNU extensions <6>:\tab {\uldb Indir}{\v Indir}.\par}{\fi-2880\li2880\tx2880GNU extensions <7>:\tab {\uldb Arguments}{\v Arguments}.\par}{\fi-2880\li2880\tx2880GNU extensions <8>:\tab {\uldb Search Path}{\v Search_Path}.\par}{\fi-2880\li2880\tx2880GNU extensions <9>:\tab {\uldb Frozen files}{\v Frozen_files}.\par}{\fi-2880\li2880\tx2880GNU extensions <10>:\tab {\uldb Debug Output}{\v Debug_Output}.\par}{\fi-2880\li2880\tx2880GNU extensions <11>:\tab {\uldb Extensions}{\v Extensions}.\par}{\fi-2880\li2880\tx2880GNU extensions <12>:\tab {\uldb Esyscmd}{\v Esyscmd}.\par}{\fi-2880\li2880\tx2880GNU extensions:\tab {\uldb Debug Levels}{\v Debug_Levels}.\par}{\fi-2880\li2880\tx2880included files, search path for:\tab {\uldb Search Path}{\v Search_Path}.\par}{\fi-2880\li2880\tx2880inclusion, of files <1>:\tab {\uldb Undivert}{\v Undivert}.\par}{\fi-2880\li2880\tx2880inclusion, of files:\tab {\uldb File Inclusion}{\v File_Inclusion}.\par}{\fi-2880\li2880\tx2880increment operator:\tab {\uldb Incr}{\v Incr}.\par}{\fi-2880\li2880\tx2880indirect call of builtins:\tab {\uldb Builtin}{\v Builtin}.\par}{\fi-2880\li2880\tx2880indirect call of macros:\tab {\uldb Indir}{\v Indir}.\par}{\fi-2880\li2880\tx2880initialization, frozen states:\tab {\uldb Frozen files}{\v Frozen_files}.\par}{\fi-2880\li2880\tx2880input tokens:\tab {\uldb Syntax}{\v Syntax}.\par}{\fi-2880\li2880\tx2880input, saving:\tab {\uldb M4wrap}{\v M4wrap}.\par}{\fi-2880\li2880\tx2880integer arithmetic:\tab {\uldb Arithmetic}{\v Arithmetic}.\par}{\fi-2880\li2880\tx2880integer expression evaluation:\tab {\uldb Eval}{\v Eval}.\par}{\fi-2880\li2880\tx2880length of strings:\tab {\uldb Len}{\v Len}.\par}{\fi-2880\li2880\tx2880lexical structure of words:\tab {\uldb Changeword}{\v Changeword}.\par}{\fi-2880\li2880\tx2880loops:\tab {\uldb Loops}{\v Loops}.\par}{\fi-2880\li2880\tx2880loops, counting:\tab {\uldb Loops}{\v Loops}.\par}{\fi-2880\li2880\tx2880macro definitions, on the command line:\tab {\uldb Invoking m4}{\v Invoking_m4}.\par}{\fi-2880\li2880\tx2880macro expansion, tracing:\tab {\uldb Trace}{\v Trace}.\par}{\fi-2880\li2880\tx2880macro invocation:\tab {\uldb Invocation}{\v Invocation}.\par}{\fi-2880\li2880\tx2880macros, arguments to <1>:\tab {\uldb Macro Arguments}{\v Macro_Arguments}.\par}{\fi-2880\li2880\tx2880macros, arguments to:\tab {\uldb Arguments}{\v Arguments}.\par}{\fi-2880\li2880\tx2880macros, displaying definitions:\tab {\uldb Dumpdef}{\v Dumpdef}.\par}{\fi-2880\li2880\tx2880macros, expansion of:\tab {\uldb Macro expansion}{\v Macro_expansion}.\par}{\fi-2880\li2880\tx2880macros, how to define new:\tab {\uldb Definitions}{\v Definitions}.\par}{\fi-2880\li2880\tx2880macros, how to delete:\tab {\uldb Undefine}{\v Undefine}.\par}{\fi-2880\li2880\tx2880macros, how to rename:\tab {\uldb Defn}{\v Defn}.\par}{\fi-2880\li2880\tx2880macros, indirect call of:\tab {\uldb Indir}{\v Indir}.\par}{\fi-2880\li2880\tx2880macros, quoted arguments to:\tab {\uldb Quoting Arguments}{\v Quoting_Arguments}.\par}{\fi-2880\li2880\tx2880macros, recursive:\tab {\uldb Loops}{\v Loops}.\par}{\fi-2880\li2880\tx2880macros, special arguments to:\tab {\uldb Pseudo Arguments}{\v Pseudo_Arguments}.\par}{\fi-2880\li2880\tx2880macros, temporary redefinition of:\tab {\uldb Pushdef}{\v Pushdef}.\par}{\fi-2880\li2880\tx2880messages, printing error:\tab {\uldb Errprint}{\v Errprint}.\par}{\fi-2880\li2880\tx2880multibranches:\tab {\uldb Ifelse}{\v Ifelse}.\par}{\fi-2880\li2880\tx2880names:\tab {\uldb Names}{\v Names}.\par}{\fi-2880\li2880\tx2880options, command line:\tab {\uldb Invoking m4}{\v Invoking_m4}.\par}{\fi-2880\li2880\tx2880output, diverting to files:\tab {\uldb Divert}{\v Divert}.\par}{\fi-2880\li2880\tx2880output, formatted:\tab {\uldb Format}{\v Format}.\par}{\fi-2880\li2880\tx2880output, saving debugging:\tab {\uldb Debug Output}{\v Debug_Output}.\par}{\fi-2880\li2880\tx2880pattern substitution:\tab {\uldb Patsubst}{\v Patsubst}.\par}{\fi-2880\li2880\tx2880printing error messages:\tab {\uldb Errprint}{\v Errprint}.\par}{\fi-2880\li2880\tx2880quote delimiters, changing the:\tab {\uldb Changequote}{\v Changequote}.\par}{\fi-2880\li2880\tx2880quoted macro arguments:\tab {\uldb Quoting Arguments}{\v Quoting_Arguments}.\par}{\fi-2880\li2880\tx2880quoted string:\tab {\uldb Quoted strings}{\v Quoted_strings}.\par}{\fi-2880\li2880\tx2880recursive macros:\tab {\uldb Loops}{\v Loops}.\par}{\fi-2880\li2880\tx2880redefinition of macros, temporary:\tab {\uldb Pushdef}{\v Pushdef}.\par}{\fi-2880\li2880\tx2880regular expressions <1>:\tab {\uldb Regexp}{\v Regexp}.\par}{\fi-2880\li2880\tx2880regular expressions:\tab {\uldb Patsubst}{\v Patsubst}.\par}{\fi-2880\li2880\tx2880reloading a frozen file:\tab {\uldb Frozen files}{\v Frozen_files}.\par}{\fi-2880\li2880\tx2880renaming macros:\tab {\uldb Defn}{\v Defn}.\par}{\fi-2880\li2880\tx2880running UNIX commands:\tab {\uldb UNIX commands}{\v UNIX_commands}.\par}{\fi-2880\li2880\tx2880saving debugging output:\tab {\uldb Debug Output}{\v Debug_Output}.\par}{\fi-2880\li2880\tx2880saving input:\tab {\uldb M4wrap}{\v M4wrap}.\par}{\fi-2880\li2880\tx2880search path for included files:\tab {\uldb Search Path}{\v Search_Path}.\par}{\fi-2880\li2880\tx2880special arguments to macros:\tab {\uldb Pseudo Arguments}{\v Pseudo_Arguments}.\par}{\fi-2880\li2880\tx2880strings, length of:\tab {\uldb Len}{\v Len}.\par}{\fi-2880\li2880\tx2880substitution by regular expression:\tab {\uldb Patsubst}{\v Patsubst}.\par}{\fi-2880\li2880\tx2880substrings, extracting:\tab {\uldb Substr}{\v Substr}.\par}{\fi-2880\li2880\tx2880temporary filenames:\tab {\uldb Maketemp}{\v Maketemp}.\par}{\fi-2880\li2880\tx2880temporary redefinition of macros:\tab {\uldb Pushdef}{\v Pushdef}.\par}{\fi-2880\li2880\tx2880tokens:\tab {\uldb Syntax}{\v Syntax}.\par}{\fi-2880\li2880\tx2880tracing macro expansion:\tab {\uldb Trace}{\v Trace}.\par}{\fi-2880\li2880\tx2880translating characters:\tab {\uldb Translit}{\v Translit}.\par}{\fi-2880\li2880\tx2880undefining macros:\tab {\uldb Undefine}{\v Undefine}.\par}{\fi-2880\li2880\tx2880UNIX commands, exit code from:\tab {\uldb Sysval}{\v Sysval}.\par}{\fi-2880\li2880\tx2880UNIX commands, running:\tab {\uldb UNIX commands}{\v UNIX_commands}.\par}{\fi-2880\li2880\tx2880words, lexical structure of:\tab {\uldb Changeword}{\v Changeword}.\par}\page\pard Node: {\b Macro index}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Concept index}{\v Concept_index}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Macro index}
+#{\footnote Macro_index}
+${\footnote \pard{}Macro index}\par
+\pard{\fs24\b Macro index}\par
+\par
+\pard{}References are exclusively to the places where a builtin is introduced the first time.  Names starting and ending with {\f1{}__} have these characters removed in the index.\par
+\par
+{\fi-2880\li2880\tx2880{\f1{}builtin}:\tab {\uldb Builtin}{\v Builtin}.\par}{\fi-2880\li2880\tx2880{\f1{}changecom}:\tab {\uldb Changecom}{\v Changecom}.\par}{\fi-2880\li2880\tx2880{\f1{}changequote}:\tab {\uldb Changequote}{\v Changequote}.\par}{\fi-2880\li2880\tx2880{\f1{}changeword}:\tab {\uldb Changeword}{\v Changeword}.\par}{\fi-2880\li2880\tx2880{\f1{}debugfile}:\tab {\uldb Debug Output}{\v Debug_Output}.\par}{\fi-2880\li2880\tx2880{\f1{}debugmode}:\tab {\uldb Debug Levels}{\v Debug_Levels}.\par}{\fi-2880\li2880\tx2880{\f1{}decr}:\tab {\uldb Incr}{\v Incr}.\par}{\fi-2880\li2880\tx2880{\f1{}define}:\tab {\uldb Define}{\v Define}.\par}{\fi-2880\li2880\tx2880{\f1{}defn}:\tab {\uldb Defn}{\v Defn}.\par}{\fi-2880\li2880\tx2880{\f1{}divert}:\tab {\uldb Divert}{\v Divert}.\par}{\fi-2880\li2880\tx2880{\f1{}divnum}:\tab {\uldb Divnum}{\v Divnum}.\par}{\fi-2880\li2880\tx2880{\f1{}dnl}:\tab {\uldb Dnl}{\v Dnl}.\par}{\fi-2880\li2880\tx2880{\f1{}dumpdef}:\tab {\uldb Dumpdef}{\v Dumpdef}.\par}{\fi-2880\li2880\tx2880{\f1{}errprint}:\tab {\uldb Errprint}{\v Errprint}.\par}{\fi-2880\li2880\tx2880{\f1{}esyscmd}:\tab {\uldb Esyscmd}{\v Esyscmd}.\par}{\fi-2880\li2880\tx2880{\f1{}eval}:\tab {\uldb Eval}{\v Eval}.\par}{\fi-2880\li2880\tx2880{\f1{}file}:\tab {\uldb Errprint}{\v Errprint}.\par}{\fi-2880\li2880\tx2880{\f1{}format}:\tab {\uldb Format}{\v Format}.\par}{\fi-2880\li2880\tx2880{\f1{}gnu}:\tab {\uldb Other Incompat}{\v Other_Incompat}.\par}{\fi-2880\li2880\tx2880{\f1{}ifdef}:\tab {\uldb Ifdef}{\v Ifdef}.\par}{\fi-2880\li2880\tx2880{\f1{}ifelse}:\tab {\uldb Ifelse}{\v Ifelse}.\par}{\fi-2880\li2880\tx2880{\f1{}include}:\tab {\uldb Include}{\v Include}.\par}{\fi-2880\li2880\tx2880{\f1{}incr}:\tab {\uldb Incr}{\v Incr}.\par}{\fi-2880\li2880\tx2880{\f1{}index}:\tab {\uldb Index}{\v Index}.\par}{\fi-2880\li2880\tx2880{\f1{}indir}:\tab {\uldb Indir}{\v Indir}.\par}{\fi-2880\li2880\tx2880{\f1{}len}:\tab {\uldb Len}{\v Len}.\par}{\fi-2880\li2880\tx2880{\f1{}line}:\tab {\uldb Errprint}{\v Errprint}.\par}{\fi-2880\li2880\tx2880{\f1{}m4exit}:\tab {\uldb M4exit}{\v M4exit}.\par}{\fi-2880\li2880\tx2880{\f1{}m4wrap}:\tab {\uldb M4wrap}{\v M4wrap}.\par}{\fi-2880\li2880\tx2880{\f1{}maketemp}:\tab {\uldb Maketemp}{\v Maketemp}.\par}{\fi-2880\li2880\tx2880{\f1{}patsubst}:\tab {\uldb Patsubst}{\v Patsubst}.\par}{\fi-2880\li2880\tx2880{\f1{}popdef}:\tab {\uldb Pushdef}{\v Pushdef}.\par}{\fi-2880\li2880\tx2880{\f1{}pushdef}:\tab {\uldb Pushdef}{\v Pushdef}.\par}{\fi-2880\li2880\tx2880{\f1{}regexp}:\tab {\uldb Regexp}{\v Regexp}.\par}{\fi-2880\li2880\tx2880{\f1{}shift}:\tab {\uldb Loops}{\v Loops}.\par}{\fi-2880\li2880\tx2880{\f1{}sinclude}:\tab {\uldb Include}{\v Include}.\par}{\fi-2880\li2880\tx2880{\f1{}substr}:\tab {\uldb Substr}{\v Substr}.\par}{\fi-2880\li2880\tx2880{\f1{}syscmd}:\tab {\uldb Syscmd}{\v Syscmd}.\par}{\fi-2880\li2880\tx2880{\f1{}sysval}:\tab {\uldb Sysval}{\v Sysval}.\par}{\fi-2880\li2880\tx2880{\f1{}traceoff}:\tab {\uldb Trace}{\v Trace}.\par}{\fi-2880\li2880\tx2880{\f1{}traceon}:\tab {\uldb Trace}{\v Trace}.\par}{\fi-2880\li2880\tx2880{\f1{}translit}:\tab {\uldb Translit}{\v Translit}.\par}{\fi-2880\li2880\tx2880{\f1{}undefine}:\tab {\uldb Undefine}{\v Undefine}.\par}{\fi-2880\li2880\tx2880{\f1{}undivert}:\tab {\uldb Undivert}{\v Undivert}.\par}{\fi-2880\li2880\tx2880{\f1{}unix}:\tab {\uldb Other Incompat}{\v Other_Incompat}.\par}\page K{\footnote Makertf}#{\footnote hcMakertf}${\footnote \pard{}About Makertf}\pard{\fs24\b About Makertf}\par\par\pard{}Makertf is a program that converts "Texinfo" files into "Rich Text Format" (RTF) files. It can be used to make WinHelp Files from GNU manuals and other documentation written in Texinfo. Visit http://www.snafu.de/~cschenk/makertf for more information.}

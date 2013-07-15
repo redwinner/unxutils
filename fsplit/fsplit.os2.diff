@@ -1,0 +1,19 @@
+*** fsplit.c	Sun Apr 21 23:07:34 1996
+--- fsplit.c.distribution	Sun Apr 21 23:06:52 1996
+***************
+*** 163,169 ****
+  	if (nflag) {			/* rename the file */
+  		if(saveit(name)) {
+  			if (stat(name, &sbuf) < 0 ) {
+! 				rename(x, name);
+  				unlink(x);
+  				printf("%s\n", name);
+  				continue;
+--- 163,169 ----
+  	if (nflag) {			/* rename the file */
+  		if(saveit(name)) {
+  			if (stat(name, &sbuf) < 0 ) {
+! 				link(x, name);
+  				unlink(x);
+  				printf("%s\n", name);
+  				continue;

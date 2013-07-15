@@ -1,0 +1,6 @@
+Exception: STATUS_ACCESS_VIOLATION at eip=6104477F
+eax=00000180 ebx=00000000 ecx=00000000 edx=77F1CE6B esi=610851CC edi=00000000
+ebp=04A5FC38 esp=04A5FEF0 program=D:\gnuwin32\bin\cat.exe
+cs=001B ds=0023 es=0023 fs=0038 gs=0000 ss=0023
+Stack trace:
+Frame     Function  Args

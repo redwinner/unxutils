@@ -1,0 +1,1439 @@
+Wed Dec 11 19:33:36 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* Version 1.13.
+
+Tue Dec 10 06:36:57 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* acinclude.m4 (jm_SYS_PROC_UPTIME): New macro.  Derived from the
+	code in configure.in, except now it punts when cross compiling.
+	Suggestion from Karl Heuer.
+	* configure.in (jm_SYS_PROC_UPTIME): Use it instead of open-coded
+	version.
+
+	* lib/Makefile.am (EXTRA_DIST): Add mktime.c.
+	Reported by Thomas Bushnell.
+
+	* configure.in: Bump version to 1.12t.
+
+	* Regenerate all Makefile.in using a patched version of automake-1.1l.
+
+	* acconfig.h (strftime): Add #undef.
+	From Karl Heuer.
+
+	* acinclude.m4 (AM_GNU_GETTEXT): Don't require AC_ISC_POSIX.
+	From Karl Heuer.
+
+Mon Dec  9 06:58:11 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* configure.in: Bump version to 1.12s.
+
+	* lib/getdate.y (Convert): Don't reject all dates in 2038.
+	Some fit in 31 bits.
+
+	* configure.in (jm_FUNC_GNU_STRFTIME): Use it.
+
+	* acinclude.m4 (AC_REPLACE_GNU_GETOPT): Remove unused macro.
+	(jm_FUNC_GNU_STRFTIME): New macro.
+
+	* lib/Makefile.am (libsu_a_SOURCES): Remove strftime.c.
+	(EXTRA_DIST): Add strftime.c.
+
+	* configure.in (jm_HEADER_TIOCGWINSZ_IN_TERMIOS_H): Fix typo:
+	Change $am_cv_sys_tiocgwinsz_needs_sys_ioctl_h to
+	$jm_cv_sys_tiocgwinsz_needs_sys_ioctl_h.
+	Patch from Kaveh R. Ghazi.
+
+	* src/stty.c: Include config.h before testing for
+	TERMIOS_NEEDS_XOPEN_SOURCE.
+	Patch from Karl Heuer.
+
+	* configure.in (AC_ISC_POSIX): Remove kludgy macro.
+	Use this test instead:
+	(LIBS): Add -lcposix if it contains strerror.
+	Patch from Karl Heuer.
+
+	* acinclude.m4 (AM_FUNC_GETLOADAVG): Put shell assignments to
+	ac_save_LIBS and LIBS on separate lines to avoid order-of-evaluation
+	problems -- some versions of sh (e.g. SunOS4.1.3's) evaluate such
+	space-separated assignments from right to left.  Patch from Karl Heuer.
+	(AM_FUNC_GETLOADAVG): Fix typo: su_save_LIBS => am_cv_saved_LIBS.
+	Patch from Karl Heuer.
+
+	* lib/strftime.c [HAVE_TZNAME]: Declare tzname.
+	Patch from Karl Heuer.
+
+	* src/Makefile.am (.sh): Also substitute @bindir@.
+	Reported by Karl Heuer.
+
+Sun Dec  8 07:22:38 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	=========== Update for automake-1.1k.
+	* Makefile.am (AUTOMAKE_OPTIONS): Require 1.1k.
+	* configure.in (AM_CONFIG_HEADER): Use it.
+	(AC_OUTPUT): Remove stamp-h timestamping statement.
+	Now, AM_CONFIG_HEADER does it automatically.
+	* lib/Makefile.am (noinst_LIBRARIES): Rename to libsu.a as per
+	new automake requirement.
+	Rename su_* variables to libsu_a_*.
+
+Sun Dec  8 00:08:44 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* src/stty.c (get_win_size): Rename formal parameter from fileno to FD.
+
+Sat Dec  7 12:52:00 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* src/chroot.c (main): Call setlocale, bindtextdomain, and textdomain.
+	From Michel Robitaille.
+
+	* configure.in (ALL_LINGUAS): Add Portuguese (pt).
+
+	* lib/getloadavg.c [__SVR4]: Define SVR4.
+	Remove duplicate `|| defined(SVR4)' disjunct guarding the
+	#define KERNEL_FILE "/unix" definiton.
+
+	* configure.in (jm_HEADER_TIOCGWINSZ_NEEDS_SYS_IOCTL): Use this variant
+	of the AM_ prefixed macro.
+	(check for TIOCGWINSZ in sys/pty): In essence, require
+	jm_HEADER_TIOCGWINSZ_IN_TERMIOS_H so that
+	$jm_cv_sys_tiocgwinsz_needs_termios_h (renamed from
+	$gwinsz_in_termios_h) is defined.
+
+	* lib/strftime.c (strftime): Remove " %Z" part of format for %c.
+	Correction from Paul Eggert.
+
+Fri Dec  6 20:52:07 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* acinclude.m4 (jm_FUNC_MKTIME): Rather than including the text of
+	AM_FUNC_MKTIME, simply AC_REQUIRE it.
+
+Mon Dec  2 20:59:38 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* configure.in (su_cv_func_ut_host_in_utmp): Move test that can
+	define WINSIZE_IN_PTEM to precede test that checks whether
+	`TIOCGWINSZ in sys/pty.h'.  The latter test uses the symbol.
+	(jm_FUNC_MKTIME): Use this instead of AM_FUNC_MKTIME.
+
+Sun Dec  1 13:07:39 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* lib/getdate.y (date): Interpret the date, L/M/N, as YYYY/MM/DD
+	if L >= 1000, otherwise as MM/DD/YY.  With this change,
+	date --date=DATE accepts dates like those in an RCS log listing.
+
+Sat Nov 30 22:08:00 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* lib/strftime.c: Update from GNU libc.
+
+Fri Nov 29 22:16:40 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* src/uname.c (main) [HAVE_SYSINFO && SI_ARCHITECTURE]: Support
+	--processor (-p).  Print processor type.
+	(usage): Document it.
+
+Thu Nov 28 00:28:37 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* configure.in (AM_GNU_GETTEXT): Renamed from ud_GNU_GETTEXT
+	for gettext-0.10.25.
+	(AM_FUNC_GETLINE): Move the test to just before the check for getdelim.
+
+Sun Nov 24 11:02:29 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* src/system.h [!defined STDIN_FILENO]: Define it.
+	[!defined STDOUT_FILENO]: Define it.
+	[!defined STDERR_FILENO]: Define it.
+
+	* src/stty.c (get_win_size): Take a FILENO parameter rather than
+	trying to get a size from both stdin and stdout.
+	Update callers.
+	Use STDIN_FILENO and STDOUT_FILENO instead of literal 0, 1.
+
+	========== From Karl Heuer =========
+	* src/stty.c [TERMIOS_NEEDS_XOPEN_SOURCE]: Define _XOPEN_SOURCE.
+	i386-pc-isc3.0, needs that in order to cause all of the useful
+	termios symbols to be defined, instead of just those that are
+	required by POSIX.  This enables all of: iuclc ixany olcuc ocrnl
+	onlcr onocr onlret ofill ofdel nl0 cr0 tab0 bs0 vt0 ff0 xcase.
+
+	[GWINSZ_IN_SYS_PTY]: Include sys/ioctl.h, sys/tty.h, and sys/pty.h.
+
+	[!VSUSP && !VSWTCH]: Map VSWTCH and CSWTCH to VSUSP and CSUSP resp.
+	termio.h defines VSWTCH, but termios.h defines VSUSP instead (since
+	POSIX requires that symbol).  Define VSWTCH as a synonym if needed,
+	so that either one can be used on input.
+	(display_changed): If the slot for swtch is the same as the one for
+	susp, display only the setting for susp.
+	(display_all): Likewise.
+
+	(display_changed): Some systems still have (VEOF,VEOL) == (VMIN,VTIME).
+	On such systems, it's confusing to print both pairs.  So, skip eof and
+	eol when icanon is unset, and skip min and time when icanon is set.
+	(display_all): Likewise.
+
+	(set_window_size): Check only stdin (the device being queried) for
+	window size info.  You don't want "stty </dev/foo" to report the size
+	of your current window when /dev/foo has no size info.
+	(display_window_size): Likewise.
+
+	(screen_columns): Check only stdout for window size info.  You want
+	"stty </dev/foo" to wrap columns at the right margin of your current
+	window, not the /dev/foo width.
+
+	* acconfig.h (GWINSZ_IN_SYS_PTY): Add #undef.
+	(TERMIOS_NEEDS_XOPEN_SOURCE): Add #undef.
+
+	* configure.in (whether termios.h needs _XOPEN_SOURCE): New test.
+	(whether TIOCGWINSZ is defined in sys/pty.h): New test.
+
+Sat Nov 23 16:15:37 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* lib/Makefile.am (EXTRA_DIST): Add getline.c now that getline
+	isn't mentioned in AC_REPLACE_FUNCS.
+
+	* env.c (usage): Alphabetize option descriptions the way sort -f would.
+	* test.c (usage): Likewise.
+	* who-users.c (usage): Likewise.
+	From Karl Berry.
+
+Fri Nov 22 20:33:26 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* configure.in (AC_REPLACE_FUNCS): Don't try to replace getline this
+	way.  AM_FUNC_GETLINE does it now.
+
+	* configure.in New test to check for TIOCGWINSZ in sys/pty.h.
+	* config.h.in (GWINSZ_IN_SYS_PTY): Add #undef.
+	From Karl Heuer.
+
+	* src/printf.c (main): Warn if excess arguments are ignored.
+	E.g., printf foo bar now warns that it is ignoring the single
+	non-format argument, bar.
+
+Wed Nov 20 20:37:54 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* lib/xgethostname.c (xgethostname): Work around bug in SunOS5.5's
+	gethostname.  Reported by Fletcher Mattox.
+
+Tue Nov 19 23:01:01 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* configure.in (AM_SANITY_CHECK_CC): Remove it.  Autoconf-2.11
+	has this built-in.
+	(OPTIONAL_BIN_ZCRIPTS): Rename from OPTIONAL_SCRIPTS -- because
+	automake-1.1g couldn't deal with the _SCRIPTS suffix.
+	* src/Makefile.am (bin_SCRIPTS): Rename @OPTIONAL_SCRIPTS@.
+
+Sun Nov 17 20:49:37 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* src/id.c (main): Ignore -a, for compatibility with SVR4.
+	Suggestion from Noah Friedman.
+
+Mon Nov  4 20:24:31 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* configure.in (test for group_member): Handle it separately
+	so I can keep the hyphen (not the underscore) in the filename.
+
+	Thu Oct 31 19:32:32 1996  Miles Bader  <miles@gnu.ai.mit.edu>
+
+	  * lib/xgethostname.c [ENAMETOOLONG] (xgethostname): If gethostname
+	  returns an error other than buffer overflow, exit with an error
+	  message instead of allocating infinite amounts of space.
+	  [!EXIT_FAILURE] (EXIT_FAILURE): New macro.
+	  <errno.h>: New include.
+	  [!errno] (errno): New declaration.
+
+	* acinclude.m4 (AM_FUNC_GETLINE): Use cache.
+
+	* configure.in: Check for -linet library before checking for the
+	gethostbyname function.  Suggested by Karl Heuer.
+	Use AM_FUNC_GETLINE.
+
+	* acinclude.m4 (AM_FUNC_GETLINE): Add run-time test for getline.
+	Based on a test from Karl Heuer.
+
+Sun Nov  3 14:57:09 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* acinclude.m4 (GETLOADAVG_LIBS): Unanchor the sed regexp that removes
+	am_cv_saved_LIBS from LIBS.  From Karl Heuer.
+
+	* src/stty.c (recover_mode): Fail also if there are too many fields.
+	From Karl Heuer.
+
+	* lib/canon-host.c: Include sys/types.h for the definitions
+	(otherwise missing on some systems) of caddr_t (used by
+	sys/socket.h) and ushort (used by netinet/in.h).  From Karl Heuer.
+
+Sat Nov  2 00:16:16 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* doc/Makefile.am (MAKEINFO): Set to makeinfo --no-split.
+	Otherwise, the generated info files have names longer than
+	the 14-byte max of some old systems.
+	Reported by Karl Heuer.
+
+	* src/date.c (main): Give better diagnostic.
+	Suggestion from Karl Berry.
+
+Thu Oct 31 18:28:05 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* lib/posixtm.y: Remap yacc globals to have pt_ prefix.
+	* lib/getdate.y: Remap yacc globals to have gd_ prefix.
+	Suggestion to do as in gdb/c-exp.y from Tom Tromey.
+
+Mon Oct 28 17:40:54 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* src/Makefile.am (install-exec-local): Redirect stderr of chown to
+	/dev/null and suggest running `make install-root' upon failure to
+	install su.  Suggestions from François Pinard.
+
+	* configure.in: Don't output confusing diagnostic: `checking for
+	shadow password routines'.  Suggestion from François Pinard.
+
+Thu Oct 24 13:50:46 1996  Andreas Schwab  <schwab@issan.informatik.uni-dortmund\
+.de>
+
+        * src/tee.c (main): Ignore SIGPIPE.
+
+Wed Oct 23 23:42:43 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* src/stty.c: Guard inclusion of stdarg.h and definition of VA_START
+	with #if PROTOTYPES rather than with #ifdef __STDC__.  The latter
+	loses with Dynix/PTX.
+	(wrapf) [PROTOTYPES]: Similarly, guard ANSI-style ... definition.
+	Suggestion from Marcus Daniels.
+
+Mon Oct 21 16:49:08 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* lib/getloadavg.c [__linux__]: Don't bother with a.out/nlist/kernel
+	defines or includes -- Linux systems simply read /proc/loadavg.
+	From Ulrich Drepper.
+
+	* lib/Makefile.am (EXTRA_DIST): Remove group-member.c.
+
+	* configure.in: Remove hack that created link from group_member.c
+	to group-member.c.
+
+	* lib/group_member.c: New file.  Renamed from group-member.c.
+	* lib/group-member.c: Delete.
+
+	* src/stty.c (main): Remove TAB from diagnostic, for consistency.
+
+Sun Oct 20 09:03:51 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* Makefile.am (install-root): Add it here, too.
+
+	* lib/Makefile.am (INCLUDES): Add -I../intl.  Reported by Eric Backus.
+
+	* src/Makefile.am (install-root): New rule.
+	Suggestion from François Pinard.
+
+	* src/who-users.c (print_entry): Don't take address of UT_TIME_MEMBER
+	directly.  From Ulrich Drepper.
+
+	* Makefile.am (AUTOMAKE_OPTIONS): Set to `gnits'.
+	(EXTRA_DIST): Remove @README_ALPHA@.
+
+	* configure.in: Remove README_ALPHA related code.  Automake takes
+	care of it automatically now when in gnits mode.
+
+	* acinclude.m4 (AM_FUNC_GETLOADAVG): Use $srcdir (not $top_srcdir) in
+	#include $srcdir/lib/getloadavg.c.  The latter isn't defined at that
+	point in configure script.  From Eric Backus.
+
+Fri Oct 18 21:31:58 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* Makefile.am (cvs-dist): Uncomment cvs tag command.
+	(cvs-dist): Use cvs tag's -c option.
+
+Thu Oct 17 23:48:16 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* configure.in (LIBS): Add -lypsec on m88k/svr3 DolphinOS systems
+	using YP.  From Arne Juul.
+
+Sun Oct 13 07:34:15 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* configure.in: Don't save and restore LIBS around AM_FUNC_GETLOADAVG.
+	* acinclude.m4 (AM_FUNC_GETLOADAVG): Don't modify LIBS in this macro
+	(by saving and restoring initial value).  Instead, arrange for
+	substitution of @GETLOADAVG_LIBS@.
+	* src/Makefile.am (uptime_LDADD): Add @GETLOADAVG_LIBS@,
+	not @UPTIME_LIBS@.
+
+	* configure.in (ALL_LINGUAS): Add swedish (sv).
+
+Fri Oct 11 22:51:50 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* src/who-users.c (print_uptime): Change #ifdef guard on getloadavg
+	call from just HAVE_GETLOADAVG to HAVE_GETLOADAVG || C_GETLOADAVG.
+	From Kaveh R. Ghazi.
+
+	* src/Makefile.am (uptime_LDADD): Add @UPTIME_LIBS@.
+
+	* acinclude.m4 (AM_FUNC_GETLOADAVG): Like AC_FUNC_GETLOADAVG, but
+	with the following changes:
+	- include $top_srcdir/lib/getloadavg.c, not src/getloadavg.c.
+	Reported by Eric Backus.
+	- Check for Solaris' libkstat.
+	- Define C_GETLOADAVG if we end up using getloadavg.c.
+	From Kaveh R. Ghazi.
+	* acconfig.h (C_GETLOADAVG): Add it.
+	From Kaveh R. Ghazi.
+
+	* configure.in: Use new AM_FUNC_GETLOADAVG and be careful to add
+	getloadavg-related libraries only when linking uptime.
+
+Thu Oct 10 23:50:05 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* lib/Makefile.am (EXTRA_DIST): Remove posixtm.y and getdate.y.
+	(su_SOURCES): Put them here instead.
+	Remove rules for building getdate.c and posixtm.c;  now automake
+	generates those rules.
+	* lib/ylwrap: New file.
+	* lib/interlock: New file.
+
+Wed Oct  9 00:26:55 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* lib/getloadavg.c [__sun]: Define sun.  Reported by Kaveh Ghazi.
+
+	* lib/strftime.c (strftime): Accommodate the broken C compiler
+	that comes with SunOS -- don't initialize aggregates in decls of
+	automatic variables.  Reported by Kaveh Ghazi.
+
+	* tests/: Renamed checks/ directory.
+	* Makefile.am (SUBDIRS): Rename checks to tests.
+	* configure.in (AC_OUTPUT): Rename checks to tests.
+
+	* configure.in (/proc/uptime check): Guard the read of /proc/uptime
+	with an existence test to avoid a messy configure-time warning on
+	systems that lack that special file. Reported by Kaveh R. Ghazi.
+
+	* configure.in (check whether floor needs -lm): Fix typo: save $LIBS,
+	not $LIB.  From Kaveh R. Ghazi.
+
+	* checks/nice: Protect echoed args with leading `x' so echo doesn't
+	interpret leading -n on e.g. SunOS systems.
+
+Mon Oct  7 18:46:28 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* lib/getloadavg.c [__hpux]: Define hpux. From Eric Backus.
+
+	* lib/Makefile.am (EXTRA_DIST): Remove alloca.c, error.c, and mktime.
+	(su_SOURCES): Remove memcmp.c.
+	Automake automatically includes at least these, now.
+	From François Pinard.
+
+	* lib/Makefile.am (su_SOURCES): Remove getline.c.
+
+Sat Oct  5 11:38:23 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* lib/Makefile.am (su_SOURCES): Remove gethostname.c --
+	it's AC_REPLACE'd and already in EXTRA_DIST.
+
+	* configure.in: Use AM_SANITY_CHECK_CC.
+
+	* configure.in: Use AM_FUNC_ERROR_AT_LINE.
+	* lib/Makefile.am (EXTRA_DIST): Put error.c here.
+	(su_SOURCES): Remove error.c
+	Suggested by Ulrich Drepper.
+
+	* configure.in (GNU_PACKAGE): AC_SUBST it for the src/*.sh scripts.
+	* src/Makefile.am (.sh): Substitute for @GNU_PACKAGE@ and @VERSION@
+	in the four installed scripts.
+	* src/*.sh: Update --version output to conform to the coding standard.
+
+	* acinclude.m4 (AC_HEADER_SYS_TIME_H): New macro.
+	(AM_FUNC_MKTIME): Require AC_HEADER_SYS_TIME_H so that configure's
+	checking... messages don't get nested.
+
+	* configure.in (GNU_PACKAGE): New variable.
+	(PACKAGE_VERSION): Remove it.
+
+	* acconfig.h (GNU_PACKAGE): New variable.
+	(PACKAGE_VERSION): Remove now-unused variable.
+
+	* src/*.c: Update --version output to conform to the coding standard.
+
+Sun Sep 22 22:41:54 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* configure.in (AC_CHECK_HEADERS): Alphabetize.
+	Update for automake-1.1e.
+
+Thu Sep 19 07:47:18 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* lib/regex.c: Merge with FSF version.
+	* lib/getloadavg.c: Replace with FSF version.
+
+Mon Sep 16 23:13:04 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* lib/strftime.c (strftime): New version, from GNU libc.
+
+Sun Sep 15 23:08:48 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* Makefile.am (EXTRA_DIST): Remove acinclude.m4.
+
+Mon Sep  9 22:10:45 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* configure.in: Improve handling of math library so -lm is used
+	only when it's actually required.  That makes a difference when
+	using dynamic linking.
+	Remove check that added -lm to LIBS.
+	(SQRT_LIBM): Test for and AC_SUBST it.
+	(POW_LIBM): Likewise.
+	(SEQ_LIBM): Likewise.
+	Motivation and suggestions from Ulrich Drepper.
+
+	* src/Makefile.am (factor_LDADD, printf_LDADD, seq_LDADD):
+	Set these using new @SQRT_LIBM@, @POW_LIBM@, and @SEQ_LIBM@ resp.
+	Also set corresponding _DEPENDENCIES variables.
+
+Sat Sep  7 12:41:39 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* src/system.h: Add comments justifying IS* versions of ctype.h macros.
+
+	* lib/getdate.y: Define and use upper case variants of ctype.h
+	is* macros.  From Bruno Haible.
+
+Thu Sep  5 22:12:20 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* lib/strftime.c: New version from glibc.
+
+Wed Sep  4 23:39:51 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* configure.in (ALL_LINGUAS): Add dutch (nl).
+
+Mon Sep  2 10:52:55 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* src/*.c (usage): Tell where to report bugs.
+
+Sun Sep  1 07:56:07 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+        * configure.in (AM_FUNC_MKTIME): Use it.
+        (AC_REPLACE_FUNCS): Remove mktime.
+	(AM_INIT_AUTOMAKE): Use it.
+	(AM_PROG_INSTALL): Remove.  AM_INIT_AUTOMAKE does this.
+        (AC_PROG_MAKE_SET): Likewise.
+	(jm_MAINTAINER_MODE, fp_C_PROTOTYPES): Rename with
+        AM_ prefix for latest automake/aclocal.
+
+	* Makefile.am (EXTRA_DIST): Add acinclude.m4.
+
+        * acinclude.m4: New file -- derived from aclocal.m4.
+        * aclocal.m4: This file is now generated by the aclocal program
+        (which comes with the automake package.)
+
+Sat Aug 17 00:14:55 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* lib/strftime.c: Update from GNU libc -- this adds back %z and %s
+	formats and reverts to old behavior where unrecognized format like
+	%E is treated as eqivalent to `E'.
+
+Sun Aug  4 09:14:28 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* checks/: New directory.
+	* checks/Makefile.am: New file.
+	* checks/nice: New file.  Derived from tests from Eric Backus.
+	* configure.in (AC_OUTPUT): Add new directory: checks.
+	* Makefile.am (SUBDIRS): Likewise.
+
+	* src/nice.c (main): Allow `+' in options like -+8 and -+13.
+
+Fri Aug  2 21:45:06 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* src/nice.c (main): Set minus_flag to zero in two places.
+	Otherwise, `nice --1 -3' would mistakenly do the equivalent of
+	`nice --3'.  Thanks to Eric Backus <ericb@lsid.hp.com> for the
+	test cases.
+
+	* configure.in (check for /proc/uptime): New check.
+	* acconfig.h (SAVE_PROC_UPTIME): #undef it.  Reorder so symbols
+	are sorted again.
+	*src/who-users.c (print_uptime) [HAVE_PROC_UPTIME]: Read from
+	/proc/uptime.
+	From Ulrich Drepper.
+
+Thu Aug  1 22:38:38 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* configure.in (AC_REPLACE_GNU_GETOPT): No longer use it.
+	It isn't necessary because the cpp-time checks of getopt.c and
+	getopt1.c are at least as good.
+	* lib/Makefile.am (EXTRA_DIST): Remove getopt.c and getopt1.c.
+	(su_SOURCES): Add getopt.c and getopt1.c
+	This reverts much of the April 23 change.
+
+Sat Jul 27 17:22:14 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* src/system.h (bindtextdomain) [!ENABLE_NLS]: Undefine to avoid
+	redefinition warnings on solaris.
+	(textdomain) [!ENABLE_NLS]: Likewise.
+
+Sun Jul 21 09:47:55 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* configure.in (AC_REPLACE_FUNCS): Replace getline.c.
+	Add related check for the getdelim function.
+	From Ulrich Drepper -- as done in gettext.
+
+	* src/stty.c (usage): Correct typo (-iucl -> -iuclc) in usage message.
+	From Thomas Olsson <d95to@efd.lth.se>.
+
+Sat Jul 20 17:01:56 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* configure.in (PACKAGE_VERSION): Use space instead of hyphen to
+	separate PACKAGE and VERSION.
+
+Wed Jul 17 23:13:19 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* src/chroot.c: Include <sys/types.h> before system.h.
+	* src/seq.c: Likewise.
+	* src/yes.c: Likewise.
+	From Arne Juul.
+
+Tue Jul 16 00:06:33 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* lib/strftime.c (strftime): Use `(void)0' as second arg to add macro.
+	Omitting that second arg made some HPUX C compiler report an error.
+	From Kaveh R. Ghazi.
+
+Mon Jul 15 23:42:57 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* src/who-users.c (print_uptime): Reverse `days' and `day' in
+	uptime message.  From Kaveh R. Ghazi.
+
+	* Many files: Update FSF address.
+
+Sun Jul 14 20:05:34 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* src/who-users.c (print_uptime): Use 0, not undefined errno in
+	couldn't-get-boot-time diagnostic.  From Ulrich Drepper.
+
+Sat Jul 13 14:22:54 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* src/chroot.c (usage): Add a `\' after `\n' in usage message.
+	Otherwise, SunOS's /bin/cc chokes.
+
+	* src/stty.c [GWINSZ_BROKEN]: Remove thus-guarded `#undef TIOCGWINSZ'.
+	GWINSZ_BROKEN can't be defined anymore.
+
+	* configure.in (boot time test): Use AC_EGREP_CPP instead of
+	AC_EGREP_HEADER; #endif, instead of #fi.
+	(AM_SYS_POSIX_TERMIOS, AM_HEADER_TIOCGWINSZ_NEEDS_SYS_IOCTL): Use
+	these macros instead of the tests from which they were derived.
+	($am_cv_sys_posix_termios): Renamed to have am_ prefix instead of su_.
+
+Wed Jul 10 22:57:29 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* aclocal.m4 (fp_PROG_CC_STDC): Include sys/stat.h in test program
+	so that DYNIX/ptx V4.1.3 doesn't use `-Xc -D__EXTENSIONS__' -- with
+	those options on that system, sys/stat.h gets compile errors.
+	With help from Marcus Daniels.
+
+	* getopt.c: Update from gettext-0.10.23.
+	* getopt1.c: Likewise.
+	* getopt.h: Likewise.
+
+Sun Jul  7 22:40:08 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* aclocal.m4 (AM_SYS_POSIX_TERMIOS): New macro, derived from test
+	in configure.in.
+	(AM_HEADER_TIOCGWINSZ_NEEDS_SYS_IOCTL): Likewise.
+
+Sat Jul  6 12:47:48 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* configure.in (AC_REPLACE_FUNCS): Add group_member.
+	(AC_LINK_FILES): Create link lib/group_member.c to lib/group-member.c.
+	* lib/Makefile.am (su_SOURCES): Remove group-member.c.
+	(EXTRA_DIST): Add group-member.c here.
+
+Thu Jul  4 22:40:06 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* src/expr.c (docolon): Remove space before newline in usage message.
+
+Sat Jun 29 18:58:20 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* configure.in (PACKAGE_VERSION): Add `GNU ' prefix so we see
+	it in the output of --version.  Reported by RMS.
+
+Tue Jun 18 22:14:42 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* aclocal.m4: Update from gettext-0.10.20.
+	* ABOUT-NLS: Likewise.
+	* intl/*: Likewise.
+
+Sun Jun 16 13:44:36 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* doc/Makefile.am (EXTRA_DIST): Add texinfo.tex.
+
+Thu Jun  6 21:57:08 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* po/Makefile.in.in: Update from gettext-0.10.16.
+	* intl/*: Likewise.
+	* ABOUT-NLS: Likewise.
+	* aclocal.m4 (AC_REPLACE_GNU_GETOPT): Move definition to precede
+	gettext-related ones.
+	Update from gettext-0.10.16.
+
+Wed May 29 21:28:53 1996  Jim Meyering  <meyering@na-net.ornl.gov>
+
+	* expr.c (docolon): Give a warning when the first character
+	of the basic regular expression is `^'.
+
+Mon May 20 22:56:06 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* id.c (xgetgroups): New function, factored out of
+	print_group_list and print_full_info.
+	(print_group_list): Call it.
+	(print_full_info): Call it.
+
+	* lib/Makefile.am (getdate.c): Disable dependencies that can
+	require rerunning YACC when not in maintainer mode.
+	(posixtm.c): Likewise.
+
+Tue May 14 18:47:35 1996  Andreas Schwab  <schwab@issan.informatik.uni-dortmund.de>
+
+	* id.c (print_group_list): When USERNAME is specified use
+	getugroups to get the number of groups.
+	(print_full_info): Likewise.
+
+Sun May 19 21:45:49 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* seq.c (usage): Make it clearer.
+
+Sat May 18 13:29:46 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* expr.c (main): Don't recognize --help, --h, --he, --version,
+	--v, etc. if the POSIXLY_CORRECT environment variable is set.
+	* echo.c (main): Likewise.
+	* printf.c (main): Likewise.
+	* test.c (main): Likewise.
+
+	* expr.c (docolon) [RE_SYNTAX_POSIX_BASIC]: Revert change of Mar 1.
+
+Tue May  7 22:10:20 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* configure.in: Require autoconf-2.10.
+
+	* aclocal.m4 (jm_MAINTAINER_MODE): New macro.
+	* configure.in (jm_MAINTAINER_MODE): Use it.
+
+Mon May  6 22:40:54 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* lib/strftime.c: Update from GNU libc.
+
+Sat May  4 20:54:32 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* system.h [IN_CTYPE_DOMAIN]: Rename from ISASCII.
+	* seq.c: Remove useless void casts of *printf return values.
+
+Mon Apr 29 22:23:40 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* basename.c (usage): Mark translatable strings.
+	* chroot.c (main): Likewise.
+	* basename.c (main): Separate messages about `too few' and `too many'
+	arguments to ease translation.
+	* dirname.c (main): Likewise.
+	* date.c (usage): Change TAB in message to spaces.  Doing that seems
+	to have worked around a problem with something in gettext that was
+	producing a truncated usage message for date's usage.
+	From François Pinard.
+
+Sun Apr 28 17:10:03 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* configure.in: Make fp_C_PROTOTYPES precede AC_C_INLINE.
+	Otherwise, some systems lose because the value AC_C_INLINE choses
+	with plain `cc' is different from that chosen when using the ANSI-mode
+	C compiler.  From Kaveh Ghazi.
+
+Tue Apr 23 22:05:35 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* aclocal.m4 (AC_REPLACE_GNU_GETOPT): New macro.
+	* configure.in: Use it.
+	* lib/Makefile.am (su_SOURCES): Remove getopt.c and getopt1.c.
+	(EXTRA_DIST): Add getopt.c and getopt1.c
+
+	* whoami.c (main): Declare to return int, not void.
+	* who-users.c (main): Likewise.
+	* yes.c (main): Likewise.
+
+	* src/*.c, src/*.h: Update Copyright years to include 1996.
+
+Sun Apr 21 08:04:51 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* date.c (usage): Describe new %V format.  From Karl Berry.
+
+	* Makefile.am (LDADD): Put @INTLLIBS@ before package library.
+
+Sat Apr 20 22:22:01 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* chroot.c (usage): Improve help message.
+	Enclose message strings in _().
+	* seq.c (usage): Improve help message.
+	* factor.c (usage): Likewise.
+	From Karl Berry.
+
+Fri Apr 19 23:48:53 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* Makefile.am (cvs-dist): New rule.  Based on the one from
+	Tom Tromey's automake.
+
+Thu Apr 18 23:16:41 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* basename.c (basename): Rewrite so it doesn't rely on strrchr,
+	and hence doesn't need to include string.h -- on some alpha-based
+	OSF systems, there's a conflicting prototype for basename in string.h.
+	Reported by Kaveh Ghazi.
+
+	* configure.in (AC_REPLACE_FUNCS): Add basename.
+	* lib/Makefile.am (EXTRA_DIST): Add basename.c.
+	(su_SOURCES): Remove basename.c.
+	From Kaveh Ghazi.
+
+Tue Apr 16 20:24:44 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* src/Makefile.am (who.c): Qualify who-users.c reference with
+	$(srcdir)/ prefix.
+	(users.c): Likewise.
+	(uptime.c): Likewise.
+	From François Pinard.
+
+	* configure.in: Always invoke AC_GETLOADAVG, not just if we're
+	building uptime.
+
+Sat Apr 13 13:24:35 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* getloadavg.c: Test cpp-defined __sun as well as sun, because
+	in strict ANSI mode, only __sun is defined.  From Kaveh Ghazi.
+
+	* date.c (usage): Add missing `\n\' at the end of newly added
+	lines for %e and %z.
+
+	* who-users.c (print_uptime): Call getloadavg only if we have it.
+
+Fri Apr 12 22:03:13 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* configure.in (LINGUAS): Add de.
+
+	* date.c (usage): Describe %e and %z.  Reported by Karl Berry.
+
+	* who-users.c: Mark translatable strings in new code.
+
+Wed Apr 10 21:26:30 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* configure.in: Add test for boot_time.
+	From Kaveh Ghazi.
+
+	* lib/Makefile.am (EXTRA_DIST): Add getloadavg.c.
+
+	* src/Makefile.am (EXTRA_PROGRAMS): Add uptime.
+	(BUILT_SOURCES): Add uptime.c.
+	(MOSTLYCLEANFILES): Add uptime.c.
+	(uptime.c): Add rule to build it from who-users.c.
+
+	* who-users.c: Reindent.
+	(UT_TIME_MEMBER): New macro.
+	(print_uptime): Use it instead of #ifdef HAVE_UTMPX_H #else.
+	(print_entry): Likewise.
+
+Tue Apr  9 23:57:19 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* who-users.c (print_uptime) [UPTIME]: New function.  From Kaveh Ghazi.
+
+Sun Apr  7 11:58:13 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* seq.c (print_numbers): Rearrange loops to get it right.
+	Reported by Karl Eichwalder <ke@ke.Central.DE>.
+
+	* seq.c (print_numbers): Give more precise diagnostic when INCREMENT
+	is inconsistent with START and LIMIT.
+	(usage): Clean up help message.
+
+	* factor.c (usage): Give minimal description of the program.
+	(print_factors): Give a better diagnostic.
+	(main): Suggest --help upon failure.
+	Reported by Karl Eichwalder <ke@ke.Central.DE>.
+
+	* seq.c (print_numbers): Fix off-by-one error in
+	backwards-counting loop.  Reported by Karl Eichwalder.
+
+	* strftime.c (mon_week_ISO): New function to implement new %V format.
+	(sun_week): Make TM parameter `const'.
+	(mon_week): Likewise.
+	(mon_week): Rewrite to implement %W format correctly.
+	(strftime): Handle %V format.
+	Reported by Arne Juul.
+
+Fri Apr  5 07:33:00 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* strftime.c (sun_week): Make %U work properly.
+	Before, `date -d '1 Jan 1995' +%U' output `00'.  Now it prints `01'.
+
+	* nice.c (main): Simplify option handling.  Before, `nice -18 -- nice'
+	improperly printed `8'.  Patch from Frank Korz.
+	(main): Use `if' stmt, not while loop, around getopt invocation.
+	Otherwise, `./nice --a=1 -1 ./nice' (in which old-style option
+	follows a long option) gets an error.
+
+Thu Apr  4 20:14:02 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* aclocal.m4 (fp_PROG_CC_STDC): Change -Xc -D_POSIX_C_SOURCE to
+	`-Xc -D__EXTENSIONS__' because of problems with Solaris header
+	files.  Suggested by Kaveh Ghazi.
+
+Wed Apr  3 07:08:57 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* src/Makefile.am (INCLUDES): Add -I$(srcdir) to get system.h
+	when srcdir != builddir.  From Kaveh Ghazi.
+
+	* lib/getugroups.c: Include stdio.h before grp.h.  Because
+	<grp.h> on alpha OSF1 V2.0 uses "FILE *".  From Kaveh Ghazi.
+
+Sun Mar 31 16:26:06 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* configure.in: Simplify checking for math library.
+	This also eliminates some confusing output from configure.
+	Suggested by François Pinard.
+
+Fri Mar 29 22:13:10 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* src/Makefile.am (INCLUDES): Replace -I$(top_srcdir)/intl with
+	-I../intl.  With the former, compiles didn't find libintl.h when
+	configured with `--srcdir=..'.  Reported by Marcus Daniels
+	<marcus@sysc.pdx.edu>.
+
+	* doc/Makefile.am (EXTRA_DIST): Set to getdate.texi so that file
+	gets distributed.
+
+	* src/Makefile.am (EXTRAdir): Set to $(bindir).
+
+Thu Mar 28 23:01:48 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* ChangeLog.0: New file.
+	* Makefile.am (EXTRA_DIST): Add ChangeLog.0.
+
+Thu Mar 28 00:06:28 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* man/Makefile.am (man_MANS): Add chroot.1.
+	* src/Makefile.am (EXTRA_PROGRAMS): Add chroot.
+
+Sun Dec 24 10:55:34 1995  Roland McGrath  <roland@churchy.gnu.ai.mit.edu>
+
+	* configure.in: Check for chroot a la uname.
+	* src/chroot.c, man/chroot.1: New files.
+
+Sun Mar 24 11:44:35 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* su.c: Protoize and reorder functions to obviate forward decls.
+
+	* seq.c: Make parameters const where appropriate.
+	Rename global FROM to START.
+	(print_numbers): Rewrite loops to avoid incrementing.  Instead,
+	use `x = first + i * increment' paradigm.  Otherwise, with inexact
+	increment, you could miss the last value.
+
+	* xstrtod.c: New file.
+	* xstrtod.h: New file.
+	* lib/Makefile.am: Add xstrtod.c and xstrtod.h.
+	* seq.c: Include xstrtod.h.
+	(scan_double_arg): Use xstrtod rather than strtod directly.
+
+	* src/*: Update FSF's address.
+
+Thu Mar 21 16:43:13 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* src/*.c (main): Declare to be of type int, not void.
+
+Sat Mar 16 10:07:49 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* configure.in (PACKAGE_VERSION): New macro.
+	(OPTIONAL_BIN_PROGS): Rename from OPTIONAL_PROGS.
+	* acconfig.h (PACKAGE_VERSION): Add it.
+	* src/Makefile.am: Remove rules for generating version.c.
+	Remove references to version.o, version.h, and stamp-v.
+	[.sh]: Change @VERSION@ to @PKG_VERSION@.
+	On RHS of sed substitution, use @PACKAGE_VERSION@, not GNUVER.
+	(OPTIONAL_BIN_PROGS): Rename from OPTIONAL_PROGS.
+	(install-exec-local): New target/rules to make the installed su
+	binary setuid root or failing that, to delete it.
+	* false.sh groups.sh nohup.sh true.sh: Use @PKG_VERSION@,
+	not @VERSION@.
+	* version.c: Remove file.
+	* version.h: Remove file.
+	* basename.c date.c dirname.c echo.c env.c expr.c factor.c
+	hostname.c id.c logname.c nice.c pathchk.c printenv.c printf.c
+	pwd.c seq.c sleep.c stty.c su.c tee.c test.c tty.c uname.c
+	who-users.c whoami.c yes.c: Don't include version.h.
+	(main): Use PACKAGE_VERSION instead of version_string.
+
+Fri Mar 15 23:42:29 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* basename.c: Remove __P-protected prototype for basename.
+	Reported by François Pinard.
+	(remove_suffix): Move to precede use.  Remove prototype.
+	Declare formal parameter SUFFIX to be const.
+
+	* pathchk.c (validate_path): Cast path_max to size_t before
+	comparing with strlen(path).
+
+	* who-users.c (read_utmp): Declare n_read to be of type size_t
+	rather than int.
+
+Tue Mar 12 17:52:05 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* basename.c date.c dirname.c echo.c env.c expr.c factor.c hostname.c
+	id.c logname.c nice.c pathchk.c printenv.c printf.c pwd.c seq.c
+	sleep.c stty.c su.c tee.c test.c tty.c uname.c who-users.c whoami.c
+	yes.c (main): Initialize for internationalized message support:
+	call setlocale, bindtextdomain, and textdomain.
+	* system.h: Add definitions and includes for NLS.
+	* Makefile.am (SUBDIRS): Add intl and po.
+	* src/Makefile.am (datadir): Define.
+	(localedir): Define.
+	(DEFS): Add LOCALEDIR definition.
+	(LDADD): Add @INTLLIBS@.
+	* aclocal.m4: Add NLS-related macro definitions from
+	gettext distribution.
+	* acconfig.h (ENABLE_NLS, HAVE_CATGETS, HAVE_GETTEXT, HAVE_LC_MESSAGES,
+	HAVE_STPCPY): New macros.
+	Add PACKAGE and VERSION.
+	* configure.in (PACKAGE): Define with AC_DEFINE_UNQUOTED.
+	(VERSION): Likewise.
+	(ALL_LINGUAS): Define.
+	(ud_GNU_GETTEXT): Use it.
+	Link an nls file.
+	(AC_OUTPUT): Reflect addition of two new directories, intl and po.
+	Create po/Makefile.
+	Mostly from François Pinard.
+
+Wed Mar  6 21:40:34 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* who-users.c (print_entry): Use STRUCT_UTMP, not `struct utmp' to
+	declare formal parameter.
+
+Tue Mar  5 22:49:33 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* getdate.y (RelativeMonth): Add 1900 to the year so that relative
+	date specs that push the year through the end of the century work.
+	For example, `date -d "01/01/1998 3 years" +%Y' now prints 2001.
+	From Peter Dalgaard (pd@kubism.ku.dk).
+
+Mon Mar  4 23:46:43 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* seq.c (main): Exit after processing --version.
+	Reported by François Pinard.
+
+Fri Mar  1 23:46:32 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* expr.c (docolon): Don't initialize re_syntax_options to
+	deceptively-named RE_SYNTAX_POSIX_BASIC -- it recognizes non-BRE
+	\?, \+, and \|.  Use RE_SYNTAX_POSIX_MINIMAL_BASIC instead.
+
+	* od.c (WINDOWS_SETFILEMODE_BINARY): New macro.
+	(skip) [_WIN32 && _O_BINARY]: Use it.
+	(read_char): Likewise.
+	(read_block): Likewise.
+	[_WIN32 && _O_BINARY]: Include malloc.h and io.h.
+	Based on changes by Gary Newman <gnewman@shore.net>.
+
+Wed Feb 28 21:48:07 1996  Paul Eggert  <eggert@twinsun.com>
+
+	* configure.in (LOCALTIME_CACHE):
+	Also define if localtime mishandles unsetting TZ.
+	This works around a localtime bug in mips-dec-ultrix.
+
+Wed Feb 28 23:08:24 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* lib/Makefile.am (su_SOURCES): Add xstrtoul.c.
+	(noinst_HEADERS): Add xstrtoul.h.
+
+	* factor.c: General cleanup.  Use xstrtoul, not atoi.
+	Change output format.  Allow inputs as large as ULONG_MAX.
+	Allow more than one command line argument.
+
+	* stty.c (wrapf) [!__STDC__]: Indent by one space the first line
+	of the pre-ANSI function definition so ansi2knr doesn't munge it.
+
+	* src/Makefile.am: Adapt for automake-0.30.
+	* lib/Makefile.am: Likewise.
+
+	* expr.c (eval6): Cast strlen to int to avoid warning from gcc -Wall.
+
+Sun Feb 25 22:19:52 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* src/Makefile.am (BUILT_SOURCES): Set to `who.c users.c'.
+	(MOSTLYCLEANFILES): Add who.c and users.c.
+	(who.c): New rule to create this file.  Concatenate definition of
+	WHO and contents of who-users.c.
+	(users.c): New rule to create this file.  Concatenate definition of
+	USERS and contents of who-users.c.
+
+Sat Feb 24 12:20:58 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* readtokens.c: Unprotoize.
+
+	* expr.c (cmpf): Indent macro uses so ansi2knr doesn't mistake them
+	for function dcls and munge them.
+	(arithf): Likewise.
+	(arithdivf): Likewise.
+
+	* test.c: __P-protect forward declarations.
+	(main): Protoize function definition.
+
+	* date.c (batch_convert): Declare BUFLEN local to be of type size_t,
+	not int.
+
+	* expr.c (docolon): Set re_syntax_options to RE_SYNTAX_POSIX_BASIC
+	so expr's pattern matching uses BASIC (not GNU-extended) REs.
+	Reported by Jim Kingdon.
+
+	* who-users.c (print_entry): Use strchr, not index.
+
+	* configure.in (AC_CHECK_HEADERS): Add sys/socket.h.
+	* canon-host.c [HAVE_SYS_SOCKET_H]: Include <sys/socket.h> for
+	definition of AF_INET on at least SunOS 4.
+
+Tue Feb 13 23:49:16 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* who-users.c (main): When failing because there were
+	`too many arguments,' say so.
+
+Mon Feb 12 23:26:05 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* configure.in (AC_CHECK_FUNCS): Add gethostbyname, gethostbyaddr,
+	and inet_ntoa.
+	(AC_CHECK_HEADERS): Add netdb.h netinet/in.h arpa/inet.h.
+	* lib/canon-host.c: New file.
+	* lib/Makefile.am (su_SOURCES): Add canon-host.c.
+	* src/who.c (print_entry): If possible, canonicalize the host hame.
+	From Miles Bader (miles@gnu.ai.mit.edu).
+
+	Update for automake-0.29.
+	* Makefile.am (CONFIG_HEADER): Don't define.  Automake now does it.
+	* src/Makefile.am: Likewise.
+	* lib/Makefile.am: Likewise.
+	* doc/Makefile.am (info_TEXINFOS): Renamed from TEXINFOS.
+	* man/Makefile.am (man_MANS): Renamed from MANS.
+
+Wed Jan 31 23:40:50 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* lib/strftime.c (add_num_tz): New function.
+	(strftime): Handle new %z format.
+	* date.c (main): Accept new option, --rfc-822 (-R).
+	(show_date): Use RFC822-mandated strftime format.
+	From H. Peter Anvin (hpa@storm.net).
+	(usage): Add a line describing the new option.
+
+	* lib/strftime.c (add_num_tz): Don't use local, LENGTH,
+	before it's defined.
+
+Mon Jan 29 19:24:04 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* acconfig.h (PROTOTYPES): Define it.
+
+Fri Jan 19 22:00:08 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* aclocal.m4 (fp_PROG_INSTALL): New macro.
+	* configure.in: Use it instead of AC_PROG_INSTALL.
+
+	* who-users.c: Protoize.
+
+Wed Jan 17 23:37:59 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* stty.c: Protoize and __P-protect forward dcls.
+	(visible): Change parameter type to unsigned int from unsigned char.
+	(integer_arg): Use xstrtol instead of open-coding this.
+
+	* lib/Makefile.am (su_SOURCES): Add xstrtol.c.
+	(HEADERS): Add xstrtol.h.
+
+	* test.c (advance): Protoize function.
+
+	* sleep.c (argdecode): Declare parameter const.
+
+Sat Jan 13 22:31:23 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* stty.c: Indent cpp directives.
+
+Sun Jan  7 23:56:03 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	Use automake to generate Makefile.in files.
+	* Makefile.am: New file.
+	* doc/Makefile.am: New file.
+	* lib/Makefile.am: New file.
+	* man/Makefile.am: New file.
+	* src/Makefile.am: New file.
+
+	* configure.in (OPTIONAL_PROGS, OPTIONAL_SCRIPTS): New variables
+	used in place of PROGS.
+
+Sat Jan  6 05:13:40 1996  Jim Meyering  (meyering@na-net.ornl.gov)
+
+	* configure.in (PACKAGE, VERSION): New variables.
+	(fp_C_PROTOTYPES): Use it.
+
+	* printf.c (print_esc_char): Change type of argument from char
+	to int to avoid potential promotion problem.
+	* uname.c (print_element): Likewise.
+
+	* system.h [__P]: New macro.
+
+	* basename.c, date.c, dirname.c, echo.c, env.c, expr.c, factor.c,
+	hostname.c, id.c, logname.c, nice.c, pathchk.c, printenv.c,
+	printf.c, pwd.c, seq.c, sleep.c, tee.c, test.c, tty.c, uname.c,
+	whoami.c, yes.c: Protoize and __P-protect forward dcls.
+
+	* who-users.c: New file.  Renamed from who.c.
+	* who.c: Define WHO and include who-users.c.
+	* uses.c: Define USERS and include who-users.c.
+
+	* id.c Remove no-longer-used NGROUPS_MAX cpp macros.
+	(print_group_list) [HAVE_GETGROUPS]: Reorganize to use
+	getgroups (0, NULL) to compute number of groups at run time
+	rather than relying on NGROUPS_MAX at compile time.
+	(print_full_info) [HAVE_GETGROUPS]: Likewise.
+	Suggestion from Roland McGrath.
+
+	* su.c: Remove NGROUPS_MAX junk.  It wasn't being used.
+
+Wed Jan  3 19:03:26 1996  Paul Eggert  <eggert@twinsun.com>
+
+	* configure.in (LOCALTIME_CACHE): Define if tzset exists and
+	if localtime caches TZ.  Check for tzset.
+	* acconfig.h (LOCALTIME_CACHE): New macro.
+	* date.c (putenv): Declare.
+	(universal_time): Remove.
+	(main): If -u is given, set TZ to "UTC0"; this causes date to use
+	UTC uniformly and fixes bugs in the handling of date -u +'%s %Z'.
+	(show_date): Just use localtime and a single format, since TZ will
+	be set properly if -u is given.
+
+Fri Dec 22 21:34:55 1995  Andreas Schwab  <schwab@issan.informatik.uni-dortmund.de>
+
+	* configure.in: Touch stamp-h only if config.h is remade.
+
+Sun Nov 26 16:09:33 1995  Jim Meyering  (meyering@comco.com)
+
+	* test.c (usage): Clarify usage.  From Karl Berry.
+
+Wed Nov 22 23:12:47 1995  Jim Meyering  (meyering@comco.com)
+
+	* Makefile.in (all et. al.): If make was invoked with -k and a
+	sub-make fails, fail after the loop rather than exiting right away.
+	Otherwise, make's -k option could be ineffective.
+
+Thu Nov 16 21:25:45 1995  Jim Meyering  (meyering@comco.com)
+
+	* Makefile.in (default): New default target.  Depend on `all' to work
+	around bug in AIX-3.2.5's /bin/make.  Reported by Andreas Luik
+	<luik@isa.de>.
+
+Tue Nov  7 23:53:20 1995  Jim Meyering  (meyering@comco.com)
+
+	* stty.c (usage): Clarify descriptions of ignpar and ignbrk.
+	From Theodore Ts'o and Ulrich Windl.
+
+Sun Oct 29 08:47:50 1995  Jim Meyering  (meyering@comco.com)
+
+	* test.c [TEST_STANDALONE]: Define.
+	* src/Makefile.in (test.o): Remove special rule.
+
+Sat Oct 28 00:49:13 1995  Jim Meyering  (meyering@comco.com)
+
+	* aclocal.m4 (jm_WITH_AUTODEPS): New directive.
+	* configure.in: Use it.
+
+	* lib/Makefile.in (INCLUDE, COMPILE): New variables.
+	(.c.o): Rewrite to be more like src/Makefile.in.
+	Add line that (--with-autodeps) will include mkdep-Makefile.
+	(distclean): Remove .deps.
+	* src/Makefile.in: Likewise.
+
+	* mkdep-Makefile: New file.
+	* Makefile.in (DISTFILES): Add mkdep-Makefile.
+
+	* doc/Makefile.in (mostlyclean): Remove *.info.
+
+	* date.c: New option --reference=FILE (-r FILE) analogous to the
+	like-named touch option.
+	(main): Recognize it and give diagnostic for misuse.
+	(usage): Describe briefly.
+	From Franc,ois Pinard.
+
+	* date.c (batch_convert): Close input stream also when it's not stdin.
+	(main): Reorganize to do option-consistency checks before all else.
+
+Tue Sep 26 23:05:01 1995  Jim Meyering  (meyering@comco.com)
+
+	* man/Makefile.in (install-data, uninstall): Use sed not basename.
+	The GNU Coding Standard suggests that only a select set of
+	relatively standard utilities be used in Makefiles.  basename is
+	not among them.  Suggested by Ulrich Drepper.
+
+Tue Aug  8 22:57:34 1995  Jim Meyering  (meyering@comco.com)
+
+	* yes.c: Include system.h to get definition of _.
+
+Mon Aug  7 23:27:54 1995  Jim Meyering  (meyering@comco.com)
+
+	* system.h (_): Define macro -- as empty for now.
+	* src/*.c: Annotate localizable strings with _(...).  From Franc,ois.
+
+	* Makefile.in (DISTFILES): Don't distribute unneeded COPYING.LIB.
+	From Franc,ois.
+
+Fri Jun 23 23:04 1995  Jim Meyering  (meyering@comco.com)
+
+	* configure.in: (AC_REPLACE_FUNCS): Add memcpy and memset.
+	Add checks for floor, modf, and rint -- all used by seq.c.
+
+Mon Jun 12 00:26:54 1995  Jim Meyering  (meyering@comco.com)
+
+	* getdate.y (Convert): Use 2037 as threshold, not 1999.
+	Before years after 1999 were treated as invalid.
+	From Andreas Schwab.
+
+Sat May 27 00:35:47 1995  Jim Meyering  (meyering@comco.com)
+
+	* system.h [!STDC_HEADERS && HAVE_MEMORY_H]: Include memory.h.
+	Without this, SunOS doesn't get type for memchr.
+	Reported by Kaveh Ghazi.
+
+Sun May 21 07:20:55 1995  Jim Meyering  (meyering@comco.com)
+
+	* Makefile.in (.PHONY): TAGS is not a phony target.  From Franc,ois.
+
+	* All Makefile.in (install-exec, install-exec): New targets.
+	From Karl Berry.
+
+	* all Makefile.in (maintainer-clean): Renamed from realclean
+	per GNU Standards.
+
+Mon May 15 01:00:08 1995  Jim Meyering  (meyering@comco.com)
+
+	* all source files (usage): Include one- or two-line synopsis
+	in --help output.  From Karl Berry.
+
+Sat May 13 08:57:20 1995  Jim Meyering  (meyering@comco.com)
+
+	* lib/Makefile.in (maintainer-clean): Rename from realclean.
+	(.PHONY): New dependencies.
+	[.c.o]: Remove -I. since safe-l?stat.h are no longer used.
+
+Fri May 12 21:25:50 1995  Jim Meyering  (meyering@comco.com)
+
+	* test.c (usage): Remove duplicate descriptions of --help
+	and --version.  From Karl Berry.
+
+	* pathchk.c: Use stat (lstat), not safe_stat (safe_lstat).
+	* test.c: Likewise.
+	* who.c: Likewise.
+
+	* lib/Makefile.in (SOURCE): Add memcpy.c, memset.c.
+	Remove all reference to (now unused) safe-xstat.hin.
+
+Tue Apr 18 22:57:43 1995  Jim Meyering  (meyering@comco.com)
+
+	* configure.in: (AC_OUTPUT): Use echo, not date, to avoid creating
+	unnecessary conflicts for people using version control software
+	like RCS and CVS.
+	(AC_ARG_PROGRAM): Use it.
+
+Fri Mar 10 21:14:11 1995  Jim Meyering  (meyering@comco.com)
+
+	* src/*.c: Update Copyright dates.
+
+Mon Feb 27 08:05:25 1995  Jim Meyering  (meyering@comco.com)
+
+	* system.h: Separate errno declaration from STDC_HEADERS.
+	Remove bcopy, bzero, strchr, strrchr definitions.
+
+	* stty.c (main, set_window_size): Use memset instead of bzero.
+	* su.c (correct_password): Likewise.
+
+	* seq.c Remove \n's from error format strings.
+	(main): Let `seq 1 1' work.
+	Invoke usage always with 1 when failing.
+
+Sat Feb 11 08:27:12 1995  Jim Meyering  (meyering@comco.com)
+
+	* src/Makefile.in (install): Fix rules for su to avoid relying on
+	just-built `id' executable.  That would lose when cross-compiling and
+	on systems like GNU in which a user may have several effective IDs.
+	(SOURCES, OBJECTS, PROGS): Add seq.
+	* Makefile.in (PROGS): Add seq.
+
+	* configure.in (AC_REPLACE_FUNCS): Add memcmp, memcpy, and memset.
+	(AC_CHECK_FUNCS): Add strchr and strrchr.
+	* lib/Makefile.in (SOURCES): Add memcmp.c, memcpy.c, and memset.c.
+
+	* system.h: Remove index/rindex and bcmp/bcopy/bzero references.
+	Separate errno declaration from STDC_HEADERS.
+
+Thu Jan 26 23:38:04 1995  Jim Meyering  (meyering@comco.com)
+
+	* getdate.y (ToSeconds): Properly convert 12am and 12pm.
+	From Takeshi Sone <ts1@tsn.or.jp>.
+
+	* lib/Makefile.in (SOURCES, OBJECTS, DISTFILES): Add readtokens.[coh].
+	(all): Depend on safe-stat.h and safe-lstat.h.
+
+	* date.c (batch_convert): Remove any trailing newline from offending
+	line before including it in the `invalid date' error from `date -f'.
+	Reported by Franc,ois Pinard.
+
+Sat Dec 31 09:25:09 1994  Jim Meyering  (meyering@comco.com)
+
+	* factor.c: New file.
+	* Makefile.in (PROGS): Add factor.
+	* src/Makefile.in (SOURCES, OBJECTS, PROGS): Add factor.
+	(factor): New rule.
+
+Mon Dec 26 18:31:08 1994  Jim Meyering  (meyering@comco.com)
+
+	* test.c (term): Running `./test \( a -o b' got a seg fault.
+	From from Klaus.Reichl@aut.alcatel.at.
+
+Mon Dec 19 22:05:12 1994  Jim Meyering  (meyering@comco.com)
+
+	* src/*.c: Include "error.h" rather than simply declaring
+	`void error ();'.
+	* src/Makefile.in (OBJECTS): Depend on ../lib/error.h.
+
+	* lib/Makefile.in (DISTFILES): Remove safe-xstat.cin.
+	(distclean): Remove references to safe-l?stat.c.
+	Remove all related rules and dependencies.
+
+	* safe-xstat.hin (SAFE_LSTAT, SAFE_STAT): Remove macros.
+	Now that we always define the functions, these are no longer needed.
+
+	* pathchk.c (dir_ok): Use safe_stat instead of SAFE_STAT.
+	* who.c (print_entry): Likewise.
+	* test.c (test_stat, binary_operator): Likewise.
+	(unary_operator): Use safe_lstat instead of SAFE_LSTAT.
+
+Mon Dec 12 22:42:09 1994  Jim Meyering  (meyering@comco.com)
+
+	* expr.c (docolon): Zero out re_buffer and re_regs before using them.
+	From H.J. Lu <hjl@nynexst.com>.
+
+Sun Dec  4 14:53:12 1994  Jim Meyering  (meyering@comco.com)
+
+	* dirname.c (main): Use strchr and strrchr instead of index and rindex.
+	* echo.c (main): Likewise.
+	* env.c (main): Likewise.
+	* pathchk.c (validate_path): Likewise.
+	* printf.c (print_formatted, print_esc): Likewise.
+	* test.c [member]: Likewise.
+	* who.c (extract_trimmed_name): Likewise.
+	* system.h [!HAVE_STRING_H]: Define strchr to index and strrchr to
+	rindex instead of the other way around.
+
+	* doc/Makefile.in (DISTFILES): Add getdate.texi.
+
+Sat Dec  3 07:59:55 1994  Jim Meyering  (meyering@comco.com)
+
+	* configure.in (AC_CHECK_FUNCS): Add strchr and strrchr.
+	(AC_CHECK_HEADERS): Add stdlib.h.
+	(LIBS): If the strtod replacement is required, check for pow in -lm.
+	* src/Makefile.in (printf): Remove hard-coded -lm.  Not every
+	system has it.
+
+Thu Nov 17 23:47:26 1994  Jim Meyering  (meyering@comco.com)
+
+	* who.c (list_entries): Delete.  Split in two actually...
+	(list_entries_users, list_entries_who, userid_compare): New functions.
+	(list_entries_users): Sort the user names.  Reported by
+	Michael I Bushnell.
+	Topologically sort the functions and remove fwd declarations.

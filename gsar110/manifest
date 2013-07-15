@@ -1,0 +1,24 @@
+The gsar archive consists of the following files:
+
+Miscellaneous:
+manifest     - This file describing the contents
+copying      - The GNU General Public License
+
+Documentation:
+read.me      - Read me first
+gsar.txt     - Documentation (txt file)
+gsar.1       - Documentation (troff file, made by hpv)
+gsar.tag     - Describes errors, corrections and enhancements in gsar
+compile.txt  - How to compile gsar
+
+Executables:
+gsar.exe     - MS-DOS executable compiled with Zortech C/C++ version 3.1
+
+Source files:
+gsar.c
+gsarbmg.c
+arg_func.c
+gsar.h       
+comp_dep.h       
+arg_func.h
+

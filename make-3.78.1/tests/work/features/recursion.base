@@ -1,0 +1,13 @@
+: Entering directory `D:\usr\local\make-3.78.1\tests'
+ -f work/features/recursion.mk foo 
+[1]: Entering directory `D:\usr\local\make-3.78.1\tests'
+
+MAKELEVEL = 1
+ -f work/features/recursion.mk last 
+[2]: Entering directory `D:\usr\local\make-3.78.1\tests'
+
+MAKELEVEL = 2
+THE END
+[2]: Leaving directory `D:\usr\local\make-3.78.1\tests'
+[1]: Leaving directory `D:\usr\local\make-3.78.1\tests'
+: Leaving directory `D:\usr\local\make-3.78.1\tests'

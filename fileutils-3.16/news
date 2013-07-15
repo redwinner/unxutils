@@ -1,0 +1,179 @@
+Changes in release 3.16:
+[3.15a]
+* du --megabytes (-m) works
+* ls -l works even on systems with non-POSIX strftime in their C library
+
+Changes in release 3.15:
+* touch --date=DATE bug (due to broken getdate.y) has been fixed
+* ls -l no longer misformats the date when run in a locale for which the
+  locale's abbreviated week-day name (strftime's %a format) is shorter or
+  longer than the `normal' three bytes (with LANG=de it's a two-byte string).
+* Using --program-prefix no longer applies the prefix twice
+* ls --color properly restores color attributes upon completion when the
+  normal (`no') color attribute is not the default color.
+* with ls -s --color, the `total' and size of the first file are printed
+* ls --color stats symlinks and distinguishes between regular symlinks
+  and orphan ones.
+* cp --preserve preserves owner and group of symlinks on Linux when run
+  with EUID == 0
+* dircolors no longer accepts --print-data-base (alternate spelling of
+  --print-database)
+
+Changes in release 3.14:
+* ls --color highlights based on suffix rules only for regular files
+* touch --date=DATE accepts dates like those in an RCS log listing, e.g.,
+  `1992/11/01 05:44:34'.
+* install SRC DST no longer rejects non-regular, non-directory SRC
+* df accepts -F as a synonym for -t for compatibility with Solaris
+* cp -i /dev/null existing-file now prompts before overwriting the target
+* ls --color highlights orphaned symlinks text on terminals that support it
+* ls -l honors current locale with respect to abbreviated month names (and,
+  with --full-time day names) on systems with a locale-supporting strftime
+  function, e.g., ones based on recent versions of the GNU C library
+* ls -l recognizes Cray's migrated dmf files.
+* chgrp no longer aborts when given a group number larger than INT_MAX
+* chgrp now fails when run by root with an unrecognized group name
+* when possible, cp -p preserves owner/group even on symlinks in case
+  they're in a directory that has the sticky-bit set.
+* cp --recursive --parents SRC DEST works when SRC is an absolute file name.
+
+Changes in release 3.13:
+* ls properly determines window size on SunOS and Solaris systems
+* ls accepts new option --color[=WHEN] where WHEN is `always', `never',
+  or `auto'.  --color=never is the default.  --color is equivalent
+  to --color=always.
+* new program: dircolors
+* ls allows 0 as argument to --tabsize (-T) option.  Using --tabsize=0
+  inhibits the use of TAB characters for separating columns.
+* you can create a backup of FILE with cp --force --backup FILE FILE.  Before,
+  that command failed saying that ``FILE' and `FILE' are the same file'.
+* uses automake-generated Makefile templates
+* chown and chgrp accept new option --no-dereference (-h)
+* ln -f FILE FILE fails with a diagnostic rather than silently removing FILE
+* when building on systems that have getopt_long (most GNU-oriented ones),
+  the system-provided function will be used -- so executables may be a
+  little smaller
+* cp -p, and mv modify owner and/or group of symlinks on systems
+  (like Solaris) that provide the lchown system call.
+* df no longer invokes the sync system call by default.  You can use the
+  --sync option to make df invoke sync before getting file system sizes.
+* internationalized diagnostic messages
+* mkdir accepts new option: --verbose
+* `cp file D/' uses the full file name `D/file' instead of `D//file'.
+* cp --backup a~ a fails instead of silently destroying the source file
+* df and du have new options --human-readable (-h) and --megabytes (-m).
+* install now honors --backup (-b), --suffix=SUFFIX (-S SUFFIX), and
+  --version-control=WORD (-V WORD) options just as cp, ln, and mv do.
+* ln --verbose output is less prone to misinterpretation
+* ls -o works like -lG;  for compatibility with other versions of ls
+* cp has a new option to control creation of sparse files:
+  --sparse={auto,always,never}.  --sparse=auto is the default.
+* rm -rf '' behaves properly on SunOS 4 systems
+* touch: rename long option name, --file, to --reference.
+  `touch --file' will continue to work a little longer.
+* df fails if the same file system type is both selected and excluded.
+* df works around SunOS statfs brokenness wrt filesystems larger than 2GB
+* df better handles inconsistent mtab entries
+* `ls -lDR dir dir2' works
+* `ls -c' does what it's supposed to
+* all programs include program name in --version output
+* `ls --quote-name' works
+* mv properly determines whether src and dest are the same file
+  Before, it could (though with very low probability) fail to do the move,
+  reporting that distinct source and destination are the same file.
+* du --dereference (-L) works with directory symlinks
+* du works on SunOS 4 systems even when accounting is enabled
+* many programs that convert strings to integers now use strtol or strtoul
+  and detect overflow
+
+User-visible changes in release 3.12:
+* None.
+User-visible changes in release 3.11:
+* None.
+User-visible changes in release 3.10:
+* mkdir -p now ignores arguments that are existing directories.  Before,
+  (contrary to POSIX spec) it would attempt to change ownership and/or
+  protections of existing directories listed on the command line.  And
+  it would fail when such a directory was owned by another user.
+* Fix bug in cp that made the commands `mkdir dir; touch foo; cp -P foo dir'
+  incorrectly change the permissions on directory, dir.
+* df accepts a new option, --no-sync, that inhibits the default invocation
+  of the sync system call.
+* ls accepts a new option, --dired, that makes emacs' dired mode more efficient
+* skeletal texinfo documentation (mainly just the `invoking' nodes)
+* ln accepts a new option: --no-dereference (-n).  With this option,
+  if the destination command line argument is a symlink to a directory,
+  use that as the destination instead of the file in the directory.
+* `ln -i no-such-file existing-file' gives a diagnostic and fails.
+  Before, if you responded `yes' to the prompt it would both remove
+  `existing-file' and fail to make a link.
+* du no longer requires read access to all of the directory components
+  of the current working directory on systems with fchdir.
+* touch -d 'date' is no longer off by one hour.
+* New program: sync.
+* Fix bug in cp that made the commands `ln -s . s; cp -rd s r' incorrectly
+  create `r' as a symlink instead of as a regular file.
+* du's -S and -c options now work when used together.
+  Before, the grand total was always reported to be zero.
+
+Major changes in release 3.9:
+* --help gives a one-line description of each option and shows the
+  correspondence between short and long-named options.
+* work around systems with BROKEN_STAT_MACROS
+* work around problem where $(srcdir)/config.h was used instead of
+  ../config.h -- this happened only when building in a subdirectory
+  and when config.h remained in $(srcdir) from a previous ./configure.
+* GNU chmod treats symlinks the same way other vendor's versions do.
+  Now symlinks listed on the command line are processed (they were
+  ignored before); the permissions of the dereferenced files are
+  changed.  Symlinks encountered in recursive traversals are still
+  ignored.  This makes GNU chmod act more like e.g. Sun's.
+* configure uses config.h, so DEFS won't exceed preprocessor limits of
+  some compilers on the number of symbols defined via -D.
+* ls and cp can handle mount points on more systems
+* cp, mkdir, and rmdir long option --path renamed to --parents;  --path
+  will still work for a while
+* cp, ln, and mv convert `cp A B/' to cp A B/A when A is not a directory.
+  This change affects only the two-argument form of the commands.  It makes
+  such commands fail when the target has a trailing slash but is not a
+  directory or symlink to a directory and the source is not a directory.
+  They used to succeed, ignoring the implicitly contradictory trailing slash.
+
+Major changes in release 3.8:
+* install isn't as likely to produce spurious errors
+* avoid redundant compilations for `dir' and `vdir';
+* configure properly defines STAT_STATFS2_BSIZE on a Pyramid MIServer
+  running OSx 5.1
+
+Major changes in release 3.7:
+* none
+Major changes in release 3.6:
+* `ln -s dir_pathname .' works when the pathname has a trailing slash
+* with the --version option programs print the version and exit immediately
+* GNU ls -f works like Unix ls -f
+* mktime replacement works
+
+Major changes in release 3.5:
+* adds support for DEC Alpha under OSF/1
+* configuring with gcc uses CFLAGS='-g -O' by default
+* all programs accept --help and --version options
+* long-named options must be introduced with `--'; `+' is no longer
+  accepted since it is incompatible with the POSIX.2 standard
+* chmod accepts long-named options
+* dd conv=unblock doesn't hang
+* new df option --exclude=fstype
+* new ls option --full-time
+
+Major changes in release 3.4:
+* cp -p and mv preserve setuid and setgid bits
+* chown works on systems where sizeof(uid_t) != sizeof(int)
+  or sizeof(uid) != sizeof(gid)
+* catch errors from spurious slashes at ends of arguments
+
+Major changes in release 3.3:
+* df sped up by not calling sync for every filesystem
+* df ported to AIX (RS/6000 and PS/2), and SVR2 port fixed
+* df -i now also prints the total number of inodes per filesystem
+* ls sped up by not reading symlink contents unnecessarily
+* du doesn't die on POSIX systems when the root filesystem is NFS mounted
+* cp and mv report chown Permission denied errors when run by root

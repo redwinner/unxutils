@@ -1,0 +1,47 @@
+This is grep.info, produced by makeinfo version 4.0 from grep.texi.
+
+START-INFO-DIR-ENTRY
+* grep: (grep).                   print lines matching a pattern.
+END-INFO-DIR-ENTRY
+   This file documents `grep', a pattern matching engine.
+
+   Published by the Free Software Foundation, 59 Temple Place - Suite
+330 Boston, MA 02111-1307, USA
+
+   Copyright (C) 2000, 2001 Free Software Foundation, Inc.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "GNU Free
+Documentation License", with no Front-Cover Texts, and with no
+Back-Cover Texts.  A copy of the license is included in the section
+entitled "GNU Free Documentation License" (*note Copying::).
+
+
+Indirect:
+grep.info-1: 1036
+grep.info-2: 33704
+grep.info-3: 78788
+
+Tag Table:
+(Indirect)
+Node: Top1036
+Node: Introduction1855
+Node: Invoking2582
+Node: Diagnostics15971
+Node: Grep Programs16296
+Node: Regular Expressions17266
+Node: Usage25103
+Node: Reporting Bugs30534
+Node: Copying31060
+Node: GNU General Public License33704
+Node: GNU Free Documentation License52904
+Node: Concept Index72656
+Node: Index78788
+
+End Tag Table

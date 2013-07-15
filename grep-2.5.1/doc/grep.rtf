@@ -1,0 +1,919 @@
+{\rtf1\windows \deff0{\fonttbl
+{\f0\fswiss MS Sans Serif;}{\f1\fmodern Courier New;}{\f2\ftech Symbol;}}\fs20
+\page #{\footnote hcAbout}${\footnote \pard{}About this help file}\pard{\fs24\b About this help file}\par\par\pard{}This file was made with the help of {\ul Makertf 3.12b-2}{\v hcMakertf} from the input file grep.texi.\par\par{{START-INFO-DIR-ENTRY
+\pard{}* grep: (grep).                   print lines matching a pattern.\line
+END-INFO-DIR-ENTRY\par
+\pard{}}This file documents {\f1{}grep}, a pattern matching engine.\par
+\par
+\pard{}Published by the Free Software Foundation, 59 Temple Place - Suite 330 Boston, MA 02111-1307, USA\par
+\par
+\pard{}Copyright (C) 2000, 2001 Free Software Foundation, Inc.\par
+\par
+\pard{}Permission is granted to make and distribute verbatim copies of this manual provided the copyright notice and this permission notice are preserved on all copies.\par
+\par
+\pard{}Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.1 or any later version published by the Free Software Foundation; with the Invariant Sections being "GNU General Public License" and "GNU Free Documentation License", with no Front-Cover Texts, and with no Back-Cover Texts.  A copy of the license is included in the section entitled "GNU Free Documentation License" (see {\uldb Copying}{\v Copying}).  }\par
+\par
+{}\page\pard Node: {\b Top}, \keepn Next: {\uldb }{\v }, Prev: {\uldb }{\v }, Up: {\uldb (dir)}{\v Top @dir.hlp}\tab\tab{\uldb About this help file}{\v hcAbout}\line
+K{\footnote K Top}
+#{\footnote Top}
+${\footnote \pard{}Grep}\par
+\pard\pard{\fs24\b Grep}\par
+\par
+{\f1{}\pard{}grep} searches for lines matching a pattern.\par
+\par
+\pard{}This document was produced for version 2.5.1 of {\scaps\fs16{}gnu} {\f1{}grep}.   ifnottex\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Introduction}{\v Introduction}\tab Introduction.\par
+{\uldb Invoking}{\v Invoking}\tab Invoking {\f1{}grep}; description of options.\par
+{\uldb Diagnostics}{\v Diagnostics}\tab Exit status returned by {\f1{}grep}.\par
+{\uldb Grep Programs}{\v Grep_Programs}\tab {\f1{}grep} programs.\par
+{\uldb Regular Expressions}{\v Regular_Expressions}\tab Regular Expressions.\par
+{\uldb Usage}{\v Usage}\tab Examples.\par
+{\uldb Reporting Bugs}{\v Reporting_Bugs}\tab Reporting Bugs.\par
+{\uldb Copying}{\v Copying}\tab License terms.\par
+{\uldb Concept Index}{\v Concept_Index}\tab A menu with all the topics in this manual.\par
+{\uldb Index}{\v Index}\tab A menu with all {\f1{}grep} commands and command-line options.\par
+\pard{}}\par
+\page\pard Node: {\b Introduction}, \keepn Next: {\uldb Invoking}{\v Invoking}, Prev: {\uldb Top}{\v Top}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Introduction}
+#{\footnote Introduction}
+${\footnote \pard{}Introduction}\par
+\pard{\fs24\b Introduction}\par
+\par
+\pard{}{K{\footnote K Searching for a pattern.}} {\f1{}grep} searches the input files for lines containing a match to a given pattern list.  When it finds a match in a line, it copies the line to standard output (by default), or does whatever other sort of output you have requested with options.\par
+\par
+\pard{}Though {\f1{}grep} expects to do the matching on text, it has no limits on input line length other than available memory, and it can match arbitrary characters within a line.  If the final byte of an input file is not a newline, {\f1{}grep} silently supplies one.  Since newline is also a separator for the list of patterns, there is no way to match newline characters in a text.\par
+\par
+\page\pard Node: {\b Invoking}, \keepn Next: {\uldb Diagnostics}{\v Diagnostics}, Prev: {\uldb Introduction}{\v Introduction}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Invoking}
+#{\footnote Invoking}
+${\footnote \pard{}Invoking {\f1{}grep}}\par
+\pard{\fs24\b Invoking {\f1{}grep}}\par
+\par
+{\f1{}\pard{}grep} comes with a rich set of options from {\scaps\fs16{}posix.2} and {\scaps\fs16{}gnu} extensions.\par
+\par
+{\pard{}{\f1{}-c}\par
+\pard{}{\f1{}--count}\par
+\pard\li720{}{K{\footnote K -c}}{K{\footnote K -count}}{K{\footnote K counting lines}}Suppress normal output; instead print a count of matching lines for each input file.  With the {\f1{}-v}, {\f1{}--invert-match} option, count non-matching lines.\par
+\par
+\pard{}{\f1{}-e {\i pattern}}\par
+\pard{}{\f1{}--regexp={\i pattern}}\par
+\pard\li720{}{K{\footnote K -e}}{K{\footnote K -regexp={\i pattern}}}{K{\footnote K pattern list}}Use {\i pattern} as the pattern; useful to protect patterns beginning with a {\f1{}-}.\par
+\par
+\pard{}{\f1{}-f {\i file}}\par
+\pard{}{\f1{}--file={\i file}}\par
+\pard\li720{}{K{\footnote K -f}}{K{\footnote K -file}}{K{\footnote K pattern from file}}Obtain patterns from {\i file}, one per line.  The empty file contains zero patterns, and therefore matches nothing.\par
+\par
+\pard{}{\f1{}-i}\par
+\pard{}{\f1{}--ignore-case}\par
+\pard\li720{}{K{\footnote K -i}}{K{\footnote K -ignore-case}}{K{\footnote K case insensitive search}}Ignore case distinctions in both the pattern and the input files.\par
+\par
+\pard{}{\f1{}-l}\par
+\pard{}{\f1{}--files-with-matches}\par
+\pard\li720{}{K{\footnote K -l}}{K{\footnote K -files-with-matches}}{K{\footnote K names of matching files}}Suppress normal output; instead print the name of each input file from which output would normally have been printed.  The scanning of every file will stop on the first match.\par
+\par
+\pard{}{\f1{}-n}\par
+\pard{}{\f1{}--line-number}\par
+\pard\li720{}{K{\footnote K -n}}{K{\footnote K -line-number}}{K{\footnote K line numbering}}Prefix each line of output with the line number within its input file.\par
+\par
+\pard{}{\f1{}-o}\par
+\pard{}{\f1{}--only-matching}\par
+\pard\li720{}{K{\footnote K -o}}{K{\footnote K -only-matching}}{K{\footnote K only matching}}Print only the part of matching lines that actually matches {\i pattern}.\par
+\par
+\pard{}{\f1{}-q}\par
+\pard{}{\f1{}--quiet}\par
+\pard{}{\f1{}--silent}\par
+\pard\li720{}{K{\footnote K -q}}{K{\footnote K -quiet}}{K{\footnote K -silent}}{K{\footnote K quiet, silent}}Quiet; do not write anything to standard output.  Exit immediately with zero status if any match is found, even if an error was detected.  Also see the {\f1{}-s} or {\f1{}--no-messages} option.\par
+\par
+\pard{}{\f1{}-s}\par
+\pard{}{\f1{}--no-messages}\par
+\pard\li720{}{K{\footnote K -s}}{K{\footnote K -no-messages}}{K{\footnote K suppress error messages}}Suppress error messages about nonexistent or unreadable files.  Portability note: unlike {\scaps\fs16{}gnu} {\f1{}grep}, traditional {\f1{}grep} did not conform to {\scaps\fs16{}posix.2}, because traditional {\f1{}grep} lacked a {\f1{}-q} option and its {\f1{}-s} option behaved like {\scaps\fs16{}gnu} {\f1{}grep}'s {\f1{}-q} option.  Shell scripts intended to be portable to traditional {\f1{}grep} should avoid both {\f1{}-q} and {\f1{}-s} and should redirect output to {\f1{}/dev/null} instead.\par
+\par
+\pard{}{\f1{}-v}\par
+\pard{}{\f1{}--invert-match}\par
+\pard\li720{}{K{\footnote K -v}}{K{\footnote K -invert-match}}{K{\footnote K invert matching}}{K{\footnote K print non-matching lines}}Invert the sense of matching, to select non-matching lines.\par
+\par
+\pard{}{\f1{}-x}\par
+\pard{}{\f1{}--line-regexp}\par
+\pard\li720{}{K{\footnote K -x}}{K{\footnote K -line-regexp}}{K{\footnote K match the whole line}}Select only those matches that exactly match the whole line.\par
+\par
+\pard{}}\par
+\pard{\b {\scaps\fs16{}gnu} Extensions}\par
+\par
+{\pard{}{\f1{}-A {\i num}}\par
+\pard{}{\f1{}--after-context={\i num}}\par
+\pard\li720{}{K{\footnote K -A}}{K{\footnote K -after-context}}{K{\footnote K after context}}{K{\footnote K context lines, after match}}Print {\i num} lines of trailing context after matching lines.\par
+\par
+\pard{}{\f1{}-B {\i num}}\par
+\pard{}{\f1{}--before-context={\i num}}\par
+\pard\li720{}{K{\footnote K -B}}{K{\footnote K -before-context}}{K{\footnote K before context}}{K{\footnote K context lines, before match}}Print {\i num} lines of leading context before matching lines.\par
+\par
+\pard{}{\f1{}-C {\i num}}\par
+\pard{}{\f1{}--context={\i num}}\par
+\pard\li720{}{K{\footnote K -C}}{K{\footnote K -context}}{K{\footnote K context}}Print {\i num} lines of output context.\par
+\par
+\pard{}{\f1{}--colour[={\i WHEN}]}\par
+\pard{}{\f1{}--color[={\i WHEN}]}\par
+\pard\li720{}{K{\footnote K -colour}}{K{\footnote K highlight, color, colour}}The matching string is surrounded by the marker specify in {\i GREP_COLOR}.  {\i WHEN} may be `never', `always', or `auto'.\par
+\par
+\pard{}{\f1{}-{\i num}}\par
+\pard\li720{}{K{\footnote K -NUM}}Same as {\f1{}--context={\i num}} lines of leading and trailing context.  However, grep will never print any given line more than once.\par
+\par
+\pard{}{\f1{}-V}\par
+\pard{}{\f1{}--version}\par
+\pard\li720{}{K{\footnote K -V}}{K{\footnote K -version}}{K{\footnote K Version, printing}}Print the version number of {\f1{}grep} to the standard output stream.  This version number should be included in all bug reports.\par
+\par
+\pard{}{\f1{}--help}\par
+\pard\li720{}{K{\footnote K -help}}{K{\footnote K Usage summary, printing}}Print a usage message briefly summarizing these command-line options and the bug-reporting address, then exit.\par
+\par
+\pard{}{\f1{}--binary-files={\i type}}\par
+\pard\li720{}{K{\footnote K -binary-files}}{K{\footnote K binary files}}If the first few bytes of a file indicate that the file contains binary data, assume that the file is of type {\i type}.  By default, {\i type} is {\f1{}binary}, and {\f1{}grep} normally outputs either a one-line message saying that a binary file matches, or no message if there is no match.  If {\i type} is {\f1{}without-match}, {\f1{}grep} assumes that a binary file does not match; this is equivalent to the {\f1{}-I} option.  If {\i type} is {\f1{}text}, {\f1{}grep} processes a binary file as if it were text; this is equivalent to the {\f1{}-a} option.  {\i Warning:} {\f1{}--binary-files=text} might output binary garbage, which can have nasty side effects if the output is a terminal and if the terminal driver interprets some of it as commands.\par
+\par
+\pard{}{\f1{}-b}\par
+\pard{}{\f1{}--byte-offset}\par
+\pard\li720{}{K{\footnote K -b}}{K{\footnote K -byte-offset}}{K{\footnote K byte offset}}Print the byte offset within the input file before each line of output.  When {\f1{}grep} runs on {\scaps\fs16{}ms-dos} or MS-Windows, the printed byte offsets depend on whether the {\f1{}-u} ({\f1{}--unix-byte-offsets}) option is used; see below.\par
+\par
+\pard{}{\f1{}-D {\i action}}\par
+\pard{}{\f1{}--devices={\i action}}\par
+\pard\li720{}{K{\footnote K -D}}{K{\footnote K -devices}}{K{\footnote K device search}}If an input file is a device, FIFO or socket, use {\i action} to process it.  By default, {\i action} is {\f1{}read}, which means that devices are read just as if they were ordinary files.  If {\i action} is {\f1{}skip}, devices, FIFOs and sockets are silently skipped.\par
+\par
+\pard{}{\f1{}-d {\i action}}\par
+\pard{}{\f1{}--directories={\i action}}\par
+\pard\li720{}{K{\footnote K -d}}{K{\footnote K -directories}}{K{\footnote K directory search}}If an input file is a directory, use {\i action} to process it.  By default, {\i action} is {\f1{}read}, which means that directories are read just as if they were ordinary files (some operating systems and filesystems disallow this, and will cause {\f1{}grep} to print error messages for every directory or silently skip them). If {\i action} is {\f1{}skip}, directories are silently skipped.  If {\i action} is {\f1{}recurse}, {\f1{}grep} reads all files under each directory, recursively; this is equivalent to the {\f1{}-r} option.\par
+\par
+\pard{}{\f1{}-H}\par
+\pard{}{\f1{}--with-filename}\par
+\pard\li720{}{K{\footnote K -H}}{K{\footnote K -With-filename}}{K{\footnote K with filename prefix}}Print the filename for each match.\par
+\par
+\pard{}{\f1{}-h}\par
+\pard{}{\f1{}--no-filename}\par
+\pard\li720{}{K{\footnote K -h}}{K{\footnote K -no-filename}}{K{\footnote K no filename prefix}}Suppress the prefixing of filenames on output when multiple files are searched.\par
+\par
+\pard{}{\f1{}--line-buffered}\par
+\pard\li720{}{K{\footnote K -line-buffered}}{K{\footnote K line buffering}}Set the line buffering policy, this can be a performance penality.\par
+\par
+\pard{}{\f1{}--label={\i LABEL}}\par
+\pard\li720{}{K{\footnote K -label}}{K{\footnote K changing name of standard input}}Displays input actually coming from standard input as input coming from file {\i LABEL}. This is especially useful for tools like zgrep, e.g.  {\f1{}gzip -cd foo.gz |grep --label=foo something}\par
+\par
+\pard{}{\f1{}-L}\par
+\pard{}{\f1{}--files-without-match}\par
+\pard\li720{}{K{\footnote K -L}}{K{\footnote K -files-without-match}}{K{\footnote K files which don't match}}Suppress normal output; instead print the name of each input file from which no output would normally have been printed.  The scanning of every file will stop on the first match.\par
+\par
+\pard{}{\f1{}-a}\par
+\pard{}{\f1{}--text}\par
+\pard\li720{}{K{\footnote K -a}}{K{\footnote K -text}}{K{\footnote K suppress binary data}}{K{\footnote K binary files}}Process a binary file as if it were text; this is equivalent to the {\f1{}--binary-files=text} option.\par
+\par
+\pard{}{\f1{}-I}\par
+\pard\li720{}Process a binary file as if it did not contain matching data; this is equivalent to the {\f1{}--binary-files=without-match} option.\par
+\par
+\pard{}{\f1{}-w}\par
+\pard{}{\f1{}--word-regexp}\par
+\pard\li720{}{K{\footnote K -w}}{K{\footnote K -word-regexp}}{K{\footnote K matching whole words}}Select only those lines containing matches that form whole words.  The test is that the matching substring must either be at the beginning of the line, or preceded by a non-word constituent character.  Similarly, it must be either at the end of the line or followed by a non-word constituent character.  Word-constituent characters are letters, digits, and the underscore.\par
+\par
+\pard{}{\f1{}-r}\par
+\pard{}{\f1{}-R}\par
+\pard{}{\f1{}--recursive}\par
+\pard\li720{}{K{\footnote K -r}}{K{\footnote K -recursive}}{K{\footnote K recursive search}}{K{\footnote K searching directory trees}}For each directory mentioned in the command line, read and process all files in that directory, recursively.  This is the same as the {\f1{}--directories=recurse} option.\par
+\par
+\pard{}{\f1{}--include={\i file_pattern}}\par
+\pard\li720{}{K{\footnote K -include}}{K{\footnote K include files}}{K{\footnote K searching directory trees}}When processing directories recursively, only files matching {\i file_pattern} will be search.\par
+\par
+\pard{}{\f1{}--exclude={\i file_pattern}}\par
+\pard\li720{}{K{\footnote K -exclude}}{K{\footnote K exclude files}}{K{\footnote K searching directory trees}}When processing directories recursively, skip files matching {\i file_pattern}.\par
+\par
+\pard{}{\f1{}-m {\i num}}\par
+\pard{}{\f1{}--max-count={\i num}}\par
+\pard\li720{}{K{\footnote K -m}}{K{\footnote K -max-count}}{K{\footnote K max-count}}Stop reading a file after {\i num} matching lines.  If the input is standard input from a regular file, and {\i num} matching lines are output, {\f1{}grep} ensures that the standard input is positioned to just after the last matching line before exiting, regardless of the presence of trailing context lines.  This enables a calling process to resume a search.  For example, the following shell script makes use of it:\par
+\par
+{\pard\keep\li1440\f1{}while grep -m 1 PATTERN\line
+do\line
+  echo xxxx\line
+done < FILE\par
+\pard\li720\f0{}}\par
+\pard\li720{}But the following probably will not work because a pipe is not a regular file:\par
+\par
+{\pard\keep\li1440\f1{}# This probably will not work.\line
+cat FILE |\line
+while grep -m 1 PATTERN\line
+do\line
+  echo xxxx\line
+done\par
+\pard\li720\f0{}}\par
+\pard\li720{}When {\f1{}grep} stops after NUM matching lines, it outputs any trailing context lines. Since context does not include matching lines, {\f1{}grep} will stop when it encounters another matching line.  When the {\f1{}-c} or {\f1{}--count} option is also used, {\f1{}grep} does not output a count greater than {\i num}.  When the {\f1{}-v} or {\f1{}--invert-match} option is also used, {\f1{}grep} stops after outputting {\i num} non-matching lines.\par
+\par
+\pard{}{\f1{}-y}\par
+\pard\li720{}{K{\footnote K -y}}{K{\footnote K case insensitive search, obsolete option}}Obsolete synonym for {\f1{}-i}.\par
+\par
+\pard{}{\f1{}-U}\par
+\pard{}{\f1{}--binary}\par
+\pard\li720{}{K{\footnote K -U}}{K{\footnote K -binary}}{K{\footnote K DOS/Windows binary files}}{K{\footnote K binary files, DOS/Windows}}Treat the file(s) as binary.  By default, under {\scaps\fs16{}ms-dos} and MS-Windows, {\f1{}grep} guesses the file type by looking at the contents of the first 32kB read from the file.  If {\f1{}grep} decides the file is a text file, it strips the {\f1{}CR} characters from the original file contents (to make regular expressions with {\f1{}^} and {\f1{}$} work correctly).  Specifying {\f1{}-U} overrules this guesswork, causing all files to be read and passed to the matching mechanism verbatim; if the file is a text file with {\f1{}CR/LF} pairs at the end of each line, this will cause some regular expressions to fail.  This option has no effect on platforms other than {\scaps\fs16{}ms-dos} and MS-Windows.\par
+\par
+\pard{}{\f1{}-u}\par
+\pard{}{\f1{}--unix-byte-offsets}\par
+\pard\li720{}{K{\footnote K -u}}{K{\footnote K -unix-byte-offsets}}{K{\footnote K DOS byte offsets}}{K{\footnote K byte offsets, on DOS/Windows}}Report Unix-style byte offsets.  This switch causes {\f1{}grep} to report byte offsets as if the file were Unix style text file, i.e., the byte offsets ignore the {\f1{}CR} characters which were stripped.  This will produce results identical to running {\f1{}grep} on a Unix machine.  This option has no effect unless {\f1{}-b} option is also used; it has no effect on platforms other than {\scaps\fs16{}ms-dos} and MS-Windows.\par
+\par
+\pard{}{\f1{}--mmap}\par
+\pard\li720{}{K{\footnote K -mmap}}{K{\footnote K memory mapped input}}If possible, use the {\f1{}mmap} system call to read input, instead of the default {\f1{}read} system call.  In some situations, {\f1{}--mmap} yields better performance.  However, {\f1{}--mmap} can cause undefined behavior (including core dumps) if an input file shrinks while {\f1{}grep} is operating, or if an I/O error occurs.\par
+\par
+\pard{}{\f1{}-Z}\par
+\pard{}{\f1{}--null}\par
+\pard\li720{}{K{\footnote K -Z}}{K{\footnote K -null}}{K{\footnote K zero-terminated file names}}Output a zero byte (the {\scaps\fs16{}ascii} {\f1{}NUL} character) instead of the character that normally follows a file name.  For example, {\f1{}grep -lZ} outputs a zero byte after each file name instead of the usual newline.  This option makes the output unambiguous, even in the presence of file names containing unusual characters like newlines.  This option can be used with commands like {\f1{}find -print0}, {\f1{}perl -0}, {\f1{}sort -z}, and {\f1{}xargs -0} to process arbitrary file names, even those that contain newline characters.\par
+\par
+\pard{}{\f1{}-z}\par
+\pard{}{\f1{}--null-data}\par
+\pard\li720{}{K{\footnote K -z}}{K{\footnote K -null-data}}{K{\footnote K zero-terminated lines}}Treat the input as a set of lines, each terminated by a zero byte (the {\scaps\fs16{}ascii} {\f1{}NUL} character) instead of a newline.  Like the {\f1{}-Z} or {\f1{}--null} option, this option can be used with commands like {\f1{}sort -z} to process arbitrary file names.\par
+\par
+\pard{}}\par
+\pard{}Several additional options control which variant of the {\f1{}grep} matching engine is used.  See {\uldb Grep Programs}{\v Grep_Programs}.\par
+\par
+\pard{\b Environment Variables}\par
+\par
+\pard{}Grep's behavior is affected by the following environment variables.\par
+\par
+\pard{}A locale {\f1{}LC_{\i foo}} is specified by examining the three environment variables {\f1{}LC_ALL}, {\f1{}LC_{\i foo}}, and {\f1{}LANG}, in that order.  The first of these variables that is set specifies the locale.  For example, if {\f1{}LC_ALL} is not set, but {\f1{}LC_MESSAGES} is set to {\f1{}pt_BR}, then Brazilian Portuguese is used for the {\f1{}LC_MESSAGES} locale.  The C locale is used if none of these environment variables are set, or if the locale catalog is not installed, or if {\f1{}grep} was not compiled with national language support ({\scaps\fs16{}nls}).\par
+\par
+\pard{}{K{\footnote K environment variables}} {\par
+\pard{}{\f1{}GREP_OPTIONS}\par
+\pard\li720{}{K{\footnote K GREP_OPTIONS}}{K{\footnote K default options environment variable}}This variable specifies default options to be placed in front of any explicit options.  For example, if {\f1{}GREP_OPTIONS} is {\f1{}--binary-files=without-match --directories=skip}, {\f1{}grep} behaves as if the two options {\f1{}--binary-files=without-match} and {\f1{}--directories=skip} had been specified before any explicit options.  Option specifications are separated by whitespace.  A backslash escapes the next character, so it can be used to specify an option containing whitespace or a backslash.\par
+\par
+\pard{}{\f1{}GREP_COLOR}\par
+\pard\li720{}{K{\footnote K GREP_COLOR}}{K{\footnote K highlight markers}}This variable specifies the surrounding markers use to highlight the matching text.  The default is control ascii red.\par
+\par
+\pard{}{\f1{}LC_ALL}\par
+\pard{}{\f1{}LC_COLLATE}\par
+\pard{}{\f1{}LANG}\par
+\pard\li720{}{K{\footnote K LC_ALL}}{K{\footnote K LC_COLLATE}}{K{\footnote K LANG}}{K{\footnote K character type}}{K{\footnote K national language support}}{K{\footnote K NLS}}These variables specify the {\f1{}LC_COLLATE} locale, which determines the collating sequence used to interpret range expressions like {\f1{}[a-z]}.\par
+\par
+\pard{}{\f1{}LC_ALL}\par
+\pard{}{\f1{}LC_CTYPE}\par
+\pard{}{\f1{}LANG}\par
+\pard\li720{}{K{\footnote K LC_ALL}}{K{\footnote K LC_CTYPE}}{K{\footnote K LANG}}{K{\footnote K character type}}{K{\footnote K national language support}}{K{\footnote K NLS}}These variables specify the {\f1{}LC_CTYPE} locale, which determines the type of characters, e.g., which characters are whitespace.\par
+\par
+\pard{}{\f1{}LC_ALL}\par
+\pard{}{\f1{}LC_MESSAGES}\par
+\pard{}{\f1{}LANG}\par
+\pard\li720{}{K{\footnote K LC_ALL}}{K{\footnote K LC_MESSAGES}}{K{\footnote K LANG}}{K{\footnote K language of messages}}{K{\footnote K message language}}{K{\footnote K national language support}}{K{\footnote K NLS}}{K{\footnote K translation of message language}}These variables specify the {\f1{}LC_MESSAGES} locale, which determines the language that {\f1{}grep} uses for messages.  The default C locale uses American English messages.\par
+\par
+\pard{}{\f1{}POSIXLY_CORRECT}\par
+\pard\li720{}{K{\footnote K POSIXLY_CORRECT}}If set, {\f1{}grep} behaves as {\scaps\fs16{}posix.2} requires; otherwise, {\f1{}grep} behaves more like other {\scaps\fs16{}gnu} programs.  {\scaps\fs16{}posix.2} requires that options that follow file names must be treated as file names; by default, such options are permuted to the front of the operand list and are treated as options.  Also, {\scaps\fs16{}posix.2} requires that unrecognized options be diagnosed as "illegal", but since they are not really against the law the default is to diagnose them as "invalid".  {\f1{}POSIXLY_CORRECT} also disables {\f1{}_{\i N}_GNU_nonoption_argv_flags_}, described below.\par
+\par
+\pard{}{\f1{}_{\i N}_GNU_nonoption_argv_flags_}\par
+\pard\li720{}{K{\footnote K _{\i N}_GNU_nonoption_argv_flags_}}(Here {\f1{}{\i N}} is {\f1{}grep}'s numeric process ID.)  If the {\i i}th character of this environment variable's value is {\f1{}1}, do not consider the {\i i}th operand of {\f1{}grep} to be an option, even if it appears to be one.  A shell can put this variable in the environment for each command it runs, specifying which operands are the results of file name wildcard expansion and therefore should not be treated as options.  This behavior is available only with the {\scaps\fs16{}gnu} C library, and only when {\f1{}POSIXLY_CORRECT} is not set.\par
+\par
+\pard{}}\par
+\page\pard Node: {\b Diagnostics}, \keepn Next: {\uldb Grep Programs}{\v Grep_Programs}, Prev: {\uldb Invoking}{\v Invoking}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Diagnostics}
+#{\footnote Diagnostics}
+${\footnote \pard{}Diagnostics}\par
+\pard{\fs24\b Diagnostics}\par
+\par
+\pard{}Normally, exit status is 0 if selected lines are found and 1 otherwise.  But the exit status is 2 if an error occurred, unless the {\f1{}-q} or {\f1{}--quiet} or {\f1{}--silent} option is used and a selected line is found.\par
+\par
+\page\pard Node: {\b Grep Programs}, \keepn Next: {\uldb Regular Expressions}{\v Regular_Expressions}, Prev: {\uldb Diagnostics}{\v Diagnostics}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Grep Programs}
+#{\footnote Grep_Programs}
+${\footnote {\f1{}\pard{}grep} programs}\par
+\pard{\fs24\b {\f1{}grep} programs}\par
+\par
+{\f1{}\pard{}grep} searches the named input files (or standard input if no files are named, or the file name {\f1{}-} is given) for lines containing a match to the given pattern.  By default, {\f1{}grep} prints the matching lines.  There are four major variants of {\f1{}grep}, controlled by the following options.\par
+\par
+{\pard{}{\f1{}-G}\par
+\pard{}{\f1{}--basic-regexp}\par
+\pard\li720{}{K{\footnote K -G}}{K{\footnote K -basic-regexp}}{K{\footnote K matching basic regular expressions}}Interpret the pattern as a basic regular expression.  This is the default.\par
+\par
+\pard{}{\f1{}-E}\par
+\pard{}{\f1{}--extended-regexp}\par
+\pard\li720{}{K{\footnote K -E}}{K{\footnote K -extended-regexp}}{K{\footnote K matching extended regular expressions}}Interpret the pattern as an extended regular expression.\par
+\par
+\pard{}{\f1{}-F}\par
+\pard{}{\f1{}--fixed-strings}\par
+\pard\li720{}{K{\footnote K -F}}{K{\footnote K -fixed-strings}}{K{\footnote K matching fixed strings}}Interpret the pattern as a list of fixed strings, separated by newlines, any of which is to be matched.\par
+\par
+\pard{}{\f1{}-P}\par
+\pard{}{\f1{}--perl-regexp}\par
+\pard\li720{}{K{\footnote K -P}}{K{\footnote K -perl-regexp}}{K{\footnote K matching Perl regular expressions}}Interpret the pattern as a Perl regular expression.\par
+\par
+\pard{}}\par
+\pard{}In addition, two variant programs {\scaps\fs16{}egrep} and {\scaps\fs16{}fgrep} are available.  {\scaps\fs16{}egrep} is the same as {\f1{}grep -E}.  {\scaps\fs16{}fgrep} is the same as {\f1{}grep -F}.\par
+\par
+\page\pard Node: {\b Regular Expressions}, \keepn Next: {\uldb Usage}{\v Usage}, Prev: {\uldb Grep Programs}{\v Grep_Programs}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Regular Expressions}
+#{\footnote Regular_Expressions}
+${\footnote \pard{}Regular Expressions}\par
+\pard{\fs24\b Regular Expressions}\par
+\par
+\pard{}{K{\footnote K regular expressions}} A \'A2regular expression\'A2 is a pattern that describes a set of strings.  Regular expressions are constructed analogously to arithmetic expressions, by using various operators to combine smaller expressions.  {\f1{}grep} understands two different versions of regular expression syntax: "basic"(BRE) and "extended"(ERE).  In {\scaps\fs16{}gnu} {\f1{}grep}, there is no difference in available functionality using either syntax.  In other implementations, basic regular expressions are less powerful.  The following description applies to extended regular expressions; differences for basic regular expressions are summarized afterwards.\par
+\par
+\pard{}The fundamental building blocks are the regular expressions that match a single character.  Most characters, including all letters and digits, are regular expressions that match themselves.  Any metacharacter with special meaning may be quoted by preceding it with a backslash.\par
+\par
+\pard{}A regular expression may be followed by one of several repetition operators:\par
+\par
+{\pard{}{\f1{}.}\par
+\pard\li720{}{K{\footnote K .}}{K{\footnote K dot}}{K{\footnote K period}}The period {\f1{}.} matches any single character.\par
+\par
+\pard{}{\f1{}?}\par
+\pard\li720{}{K{\footnote K ?}}{K{\footnote K question mark}}{K{\footnote K match sub-expression at most once}}The preceding item is optional and will be matched at most once.\par
+\par
+\pard{}{\f1{}*}\par
+\pard\li720{}{K{\footnote K *}}{K{\footnote K asterisk}}{K{\footnote K match sub-expression zero or more times}}The preceding item will be matched zero or more times.\par
+\par
+\pard{}{\f1{}+}\par
+\pard\li720{}{K{\footnote K +}}{K{\footnote K plus sign}}The preceding item will be matched one or more times.\par
+\par
+\pard{}{\f1{}\'7B{\i n}\'7D}\par
+\pard\li720{}{K{\footnote K \'7Bn\'7D}}{K{\footnote K braces, one argument}}{K{\footnote K match sub-expression n times}}The preceding item is matched exactly {\i n} times.\par
+\par
+\pard{}{\f1{}\'7B{\i n},\'7D}\par
+\pard\li720{}{K{\footnote K \'7Bn,\'7D}}{K{\footnote K braces, second argument omitted}}{K{\footnote K match sub-expression n or more times}}The preceding item is matched n or more times.\par
+\par
+\pard{}{\f1{}\'7B{\i n},{\i m}\'7D}\par
+\pard\li720{}{K{\footnote K \'7Bn,m\'7D}}{K{\footnote K braces, two arguments}}The preceding item is matched at least {\i n} times, but not more than {\i m} times.\par
+\par
+\pard{}}\par
+\pard{}Two regular expressions may be concatenated; the resulting regular expression matches any string formed by concatenating two substrings that respectively match the concatenated subexpressions.\par
+\par
+\pard{}Two regular expressions may be joined by the infix operator {\f1{}|}; the resulting regular expression matches any string matching either subexpression.\par
+\par
+\pard{}Repetition takes precedence over concatenation, which in turn takes precedence over alternation.  A whole subexpression may be enclosed in parentheses to override these precedence rules.\par
+\par
+\pard{\b Character Class}\par
+\par
+\pard{}{K{\footnote K bracket expression}}{K{\footnote K character class}}A \'A2bracket expression\'A2 is a list of characters enclosed by {\f1{}[} and {\f1{}]}.  It matches any single character in that list; if the first character of the list is the caret {\f1{}^}, then it matches any character {\b not} in the list.  For example, the regular expression {\f1{}[0123456789]} matches any single digit.\par
+\par
+\pard{}{K{\footnote K range expression}}Within a bracket expression, a \'A2range expression\'A2 consists of two characters separated by a hyphen.  It matches any single character that sorts between the two characters, inclusive, using the locale's collating sequence and character set.  For example, in the default C locale, {\f1{}[a-d]} is equivalent to {\f1{}[abcd]}.  Many locales sort characters in dictionary order, and in these locales {\f1{}[a-d]} is typically not equivalent to {\f1{}[abcd]}; it might be equivalent to {\f1{}[aBbCcDd]}, for example.  To obtain the traditional interpretation of bracket expressions, you can use the C locale by setting the {\f1{}LC_ALL} environment variable to the value {\f1{}C}.\par
+\par
+\pard{}Finally, certain named classes of characters are predefined within bracket expressions, as follows.  Their interpretation depends on the {\f1{}LC_CTYPE} locale; the interpretation below is that of the C locale, which is the default if no {\f1{}LC_CTYPE} locale is specified.\par
+\par
+\pard{}{K{\footnote K classes of characters}}{K{\footnote K character classes}}{\par
+\pard{}{\f1{}[:alnum:]}\par
+\pard\li720{}{K{\footnote K alnum}}{K{\footnote K alphanumeric characters}}Alphanumeric characters: {\f1{}[:alpha:]} and {\f1{}[:digit:]}.\par
+\par
+\pard{}{\f1{}[:alpha:]}\par
+\pard\li720{}{K{\footnote K alpha}}{K{\footnote K alphabetic characters}}Alphabetic characters: {\f1{}[:lower:]} and {\f1{}[:upper:]}.\par
+\par
+\pard{}{\f1{}[:blank:]}\par
+\pard\li720{}{K{\footnote K blank}}{K{\footnote K blank characters}}Blank characters: space and tab.\par
+\par
+\pard{}{\f1{}[:cntrl:]}\par
+\pard\li720{}{K{\footnote K cntrl}}{K{\footnote K control characters}}Control characters.  In {\scaps\fs16{}ascii}, these characters have octal codes 000 through 037, and 177 ({\f1{}DEL}).  In other character sets, these are the equivalent characters, if any.\par
+\par
+\pard{}{\f1{}[:digit:]}\par
+\pard\li720{}{K{\footnote K digit}}{K{\footnote K digit characters}}{K{\footnote K numeric characters}}Digits: {\f1{}0 1 2 3 4 5 6 7 8 9}.\par
+\par
+\pard{}{\f1{}[:graph:]}\par
+\pard\li720{}{K{\footnote K graph}}{K{\footnote K graphic characters}}Graphical characters: {\f1{}[:alnum:]} and {\f1{}[:punct:]}.\par
+\par
+\pard{}{\f1{}[:lower:]}\par
+\pard\li720{}{K{\footnote K lower}}{K{\footnote K lower-case letters}}Lower-case letters: {\f1{}a b c d e f g h i j k l m n o p q r s t u v w x y z}.\par
+\par
+\pard{}{\f1{}[:print:]}\par
+\pard\li720{}{K{\footnote K print}}{K{\footnote K printable characters}}Printable characters: {\f1{}[:alnum:]}, {\f1{}[:punct:]}, and space.\par
+\par
+\pard{}{\f1{}[:punct:]}\par
+\pard\li720{}{K{\footnote K punct}}{K{\footnote K punctuation characters}}Punctuation characters: {\f1{}! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \'5C ] ^ _ ` \'7B | \'7D ~}.\par
+\par
+\pard{}{\f1{}[:space:]}\par
+\pard\li720{}{K{\footnote K space}}{K{\footnote K space characters}}{K{\footnote K whitespace characters}}Space characters: tab, newline, vertical tab, form feed, carriage return, and space.\par
+\par
+\pard{}{\f1{}[:upper:]}\par
+\pard\li720{}{K{\footnote K upper}}{K{\footnote K upper-case letters}}Upper-case letters: {\f1{}A B C D E F G H I J K L M N O P Q R S T U V W X Y Z}.\par
+\par
+\pard{}{\f1{}[:xdigit:]}\par
+\pard\li720{}{K{\footnote K xdigit}}{K{\footnote K xdigit class}}{K{\footnote K hexadecimal digits}}Hexadecimal digits: {\f1{}0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f}.\par
+\par
+\pard{}}For example, {\f1{}[[:alnum:]]} means {\f1{}[0-9A-Za-z]}, except the latter depends upon the C locale and the {\scaps\fs16{}ascii} character encoding, whereas the former is independent of locale and character set.  (Note that the brackets in these class names are part of the symbolic names, and must be included in addition to the brackets delimiting the bracket list.)\par
+\par
+\pard{}Most metacharacters lose their special meaning inside lists.\par
+\par
+{\pard{}{\f1{}]}\par
+\pard\li720{}ends the list if it's not the first list item.  So, if you want to make the {\f1{}]} character a list item, you must put it first.\par
+\par
+\pard{}{\f1{}[.}\par
+\pard\li720{}represents the open collating symbol.\par
+\par
+\pard{}{\f1{}.]}\par
+\pard\li720{}represents the close collating symbol.\par
+\par
+\pard{}{\f1{}[=}\par
+\pard\li720{}represents the open equivalence class.\par
+\par
+\pard{}{\f1{}=]}\par
+\pard\li720{}represents the close equivalence class.\par
+\par
+\pard{}{\f1{}[:}\par
+\pard\li720{}represents the open character class followed by a valid character class name.\par
+\par
+\pard{}{\f1{}:]}\par
+\pard\li720{}represents the close character class followed by a valid character class name.\par
+\par
+\pard{}{\f1{}-}\par
+\pard\li720{}represents the range if it's not first or last in a list or the ending point of a range.\par
+\par
+\pard{}{\f1{}^}\par
+\pard\li720{}represents the characters not in the list.  If you want to make the {\f1{}^} character a list item, place it anywhere but first.\par
+\par
+\pard{}}\par
+\pard{\b Backslash Character}\par
+\par
+\pard{}{K{\footnote K backslash}} The {\f1{}\'5C} when followed by certain ordinary characters take a special meaning :\par
+\par
+{\pard{}{\f1{}{\f1{}\'5Cb}}\par
+\pard\li720{}Match the empty string at the edge of a word.\par
+\par
+\pard{}{\f1{}{\f1{}\'5CB}}\par
+\pard\li720{}Match the empty string provided it's not at the edge of a word.\par
+\par
+\pard{}{\f1{}{\f1{}\'5C<}}\par
+\pard\li720{}Match the empty string at the beginning of word.\par
+\par
+\pard{}{\f1{}{\f1{}\'5C>}}\par
+\pard\li720{}Match the empty string at the end of word.\par
+\par
+\pard{}{\f1{}{\f1{}\'5Cw}}\par
+\pard\li720{}Match word constituent, it is a synonym for {\f1{}[[:alnum:]]}.\par
+\par
+\pard{}{\f1{}{\f1{}\'5CW}}\par
+\pard\li720{}Match non word constituent, it is a synonym for {\f1{}[^[:alnum:]]}.\par
+\par
+\pard{}}\par
+\pard{}For example , {\f1{}\'5Cbrat\'5Cb} matches the separate word {\f1{}rat}, {\f1{}c\'5CBrat\'5CBe} matches {\f1{}crate}, but {\f1{}dirty \'5CBrat} doesn't match {\f1{}dirty rat}.\par
+\par
+\pard{\b Anchoring}\par
+\par
+\pard{}{K{\footnote K anchoring}} The caret {\f1{}^} and the dollar sign {\f1{}$} are metacharacters that respectively match the empty string at the beginning and end of a line.\par
+\par
+\pard{\b Back-reference}\par
+\par
+\pard{}{K{\footnote K back-reference}} The back-reference {\f1{}\'5C{\i n}}, where {\i n} is a single digit, matches the substring previously matched by the {\i n}th parenthesized subexpression of the regular expression. For example, {\f1{}(a)\'5C1} matches {\f1{}aa}.  When use with alternation if the group does not participate in the match, then the back-reference makes the whole match fail.  For example, {\f1{}a(.)|b\'5C1} will not match {\f1{}ba}.  When multiple regular expressions are given with {\f1{}-e} or from a file {\f1{}-f file}, the back-referecences are local to each expression.\par
+\par
+\pard{\b Basic vs Extended}\par
+\par
+\pard{}{K{\footnote K basic regular expressions}} In basic regular expressions the metacharacters {\f1{}?}, {\f1{}+}, {\f1{}\'7B}, {\f1{}|}, {\f1{}(}, and {\f1{})} lose their special meaning; instead use the backslashed versions {\f1{}\'5C?}, {\f1{}\'5C+}, {\f1{}\'5C\'7B}, {\f1{}\'5C|}, {\f1{}\'5C(}, and {\f1{}\'5C)}.\par
+\par
+\pard{}{K{\footnote K interval specifications}}Traditional {\f1{}egrep} did not support the {\f1{}\'7B} metacharacter, and some {\f1{}egrep} implementations support {\f1{}\'5C\'7B} instead, so portable scripts should avoid {\f1{}\'7B} in {\f1{}egrep} patterns and should use {\f1{}[\'7B]} to match a literal {\f1{}\'7B}.\par
+\par
+{\scaps\fs16{}\pard{}gnu} {\f1{}egrep} attempts to support traditional usage by assuming that {\f1{}\'7B} is not special if it would be the start of an invalid interval specification.  For example, the shell command {\f1{}egrep '\'7B1'} searches for the two-character string {\f1{}\'7B1} instead of reporting a syntax error in the regular expression.  {\scaps\fs16{}posix.2} allows this behavior as an extension, but portable scripts should avoid it.\par
+\par
+\page\pard Node: {\b Usage}, \keepn Next: {\uldb Reporting Bugs}{\v Reporting_Bugs}, Prev: {\uldb Regular Expressions}{\v Regular_Expressions}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Usage}
+#{\footnote Usage}
+${\footnote \pard{}Usage}\par
+\pard{\fs24\b Usage}\par
+\par
+\pard{}{K{\footnote K Usage, examples}}Here is an example shell command that invokes {\scaps\fs16{}gnu} {\f1{}grep}:\par
+\par
+{\pard\keep\li720\f1{}grep -i 'hello.*world' menu.h main.c\par
+\pard\f0{}}\par
+\pard{}This lists all lines in the files {\f1{}menu.h} and {\f1{}main.c} that contain the string {\f1{}hello} followed by the string {\f1{}world}; this is because {\f1{}.*} matches zero or more characters within a line.  See {\uldb Regular Expressions}{\v Regular_Expressions}.  The {\f1{}-i} option causes {\f1{}grep} to ignore case, causing it to match the line {\f1{}Hello, world!}, which it would not otherwise match.  See {\uldb Invoking}{\v Invoking}, for more details about how to invoke {\f1{}grep}.\par
+\par
+\pard{}{K{\footnote K Using {\f1{}grep}, Q&A}}{K{\footnote K FAQ about {\f1{}grep} usage}}Here are some common questions and answers about {\f1{}grep} usage.\par
+\par
+{\pard\fi-720\li720\tx144\tx720{}\tab{}1. \tab{}How can I list just the names of matching files?\par
+\par
+{\pard\keep\li1440\f1{}grep -l 'main' *.c\par
+\pard\li720\f0{}}\par
+\pard\li720{}lists the names of all C files in the current directory whose contents mention {\f1{}main}.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}2. \tab{}How do I search directories recursively?\par
+\par
+{\pard\keep\li1440\f1{}grep -r 'hello' /home/gigi\par
+\pard\li720\f0{}}\par
+\pard\li720{}searches for {\f1{}hello} in all files under the directory {\f1{}/home/gigi}.  For more control of which files are searched, use {\f1{}find}, {\f1{}grep} and {\f1{}xargs}.  For example, the following command searches only C files:\par
+\par
+{\pard\keep\li1440\f1{}find /home/gigi -name '*.c' -print | xargs grep 'hello' /dev/null\par
+\pard\li720\f0{}}\par
+\pard\li720{}This differs from the command:\par
+\par
+{\pard\keep\li1440\f1{}grep -r 'hello' *.c\par
+\pard\li720\f0{}}\par
+\pard\li720{}which merely looks for {\f1{}hello} in all files in the current directory whose names end in {\f1{}.c}.  Here the {\f1{}-r} is probably unnecessary, as recursion occurs only in the unlikely event that one of {\f1{}.c} files is a directory.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}3. \tab{}What if a pattern has a leading {\f1{}-}?\par
+\par
+{\pard\keep\li1440\f1{}grep -e '--cut here--' *\par
+\pard\li720\f0{}}\par
+\pard\li720{}searches for all lines matching {\f1{}--cut here--}.  Without {\f1{}-e}, {\f1{}grep} would attempt to parse {\f1{}--cut here--} as a list of options.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}4. \tab{}Suppose I want to search for a whole word, not a part of a word?\par
+\par
+{\pard\keep\li1440\f1{}grep -w 'hello' *\par
+\pard\li720\f0{}}\par
+\pard\li720{}searches only for instances of {\f1{}hello} that are entire words; it does not match {\f1{}Othello}.  For more control, use {\f1{}\'5C<} and {\f1{}\'5C>} to match the start and end of words.  For example:\par
+\par
+{\pard\keep\li1440\f1{}grep 'hello\'5C>' *\par
+\pard\li720\f0{}}\par
+\pard\li720{}searches only for words ending in {\f1{}hello}, so it matches the word {\f1{}Othello}.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}5. \tab{}How do I output context around the matching lines?\par
+\par
+{\pard\keep\li1440\f1{}grep -C 2 'hello' *\par
+\pard\li720\f0{}}\par
+\pard\li720{}prints two lines of context around each matching line.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}6. \tab{}How do I force grep to print the name of the file?\par
+\par
+\pard\li720{}Append {\f1{}/dev/null}:\par
+\par
+{\pard\keep\li1440\f1{}grep 'eli' /etc/passwd /dev/null\par
+\pard\li720\f0{}}\par
+\pard\li720{}gets you:\par
+\par
+{\pard\keep\li1440\f1{}/etc/passwd:eli:DNGUTF58.IMe.:98:11:Eli Smith:/home/do/eli:/bin/bash\par
+\pard\li720\f0{}}\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}7. \tab{}Why do people use strange regular expressions on {\f1{}ps} output?\par
+\par
+{\pard\keep\li1440\f1{}ps -ef | grep '[c]ron'\par
+\pard\li720\f0{}}\par
+\pard\li720{}If the pattern had been written without the square brackets, it would have matched not only the {\f1{}ps} output line for {\f1{}cron}, but also the {\f1{}ps} output line for {\f1{}grep}.  Note that some platforms {\f1{}ps} limit the ouput to the width of the screen, grep does not have any limit on the length of a line except the available memory.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}8. \tab{}Why does {\f1{}grep} report "Binary file matches"?\par
+\par
+\pard\li720{}If {\f1{}grep} listed all matching "lines" from a binary file, it would probably generate output that is not useful, and it might even muck up your display.  So {\scaps\fs16{}gnu} {\f1{}grep} suppresses output from files that appear to be binary files.  To force {\scaps\fs16{}gnu} {\f1{}grep} to output lines even from files that appear to be binary, use the {\f1{}-a} or {\f1{}--binary-files=text} option.  To eliminate the "Binary file matches" messages, use the {\f1{}-I} or {\f1{}--binary-files=without-match} option.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}9. \tab{}Why doesn't {\f1{}grep -lv} print nonmatching file names?\par
+\par
+{\f1{}\pard\li720{}grep -lv} lists the names of all files containing one or more lines that do not match.  To list the names of all files that contain no matching lines, use the {\f1{}-L} or {\f1{}--files-without-match} option.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}10. \tab{}I can do {\scaps\fs16{}or} with {\f1{}|}, but what about {\scaps\fs16{}and}?\par
+\par
+{\pard\keep\li1440\f1{}grep 'paul' /etc/motd | grep 'franc,ois'\par
+\pard\li720\f0{}}\par
+\pard\li720{}finds all lines that contain both {\f1{}paul} and {\f1{}franc,ois}.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}11. \tab{}How can I search in both standard input and in files?\par
+\par
+\pard\li720{}Use the special file name {\f1{}-}:\par
+\par
+{\pard\keep\li1440\f1{}cat /etc/passwd | grep 'alain' - /etc/motd\par
+\pard\li720\f0{}}\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}12. \tab{}{K{\footnote K palindromes}}How to express palindromes in a regular expression?\par
+\par
+\pard\li720{}It can be done by using the back referecences, for example a palindrome of 4 chararcters can be written in BRE.\par
+\par
+{\pard\keep\li1440\f1{}grep -w -e '\'5C(.\'5C)\'5C(.\'5C).\'5C2\'5C1' file\par
+\pard\li720\f0{}}\par
+\pard\li720{}It matches the word "radar" or "civic".\par
+\par
+\pard\li720{}Guglielmo Bondioni proposed a single RE that finds all the palindromes up to 19 characters long.\par
+\par
+{\pard\keep\li1440\f1{}egrep -e '^(.?)(.?)(.?)(.?)(.?)(.?)(.?)(.?)(.?).?\'5C9\'5C8\'5C7\'5C6\'5C5\'5C4\'5C3\'5C2\'5C1$' file\par
+\pard\li720\f0{}}\par
+\pard\li720{}Note this is done by using GNU ERE extensions, it might not be portable on other greps.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}13. \tab{}Why are my expressions whith the vertical bar fail?\par
+\par
+{\pard\keep\li1440\f1{}/bin/echo "ba" | egrep '(a)\'5C1|(b)\'5C1'\par
+\pard\li720\f0{}}\par
+\pard\li720{}The first alternate branch fails then the first group was not in the match this will make the second alternate branch fails.  For example, "aaba" will match, the first group participate in the match and can be reuse in the second branch.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}14. \tab{}What do {\f1{}grep, fgrep, egrep} stand for ?\par
+\par
+\pard\li720{}grep comes from the way line editing was done on Unix.  For example, {\f1{}ed} uses this syntax to print a list of matching lines on the screen.\par
+\par
+{\pard\keep\li1440\f1{}global/regular expression/print\line
+g/re/p\par
+\pard\li720\f0{}}\par
+{\f1{}\pard\li720{}fgrep} stands for Fixed {\f1{}grep}, {\f1{}egrep} Extended {\f1{}grep}.\par
+\par
+\pard{}}\par
+\page\pard Node: {\b Reporting Bugs}, \keepn Next: {\uldb Copying}{\v Copying}, Prev: {\uldb Usage}{\v Usage}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Reporting Bugs}
+#{\footnote Reporting_Bugs}
+${\footnote \pard{}Reporting bugs}\par
+\pard{\fs24\b Reporting bugs}\par
+\par
+\pard{}{K{\footnote K Bugs, reporting}}Email bug reports to <bug-gnu-utils@gnu.org>.  Be sure to include the word "grep" somewhere in the "Subject:" field.\par
+\par
+\pard{}Large repetition counts in the {\f1{}\'7Bn,m\'7D} construct may cause {\f1{}grep} to use lots of memory.  In addition, certain other obscure regular expressions require exponential time and space, and may cause grep to run out of memory.  Back-references are very slow, and may require exponential time.\par
+\par
+\page\pard Node: {\b Copying}, \keepn Next: {\uldb GNU General Public License}{\v GNU_General_Public_License}, Prev: {\uldb Reporting Bugs}{\v Reporting_Bugs}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Copying}
+#{\footnote Copying}
+${\footnote \pard{}Copying}\par
+\pard{\fs24\b Copying}\par
+\par
+\pard{}{K{\footnote K Copying}}GNU grep is licensed under the GNU GPL, which makes it \'A2free software\'A2.\par
+\par
+\pard{}Please note that "free" in "free software" refers to liberty, not price.  As some GNU project advocates like to point out, think of "free speech" rather than "free beer".  The exact and legally binding distribution terms are spelled out below; in short, you have the right (freedom) to run and change grep and distribute it to other people, and even--if you want--charge money for doing either.  The important restriction is that you have to grant your recipients the same rights and impose the same restrictions.\par
+\par
+\pard{}This method of licensing software is also known as \'A2open source\'A2 because, among other things, it makes sure that all recipients will receive the source code along with the program, and be able to improve it.  The GNU project prefers the term "free software" for reasons outlined at <URL:http://www.gnu.org/philosophy/free-software-for-freedom.html>.\par
+\par
+\pard{}The exact license terms are defined by this paragraph and the GNU General Public License it refers to:\par
+\par
+{\pard\li720{}GNU grep is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\par
+\par
+\pard\li720{}GNU grep is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\par
+\par
+\pard\li720{}A copy of the GNU General Public License is included as part of this manual; if you did not receive it, write to the Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.\par
+\pard{}}\par
+\pard{}In addition to this, this manual is free in the same sense:\par
+\par
+{\pard\li720{}Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.1 or any later version published by the Free Software Foundation; with the Invariant Sections being "GNU General Public License" and "GNU Free Documentation License", with no Front-Cover Texts, and with no Back-Cover Texts.  A copy of the license is included in the section entitled "GNU Free Documentation License".\par
+\pard{}}\par
+\pard{}The full texts of the GNU General Public License and of the GNU Free Documentation License are available below.\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb GNU General Public License}{\v GNU_General_Public_License}\tab GNU GPL\par
+{\uldb GNU Free Documentation License}{\v GNU_Free_Documentation_License}\tab GNU FDL\par
+\pard{}}\par
+\page\pard Node: {\b GNU General Public License}, \keepn Next: {\uldb GNU Free Documentation License}{\v GNU_Free_Documentation_License}, Prev: {\uldb Copying}{\v Copying}, Up: {\uldb Copying}{\v Copying}\line
+K{\footnote K GNU General Public License}
+#{\footnote GNU_General_Public_License}
+${\footnote \pard{}GNU General Public License}\par
+\pard{\fs24\b GNU General Public License}\par
+\par
+\pard{}Version 2, June 1991\qc{}\par
+\par
+\pard{}{K{\footnote K GPL, GNU General Public License}} {\par
+\pard\keep\li720\f1{}Copyright (C) 1989, 1991 Free Software Foundation, Inc.\line
+675 Mass Ave, Cambridge, MA 02139, USA\line
+\line
+Everyone is permitted to copy and distribute verbatim copies\line
+of this license document, but changing it is not allowed.\par
+\pard\f0{}}\par
+\pard{\b Preamble}\par
+\par
+\pard{}The licenses for most software are designed to take away your freedom to share and change it.  By contrast, the GNU General Public License is intended to guarantee your freedom to share and change free software--to make sure the software is free for all its users.  This General Public License applies to most of the Free Software Foundation's software and to any other program whose authors commit to using it.  (Some other Free Software Foundation software is covered by the GNU Library General Public License instead.)  You can apply it to your programs, too.\par
+\par
+\pard{}When we speak of free software, we are referring to freedom, not price.  Our General Public Licenses are designed to make sure that you have the freedom to distribute copies of free software (and charge for this service if you wish), that you receive source code or can get it if you want it, that you can change the software or use pieces of it in new free programs; and that you know you can do these things.\par
+\par
+\pard{}To protect your rights, we need to make restrictions that forbid anyone to deny you these rights or to ask you to surrender the rights.  These restrictions translate to certain responsibilities for you if you distribute copies of the software, or if you modify it.\par
+\par
+\pard{}For example, if you distribute copies of such a program, whether gratis or for a fee, you must give the recipients all the rights that you have.  You must make sure that they, too, receive or can get the source code.  And you must show them these terms so they know their rights.\par
+\par
+\pard{}We protect your rights with two steps: (1) copyright the software, and (2) offer you this license which gives you legal permission to copy, distribute and/or modify the software.\par
+\par
+\pard{}Also, for each author's protection and ours, we want to make certain that everyone understands that there is no warranty for this free software.  If the software is modified by someone else and passed on, we want its recipients to know that what they have is not the original, so that any problems introduced by others will not reflect on the original authors' reputations.\par
+\par
+\pard{}Finally, any free program is threatened constantly by software patents.  We wish to avoid the danger that redistributors of a free program will individually obtain patent licenses, in effect making the program proprietary.  To prevent this, we have made it clear that any patent must be licensed for everyone's free use or not licensed at all.\par
+\par
+\pard{}The precise terms and conditions for copying, distribution and modification follow.\par
+\par
+{\pard{}TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION\qc{}\par
+\par
+}{\pard\fi-720\li720\tx144\tx720{}\tab{}1. \tab{}This License applies to any program or other work which contains a notice placed by the copyright holder saying it may be distributed under the terms of this General Public License.  The "Program", below, refers to any such program or work, and a "work based on the Program" means either the Program or any derivative work under copyright law: that is to say, a work containing the Program or a portion of it, either verbatim or with modifications and/or translated into another language.  (Hereinafter, translation is included without limitation in the term "modification".)  Each licensee is addressed as "you".\par
+\par
+\pard\li720{}Activities other than copying, distribution and modification are not covered by this License; they are outside its scope.  The act of running the Program is not restricted, and the output from the Program is covered only if its contents constitute a work based on the Program (independent of having been made by running the Program).  Whether that is true depends on what the Program does.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}2. \tab{}You may copy and distribute verbatim copies of the Program's source code as you receive it, in any medium, provided that you conspicuously and appropriately publish on each copy an appropriate copyright notice and disclaimer of warranty; keep intact all the notices that refer to this License and to the absence of any warranty; and give any other recipients of the Program a copy of this License along with the Program.\par
+\par
+\pard\li720{}You may charge a fee for the physical act of transferring a copy, and you may at your option offer warranty protection in exchange for a fee.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}3. \tab{}You may modify your copy or copies of the Program or any portion of it, thus forming a work based on the Program, and copy and distribute such modifications or work under the terms of Section 1 above, provided that you also meet all of these conditions:\par
+\par
+{\pard\fi-720\li1440\tx864\tx1440{}\tab{}a.\tab{}You must cause the modified files to carry prominent notices stating that you changed the files and the date of any change.\par
+\par
+\pard\fi-720\li1440\tx864\tx1440{}\tab{}b.\tab{}You must cause any work that you distribute or publish, that in whole or in part contains or is derived from the Program or any part thereof, to be licensed as a whole at no charge to all third parties under the terms of this License.\par
+\par
+\pard\fi-720\li1440\tx864\tx1440{}\tab{}c.\tab{}If the modified program normally reads commands interactively when run, you must cause it, when started running for such interactive use in the most ordinary way, to print or display an announcement including an appropriate copyright notice and a notice that there is no warranty (or else, saying that you provide a warranty) and that users may redistribute the program under these conditions, and telling the user how to view a copy of this License.  (Exception: if the Program itself is interactive but does not normally print such an announcement, your work based on the Program is not required to print an announcement.)\par
+\pard\li720{}}\par
+\pard\li720{}These requirements apply to the modified work as a whole.  If identifiable sections of that work are not derived from the Program, and can be reasonably considered independent and separate works in themselves, then this License, and its terms, do not apply to those sections when you distribute them as separate works.  But when you distribute the same sections as part of a whole which is a work based on the Program, the distribution of the whole must be on the terms of this License, whose permissions for other licensees extend to the entire whole, and thus to each and every part regardless of who wrote it.\par
+\par
+\pard\li720{}Thus, it is not the intent of this section to claim rights or contest your rights to work written entirely by you; rather, the intent is to exercise the right to control the distribution of derivative or collective works based on the Program.\par
+\par
+\pard\li720{}In addition, mere aggregation of another work not based on the Program with the Program (or with a work based on the Program) on a volume of a storage or distribution medium does not bring the other work under the scope of this License.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}4. \tab{}You may copy and distribute the Program (or a work based on it, under Section 2) in object code or executable form under the terms of Sections 1 and 2 above provided that you also do one of the following:\par
+\par
+{\pard\fi-720\li1440\tx864\tx1440{}\tab{}a.\tab{}Accompany it with the complete corresponding machine-readable source code, which must be distributed under the terms of Sections 1 and 2 above on a medium customarily used for software interchange; or,\par
+\par
+\pard\fi-720\li1440\tx864\tx1440{}\tab{}b.\tab{}Accompany it with a written offer, valid for at least three years, to give any third party, for a charge no more than your cost of physically performing source distribution, a complete machine-readable copy of the corresponding source code, to be distributed under the terms of Sections 1 and 2 above on a medium customarily used for software interchange; or,\par
+\par
+\pard\fi-720\li1440\tx864\tx1440{}\tab{}c.\tab{}Accompany it with the information you received as to the offer to distribute corresponding source code.  (This alternative is allowed only for noncommercial distribution and only if you received the program in object code or executable form with such an offer, in accord with Subsection b above.)\par
+\pard\li720{}}\par
+\pard\li720{}The source code for a work means the preferred form of the work for making modifications to it.  For an executable work, complete source code means all the source code for all modules it contains, plus any associated interface definition files, plus the scripts used to control compilation and installation of the executable.  However, as a special exception, the source code distributed need not include anything that is normally distributed (in either source or binary form) with the major components (compiler, kernel, and so on) of the operating system on which the executable runs, unless that component itself accompanies the executable.\par
+\par
+\pard\li720{}If distribution of executable or object code is made by offering access to copy from a designated place, then offering equivalent access to copy the source code from the same place counts as distribution of the source code, even though third parties are not compelled to copy the source along with the object code.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}5. \tab{}You may not copy, modify, sublicense, or distribute the Program except as expressly provided under this License.  Any attempt otherwise to copy, modify, sublicense or distribute the Program is void, and will automatically terminate your rights under this License.  However, parties who have received copies, or rights, from you under this License will not have their licenses terminated so long as such parties remain in full compliance.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}6. \tab{}You are not required to accept this License, since you have not signed it.  However, nothing else grants you permission to modify or distribute the Program or its derivative works.  These actions are prohibited by law if you do not accept this License.  Therefore, by modifying or distributing the Program (or any work based on the Program), you indicate your acceptance of this License to do so, and all its terms and conditions for copying, distributing or modifying the Program or works based on it.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}7. \tab{}Each time you redistribute the Program (or any work based on the Program), the recipient automatically receives a license from the original licensor to copy, distribute or modify the Program subject to these terms and conditions.  You may not impose any further restrictions on the recipients' exercise of the rights granted herein.  You are not responsible for enforcing compliance by third parties to this License.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}8. \tab{}If, as a consequence of a court judgment or allegation of patent infringement or for any other reason (not limited to patent issues), conditions are imposed on you (whether by court order, agreement or otherwise) that contradict the conditions of this License, they do not excuse you from the conditions of this License.  If you cannot distribute so as to satisfy simultaneously your obligations under this License and any other pertinent obligations, then as a consequence you may not distribute the Program at all.  For example, if a patent license would not permit royalty-free redistribution of the Program by all those who receive copies directly or indirectly through you, then the only way you could satisfy both it and this License would be to refrain entirely from distribution of the Program.\par
+\par
+\pard\li720{}If any portion of this section is held invalid or unenforceable under any particular circumstance, the balance of the section is intended to apply and the section as a whole is intended to apply in other circumstances.\par
+\par
+\pard\li720{}It is not the purpose of this section to induce you to infringe any patents or other property right claims or to contest validity of any such claims; this section has the sole purpose of protecting the integrity of the free software distribution system, which is implemented by public license practices.  Many people have made generous contributions to the wide range of software distributed through that system in reliance on consistent application of that system; it is up to the author/donor to decide if he or she is willing to distribute software through any other system and a licensee cannot impose that choice.\par
+\par
+\pard\li720{}This section is intended to make thoroughly clear what is believed to be a consequence of the rest of this License.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}9. \tab{}If the distribution and/or use of the Program is restricted in certain countries either by patents or by copyrighted interfaces, the original copyright holder who places the Program under this License may add an explicit geographical distribution limitation excluding those countries, so that distribution is permitted only in or among countries not thus excluded.  In such case, this License incorporates the limitation as if written in the body of this License.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}10. \tab{}The Free Software Foundation may publish revised and/or new versions of the General Public License from time to time.  Such new versions will be similar in spirit to the present version, but may differ in detail to address new problems or concerns.\par
+\par
+\pard\li720{}Each version is given a distinguishing version number.  If the Program specifies a version number of this License which applies to it and "any later version", you have the option of following the terms and conditions either of that version or of any later version published by the Free Software Foundation.  If the Program does not specify a version number of this License, you may choose any version ever published by the Free Software Foundation.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}11. \tab{}If you wish to incorporate parts of the Program into other free programs whose distribution conditions are different, write to the author to ask for permission.  For software which is copyrighted by the Free Software Foundation, write to the Free Software Foundation; we sometimes make exceptions for this.  Our decision will be guided by the two goals of preserving the free status of all derivatives of our free software and of promoting the sharing and reuse of software generally.\par
+\par
+{\pard\li720{}NO WARRANTY\qc{}\par
+\par
+}\pard\li720{}{K{\footnote K no warranty}}\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}12. \tab{}BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}13. \tab{}IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.\par
+\pard{}}\par
+{\pard{}END OF TERMS AND CONDITIONS\qc{}\par
+\par
+}\pard{\b How to Apply These Terms to Your New Programs}\par
+\par
+\pard{}If you develop a new program, and you want it to be of the greatest possible use to the public, the best way to achieve this is to make it free software which everyone can redistribute and change under these terms.\par
+\par
+\pard{}To do so, attach the following notices to the program.  It is safest to attach them to the start of each source file to most effectively convey the exclusion of warranty; and each file should have at least the "copyright" line and a pointer to where the full notice is found.\par
+\par
+{{\i \pard\li720\f1{}one line to give the program's name and an idea of what it does.}\line
+Copyright (C) 19{\i yy}  {\i name of author}\line
+\line
+This program is free software; you can redistribute it and/or\line
+modify it under the terms of the GNU General Public License\line
+as published by the Free Software Foundation; either version 2\line
+of the License, or (at your option) any later version.\line
+\line
+This program is distributed in the hope that it will be useful,\line
+but WITHOUT ANY WARRANTY; without even the implied warranty of\line
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\line
+GNU General Public License for more details.\line
+\line
+You should have received a copy of the GNU General Public License\line
+along with this program; if not, write to the Free Software\line
+Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.\par
+\pard\f0{}}\par
+\pard{}Also add information on how to contact you by electronic and paper mail.\par
+\par
+\pard{}If the program is interactive, make it output a short notice like this when it starts in an interactive mode:\par
+\par
+{\pard\keep\li720\f1{}Gnomovision version 69, Copyright (C) 19{\i yy} {\i name of author}\line
+Gnomovision comes with ABSOLUTELY NO WARRANTY; for details\line
+type `show w'.  This is free software, and you are welcome\line
+to redistribute it under certain conditions; type `show c'\line
+for details.\par
+\pard\f0{}}\par
+\pard{}The hypothetical commands {\f1{}show w} and {\f1{}show c} should show the appropriate parts of the General Public License.  Of course, the commands you use may be called something other than {\f1{}show w} and {\f1{}show c}; they could even be mouse-clicks or menu items--whatever suits your program.\par
+\par
+\pard{}You should also get your employer (if you work as a programmer) or your school, if any, to sign a "copyright disclaimer" for the program, if necessary.  Here is a sample; alter the names:\par
+\par
+{{\pard\keep\li720\f1{}Yoyodyne, Inc., hereby disclaims all copyright\line
+interest in the program `Gnomovision'\line
+(which makes passes at compilers) written\line
+by James Hacker.\line
+\line
+{\i signature of Ty Coon}, 1 April 1989\line
+Ty Coon, President of Vice\par
+\pard\keep\li720{}}}\par
+\pard\f0{}This General Public License does not permit incorporating your program into proprietary programs.  If your program is a subroutine library, you may consider it more useful to permit linking proprietary applications with the library.  If this is what you want to do, use the GNU Library General Public License instead of this License.\par
+\par
+\page\pard Node: {\b GNU Free Documentation License}, \keepn Next: {\uldb Concept Index}{\v Concept_Index}, Prev: {\uldb GNU General Public License}{\v GNU_General_Public_License}, Up: {\uldb Copying}{\v Copying}\line
+K{\footnote K GNU Free Documentation License}
+#{\footnote GNU_Free_Documentation_License}
+${\footnote \pard{}GNU Free Documentation License}\par
+\pard{\fs24\b GNU Free Documentation License}\par
+\par
+\pard{}Version 1.1, March 2000\qc{}\par
+\par
+\pard{}{K{\footnote K FDL, GNU Free Documentation License}} {\par
+\pard\keep\li720\f1{}Copyright (C) 2000  Free Software Foundation, Inc.\line
+59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\line
+\line
+Everyone is permitted to copy and distribute verbatim copies\line
+of this license document, but changing it is not allowed.\par
+\pard\f0{}}\par
+{\pard\fi-720\li720\tx144\tx720{}\tab{}0. \tab{}PREAMBLE\par
+\par
+\pard\li720{}The purpose of this License is to make a manual, textbook, or other written document "free" in the sense of freedom: to assure everyone the effective freedom to copy and redistribute it, with or without modifying it, either commercially or noncommercially.  Secondarily, this License preserves for the author and publisher a way to get credit for their work, while not being considered responsible for modifications made by others.\par
+\par
+\pard\li720{}This License is a kind of "copyleft", which means that derivative works of the document must themselves be free in the same sense.  It complements the GNU General Public License, which is a copyleft license designed for free software.\par
+\par
+\pard\li720{}We have designed this License in order to use it for manuals for free software, because free software needs free documentation: a free program should come with manuals providing the same freedoms that the software does.  But this License is not limited to software manuals; it can be used for any textual work, regardless of subject matter or whether it is published as a printed book.  We recommend this License principally for works whose purpose is instruction or reference.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}1. \tab{}APPLICABILITY AND DEFINITIONS\par
+\par
+\pard\li720{}This License applies to any manual or other work that contains a notice placed by the copyright holder saying it can be distributed under the terms of this License.  The "Document", below, refers to any such manual or work.  Any member of the public is a licensee, and is addressed as "you".\par
+\par
+\pard\li720{}A "Modified Version" of the Document means any work containing the Document or a portion of it, either copied verbatim, or with modifications and/or translated into another language.\par
+\par
+\pard\li720{}A "Secondary Section" is a named appendix or a front-matter section of the Document that deals exclusively with the relationship of the publishers or authors of the Document to the Document's overall subject (or to related matters) and contains nothing that could fall directly within that overall subject.  (For example, if the Document is in part a textbook of mathematics, a Secondary Section may not explain any mathematics.)  The relationship could be a matter of historical connection with the subject or with related matters, or of legal, commercial, philosophical, ethical or political position regarding them.\par
+\par
+\pard\li720{}The "Invariant Sections" are certain Secondary Sections whose titles are designated, as being those of Invariant Sections, in the notice that says that the Document is released under this License.\par
+\par
+\pard\li720{}The "Cover Texts" are certain short passages of text that are listed, as Front-Cover Texts or Back-Cover Texts, in the notice that says that the Document is released under this License.\par
+\par
+\pard\li720{}A "Transparent" copy of the Document means a machine-readable copy, represented in a format whose specification is available to the general public, whose contents can be viewed and edited directly and straightforwardly with generic text editors or (for images composed of pixels) generic paint programs or (for drawings) some widely available drawing editor, and that is suitable for input to text formatters or for automatic translation to a variety of formats suitable for input to text formatters.  A copy made in an otherwise Transparent file format whose markup has been designed to thwart or discourage subsequent modification by readers is not Transparent.  A copy that is not "Transparent" is called "Opaque".\par
+\par
+\pard\li720{}Examples of suitable formats for Transparent copies include plain ASCII without markup, Texinfo input format, LaTeX input format, SGML or XML using a publicly available DTD, and standard-conforming simple HTML designed for human modification.  Opaque formats include PostScript, PDF, proprietary formats that can be read and edited only by proprietary word processors, SGML or XML for which the DTD and/or processing tools are not generally available, and the machine-generated HTML produced by some word processors for output purposes only.\par
+\par
+\pard\li720{}The "Title Page" means, for a printed book, the title page itself, plus such following pages as are needed to hold, legibly, the material this License requires to appear in the title page.  For works in formats which do not have any title page as such, "Title Page" means the text near the most prominent appearance of the work's title, preceding the beginning of the body of the text.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}2. \tab{}VERBATIM COPYING\par
+\par
+\pard\li720{}You may copy and distribute the Document in any medium, either commercially or noncommercially, provided that this License, the copyright notices, and the license notice saying this License applies to the Document are reproduced in all copies, and that you add no other conditions whatsoever to those of this License.  You may not use technical measures to obstruct or control the reading or further copying of the copies you make or distribute.  However, you may accept compensation in exchange for copies.  If you distribute a large enough number of copies you must also follow the conditions in section 3.\par
+\par
+\pard\li720{}You may also lend copies, under the same conditions stated above, and you may publicly display copies.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}3. \tab{}COPYING IN QUANTITY\par
+\par
+\pard\li720{}If you publish printed copies of the Document numbering more than 100, and the Document's license notice requires Cover Texts, you must enclose the copies in covers that carry, clearly and legibly, all these Cover Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on the back cover.  Both covers must also clearly and legibly identify you as the publisher of these copies.  The front cover must present the full title with all words of the title equally prominent and visible.  You may add other material on the covers in addition.  Copying with changes limited to the covers, as long as they preserve the title of the Document and satisfy these conditions, can be treated as verbatim copying in other respects.\par
+\par
+\pard\li720{}If the required texts for either cover are too voluminous to fit legibly, you should put the first ones listed (as many as fit reasonably) on the actual cover, and continue the rest onto adjacent pages.\par
+\par
+\pard\li720{}If you publish or distribute Opaque copies of the Document numbering more than 100, you must either include a machine-readable Transparent copy along with each Opaque copy, or state in or with each Opaque copy a publicly-accessible computer-network location containing a complete Transparent copy of the Document, free of added material, which the general network-using public has access to download anonymously at no charge using public-standard network protocols.  If you use the latter option, you must take reasonably prudent steps, when you begin distribution of Opaque copies in quantity, to ensure that this Transparent copy will remain thus accessible at the stated location until at least one year after the last time you distribute an Opaque copy (directly or through your agents or retailers) of that edition to the public.\par
+\par
+\pard\li720{}It is requested, but not required, that you contact the authors of the Document well before redistributing any large number of copies, to give them a chance to provide you with an updated version of the Document.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}4. \tab{}MODIFICATIONS\par
+\par
+\pard\li720{}You may copy and distribute a Modified Version of the Document under the conditions of sections 2 and 3 above, provided that you release the Modified Version under precisely this License, with the Modified Version filling the role of the Document, thus licensing distribution and modification of the Modified Version to whoever possesses a copy of it.  In addition, you must do these things in the Modified Version:\par
+\par
+\pard\li720{}A. Use in the Title Page (and on the covers, if any) a title distinct    from that of the Document, and from those of previous versions    (which should, if there were any, be listed in the History section    of the Document).  You may use the same title as a previous version    if the original publisher of that version gives permission.\par
+\pard\li720{}B. List on the Title Page, as authors, one or more persons or entities    responsible for authorship of the modifications in the Modified    Version, together with at least five of the principal authors of the    Document (all of its principal authors, if it has less than five).\par
+\pard\li720{}C. State on the Title page the name of the publisher of the    Modified Version, as the publisher.\par
+\pard\li720{}D. Preserve all the copyright notices of the Document.\par
+\pard\li720{}E. Add an appropriate copyright notice for your modifications    adjacent to the other copyright notices.\par
+\pard\li720{}F. Include, immediately after the copyright notices, a license notice    giving the public permission to use the Modified Version under the    terms of this License, in the form shown in the Addendum below.\par
+\pard\li720{}G. Preserve in that license notice the full lists of Invariant Sections    and required Cover Texts given in the Document's license notice.\par
+\pard\li720{}H. Include an unaltered copy of this License.\par
+\pard\li720{}I. Preserve the section entitled "History", and its title, and add to    it an item stating at least the title, year, new authors, and    publisher of the Modified Version as given on the Title Page.  If    there is no section entitled "History" in the Document, create one    stating the title, year, authors, and publisher of the Document as    given on its Title Page, then add an item describing the Modified    Version as stated in the previous sentence.\par
+\pard\li720{}J. Preserve the network location, if any, given in the Document for    public access to a Transparent copy of the Document, and likewise    the network locations given in the Document for previous versions    it was based on.  These may be placed in the "History" section.     You may omit a network location for a work that was published at    least four years before the Document itself, or if the original    publisher of the version it refers to gives permission.\par
+\pard\li720{}K. In any section entitled "Acknowledgements" or "Dedications",    preserve the section's title, and preserve in the section all the    substance and tone of each of the contributor acknowledgements    and/or dedications given therein.\par
+\pard\li720{}L. Preserve all the Invariant Sections of the Document,    unaltered in their text and in their titles.  Section numbers    or the equivalent are not considered part of the section titles.\par
+\pard\li720{}M. Delete any section entitled "Endorsements".  Such a section    may not be included in the Modified Version.\par
+\pard\li720{}N. Do not retitle any existing section as "Endorsements"    or to conflict in title with any Invariant Section.\par
+\pard\li720{}If the Modified Version includes new front-matter sections or appendices that qualify as Secondary Sections and contain no material copied from the Document, you may at your option designate some or all of these sections as invariant.  To do this, add their titles to the list of Invariant Sections in the Modified Version's license notice.  These titles must be distinct from any other section titles.\par
+\par
+\pard\li720{}You may add a section entitled "Endorsements", provided it contains nothing but endorsements of your Modified Version by various parties-for example, statements of peer review or that the text has been approved by an organization as the authoritative definition of a standard.\par
+\par
+\pard\li720{}You may add a passage of up to five words as a Front-Cover Text, and a passage of up to 25 words as a Back-Cover Text, to the end of the list of Cover Texts in the Modified Version.  Only one passage of Front-Cover Text and one of Back-Cover Text may be added by (or through arrangements made by) any one entity.  If the Document already includes a cover text for the same cover, previously added by you or by arrangement made by the same entity you are acting on behalf of, you may not add another; but you may replace the old one, on explicit permission from the previous publisher that added the old one.\par
+\par
+\pard\li720{}The author(s) and publisher(s) of the Document do not by this License give permission to use their names for publicity for or to assert or imply endorsement of any Modified Version.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}5. \tab{}COMBINING DOCUMENTS\par
+\par
+\pard\li720{}You may combine the Document with other documents released under this License, under the terms defined in section 4 above for modified versions, provided that you include in the combination all of the Invariant Sections of all of the original documents, unmodified, and list them all as Invariant Sections of your combined work in its license notice.\par
+\par
+\pard\li720{}The combined work need only contain one copy of this License, and multiple identical Invariant Sections may be replaced with a single copy.  If there are multiple Invariant Sections with the same name but different contents, make the title of each such section unique by adding at the end of it, in parentheses, the name of the original author or publisher of that section if known, or else a unique number.  Make the same adjustment to the section titles in the list of Invariant Sections in the license notice of the combined work.\par
+\par
+\pard\li720{}In the combination, you must combine any sections entitled "History" in the various original documents, forming one section entitled "History"; likewise combine any sections entitled "Acknowledgements", and any sections entitled "Dedications".  You must delete all sections entitled "Endorsements."\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}6. \tab{}COLLECTIONS OF DOCUMENTS\par
+\par
+\pard\li720{}You may make a collection consisting of the Document and other documents released under this License, and replace the individual copies of this License in the various documents with a single copy that is included in the collection, provided that you follow the rules of this License for verbatim copying of each of the documents in all other respects.\par
+\par
+\pard\li720{}You may extract a single document from such a collection, and distribute it individually under this License, provided you insert a copy of this License into the extracted document, and follow this License in all other respects regarding verbatim copying of that document.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}7. \tab{}AGGREGATION WITH INDEPENDENT WORKS\par
+\par
+\pard\li720{}A compilation of the Document or its derivatives with other separate and independent documents or works, in or on a volume of a storage or distribution medium, does not as a whole count as a Modified Version of the Document, provided no compilation copyright is claimed for the compilation.  Such a compilation is called an "aggregate", and this License does not apply to the other self-contained works thus compiled with the Document, on account of their being thus compiled, if they are not themselves derivative works of the Document.\par
+\par
+\pard\li720{}If the Cover Text requirement of section 3 is applicable to these copies of the Document, then if the Document is less than one quarter of the entire aggregate, the Document's Cover Texts may be placed on covers that surround only the Document within the aggregate.  Otherwise they must appear on covers around the whole aggregate.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}8. \tab{}TRANSLATION\par
+\par
+\pard\li720{}Translation is considered a kind of modification, so you may distribute translations of the Document under the terms of section 4.  Replacing Invariant Sections with translations requires special permission from their copyright holders, but you may include translations of some or all Invariant Sections in addition to the original versions of these Invariant Sections.  You may include a translation of this License provided that you also include the original English version of this License.  In case of a disagreement between the translation and the original English version of this License, the original English version will prevail.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}9. \tab{}TERMINATION\par
+\par
+\pard\li720{}You may not copy, modify, sublicense, or distribute the Document except as expressly provided for under this License.  Any other attempt to copy, modify, sublicense or distribute the Document is void, and will automatically terminate your rights under this License.  However, parties who have received copies, or rights, from you under this License will not have their licenses terminated so long as such parties remain in full compliance.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}10. \tab{}FUTURE REVISIONS OF THIS LICENSE\par
+\par
+\pard\li720{}The Free Software Foundation may publish new, revised versions of the GNU Free Documentation License from time to time.  Such new versions will be similar in spirit to the present version, but may differ in detail to address new problems or concerns.  See http://www.gnu.org/copyleft/.\par
+\par
+\pard\li720{}Each version of the License is given a distinguishing version number.  If the Document specifies that a particular numbered version of this License "or any later version" applies to it, you have the option of following the terms and conditions either of that specified version or of any later version that has been published (not as a draft) by the Free Software Foundation.  If the Document does not specify a version number of this License, you may choose any version ever published (not as a draft) by the Free Software Foundation.\par
+\par
+\pard{}}\par
+\pard{\b ADDENDUM: How to use this License for your documents}\par
+\par
+\pard{}To use this License in a document you have written, include a copy of the License in the document and put the following copyright and license notices just after the title page:\par
+\par
+{{\line
+\pard\keep\li720\f1{}  Copyright (C)  {\i year}  {\i your name}.\line
+  Permission is granted to copy, distribute and/or modify this document\line
+  under the terms of the GNU Free Documentation License, Version 1.1\line
+  or any later version published by the Free Software Foundation;\line
+  with the Invariant Sections being {\i list their titles}, with the\line
+  Front-Cover Texts being {\i list}, and with the Back-Cover Texts being {\i list}.\line
+  A copy of the license is included in the section entitled ``GNU\line
+  Free Documentation License''.\par
+\pard\keep\li720{}}}If you have no Invariant Sections, write "with no Invariant Sections" instead of saying which ones are invariant.  If you have no Front-Cover Texts, write "no Front-Cover Texts" instead of "Front-Cover Texts being {\i list}"; likewise for Back-Cover Texts.\par
+\par
+\pard\f0{}If your document contains nontrivial examples of program code, we recommend releasing these examples in parallel under your choice of free software license, such as the GNU General Public License, to permit their use in free software.\par
+\par
+\page\pard Node: {\b Concept Index}, \keepn Next: {\uldb Index}{\v Index}, Prev: {\uldb GNU Free Documentation License}{\v GNU_Free_Documentation_License}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Concept Index}
+#{\footnote Concept_Index}
+${\footnote \pard{}Concept Index}\par
+\pard{\fs24\b Concept Index}\par
+\par
+\pard{}This is a general index of all issues discussed in this manual, with the exception of the {\f1{}grep} commands and command-line options.\par
+\par
+{\fi-2880\li2880\tx2880after context:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880alphabetic characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880alphanumeric characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880anchoring:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880asterisk:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880back-reference:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880backslash:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880basic regular expressions:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880before context:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880binary files:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880binary files, DOS/Windows:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880blank characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880braces, one argument:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880braces, second argument omitted:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880braces, two arguments:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880bracket expression:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880Bugs, reporting:\tab {\uldb Reporting Bugs}{\v Reporting_Bugs}.\par}{\fi-2880\li2880\tx2880byte offset:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880byte offsets, on DOS/Windows:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880case insensitive search:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880case insensitive search, obsolete option:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880changing name of standard input:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880character class:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880character classes:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880character type:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880classes of characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880context:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880context lines, after match:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880context lines, before match:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880control characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880Copying:\tab {\uldb Copying}{\v Copying}.\par}{\fi-2880\li2880\tx2880counting lines:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880default options environment variable:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880device search:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880digit characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880directory search:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880DOS byte offsets:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880DOS/Windows binary files:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880dot:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880environment variables:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880exclude files:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880FAQ about {\f1{}grep} usage:\tab {\uldb Usage}{\v Usage}.\par}{\fi-2880\li2880\tx2880FDL, GNU Free Documentation License:\tab {\uldb GNU Free Documentation License}{\v GNU_Free_Documentation_License}.\par}{\fi-2880\li2880\tx2880files which don't match:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880GPL, GNU General Public License:\tab {\uldb GNU General Public License}{\v GNU_General_Public_License}.\par}{\fi-2880\li2880\tx2880graphic characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880hexadecimal digits:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880highlight markers:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880highlight, color, colour:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880include files:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880interval specifications:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880invert matching:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880language of messages:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880line buffering:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880line numbering:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880lower-case letters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880match sub-expression at most once:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880match sub-expression n or more times:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880match sub-expression n times:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880match sub-expression zero or more times:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880match the whole line:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880matching basic regular expressions:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880matching extended regular expressions:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880matching fixed strings:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880matching Perl regular expressions:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880matching whole words:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880max-count:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880memory mapped input:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880message language:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880names of matching files:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880national language support:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880NLS:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880no filename prefix:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880no warranty:\tab {\uldb GNU General Public License}{\v GNU_General_Public_License}.\par}{\fi-2880\li2880\tx2880numeric characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880only matching:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880palindromes:\tab {\uldb Usage}{\v Usage}.\par}{\fi-2880\li2880\tx2880pattern from file:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880pattern list:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880period:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880plus sign:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880print non-matching lines:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880printable characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880punctuation characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880question mark:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880quiet, silent:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880range expression:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880recursive search:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880regular expressions:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880searching directory trees:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880Searching for a pattern.:\tab {\uldb Introduction}{\v Introduction}.\par}{\fi-2880\li2880\tx2880space characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880suppress binary data:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880suppress error messages:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880translation of message language:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880upper-case letters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880Usage summary, printing:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880Usage, examples:\tab {\uldb Usage}{\v Usage}.\par}{\fi-2880\li2880\tx2880Using {\f1{}grep}, Q&A:\tab {\uldb Usage}{\v Usage}.\par}{\fi-2880\li2880\tx2880Version, printing:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880whitespace characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880with filename prefix:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880xdigit class:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880zero-terminated file names:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880zero-terminated lines:\tab {\uldb Invoking}{\v Invoking}.\par}\page\pard Node: {\b Index}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Concept Index}{\v Concept_Index}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Index}
+#{\footnote Index}
+${\footnote \pard{}Index}\par
+\pard{\fs24\b Index}\par
+\par
+\pard{}This is an alphabetical list of all {\f1{}grep} commands, command-line options, and environment variables.\par
+\par
+{\fi-2880\li2880\tx2880{\f1{}*}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}+}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}--after-context}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--basic-regexp}:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880{\f1{}--before-context}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--binary-files}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--binary}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--byte-offset}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--colour}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--context}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--count}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--devices}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--directories}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--exclude}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--extended-regexp}:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880{\f1{}--files-with-matches}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--files-without-match}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--file}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--fixed-strings}:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880{\f1{}--help}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--ignore-case}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--include}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--invert-match}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--label}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--line-buffered}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--line-number}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--line-regexp}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--max-count}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--mmap}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--no-filename}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--no-messages}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--null-data}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--null}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--only-matching}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--perl-regexp}:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880{\f1{}--quiet}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--recursive}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--regexp={\i pattern}}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--silent}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--text}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--unix-byte-offsets}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--version}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--With-filename}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--word-regexp}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-a}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-A}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-b}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-B}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-C}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-c}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-D}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-d}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-e}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-E}:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880{\f1{}-f}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-F}:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880{\f1{}-G}:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880{\f1{}-H}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-h}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-i}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-L}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-l}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-m}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-NUM}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-n}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-o}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-P}:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880{\f1{}-q}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-r}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-s}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-U}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-u}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-V}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-v}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-w}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-x}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-y}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-Z}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-z}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}.}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}?}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}\'7Bn,\'7D}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}\'7Bn,m\'7D}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}\'7Bn\'7D}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}_{\i N}_GNU_nonoption_argv_flags_}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}alnum}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}alpha}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}blank}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}cntrl}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}digit}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}graph}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}GREP_COLOR}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}GREP_OPTIONS}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}LANG}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}LC_ALL}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}LC_COLLATE}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}LC_CTYPE}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}LC_MESSAGES}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}lower}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}POSIXLY_CORRECT}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}print}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}punct}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}space}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}upper}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}xdigit}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}\page K{\footnote Makertf}#{\footnote hcMakertf}${\footnote \pard{}About Makertf}\pard{\fs24\b About Makertf}\par\par\pard{}Makertf is a program that converts "Texinfo" files into "Rich Text Format" (RTF) files. It can be used to make WinHelp Files from GNU manuals and other documentation written in Texinfo. Visit http://makertf.sourceforge.net for more information.}

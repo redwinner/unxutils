@@ -1,0 +1,12 @@
+6
+2058
+word.pl
+
+word.pl
+
+FORCE.pl word.pl
+FORCE.pl word.pl
+word.pl general_test2.pl FORCE.pl word.pl generic_test.perl MAKEFILES_variable.pl
+generic_test.perl MAKEFILES_variable.pl
+
+word.pl general_test2.pl FORCE.pl word.pl

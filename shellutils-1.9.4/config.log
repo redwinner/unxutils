@@ -1,0 +1,548 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:533: checking for gcc
+configure:646: checking whether the C compiler (gcc -g  ) works
+configure:662: gcc -o conftest -g   conftest.c  1>&5
+configure:688: checking whether the C compiler (gcc -g  ) is a cross-compiler
+configure:693: checking whether we are using GNU C
+configure:702: gcc -E conftest.c
+configure:721: checking whether gcc accepts -g
+configure:758: checking how to run the C preprocessor
+configure:779: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:838: checking for Cygwin environment
+configure:854: gcc -c -g -O  conftest.c 1>&5
+configure: In function `main':
+configure:850: `__CYGWIN32__' undeclared (first use in this function)
+configure:850: (Each undeclared identifier is reported only once
+configure:850: for each function it appears in.)
+configure: failed program was:
+#line 843 "configure"
+#include "confdefs.h"
+
+int main() {
+
+#ifndef __CYGWIN__
+#define __CYGWIN__ __CYGWIN32__
+#endif
+return __CYGWIN__;
+; return 0; }
+configure:870: checking for mingw32 environment
+configure:882: gcc -c -g -O  conftest.c 1>&5
+configure:898: checking for EMX OS/2 environment
+configure:910: gcc -c -g -O  conftest.c 1>&5
+configure: In function `main':
+configure:906: `__EMX__' undeclared (first use in this function)
+configure:906: (Each undeclared identifier is reported only once
+configure:906: for each function it appears in.)
+    0       0 [main] d:\gnuwin32\CYGWIN~1\bin\sh.exe 1164 sig_send: error sending signal(-3) to pid 1164, Win32 error -1
+configure: failed program was:
+#line 903 "configure"
+#include "confdefs.h"
+
+int main() {
+return __EMX__;
+; return 0; }
+configure:929: checking for executable suffix
+configure:961: checking whether gcc needs -traditional
+configure:968: sgtty.h: No such file or directory
+configure:986: termio.h: No such file or directory
+configure:1037: checking for a BSD compatible install
+configure:1096: checking for ranlib
+configure:1128: checking for bison
+configure:1159: checking for AIX
+configure:1184: checking for minix/config.h
+configure:1194: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1190: minix\config.h: No such file or directory
+configure: failed program was:
+#line 1189 "configure"
+#include "confdefs.h"
+#include <minix/config.h>
+configure:1232: checking for POSIXized ISC
+configure:1253: checking for strftime in -lintl
+configure:1272: gcc -o conftest.exe -g -O   conftest.c -lintl   1>&5
+d:\app\gcc-2.95\bin\..\lib\gcc-lib\i386-mingw32\2.95\..\..\..\..\i386-mingw32\bin\ld.exe: cannot open -lintl: No such file or directory
+configure: failed program was:
+#line 1261 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char strftime();
+
+int main() {
+strftime()
+; return 0; }
+configure:1294: checking for uname
+configure:1323: gcc -o conftest.exe -g -O   conftest.c  1>&5
+C:\TEMP\ccfoaaaa.o: In function `main':
+//D/usr/local/UnxUtils/shellutils-1.9.4/configure:1317: undefined reference to `uname'
+configure: failed program was:
+#line 1299 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char uname(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char uname();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_uname) || defined (__stub___uname)
+choke me
+#else
+f = uname;
+#endif
+
+; return 0; }
+configure:1345: shadow.h: No such file or directory
+configure:1359: checking for working const
+configure:1413: gcc -c -g -O  conftest.c 1>&5
+configure:1434: checking for ANSI C header files
+configure:1447: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1514: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:1541: checking for strerror
+configure:1570: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:1541: checking for ftime
+configure:1570: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:1541: checking for memcpy
+configure:1570: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:1553: warning: conflicting types for built-in function `memcpy'
+configure:1541: checking for bcopy
+configure:1570: gcc -o conftest.exe -g -O   conftest.c  1>&5
+C:\TEMP\ccSoaaaa.o: In function `main':
+//D/usr/local/UnxUtils/shellutils-1.9.4/configure:1564: undefined reference to `bcopy'
+configure: failed program was:
+#line 1546 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char bcopy(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char bcopy();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_bcopy) || defined (__stub___bcopy)
+choke me
+#else
+f = bcopy;
+#endif
+
+; return 0; }
+configure:1541: checking for gettimeofday
+configure:1570: gcc -o conftest.exe -g -O   conftest.c  1>&5
+C:\TEMP\ccSoaaaa.o: In function `main':
+//D/usr/local/UnxUtils/shellutils-1.9.4/configure:1564: undefined reference to `gettimeofday'
+configure: failed program was:
+#line 1546 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char gettimeofday(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char gettimeofday();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_gettimeofday) || defined (__stub___gettimeofday)
+choke me
+#else
+f = gettimeofday;
+#endif
+
+; return 0; }
+configure:1541: checking for syslog
+configure:1570: gcc -o conftest.exe -g -O   conftest.c  1>&5
+C:\TEMP\ccSoaaaa.o: In function `main':
+//D/usr/local/UnxUtils/shellutils-1.9.4/configure:1564: undefined reference to `syslog'
+configure: failed program was:
+#line 1546 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char syslog(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char syslog();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_syslog) || defined (__stub___syslog)
+choke me
+#else
+f = syslog;
+#endif
+
+; return 0; }
+configure:1541: checking for initgroups
+configure:1570: gcc -o conftest.exe -g -O   conftest.c  1>&5
+C:\TEMP\ccSoaaaa.o: In function `main':
+//D/usr/local/UnxUtils/shellutils-1.9.4/configure:1564: undefined reference to `initgroups'
+configure: failed program was:
+#line 1546 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char initgroups(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char initgroups();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_initgroups) || defined (__stub___initgroups)
+choke me
+#else
+f = initgroups;
+#endif
+
+; return 0; }
+configure:1541: checking for isascii
+configure:1570: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:1607: checking for syslog
+configure:1607: checking for syslog
+configure:1607: checking for syslog
+configure:1681: checking for initgroups
+configure:1748: checking for string.h
+configure:1758: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1748: checking for fcntl.h
+configure:1758: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1748: checking for limits.h
+configure:1758: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1748: checking for syslog.h
+configure:1758: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1754: syslog.h: No such file or directory
+configure: failed program was:
+#line 1753 "configure"
+#include "confdefs.h"
+#include <syslog.h>
+configure:1748: checking for sys/time.h
+configure:1758: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1748: checking for unistd.h
+configure:1758: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1748: checking for sys/timeb.h
+configure:1758: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1748: checking for float.h
+configure:1758: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1785: checking for uid_t in sys/types.h
+configure:1819: checking type of array argument to getgroups
+configure:1852: gcc -o conftest.exe -g -O   conftest.c  1>&5
+C:\TEMP\ccPiaaaa.o: In function `main':
+//D/usr/local/UnxUtils/shellutils-1.9.4/configure:1843: undefined reference to `getgroups'
+configure: failed program was:
+#line 1827 "configure"
+#include "confdefs.h"
+
+/* Thanks to Mike Rendell for this test.  */
+#include <sys/types.h>
+#define NGID 256
+#undef MAX
+#define MAX(x, y) ((x) > (y) ? (x) : (y))
+main()
+{
+  gid_t gidset[NGID];
+  int i, n;
+  union { gid_t gval; long lval; }  val;
+
+  val.lval = -1;
+  for (i = 0; i < NGID; i++)
+    gidset[i] = val.gval;
+  n = getgroups (sizeof (gidset) / MAX (sizeof (int), sizeof (gid_t)) - 1,
+                 gidset);
+  /* Exit non-zero if getgroups seems to require an array of ints.  This
+     happens when gid_t is short but getgroups modifies an array of ints.  */
+  exit ((n > 0 && gidset[n] != val.gval) ? 1 : 0);
+}
+
+configure:1890: checking for size_t
+configure:1928: checking for gethostname
+configure:1957: gcc -o conftest.exe -g -O   conftest.c  1>&5
+C:\TEMP\ccQjaaaa.o: In function `main':
+//D/usr/local/UnxUtils/shellutils-1.9.4/configure:1951: undefined reference to `gethostname'
+configure: failed program was:
+#line 1933 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char gethostname(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char gethostname();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_gethostname) || defined (__stub___gethostname)
+choke me
+#else
+f = gethostname;
+#endif
+
+; return 0; }
+configure:1928: checking for getusershell
+configure:1957: gcc -o conftest.exe -g -O   conftest.c  1>&5
+C:\TEMP\ccQjaaaa.o: In function `main':
+//D/usr/local/UnxUtils/shellutils-1.9.4/configure:1951: undefined reference to `getusershell'
+configure: failed program was:
+#line 1933 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char getusershell(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char getusershell();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_getusershell) || defined (__stub___getusershell)
+choke me
+#else
+f = getusershell;
+#endif
+
+; return 0; }
+configure:1928: checking for memcmp
+configure:1957: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:1940: warning: conflicting types for built-in function `memcmp'
+configure:1928: checking for mktime
+configure:1957: gcc -o conftest.exe -g -O   conftest.c  1>&5
+    0       0 [main] d:\gnuwin32\CYGWIN~1\bin\sh.exe 1530 sig_send: error sending signal(-3) to pid 1530, Win32 error -1
+configure:1928: checking for stime
+configure:1957: gcc -o conftest.exe -g -O   conftest.c  1>&5
+C:\TEMP\cc3kaaaa.o: In function `main':
+//D/usr/local/UnxUtils/shellutils-1.9.4/configure:1951: undefined reference to `stime'
+configure: failed program was:
+#line 1933 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char stime(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char stime();
+char (*f)();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_stime) || defined (__stub___stime)
+choke me
+#else
+f = stime;
+#endif
+
+; return 0; }
+configure:1928: checking for strcspn
+configure:1957: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:1928: checking for strstr
+configure:1957: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:1928: checking for strtol
+configure:1957: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:1928: checking for strtoul
+configure:1957: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:1928: checking for strtod
+configure:1957: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:2002: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:2023: checking for setpriority
+configure:2033: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:2027: sys\resource.h: No such file or directory
+    0       0 [main] d:\gnuwin32\CYGWIN~1\bin\sh.exe 1611 sig_send: error sending signal(-3) to pid 1611, Win32 error -1
+configure: failed program was:
+#line 2025 "configure"
+#include "confdefs.h"
+#include <sys/time.h>
+#include <sys/resource.h>
+int main() {
+setpriority(0, 0, 0);
+; return 0; }
+configure:2046: checking for nice
+configure:2055: gcc -o conftest.exe -g -O   conftest.c  1>&5
+C:\TEMP\cc5paaaa.o: In function `main':
+//D/usr/local/UnxUtils/shellutils-1.9.4/configure:2051: undefined reference to `nice'
+    0       0 [main] d:\gnuwin32\CYGWIN~1\bin\sh.exe 1617 sig_send: error sending signal(-3) to pid 1617, Win32 error -1
+configure: failed program was:
+#line 2048 "configure"
+#include "confdefs.h"
+
+int main() {
+nice();
+; return 0; }
+configure:2078: checking for ut_host in struct utmp
+configure:2088: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:2082: utmp.h: No such file or directory
+configure: failed program was:
+#line 2080 "configure"
+#include "confdefs.h"
+#include <sys/types.h>
+#include <utmp.h>
+int main() {
+struct utmp ut; ut.ut_host;
+; return 0; }
+configure:2104: checking for ut_host in struct utmpx
+configure:2114: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:2108: utmpx.h: No such file or directory
+configure: failed program was:
+#line 2106 "configure"
+#include "confdefs.h"
+#include <sys/types.h>
+#include <utmpx.h>
+int main() {
+struct utmpx ut; ut.ut_host;
+; return 0; }
+configure:2133: checking for POSIX termios
+configure:2145: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:2138: termios.h: No such file or directory
+    0       0 [main] d:\gnuwin32\CYGWIN~1\bin\sh.exe 1636 sig_send: error sending signal(-3) to pid 1636, Win32 error -1
+configure: failed program was:
+#line 2135 "configure"
+#include "confdefs.h"
+#include <sys/types.h>
+#include <unistd.h>
+#include <termios.h>
+int main() {
+/* SunOS 4.0.3 has termios.h but not the library calls.  */
+tcgetattr(0, 0);
+; return 0; }
+configure:2203: checking for TIOCGWINSZ in sys/ioctl.h
+configure:2213: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:2207: sys\ioctl.h: No such file or directory
+configure: failed program was:
+#line 2205 "configure"
+#include "confdefs.h"
+#include <sys/types.h>
+#include <sys/ioctl.h>
+int main() {
+int x = TIOCGWINSZ;
+; return 0; }
+configure:2227: checking for sys/ptem.h
+configure:2237: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2233: sys\ptem.h: No such file or directory
+configure: failed program was:
+#line 2232 "configure"
+#include "confdefs.h"
+#include <sys/ptem.h>
+configure:2265: checking for vprintf
+configure:2294: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:2374: checking for working alloca.h
+configure:2386: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:2380: alloca.h: No such file or directory
+configure: failed program was:
+#line 2379 "configure"
+#include "confdefs.h"
+#include <alloca.h>
+int main() {
+char *p = alloca(2 * sizeof(int));
+; return 0; }
+configure:2407: checking for alloca
+configure:2440: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:2607: checking whether struct tm is in sys/time.h or time.h
+configure:2620: gcc -c -g -O  conftest.c 1>&5
+configure:2641: checking whether time.h and sys/time.h may both be included
+configure:2655: gcc -c -g -O  conftest.c 1>&5
+configure:2676: checking for member tm_zone in aggregate type struct tm
+configure:2689: gcc -c -g -O  conftest.c 1>&5
+configure: In function `main':
+configure:2685: structure has no member named `tm_zone'
+    0       0 [main] d:\gnuwin32\CYGWIN~1\bin\sh.exe 1698 sig_send: error sending signal(-3) to pid 1698, Win32 error -1
+configure: failed program was:
+#line 2681 "configure"
+#include "confdefs.h"
+#include <sys/types.h>
+#include <time.h>
+int main() {
+struct tm foo; foo.tm_zone;
+; return 0; }
+configure:2710: checking for tzname
+configure:2725: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:2750: checking for dirent.h that defines DIR
+configure:2763: gcc -c -g -O  conftest.c 1>&5
+configure:2803: checking whether closedir returns void
+configure:2817: gcc -o conftest.exe -g -O   conftest.c  1>&5
+configure:2840: checking for Xenix
+configure:2866: checking for getmntent in -lsun
+configure:2885: gcc -o conftest.exe -g -O   conftest.c -lsun   1>&5
+d:\app\gcc-2.95\bin\..\lib\gcc-lib\i386-mingw32\2.95\..\..\..\..\i386-mingw32\bin\ld.exe: cannot open -lsun: No such file or directory
+configure: failed program was:
+#line 2874 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char getmntent();
+
+int main() {
+getmntent()
+; return 0; }
+configure:2907: checking whether stat file-mode macros are broken
+configure:2965: checking for -lsec
+configure:2979: gcc -o conftest.exe -g -O   conftest.c -lsec   1>&5
+d:\app\gcc-2.95\bin\..\lib\gcc-lib\i386-mingw32\2.95\..\..\..\..\i386-mingw32\bin\ld.exe: cannot open -lsec: No such file or directory
+configure: failed program was:
+#line 2972 "configure"
+#include "confdefs.h"
+
+int main() {
+main()
+; return 0; }
+configure:3005: checking for -lshadow
+configure:3019: gcc -o conftest.exe -g -O   conftest.c -lshadow   1>&5
+d:\app\gcc-2.95\bin\..\lib\gcc-lib\i386-mingw32\2.95\..\..\..\..\i386-mingw32\bin\ld.exe: cannot open -lshadow: No such file or directory
+configure: failed program was:
+#line 3012 "configure"
+#include "confdefs.h"
+
+int main() {
+main()
+; return 0; }
+configure:3045: checking for -lufc
+configure:3059: gcc -o conftest.exe -g -O   conftest.c -lufc   1>&5
+d:\app\gcc-2.95\bin\..\lib\gcc-lib\i386-mingw32\2.95\..\..\..\..\i386-mingw32\bin\ld.exe: cannot open -lufc: No such file or directory
+configure: failed program was:
+#line 3052 "configure"
+#include "confdefs.h"
+
+int main() {
+main()
+; return 0; }

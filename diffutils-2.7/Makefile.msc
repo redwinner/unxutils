@@ -1,0 +1,200 @@
+# Generated automatically from Makefile.in by configure.
+# Makefile for GNU DIFF
+# Copyright (C) 1988,1989,1991,1992,1993,1994 Free Software Foundation, Inc.
+#
+# This file is part of GNU DIFF.
+#
+# GNU DIFF is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# GNU DIFF is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with GNU DIFF; see the file COPYING.  If not, write to
+# the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
+
+#### Start of system configuration section. ####
+
+srcdir = .
+
+CC = cl -DWIN32
+INSTALL = /usr/bin/install -c
+INSTALL_PROGRAM = ${INSTALL}
+INSTALL_DATA = ${INSTALL} -m 644
+MAKEINFO = makeinfo
+TEXI2DVI = texi2dvi
+
+CPPFLAGS =  -MD -Zi
+DEFS = -DHAVE_CONFIG_H
+CFLAGS =  -MD -Zi
+LDFLAGS = 
+LIBS = 
+LIBOBJS =  waitpid.obj
+
+# Some System V machines do not come with libPW.
+# If this is true for you, use the GNU alloca.obj here.
+ALLOCA = 
+
+prefix = /usr/local
+exec_prefix = ${prefix}
+edit_program_name = sed 's,x,x,'
+
+bindir = $(exec_prefix)/wbin
+
+infodir = $(prefix)/info
+
+DEFAULT_EDITOR_PROGRAM = ed
+#DIFF_PROGRAM = $(bindir)/`echo diff | $(edit_program_name)`
+DIFF_PROGRAM = diff
+# NULL_DEVICE = /dev/null
+NULL_DEVICE = NUL
+PR_PROGRAM = pr
+
+#### End of system configuration section. ####
+
+SHELL = /bin/sh
+
+# The source files for all of the programs.
+srcs=diff.c analyze.c cmpbuf.c cmpbuf.h io.c context.c ed.c normal.c ifdef.c \
+	util.c dir.c waitpid.c \
+	version.c diff.h regex.c regex.h side.c system.h \
+	diff3.c sdiff.c cmp.c error.c xmalloc.c getopt.c getopt1.c getopt.h \
+	fnmatch.c fnmatch.h alloca.c
+distfiles = $(srcs) README INSTALL NEWS diagmeet.note Makefile.in \
+	stamp-h.in config.hin configure configure.in COPYING ChangeLog \
+	diff.texi diff.info* texinfo.tex \
+	install-sh mkinstalldirs
+
+PROGRAMS = cmp diff diff3 sdiff
+
+all: $(PROGRAMS) info
+
+COMPILE = $(CC) -c $(CPPFLAGS) $(DEFS) -I. -I$(srcdir) $(CFLAGS)
+
+.c.obj:
+	$(COMPILE) $<
+
+diff_o = diff.obj analyze.obj cmpbuf.obj dir.obj io.obj util.obj \
+	context.obj ed.obj ifdef.obj normal.obj side.obj \
+	fnmatch.obj getopt.obj getopt1.obj regex.obj version.obj $(ALLOCA) $(LIBOBJS)
+diff: $(diff_o)
+	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(diff_o) $(LIBS)
+
+diff3_o = diff3.obj getopt.obj getopt1.obj version.obj $(LIBOBJS)
+diff3: $(diff3_o)
+	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(diff3_o) $(LIBS)
+
+sdiff_o = sdiff.obj getopt.obj getopt1.obj version.obj $(LIBOBJS)
+sdiff: $(sdiff_o)
+	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(sdiff_o) $(LIBS)
+
+cmp_o = cmp.obj cmpbuf.obj error.obj getopt.obj getopt1.obj xmalloc.obj version.obj $(LIBOBJS)
+cmp: $(cmp_o)
+	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(cmp_o) $(LIBS)
+
+info: diff.info
+diff.info: diff.texi
+	$(MAKEINFO) $(srcdir)/diff.texi --output=$@
+
+dvi: diff.dvi
+diff.dvi: diff.texi
+	$(TEXI2DVI) $(srcdir)/diff.texi
+
+$(diff_o): diff.h system.h
+cmp.obj diff3.obj sdiff.obj: system.h
+context.obj diff.obj regex.obj: regex.h
+cmp.obj diff.obj diff3.obj sdiff.obj getopt.obj getopt1.obj: getopt.h
+diff.obj fnmatch.obj: fnmatch.h
+analyze.obj cmpbuf.obj cmp.obj: cmpbuf.h
+
+cmp.obj: cmp.c
+	$(COMPILE) -DNULL_DEVICE='\"$(NULL_DEVICE)\"' $(srcdir)/cmp.c
+
+diff3.obj: diff3.c
+	$(COMPILE) -DDIFF_PROGRAM='\"$(DIFF_PROGRAM)\"' $(srcdir)/diff3.c
+
+sdiff.obj: sdiff.c
+	$(COMPILE) -DDEFAULT_EDITOR_PROGRAM='\"$(DEFAULT_EDITOR_PROGRAM)\"' \
+		-DDIFF_PROGRAM='\"$(DIFF_PROGRAM)\"' $(srcdir)/sdiff.c
+
+util.obj: util.c
+	$(COMPILE) -DPR_PROGRAM='\"$(PR_PROGRAM)\"' $(srcdir)/util.c
+
+TAGS: $(srcs)
+	etags $(srcs)
+
+clean:
+	rm -f *.obj $(PROGRAMS) core
+	rm -f *.aux *.cp *.cps *.dvi *.fn *.fns *.ky *.kys *.log
+	rm -f *.pg *.pgs *.toc *.tp *.tps *.vr *.vrs
+
+mostlyclean: clean
+
+distclean: clean
+	rm -f Makefile config.cache config.h config.log config.status stamp-h
+
+realclean: distclean
+	rm -f TAGS *.info*
+
+install: all installdirs
+	for p in $(PROGRAMS); do \
+	  $(INSTALL_PROGRAM) $$p $(bindir)/`echo $$p | $(edit_program_name)`; \
+	done
+	{ test -f diff.info || cd $(srcdir); } && \
+	for f in diff.info*; do \
+	  $(INSTALL_DATA) $$f $(infodir)/$$f; \
+	done
+
+installdirs:
+	$(SHELL) ${srcdir}/mkinstalldirs $(bindir) $(infodir)
+
+# We need more tests.
+check:
+	./cmp cmp.exe cmp.exe
+	./diff diff.exe diff.exe
+	./diff3 diff3.exe diff3.exe diff3.exe
+	./sdiff sdiff.exe sdiff.exe
+
+uninstall:
+	for p in $(PROGRAMS); do \
+	  rm -f $(bindir)/`echo $$p | $(edit_program_name)`; \
+	done
+	rm -f $(infodir)/diff.info*
+
+configure: configure.in
+	cd $(srcdir) && autoconf
+
+# autoheader might not change config.hin.
+config.hin: stamp-h.in
+stamp-h.in: configure.in
+	cd $(srcdir) && autoheader
+	date > $(srcdir)/stamp-h.in
+
+config.status: configure
+	./config.status --recheck
+
+# config.status might not change config.h, but it changes stamp-h.
+config.h: stamp-h
+stamp-h: config.hin config.status
+	./config.status
+# Makefile: Makefile.in config.status
+# 	./config.status
+
+dist: $(distfiles)
+	echo diffutils-`sed -e '/version_string/!d' -e 's/[^0-9]*\([0-9a-z.]*\).*/\1/' -e q version.c` > .fname
+	rm -rf `cat .fname`
+	mkdir `cat .fname`
+	-ln $(distfiles) `cat .fname`
+	for file in $(distfiles); do \
+	  [ -r `cat .fname`/$$file ] || cp -p $$file `cat .fname` || exit; \
+	done
+	tar -chf - `cat .fname` | gzip >`cat .fname`.tar.gz
+	rm -rf `cat .fname` .fname
+
+# Prevent GNU make v3 from overflowing arg limit on SysV.
+.NOEXPORT:

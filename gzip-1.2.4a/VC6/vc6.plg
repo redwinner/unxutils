@@ -1,0 +1,66 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: VC6 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\TEMP\RSPCA.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I ".." /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR"Debug/" /Fp"Debug/VC6.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ  /c 
+"D:\usr\local\gzip-1.2.4a\gzip.c"
+]
+Creating command line "cl.exe @C:\TEMP\RSPCA.tmp" 
+Creating temporary file "C:\TEMP\RSPCB.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/gunzip.pdb" /debug /machine:I386 /out:"Debug/gunzip.exe" /pdbtype:sept 
+".\Debug\zip.obj"
+".\Debug\crypt.obj"
+".\Debug\deflate.obj"
+".\Debug\getopt.obj"
+".\Debug\gzip.obj"
+".\Debug\inflate.obj"
+".\Debug\lzw.obj"
+".\Debug\trees.obj"
+".\Debug\unlzh.obj"
+".\Debug\unlzw.obj"
+".\Debug\unpack.obj"
+".\Debug\unzip.obj"
+".\Debug\util.obj"
+".\Debug\bits.obj"
+]
+Creating command line "link.exe @C:\TEMP\RSPCB.tmp"
+<h3>Output Window</h3>
+Compiling...
+gzip.c
+Linking...
+   Creating library Debug/gunzip.lib and object Debug/gunzip.exp
+Creating temporary file "C:\TEMP\RSPCF.tmp" with contents
+[
+/nologo /o"Debug/VC6.bsc" 
+".\Debug\zip.sbr"
+".\Debug\crypt.sbr"
+".\Debug\deflate.sbr"
+".\Debug\getopt.sbr"
+".\Debug\gzip.sbr"
+".\Debug\inflate.sbr"
+".\Debug\lzw.sbr"
+".\Debug\trees.sbr"
+".\Debug\unlzh.sbr"
+".\Debug\unlzw.sbr"
+".\Debug\unpack.sbr"
+".\Debug\unzip.sbr"
+".\Debug\util.sbr"
+".\Debug\bits.sbr"]
+Creating command line "bscmake.exe @C:\TEMP\RSPCF.tmp"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+gunzip.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

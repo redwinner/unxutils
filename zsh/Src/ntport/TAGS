@@ -1,0 +1,548 @@
+
+bogus.c,316
+gid_t getuid(50,1869
+gid_t getgid(53,1903
+gid_t geteuid(56,1937
+gid_t getegid(59,1972
+struct passwd * getpwnam(62,2007
+struct passwd * getpwuid(89,2541
+struct group * getgrnam(114,3030
+struct group * getgrgid(118,3085
+char * ttyname(122,3139
+int times(127,3217
+int bin_log(130,3264
+void dowatch(133,3335
+
+console.c,1374
+#define WIN32_LEAN_AND_MEAN39,1682
+#define say53,2048
+#define make_err_str54,2060
+#define xmalloc(xmalloc57,2083
+#define xfree(xfree58,2151
+void redo_console(75,2597
+void nt_term_init(89,2886
+void set_cooked_and_flags(114,3322
+int nt_ClearEOL(142,4180
+int nt_cursor_right(196,5684
+int nt_cursor_left(201,5753
+void nt_move_next_tab(205,5821
+void NT_MoveToLineOrChar(221,6157
+void ScrollBuf(255,7153
+int nt_scroll(285,7826
+int nt_scroll_old(318,8552
+void NT_MoveToLineOrCharAbs(344,9252
+int nt_getsize(375,10170
+void nt_move_cursor(386,10487
+void nt_put_cr(402,10839
+void nt_put_nl(406,10894
+void NT_ClearEOD(409,10945
+void NT_ClearScreen(434,11544
+void NT_ClearScreen_WholeBuffer(461,12205
+void nt_term_standout_on(486,12811
+void nt_term_standout_off(497,13021
+void nt_term_bold_on(505,13211
+void nt_term_bold_off(508,13277
+void set_attr(512,13345
+#define ANSI_30 533,13788
+#define ANSI_31 534,13809
+#define ANSI_32 535,13830
+#define ANSI_33 536,13851
+#define ANSI_34 537,13872
+#define ANSI_35 538,13893
+#define ANSI_36 539,13914
+#define ANSI_37 540,13935
+#define ANSI_40 542,13957
+#define ANSI_41 543,13978
+#define ANSI_42 544,13999
+#define ANSI_43 545,14020
+#define ANSI_44 546,14041
+#define ANSI_45 547,14062
+#define ANSI_46 548,14083
+#define ANSI_47 549,14104
+int ParseAnsi(555,14241
+void set_console_attributes(683,16384
+
+dirent.c,360
+#define WIN32_LEAN_AND_MEAN37,1409
+#define xmalloc(xmalloc46,1586
+#define xfree(xfree47,1654
+typedef struct _enum_h _enum_h52,1799
+} nethandle_t;nethandle_t55,1863
+DIR * opendir(58,1946
+int closedir(154,3843
+void rewinddir(167,4031
+struct dirent *readdir(193,4607
+HANDLE open_enum(248,5937
+void close_enum(294,7015
+int enum_next_share(303,7171
+
+dirent.h,210
+#define DIRENT_H36,1420
+#define WIN32_LEAN_AND_MEAN39,1487
+#define NAME_MAX 42,1537
+#define IS_ROOT 44,1564
+#define IS_NET 45,1585
+#define d_fileno 47,1607
+struct dirent dirent48,1630
+}DIR;DIR62,1891
+
+except.c,312
+#define WIN32_LEAN_AND_MEAN3,67
+#define xmalloc(xmalloc8,159
+#define MAXSYMBOLNAMELENGTH 10,228
+#define SYM_HANDLE 12,260
+#define MACHINE_TYPE 15,322
+#define MACHINE_TYPE 17,393
+#define MACHINE_TYPE 19,464
+#define MACHINE_TYPE 21,533
+LONG WINAPI MyExceptionFilter 28,634
+void init_exceptions(114,2977
+
+fork.c,1903
+#define WIN32_LEAN_AND_MEAN41,1690
+#define ZSH_HACK50,1881
+typedef unsigned long u_long;u_long52,1899
+typedef unsigned long memalign_t;memalign_t53,1929
+typedef unsigned long caddr_t;caddr_t54,1963
+typedef void *ptr_t;ptr_t55,1994
+typedef unsigned char U_char;U_char56,2015
+typedef unsigned int U_int;U_int57,2046
+typedef unsigned short U_short;U_short58,2074
+typedef unsigned long U_long;U_long59,2106
+#define __P(__P61,2137
+#define MEMALIGN(MEMALIGN62,2154
+union overhead overhead64,2204
+#define	ov_magic	74,2475
+#define	ov_index	75,2506
+#define	ov_size	76,2537
+#define	ov_rmagic	77,2567
+#define	MAGIC	80,2604
+#define RMAGIC	81,2657
+#define	RSLOP	83,2726
+#define	RSLOP	85,2762
+#define ROUNDUP	89,2788
+#define	NBUCKETS 91,2807
+#define GETEXCEPTIONREGIST(GETEXCEPTIONREGIST157,4880
+#define GETSTACKBASE(GETSTACKBASE158,4947
+void *get_teb(160,5007
+#define FORK_TIMEOUT 176,5268
+#define FORK_TIMEOUT 178,5304
+int fork_init(185,5435
+int fork(215,6013
+void stack_probe 381,9385
+void heap_init(393,9644
+void * sbrk(426,10346
+#define CGETS(CGETS498,13242
+#define xprintf 499,13265
+#define __P(__P500,13282
+#define NULL 504,13314
+typedef unsigned char U_char;U_char536,14004
+typedef unsigned int U_int;U_int537,14074
+typedef unsigned short U_short;U_short538,14102
+typedef unsigned long U_long;U_long539,14134
+#define MEMALIGN(MEMALIGN554,14688
+union overhead overhead556,14738
+#define	ov_magic	566,15009
+#define	ov_index	567,15040
+#define	ov_size	568,15071
+#define	ov_rmagic	569,15101
+#define	MAGIC	572,15138
+#define RMAGIC	573,15191
+#define	RSLOP	575,15260
+#define	RSLOP	577,15296
+#define ROUNDUP	581,15322
+#define	NBUCKETS 588,15536
+# define CHECK(CHECK605,15884
+# define CHECK(CHECK612,16033
+fmalloc(621,16196
+morecore(683,17864
+ffree(738,19292
+fcalloc(776,20296
+frealloc(815,21324
+findbucket(888,23433
+showall(917,23982
+
+globals.c,85
+#define WIN32_LEAN_AND_MEAN40,1685
+dprintf(51,1887
+int fork_copy_user_mem(62,2067
+
+io.c,258
+#define WIN32_LEAN_AND_MEAN44,1731
+#define CR 53,1898
+#define xmalloc(xmalloc62,2112
+#define xfree(xfree63,2180
+int force_read(78,2457
+int nt_read(109,3087
+int nt_write(183,4373
+int consoleread(213,4943
+int nt_creat(362,8292
+int nt_open(394,8890
+
+ntb1.c,0
+
+ntb2.c,0
+
+ntbin.c,158
+#define WIN32_LEAN_AND_MEAN1,0
+int bin_start 31,621
+int bin_title 147,3272
+int bin_cls 180,3915
+void init_shell_dll(190,4192
+void try_shell_ex(199,4384
+
+ntport.h,3077
+#define NTPORT_H46,1745
+#define WIN32_LEAN_AND_MEAN47,1762
+#define INIT_ZERO 60,2020
+#define INIT_ZERO_STRUCT 61,2041
+#define malloc 62,2071
+#define free 63,2094
+#define realloc 64,2115
+#define calloc 65,2140
+#define HAVENOUTMP69,2195
+#define HAVENOLIMIT70,2214
+#define FUNCPROTO71,2234
+#  define S_ISDIR(S_ISDIR78,2395
+#  define S_ISCHR(S_ISCHR81,2522
+#  define S_ISBLK(S_ISBLK84,2649
+#  define S_ISREG(S_ISREG87,2776
+#  define S_ISFIFO(S_ISFIFO90,2904
+#  define S_ISNAM(S_ISNAM93,3033
+#  define S_ISLNK(S_ISLNK96,3160
+#  define S_ISSOCK(S_ISSOCK99,3289
+#define getpid 104,3417
+#define mygetpgrp(mygetpgrp105,3457
+#define tcgetpgrp 106,3481
+#define tcsetpgrp(tcsetpgrp107,3519
+#define setpgid(setpgid108,3544
+#define strlen(strlen110,3568
+#define close(close112,3605
+#define execv(execv113,3634
+#define open 115,3671
+#define read(read116,3693
+#define write(write117,3734
+#define creat(creat118,3777
+#define _exit(_exit119,3814
+#define chdir(chdir121,3849
+#define fgetc(fgetc123,3879
+#define fputs(fputs124,3908
+#define putc(putc125,3945
+#define fflush(fflush126,3986
+#define fputc(fputc127,4019
+#define fprintf 128,4062
+#define puts(puts129,4089
+#define putchar(putchar130,4116
+#define fclose(fclose131,4157
+#define _get_osfhandle 132,4188
+#define _open_osfhandle 133,4230
+#define clearerr 134,4274
+#define dup2 135,4303
+#define fdopen 136,4325
+#define fgets 137,4350
+#define fileno 138,4374
+#define fopen 139,4399
+#define fread 140,4423
+#define fseek 141,4447
+#define ftell 142,4471
+#define fwrite 143,4495
+#define isatty 144,4520
+#define lseek 145,4545
+#define printf 146,4569
+#define access 147,4594
+#define fstat(fstat148,4619
+#define stat(stat149,4657
+#define setvbuf(setvbuf150,4693
+#define setpgrp(setpgrp151,4719
+#define stdin 156,4787
+#define stdout 157,4819
+#define stderr 158,4853
+#define dup(dup160,4888
+#define sleep(sleep161,4915
+#define getwd(getwd163,4949
+#define L_SET 166,4993
+#define L_XTND 167,5018
+#define L_INCR 168,5043
+#define S_IXUSR 169,5068
+#define S_IXGRP 170,5092
+#define S_IXOTH 171,5116
+#define NOFILE 173,5141
+#define ARG_MAX 174,5160
+#define MAXSIG 175,5181
+#define NCARGS 176,5202
+#define F_OK 186,5348
+#define X_OK 187,5363
+#define W_OK 188,5378
+#define R_OK 189,5393
+#define XD_OK 190,5408
+typedef int uid_t;uid_t192,5456
+typedef int gid_t;gid_t193,5475
+typedef int pid_t;pid_t194,5494
+typedef int mode_t;mode_t195,5513
+typedef void sigret_t;sigret_t196,5533
+typedef long rlim_t;rlim_t197,5556
+typedef unsigned char u_char;u_char198,5577
+struct timeval{timeval199,5607
+struct timezone{timezone203,5655
+struct rusage rusage207,5710
+struct passwd passwd226,6560
+struct group group235,6892
+#define DBreak(DBreak256,7442
+#define dprintf 258,7479
+#define DBreak(DBreak259,7504
+#define USE(USE262,7535
+#define pipe(pipe263,7560
+#define execve(execve339,9602
+typedef struct param *Param;Param341,9648
+#define STRUCT_UTMP 354,10006
+#define getppid(getppid355,10031
+struct tms tms357,10052
+
+ps.c,565
+#define WIN32_LEAN_AND_MEAN1,0
+#define p_malloc(p_malloc8,129
+#define p_realloc(p_realloc9,198
+#define p_free(p_free10,276
+#define REGKEY_PERF 12,328
+#define REGSUBKEY_COUNTERS 13,415
+#define PROCESS_COUNTER 14,454
+#define PROCESSID_COUNTER 15,492
+typedef struct _pslist _pslist17,534
+}pslist;pslist22,627
+typedef DWORD (*plist_proc)plist_proc41,1240
+BOOL CALLBACK enum_wincb(53,1511
+DWORD Win95Lister(71,1885
+DWORD NTLister(110,2571
+DWORD NTLister_old_style(157,3497
+void init_plister(342,7710
+int bin_ps 389,9029
+int bin_shutdown(425,9994
+
+signal.c,883
+#define WIN32_LEAN_AND_MEAN1,0
+#define SIGBAD(SIGBAD11,153
+#define fast_sigmember(fast_sigmember12,209
+typedef struct _child_list _child_list17,319
+}ChildListNode;ChildListNode21,412
+void nt_init_signals(37,824
+void suspend_main_thread(61,1365
+void resume_main_thread(66,1502
+int sigaddset(71,1637
+int sigdelset(80,1774
+int sigismember(90,1917
+void deliver_pending(99,2071
+int sigprocmask(116,2314
+int sigsuspend(143,2775
+int sigaction(165,3191
+void inc_pending(185,3563
+int ctrl_handler(190,3694
+int generic_handler(195,3793
+Sigfunc *_nt_signal(300,6066
+int waitpid(318,6347
+void CALLBACK alarm_callback(346,6838
+unsigned int alarm(380,7594
+void add_to_child_list(410,8080
+void sig_child_callback(434,8636
+struct thread_args thread_args452,8972
+void sigchild_thread(456,9023
+void start_sigchild_thread(465,9264
+int kill 484,9604
+int nice(572,12895
+
+signal.h,1285
+#define SIGNAL_H40,1701
+#define NSIG 43,1720
+#define SIGINT	47,1793
+#define SIGBREAK 48,1812
+#define SIGHUP	49,1832
+#define	SIGTERM	51,1921
+#define SIGKILL	52,1955
+#define SIGILL	54,1992
+#define SIGFPE	55,2011
+#define SIGALRM	56,2030
+#define SIGWINCH	57,2050
+#define SIGSEGV 58,2070
+#define SIGSTOP 59,2091
+#define SIGPIPE 60,2111
+#define SIGCHLD 61,2131
+#define SIGCONT	62,2151
+#define SIGTSTP 63,2172
+#define SIGTTOU 64,2192
+#define SIGTTIN 65,2212
+#define SIGABRT 66,2232
+#define SIGQUIT 68,2254
+#define SIG_DFL 72,2307
+#define SIG_IGN 73,2371
+#define SIG_SGE 74,2427
+#define SIG_ACK 75,2487
+#define SIG_ERR 80,2604
+#define SIG_BLOCK 83,2668
+#define SIG_UNBLOCK 84,2688
+#define SIG_SETMASK 85,2710
+#define signal 88,2747
+typedef unsigned long sigset_t;sigset_t90,2774
+typedef void Sigfunc Sigfunc91,2806
+struct sigaction sigaction93,2835
+#define sigemptyset(sigemptyset100,2915
+#define sigfillset(sigfillset101,2953
+#define WNOHANG 116,3375
+#define WUNTRACED 117,3393
+#define WIFEXITED(WIFEXITED119,3414
+#define WEXITSTATUS(WEXITSTATUS120,3437
+#define WIFSIGNALED(WIFSIGNALED124,3569
+#define WTERMSIG(WTERMSIG125,3639
+#define WCOREDUMP(WCOREDUMP126,3711
+#define WIFSTOPPED(WIFSTOPPED127,3734
+#define WSTOPSIG(WSTOPSIG128,3758
+
+stdio.c,1296
+#define WIN32_LEAN_AND_MEAN41,1690
+#define STDIO_C48,1841
+#define __MAX_OPEN_FILES 51,1878
+#define MY_O_APPEND 53,1907
+typedef struct _myfile _myfile56,1964
+} MY_FILE;MY_FILE59,2035
+typedef unsigned long u_long;u_long61,2047
+#define INVHL 62,2077
+void init_stdio(70,2266
+int f_isset(88,2734
+int f_hisset(91,2811
+void restore_fds(99,2986
+void close_copied_fds(113,3463
+void copy_fds(122,3687
+int nt_clearerr(136,4048
+FILE* nt_fdopen(139,4093
+int nt_fileno(142,4169
+u_long __nt_get_osfhandle(153,4339
+int __nt_open_osfhandle(156,4420
+int nt_write2(170,4700
+int nt_fflush(203,5369
+int nt_fputc(208,5441
+int nt_fprintf(220,5598
+int nt_printf(239,5919
+int nt_puts(256,6215
+int nt_putchar(266,6406
+int nt_fclose(269,6471
+int nt_close(277,6622
+int nt_fgetc(287,6800
+int nt_fputs(297,6945
+int nt_putc(301,7058
+int nt_access(306,7165
+HANDLE nt_open2(365,8294
+FILE * nt_fopen(426,9621
+int nt_seek(468,10396
+int nt_fseek(493,10790
+int nt_lseek(498,10932
+long nt_ftell(503,11062
+int nt_isatty(509,11201
+int nt_fread(513,11318
+int nt_fwrite(534,11661
+int nt_dup(564,12237
+int nt_dup2(585,12646
+char *nt_fgets(621,13417
+int nt_pipe2(667,14204
+int nt_pipe(677,14409
+int is_server(685,14605
+int nt_stat(712,14997
+int nt_fstat(731,15421
+int nt_fstat(760,15878
+
+support.c,517
+#define WIN32_LEAN_AND_MEAN39,1684
+void nt_init(54,1997
+void gethostname(123,3434
+void set_default_path(126,3503
+int gettimeofday(166,4408
+char *getlogin(176,4591
+void make_err_str(179,4633
+char * forward_slash_get_cwd(191,4862
+#define xmalloc(xmalloc206,5088
+#define xfree(xfree207,5156
+#define my_xrealloc(my_xrealloc208,5206
+void nt_execve_wrapped(210,5329
+void nt_execve(477,10474
+static void quoteProtect(490,10823
+int nt_chdir 506,11174
+void caseify_pwd(516,11355
+void silly_entry(558,12029
+
+termcap.c,505
+#define bcopy(bcopy26,938
+#define BUFSIZE 41,1297
+#define BUFSIZE 45,1347
+#define TERMCAP_FILE 50,1404
+memory_out 54,1460
+xmalloc 61,1552
+xrealloc 72,1690
+find_capability 95,2192
+tgetnum 107,2375
+tgetflag 117,2538
+tgetstr 130,2911
+tgetst1 158,3722
+tputs 250,5407
+struct bufferbuffer314,6662
+valid_filename_p 332,6932
+tgetent 351,7416
+scan_file 515,11497
+name_match 555,12267
+compare_contin 571,12610
+gobble_line 612,13712
+int main 667,14849
+tprint 691,15228
+int tgetent 745,16800
+
+termcap.h,27
+#define _TERMCAP_H 19,805
+
+tparam.c,147
+#define bcopy(bcopy20,858
+memory_out 31,1033
+xmalloc 38,1125
+xrealloc 49,1263
+tparam 75,2023
+tgoto 96,2371
+tparam1 109,2580
+main 294,7007
+
+tparse.c,701
+#define AL 43,1744
+#define BL 44,1759
+#define BT 45,1774
+#define CD 46,1789
+#define CE 47,1804
+#define CL 48,1819
+#define CR 49,1834
+#define DC 50,1852
+#define DL 51,1867
+#define DO 52,1882
+#define HO 53,1897
+#define KB 54,1912
+#define KD 55,1930
+#define KH 56,1945
+#define KF 57,1960
+#define KR 58,1975
+#define KU 59,1990
+#define LE 60,2005
+#define ND 61,2020
+#define SE 62,2035
+#define SF 63,2050
+#define SO 64,2068
+#define TA 65,2083
+#define UE 66,2101
+#define UP 67,2116
+#define US 68,2131
+#define UPPER_LE 69,2146
+#define UPPER_RI 70,2167
+#define UPPER_UP 71,2188
+#define UPPER_DO 72,2209
+#define PARSING_MULT 79,2342
+int tc_putc(90,2652
+int move_cursor(172,4014
+
+zsh_nt.c,107
+semicolonarrgetfn(46,1796
+semicolonarrsetfn(53,1883
+semicolonsplit(64,2130
+semicolon_arrfixenv(93,2734
+
+../TAGS,include

@@ -1,0 +1,35 @@
+ascmagic.lo : \
+ ascmagic.c magic.h \
+ d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/sys/types.h \
+ d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/_mingw.h \
+ d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/stddef.h \
+ file.h ../config.h \
+ d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/stdio.h \
+ d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/errno.h \
+ d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/stdint.h \
+ d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/sys/stat.h \
+ d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/string.h \
+ d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/memory.h \
+ d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/ctype.h \
+ d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/stdlib.h \
+ d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/unistd.h \
+ d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/io.h \
+ names.h
+ascmagic.c :
+magic.h :
+d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/sys/types.h :
+d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/_mingw.h :
+d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/stddef.h :
+file.h :
+../config.h :
+d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/stdio.h :
+d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/errno.h :
+d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/stdint.h :
+d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/sys/stat.h :
+d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/string.h :
+d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/memory.h :
+d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/ctype.h :
+d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/stdlib.h :
+d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/unistd.h :
+d:/app/gcc-2.95.3/bin/../lib/gcc-lib/mingw32/2.95.3-6/../../../../include/io.h :
+names.h :

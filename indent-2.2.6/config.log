@@ -1,0 +1,101 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:559: checking for a BSD compatible install
+configure:612: checking whether build environment is sane
+configure:669: checking whether make sets ${MAKE}
+configure:715: checking for working aclocal
+configure:728: checking for working autoconf
+configure:741: checking for working automake
+configure:754: checking for working autoheader
+configure:767: checking for working makeinfo
+configure:784: checking whether to enable maintainer-specific portions of Makefiles
+configure:810: checking for gcc
+configure:923: checking whether the C compiler (gcc  ) works
+configure:939: gcc -o conftest    conftest.c  1>&5
+configure:965: checking whether the C compiler (gcc  ) is a cross-compiler
+configure:970: checking whether we are using GNU C
+configure:979: gcc -E conftest.c
+configure:998: checking whether gcc accepts -g
+configure:1030: checking how to run the C preprocessor
+configure:1051: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1121: checking for a BSD compatible install
+configure:1174: checking for AIX
+configure:1199: checking for minix/config.h
+configure:1209: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1205: minix\config.h: No such file or directory
+configure: failed program was:
+#line 1204 "configure"
+#include "confdefs.h"
+#include <minix/config.h>
+configure:1247: checking for POSIXized ISC
+configure:1268: checking for Cygwin environment
+configure:1284: gcc -c -g -O2  conftest.c 1>&5
+configure: In function `main':
+configure:1280: `__CYGWIN32__' undeclared (first use in this function)
+configure:1280: (Each undeclared identifier is reported only once
+configure:1280: for each function it appears in.)
+configure: failed program was:
+#line 1273 "configure"
+#include "confdefs.h"
+
+int main() {
+
+#ifndef __CYGWIN__
+#define __CYGWIN__ __CYGWIN32__
+#endif
+return __CYGWIN__;
+; return 0; }
+configure:1301: checking for mingw32 environment
+configure:1313: gcc -c -g -O2  conftest.c 1>&5
+configure:1332: checking for executable suffix
+configure:1363: checking for object suffix
+configure:1369: gcc -c -g -O2  conftest.c 1>&5
+configure:1390: checking for gcc option to accept ANSI C
+configure:1443: gcc  -c -g -O2  conftest.c 1>&5
+configure:1469: checking for function prototypes
+configure:1628: checking for working const
+configure:1682: gcc -c -g -O2  conftest.c 1>&5
+configure:1704: checking for ANSI C header files
+configure:1717: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1784: gcc -o conftest.exe -g -O2   conftest.c  1>&5
+configure:1810: checking for strchr
+configure:1838: gcc -o conftest.exe -g -O2   conftest.c  1>&5
+configure:1810: checking for memcpy
+configure:1838: gcc -o conftest.exe -g -O2   conftest.c  1>&5
+configure:1822: warning: conflicting types for built-in function `memcpy'
+configure:1810: checking for memmove
+configure:1838: gcc -o conftest.exe -g -O2   conftest.c  1>&5
+configure:1810: checking for utime
+configure:1838: gcc -o conftest.exe -g -O2   conftest.c  1>&5
+configure:1866: checking for unistd.h
+configure:1876: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1866: checking for string.h
+configure:1876: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1866: checking for malloc.h
+configure:1876: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1866: checking for utime.h
+configure:1876: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1872: utime.h: No such file or directory
+configure: failed program was:
+#line 1871 "configure"
+#include "confdefs.h"
+#include <utime.h>
+configure:1866: checking for sys/utime.h
+configure:1876: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1965: checking for dirent.h that defines DIR
+configure:1978: gcc -c -g -O2  conftest.c 1>&5
+configure:2003: checking for opendir in -ldir
+configure:2022: gcc -o conftest.exe -g -O2   conftest.c -ldir   1>&5
+d:\app\gcc-2.95.2\bin\..\lib\gcc-lib\i386-mingw32msvc\2.95.2\..\..\..\..\i386-mingw32msvc\bin\ld.exe: cannot open -ldir: No such file or directory
+configure: failed program was:
+#line 2011 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char opendir();
+
+int main() {
+opendir()
+; return 0; }

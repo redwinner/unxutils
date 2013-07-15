@@ -1,0 +1,8 @@
+Applied some trivial changes to the source code to make it
+work on native WIN32.
+To build it , you need the Cygnus tools, using the WIN32 gcc-2.95. 
+
+Karl M. Syring
+
+Send bug reports to syring@email.com.  Be sure to
+include the word "grep" in your Subject: header field.

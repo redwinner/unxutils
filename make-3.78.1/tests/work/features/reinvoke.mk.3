@@ -1,0 +1,11 @@
+SHELL = /bin/sh
+
+all: ; @echo hello
+
+a : b ; echo >> $@
+
+b : c ; [ -f $@ ] || echo >> $@
+
+c: ; echo >> $@
+
+include $(F)

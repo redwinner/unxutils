@@ -1,0 +1,22 @@
+	../lib/rpmatch.c \
+	../src/chgrp.c \
+	../src/chmod.c \
+	../src/chown.c \
+	../src/cp-aux.c \
+	../src/cp.c \
+	../src/dircolors.c \
+	../src/dd.c \
+	../src/df.c \
+	../src/du.c \
+	../src/install.c \
+	../src/ln.c \
+	../src/ls.c \
+	../src/mkdir.c \
+	../src/mkfifo.c \
+	../src/mknod.c \
+	../src/mv.c \
+	../src/mvdir.c \
+	../src/rm.c \
+	../src/rmdir.c \
+	../src/sync.c \
+	../src/touch.c

@@ -1,0 +1,51 @@
+[OPTIONS]
+Auto Index=Yes
+Auto TOC=9
+Binary Index=No
+Compatibility=1.1 or later
+Compiled file=UnxHlp.chm
+Contents file=toc.hhc
+Default topic=gsar.htm
+Display compile progress=No
+Full-text search=Yes
+Index file=Index.hhk
+Language=0x409 English (United States)
+Title=GNU utilities help
+
+
+[FILES]
+basename.htm
+bc.htm
+date.htm
+dirname.htm
+echo.htm
+env.htm
+expr.htm
+false.htm
+flex.htm
+gsar.htm
+id.htm
+less.htm
+lesskey.htm
+logname.htm
+patch.htm
+pathchk.htm
+printenv.htm
+printf.htm
+rman.htm
+shar.htm
+sleep.htm
+tee.htm
+test.htm
+true.htm
+tty.htm
+uname.htm
+unshar.htm
+uuencode.htm
+who.htm
+whoami.htm
+yes.htm
+compress.htm
+
+[INFOTYPES]
+

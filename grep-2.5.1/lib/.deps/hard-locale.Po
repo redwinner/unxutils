@@ -1,0 +1,12 @@
+hard-locale.o : \
+ hard-locale.c ../config.h d:/app/mingw/include/locale.h \
+  d:/app/mingw/include/_mingw.h d:/app/mingw/include/stddef.h \
+  d:/app/mingw/lib/gcc-lib/mingw32/3.2.3/include/stddef.h \
+  d:/app/mingw/include/string.h
+hard-locale.c :
+../config.h :
+d:/app/mingw/include/locale.h :
+d:/app/mingw/include/_mingw.h :
+d:/app/mingw/include/stddef.h :
+d:/app/mingw/lib/gcc-lib/mingw32/3.2.3/include/stddef.h :
+d:/app/mingw/include/string.h :

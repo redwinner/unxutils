@@ -1,0 +1,18 @@
+int global_heapalloc _((void));
+int global_permalloc _((void));
+void pushheap _((void));
+void freeheap _((void));
+void popheap _((void));
+void * halloc _((size_t size));
+void * hcalloc _((size_t size));
+void * hrealloc _((char *p, int old, int new));
+void * zalloc _((size_t size));
+void * zcalloc _((size_t size));
+void * zrealloc _((void *ptr, size_t size));
+char * dupstring _((const char *s));
+char * ztrdup _((const char *s));
+void zfree _((void *p, int sz));
+void zsfree _((char *p));
+int bin_mem _((char *name, char **argv, char *ops, int func));
+void zfree _((void *p, int sz));
+void zsfree _((char *p));

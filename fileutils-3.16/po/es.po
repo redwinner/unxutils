@@ -1,0 +1,2291 @@
+# Mensajes en español para GNU fileutils.
+# Copyright (C) 1996 Free Software Foundation, Inc.
+# Santiago Vila Doncel <sanvila@unex.es>, 1996.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU fileutils 3.14b\n"
+"POT-Creation-Date: 1997-01-26 00:26-0600\n"
+"PO-Revision-Date: 1996-01-06 15:10+0100\n"
+"Last-Translator: Santiago Vila Doncel <sanvila@unex.es>\n"
+"Language-Team: Spanish <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+# Esto es para responder "sí" cuando nos pregunte.
+#: lib/rpmatch.c:87
+msgid "^[yY]"
+msgstr "^[sS]"
+
+# Y esto es para responder "no" cuando nos pregunte.
+#: lib/rpmatch.c:90
+msgid "^[nN]"
+msgstr "^[nN]"
+
+# Esta traducción me ha sorprendido verla, creo que "changed" debería
+# traducirse como "ha cambiado". Además cuando estos mensajes "de
+# diagnóstico" aparecen, la operación ya se ha realizado... uac
+#
+# Si solamente fuera por el modo verbal empleado en el original,
+# estaría de acuerdo contigo.
+# Sin duda esto es un mensaje de "diagnóstico" o "verbose", y como tal
+# debe tratarse.
+# La cosa está en si esos mensajes deben decirnos "lo que va ocurriendo"
+# o "lo que ha ocurrido". En este mensaje concreto (no en general), me
+# parece más apropiado que el programa nos diga "lo que va ocurriendo"
+# y por eso utilizo el modo presente.
+# Tal vez tengo la impresión de que al original le falta un "is":
+# "group of %s is changed to %s". sv
+#: src/chgrp.c:117
+#, c-format
+msgid "group of %s changed to %s\n"
+msgstr "el grupo de %s cambia a %s\n"
+
+# por la misma razón que en el msgid anterior, creo que debería ser algo así
+# como "ha permanecido" o algo similar... uac
+# Siguiendo con lo anterior, en este caso me parece que queda mucho más feo
+# en pasado que en presente (razón para dejarlos los dos en presente).
+# De todas formas, tendré que pensarlo un poco más despacio. sv
+#: src/chgrp.c:119
+#, c-format
+msgid "group of %s retained as %s\n"
+msgstr "el grupo de %s permanece como %s\n"
+
+# Nota: se refiere al grupo número 0.
+# La convención nulo=cero también existe en español, al menos en el
+# lenguaje matemático. Por eso he preferido respetar el matiz.
+#: src/chgrp.c:131
+msgid "can not change to null group"
+msgstr "no se puede cambiar al grupo nulo"
+
+#: src/chgrp.c:140
+#, c-format
+msgid "invalid group name `%s'"
+msgstr "nombre de grupo inválido `%s'"
+
+#: src/chgrp.c:144
+msgid "group number"
+msgstr "número de grupo"
+
+#: src/chgrp.c:147
+#, c-format
+msgid "invalid group number `%s'"
+msgstr "número de grupo inválido `%s'"
+
+# Normas de la casa:
+# "El programa hablará al usuario de usted y no de tú". sv
+#: src/chgrp.c:195
+#, c-format
+msgid "you are not a member of group `%s'"
+msgstr "usted no es miembro del grupo `%s'"
+
+#: src/chgrp.c:200
+#, c-format
+msgid "%s: invalid group number"
+msgstr "%s: número de grupo inválido"
+
+# Sinceramente, creo que añadir "virtual" sería redundante.
+#: src/chgrp.c:243 src/chmod.c:183 src/chmod.c:329 src/chown.c:200
+#: src/cp.c:462 src/cp.c:543 src/cp.c:699 src/cp.c:1237 src/dircolors.c:132
+#: src/du.c:576 src/install.c:273 src/ln.c:134 src/ln.c:262 src/mkdir.c:135
+#: src/mkfifo.c:129 src/mknod.c:132 src/mv.c:286 src/mv.c:363 src/mvdir.c:160
+msgid "virtual memory exhausted"
+msgstr "memoria agotada"
+
+#: src/chgrp.c:273 src/chmod.c:213 src/chown.c:230 src/cp-aux.c:31
+#: src/dd.c:1086 src/df.c:552 src/dircolors.c:102 src/du.c:215
+#: src/install.c:589 src/ln.c:312 src/ls.c:2737 src/mkdir.c:56 src/mkfifo.c:56
+#: src/mknod.c:61 src/mv.c:376 src/mvdir.c:77 src/rm.c:527 src/rmdir.c:82
+#: src/sync.c:35 src/touch.c:241
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr "Pruebe `%s --help' para más información.\n"
+
+#: src/chgrp.c:277
+#, c-format
+msgid "Usage: %s [OPTION]... GROUP FILE...\n"
+msgstr "Modo de empleo: %s [OPCIÓN]... GRUPO ARCHIVO...\n"
+
+# ¿? ¿Existe el verbo "referenciar"? ¿Habría que poner referir?
+#
+# Sí, que yo sepa ... :) (yo me referencio, tu te referencias ... :). ipg
+#
+# Muy bueno :-) Ahora sí que lo veo claro. Ya lo he cambiado en todas
+# partes, excepto en algunos sitios donde busco una alternativa mejor. sv
+#
+# Yo creo que referido != referenciado, y este último es el que debería de
+# ponerse según lo que pienso... uac
+#
+# Pues Iñaky me convenció de que referenciado era un "palabro" (palabra
+# que no existe, inventada). ¿Estás seguro de que existe?
+# (Esto me recuerda el palabro "influenciar", a mucha gente se le olvida
+# que se dice *influir*). sv
+#
+# He traducido "diagnostic" por "mensaje". ¿Alguna idea mejor?
+# `diagnóstico' ... ¿no? ipg
+#
+# Rotundamente no. En español esa palabra solamente se usa en el
+# ámbito médico. "a nivel de hospitales" :-) sv
+#
+# pero en este caso, queda mejor (a mi parecer) `mensaje' ipg
+#
+# Menos mal :-) sv
+#
+# Y a mí que no me gusta `mensaje'... pero no encuentro alternativa. Quizá
+# `muestra lo realizado para/con/sobre cada archivo' tb
+#
+# Aunque prefiero mensaje, dejaré aquí tu sugerencia.
+# (Creo que es la mejor que me han hecho al respecto). sv
+#
+# sugiero que se especificara qué tipo de mensaje se muestra ya que un
+# "diagnostic" no es un mensaje cualquiera... uac
+#
+# Bueno, en este caso, por el contexto creo que no hace falta ser más
+# explícito, si dice "muestra un mensaje" y la opción se llama "verbose",
+# está claro que no es un mensaje de correo electrónico. sv
+#
+#: src/chgrp.c:278
+msgid ""
+"Change the group membership of each FILE to GROUP.\n"
+"\n"
+"  -c, --changes           like verbose but report only when a change is "
+"made\n"
+"  -h, --no-dereference    affect symbolic links instead of any referenced "
+"file\n"
+"                          (available only on systems with lchown system "
+"call)\n"
+"  -f, --silent, --quiet   suppress most error messages\n"
+"  -R, --recursive         change files and directories recursively\n"
+"  -v, --verbose           output a diagnostic for every file processed\n"
+"      --help              display this help and exit\n"
+"      --version           output version information and exit\n"
+msgstr ""
+"Cambia la pertenencia de grupo de cada ARCHIVO a GRUPO.\n"
+"\n"
+"  -c, --changes           como `verbose' pero informa sólo de los cambios\n"
+"  -h, --no-dereference    afecta a los enlaces simbólicos en lugar de a los\n"
+"                          archivos referidos (disponible solamente en\n"
+"                          sistemas con la llamada del sistema `lchown')\n"
+"  -f, --silent, --quiet   suprime la mayoría de los mensajes de error\n"
+"  -R, --recursive         cambia archivos y directorios recursivamente\n"
+"  -v, --verbose           muestra un mensaje por cada archivo procesado\n"
+"      --help              muestra esta ayuda y finaliza\n"
+"      --version           informa de la versión y finaliza\n"
+
+#: src/chgrp.c:290 src/chmod.c:234 src/chown.c:254 src/cp-aux.c:86
+#: src/dd.c:1121 src/df.c:576 src/dircolors.c:121 src/du.c:238
+#: src/install.c:625 src/ln.c:347 src/ls.c:2805 src/mkdir.c:70 src/mkfifo.c:68
+#: src/mknod.c:79 src/mv.c:407 src/rm.c:543 src/rmdir.c:94 src/sync.c:46
+#: src/touch.c:262
+msgid ""
+"\n"
+"Report bugs to fileutils-bugs@gnu.ai.mit.edu"
+msgstr ""
+"\n"
+"Comunicar `bugs' a fileutils-bugs@gnu.ai.mit.edu"
+
+#: src/chgrp.c:348 src/chmod.c:320 src/chown.c:314 src/install.c:263
+#: src/mkdir.c:123 src/mkfifo.c:118 src/mknod.c:140 src/rm.c:173
+#: src/rmdir.c:137
+msgid "too few arguments"
+msgstr "número de argumentos insuficiente"
+
+#: src/chgrp.c:355 src/chown.c:321
+msgid "--no-dereference (-h) is not supported on this system"
+msgstr "--no-dereference (-h) no está disponible en este sistema"
+
+# ¿Y "el modo de... se cambió a..."? tb
+# Eso me da la impresión de que no es chmod quien los ha cambiado.
+# quiero decir, que así parece que "se cambió solo".
+# (aunque sea meramente un matiz). sv
+#
+# A mí también me parece más adecuado "se cambió a", aunque me gusta más
+# "se ha cambiado a" o "ha cambiado a"... uac
+#
+# Pensaré esto sincronizadamente con los otros. sv
+#
+#: src/chmod.c:89
+#, c-format
+msgid "mode of %s changed to %04o (%s)\n"
+msgstr "el modo de %s cambia a %04o (%s)\n"
+
+# al igual que con chgrp y por coherencia me parece más adecuado:
+# "ha permanecido"... uac
+#
+#: src/chmod.c:92
+#, c-format
+msgid "mode of %s retained as %04o (%s)\n"
+msgstr "el modo de %s permanece como %04o (%s)\n"
+
+#: src/chmod.c:217
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... MODE[,MODE]... FILE...\n"
+"  or:  %s [OPTION]... OCTAL_MODE FILE...\n"
+msgstr ""
+"Modo de empleo: %s [OPCIÓN]... MODO[,MODO]... ARCHIVO...\n"
+"       o bien:  %s [OPCIÓN]... MODO_OCTAL ARCHIVO...\n"
+
+# ¿Qué tal poner --help y --version como los puse yo en diff y find?
+# --help  Muestra esta ayuda.,
+# -v  --version  Da información sobre la versión del programa.
+# Lo digo por aquello que hablamos que el `y finaliza' sobra, ya
+# que es el comportamiento que se define. ipg
+#
+# Vale, si convences a Enrique... sv
+#
+# Apúntame a la propuesta. tb
+#
+# Pues entonces ya somos tres. Habría que hablarlo seriamente... sv
+#
+# Aunque ya lo hemos puesto así en todos sitios ... casi podríamos
+# dejarlo (daño no hace, eso sí es verdad) ipg
+#
+# Lo dejaremos para otra ocasión. Ya os avisaré. sv
+#: src/chmod.c:222
+msgid ""
+"\n"
+"  -c, --changes           like verbose but report only when a change is "
+"made\n"
+"  -f, --silent, --quiet   suppress most error messages\n"
+"  -v, --verbose           output a diagnostic for every file processed\n"
+"  -R, --recursive         change files and directories recursively\n"
+"      --help              display this help and exit\n"
+"      --version           output version information and exit\n"
+"\n"
+"Each MODE is one or more of the letters ugoa, one of the symbols +-= and\n"
+"one or more of the letters rwxXstugo.\n"
+msgstr ""
+"\n"
+"  -c, --changes           como `verbose' pero sólo informa de los cambios\n"
+"  -f, --silent, --quiet   suprime la mayoría de los mensajes de error\n"
+"  -v, --verbose           muestra un mensaje por cada archivo procesado\n"
+"  -R, --recursive         cambia archivos y directorios recursivamente\n"
+"      --help              muestra esta ayuda y finaliza\n"
+"      --version           informa de la versión y finaliza\n"
+"\n"
+"Cada MODO es una o más de las letras ugoa, uno de los símbolos +-= y\n"
+"una o más de las letras rwxXstugo.\n"
+
+# Utilizo "inválido" en lugar de "no válido", porque la palabra existe,
+# y no usarla es empobrecer el idioma.
+#
+# Si a alguien le parece más natural "no válido", deberíamos discutir
+# esto al mismo tiempo que la "retroreferencia" de Iñaky.
+#
+#: src/chmod.c:286 src/chmod.c:327 src/mkfifo.c:127 src/mknod.c:130
+msgid "invalid mode"
+msgstr "modo inválido"
+
+# Ya sé que no te gustará: "%s se cedió a "
+# o "el propietario de %s es ahora " tb
+# El segundo me gusta mucho más que el primero, pero a pesar de todo, prefiero
+# usar el verbo cambiar, decir "es ahora" no da a entender tan claramente
+# que se produce un cambio. sv
+#
+# A mí me gusta también "el propietario de %s es ahora", ¿por qué traducciones
+# tan literales, si se pueden poner de una forma corta y más clara? uac
+#
+# En este caso, "es ahora" es menos claro que "cambia a"
+# De la primera forma, te dice cómo queda pero te quedas con la duda
+# de si antes estaba también así o no.
+# Con "cambia a" te dice cómo queda y además sabes que antes estaba de otra
+# forma distinta. sv
+#: src/chown.c:117
+#, c-format
+msgid "owner of %s changed to "
+msgstr "el propietario de %s cambia a "
+
+# No sé si sería mejor "se mantiene como propietario de %s a " tb
+# No está mal. Lo pensaré. sv
+#
+# al igual que con el msgid anterior esta propuesta me parece mejor... uac
+# ¿Alguien más? :-) sv
+#: src/chown.c:119
+#, c-format
+msgid "owner of %s retained as "
+msgstr "el propietario de %s permanece como "
+
+#: src/chown.c:234
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... OWNER[.[GROUP]] FILE...\n"
+"  or:  %s [OPTION]... .[GROUP] FILE...\n"
+msgstr ""
+"Modo de empleo: %s [OPCIÓN]... PROPIETARIO[.[GRUPO]] ARCHIVO...\n"
+"       o bien:  %s [OPCIÓN]... .[GRUPO] ARCHIVO...\n"
+
+# La línea del "verbose", "da detalles de lo que va haciendo" es
+# realmente sosa, ¿alguna sugerencia que la mejore?
+# (¿o quizá no hay mucho que mejorar?)
+#
+# Opera verbosamente (ya sé que es pero ... pero es lo que se
+# me ocurrió a mí) :) ipg
+#
+# Con sinceridad, "verbosamente" me parece un "palabro". sv
+#
+# ¿Y "muestra en detalle los cambios" ? em
+#
+# Eso tiene el problema siguiente: "Lo que va haciendo" puede ser
+# cambiar unas cosas sí y otras no. No son sólo los cambios. sv
+#
+# ¿más sugerencias? sv+
+# "muestra mensajes sólo cuando hay algún cambio" tb
+# Vale. Aceptado. Es casi igual pero un poquito mejor. sv
+#
+#: src/chown.c:239
+msgid ""
+"Change the owner and/or group of each FILE to OWNER and/or GROUP.\n"
+"\n"
+"  -c, --changes          be verbose whenever change occurs\n"
+"  -h, --no-dereference   affect symbolic links instead of any referenced "
+"file\n"
+"                         (available only on systems with lchown system "
+"call)\n"
+"  -f, --silent, --quiet  suppress most error messages\n"
+"  -R, --recursive        operate on files and directories recursively\n"
+"  -v, --verbose          explain what is being done\n"
+"      --help             display this help and exit\n"
+"      --version          output version information and exit\n"
+"\n"
+"Owner is unchanged if missing.  Group is unchanged if missing, but changed\n"
+"to login group if implied by a period.  A colon may replace the period.\n"
+msgstr ""
+"Cambia el propietario y/o grupo de cada ARCHIVO a PROPIETARIO y/o GRUPO.\n"
+"\n"
+"  -c, --changes          muestra mensajes sólo cuando hay algún cambio\n"
+"  -h, --no-dereference   afecta a los enlaces simbólicos en lugar de a los\n"
+"                         archivos referidos (disponible solamente en\n"
+"                         sistemas con la llamada al sistema lchown)\n"
+"  -f, --silent, --quiet  suprime la mayoría de los mensajes de error\n"
+"  -R, --recursive        opera sobre archivos y directorios recursivamente\n"
+"  -v, --verbose          da detalles de lo que va haciendo\n"
+"      --help             muestra esta ayuda y finaliza\n"
+"      --version          informa de la versión y finaliza\n"
+"\n"
+"El propietario no cambia si se omite. El grupo no cambia si se omite, pero\n"
+"cambia al grupo de login implícitamente con un punto. Una coma puede\n"
+"sustituir al punto.\n"
+
+#: src/cp-aux.c:35 src/mv.c:380
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... SOURCE DEST\n"
+"  or:  %s [OPTION]... SOURCE... DIRECTORY\n"
+msgstr ""
+"Modo de empleo: %s [OPCIÓN]... ORIGEN DESTINO\n"
+"       o bien:  %s [OPCIÓN]... ORIGEN... DIRECTORIO\n"
+
+# ¿"crude" es simple o sencillo?
+#
+# `a lo bruto' o `simple'.
+# Yo prefiero `simple'. ipg
+# - - - - - - - - - - - - - - - - -
+# Nota sobre la traducción de "backup":
+# "backup" es sustantivo y verbo, y tiene dos posibles traducciones.
+#
+# La "verborreica":
+# "backup"    -> copia de seguridad
+# "to backup" -> crear una copia de seguridad
+#
+# La "corta":
+# "backup"    -> respaldo
+# "to backup" -> respaldar
+# (esta traducción aparece en algún programa de Hewlett Packard).
+#
+# Dado que la "verborreica" queda muy larga (sobre todo cuando es un verbo),
+# he decidido usar unas veces una y otras veces la otra, según el caso.
+#
+# Nota: Los ficheros `sparse' son una especie de
+# ficheros con "huecos" (trozos con muchos ceros seguidos).
+# Parece ser que hay un sistema que se encarga de acordarse
+# en dónde están los huecos para no tener que almacenar tantos bytes. sv+
+#
+# "same as" -> "igual que". "Lo mismo que" no termina de convencerme. tb
+# es que en inglés también hay "equal to". sv
+# Ya. Pero la cuestión no es cómo se dice en inglés, sino cómo se expresa
+# la misma idea en español normalmente. tb
+# Bueno, yo le digo "lo mismo que"... sv
+#
+# -x: tampoco me gusta cómo se explica, aunque en el manual sí que lo deja
+# bien claro... yo lo pondría algo parecido a:
+#
+# "no lee [sobre] más de un sistema de ficheros" o
+# más parecido al manual: "evita subdirectorios en otros sistemas de ficheros"
+# uac
+#
+# La traducción me parece correcta y fiel.
+# Si de verdad te parece que está mal explicado, se lo digo al autor. sv
+#
+#: src/cp-aux.c:40
+msgid ""
+"Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.\n"
+"\n"
+"  -a, --archive                same as -dpR\n"
+"  -b, --backup                 make backup before removal\n"
+"  -d, --no-dereference         preserve links\n"
+"  -f, --force                  remove existing destinations, never prompt\n"
+"  -i, --interactive            prompt before overwrite\n"
+"  -l, --link                   link files instead of copying\n"
+"  -p, --preserve               preserve file attributes if possible\n"
+"  -P, --parents                append source path to DIRECTORY\n"
+"  -r                           copy recursively, non-directories as files\n"
+"      --sparse=WHEN            control creation of sparse files\n"
+"  -R, --recursive              copy directories recursively\n"
+"  -s, --symbolic-link          make symbolic links instead of copying\n"
+"  -S, --suffix=SUFFIX          override the usual backup suffix\n"
+"  -u, --update                 copy only when the SOURCE file is newer\n"
+"                                 than the destination file or when the\n"
+"                                 destination file is missing\n"
+"  -v, --verbose                explain what is being done\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"  -x, --one-file-system        stay on this file system\n"
+"      --help                   display this help and exit\n"
+"      --version                output version information and exit\n"
+"\n"
+"By default, sparse SOURCE files are detected by a crude heuristic and the\n"
+"corresponding DEST file is made sparse as well.  That is the behavior\n"
+"selected by --sparse=auto.  Specify --sparse=always to create a sparse DEST\n"
+"file whenever the SOURCE file contains a long enough sequence of zero "
+"bytes.\n"
+"Use --sparse=never to inhibit creation of sparse files.\n"
+"\n"
+msgstr ""
+"Copia ORIGEN a DESTINO, o varios ORIGEN(es) a DIRECTORIO.\n"
+"\n"
+"  -a, --archive                 lo mismo que -dpR\n"
+"  -b, --backup                  crea una copia de seguridad antes de borrar\n"
+"  -d, --no-dereference          mantiene los enlaces\n"
+"  -f, --force                   borra los destinos que ya existan, sin "
+"preguntar\n"
+"  -i, --interactive             pide confirmación antes de sobreescribir\n"
+"  -l, --link                    enlaza archivos en lugar de copiarlos\n"
+"  -p, --preserve                conserva si es posible los atributos del "
+"archivo\n"
+"  -P, --parents                 añade el directorio de origen a DIRECTORIO\n"
+"  -r                            copia recursivamente, los no-directorios "
+"como\n"
+"                                archivos\n"
+"      --sparse=CUÁNDO           controla la creación de archivos `sparse'\n"
+"  -R, --recursive               copia directorios recursivamente\n"
+"  -s, --symbolic-link           crea enlaces simbólicos en lugar de "
+"copiarlos\n"
+"  -S, --suffix=SUFIJO           reemplaza el sufijo de respaldo habitual\n"
+"  -u, --update                  copia solamente cuando el archivo ORIGEN es\n"
+"                                  más moderno que el archivo de destino,\n"
+"                                  o cuando falta el archivo de destino\n"
+"  -v, --verbose                 da detalles sobre lo que se va haciendo\n"
+"  -V, --version-control=PALABRA reemplaza el control de versión habitual\n"
+"  -x, --one-file-system         permanece en este sistema de archivos\n"
+"      --help                    muestra esta ayuda y finaliza\n"
+"      --version                 informa de la versión y finaliza\n"
+"\n"
+"Por omisión, los archivos ORIGEN `sparse' se detectan mediante una simple\n"
+"heurística y los correspondientes archivos DESTINO se crean también "
+"`sparse'.\n"
+"Este es el comportamiento con --sparse=auto. Al especificar --sparse=always "
+"se\n"
+"crea un archivo DESTINO `sparse' cuando el archivo ORIGEN contiene una "
+"sucesión\n"
+"de bytes cero suficientemente larga.\n"
+"Utilice --sparse=never para inhibir la creación de archivos `sparse'.\n"
+"\n"
+
+#: src/cp-aux.c:72 src/install.c:617 src/ln.c:339 src/mv.c:399
+msgid ""
+"The backup suffix is ~, unless set with SIMPLE_BACKUP_SUFFIX.  The\n"
+"version control may be set with VERSION_CONTROL, values are:\n"
+"\n"
+"  t, numbered     make numbered backups\n"
+"  nil, existing   numbered if numbered backups exist, simple otherwise\n"
+"  never, simple   always make simple backups\n"
+msgstr ""
+"El sufijo de respaldo es ~, a menos que se establezca con "
+"SIMPLE_BACKUP_SUFFIX.\n"
+"El control de versión se puede establecer con VERSION_CONTROL, los valores "
+"son:\n"
+"\n"
+"  t, numbered     crea copias de seguridad numeradas\n"
+"  nil, existing   numeradas si existen copias de seguridad numeradas,\n"
+"                  simples en caso contrario\n"
+"  never, simple   siempre crea copias de seguridad simples\n"
+
+# Revisar esto un poco. Especialmente la última línea.
+#: src/cp-aux.c:80
+msgid ""
+"\n"
+"As a special case, cp makes a backup of SOURCE when the force and backup\n"
+"options are given and SOURCE and DEST are the same name for an existing,\n"
+"regular file.\n"
+msgstr ""
+"\n"
+"Como caso especial, cp crea una copia se seguridad de ORIGEN cuando se "
+"utilizan\n"
+"las opciones `force' y `backup', y ORIGEN y DESTINO tienen el mismo nombre "
+"para\n"
+"un nombre de archivo regular existente.\n"
+
+# Un archivo `sparse' es un archivo que contiene muchos ceros seguidos, y
+# que en algunos casos, el sistema operativo trata de forma especial.
+# ¿tiene traducción?
+#
+# Creo que finalmente me decidiré por traducirlo como "disperso".
+# (creo que Federico Rivas ya lo ha hecho así en tar).
+# Tal vez añadiendo el sparse al final, para que todo el mundo se entere. sv
+# O sea: tipo disperso (sparse).
+# De momento lo dejo en `sparse'.
+# FIXME.
+#: src/cp.c:268
+msgid "sparse type"
+msgstr "tipo `sparse'"
+
+#: src/cp.c:326 src/ln.c:404
+msgid "symbolic links are not supported on this system"
+msgstr "los enlaces simbólicos no están soportados en este sistema"
+
+# ¿? HARD ¿duro o fuerte?
+#
+# Yo lo dejaría en duro ... (queda más heavy :) ipg
+#
+# Me inclino por fuerte. em
+#
+# ¿bibliografía?
+# (¿en qué libros os basáis?) sv+
+#: src/cp.c:366
+msgid "cannot make both hard and symbolic links"
+msgstr "no se puede crear un enlace que sea duro y simbólico al mismo tiempo"
+
+#: src/cp.c:406 src/mv.c:481
+msgid "missing file arguments"
+msgstr "faltan argumentos (archivos)"
+
+#: src/cp.c:411
+msgid "missing destination file"
+msgstr "falta el archivo de destino"
+
+# Nota: Mejor no traducir "path" y "directory" de la misma forma dentro
+# de la misma frase.
+#: src/cp.c:518
+msgid "when preserving paths, last argument must be a directory"
+msgstr ""
+"cuando se conservan rutas de acceso, el último argumento debe ser un "
+"directorio"
+
+#: src/cp.c:579
+#, c-format
+msgid "copying multiple files, but last argument (%s) is not a directory"
+msgstr ""
+"se copian varios archivos, pero el último argumento (%s)\n"
+"no es un directorio"
+
+#: src/cp.c:633
+#, c-format
+msgid "%s: omitting directory"
+msgstr "%s: se omite el directorio"
+
+#: src/cp.c:658 src/install.c:391 src/ln.c:213 src/mv.c:252
+#, c-format
+msgid "`%s' and `%s' are the same file"
+msgstr "`%s' y `%s' son el mismo archivo"
+
+#: src/cp.c:668
+#, c-format
+msgid "%s: cannot overwrite directory with non-directory"
+msgstr "%s: no se puede sobreescribir un directorio con un no-directorio"
+
+# SIoNO
+#: src/cp.c:682
+#, c-format
+msgid "%s: overwrite `%s', overriding mode %04o? "
+msgstr "%s: ¿sobreescribir `%s', sustituyendo el modo %04o? (s/n) "
+
+# SIoNO
+#: src/cp.c:688
+#, c-format
+msgid "%s: overwrite `%s'? "
+msgstr "%s: ¿sobreescribir `%s'? (s/n) "
+
+# Nota: Este backing up *no* es un gerundio.
+#: src/cp.c:708
+#, c-format
+msgid "backing up `%s' would destroy source;  `%s' not copied"
+msgstr "respaldar `%s' destruiría el original; `%s' no se copia"
+
+#: src/cp.c:720 src/ln.c:270 src/mv.c:294
+#, c-format
+msgid "cannot backup `%s'"
+msgstr "no se puede respaldar `%s'"
+
+# Otra posibilidad era:
+# "el anterior enlace a". uac
+#: src/cp.c:748
+#, c-format
+msgid "cannot remove old link to `%s'"
+msgstr "no se puede borrar el enlace antiguo a `%s'"
+
+# Nota: Pongo "el" y no "un" porque no todos los enlaces simbólicos
+# cíclicos son imposibles de copiar, por ejemplo:
+# ln -s kk kk
+# mkdir aa
+# cp -d kk aa
+# ls -l aa
+#: src/cp.c:788
+#, c-format
+msgid "%s: cannot copy cyclic symbolic link"
+msgstr "%s: no se puede copiar el enlace simbólico cíclico"
+
+#: src/cp.c:806
+#, c-format
+msgid "cannot create directory `%s'"
+msgstr "no se puede crear el directorio `%s'"
+
+#: src/cp.c:844
+#, c-format
+msgid "%s: can make relative symbolic links only in current directory"
+msgstr ""
+"%s: solamente se pueden crear enlaces simbólicos relativos\n"
+"en el directorio actual"
+
+#: src/cp.c:854
+#, c-format
+msgid "cannot create link `%s'"
+msgstr "no se puede crear el enlace `%s'"
+
+# Dudo mucho que exista traducción de `fifo', pero si a alguien se le ocurre
+# alguna, por favor, que me diga en qué libro aparece y cuánta gente lo usa
+# (el término, no el libro).
+#
+# FIFO es un acrónimo (First-In, First-Out) ... Primero-que-Entra,
+# Primero-que-Sale (PEPS) ... no queda muy bien ¿no? :) ipg
+#
+# Lo sé, lo sé, pero no está el horno para bollos de inventarse
+# acrónimos en español que nadie usaría (*ni siquiera nosotros*). sv
+#
+# Lo que sí te digo es que es 'la' fifo. Y ya puestos, yo usaría, en todo
+# caso, 'pila fifo' em
+#
+# Es que no es "el fifo" ni "la fifo" sino "el [archivo] fifo"
+# Es un tipo especial de archivo.
+# Para que te quedes tranquilo, añado la palabra "archivo". sv+
+#
+# Ya... y `fifo' no es un archivo, sino una `cola'. tb
+#
+# Creo que se refiere a un "named pipe", de los que se crean con mkfifo.
+# Y es un archivo sólo en tanto que está en un determinado directorio,
+# como los dispositivos en /dev.
+# ¿Debo entender que propones eliminar archivo?
+# (¿y poner además "la cola"?). sv
+#
+# No exactamente. Quiero decir que `fifo' es una cola ---lo decía por toda
+# la discusión anterior---, pero como esta cola está construida sobre un
+# archivo, pues... Y me temo que "archivo para `fifo'" sería ya demasiado.
+# Más vale que lo dejes como está. tb
+#
+# Por una vez, y sin que sirva de precedente, Santiago, me pongo de
+# tu lado :) Déjalo como está :D ipg
+#
+# Gracias a los dos. sv
+#: src/cp.c:875
+#, c-format
+msgid "cannot create fifo `%s'"
+msgstr "no se puede crear el archivo `fifo' `%s'"
+
+#: src/cp.c:889
+#, c-format
+msgid "cannot create special file `%s'"
+msgstr "no se puede crear el archivo especial `%s'"
+
+#: src/cp.c:904
+#, c-format
+msgid "cannot read symbolic link `%s'"
+msgstr "no se puede leer el enlace simbólico `%s'"
+
+#: src/cp.c:911
+#, c-format
+msgid "cannot create symbolic link `%s'"
+msgstr "no se puede crear el enlace simbólico `%s'"
+
+#: src/cp.c:954
+#, c-format
+msgid "%s: unknown file type"
+msgstr "%s: tipo de archivo desconocido"
+
+# Nota: Asegurarse de que significa eso.
+# Probablemente quiera decir que "no se puede recuperar `%s'" de la copia
+# de seguridad. tb
+#: src/cp.c:1007 src/ln.c:303 src/mv.c:339
+#, c-format
+msgid "cannot un-backup `%s'"
+msgstr "no se puede restaurar `%s'"
+
+#: src/cp.c:1084 src/mkdir.c:148
+#, c-format
+msgid "cannot make directory `%s'"
+msgstr "no se puede crear el directorio `%s'"
+
+#: src/cp.c:1095 src/cp.c:1116
+#, c-format
+msgid "`%s' exists but is not a directory"
+msgstr "`%s' existe pero no es un directorio"
+
+#: src/cp.c:1300
+#, c-format
+msgid "cannot create regular file `%s'"
+msgstr "no se puede crear el archivo regular `%s'"
+
+#: src/dircolors.c:106
+#, c-format
+msgid "Usage: %s [OPTION]... [FILE]\n"
+msgstr "Modo de empleo: %s [OPCIÓN]... [ARCHIVO]\n"
+
+# "Comandos"... ¡órdenes! O instrucciones. tb.
+# Toda mi vida he usado esa palabra para "command".
+# no me parece tan incorrecta.
+# Pero si te hago caso, habría que abrir el debate seriamente
+# (pues no soy el único que utiliza la palabreja).
+# No me opongo, siempre que lleguemos a un consenso. sv
+#: src/dircolors.c:107
+msgid ""
+"Output commands to set the LS_COLORS environment variable.\n"
+"\n"
+"Determine format of output:\n"
+"  -b, --sh, --bourne-shell    output Bourne shell code to set LS_COLORS\n"
+"  -c, --csh, --c-shell        output C shell code to set LS_COLORS\n"
+"  -p, --print-database        output defaults\n"
+"      --help                  display this help and exit\n"
+"      --version               output version information and exit\n"
+"\n"
+"If FILE is specified, read it to determine which colors to use for which\n"
+"file types and extensions.  Otherwise, a precompiled database is used.\n"
+"For details on the format of these files, run `dircolors --print-database'.\n"
+msgstr ""
+"Produce comandos para establecer la variable de entorno LS_COLORS.\n"
+"\n"
+"Para determinar el formato del resultado:\n"
+"  -b, --sh, --bourne-shell    produce código en Bourne shell para\n"
+"                              establecer LS_COLORS\n"
+"  -c, --csh, --c-shell        produce código en C-shell para\n"
+"                              establecer LS_COLORS\n"
+"  -p, --print-database        muestra los valores por defecto\n"
+"      --help                  muestra esta ayuda y finaliza\n"
+"      --version               informa de la versión y finaliza\n"
+"\n"
+"Si se especifica ARCHIVO, se lee para determinar qué colores usar para "
+"cuáles\n"
+"tipos de archivos y extensiones. En caso contrario, se utiliza una base de\n"
+"datos precompilada. Para más información acerca del formato de estos "
+"archivos,\n"
+"ejecute `dircolors --print-database'.\n"
+
+#: src/dircolors.c:363
+#, c-format
+msgid "%s:%lu: unrecognized keyword `%s'"
+msgstr "%s:%lu: palabra clave no reconocida `%s'"
+
+#: src/dircolors.c:455
+msgid ""
+"the options to output dircolors' internal database and\n"
+"to select a shell syntax are mutually exclusive"
+msgstr ""
+"las opciones para mostrar la base de datos interna de dircolors y\n"
+"para seleccionar una sintaxis para el shell son mutuamente excluyentes"
+
+#: src/dircolors.c:463
+msgid ""
+"no FILE arguments may be used with the option to output\n"
+"dircolors' internal database"
+msgstr ""
+"no se pueden usar argumentos de tipo ARCHIVO con la opción para mostrar\n"
+"la base de datos interna de dircolors"
+
+#: src/dircolors.c:470 src/mknod.c:142
+msgid "too many arguments"
+msgstr "demasiados argumentos"
+
+#: src/dircolors.c:492
+msgid "no SHELL environment variable, and no shell type option given"
+msgstr ""
+"no hay variable de entorno SHELL, y no se ha especificado la opción\n"
+"del tipo de shell"
+
+#: src/dircolors.c:526 src/ls.c:747
+msgid "write error"
+msgstr "error de escritura"
+
+#: src/dd.c:358 src/dd.c:362 src/dircolors.c:529
+msgid "standard input"
+msgstr "entrada estándar"
+
+#: src/dd.c:361
+#, c-format
+msgid "%s is closed"
+msgstr "%s está cerrado"
+
+#: src/dd.c:363 src/dd.c:383
+msgid "standard output"
+msgstr "salida estándar"
+
+#: src/dd.c:832
+#, c-format
+msgid "unrecognized option `%s'"
+msgstr "opción no reconocida `%s'"
+
+#: src/dd.c:847
+#, c-format
+msgid "invalid number `%s'"
+msgstr "número inválido `%s'"
+
+#: src/dd.c:871
+#, c-format
+msgid "unrecognized option `%s=%s'"
+msgstr "opción no reconocida `%s=%s'"
+
+#: src/dd.c:957
+#, c-format
+msgid "%s: invalid conversion"
+msgstr "%s: conversión inválida"
+
+# Nota: El `conv' es el mismo que aparece más adelante como
+# "conv=KEYWORD", por lo tanto *no* se debe traducir.
+#: src/dd.c:977
+msgid ""
+"only one conv in {ascii,ebcdic,ibm}, {lcase,ucase}, {block,unblock}, "
+"{unblock,sync}"
+msgstr ""
+"sólo una `conv' en {ascii,ebcdic,ibm}, {lcase,ucase}, {block,unblock}, "
+"{unblock,sync}"
+
+#: src/dd.c:1039
+#, c-format
+msgid "%u+%u records in\n"
+msgstr "%u+%u registros leídos\n"
+
+#: src/dd.c:1040
+#, c-format
+msgid "%u+%u records out\n"
+msgstr "%u+%u registros escritos\n"
+
+#: src/dd.c:1044
+msgid "truncated record"
+msgstr "registro truncado"
+
+#: src/dd.c:1045
+msgid "truncated records"
+msgstr "registros truncados"
+
+#: src/dd.c:1090
+#, c-format
+msgid "Usage: %s [OPTION]...\n"
+msgstr "Modo de empleo: %s [OPCIÓN]...\n"
+
+#: src/dd.c:1091
+msgid ""
+"Copy a file, converting and formatting according to the options.\n"
+"\n"
+"  bs=BYTES        force ibs=BYTES and obs=BYTES\n"
+"  cbs=BYTES       convert BYTES bytes at a time\n"
+"  conv=KEYWORDS   convert the file as per the comma separated keyword list\n"
+"  count=BLOCKS    copy only BLOCKS input blocks\n"
+"  ibs=BYTES       read BYTES bytes at a time\n"
+"  if=FILE         read from FILE instead of stdin\n"
+"  obs=BYTES       write BYTES bytes at a time\n"
+"  of=FILE         write to FILE instead of stdout, don't truncate file\n"
+"  seek=BLOCKS     skip BLOCKS obs-sized blocks at start of output\n"
+"  skip=BLOCKS     skip BLOCKS ibs-sized blocks at start of input\n"
+"      --help      display this help and exit\n"
+"      --version   output version information and exit\n"
+"\n"
+"BYTES may be suffixed: by xM for multiplication by M, by c for x1,\n"
+"by w for x2, by b for x512, by k for x1024.  Each KEYWORD may be:\n"
+"\n"
+"  ascii     from EBCDIC to ASCII\n"
+"  ebcdic    from ASCII to EBCDIC\n"
+"  ibm       from ASCII to alternated EBCDIC\n"
+"  block     pad newline-terminated records with spaces to cbs-size\n"
+"  unblock   replace trailing spaces in cbs-size records with newline\n"
+"  lcase     change upper case to lower case\n"
+"  ucase     change lower case to upper case\n"
+"  swab      swap every pair of input bytes\n"
+"  noerror   continue after read errors\n"
+"  sync      pad every input block with NULs to ibs-size\n"
+msgstr ""
+"Copia un archivo, convirtiendo y dándole formato de acuerdo con las "
+"opciones.\n"
+"\n"
+"  bs=BYTES        establece ibs=BYTES y obs=BYTES\n"
+"  cbs=BYTES       convierte BYTES bytes cada vez\n"
+"  conv=PALABRAS   convierte el archivo según la lista de palabras clave\n"
+"                  separadas por comas\n"
+"  count=BLOQUES   copia solamente BLOQUES bloques de entrada\n"
+"  ibs=BYTES       lee BYTES bytes cada vez\n"
+"  if=ARCHIVO      lee del ARCHIVO en lugar de la entrada estándar (stdin)\n"
+"  obs=BYTES       escribe BYTES bytes cada vez\n"
+"  of=ARCHIVO      escribe en ARCHIVO en lugar de la salida estándar "
+"(stdout),\n"
+"                  no trunca el archivo\n"
+"  seek=BLOQUES    se salta BLOQUES bloques de tamaño obs al comienzo del\n"
+"                  resultado\n"
+"  skip=BLOQUES    se salta BLOQUES bloques de tamaño ibs al comienzo de la\n"
+"                  entrada\n"
+"      --help      muestra esta ayuda y finaliza\n"
+"      --version   informa de la versión y finaliza\n"
+"\n"
+"BYTES puede ir seguido: por xM para multiplicar por M, por c para x1,\n"
+"por w para x2, por b para x512, por k para x1024. Cada PALABRA puede ser:\n"
+"\n"
+"  ascii     de EBCDIC a ASCII\n"
+"  ebcdic    de ASCII a EBCDIC\n"
+"  ibm       de ASCII a EBCDIC alternado\n"
+"  block     rellena los registros terminados en `newline' con espacios "
+"hasta\n"
+"            el tamaño de cbs\n"
+"  unblock   sustituye los espacios que sobran en los registros de tamaño "
+"cbs\n"
+"            con un carácter de nueva línea\n"
+"  lcase     cambia las mayúsculas a minúsculas\n"
+"  ucase     cambia las minúsculas a mayúsculas\n"
+"  swab      intercambia cada pareja de bytes de entrada\n"
+"  noerror   continúa después de los errores de lectura\n"
+"  sync      rellena cada bloque de entrada con NULs hasta el tamaño de ibs\n"
+
+#: src/df.c:556 src/du.c:219 src/ls.c:2741
+#, c-format
+msgid "Usage: %s [OPTION]... [FILE]...\n"
+msgstr "Modo de empleo: %s [OPCIÓN]... [ARCHIVO]...\n"
+
+# La frase del "despite" es fea con ganas, pero como la frase original
+# también lo es, prefiero dejarla como está, no sea que la empeore más
+# todavía. Además, en pt.po también aparece "apesar de".
+# No sé si sería mejor "a pesar de ser" o bien "aun siendo". tb
+# Eso es lo que me da miedo, intentar mejorarla y estropearlo.
+# ¿Quién me dice que es "siendo..." y no "estando definida la variable..."?
+# Por eso prefiero dejarlo "igual de mal" que el original. sv
+#
+# Sugerencia de Ulisses:
+# "a pesar de estar definida la variable [de entorno] POSIXLY_CORRECT" uac
+#
+# Comentaré algo de esto al autor, a ver qué dice. sv
+#
+#: src/df.c:557
+msgid ""
+"Show information about the filesystem on which each FILE resides,\n"
+"or all filesystems by default.\n"
+"\n"
+"  -a, --all             include filesystems having 0 blocks\n"
+"  -h, --human-readable  print sizes in human readable format (e.g., 1K 234M "
+"2G)\n"
+"  -i, --inodes          list inode information instead of block usage\n"
+"  -k, --kilobytes       use 1024-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -m, --megabytes       use 1024K-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"      --no-sync         do not invoke sync before getting usage info "
+"(default)\n"
+"  -P, --portability     use the POSIX output format\n"
+"      --sync            invoke sync before getting usage info\n"
+"  -t, --type=TYPE       limit listing to filesystems of type TYPE\n"
+"  -T, --print-type      print filesystem type\n"
+"  -x, --exclude-type=TYPE   limit listing to filesystems not of type TYPE\n"
+"  -v                    (ignored)\n"
+"      --help            display this help and exit\n"
+"      --version         output version information and exit\n"
+msgstr ""
+"Muestra información sobre el sistema de archivos en el que reside cada "
+"ARCHIVO,\n"
+"o por omisión sobre todos los sistemas de archivos.\n"
+"\n"
+"  -a, --all            incluye los sistemas de archivos con 0 bloques\n"
+"  -h, --human-readable imprime los tamaños en formato legible (p.e. 1K 234M "
+"2G)\n"
+"  -i, --inodes         muestra la información de nodos-i en lugar del uso\n"
+"                       de bloques\n"
+"  -k, --kilobytes      utiliza bloques de 1024 bytes, no de 512 a pesar de\n"
+"                       POSIXLY_CORRECT\n"
+"  -m, --megabytes      utiliza bloques de 1024K bytes, no de 512 a pesar de\n"
+"                       POSIXLY_CORRECT\n"
+"      --no-sync        no llama a sync antes de obtener el modo de empleo\n"
+"                       (por defecto)\n"
+"  -P, --portability    utiliza el formato POSIX para el resultado\n"
+"      --sync           llama a sync antes de obtener el modo de empleo\n"
+"  -t, --type=TIPO      restringe el listado a sistemas de archivos de tipo "
+"TIPO\n"
+"  -T, --print-type     muestra el tipo del sistema de archivos\n"
+"  -x, --exclude-type=TIPO  restringe el listado a los sistemas de archivos "
+"que\n"
+"                       no son del tipo TIPO\n"
+"  -v                   (no tiene efecto)\n"
+"      --help           muestra esta ayuda y finaliza\n"
+"      --version        informa de la versión y finaliza\n"
+
+#: src/df.c:681
+msgid ""
+"the option for counting 1MB blocks may not be used\n"
+"with the portable output format"
+msgstr ""
+"la opción para contar bloques de 1MB no se puede usar\n"
+"con el formato de salida portable"
+
+# ¿adaptive es adaptable?
+# ¿eh?
+#
+# Yo lo he mirado en el Collins y no está, por otra parte adaptable= adaptable
+# (inglis= castellano)... uac
+#
+# Una cosa creo que está clara, se refiere a las opciones para especificar
+# diferentes unidades de capacidad... y _creo_ que si pensamos en este sentido
+# la traducción no es muy coherente... al menos en castellano... uac
+#
+# Yo lo cambiaría a algo como:
+# "la opción para imprimir con unidades específicas no se puede usar..." uac
+#
+# Este tengo que pensarlo despacio. sv
+#: src/df.c:686
+msgid ""
+"the option for printing with adaptive units may not be used\n"
+"with the portable output format"
+msgstr ""
+"la opción para imprimir con unidades adaptables no se puede usar\n"
+"con el formato de salida portable"
+
+#: src/df.c:701
+#, c-format
+msgid "file system type `%s' both selected and excluded"
+msgstr ""
+"el sistema de archivos `%s' está simultánemente seleccionado y excluido"
+
+#: src/df.c:746
+msgid "cannot read table of mounted filesystems"
+msgstr "no se puede leer la tabla de sistemas de archivos montados"
+
+# prefiero enlaces duros a fuertes em
+#
+# En esto no os ponéis de acuerdo.
+# Creo que lo acabaremos preguntando en "spanglish". sv+
+#
+# La palabra "desreferencia" es horrenda. Dudo incluso de que exista.
+# ¿Sugerencias?
+# "Deja de referenciar", "Elimina referencia/s a" (Sólo es sugerencia) tb
+# La consevaremos, a ver si junto varias. sv
+#
+# ¿Por qué no algo tan simple y comprensible como "no hace referencia a"? uac
+#
+# Lo pensaré despacito. sv
+#: src/du.c:220
+msgid ""
+"Summarize disk usage of each FILE, recursively for directories.\n"
+"\n"
+"  -a, --all             write counts for all files, not just directories\n"
+"  -b, --bytes           print size in bytes\n"
+"  -c, --total           produce a grand total\n"
+"  -D, --dereference-args  dereference PATHs when symbolic link\n"
+"  -h, --human-readable  print sizes in human readable format (e.g., 1K 234M "
+"2G)\n"
+"  -k, --kilobytes       use 1024-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -l, --count-links     count sizes many times if hard linked\n"
+"  -L, --dereference     dereference all symbolic links\n"
+"  -m, --megabytes       use 1024K-byte blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -S, --separate-dirs   do not include size of subdirectories\n"
+"  -s, --summarize       display only a total for each argument\n"
+"  -x, --one-file-system  skip directories on different filesystems\n"
+"      --help            display this help and exit\n"
+"      --version         output version information and exit\n"
+msgstr ""
+"Muestra un resumen del uso de disco para cada ARCHIVO, recursivamente para\n"
+"directorios.\n"
+"\n"
+"  -a, --all             muestra resultados para todos los archivos, no sólo\n"
+"                        para los directorios\n"
+"  -b, --bytes           muestra el tamaño en bytes\n"
+"  -c, --total           produce un \"total\"\n"
+"  -D, --dereference-args  desreferencia RUTAs cuando hay enlaces simbólicos\n"
+"  -h, --human-readable  muestra los tamaños de forma legible\n"
+"                        (p.ej., 1K 234M 2G)\n"
+"  -k, --kilobytes       utiliza bloques de 1024 bytes, no de 512 a pesar de\n"
+"                        POSIXLY_CORRECT\n"
+"  -l, --count-links     cuenta los tamaños varias veces si hay enlaces "
+"fuertes\n"
+"  -L, --dereference     desreferencia todos los enlaces simbólicos\n"
+"  -m, --megabytes       utiliza bloques de 1024K-bytes, no de 512 a pesar "
+"de\n"
+"                        POSIXLY_CORRECT\n"
+"  -S, --separate-dirs   no incluye el tamaño de los subdirectorios\n"
+"  -s, --summarize       muestra solamente un total para cada argumento\n"
+"  -x, --one-file-system  se salta los directorios de otros sistemas de "
+"archivos\n"
+"      --help            muestra esta ayuda y finaliza\n"
+"      --version         informa de la versión y finaliza\n"
+
+#: src/du.c:347
+msgid "cannot both summarize and show all entries"
+msgstr "no se puede al mismo tiempo resumir y mostrar todas las entradas"
+
+#: src/du.c:431
+msgid "current directory"
+msgstr "directorio actual"
+
+#: src/du.c:466 src/mvdir.c:107
+msgid "starting directory"
+msgstr "directorio de comienzo"
+
+# FIXME
+# Creí que el \t estaba poco recomendado. Escribir al autor.
+#: src/du.c:481
+#, c-format
+msgid "%ld\ttotal\n"
+msgstr "%ld\ttotal\n"
+
+#: src/du.c:551
+#, c-format
+msgid "cannot change to directory %s"
+msgstr "no se puede cambiar al directorio %s"
+
+#: src/du.c:570 src/du.c:602
+#, c-format
+msgid "cannot change to `..' from directory %s"
+msgstr "no se puede cambiar a `..' desde el directorio %s"
+
+#: src/install.c:256
+msgid "the strip option may not be used when installing a directory"
+msgstr "la opción strip no se puede usar cuando se instala un directorio"
+
+#: src/install.c:271 src/mkdir.c:133
+#, c-format
+msgid "invalid mode `%s'"
+msgstr "modo inválido `%s'"
+
+#: src/install.c:378
+#, c-format
+msgid "`%s' is a directory"
+msgstr "`%s' es un directorio"
+
+#: src/install.c:385
+#, c-format
+msgid "`%s' is not a regular file"
+msgstr "`%s' no es un archivo regular"
+
+# Esta generó en su día una gran discusión, pues el original no era tan
+# explicativo. Finalmente, el autor (Jim Meyering) accedió amablemente a
+# cambiar el msgid original a como está ahora.
+# (Antes decía simplemente "cannot fork").
+# Gracias a este cambio, tanto el original como la traducción son claros
+# y precisos, pero sin llegar a ser verborreicos.
+#: src/install.c:526
+msgid "fork system call failed"
+msgstr "falló la llamada al sistema `fork'"
+
+#: src/install.c:530
+msgid "cannot run strip"
+msgstr "no se puede ejecutar strip"
+
+# Me niego a considerar "inválido" como palabra "políticamente incorrecta".
+# Si algún "impedido físico" lee este mensaje y se molesta por ello, entonces
+# es que además de impedido físico es tonto, pues todo el mundo sabe que,
+# *en el contexto informático*, inválido e ilegal significan
+# "no permitido por la causa que sea".
+# Luego, que unas veces sea inválido y otras ilegal, son matices que el
+# original tiene y creo necesario respetar en la traducción.
+#
+# [ Tomás Bautista sugiere "inexistente", y también para grupo ]
+#
+# FIXME:
+# Eso sí, un día tendré que preguntar a los de GNU en qué se diferencia
+# "invalid" de "not allowed" de "not recognized" y todo eso... sv
+#
+#: src/install.c:556
+#, c-format
+msgid "invalid user `%s'"
+msgstr "usuario inválido `%s'"
+
+#: src/install.c:574
+#, c-format
+msgid "invalid group `%s'"
+msgstr "grupo inválido `%s'"
+
+# Aprovecho que en iso-8859-1 existen 1º y 1ª ...
+#: src/install.c:593
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... SOURCE DEST           (1st format)\n"
+"  or:  %s [OPTION]... SOURCE... DIRECTORY   (2nd format)\n"
+"  or:  %s -d [OPTION]... DIRECTORY...       (3rd format)\n"
+msgstr ""
+"Modo de empleo: %s [OPCIÓN]... ORIGEN DESTINO         (1ª forma)\n"
+"       o bien:  %s [OPCIÓN]... ORIGEN... DIRECTORIO   (2ª forma)\n"
+"       o bien:  %s -d [OPCIÓN]... DIRECTORIO...       (3ª forma)\n"
+
+# "given DIRECTORY" -> "DIRECTORIO que se indica" o "indicado" tb
+# Bueno, dejaré la sugerencia. Me gusta más "dado" porque es más corto
+# y si no tendría que usar otra línea más. sv
+#
+# Estoy con tb, creo que "indicado" explica mejor... uac
+# Lo pensaré. ¿Alguien más? sv
+#
+#: src/install.c:599
+msgid ""
+"In first two formats, copy SOURCE to DEST or multiple SOURCE(s) to\n"
+"DIRECTORY, while setting permission modes and owner/group.  In third\n"
+"format, make all components of the given DIRECTORY(ies).\n"
+"\n"
+"  -b, --backup        make backup before removal\n"
+"  -c                  (ignored)\n"
+"  -d, --directory     create [leading] directories, mandatory for 3rd "
+"format\n"
+"  -g, --group=GROUP   set group ownership, instead of process' current "
+"group\n"
+"  -m, --mode=MODE     set permission mode (as in chmod), instead of "
+"rw-r--r--\n"
+"  -o, --owner=OWNER   set ownership (super-user only)\n"
+"  -s, --strip         strip symbol tables, only for 1st and 2nd formats\n"
+"  -S, --suffix=SUFFIX override the usual backup suffix\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"      --help          display this help and exit\n"
+"      --version       output version information and exit\n"
+"\n"
+msgstr ""
+"En las dos primeras formas, copia ORIGEN a DESTINO o varios ORIGEN(es) a\n"
+"DIRECTORIO, mientras se establecen los permisos y el propietario/grupo. En "
+"la\n"
+"tercera forma, crea todos los componentes del/de los DIRECTORIO(s) dado(s).\n"
+"\n"
+"  -b, --backup            crea una copia de seguridad antes de borrar\n"
+"  -c                      (sin efecto)\n"
+"  -d, --directory         crea los directorios necesarios, obligatorio para\n"
+"                          la 3ª forma\n"
+"  -g, --group=GRUPO       establece la propiedad de grupo, en lugar del\n"
+"                          grupo actual del proceso\n"
+"  -m, --mode=MODO         establece los permisos (como en chmod), en lugar\n"
+"                          de rw-r--r--\n"
+"  -o, --owner=PROPIETARIO establece la propiedad (sólo super-usuario)\n"
+"  -s, --strip             elimina las tablas de símbolos, sólo para las\n"
+"                          formas 1ª y 2ª\n"
+"  -S, --suffix=SUFIJO     reemplaza el sufijo de respaldo habitual\n"
+"  -V, --version-control=PALABRA reemplaza el control de versión habitual\n"
+"      --help              muestra esta ayuda y finaliza\n"
+"      --version           informa de la versión y finaliza\n"
+"\n"
+
+#: src/ln.c:178
+#, c-format
+msgid "%s: hard link not allowed for directory"
+msgstr "%s: no se permiten enlaces fuertes para directorios"
+
+#: src/ln.c:243 src/mv.c:258
+#, c-format
+msgid "%s: cannot overwrite directory"
+msgstr "%s: no se puede sobreescribir un directorio"
+
+#: src/ln.c:248 src/mv.c:277
+#, c-format
+msgid "%s: replace `%s'? "
+msgstr "%s: ¿reemplazar `%s'?"
+
+#: src/ln.c:254
+#, c-format
+msgid "%s: File exists"
+msgstr "%s: El archivo existe"
+
+#: src/ln.c:279 src/mv.c:148 src/mv.c:329
+#, c-format
+msgid "cannot remove `%s'"
+msgstr "no se puede borrar `%s'"
+
+# El primer %s es "hardlink" o "symlink".
+#: src/ln.c:290
+#, c-format
+msgid "create %s %s to %s\n"
+msgstr "crea un %s de %s a %s\n"
+
+# Lo mismo de antes.
+#: src/ln.c:297
+#, c-format
+msgid "cannot create %s `%s' to `%s'"
+msgstr "no se puede crear un %s de `%s' a `%s'"
+
+#: src/ln.c:316
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... SOURCE [DEST]\n"
+"  or:  %s [OPTION]... SOURCE... DIRECTORY\n"
+msgstr ""
+"Modo de empleo: %s [OPCIÓN]... ORIGEN [DESTINO]\n"
+"       o bien:  %s [OPCIÓN]... ORIGEN... DIRECTORIO\n"
+
+# ... y de lo de poner la coletilla "y finaliza" en
+# las opciones --version y --help :) ipg
+# Si convences a Enrique de que la coletilla se puede quitar, te apoyo. sv
+#: src/ln.c:321
+msgid ""
+"Link SOURCE to DEST (. by default), or multiple SOURCE(s) to DIRECTORY.\n"
+"Makes hard links by default, symbolic links with -s.\n"
+"\n"
+"  -b, --backup                 make backups for removed files\n"
+"  -d, -F, --directory          hard link directories (super-user only)\n"
+"  -f, --force                  remove existing destinations\n"
+"  -n, --no-dereference         treat destination that is a symlink to a\n"
+"                                 directory as if it were a normal file\n"
+"  -i, --interactive            prompt whether to remove destinations\n"
+"  -s, --symbolic               make symbolic links instead of hard links\n"
+"  -S, --suffix=SUFFIX          override the usual backup suffix\n"
+"  -v, --verbose                print name of each file before linking\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"      --help                   display this help and exit\n"
+"      --version                output version information and exit\n"
+"\n"
+msgstr ""
+"Enlaza ORIGEN a DESTINO (. por defecto), o varios ORÍGEN(es) a DIRECTORIO.\n"
+"Crea enlaces fuertes por defecto, enlaces simbólicos con -s.\n"
+"\n"
+"  -b, --backup                 crea copias de seguridad para los archivos\n"
+"                               borrados\n"
+"  -d, -F, --directory          enlaza directorios con un enlace duro\n"
+"                               (solamente super-usuario)\n"
+"  -f, --force                  borra los destinos que ya existan\n"
+"  -n, --no-dereference         trata un destino que sea un enlace simbólico "
+"a\n"
+"                               un directorio como si fuera un archivo "
+"normal\n"
+"  -i, --interactive            pregunta si se borran los destinos\n"
+"  -s, --symbolic               crea enlaces simbólicos en vez de enlaces "
+"duros\n"
+"  -S, --suffix=SUFFIX          reemplaza el sufijo de respaldo habitual\n"
+"  -v, --verbose                imprime el nombre de cada archivo antes\n"
+"                               de crear el enlace\n"
+"  -V, --version-control=WORD   reemplaza el control de versión habitual\n"
+"      --help                   muestra esta ayuda y finaliza\n"
+"      --version                informa de la versión y finaliza\n"
+"\n"
+
+#: src/ln.c:433 src/mv.c:482
+msgid "missing file argument"
+msgstr "falta un archivo como argumento"
+
+#: src/ln.c:444
+msgid "symbolic link"
+msgstr "enlace simbólico"
+
+# ¿? Duro o fuerte, según se mire.
+# FIXME (pendiente).
+#: src/ln.c:449
+msgid "hard link"
+msgstr "enlace duro"
+
+#: src/ln.c:452
+msgid "link"
+msgstr "enlace"
+
+#: src/ln.c:490
+msgid "when making multiple links, last argument must be a directory"
+msgstr ""
+"cuando se crean varios enlaces, el último argumento debe ser un directorio"
+
+#: src/ls.c:835
+#, c-format
+msgid "ignoring invalid width in environment variable COLUMNS: %s"
+msgstr "se descarta el ancho inválido de la variable de entorno COLUMNS: %s"
+
+#: src/ls.c:862
+#, c-format
+msgid "ignoring invalid tab size in environment variable TABSIZE: %s"
+msgstr ""
+"se descarta el tamaño de `tab' inválido de la variable de entorno TABSIZE: %s"
+
+#: src/ls.c:964
+#, c-format
+msgid "invalid line width: %s"
+msgstr "ancho de línea inválido: %s"
+
+#: src/ls.c:1028
+#, c-format
+msgid "invalid tab size: %s"
+msgstr "tamaño del `tab' inválido: %s"
+
+# FIXME
+# Esto sería "tipo de ordenación",
+# pero como forma parte de un mensaje más largo que *no*
+# está todavía internacionalizado, para evitar que, por ejemplo
+# "ls --sort=ñ" dé como resultado "invalid tipo de ordenación `ñ'"
+# lo dejo de momento en inglés, para no mezclar.
+#: src/ls.c:1048
+msgid "sort type"
+msgstr "sort type"
+
+# FIXME
+# Esto sería "tipo de fecha",
+# pero como forma parte de un mensaje más largo que *no*
+# está todavía internacionalizado, para evitar que, por ejemplo,
+# "ls --time=ñ" dé como resultado "invalid tipo de fecha `ñ'"
+# lo dejo de momento en inglés, para no mezclar.
+#: src/ls.c:1058
+msgid "time type"
+msgstr "time type"
+
+# FIXME
+# Esto sería "tipo de formato",
+# pero como forma parte de un mensaje más largo que *no*
+# está todavía internacionalizado, para evitar que, por ejemplo,
+# "ls --format=ñ" dé como resultado "invalid tipo de formato `ñ'"
+# lo dejo de momento en inglés, para no mezclar.
+#: src/ls.c:1068
+msgid "format type"
+msgstr "format type"
+
+# Del diccionario de María Moliner:
+# Colorear: Colorar. Teñir. Dar [Dar un] color a cierta cosa.
+# Coloración: Acción de colorear.
+#: src/ls.c:1080
+msgid "colorization criterion"
+msgstr "criterio de coloración"
+
+#: src/ls.c:1407
+#, c-format
+msgid "unrecognized prefix: %s"
+msgstr "prefijo no reconocido: %s"
+
+# Según el Collins, to parse = analizar (en un contexto gramático, como es el
+# caso).
+#     "valor para la variable de entorno LS_COLORS no analizable"
+#     --> y dos letras menos...
+#
+# sinceramente, no creo que después de LS_COLORS, /bin/ls se vaya a leer el
+# Quijote...
+#
+# Es que sí es perfectamente analizable. Lo que pasa es que el resultado
+# del análisis es que no entiende lo que quiere decir, por eso
+# es ininteligible... (Si de verdad no fuera analizable, no daría
+# error, sino que produciría un "core dump" o algo así). sv
+#
+#: src/ls.c:1429
+msgid "unparsable value for LS_COLORS environment variable"
+msgstr "valor ininteligible para la variable de entorno LS_COLORS"
+
+# Yo dejaría verbose en verbosamente. ipg
+#
+# Eso es un "palabro". sv
+#
+# He cambiado la última línea ( muestra la fecha completa y la hora completa )
+# además ahora cabe en 80 cols em
+#
+# Vale, pues ahora me entra una duda (que antes no salió a relucir)
+# ¿"la fecha y la hora completa" o "la fecha y la hora completas"?
+# De momento he puesto lo segundo. sv+
+#
+# Si dices la primera puede llegar a entender que la hora es la única
+# completa... mientras que la segunda no. uac
+#
+#  (Efectivamente. sv)
+#
+# Creo que correctas son las dos
+# pero para lo que aquí se quiere decir le toca la segunda... ¿no? uac
+#
+# Eso es lo que me parece. Gracias. sv
+#
+#: src/ls.c:2742
+msgid ""
+"List information about the FILEs (the current directory by default).\n"
+"Sort entries alphabetically if none of -cftuSUX nor --sort.\n"
+"\n"
+"  -a, --all                  do not hide entries starting with .\n"
+"  -A, --almost-all           do not list implied . and ..\n"
+"  -b, --escape               print octal escapes for nongraphic characters\n"
+"  -B, --ignore-backups       do not list implied entries ending with ~\n"
+"  -c                         sort by change time; with -l: show ctime\n"
+"  -C                         list entries by columns\n"
+"      --color[=WHEN]         control whether color is used to distinguish "
+"file\n"
+"                               types.  WHEN may be `never', `always', or "
+"`auto'\n"
+"  -d, --directory            list directory entries instead of contents\n"
+"  -D, --dired                generate output designed for Emacs' dired mode\n"
+"  -f                         do not sort, enable -aU, disable -lst\n"
+"  -F, --classify             append a character for typing each entry\n"
+"      --format=WORD          across -x, commas -m, horizontal -x, long -l,\n"
+"                               single-column -1, verbose -l, vertical -C\n"
+"      --full-time            list both full date and full time\n"
+msgstr ""
+"Muestra información acerca de los ARCHIVOs (del directorio actual por "
+"defecto).\n"
+"Ordena las entradas alfabéticamente si no se especifica ninguna de las\n"
+"opciones -cftuSUX ni --sort.\n"
+"\n"
+"  -a, --all                  no oculta las entradas que comienzan con .\n"
+"  -A, --almost-all           no muestra las entradas . y .. implícitas\n"
+"  -b, --escape               imprime escapes octales para los caracteres\n"
+"                             no gráficos\n"
+"  -B, --ignore-backups       no muestra la entradas que terminan con ~\n"
+"  -c                         ordena por la fecha de modificación (ctime);\n"
+"                             con -l: muestra esa fecha\n"
+"  -C                         muestra las entradas por columnas\n"
+"      --color[=CUÁNDO]       especifica si se usará color para distinguir\n"
+"                             los tipos de archivos. CUÁNDO puede ser\n"
+"                             `never', `always' o `auto'\n"
+"  -d, --directory            muestra las entradas de los directorios en "
+"lugar\n"
+"                             de sus contenidos\n"
+"  -D, --dired                genera el resultado para el modo `dired' de "
+"Emacs\n"
+"  -f                         no ordena, utiliza -aU, no utiliza -lst\n"
+"  -F, --classify             añade un carácter para el tipo de cada entrada\n"
+"      --format=PALABRA       across -x, commas -m, horizontal -x, long -l,\n"
+"                               single-column -1, verbose -l, vertical -C\n"
+"      --full-time            muestra tanto la fecha como la hora completas\n"
+
+# La opción "-r, --reverse" literalmente hubiera sido
+# "invierte el orden al ordenar", pero eso sería muy "reflunflante".
+#
+# "utiliza el formato de listado largo sin el grupo"-->
+# "...sin el campo grupo", no sé por qué te sabe mal ser más explícito
+# cuando no se alarga mucho el mensaje. Como tú mismo dices... uac
+#
+# Lo dejo así por estética. Una palabra más me obligaría a usar
+# una línea más, y quedaría más feo. Si digo "sin el grupo", queda
+# claro que el grupo no sale. sv
+#
+#: src/ls.c:2762
+msgid ""
+"  -g                         (ignored)\n"
+"  -G, --no-group             inhibit display of group information\n"
+"  -i, --inode                print index number of each file\n"
+"  -I, --ignore=PATTERN       do not list implied entries matching shell "
+"PATTERN\n"
+"  -k, --kilobytes            use 1024 blocks, not 512 despite "
+"POSIXLY_CORRECT\n"
+"  -l                         use a long listing format\n"
+"  -L, --dereference          list entries pointed to by symbolic links\n"
+"  -m                         fill width with a comma separated list of "
+"entries\n"
+"  -n, --numeric-uid-gid      list numeric UIDs and GIDs instead of names\n"
+"  -N, --literal              print raw entry names (don't treat e.g. "
+"control\n"
+"                               characters specially)\n"
+"  -o                         use long listing format without group info\n"
+"  -p                         append a character for typing each entry\n"
+"  -q, --hide-control-chars   print ? instead of non graphic characters\n"
+"  -Q, --quote-name           enclose entry names in double quotes\n"
+"  -r, --reverse              reverse order while sorting\n"
+"  -R, --recursive            list subdirectories recursively\n"
+"  -s, --size                 print size of each file, in blocks\n"
+msgstr ""
+"  -g                         (sin efecto)\n"
+"  -G, --no-group             no muestra la información del grupo\n"
+"  -i, --inode                muestra el número de nodo-i de cada archivo\n"
+"  -I, --ignore=PATRÓN        no lista las entradas que coincidan (encajen)\n"
+"                             con PATRÓN de shell\n"
+"  -k, --kilobytes            utiliza bloques de 1024 bytes, no de 512 a "
+"pesar de\n"
+"                             POSIXLY_CORRECT\n"
+"  -l                         utiliza un formato de listado largo\n"
+"  -L, --dereference          muestra las entradas a las que apuntan los\n"
+"                             enlaces simbólicos\n"
+"  -m                         rellena el ancho con una lista de entradas\n"
+"                             separadas por comas\n"
+"  -n, --numeric-uid-gid      muestra los UIDs y los GIDs numéricos en lugar\n"
+"                             de los nombres\n"
+"  -N, --literal              muestra los nombres literalmente (no trata "
+"p.ej.\n"
+"                             los caracteres de control de forma especial)\n"
+"  -o                         utiliza el formato de listado largo sin el "
+"grupo\n"
+"  -p                         añade un carácter para indicar el tipo de\n"
+"                             cada entrada\n"
+"  -q, --hide-control-chars   imprime ? en lugar de los caracteres no "
+"gráficos\n"
+"  -Q, --quote-name           encierra los nombres de las entradas entre\n"
+"                             comillas\n"
+"  -r, --reverse              invierte el orden, en su caso\n"
+"  -R, --recursive            muestra los subdirectorios recursivamente\n"
+"  -s, --size                 muestra el tamaño de cada archivo, en bloques\n"
+
+# Nota: ctime, extension, none, etc. son posibles "WORD"s,
+# por lo tanto, *no* deben traducirse, o de lo contrario el programa
+# no las reconocería.
+#
+#: src/ls.c:2782
+msgid ""
+"  -S                         sort by file size\n"
+"      --sort=WORD            ctime -c, extension -X, none -U, size -S,\n"
+"                             status -c, time -t, atime -u, access -u, use "
+"-u\n"
+"      --time=WORD            show time as WORD instead of modification "
+"time:\n"
+"                             atime, access, use, ctime or status\n"
+"  -t                         sort by modification time; with -l: show mtime\n"
+"  -T, --tabsize=COLS         assume tab stops at each COLS instead of 8\n"
+"  -u                         sort by last access time; with -l: show atime\n"
+"  -U                         do not sort; list entries in directory order\n"
+"  -w, --width=COLS           assume screen width instead of current value\n"
+"  -x                         list entries by lines instead of by columns\n"
+"  -X                         sort alphabetically by entry extension\n"
+"  -1                         list one file per line\n"
+"      --help                 display this help and exit\n"
+"      --version              output version information and exit\n"
+"\n"
+"By default, color is not used to distinguish types of files.  That is\n"
+"equivalent to using --color=none.  Using the --color option without the\n"
+"optional WHEN argument is equivalent to using --color=always.  With\n"
+"--color=auto, color codes are output only if standard output is connected\n"
+"to a terminal (tty).\n"
+msgstr ""
+"  -S                         ordena los archivos por tamaño\n"
+"      --sort=PALABRA         ctime -c, extension -X, none -U, size -S,\n"
+"                             status -c, time -t, atime -u, access -u, use "
+"-u\n"
+"      --time=PALABRA         muestra la fecha según PALABRA, en lugar de la\n"
+"                             fecha de modificación:\n"
+"                             atime, access, use, ctime ó status\n"
+"  -t                         ordena por la fecha de modificación (mtime);\n"
+"                             con -l: la muestra\n"
+"  -T, --tabsize=COLS         establece los topes de tabulación a cada COLS\n"
+"                             en lugar de 8\n"
+"  -u                         ordena por la fecha de último acceso (atime)\n"
+"                             con -l, muestra esta fecha\n"
+"  -U                         no ordena; muestra las entradas en el orden\n"
+"                             del directorio\n"
+"  -w, --width=COLS           establece el ancho de la pantalla en lugar del\n"
+"                             valor actual\n"
+"  -x                         muestra las entradas por líneas en vez de\n"
+"                             por columnas\n"
+"  -X                         ordena alfabéticamente por la extensión de\n"
+"                             la entrada\n"
+"  -1                         muestra un archivo por cada línea\n"
+"      --help                 muestra esta ayuda y finaliza\n"
+"      --version              informa de la versión y finaliza\n"
+"\n"
+"Por defecto, no se emplea color para distinguir los tipos de archivos. Esto\n"
+"equivale a usar --color=none. Usar la opción --color sin el argumento "
+"opcional\n"
+"CUÁNDO equivale a usar --color=always. Con --color=auto, sólo se muestran\n"
+"los códigos de color si la salida estándar está conectada a un terminal "
+"(tty).\n"
+
+#: src/mkdir.c:60
+#, c-format
+msgid "Usage: %s [OPTION] DIRECTORY...\n"
+msgstr "Modo de empleo: %s [OPCIÓN] DIRECTORIO...\n"
+
+#: src/mkdir.c:61
+msgid ""
+"Create the DIRECTORY(ies), if they do not already exist.\n"
+"\n"
+"  -m, --mode=MODE   set permission mode (as in chmod), not rwxrwxrwx - "
+"umask\n"
+"  -p, --parents     no error if existing, make parent directories as needed\n"
+"      --verbose     print a message for each created directory\n"
+"      --help        display this help and exit\n"
+"      --version     output version information and exit\n"
+msgstr ""
+"Crea el/los DIRECTORIO(s), si no existen ya.\n"
+"\n"
+"  -m, --mode=MODE   establece los permisos (como en chmod), en lugar\n"
+"                    de  rwxrwxrwx - umask\n"
+"  -p, --parents     no hay error si existen, crea los directorios padres en\n"
+"                    caso necesario\n"
+"      --verbose     muestra un mensaje por cada directorio creado\n"
+"      --help        muestra esta ayuda y finaliza\n"
+"      --version     informa de la versión y finaliza\n"
+
+#. --verbose
+#: src/mkdir.c:105
+#, c-format
+msgid "created directory `%s'"
+msgstr "se ha creado el directorio `%s'"
+
+#: src/mkfifo.c:60
+#, c-format
+msgid "Usage: %s [OPTION] NAME...\n"
+msgstr "Modo de empleo: %s [OPCIÓN] NOMBRE...\n"
+
+# ¿"pipe" es lo mismo que "named pipe"?.
+# ¿Algún experto en Unix que me lo sepa decir?
+#
+# Yo mismo me lo contesto después de hacer el siguiente experimento:
+#
+# mkfifo furufú
+# ls > furufú
+# (se queda esperando).
+# Si ahora hacemos (en otra sesión) cat < furufú, ¡sorpresa!
+# Sale el resultado del ls, y se "desbloquea" la otra sesión.
+#
+# Esto es una "named pipe". Aparece un archivo cuyo primer atributo
+# es la letra p. Además, con DIRCOLORS sale de color rojito, y con la opción
+# -F de ls sale una barrita vertical al final |.
+#
+# ¿Cómo se llama en español? Y si nadie le ha puesto nombre, ¿cómo
+# debería llamarse? ¿tubería nombrada? ¿tubería con nombre?
+# Me inclino por lo segundo, de momento.
+#
+# Tiiiiio ... ¡¡es como querer traducir socket!! ipg
+#
+#  [ ¿y qué hay de malo en ello? ] sv
+#
+# Me horroriza. Espero que uses el convenio de poner el original entre
+# comillas. Tubería nombrada tampoco me gusta, pero no se me ocurre
+# nada em
+# *Ya* está FIFO entre paréntesis. No hay posibilidad de confusión. sv+
+#
+# Sólo para que lo tengáis en cuenta:
+# DNS= Domain Named Service --> Servicio de Dominios Nombrado.
+#                           --> Servicio Nombrado de Dominios.
+# Tanto monta, monta tanto...
+# Nunca lo he visto como lo ponéis aquí. uac
+#
+# Supongo que te refieres al "named" del "named pipe".
+# Habrá que pensarlo bastante, me temo. sv
+#
+#: src/mkfifo.c:61
+msgid ""
+"Create named pipes (FIFOs) with the given NAMEs.\n"
+"\n"
+"  -m, --mode=MODE   set permission mode (as in chmod), not 0666 - umask\n"
+"      --help        display this help and exit\n"
+"      --version     output version information and exit\n"
+msgstr ""
+"Crea tuberías con nombre (FIFOs) con los NOMBREs dados.\n"
+"\n"
+"  -m, --mode=MODO   establece los permisos (como en chmod), en lugar\n"
+"                    de  0666 - umask\n"
+"      --help        muestra esta ayuda y finaliza\n"
+"      --version     informa de la versión y finaliza\n"
+
+# Pues fifo file es precisamente lo mismo que un named pipe, mira
+# por donde :) , así que ya sabes, a tomar una determinación em
+#
+# Por regla general suelo respetar el original todo lo que puedo.
+# Si en inglés existe "fifo file" y "named pipe" y son sinónimos, no veo nada
+# malo en que en español exista "archivo `fifo'" y
+# "tubería con nombre (named pipe)", como sinónimos. sv
+#
+#: src/mkfifo.c:91 src/mknod.c:213
+msgid "fifo files not supported"
+msgstr "los archivos `fifo' no están soportados"
+
+#: src/mkfifo.c:137
+#, c-format
+msgid "cannot make fifo `%s'"
+msgstr "No se puede crear el `fifo' `%s'"
+
+# Nota: El que no sepa que major y minor es principal y secundario
+# es que no sabe inglés. Esto viene hasta en el Collins de bolsillo.
+#: src/mknod.c:65
+#, c-format
+msgid "Usage: %s [OPTION]... NAME TYPE [MAJOR MINOR]\n"
+msgstr "Modo de empleo: %s [OPCIÓN]... NOMBRE TIPO [PRINCIPAL SECUNDARIO]\n"
+
+#: src/mknod.c:66
+msgid ""
+"Create the special file NAME of the given TYPE.\n"
+"\n"
+"  -m, --mode=MODE   set permission mode (as in chmod), not 0666 - umask\n"
+"      --help        display this help and exit\n"
+"      --version     output version information and exit\n"
+"\n"
+"MAJOR MINOR are forbidden for TYPE p, mandatory otherwise.  TYPE may be:\n"
+"\n"
+"  b      create a block (buffered) special file\n"
+"  c, u   create a character (unbuffered) special file\n"
+"  p      create a FIFO\n"
+msgstr ""
+"Crea el archivo especial NOMBRE del TIPO dado.\n"
+"\n"
+"  -m, --mode=MODO   establece los permisos (como en chmod), en lugar\n"
+"                    de  0666 - umask\n"
+"      --help        muestra esta ayuda y finaliza\n"
+"      --version     informa de la versión y finaliza\n"
+"\n"
+"PRINCIPAL y SECUNDARIO están prohibidos para el TIPO p, y son obligatorios\n"
+"para los demás tipos. TIPO puede ser:\n"
+"\n"
+"  b      crea un archivo especial de bloques (buffered)\n"
+"  c, u   crea un archivo especial de caracteres (unbuffered)\n"
+"  p      crea un `FIFO'\n"
+
+#: src/mknod.c:144
+msgid "wrong number of arguments"
+msgstr "número incorrecto de argumentos"
+
+#: src/mknod.c:156
+msgid "block special files not supported"
+msgstr "los archivos especiales de bloques no están soportados"
+
+#: src/mknod.c:160
+msgid ""
+"when creating block special files, major and minor device\n"
+"numbers must be specified"
+msgstr ""
+"cuando se crean archivos especiales de bloques, se deben especificar los\n"
+"números de dispositivo principal y secundario"
+
+#: src/mknod.c:168 src/mknod.c:197
+#, c-format
+msgid "invalid major device number `%s'"
+msgstr "número principal de dispositivo inválido `%s'"
+
+#: src/mknod.c:172 src/mknod.c:201
+#, c-format
+msgid "invalid minor device number `%s'"
+msgstr "número secundario de dispositivo inválido `%s'"
+
+#: src/mknod.c:185
+msgid "character special files not supported"
+msgstr "los archivos especiales de caracteres no están soportados"
+
+#: src/mknod.c:189
+msgid ""
+"when creating character special files, major and minor device\n"
+"numbers must be specified"
+msgstr ""
+"cuando se crean archivos especiales de caracteres, se deben especificar\n"
+"los números de dispositivo principal y secundario"
+
+#: src/mknod.c:217
+msgid "major and minor device numbers may not be specified for fifo files"
+msgstr ""
+"los números de dispositivo principal y secundario no se pueden especificar\n"
+"para archivos `fifo'"
+
+# Yo no traduciría "regular file" literalmente... a mi entender en el Collins
+# salen acepciones mucho mejores, como:
+# fichero normal
+# fichero corriente
+# y esta que me la invento yo: fichero genérico. uac
+#
+# ¿Y una expresión regular? sv
+#
+# Aunque a decir verdad, eso de "normal" no me parece mal del todo,
+# habrá que pensarlo seriamente. sv
+# FIXME.
+#: src/mv.c:141
+#, c-format
+msgid "cannot move `%s' across filesystems: Not a regular file"
+msgstr ""
+"no se puede mover `%s' de un sistema de archivos a otro:\n"
+"No es un archivo regular"
+
+# ¿Tal vez la interrogación de apertura va justo después de la coma? ipg
+#
+# Excelente pregunta. Esto parece el referéndum de la OTAN:
+# Creo que el programa nos pregunta si queremos reemplazar un archivo
+# por otro, para que contestemos que sí o que no.
+# Al mismo tiempo, nos advierte de que, de llevarse a cabo el reemplazo
+# de un archivo por otro, también el modo resultaría sustituído.
+#
+# Si esto es así, ¿dónde habría que poner la interrogación?
+# O incluso: ¿Está bien el original?
+#
+# Creo que tal y como está, está bien. sv
+# SIoNO
+#
+#: src/mv.c:269
+#, c-format
+msgid "%s: replace `%s', overriding mode %04o? "
+msgstr "%s: ¿reemplazar `%s', sustituyendo el modo %04o? (s/n) "
+
+#: src/mv.c:318
+#, c-format
+msgid "cannot move `%s' to `%s'"
+msgstr "no se puede mover `%s' a `%s'"
+
+# Me vuelvo a quejar de la opción -u que ya se utilizó mas arriba...
+# no queda nada claro... uac
+#
+# Oído. Es cierto que no queda muy claro. Habrá que pensarlo. sv
+#
+#: src/mv.c:385
+msgid ""
+"Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.\n"
+"\n"
+"  -b, --backup                 make backup before removal\n"
+"  -f, --force                  remove existing destinations, never prompt\n"
+"  -i, --interactive            prompt before overwrite\n"
+"  -S, --suffix=SUFFIX          override the usual backup suffix\n"
+"  -u, --update                 move only older or brand new files\n"
+"  -v, --verbose                explain what is being done\n"
+"  -V, --version-control=WORD   override the usual version control\n"
+"      --help                   display this help and exit\n"
+"      --version                output version information and exit\n"
+"\n"
+msgstr ""
+"Renombra ORIGEN a DESTINO, o mueve ORIGEN(es) a DIRECTORIO.\n"
+"\n"
+"  -b, --backup                  crea una copia de seguridad antes de borrar\n"
+"  -f, --force                   borra los destinos que existan, sin "
+"preguntar\n"
+"  -i, --interactive             pide confirmación antes de sobreescribir\n"
+"  -S, --suffix=SUFIJO           reemplaza el sufijo de respaldo habitual\n"
+"  -u, --update                  mueve solamente los archivos antiguos o los\n"
+"                                completamente nuevos\n"
+"  -v, --verbose                 da detalles de lo que va haciendo\n"
+"  -V, --version-control=PALABRA reemplaza el control de versión habitual\n"
+"      --help                    muestra esta ayuda y finaliza\n"
+"      --version                 informa de la versión y finaliza\n"
+"\n"
+
+#: src/mv.c:493
+msgid "when moving multiple files, last argument must be a directory"
+msgstr "al mover varios archivos, el último argumento debe ser un directorio"
+
+#: src/mvdir.c:81
+#, c-format
+msgid "Usage: %s [OPTION]... EXISTING_DIR NEW_DIR\n"
+msgstr "Modo de empleo: %s [OPCIÓN]... DIR_EXISTENTE NUEVO_DIR\n"
+
+#: src/mvdir.c:82
+msgid ""
+"Rename EXISTING_DIR to NEW_DIR.\n"
+"\n"
+"   --help      display this help and exit\n"
+"   --version   output version information and exit\n"
+msgstr ""
+"Renombra DIR_EXISTENTE a NUEVO_DIR.\n"
+"   --help      muestra esta ayuda y finaliza\n"
+"   --version   informa de la versión y finaliza\n"
+
+#: src/mvdir.c:105
+msgid "cannot get current directory"
+msgstr "no se puede obtener el directorio actual"
+
+#: src/mvdir.c:165
+msgid "cannot rename `.' or `..'"
+msgstr "no se puede renombrar `.' o `..'"
+
+#: src/mvdir.c:175
+#, c-format
+msgid "`%s' is not a directory"
+msgstr "`%s' no es un directorio"
+
+#: src/mvdir.c:177 src/mvdir.c:179
+#, c-format
+msgid "cannot write to `%s'"
+msgstr "no se puede escribir en `%s'"
+
+# ¿ancestro?
+#
+# Sip :) Es la traducción. ipg
+#
+# Supongo que será un directorio que abarca a uno dado em+
+# No sé como te las apaqanas aquí, pero lo de ancestro no lo dejes, porfa
+#
+# ¿Sugerencias? sv+
+# ¿Qué es un ancestro? ¿Un predecesor? tb
+# Ni idea. sv
+#
+# ancestro es un familiar ascendiente en el árbol genealógico (recordad que
+# normalmente los árboles se dibujan de arriba hacia abajo) uac
+#
+# Si te digo la verdad, nunca me ha hecho gracia eso de que los árboles
+# crezcan hacia abajo... sv
+#
+# Aunque ancestro creo que no estará mal, antecesor estará igual de bien y
+# mucho más claro, ¿o no? uac
+#
+# Si no os han aclarado las ideas mis explicaciones, recordad cuando
+# utilizáis el NOTESCAPES para ftpear y veis: "upper directory"= ".." uac
+#
+# Bueno, esto sería el "directorio superior", lo cual indica que en
+# Netscape Communications Inc., los árboles también crecen al revés... :-) sv
+#
+# Bueno, vale. De momento lo cambio. Antes decía ancestro.
+#: src/mvdir.c:198
+#, c-format
+msgid "`%s' is an ancestor of `%s'"
+msgstr "`%s' es un antecesor de `%s'"
+
+#: src/mvdir.c:213 src/mvdir.c:234
+#, c-format
+msgid "cannot link `%s' to `%s'"
+msgstr "no se puede crear un enlace de `%s' a `%s'"
+
+# Otra posibilidad sería "no se puede borrar el enlace `%s'".
+# Mirarlo con calma. sv
+#
+# recordatorio: un fichero es _siempre_ un nodo-i que es enlazado por
+# entrada/s en directorios, cuando se desenlaza el último enlace que une una
+# entrada de directorio con el fichero, entonces y sólo entonces se borra
+# físicamente.... uac
+#
+# Lo sé, lo sé.
+# En este caso habría que investigar las causas por las que no se puede
+# deshacer el tal enlace. Habrá que buscar al menos un ejemplo en el que
+# aparezca este mensaje. sv
+#
+#: src/mvdir.c:215 src/mvdir.c:232
+#, c-format
+msgid "cannot unlink `%s'"
+msgstr "no se puede deshacer el enlace `%s'"
+
+#: src/rm.c:213
+msgid "cannot remove `.' or `..'"
+msgstr "no se puede borrar `.' o `..'"
+
+# Este overriding no es como el de "mv".
+# ¿Tal vez el original no tiene sentido?
+# (lo digo porque para borrar, el modo que importa es el del directorio,
+# donde está lo que se va a borrar)
+#
+# overriding es pasar por alto em
+#
+# En general no, solamente en este caso.
+# ¿Quieres decir que sugieres poner
+# "..., pasando por alto el modo %04o"? sv+
+#
+#: src/rm.c:250
+#, c-format
+msgid "%s: remove %s`%s', overriding mode %04o? "
+msgstr "%s: ¿borrar %s`%s', sustituyendo el modo %04o? (s/n) "
+
+#: src/rm.c:252 src/rm.c:261
+msgid "directory "
+msgstr "directorio "
+
+# Convendría saber qué son los `%s'. Ver el código fuente.
+# El segundo es el nombre del fichero que se va a borrar, pero
+# ¿y el primero?
+#
+# SIoNO
+#: src/rm.c:260
+#, c-format
+msgid "%s: remove %s`%s'? "
+msgstr "%s: ¿borrar %s`%s'? (s/n) "
+
+#: src/rm.c:290
+#, c-format
+msgid "%s: is a directory"
+msgstr "%s: es un directorio"
+
+# Este tendré que estudiarlo más.
+# De momento lo dejo así.
+# SIoNO
+#: src/rm.c:298
+#, c-format
+msgid "%s: descend directory `%s', overriding mode %04o? "
+msgstr "%s: ¿descender al directorio `%s', sustituyendo el modo %04o? (s/n) "
+
+# SIoNO
+#: src/rm.c:306
+#, c-format
+msgid "%s: descend directory `%s'? "
+msgstr "%s: ¿descender al directorio `%s'? (s/n) "
+
+# SIoNO
+#: src/rm.c:320
+#, c-format
+msgid "%s: remove directory `%s' (might be nonempty)? "
+msgstr "%s: ¿borrar el directorio `%s'? (podría no estar vacío) (s/n) "
+
+# SIoNO
+#: src/rm.c:323
+#, c-format
+msgid "%s: remove directory `%s'? "
+msgstr "%s: ¿borrar el directorio `%s'? (s/n) "
+
+# "Esto quiere decir que seguramente el sistema..." tb
+# Eso sería "This means that almost certainly you have..." sv
+# Me gusta más tal y como está ahora. sv
+# Creo que tienes razón. Esta es un poco difícil. Es que parece que quiere
+# indicar que "esto muy probablemente indique que" o "con casi total
+# seguridad esto se debe a que tiene un sistema de ficheros corrupto".
+# Pero... tb
+# Lo pensaré. sv
+#: src/rm.c:498
+#, c-format
+msgid ""
+"%s: WARNING: Circular directory structure.\n"
+"This almost certainly means that you have a corrupted file system.\n"
+"NOTIFY YOUR SYSTEM MANAGER.\n"
+"Cycle detected:\n"
+"%s\n"
+"is the same file as\n"
+msgstr ""
+"%s: ATENCIÓN: Estructura de directorios circular.\n"
+"Esto quiere decir seguramente que el sistema de archivos está corrupto.\n"
+"COMUNÍQUELO AL ADMINISTRADOR DEL SISTEMA.\n"
+"Se ha detectado un ciclo:\n"
+"%s\n"
+"es el mismo archivo que\n"
+
+# SIoNO
+#: src/rm.c:510
+#, c-format
+msgid "%s: continue? "
+msgstr "%s: ¿seguir? (s/n) "
+
+#: src/rm.c:531 src/touch.c:245
+#, c-format
+msgid "Usage: %s [OPTION]... FILE...\n"
+msgstr "Modo de empleo: %s [OPCIÓN]... ARCHIVO...\n"
+
+# prompt es "preguntar" o "pedir confirmación".
+# No me gusta nada cómo me ha quedado el verbose. Se admiten sugerencias.
+#
+# ¿Por qué no utilizar la forma que has utilizado anteriormente en este caso?
+# "da detalles...", creo que explicar no pega ni con cola...
+#
+# ¿Y en inglés sí te pega? sv
+#
+#: src/rm.c:532
+msgid ""
+"Remove (unlink) the FILE(s).\n"
+"\n"
+"  -d, --directory       unlink directory, even if non-empty (super-user "
+"only)\n"
+"  -f, --force           ignore nonexistent files, never prompt\n"
+"  -i, --interactive     prompt before any removal\n"
+"  -r, -R, --recursive   remove the contents of directories recursively\n"
+"  -v, --verbose         explain what is being done\n"
+"      --help            display this help and exit\n"
+"      --version         output version information and exit\n"
+msgstr ""
+"Borra (desenlaza) el/los ARCHIVO(s).\n"
+"\n"
+"  -d, --directory       desenlaza un directorio, incluso si no está vacío\n"
+"                        (solamente super-usuario)\n"
+"  -f, --force           descarta los archivos que no existan, sin preguntar\n"
+"  -i, --interactive     pide confirmación antes de borrar\n"
+"  -r, -R, --recursive   borra los contenidos de los directorios "
+"recursivamente\n"
+"  -v, --verbose         explica lo que va haciendo\n"
+"      --help            muestra esta ayuda y finaliza\n"
+"      --version         informa de la versión y finaliza\n"
+
+#: src/rmdir.c:86
+#, c-format
+msgid "Usage: %s [OPTION]... DIRECTORY...\n"
+msgstr "Modo de empleo: %s [OPCIÓN]... DIRECTORIO...\n"
+
+#: src/rmdir.c:87
+msgid ""
+"Remove the DIRECTORY(ies), if they are empty.\n"
+"\n"
+"  -p, --parents   remove explicit parent directories if being emptied\n"
+"      --help      display this help and exit\n"
+"      --version   output version information and exit\n"
+msgstr ""
+"Borra el/los DIRECTORIO(s), si están vacíos.\n"
+"\n"
+"  -p, --parents   borra los directorios padres, si se quedan vacíos\n"
+"      --help      muestra esta ayuda y finaliza\n"
+"      --version   informa de la versión y finaliza\n"
+
+#: src/sync.c:39
+#, c-format
+msgid "Usage: %s [OPTION]\n"
+msgstr "Modo de empleo: %s [OPCIÓN]\n"
+
+#: src/sync.c:40
+msgid ""
+"Force changed blocks to disk, update the super block.\n"
+"\n"
+"  --help      display this help and exit\n"
+"  --version   output version information and exit\n"
+msgstr ""
+"Guarda los bloques cambiados en el disco, actualiza el superbloque.\n"
+"\n"
+"  --help      muestra esta ayuda y finaliza\n"
+"  --version   informa de la versión y finaliza\n"
+
+#: src/sync.c:62
+msgid "ignoring all arguments"
+msgstr "todos los argumentos han sido descartados"
+
+# En este texto de ayuda, para no estar repitiendo siempre "fecha/hora", he
+# decidido llamar simplemente "fecha" a la "combinación de la fecha y la hora".
+# (o sea, "time stamp" -> fecha)
+# Por el contexto, no creo que haya confusión.
+#: src/touch.c:246
+msgid ""
+"Update the access and modification times of each FILE to the current time.\n"
+"\n"
+"  -a                     change only the access time\n"
+"  -c                     do not create any files\n"
+"  -d, --date=STRING      parse STRING and use it instead of current time\n"
+"  -f                     (ignored)\n"
+"  -m                     change only the modification time\n"
+"  -r, --reference=FILE   use this file's times instead of current time\n"
+"  -t STAMP               use MMDDhhmm[[CC]YY][.ss] instead of current time\n"
+"      --time=WORD        access -a, atime -a, mtime -m, modify -m, use -a\n"
+"      --help             display this help and exit\n"
+"      --version          output version information and exit\n"
+"\n"
+"STAMP may be used without -t if none of -drt, nor --, are used.\n"
+msgstr ""
+"Actualiza la fecha de acceso y modificación de cada ARCHIVO a la\n"
+"fecha actual.\n"
+"\n"
+"  -a                      cambia solamente la fecha de acceso\n"
+"  -c                      no crea ningún archivo\n"
+"  -d, --date=CADENA       examina y utiliza CADENA en lugar de la fecha "
+"actual\n"
+"  -f                      (no tiene efecto)\n"
+"  -m                      cambia solamente la fecha de modificación\n"
+"  -r, --reference=ARCHIVO utiliza la fecha de este ARCHIVO en lugar de la "
+"fecha\n"
+"                          actual\n"
+"  -t FECHA                utiliza MMDDhhmm[[CC]YY][.ss] en lugar de la "
+"fecha\n"
+"                          actual\n"
+"      --time=PALABRA      access -a, atime -a, mtime -m, modify -m, use -a\n"
+"      --help              muestra esta ayuda y finaliza\n"
+"      --version           informa de la versión y finaliza\n"
+"\n"
+"FECHA se puede usar sin -t si no se usa ninguno de -drt, ni --.\n"
+
+#: src/touch.c:302 src/touch.c:322
+#, c-format
+msgid "invalid date format `%s'"
+msgstr "formato de fecha inválido `%s'"
+
+# FIXME
+# o igual es hora, o tiempo, vaya usted a saber. Mirarlo bien.
+#: src/touch.c:330
+msgid "time selector"
+msgstr "selector de fecha"
+
+# (em) Nota: Este mensaje sale, por ejemplo, al escribir
+# "touch logo -r . -t 10101010".
+#: src/touch.c:356
+msgid "cannot specify times from more than one source"
+msgstr "no se puede especificar la fecha de dos formas distintas"
+
+# Esto salió parecido en wdiff y hubo que pensarlo bastante...
+#
+# A mí me parece más que correcto, otra opción, aunque a mí no me gustan más:
+# "faltan archivos como argumentos" -> no claro
+# "faltan argumentos de tipo archivo/ARCHIVO" uac
+#
+# Creo que exactamente esas dos posibilidades aparecen
+# en wdiff como "finalistas" :-) sv
+#
+#: src/touch.c:386
+msgid "file arguments missing"
+msgstr "faltan argumentos (archivos)"
+
+# [ Antes decía "...el punto de montaje para %s" ]
+# No me gusta punto "de montaje". ¿Sugerencias?
+#
+# Como se monta en un directorio, se podría decir `directorio de montaje'
+# De todas maneras, punto de montaje no queda tan mal ... :) ipg
+#
+# Esta es dura, nunca se me ocurrió pensar que habría que traducirlo
+# un día. ... ¿Qué tal ... "lugar para montar" o "directorio en
+# el que montar"? em
+#
+# Algo mejor. Pero no estoy seguro. Tengo que pensarlo. sv
+#
+# "No se puede encontrar el sitio para montar %s" Sólo es una
+# sugerencia más. tb
+#
+# La conservaremos.
+# ¿Más candidatos? sv
+#
+# ¿`punto de montaje de %s'? ipg
+#
+# Bien, este es uno de esos casos en los que uno decide salirse
+# por la tangente. Espero que os guste así.
+# Razones: El "punto" de montaje es siempre un directorio (¿o no?).
+# Llamarle "punto" es emplear un lenguaje algo oscuro.
+# Si alguien sabe de algún caso en el que el punto de montaje no sea
+# un directorio, por favor que lo diga. sv
+#~ msgid "cannot find mount point for %s"
+#~ msgstr "no se puede encontrar el directorio para montar %s"

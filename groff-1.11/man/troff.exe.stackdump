@@ -1,0 +1,21 @@
+  905   12282 [main] troff 2335 exception: trapped!
+45446   57728 [main] troff 2335 exception: code 0xC0000094 at 0x43A905
+21829   79557 [main] troff 2335 exception: ax 0xA031CB0 bx 0xA031CB0 cx 0x44E2A4 dx 0x0
+22515  102072 [main] troff 2335 exception: si 0x44E2A4 di 0xA031750 bp 0x254FBF8 sp 0x254FB70
+20884  122956 [main] troff 2335 exception: exception is: STATUS_INTEGER_DIVIDE_BY_ZERO
+23121  146077 [main] troff 2335 stack: Stack trace:
+22587  168664 [main] troff 2335 stack: frame 0: sp = 0x254F988, pc = 0x6100B000
+21794  190458 [main] troff 2335 stack: frame 1: sp = 0x254F9AC, pc = 0x6100B3EA
+22549  213007 [main] troff 2335 stack: frame 2: sp = 0x254F9C8, pc = 0x77F96666
+32852  245859 [main] troff 2335 stack: frame 3: sp = 0x254F9EC, pc = 0x77F8912B
+22557  268416 [main] troff 2335 stack: frame 4: sp = 0x254FA78, pc = 0x77F763BA
+21798  290214 [main] troff 2335 stack: frame 5: sp = 0x254FBF8, pc = 0x43ADCE
+22527  312741 [main] troff 2335 stack: frame 6: sp = 0x254FC38, pc = 0x431502
+21839  334580 [main] troff 2335 stack: frame 7: sp = 0x254FCD8, pc = 0x431D5A
+33576  368156 [main] troff 2335 stack: frame 8: sp = 0x254FE08, pc = 0x610044C6
+21878  390034 [main] troff 2335 stack: frame 9: sp = 0x254FF8C, pc = 0x610046FD
+22463  412497 [main] troff 2335 stack: frame 10: sp = 0x254FF94, pc = 0x44804E
+21911  434408 [main] troff 2335 stack: frame 11: sp = 0x254FFA4, pc = 0x40103A
+44610  479018 [main] troff 2335 stack: frame 12: sp = 0x254FFC0, pc = 0x77F1BA06
+21842  500860 [main] troff 2335 stack: frame 13: sp = 0x254FFF0, pc = 0x0
+22507  523367 [main] troff 2335 stack: End of stack trace

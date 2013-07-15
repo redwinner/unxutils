@@ -1,0 +1,5 @@
+cc -c main.c
+: *** No rule to make target `kbd.c', needed by `kbd.o'.
+cc -c commands.c
+cc -c display.c
+: Target `edit' not remade because of errors.

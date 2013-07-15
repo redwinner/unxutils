@@ -1,0 +1,120 @@
+>unalias which
+>export PATH=".:~/bin:/bin:/usr/bin"
+>export HOME=`(cd ~; pwd)`
+>touch cat; chmod 755 cat; pwd
+/home/carlo/c/which
+
+>which
+Usage: which [options] [--] programname [...]
+Options: --version, -[vV] Print version and exit successfully.
+         --skip-dot       Skip directories in PATH that start with a dot.
+         --skip-tilde     Skip directories in PATH that start with a tilde.
+         --show-dot       Don't expand a dot to current directory in output.
+         --show-tilde     Output a tilde for HOME directory for non-root.
+         --tty-only       Stop processing options on the right if not on tty.
+         --all, -a        Print all matches in PATH, not just the first
+
+>which --version
+GNU which v2.4, Copyright (C) 1999 Carlo Wood.
+GNU which comes with ABSOLUTELY NO WARRANTY;
+This program is free software; your freedom to use, change
+and distribute this program is covered by the GPL.
+
+>which -- --version
+which: no --version in (.:~/bin:/bin:/usr/bin)
+
+>which cat
+/home/carlo/c/which/cat
+
+>which --show-tilde cat
+~/c/which/cat
+
+>which --show-dot cat
+./cat
+
+>which --show-tilde --show-dot cat
+./cat
+
+>which --skip-dot cat
+/bin/cat
+
+>(cd /bin; which cat)
+/bin/cat
+
+>(cd /bin; which --show-dot cat)
+./cat
+
+>(cd /bin; PATH=".:/bin:/usr/bin" which --show-dot cat)
+./cat
+
+>(cd /bin; PATH="/bin:.:/usr/bin" which --show-dot cat)
+/bin/cat
+
+>(cd /bin; PATH=".:/bin:/usr/bin" which --skip-dot --show-dot cat)
+/bin/cat
+
+>which ls
+/bin/ls
+
+>which xxx
+which: no xxx in (.:~/bin:/bin:/usr/bin)
+
+>which ./ls
+which: no ls in (.)
+
+>(cd /; which bin/ls)
+/bin/ls
+
+>(cd /; which --show-dot bin/ls)
+./bin/ls
+
+>(cd /; which --show-dot /bin/ls)
+/bin/ls
+
+>(cd /; which --show-dot bin/xxx)
+which: no xxx in (./bin)
+
+>(cd /; which --show-dot /bin/xxx)
+which: no xxx in (/bin)
+
+>which --all cat
+/home/carlo/c/which/cat
+/bin/cat
+
+>touch xxx
+>which ./xxx
+which: no xxx in (.)
+
+>chmod 711 xxx
+>which ./xxx
+/home/carlo/c/which/xxx
+
+>su
+>chown root xxx
+>exit
+>which ./xxx
+/home/carlo/c/which/xxx
+
+>su
+>chmod 700 xxx
+>exit
+>which ./xxx
+which: no xxx in (.)
+
+>id
+uid=500(carlo) gid=100(users) groups=100(users),0(root),14(uucp),20(modem),200(libr),201(cvs)
+>ls -l xxx
+-rwx------   1 root     users           0 Apr 10 02:00 xxx*
+>su
+>chmod 750 xxx
+>chgrp libr xxx
+>exit
+>which ./xxx
+/home/carlo/c/which/xxx
+
+>su
+>chgrp bin xxx
+>exit
+>which ./xxx
+which: no xxx in (.)
+

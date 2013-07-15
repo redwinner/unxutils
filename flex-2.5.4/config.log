@@ -1,0 +1,4 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:1071: alloca.h: No such file or directory

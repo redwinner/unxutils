@@ -1,0 +1,267 @@
+This is jwhois.info, produced by makeinfo version 4.0 from jwhois.texi.
+
+START-INFO-DIR-ENTRY
+* jwhois: (jwhois).     Whois client.
+END-INFO-DIR-ENTRY
+
+   This file documents JWHOIS, a Whois client.
+
+   Copyright (C) 1999  Free Software Foundation, Inc.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that
+the entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+
+File: jwhois.info,  Node: Top,  Next: Introduction,  Prev: (dir),  Up: (dir)
+
+   This file documents the GNU jwhois package, en extended Whois client.
+This is edition 2.4, for jwhois version 2.4, last updated 28 December
+1999.
+
+* Menu:
+
+* Introduction::                Introduction
+* Invocation::                  How to invoke jwhois
+* RIPE Extensions::             Extensions for RIPE databases
+* Site Configuration::          Defining a list of Whois servers
+* Cache Functionality::         Cache Functionality
+* Reporting bugs::              Reporting bugs
+
+
+File: jwhois.info,  Node: Introduction,  Next: Invocation,  Prev: Top,  Up: Top
+
+Introduction
+************
+
+   JWHOIS is an Internet Whois client that queries hosts for information
+according to RFC 954 - NICNAME/WHOIS. JWHOIS is configured via a
+configuration file that contains information about all known Whois
+servers.  Upon execution, the host to query is selected based on the
+information in the configuration file.
+
+   The configuration file is highly customizable and makes heavy use of
+regular expressions.
+
+
+File: jwhois.info,  Node: Invocation,  Next: RIPE Extensions,  Prev: Introduction,  Up: Top
+
+Invocation
+**********
+
+   JWHOIS uses the following command-line options:
+`--version'
+     Print the program version and licensing information.
+
+`--help'
+     Print a usage message summarizing the command-line options.
+
+`-c FILE'
+
+`--config=FILE'
+     Reads configuration from FILE instead of from the default system
+     global configuration file.
+
+`-h HOST'
+
+`--host=HOST'
+     Overrides any specifications in the configuration file and queries
+     HOST directly.
+
+`-p PORT'
+
+`--port=PORT'
+     Specifies a port number to use when querying a HOST
+
+`-f'
+
+`--force-lookup'
+     This option forces the client to look up an entry from the source
+     Whois server, even if a current copy is available in the system
+     cache.
+
+`-d'
+
+`--disable-cache'
+     This disables the cache functionality.
+
+`-v'
+
+`--verbose'
+     Enables verbose debugging output where available.
+
+   The query can optionally contain the character `@' followed by a
+host name to direct the search to that host. This works exactly like
+specifying the host with `--host'.
+
+
+File: jwhois.info,  Node: RIPE Extensions,  Next: Site Configuration,  Prev: Invocation,  Up: Top
+
+RIPE Extensions
+***************
+
+   RIPE (Réseaux IP Européens) has defined a number of options that can
+be used against a RIPE-compatible whois server (ripe.net, apnic.net and
+others).  Unfortunately, there is really no way of telling whether a
+host we are connecting to is RIPE-compatible or not.  RIPE extensions
+are therefore not directly incorporated into the JWHOIS client.  A list
+of the options can be found in RIPE Document 157 which you can get from
+the RIPE ftp server, <ftp://ftp.ripe.net/ripe/docs/>.
+
+   It is possible to use these options together with JWHOIS by changing
+the format of the query slightly. If you were to search for all entries
+in the RIPE database which lists the admin-c, tech-c or zone-c as
+CO19-RIPE, you could use the following command syntax:
+
+     $ jwhois -h whois.ripe.net -- -i admin-c,tech-c,zone-c CO19-RIPE
+
+   `--' is used to separate the RIPE options from the jwhois options.
+
+
+File: jwhois.info,  Node: Site Configuration,  Next: Cache Functionality,  Prev: RIPE Extensions,  Up: Top
+
+Site Configuration
+******************
+
+   JWHOIS is configurable via its configuration file, normally called
+`jwhois.conf'. This file is looked for in the sysconfdir that was
+specified when compiling the program (default is `/usr/local/etc/' on
+most systems).
+
+   If no configuration file can be found, JWHOIS will default all
+queries to <whois.internic.net>.
+
+   An example configuration file that includes most known Whois servers
+can be found in the `example' subdirectory of the official distribution.
+
+   The configuration file is split into a number of blocks. Each block
+can contain a number of different options which are explained in the
+sections below. You can also get an overview of the syntax by looking
+at the example configuration file included in the distribution.
+
+* Menu:
+
+* Global::                      Global configuration options
+* Whois-servers::               Whois server configuration
+* Content-redirect::            The content-redirect block
+
+
+File: jwhois.info,  Node: Global,  Next: Whois-servers,  Up: Site Configuration
+
+Global
+******
+
+   The only available global options are related to the cache features
+in jwhois *Note Cache Functionality::.  By default, the location of the
+configuration file is `/usr/local/var/jwhois.db', but this can be
+changed at compile time. The option `cachefile' also changes the
+location.
+
+   The default expire time for all cached objects it 7 days (168
+hours). this can be changed with the `cacheexpire' option. The value is
+the number of hours that objects is considered to be current.
+
+   Example:
+
+     cachefile = "/var/lib/jwhois.db";
+     cacheexpire = 168;
+
+
+File: jwhois.info,  Node: Whois-servers,  Next: Content-redirect,  Prev: Global,  Up: Site Configuration
+
+Whois-servers
+*************
+
+   When making a query, JWHOIS looks at the `whois-servers' block to
+determine which host to send the query to. The option `type' can be set
+to change between two different kinds of matching; `cidr' or `regex'.
+
+   `regex' matches using standard regular expressions.  `cidr' matches
+using CIDR net blocks.
+
+   The value of all objects can take one of two forms. Either a
+hostname or the special option `struct'. The later asks JWHOIS to look
+at another option block in the configuration file.
+
+   When matching using CIDR net blocks, the key can take the special
+value `default' which matches everything.
+
+     whois-servers {
+             type = regex;
+             ".*-[A-Z]+$" = "struct handles";
+             ".*" = "whois.internic.net";
+     };
+     handles {
+             type = regex;
+             ".*-RIPE$" = "whois.ripe.net";
+             default = "whois.arin.net";
+     };
+
+
+File: jwhois.info,  Node: Content-redirect,  Prev: Whois-servers,  Up: Site Configuration
+
+Content-redirect
+****************
+
+   `content-redirect' is a special block designed to parse the output
+returned by a Whois server looking for special regular expressions and
+then sending the same query to the Whois server gotten from the regular
+expression.
+
+   The key value is the name of the Whois server that this expression
+is applicable to. This is matched using regular expressions. The value
+is the regexp that is looked for in the output, with hostname and
+optional port number enclosed in so called subexpressions or groups.
+
+     content-redirect {
+             ".*" = ".*Whois Server: \\(.*\\)";
+     };
+
+
+File: jwhois.info,  Node: Cache Functionality,  Next: Reporting bugs,  Prev: Site Configuration,  Up: Top
+
+Cache Functionality
+*******************
+
+   JWHOIS implements support for maintaining a cache of Whois data
+received from Whois servers. This is NOT enabled by default but has to
+be compiled into the client specifically. The design is such that a
+central database is maintained by the client and because all users
+should have access to that database, the program must have the
+set-group-on-execution bit set and the database must be both read and
+writable by the group.
+
+   The configuration options available are CACHEFILE and CACHEEXPIRE
+which sets the database filename and the expire time for cached object.
+When an object expires from the cache, it is reloaded from the Whois
+server the next time it is requested. The expire time is measured in
+hours.
+
+
+File: jwhois.info,  Node: Reporting bugs,  Prev: Cache Functionality,  Up: Top
+
+Reporting bugs
+**************
+
+   Email bug reports to `bug-jwhois@gnu.org'.
+
+
+
+Tag Table:
+Node: Top671
+Node: Introduction1235
+Node: Invocation1753
+Node: RIPE Extensions2891
+Node: Site Configuration3915
+Node: Global4996
+Node: Whois-servers5656
+Node: Content-redirect6679
+Node: Cache Functionality7391
+Node: Reporting bugs8258
+
+End Tag Table

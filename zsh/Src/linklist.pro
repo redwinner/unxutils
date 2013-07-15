@@ -1,0 +1,10 @@
+LinkList newlinklist _((void));
+void insertlinknode _((LinkList list, LinkNode node, void *dat));
+void insertlinklist _((LinkList l, LinkNode where, LinkList x));
+void * getlinknode _((LinkList list));
+void * ugetnode _((LinkList list));
+void * remnode _((LinkList list, LinkNode nd));
+void * uremnode _((LinkList list, LinkNode nd));
+void freelinklist _((LinkList list, FreeFunc freefunc));
+int countlinknodes _((LinkList list));
+void rolllist _((LinkList l, LinkNode nd));

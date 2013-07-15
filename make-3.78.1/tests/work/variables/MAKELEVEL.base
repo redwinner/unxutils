@@ -1,0 +1,3 @@
+MAKELEVEL is 0
+echo $MAKELEVEL
+1

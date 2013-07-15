@@ -1,0 +1,630 @@
+//
+// Copyright(c) 1997 Amol Deshpande
+// amold@microsoft.com
+// Redistribution in source or binary form is permitted as long as you 
+// retain this notice in the distribution
+//
+// The memory allocator herein is part of the tcsh shell distribution. 
+// The original tcsh code is under its own copyright. Get the source from
+// ftp.deshaw.com/pub to figure it out.
+//
+// 
+// The fork() implementation borrows heavily from the cygnus gnu-win32
+// project's implementation. Check out www.cygnus.com for more information.
+// 
+//
+// There is one restriction that I impose on any users of this code. If you
+// use it in your own application, your application *must* be freely 
+// redistributable in source form also.
+// (I suppose borrowing ideas from the cygnus code makes this a requirement,
+// since that code is GPL'd. However, I want to explicitly make it clear that 
+// this is FREE software).
+//
+// You are specifically prohibited from enhancing or fixing bugs in this 
+// implementation and selling the resultant product. If you make any changes
+// that fix bugs in or enhance this code, you *must* send me a copy.
+//
+// I retain all rights to this software, except for the tcsh code.
+//
+// Amol Deshpande and the Zsh Development Group specifically disclaim any
+// warranties, including, but not limited to, the implied warranties of
+// merchantability and fitness for a particular purpose.  The software
+// provided hereunder is on an "as is" basis, and Amol Deshpande and the
+// Zsh Development Group have no obligation to provide maintenance,
+// support, updates, enhancements, or modifications.
+//
+//
+// And finally,
+// Microsoft Corporation has nothing to do with this code. 
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <errno.h>
+#include <fcntl.h>
+#include "ntport.h"
+#include "zsh.h"
+
+extern void init_stdio(void);
+extern void nt_term_init(void);
+extern void nt_init_signals(void);
+extern void init_exceptions(void);
+
+DWORD gdwPlatform = 0;
+extern unsigned long __forked;
+
+void nt_init(void) {
+
+	OSVERSIONINFO osver;
+	int rc;
+	char ptr[MAX_PATH];
+	char hdrive[MAX_PATH],hpath[MAX_PATH];
+	char *s;
+	char *temp=HeapAlloc(GetProcessHeap(),HEAP_ZERO_MEMORY,MAX_PATH);
+	char *pathtemp=HeapAlloc(GetProcessHeap(),HEAP_ZERO_MEMORY,(MAX_PATH<<2));
+	osver.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+
+	if (!GetVersionEx(&osver)) {
+		MessageBox(NULL,"GetVersionEx failed","zsh",MB_ICONHAND);
+		ExitProcess(0xFF);
+	}
+	if (__forked)
+		goto skippy;
+	if (GetEnvironmentVariable("HOME",ptr,MAX_PATH) != 0){
+		s = ptr;
+		while(*s){
+			if (*s == '\\') *s = '/';
+			s++;
+		}
+		goto skippy;
+	}
+	if( GetEnvironmentVariable("ZDOTDIR",ptr,MAX_PATH)  != 0)
+		goto skippy;
+	
+	if(osver.dwPlatformId == VER_PLATFORM_WIN32_NT) {
+		if (osver.dwMajorVersion <4) {
+			GetEnvironmentVariable("HOMEDRIVE",hdrive,MAX_PATH);
+			GetEnvironmentVariable("HOMEPATH",hpath,MAX_PATH);
+			wsprintf(temp,"%s%s",hdrive,hpath );
+		}
+		else if (osver.dwMajorVersion >= 4) {
+			GetEnvironmentVariable("USERPROFILE",temp,MAX_PATH);
+		}
+	}
+	else if (osver.dwPlatformId == VER_PLATFORM_WIN32_WINDOWS) {
+		rc = GetWindowsDirectory(temp,MAX_PATH);
+		if (rc > MAX_PATH) {
+			MessageBox(NULL,"This should never happen","zsh",MB_ICONHAND);
+			ExitProcess(0xFF);
+		}
+	}
+	else {
+		MessageBox(NULL,"Unknown platform","zsh",MB_ICONHAND);
+	}
+	s = temp;
+	while(*s) {
+		if(*s == '\\') *s ='/';
+		*s++;
+	}
+
+
+	SetEnvironmentVariable("HOME",temp);
+skippy:
+	GetEnvironmentVariable("PATH",pathtemp,(MAX_PATH<<2)) ;
+	s = pathtemp;
+	while(*s) {
+		if(*s == '\\') *s ='/';
+		*s++;
+	}
+	SetEnvironmentVariable("PATH",pathtemp);
+
+	gdwPlatform = osver.dwPlatformId;
+
+	HeapFree(GetProcessHeap(),0,temp);
+	HeapFree(GetProcessHeap(),0,pathtemp);
+
+	init_stdio();
+	nt_term_init();
+	nt_init_signals();
+	init_shell_dll();
+	init_plister();
+
+}
+void gethostname(char *buf, int len) {
+	GetComputerName(buf,&len);
+}
+void set_default_path(char **path) {
+	char temp[128];
+	char *ptr=NULL;
+
+	if (gdwPlatform == VER_PLATFORM_WIN32_NT) {
+		GetWindowsDirectory(temp,128);
+		ptr = temp;
+		while(*ptr) {
+			if (*ptr == '\\') *ptr = '/';
+			ptr++;
+		}
+		path[0] = ztrdup(temp);
+		wsprintf(temp,"%s/system32",path[0]);
+		path[1]=ztrdup(temp);
+		wsprintf(temp,"%s/system",path[0]);
+		path[2]=ztrdup(temp);
+		path[3]=ztrdup("c:/bin");
+		path[4] = NULL;
+	}
+	else if(gdwPlatform == VER_PLATFORM_WIN32_WINDOWS) {
+		path = (char**)zalloc(sizeof(*path)*5);
+		GetWindowsDirectory(temp,128);
+		ptr = temp;
+		while(*ptr) {
+			if (*ptr == '\\') *ptr = '/';
+			ptr++;
+		}
+		path[0] = ztrdup(temp);
+		wsprintf(temp,"%s/system",path[0]);
+		path[1]=ztrdup(temp);
+		wsprintf(temp,"%s/command",path[0]);
+		path[2]=ztrdup(temp);
+		path[3]=ztrdup("c:/bin");
+		path[4] = NULL;
+	}
+	else {
+		MessageBox(NULL,"Unknown platform","zsh",MB_ICONHAND);
+	}
+
+}
+int gettimeofday(struct timeval *tv, struct timezone *tz) {
+
+	SYSTEMTIME syst;
+
+	GetLocalTime(&syst);
+
+	tv->tv_sec = syst.wSecond;
+	tv->tv_usec =syst.wMilliseconds*1000;
+	return 0;
+}
+char *getlogin(void) {
+	return "bogus";
+}
+void make_err_str(unsigned int error,char *buf,int size) {
+
+	FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM,
+				  NULL,
+				  error, 
+				  MAKELANGID(LANG_ENGLISH, SUBLANG_ENGLISH_US),
+				  buf,
+				  size,
+				  NULL);
+	return;
+
+}
+char * forward_slash_get_cwd(char * path,int size) {
+
+	char *ptemp;
+	char * cwd  ;
+
+	GetCurrentDirectory(size,path);
+	cwd = path;
+	ptemp=cwd;
+
+	while(*ptemp) {
+		if (*ptemp == '\\') *ptemp = '/';
+		*ptemp++;
+	}
+	return cwd;
+}
+#define xmalloc(s) HeapAlloc(GetProcessHeap(),HEAP_ZERO_MEMORY,(s))
+#define xfree(p) HeapFree(GetProcessHeap(),0,(p))
+#define my_xrealloc(p,s) HeapReAlloc(GetProcessHeap(),HEAP_ZERO_MEMORY,(p),(s))
+static void quoteProtect(char *, char *) ;
+void nt_execve_wrapped(char *prog, char**args, char**envir ) {
+
+	STARTUPINFO si;
+	PROCESS_INFORMATION pi;
+	BOOL bRet;
+    DWORD type=0;
+	char *argv0;
+	char **savedargs = args;
+	unsigned int cmdsize,cmdlen,arglen;
+	char *cmdstr ;
+	char *ptr,*p2,*p3;
+	int rc=0,retries=0;
+	int is_winnt,hasdot=0,hasspace=0;
+	char tempquotedbuf[256];
+
+
+	memset(&si,0,sizeof(si));
+
+	/* 
+	 * This memory is not freed because we are exec()ed and will
+	 * not be alive long.
+	 */
+	cmdstr= xmalloc(MAX_PATH*4);
+	argv0 = xmalloc(MAX_PATH);
+
+	is_winnt = (gdwPlatform != VER_PLATFORM_WIN32_WINDOWS);
+
+	ptr = prog;
+	p2 = cmdstr+1; // Leave room for quote if needed
+	p3 = argv0;//+1;
+
+	cmdsize = MAX_PATH*4;
+	cmdlen = 1;
+
+	/*
+	 * Change '/' to '\\', quote spaces
+	 */
+	while(*ptr) {
+		if (*ptr == '/')
+			*ptr = '\\';
+		else if (*ptr == '.')
+			hasdot = 1;
+		else if (*ptr == ' ' || *ptr == '\t') {
+			hasspace = 1;
+		}
+		*p2++ = *ptr;
+		*p3++ = *ptr;
+
+		ptr++;
+		cmdlen++;
+	}
+	//
+	// The fix below is for paths with ./ instead of . on win95
+	//
+	if ( !is_winnt && cmdstr[1] == '.' && cmdstr[2] == '\\' 
+			&& cmdstr[3] == '\\' ) {
+		ptr = cmdstr + 3; // move to 2nd '\';
+		while(* (ptr +1) ){
+			*ptr = *(ptr +1);
+			ptr++;
+		}
+		*ptr = 0;
+
+	}
+	if (hasspace) {
+		/* put quotes at beginning and end */
+		*cmdstr = '"';
+		*p2++ = '"';
+		/*
+		*argv0 = '"';
+		*p3++ = '"';
+		*/
+		cmdlen++;
+	}
+	else { // Skip initial character we left for quote
+		cmdstr++; 
+		//argv0++;
+	}
+	*p2 = 0; *p3 = 0;
+
+	if (!is_winnt){
+		xfree(argv0);
+		argv0 = NULL;
+		goto win95_directly_here;
+	}
+
+retry:
+
+	bRet=GetBinaryType(argv0,&type);
+
+	if (is_winnt && !bRet  ) {
+		/* Don't append .EXE if it could be a script file */
+		if (GetLastError() == ERROR_BAD_EXE_FORMAT){
+			try_shell_ex(args,1);
+			errno = ENOEXEC;
+			return;
+		}
+		else if (retries){
+			/* If argv[0] got parsed as \\foo (stupid paths with '/' as one
+			 * of the components will do it,) and if argv[1] is not the same,
+			 * then this is not a real UNC name. 
+			 * In other cases, argv[0] and argv[1] here must be the same
+			 * anyway. -amol 5/1/6/98
+			 */
+			if (
+				( (*prog == '\\') ||(*prog == '/') ) &&
+				( (prog[1] == '\\') ||(prog[1] == '/') ) &&
+				((*args[0] == *prog) && (args[0][1] == prog[1])) && 
+				(!args[1])
+			   )
+				try_shell_ex(args,1);
+			errno  = ENOENT;
+		}
+		if (retries > 2){
+			return;
+		}
+		if (retries == 0) {
+			wsprintf(argv0,"%s.EXE",prog);
+			retries++;
+		}
+		else if (prog[0] == '\\' && retries == 1) {
+			char ptr[80];
+			if(GetEnvironmentVariable("ZSHROOT",ptr,80)) {
+				wsprintf(argv0,"%s\\%s",ptr,prog);
+			}
+			retries++;
+		}
+		else if (prog[0] == '\\' && retries == 2) {
+			char ptr[80];
+			if(GetEnvironmentVariable("ZSHROOT",ptr,80)) {
+				wsprintf(argv0,"%s\\%s.EXE",ptr,prog);
+			}
+			retries++;
+		}
+		else 
+			retries += 2;
+		goto retry;
+	}
+
+win95_directly_here:
+
+	si.cb = sizeof(STARTUPINFO);
+	si.dwFlags = STARTF_USESTDHANDLES;
+	si.hStdInput = (HANDLE)_get_osfhandle(0);
+	si.hStdOutput = (HANDLE)_get_osfhandle(1);
+	si.hStdError = (HANDLE)_get_osfhandle(2);
+
+	*args++; // ignore argv[0];
+
+	/* 
+		quotespace hack needed since execv() would have separated args, but
+		createproces doesnt
+		-amol 9/14/96
+	*/
+	while(*args) {
+		short quotespace=0;
+		short quotequote=0;
+
+		lstrcat(cmdstr," ");
+		cmdlen++;
+
+		ptr = *args;
+
+		arglen = 0;
+
+		if (!*ptr) {
+			lstrcat(cmdstr,"\"\"");
+			cmdlen +=2;
+		}
+		while(*ptr) {
+			if (*ptr == ' ' || *ptr == '\t')
+				quotespace=1;
+			else if (*ptr == '"')
+				quotequote = 1;
+			ptr++;
+			arglen++;
+		}
+		if (arglen + cmdlen +4 > cmdsize) { // +4 is if we have to quote
+
+			if (arglen + 8 > cmdsize){
+				cmdstr = my_xrealloc(cmdstr-1,cmdsize+arglen+8);
+				cmdstr++;
+				cmdsize += arglen+8;
+			}
+			else{
+				cmdstr = my_xrealloc(cmdstr-1,cmdsize<<1);
+				cmdstr++;
+				cmdsize <<=1;
+			}
+
+		}
+		if (quotespace) 
+			lstrcat(cmdstr,"\"");
+
+		if(quotequote) {
+			tempquotedbuf[0]=0;
+			quoteProtect(tempquotedbuf,*args);
+			lstrcat(cmdstr,tempquotedbuf);
+			cmdlen += 2;
+		}
+		else
+			lstrcat(cmdstr,*args);
+
+		if(quotespace) {
+			lstrcat(cmdstr,"\"");
+			cmdlen += 2;
+		}
+
+		cmdlen += arglen;
+
+		args++;
+	}
+	if (gdwPlatform != VER_PLATFORM_WIN32_WINDOWS){
+		if (!SetConsoleCtrlHandler(NULL,FALSE)) {
+			errno = ENOENT;
+		}
+	}
+	{
+		char pathstr[1024];
+
+		pathstr[1023] =0 ;
+		if (isset(WINNTLAMEPATHFIX) ) {
+			if (GetEnvironmentVariable("PATH",pathstr,1024) <1024 ) {
+				ptr = pathstr;
+				while(*ptr) {
+					if (*ptr == '/')
+						*ptr = '\\';
+					ptr++;
+				}
+				SetEnvironmentVariable("PATH",pathstr);
+			}
+		}
+
+	}
+	if (!CreateProcess(argv0,
+			cmdstr,
+			NULL,
+			NULL,
+			TRUE, // need this for redirecting std handles
+			0,
+			NULL,//envcrap,
+			NULL,
+			&si,
+			&pi) ){
+
+		if (GetLastError() == ERROR_BAD_EXE_FORMAT) {
+			try_shell_ex(savedargs,1);
+			errno  = ENOEXEC;
+		}
+		else
+			errno  = ENOENT;
+	}
+	else{
+		errno= 0;
+		//
+		{
+			DWORD exitcode=0;
+			int gui_app = 0;
+			if (gdwPlatform != VER_PLATFORM_WIN32_WINDOWS){
+				SetConsoleCtrlHandler(NULL,TRUE);
+			}
+			if (isset(WINNTWAITFORGUIAPPS))
+				gui_app = 0;
+			else if (is_winnt)
+				gui_app = is_gui(argv0);
+			else 
+				gui_app = is_9x_gui(prog);
+
+			if (!gui_app) {
+				WaitForSingleObject(pi.hProcess,INFINITE);
+			}
+			(void)GetExitCodeProcess(pi.hProcess,&exitcode);
+			CloseHandle(pi.hProcess);
+			CloseHandle(pi.hThread);
+			ExitProcess(exitcode);
+		}
+	}
+}
+void nt_execve(char *prog, char**args, char**envir ) {
+#ifndef DBG
+	__try {
+		nt_execve_wrapped(prog, args, envir);
+	}__except(1) {
+		fprintf(stderr,"Command line overflow. There is a limit, you know\n");
+		ExitProcess(0);
+	}
+#else
+		nt_execve_wrapped(prog, args, envir);
+#endif DBG
+}
+/* This function from  Mark Tucker (mtucker@fiji.sidefx.com) */
+static void quoteProtect(char *dest, char *src) {
+	char	*prev, *curr;
+	for (curr = src; *curr; curr++) {
+
+		// Protect " from MS-DOS expansion
+		if (*curr == '"') {
+			// Now, protect each preceeding backslash
+			for (prev = curr-1; prev >= src && *prev == '\\'; prev--)
+				*dest++ = '\\';
+
+			*dest++ = '\\';
+		}
+		*dest++ = *curr;
+	}
+	*dest = 0;
+}
+int nt_chdir (char *path) {
+	char *tmp = path;
+	if (gdwPlatform !=VER_PLATFORM_WIN32_NT) {
+		while(*tmp) {
+			if (*tmp == '/') *tmp = '\\';
+			tmp++;
+		}
+	}
+	return _chdir(path);
+}
+void caseify_pwd(char *curwd) {
+	char *sp, *dp, p,*s;
+	WIN32_FIND_DATA fdata;
+	HANDLE hFind;
+
+	if (gdwPlatform !=VER_PLATFORM_WIN32_NT) 
+		return;
+	
+	if (*curwd == '/' && (!curwd[1] || curwd[1] == '/'))
+		return;
+	sp = curwd +3;
+	dp = curwd +3;
+	do {
+		p= *sp;
+		if (p && p != '/'){
+			sp++;
+			continue;
+		}
+		else {
+			*sp = 0;
+			hFind = FindFirstFile(curwd,&fdata);
+			*sp = p;
+			if (hFind != INVALID_HANDLE_VALUE) {
+				FindClose(hFind);
+				s = fdata.cFileName;	
+				while(*s) {
+					*dp++ = *s++;
+				}
+				dp++;
+				sp = dp;
+			}
+			else {
+				sp++;
+				dp = sp;
+			}
+		}
+		sp++;
+	}while(p != 0);
+
+}
+unsigned char * def_ext = ".com;.exe;.cmd;.bat;";
+
+int is_pathext(char *extension) {
+	unsigned char exts[80];
+	int rc;
+	unsigned char *begin,*end;
+
+	rc = GetEnvironmentVariable("PATHEXT",exts,80);
+	if (rc >80)
+		return 0;
+	if (rc == 0) {
+		begin = def_ext;
+		end = def_ext;
+	}
+	else {
+		begin = exts;
+		end = exts;
+	}
+	while(*begin) {
+		while(*begin && (*begin != '.'))
+			begin++;
+		while(*end && (*end != ';'))
+			end++;
+		if (!*begin)
+			break;
+		if (!strnicmp(begin+1,extension,end-begin-1))
+			return 1;
+		begin = end;
+		end++;
+	}
+	return 0;
+
+}
+extern void mainCRTStartup(void *);
+extern void heap_init(void);
+void silly_entry(void *peb) {
+	char def_term[]={'v','t','1','0','0','\0'};
+	char * path1=NULL;
+	int rc;
+	heap_init();
+	rc = GetEnvironmentVariable("TERM",path1,0);
+	if (rc == 0)
+		SetEnvironmentVariable("TERM",def_term);
+	rc = GetEnvironmentVariable("Path",path1,0);
+	if ( rc !=0) {
+		path1 =HeapAlloc(GetProcessHeap(),HEAP_ZERO_MEMORY,rc+1);
+		GetEnvironmentVariable("Path",path1,rc);
+		SetEnvironmentVariable("Path",NULL);
+		SetEnvironmentVariable("PATH",NULL);
+		SetEnvironmentVariable("PATH",path1);
+		xfree(path1);
+	}
+	nt_init();
+	//fork_init();
+	mainCRTStartup(peb);
+}

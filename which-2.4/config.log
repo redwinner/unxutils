@@ -1,0 +1,164 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:560: checking for a BSD compatible install
+configure:613: checking whether build environment is sane
+configure:670: checking whether make sets ${MAKE}
+configure:717: checking for working aclocal
+configure:730: checking for working autoconf
+configure:743: checking for working automake
+configure:756: checking for working autoheader
+configure:769: checking for working makeinfo
+configure:804: checking for gcc
+configure:917: checking whether the C compiler (gcc  ) works
+configure:933: gcc -o conftest    conftest.c  1>&5
+configure:959: checking whether the C compiler (gcc  ) is a cross-compiler
+configure:964: checking whether we are using GNU C
+configure:973: gcc -E conftest.c
+configure:992: checking whether gcc accepts -g
+configure:1035: checking for a BSD compatible install
+configure:1097: checking for tilde_expand in libreadline.a
+configure:1122: gcc -o conftest -g -O2   conftest.c /lib/libreadline.a   1>&5
+gcc: /lib/libreadline.a: No such file or directory
+configure: failed program was:
+#line 1111 "configure"
+#include "confdefs.h"
+    /* Override any gcc2 internal prototype to avoid an error.  */
+    /* We use char because int might match the return type of a gcc2
+      builtin and then its argument prototype would still apply.  */
+  char tilde_expand();
+  
+int main() {
+tilde_expand()
+; return 0; }
+configure:1122: gcc -o conftest -g -O2   conftest.c /usr/lib/libreadline.a   1>&5
+gcc: /usr/lib/libreadline.a: No such file or directory
+configure: failed program was:
+#line 1111 "configure"
+#include "confdefs.h"
+    /* Override any gcc2 internal prototype to avoid an error.  */
+    /* We use char because int might match the return type of a gcc2
+      builtin and then its argument prototype would still apply.  */
+  char tilde_expand();
+  
+int main() {
+tilde_expand()
+; return 0; }
+configure:1157: checking for xmalloc in libiberty.a
+configure:1182: gcc -o conftest -g -O2   conftest.c /lib/libiberty.a   1>&5
+gcc: /lib/libiberty.a: No such file or directory
+configure: failed program was:
+#line 1171 "configure"
+#include "confdefs.h"
+    /* Override any gcc2 internal prototype to avoid an error.  */
+    /* We use char because int might match the return type of a gcc2
+      builtin and then its argument prototype would still apply.  */
+  char xmalloc();
+  
+int main() {
+xmalloc()
+; return 0; }
+configure:1182: gcc -o conftest -g -O2   conftest.c /usr/lib/libiberty.a   1>&5
+gcc: /usr/lib/libiberty.a: No such file or directory
+configure: failed program was:
+#line 1171 "configure"
+#include "confdefs.h"
+    /* Override any gcc2 internal prototype to avoid an error.  */
+    /* We use char because int might match the return type of a gcc2
+      builtin and then its argument prototype would still apply.  */
+  char xmalloc();
+  
+int main() {
+xmalloc()
+; return 0; }
+configure:1217: checking how to run the C preprocessor
+configure:1238: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1297: checking for ANSI C header files
+configure:1310: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1377: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1403: checking for strchr
+configure:1431: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1403: checking for memcpy
+configure:1431: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1415: warning: conflicting types for built-in function `memcpy'
+configure:1403: checking for getopt_long
+configure:1431: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\ccYoaaaa.o: In function `main':
+//d/usr/local/which-2.4/configure:1425: undefined reference to `getopt_long'
+configure: failed program was:
+#line 1408 "configure"
+#include "confdefs.h"
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char getopt_long(); below.  */
+#include <assert.h>
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char getopt_long();
+
+int main() {
+
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined (__stub_getopt_long) || defined (__stub___getopt_long)
+choke me
+#else
+getopt_long();
+#endif
+
+; return 0; }
+configure:1459: checking for unistd.h
+configure:1469: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1459: checking for string.h
+configure:1469: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1459: checking for libiberty.h
+configure:1469: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1465: libiberty.h: No such file or directory
+configure: failed program was:
+#line 1464 "configure"
+#include "confdefs.h"
+#include <libiberty.h>
+configure:1459: checking for readline/tilde.h
+configure:1469: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1465: readline/tilde.h: No such file or directory
+configure: failed program was:
+#line 1464 "configure"
+#include "confdefs.h"
+#include <readline/tilde.h>
+configure:1496: checking whether stat file-mode macros are broken
+configure:1553: checking for working const
+configure:1607: gcc -c -g -O2  conftest.c 1>&5
+configure:1628: checking for size_t
+configure:1662: checking for uid_t in sys/types.h
+configure:1696: checking type of array argument to getgroups
+configure:1729: gcc -o conftest -g -O2   conftest.c  1>&5
+C:\TEMP\ccgpaaaa.o: In function `main':
+//d/usr/local/which-2.4/configure:1720: undefined reference to `getgroups'
+configure: failed program was:
+#line 1704 "configure"
+#include "confdefs.h"
+
+/* Thanks to Mike Rendell for this test.  */
+#include <sys/types.h>
+#define NGID 256
+#undef MAX
+#define MAX(x, y) ((x) > (y) ? (x) : (y))
+main()
+{
+  gid_t gidset[NGID];
+  int i, n;
+  union { gid_t gval; long lval; }  val;
+
+  val.lval = -1;
+  for (i = 0; i < NGID; i++)
+    gidset[i] = val.gval;
+  n = getgroups (sizeof (gidset) / MAX (sizeof (int), sizeof (gid_t)) - 1,
+                 gidset);
+  /* Exit non-zero if getgroups seems to require an array of ints.  This
+     happens when gid_t is short but getgroups modifies an array of ints.  */
+  exit ((n > 0 && gidset[n] != val.gval) ? 1 : 0);
+}
+
+configure:1769: checking for getcwd
+configure:1797: gcc -o conftest -g -O2   conftest.c  1>&5

@@ -1,0 +1,15 @@
+void resetvideo _((void));
+void scrollwindow _((int tline));
+void refresh _((void));
+void refreshline _((int ln));
+void moveto _((int ln, int cl));
+int tcmultout _((int cap, int multcap, int ct));
+void tc_rightcurs _((int cl));
+int tc_downcurs _((int ct));
+void tcout _((int cap));
+void tcoutarg _((int cap, int arg));
+void clearscreen _((void));
+void redisplay _((void));
+void singlerefresh _((void));
+void singmoveto _((int pos));
+void genprompts _((void));

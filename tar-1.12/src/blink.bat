@@ -1,0 +1,1 @@
+link /debug:none /ws:aggressive /opt:ref /out:%1.exe %1 %2 %3 %4 %5 binmode.obj setargv.obj intl.lib ..\lib\tar.lib \projects\cpp\downhill\downhill.lib wsock32.lib advapi32.lib DELAYIMP.LIB /delayload:advapi32.dll

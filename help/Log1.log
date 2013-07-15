@@ -1,0 +1,9 @@
+Microsoft HTML Help Compiler 4.73.8198
+
+Compiling d:\usr\local\UnxUtils\help\UnxHlp.chm
+
+HHC5002: Error: compress.htm : A comment tag (<!--) is missing the close comment tag (-->).
+toc.hhc
+
+
+The following files were not compiled:

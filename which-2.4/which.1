@@ -1,0 +1,109 @@
+.TH WHICH 1
+.rn RS Rs
+.de RS
+.na
+.nf
+.Rs
+..
+.rn RE Re
+.de RE
+.Re
+.fi
+.ad
+..
+.de Sx
+.PP
+.ne \\$1
+.RS
+..
+.de Ex
+.RE
+.PP
+..
+.na
+.SH NAME
+which \- show full path of commands
+.SH SYNOPSIS
+.B which
+[options] [\-\-] programname [...]
+.SH DESCRIPTION
+.BR Which
+takes one or more arguments.  For each of its arguments it
+prints to stdout the full path of the executables that would have
+been executed when this argument had been entered at the shell prompt.
+It does this by searching for an executable or script in the
+directories listed in the environment variable
+.B PATH
+using the same algorithm as bash(1).
+.SH OPTIONS
+.TP 4
+.B "\-\-version, \-v, \-V"
+Print version information on standard output then exit successfully.
+.TP
+.B "\-\-skip-dot"
+Skip directories in
+.B PATH
+that start with a dot.
+.TP
+.B "\-\-skip-tilde"
+Skip directories in
+.B PATH
+that start with a tilde and executables which reside in the HOME directory.
+.TP
+.B "\-\-show-dot"
+If a directory in
+.B PATH
+starts with a dot and a matching executable was found for that path,
+then print "./programname" rather than the full path.
+.TP
+.B "\-\-show-tilde"
+Output a tilde when a directory matches the
+.B HOME
+directory.  This option is ignored when
+.B which
+is invoked as root.
+.TP
+.B "\-\-tty\-only"
+Stop processing options on the right if not on tty.
+.TP
+.B "\-\-all, \-a"
+Print
+.I all
+matching executables in PATH, not just the first.
+.SH RETURN VALUE
+.BR Which
+returns the number of failed arguments, or -1 when no
+.I programname
+was given.
+.SH EXAMPLE
+A useful way to use this utility is by adding an alias for
+.B which
+like the following:
+.Sx 1
+alias which='which --tty-only --show-tilde --show-dot'
+.Ex
+This will print the readable ~/ and ./ when starting which from your prompt,
+while still printing the full path when used from a script:
+.Sx 4
+> which q2
+~/bin/q2
+> echo `which q2`
+/home/carlo/bin/q2
+.RE
+.SH BUGS
+If
+.I programname
+is an alias which starts a different executable, then
+.B which
+will give the wrong path; it doesn't do alias expansion.
+The HOME directory is determined by looking for the HOME environment
+variable,
+.B which
+aborts when this variable doesn't exist.
+.B Which
+will consider two equivalent directories to be different when one
+of them contains a path with a symbolic link.
+.SH AUTHOR
+Carlo Wood <carlo@gnu.org>
+.SH "SEE ALSO"
+bash(1)

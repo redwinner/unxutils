@@ -1,0 +1,30 @@
+# List of files which contain translatable strings.
+# Copyright (C) 1996 Free Software Foundation, Inc.
+
+# Package source files
+
+# Temporarily add this for yes/no translations.
+# FIXME: Eventually rpmatch.c will belong to another package, probably libit.
+lib/rpmatch.c
+
+src/chgrp.c
+src/chmod.c
+src/chown.c
+src/cp-aux.c
+src/cp.c
+src/dircolors.c
+src/dd.c
+src/df.c
+src/du.c
+src/install.c
+src/ln.c
+src/ls.c
+src/mkdir.c
+src/mkfifo.c
+src/mknod.c
+src/mv.c
+src/mvdir.c
+src/rm.c
+src/rmdir.c
+src/sync.c
+src/touch.c

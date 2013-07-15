@@ -1,0 +1,432 @@
+{\rtf1\windows \deff0{\fonttbl
+{\f0\fswiss MS Sans Serif;}{\f1\fmodern Courier New;}{\f2\ftech Symbol;}}\fs20
+\page #{\footnote hcAbout}${\footnote \pard{}About this help file}\pard{\fs24\b About this help file}\par\par\pard{}This file was made with the help of {\ul Makertf 3.12b-1}{\v hcMakertf} from the input file grep.texi.\par\par{{START-INFO-DIR-ENTRY
+\pard{}* grep: (grep).                   print lines matching a pattern.\line
+END-INFO-DIR-ENTRY\par
+\pard{}}This file documents {\f1{}grep}, a pattern matching engine.\par
+\par
+\pard{}Published by the Free Software Foundation, 59 Temple Place - Suite 330 Boston, MA 02111-1307, USA\par
+\par
+\pard{}Copyright 1999 Free Software Foundation, Inc.\par
+\par
+\pard{}Permission is granted to make and distribute verbatim copies of this manual provided the copyright notice and this permission notice are preserved on all copies.\par
+\par
+\pard{}Permission is granted to copy and distribute modified versions of this manual under the conditions for verbatim copying, provided that the entire resulting derived work is distributed under the terms of a permission notice identical to this one.\par
+\par
+\pard{}Permission is granted to copy and distribute translations of this manual into another language, under the above conditions for modified versions, except that this permission notice may be stated in a translation approved by the Foundation.  }\par
+\par
+{}\page\pard Node: {\b Top}, \keepn Next: {\uldb }{\v }, Prev: {\uldb }{\v }, Up: {\uldb (dir)}{\v Top @dir.hlp}\tab\tab{\uldb About this help file}{\v hcAbout}\line
+K{\footnote K Top}
+#{\footnote Top}
+${\footnote \pard{}Grep}\par
+\pard\pard{\fs24\b Grep}\par
+\par
+{\f1{}\pard{}grep} searches for lines matching a pattern.\par
+\par
+\pard{}This document was produced for version 2.4 of {\scaps\fs16{}gnu} {\f1{}grep}.   ifnottex\par
+\par
+{\par
+\pard\keep\fi-2880\li2880\tx2880{}{\uldb Introduction}{\v Introduction}\tab Introduction.\par
+{\uldb Invoking}{\v Invoking}\tab Invoking {\f1{}grep}; description of options.\par
+{\uldb Diagnostics}{\v Diagnostics}\tab Exit status returned by {\f1{}grep}.\par
+{\uldb Grep Programs}{\v Grep_Programs}\tab {\f1{}grep} programs.\par
+{\uldb Regular Expressions}{\v Regular_Expressions}\tab Regular Expressions.\par
+{\uldb Usage}{\v Usage}\tab Examples.\par
+{\uldb Reporting Bugs}{\v Reporting_Bugs}\tab Reporting Bugs.\par
+{\uldb Concept Index}{\v Concept_Index}\tab A menu with all the topics in this manual.\par
+{\uldb Index}{\v Index}\tab A menu with all {\f1{}grep} commands and command-line options.\par
+\pard{}}\par
+\page\pard Node: {\b Introduction}, \keepn Next: {\uldb Invoking}{\v Invoking}, Prev: {\uldb Top}{\v Top}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Introduction}
+#{\footnote Introduction}
+${\footnote \pard{}Introduction}\par
+\pard{\fs24\b Introduction}\par
+\par
+\pard{}{K{\footnote K Searching for a pattern.}} {\f1{}grep} searches the input files for lines containing a match to a given pattern list.  When it finds a match in a line, it copies the line to standard output (by default), or does whatever other sort of output you have requested with options.  {\f1{}grep} expects to do the matching on text.  Since newline is also a separator for the list of patterns, there is no way to match newline characters in a text.\par
+\par
+\page\pard Node: {\b Invoking}, \keepn Next: {\uldb Diagnostics}{\v Diagnostics}, Prev: {\uldb Introduction}{\v Introduction}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Invoking}
+#{\footnote Invoking}
+${\footnote \pard{}Invoking {\f1{}grep}}\par
+\pard{\fs24\b Invoking {\f1{}grep}}\par
+\par
+{\f1{}\pard{}grep} comes with a rich set of options from {\scaps\fs16{}posix.2} and {\scaps\fs16{}gnu} extensions.\par
+\par
+{\pard{}{\f1{}-c}\par
+\pard{}{\f1{}--count}\par
+\pard\li720{}{K{\footnote K -c}}{K{\footnote K -count}}{K{\footnote K counting lines}}Suppress normal output; instead print a count of matching lines for each input file.  With the {\f1{}-v}, {\f1{}--invert-match} option, count non-matching lines.\par
+\par
+\pard{}{\f1{}-e {\i pattern}}\par
+\pard{}{\f1{}--regexp={\i pattern}}\par
+\pard\li720{}{K{\footnote K -e}}{K{\footnote K -regexp={\i pattern}}}{K{\footnote K pattern list}}Use {\i pattern} as the pattern; useful to protect patterns beginning with a {\f1{}-}.\par
+\par
+\pard{}{\f1{}-f {\i file}}\par
+\pard{}{\f1{}--file={\i file}}\par
+\pard\li720{}{K{\footnote K -f}}{K{\footnote K -file}}{K{\footnote K pattern from file}}Obtain patterns from {\i file}, one per line.  The empty file contains zero patterns, and therefore matches nothing.\par
+\par
+\pard{}{\f1{}-i}\par
+\pard{}{\f1{}--ignore-case}\par
+\pard\li720{}{K{\footnote K -i}}{K{\footnote K -ignore-case}}{K{\footnote K case insensitive search}}Ignore case distinctions in both the pattern and the input files.\par
+\par
+\pard{}{\f1{}-l}\par
+\pard{}{\f1{}--files-with-matches}\par
+\pard\li720{}{K{\footnote K -l}}{K{\footnote K -files-with-matches}}{K{\footnote K names of matching files}}Suppress normal output; instead print the name of each input file from which output would normally have been printed.  The scanning of every file will stop on the first match.\par
+\par
+\pard{}{\f1{}-n}\par
+\pard{}{\f1{}--line-number}\par
+\pard\li720{}{K{\footnote K -n}}{K{\footnote K -line-number}}{K{\footnote K line numbering}}Prefix each line of output with the line number within its input file.\par
+\par
+\pard{}{\f1{}-q}\par
+\pard{}{\f1{}--quiet}\par
+\pard{}{\f1{}--silent}\par
+\pard\li720{}{K{\footnote K -q}}{K{\footnote K -quiet}}{K{\footnote K -silent}}{K{\footnote K quiet, silent}}Quiet; suppress normal output.  The scanning of every file will stop on the first match.  Also see the {\f1{}-s} or {\f1{}--no-messages} option.\par
+\par
+\pard{}{\f1{}-s}\par
+\pard{}{\f1{}--no-messages}\par
+\pard\li720{}{K{\footnote K -s}}{K{\footnote K -no-messages}}{K{\footnote K suppress error messages}}Suppress error messages about nonexistent or unreadable files.  Portability note: unlike {\scaps\fs16{}gnu} {\f1{}grep}, traditional {\f1{}grep} did not conform to {\scaps\fs16{}posix.2}, because traditional {\f1{}grep} lacked a {\f1{}-q} option and its {\f1{}-s} option behaved like {\scaps\fs16{}gnu} {\f1{}grep}'s {\f1{}-q} option.  Shell scripts intended to be portable to traditional {\f1{}grep} should avoid both {\f1{}-q} and {\f1{}-s} and should redirect output to {\f1{}/dev/null} instead.\par
+\par
+\pard{}{\f1{}-v}\par
+\pard{}{\f1{}--invert-match}\par
+\pard\li720{}{K{\footnote K -v}}{K{\footnote K -invert-match}}{K{\footnote K invert matching}}{K{\footnote K print non-matching lines}}Invert the sense of matching, to select non-matching lines.\par
+\par
+\pard{}{\f1{}-x}\par
+\pard{}{\f1{}--line-regexp}\par
+\pard\li720{}{K{\footnote K -x}}{K{\footnote K -line-regexp}}{K{\footnote K match the whole line}}Select only those matches that exactly match the whole line.\par
+\par
+\pard{}}\par
+\pard{\b {\scaps\fs16{}gnu} Extensions}\par
+\par
+{\pard{}{\f1{}-A {\i num}}\par
+\pard{}{\f1{}--after-context={\i num}}\par
+\pard\li720{}{K{\footnote K -A}}{K{\footnote K -after-context}}{K{\footnote K after context}}{K{\footnote K context lines, after match}}Print {\i num} lines of trailing context after matching lines.\par
+\par
+\pard{}{\f1{}-B {\i num}}\par
+\pard{}{\f1{}--before-context={\i num}}\par
+\pard\li720{}{K{\footnote K -B}}{K{\footnote K -before-context}}{K{\footnote K before context}}{K{\footnote K context lines, before match}}Print {\i num} lines of leading context before matching lines.\par
+\par
+\pard{}{\f1{}-C {\i num}}\par
+\pard{}{\f1{}--context=[{\i num}]}\par
+\pard\li720{}{K{\footnote K -C}}{K{\footnote K -context}}{K{\footnote K context}}Print {\i num} lines (default 2) of output context.\par
+\par
+\pard{}{\f1{}-{\i num}}\par
+\pard\li720{}{K{\footnote K -NUM}}Same as {\f1{}--context={\i num}} lines of leading and trailing context.  However, grep will never print any given line more than once.\par
+\par
+\pard{}{\f1{}-V}\par
+\pard{}{\f1{}--version}\par
+\pard\li720{}{K{\footnote K -V}}{K{\footnote K -version}}{K{\footnote K Version, printing}}Print the version number of {\f1{}grep} to the standard output stream.  This version number should be included in all bug reports.\par
+\par
+\pard{}{\f1{}--help}\par
+\pard\li720{}{K{\footnote K -help}}{K{\footnote K Usage summary, printing}}Print a usage message briefly summarizing these command-line options and the bug-reporting address, then exit.\par
+\par
+\pard{}{\f1{}-b}\par
+\pard{}{\f1{}--byte-offset}\par
+\pard\li720{}{K{\footnote K -b}}{K{\footnote K -byte-offset}}{K{\footnote K byte offset}}Print the byte offset within the input file before each line of output.  When {\f1{}grep} runs on {\scaps\fs16{}ms-dos} or MS-Windows, the printed byte offsets depend on whether the {\f1{}-u} ({\f1{}--unix-byte-offsets}) option is used; see below.\par
+\par
+\pard{}{\f1{}-d {\i action}}\par
+\pard{}{\f1{}--directories={\i action}}\par
+\pard\li720{}{K{\footnote K -d}}{K{\footnote K -directories}}{K{\footnote K directory search}}If an input file is a directory, use {\i action} to process it.  By default, {\i action} is {\f1{}read}, which means that directories are read just as if they were ordinary files (some operating systems and filesystems disallow this, and will cause {\f1{}grep} to print error messages for every directory).  If {\i action} is {\f1{}skip}, directories are silently skipped.  If {\i action} is {\f1{}recurse}, {\f1{}grep} reads all files under each directory, recursively; this is equivalent to the {\f1{}-r} option.\par
+\par
+\pard{}{\f1{}-H}\par
+\pard{}{\f1{}--with-filename}\par
+\pard\li720{}{K{\footnote K -H}}{K{\footnote K -With-filename}}{K{\footnote K with filename prefix}}Print the filename for each match.\par
+\par
+\pard{}{\f1{}-h}\par
+\pard{}{\f1{}--no-filename}\par
+\pard\li720{}{K{\footnote K -h}}{K{\footnote K -no-filename}}{K{\footnote K no filename prefix}}Suppress the prefixing of filenames on output when multiple files are searched.\par
+\par
+\pard{}{\f1{}-L}\par
+\pard{}{\f1{}--files-without-match}\par
+\pard\li720{}{K{\footnote K -L}}{K{\footnote K -files-without-match}}{K{\footnote K files which don't match}}Suppress normal output; instead print the name of each input file from which no output would normally have been printed.  The scanning of every file will stop on the first match.\par
+\par
+\pard{}{\f1{}-a}\par
+\pard{}{\f1{}--text}\par
+\pard\li720{}{K{\footnote K -a}}{K{\footnote K -text}}{K{\footnote K suppress binary data}}{K{\footnote K binary files}}Do not suppress output lines that contain binary data.  Normally, if the first few bytes of a file indicate that the file contains binary data, grep outputs only a message saying that the file matches the pattern.  This option causes grep to act as if the file is a text file, even if it would otherwise be treated as binary.  {\i Warning:} the result might be binary garbage printed to the terminal, which can have nasty side-effects if the terminal driver interprets some of it as commands.\par
+\par
+\pard{}{\f1{}-w}\par
+\pard{}{\f1{}--word-regexp}\par
+\pard\li720{}{K{\footnote K -w}}{K{\footnote K -word-regexp}}{K{\footnote K matching whole words}}Select only those lines containing matches that form whole words.  The test is that the matching substring must either be at the beginning of the line, or preceded by a non-word constituent character.  Similarly, it must be either at the end of the line or followed by a non-word constituent character.  Word-constituent characters are letters, digits, and the underscore.\par
+\par
+\pard{}{\f1{}-r}\par
+\pard{}{\f1{}--recursive}\par
+\pard\li720{}{K{\footnote K -r}}{K{\footnote K -recursive}}{K{\footnote K recursive search}}{K{\footnote K searching directory trees}}For each directory mentioned in the command line, read and process all files in that directory, recursively.  This is the same as the {\f1{}-d recurse} option.\par
+\par
+\pard{}{\f1{}-y}\par
+\pard\li720{}{K{\footnote K -y}}{K{\footnote K case insensitive search, obsolete option}}Obsolete synonym for {\f1{}-i}.\par
+\par
+\pard{}{\f1{}-U}\par
+\pard{}{\f1{}--binary}\par
+\pard\li720{}{K{\footnote K -U}}{K{\footnote K -binary}}{K{\footnote K DOS/Windows binary files}}{K{\footnote K binary files, DOS/Windows}}Treat the file(s) as binary.  By default, under {\scaps\fs16{}ms-dos} and MS-Windows, {\f1{}grep} guesses the file type by looking at the contents of the first 32kB read from the file.  If {\f1{}grep} decides the file is a text file, it strips the {\f1{}CR} characters from the original file contents (to make regular expressions with {\f1{}^} and {\f1{}$} work correctly).  Specifying {\f1{}-U} overrules this guesswork, causing all files to be read and passed to the matching mechanism verbatim; if the file is a text file with {\f1{}CR/LF} pairs at the end of each line, this will cause some regular expressions to fail.  This option has no effect on platforms other than {\scaps\fs16{}ms-dos} and MS-Windows.\par
+\par
+\pard{}{\f1{}-u}\par
+\pard{}{\f1{}--unix-byte-offsets}\par
+\pard\li720{}{K{\footnote K -u}}{K{\footnote K -unix-byte-offsets}}{K{\footnote K DOS byte offsets}}{K{\footnote K byte offsets, on DOS/Windows}}Report Unix-style byte offsets.  This switch causes {\f1{}grep} to report byte offsets as if the file were Unix style text file, i.e., the byte offsets ignore the {\f1{}CR} characters which were stripped.  This will produce results identical to running {\f1{}grep} on a Unix machine.  This option has no effect unless {\f1{}-b} option is also used; it has no effect on platforms other than {\scaps\fs16{}ms-dos} and MS-Windows.\par
+\par
+\pard{}{\f1{}--mmap}\par
+\pard\li720{}{K{\footnote K -mmap}}{K{\footnote K memory mapped input}}If possible, use the {\f1{}mmap} system call to read input, instead of the default {\f1{}read} system call.  In some situations, {\f1{}--mmap} yields better performance.  However, {\f1{}--mmap} can cause undefined behavior (including core dumps) if an input file shrinks while {\f1{}grep} is operating, or if an I/O error occurs.\par
+\par
+\pard{}{\f1{}-Z}\par
+\pard{}{\f1{}--null}\par
+\pard\li720{}{K{\footnote K -Z}}{K{\footnote K -null}}{K{\footnote K zero-terminated file names}}Output a zero byte (the {\scaps\fs16{}ascii} {\f1{}NUL} character) instead of the character that normally follows a file name.  For example, {\f1{}grep -lZ} outputs a zero byte after each file name instead of the usual newline.  This option makes the output unambiguous, even in the presence of file names containing unusual characters like newlines.  This option can be used with commands like {\f1{}find -print0}, {\f1{}perl -0}, {\f1{}sort -z}, and {\f1{}xargs -0} to process arbitrary file names, even those that contain newline characters.\par
+\par
+\pard{}{\f1{}-z}\par
+\pard{}{\f1{}--null-data}\par
+\pard\li720{}{K{\footnote K -z}}{K{\footnote K -null-data}}{K{\footnote K zero-terminated lines}}Treat the input as a set of lines, each terminated by a zero byte (the {\scaps\fs16{}ascii} {\f1{}NUL} character) instead of a newline.  Like the {\f1{}-Z} or {\f1{}--null} option, this option can be used with commands like {\f1{}sort -z} to process arbitrary file names.\par
+\par
+\pard{}}\par
+\pard{}Several additional options control which variant of the {\f1{}grep} matching engine is used.  See {\uldb Grep Programs}{\v Grep_Programs}.\par
+\par
+\pard{\b Environment Variables}\par
+\par
+\pard{}Grep's behavior is affected by the following environment variables.  {K{\footnote K environment variables}} {\par
+\pard{}{\f1{}GREP_OPTIONS}\par
+\pard\li720{}{K{\footnote K GREP_OPTIONS}}{K{\footnote K default options environment variable}}This variable specifies default options to be placed in front of any explicit options.  For example, if {\f1{}GREP_OPTIONS} is {\f1{}--text --directories=skip}, {\f1{}grep} behaves as if the two options {\f1{}--text} and {\f1{}--directories=skip} had been specified before any explicit options.  Option specifications are separated by whitespace.  A backslash escapes the next character, so it can be used to specify an option containing whitespace or a backslash.\par
+\par
+\pard{}{\f1{}LC_ALL}\par
+\pard{}{\f1{}LC_MESSAGES}\par
+\pard{}{\f1{}LANG}\par
+\pard\li720{}{K{\footnote K LC_ALL}}{K{\footnote K LC_MESSAGES}}{K{\footnote K LANG}}{K{\footnote K language of messages}}{K{\footnote K message language}}{K{\footnote K national language support}}{K{\footnote K NLS}}{K{\footnote K translation of message language}}These variables specify the {\f1{}LC_MESSAGES} locale, which determines the language that {\f1{}grep} uses for messages.  The locale is determined by the first of these variables that is set.  American English is used if none of these environment variables are set, or if the message catalog is not installed, or if {\f1{}grep} was not compiled with national language support ({\scaps\fs16{}nls}).\par
+\par
+\pard{}{\f1{}LC_ALL}\par
+\pard{}{\f1{}LC_CTYPE}\par
+\pard{}{\f1{}LANG}\par
+\pard\li720{}{K{\footnote K LC_ALL}}{K{\footnote K LC_CTYPE}}{K{\footnote K LANG}}{K{\footnote K character type}}{K{\footnote K national language support}}{K{\footnote K NLS}}These variables specify the {\f1{}LC_CTYPE} locale, which determines the type of characters, e.g., which characters are whitespace.  The locale is determined by the first of these variables that is set.  The {\scaps\fs16{}posix} locale is used if none of these environment variables are set, or if the locale catalog is not installed, or if {\f1{}grep} was not compiled with national language support ({\scaps\fs16{}nls}).\par
+\par
+\pard{}{\f1{}POSIXLY_CORRECT}\par
+\pard\li720{}{K{\footnote K POSIXLY_CORRECT}}If set, {\f1{}grep} behaves as {\scaps\fs16{}posix.2} requires; otherwise, {\f1{}grep} behaves more like other {\scaps\fs16{}gnu} programs.  {\scaps\fs16{}posix.2} requires that options that follow file names must be treated as file names; by default, such options are permuted to the front of the operand list and are treated as options.  Also, {\scaps\fs16{}posix.2} requires that unrecognized options be diagnosed as "illegal", but since they are not really against the law the default is to diagnose them as "invalid".  {\f1{}POSIXLY_CORRECT} also disables {\f1{}_{\i N}_GNU_nonoption_argv_flags_}, described below.\par
+\par
+\pard{}{\f1{}_{\i N}_GNU_nonoption_argv_flags_}\par
+\pard\li720{}{K{\footnote K _{\i N}_GNU_nonoption_argv_flags_}}(Here {\f1{}{\i N}} is {\f1{}grep}'s numeric process ID.)  If the {\i i}th character of this environment variable's value is {\f1{}1}, do not consider the {\i i}th operand of {\f1{}grep} to be an option, even if it appears to be one.  A shell can put this variable in the environment for each command it runs, specifying which operands are the results of file name wildcard expansion and therefore should not be treated as options.  This behavior is available only with the {\scaps\fs16{}gnu} C library, and only when {\f1{}POSIXLY_CORRECT} is not set.\par
+\par
+\pard{}}\par
+\page\pard Node: {\b Diagnostics}, \keepn Next: {\uldb Grep Programs}{\v Grep_Programs}, Prev: {\uldb Invoking}{\v Invoking}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Diagnostics}
+#{\footnote Diagnostics}
+${\footnote \pard{}Diagnostics}\par
+\pard{\fs24\b Diagnostics}\par
+\par
+\pard{}Normally, exit status is 0 if matches were found, and 1 if no matches were found (the {\f1{}-v} option inverts the sense of the exit status).  Exit status is 2 if there were syntax errors in the pattern, inaccessible input files, or other system errors.\par
+\par
+\page\pard Node: {\b Grep Programs}, \keepn Next: {\uldb Regular Expressions}{\v Regular_Expressions}, Prev: {\uldb Diagnostics}{\v Diagnostics}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Grep Programs}
+#{\footnote Grep_Programs}
+${\footnote {\f1{}\pard{}grep} programs}\par
+\pard{\fs24\b {\f1{}grep} programs}\par
+\par
+{\f1{}\pard{}grep} searches the named input files (or standard input if no files are named, or the file name {\f1{}-} is given) for lines containing a match to the given pattern.  By default, {\f1{}grep} prints the matching lines.  There are three major variants of {\f1{}grep}, controlled by the following options.\par
+\par
+{\pard{}{\f1{}-G}\par
+\pard{}{\f1{}--basic-regexp}\par
+\pard\li720{}{K{\footnote K -G}}{K{\footnote K -basic-regexp}}{K{\footnote K matching basic regular expressions}}Interpret pattern as a basic regular expression.  This is the default.\par
+\par
+\pard{}{\f1{}-E}\par
+\pard{}{\f1{}--extended-regexp}\par
+\pard\li720{}{K{\footnote K -E}}{K{\footnote K -extended-regexp}}{K{\footnote K matching extended regular expressions}}Interpret pattern as an extended regular expression.\par
+\par
+\pard{}{\f1{}-F}\par
+\pard{}{\f1{}--fixed-strings}\par
+\pard\li720{}{K{\footnote K -F}}{K{\footnote K -fixed-strings}}{K{\footnote K matching fixed strings}}Interpret pattern as a list of fixed strings, separated by newlines, any of which is to be matched.\par
+\par
+\pard{}}\par
+\pard{}In addition, two variant programs {\scaps\fs16{}egrep} and {\scaps\fs16{}fgrep} are available.  {\scaps\fs16{}egrep} is the same as {\f1{}grep -E}.  {\scaps\fs16{}fgrep} is the same as {\f1{}grep -F}.\par
+\par
+\page\pard Node: {\b Regular Expressions}, \keepn Next: {\uldb Usage}{\v Usage}, Prev: {\uldb Grep Programs}{\v Grep_Programs}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Regular Expressions}
+#{\footnote Regular_Expressions}
+${\footnote \pard{}Regular Expressions}\par
+\pard{\fs24\b Regular Expressions}\par
+\par
+\pard{}{K{\footnote K regular expressions}} A \'A2regular expression\'A2 is a pattern that describes a set of strings.  Regular expressions are constructed analogously to arithmetic expressions, by using various operators to combine smaller expressions.  {\f1{}grep} understands two different versions of regular expression syntax: "basic" and "extended".  In {\scaps\fs16{}gnu} {\f1{}grep}, there is no difference in available functionality using either syntax.  In other implementations, basic regular expressions are less powerful.  The following description applies to extended regular expressions; differences for basic regular expressions are summarized afterwards.\par
+\par
+\pard{}The fundamental building blocks are the regular expressions that match a single character.  Most characters, including all letters and digits, are regular expressions that match themselves.  Any metacharacter with special meaning may be quoted by preceding it with a backslash.  A list of characters enclosed by {\f1{}[} and {\f1{}]} matches any single character in that list; if the first character of the list is the caret {\f1{}^}, then it matches any character {\b not} in the list.  For example, the regular expression {\f1{}[0123456789]} matches any single digit.  A range of {\scaps\fs16{}ascii} characters may be specified by giving the first and last characters, separated by a hyphen.\par
+\par
+\pard{}Finally, certain named classes of characters are predefined, as follows.  Their interpretation depends on the {\f1{}LC_CTYPE} locale; the interpretation below is that of the {\scaps\fs16{}posix} locale, which is the default if no {\f1{}LC_CTYPE} locale is specified.\par
+\par
+\pard{}{K{\footnote K classes of characters}}{K{\footnote K character classes}}{\par
+\pard{}{\f1{}[:alnum:]}\par
+\pard\li720{}{K{\footnote K alnum}}{K{\footnote K alphanumeric characters}}Any of {\f1{}[:digit:]} or {\f1{}[:alpha:]}\par
+\par
+\pard{}{\f1{}[:alpha:]}\par
+\pard\li720{}{K{\footnote K alpha}}{K{\footnote K alphabetic characters}}Any letter:\par
+{\f1{}\pard\li720{}a b c d e f g h i j k l m n o p q r s t u v w x y z},\par
+{\f1{}\pard\li720{}A B C D E F G H I J K L M N O P Q R S T U V W X Y Z}.\par
+\par
+\pard{}{\f1{}[:blank:]}\par
+\pard\li720{}{K{\footnote K blank}}{K{\footnote K blank characters}}Space or tab.\par
+\par
+\pard{}{\f1{}[:cntrl:]}\par
+\pard\li720{}{K{\footnote K cntrl}}{K{\footnote K control characters}}Any character with octal codes 000 through 037, or {\f1{}DEL} (octal code 177).\par
+\par
+\pard{}{\f1{}[:digit:]}\par
+\pard\li720{}{K{\footnote K digit}}{K{\footnote K digit characters}}{K{\footnote K numeric characters}}Any one of {\f1{}0 1 2 3 4 5 6 7 8 9}.\par
+\par
+\pard{}{\f1{}[:graph:]}\par
+\pard\li720{}{K{\footnote K graph}}{K{\footnote K graphic characters}}Anything that is not a {\f1{}[:alnum:]} or {\f1{}[:punct:]}.\par
+\par
+\pard{}{\f1{}[:lower:]}\par
+\pard\li720{}{K{\footnote K lower}}{K{\footnote K lower-case alphabetic characters}}Any one of {\f1{}a b c d e f g h i j k l m n o p q r s t u v w x y z}.\par
+\par
+\pard{}{\f1{}[:print:]}\par
+\pard\li720{}{K{\footnote K print}}{K{\footnote K printable characters}}Any character from the {\f1{}[:space:]} class, and any character that is {\b not} in the {\f1{}[:graph:]} class.\par
+\par
+\pard{}{\f1{}[:punct:]}\par
+\pard\li720{}{K{\footnote K punct}}{K{\footnote K punctuation characters}}Any one of {\f1{}! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \'5C ] ^ _ ` \'7B | \'7D ~}.\par
+\par
+\pard{}{\f1{}[:space:]}\par
+\pard\li720{}{K{\footnote K space}}{K{\footnote K space characters}}{K{\footnote K whitespace characters}}Any one of {\f1{}CR FF HT NL VT SPACE}.\par
+\par
+\pard{}{\f1{}[:upper:]}\par
+\pard\li720{}{K{\footnote K upper}}{K{\footnote K upper-case alphabetic characters}}Any one of {\f1{}A B C D E F G H I J K L M N O P Q R S T U V W X Y Z}.\par
+\par
+\pard{}{\f1{}[:xdigit:]}\par
+\pard\li720{}{K{\footnote K xdigit}}{K{\footnote K xdigit class}}{K{\footnote K hexadecimal digits}}Any one of {\f1{}a b c d e f A B C D E F 0 1 2 3 4 5 6 7 8 9}.\par
+\par
+\pard{}}For example, {\f1{}[[:alnum:]]} means {\f1{}[0-9A-Za-z]}, except the latter form is dependent upon the {\scaps\fs16{}ascii} character encoding, whereas the former is portable.  (Note that the brackets in these class names are part of the symbolic names, and must be included in addition to the brackets delimiting the bracket list.)  Most metacharacters lose their special meaning inside lists.  To include a literal {\f1{}]}, place it first in the list.  Similarly, to include a literal {\f1{}^}, place it anywhere but first.  Finally, to include a literal {\f1{}-}, place it last.\par
+\par
+\pard{}The period {\f1{}.} matches any single character.  The symbol {\f1{}\'5Cw} is a synonym for {\f1{}[[:alnum:]]} and {\f1{}\'5CW} is a synonym for {\f1{}[^[:alnum]]}.\par
+\par
+\pard{}The caret {\f1{}^} and the dollar sign {\f1{}$} are metacharacters that respectively match the empty string at the beginning and end of a line.  The symbols {\f1{}\'5C<} and {\f1{}\'5C>} respectively match the empty string at the beginning and end of a word.  The symbol {\f1{}\'5Cb} matches the empty string at the edge of a word, and {\f1{}\'5CB} matches the empty string provided it's not at the edge of a word.\par
+\par
+\pard{}A regular expression may be followed by one of several repetition operators:\par
+\par
+{\pard{}{\f1{}?}\par
+\pard\li720{}{K{\footnote K ?}}{K{\footnote K question mark}}{K{\footnote K match sub-expression at most once}}The preceding item is optional and will be matched at most once.\par
+\par
+\pard{}{\f1{}*}\par
+\pard\li720{}{K{\footnote K *}}{K{\footnote K asterisk}}{K{\footnote K match sub-expression zero or more times}}The preceding item will be matched zero or more times.\par
+\par
+\pard{}{\f1{}+}\par
+\pard\li720{}{K{\footnote K +}}{K{\footnote K plus sign}}The preceding item will be matched one or more times.\par
+\par
+\pard{}{\f1{}\'7B{\i n}\'7D}\par
+\pard\li720{}{K{\footnote K \'7Bn\'7D}}{K{\footnote K braces, one argument}}{K{\footnote K match sub-expression n times}}The preceding item is matched exactly {\i n} times.\par
+\par
+\pard{}{\f1{}\'7B{\i n},\'7D}\par
+\pard\li720{}{K{\footnote K \'7Bn,\'7D}}{K{\footnote K braces, second argument omitted}}{K{\footnote K match sub-expression n or more times}}The preceding item is matched n or more times.\par
+\par
+\pard{}{\f1{}\'7B{\i n},{\i m}\'7D}\par
+\pard\li720{}{K{\footnote K \'7Bn,m\'7D}}{K{\footnote K braces, two arguments}}The preceding item is matched at least {\i n} times, but not more than {\i m} times.\par
+\par
+\pard{}}\par
+\pard{}Two regular expressions may be concatenated; the resulting regular expression matches any string formed by concatenating two substrings that respectively match the concatenated subexpressions.\par
+\par
+\pard{}Two regular expressions may be joined by the infix operator {\f1{}|}; the resulting regular expression matches any string matching either subexpression.\par
+\par
+\pard{}Repetition takes precedence over concatenation, which in turn takes precedence over alternation.  A whole subexpression may be enclosed in parentheses to override these precedence rules.\par
+\par
+\pard{}The backreference {\f1{}\'5C{\i n}}, where {\i n} is a single digit, matches the substring previously matched by the {\i n}th parenthesized subexpression of the regular expression.\par
+\par
+\pard{}{K{\footnote K basic regular expressions}}In basic regular expressions the metacharacters {\f1{}?}, {\f1{}+}, {\f1{}\'7B}, {\f1{}|}, {\f1{}(}, and {\f1{})} lose their special meaning; instead use the backslashed versions {\f1{}\'5C?}, {\f1{}\'5C+}, {\f1{}\'5C\'7B}, {\f1{}\'5C|}, {\f1{}\'5C(}, and {\f1{}\'5C)}.\par
+\par
+\pard{}{K{\footnote K interval specifications}}Traditional {\f1{}egrep} did not support the {\f1{}\'7B} metacharacter, and some {\f1{}egrep} implementations support {\f1{}\'5C\'7B} instead, so portable scripts should avoid {\f1{}\'7B} in {\f1{}egrep} patterns and should use {\f1{}[\'7B]} to match a literal {\f1{}\'7B}.\par
+\par
+{\scaps\fs16{}\pard{}gnu} {\f1{}egrep} attempts to support traditional usage by assuming that {\f1{}\'7B} is not special if it would be the start of an invalid interval specification.  For example, the shell command {\f1{}egrep '\'7B1'} searches for the two-character string {\f1{}\'7B1} instead of reporting a syntax error in the regular expression.  {\scaps\fs16{}posix.2} allows this behavior as an extension, but portable scripts should avoid it.\par
+\par
+\page\pard Node: {\b Usage}, \keepn Next: {\uldb Reporting Bugs}{\v Reporting_Bugs}, Prev: {\uldb Regular Expressions}{\v Regular_Expressions}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Usage}
+#{\footnote Usage}
+${\footnote \pard{}Usage}\par
+\pard{\fs24\b Usage}\par
+\par
+\pard{}{K{\footnote K Usage, examples}}Here is an example shell command that invokes {\scaps\fs16{}gnu} {\f1{}grep}:\par
+\par
+{\pard\keep\li720\f1{}grep -i 'hello.*world' menu.h main.c\par
+\pard\f0{}}\par
+\pard{}This lists all lines in the files {\f1{}menu.h} and {\f1{}main.c} that contain the string {\f1{}hello} followed by the string {\f1{}world}; this is because {\f1{}.*} matches zero or more characters within a line.  See {\uldb Regular Expressions}{\v Regular_Expressions}.  The {\f1{}-i} option causes {\f1{}grep} to ignore case, causing it to match the line {\f1{}Hello, world!}, which it would not otherwise match.  See {\uldb Invoking}{\v Invoking}, for more details about how to invoke {\f1{}grep}.\par
+\par
+\pard{}{K{\footnote K Using {\f1{}grep}, Q&A}}{K{\footnote K FAQ about {\f1{}grep} usage}}Here are some common questions and answers about {\f1{}grep} usage.\par
+\par
+{\pard\fi-720\li720\tx144\tx720{}\tab{}1. \tab{}How can I list just the names of matching files?\par
+\par
+{\pard\keep\li1440\f1{}grep -l 'main' *.c\par
+\pard\li720\f0{}}\par
+\pard\li720{}lists the names of all C files in the current directory whose contents mention {\f1{}main}.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}2. \tab{}How do I search directories recursively?\par
+\par
+{\pard\keep\li1440\f1{}grep -r 'hello' /home/gigi\par
+\pard\li720\f0{}}\par
+\pard\li720{}searches for {\f1{}hello} in all files under the directory {\f1{}/home/gigi}.  For more control of which files are searched, use {\f1{}find}, {\f1{}grep} and {\f1{}xargs}.  For example, the following command searches only C files:\par
+\par
+{\pard\keep\li1440\f1{}find /home/gigi -name '*.c' -print | xargs grep 'hello' /dev/null\par
+\pard\li720\f0{}}\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}3. \tab{}What if a pattern has a leading {\f1{}-}?\par
+\par
+{\pard\keep\li1440\f1{}grep -e '--cut here--' *\par
+\pard\li720\f0{}}\par
+\pard\li720{}searches for all lines matching {\f1{}--cut here--}.  Without {\f1{}-e}, {\f1{}grep} would attempt to parse {\f1{}--cut here--} as a list of options.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}4. \tab{}Suppose I want to search for a whole word, not a part of a word?\par
+\par
+{\pard\keep\li1440\f1{}grep -w 'hello' *\par
+\pard\li720\f0{}}\par
+\pard\li720{}searches only for instances of {\f1{}hello} that are entire words; it does not match {\f1{}Othello}.  For more control, use {\f1{}\'5C<} and {\f1{}\'5C>} to match the start and end of words.  For example:\par
+\par
+{\pard\keep\li1440\f1{}grep 'hello\'5C>' *\par
+\pard\li720\f0{}}\par
+\pard\li720{}searches only for words ending in {\f1{}hello}, so it matches the word {\f1{}Othello}.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}5. \tab{}How do I output context around the matching lines?\par
+\par
+{\pard\keep\li1440\f1{}grep -C 2 'hello' *\par
+\pard\li720\f0{}}\par
+\pard\li720{}prints two lines of context around each matching line.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}6. \tab{}How do I force grep to print the name of the file?\par
+\par
+\pard\li720{}Append {\f1{}/dev/null}:\par
+\par
+{\pard\keep\li1440\f1{}grep 'eli' /etc/passwd /dev/null\par
+\pard\li720\f0{}}\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}7. \tab{}Why do people use strange regular expressions on {\f1{}ps} output?\par
+\par
+{\pard\keep\li1440\f1{}ps -ef | grep '[c]ron'\par
+\pard\li720\f0{}}\par
+\pard\li720{}If the pattern had been written without the square brackets, it would have matched not only the {\f1{}ps} output line for {\f1{}cron}, but also the {\f1{}ps} output line for {\f1{}grep}.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}8. \tab{}Why does {\f1{}grep} report "Binary file matches"?\par
+\par
+\pard\li720{}If {\f1{}grep} listed all matching "lines" from a binary file, it would probably generate output that is not useful, and it might even muck up your display.  So {\scaps\fs16{}gnu} {\f1{}grep} suppresses output from files that appear to be binary files.  To force {\scaps\fs16{}gnu} {\f1{}grep} to output lines even from files that appear to be binary, use the {\f1{}-a} or {\f1{}--text} option.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}9. \tab{}Why doesn't {\f1{}grep -lv} print nonmatching file names?\par
+\par
+{\f1{}\pard\li720{}grep -lv} lists the names of all files containing one or more lines that do not match.  To list the names of all files that contain no matching lines, use the {\f1{}-L} or {\f1{}--files-without-match} option.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}10. \tab{}I can do {\scaps\fs16{}or} with {\f1{}|}, but what about {\scaps\fs16{}and}?\par
+\par
+{\pard\keep\li1440\f1{}grep 'paul' /etc/motd | grep 'franc,ois'\par
+\pard\li720\f0{}}\par
+\pard\li720{}finds all lines that contain both {\f1{}paul} and {\f1{}franc,ois}.\par
+\par
+\pard\fi-720\li720\tx144\tx720{}\tab{}11. \tab{}How can I search in both standard input and in files?\par
+\par
+\pard\li720{}Use the special file name {\f1{}-}:\par
+\par
+{\pard\keep\li1440\f1{}cat /etc/passwd | grep 'alain' - /etc/motd\par
+\pard\li720\f0{}}}\par
+\page\pard Node: {\b Reporting Bugs}, \keepn Next: {\uldb Concept Index}{\v Concept_Index}, Prev: {\uldb Usage}{\v Usage}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Reporting Bugs}
+#{\footnote Reporting_Bugs}
+${\footnote \pard{}Reporting bugs}\par
+\pard{\fs24\b Reporting bugs}\par
+\par
+\pard{}{K{\footnote K Bugs, reporting}}Email bug reports to <bug-gnu-utils@gnu.org>.  Be sure to include the word "grep" somewhere in the "Subject:" field.\par
+\par
+\pard{}Large repetition counts in the {\f1{}\'7Bm,n\'7D} construct may cause {\f1{}grep} to use lots of memory.  In addition, certain other obscure regular expressions require exponential time and space, and may cause grep to run out of memory.  Backreferences are very slow, and may require exponential time.\par
+\par
+\page\pard Node: {\b Concept Index}, \keepn Next: {\uldb Index}{\v Index}, Prev: {\uldb Reporting Bugs}{\v Reporting_Bugs}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Concept Index}
+#{\footnote Concept_Index}
+${\footnote \pard{}Concept Index}\par
+\pard{\fs24\b Concept Index}\par
+\par
+\pard{}This is a general index of all issues discussed in this manual, with the exception of the {\f1{}grep} commands and command-line options.\par
+\par
+{\fi-2880\li2880\tx2880after context:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880alphabetic characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880alphanumeric characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880asterisk:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880basic regular expressions:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880before context:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880binary files:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880binary files, DOS/Windows:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880blank characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880braces, one argument:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880braces, second argument omitted:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880braces, two arguments:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880Bugs, reporting:\tab {\uldb Reporting Bugs}{\v Reporting_Bugs}.\par}{\fi-2880\li2880\tx2880byte offset:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880byte offsets, on DOS/Windows:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880case insensitive search:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880case insensitive search, obsolete option:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880character classes:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880character type:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880classes of characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880context:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880context lines, after match:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880context lines, before match:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880control characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880counting lines:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880default options environment variable:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880digit characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880directory search:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880DOS byte offsets:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880DOS/Windows binary files:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880environment variables:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880FAQ about {\f1{}grep} usage:\tab {\uldb Usage}{\v Usage}.\par}{\fi-2880\li2880\tx2880files which don't match:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880graphic characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880hexadecimal digits:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880interval specifications:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880invert matching:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880language of messages:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880line numbering:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880lower-case alphabetic characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880match sub-expression at most once:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880match sub-expression n or more times:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880match sub-expression n times:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880match sub-expression zero or more times:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880match the whole line:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880matching basic regular expressions:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880matching extended regular expressions:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880matching fixed strings:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880matching whole words:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880memory mapped input:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880message language:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880names of matching files:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880national language support:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880NLS:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880no filename prefix:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880numeric characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880pattern from file:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880pattern list:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880plus sign:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880print non-matching lines:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880printable characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880punctuation characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880question mark:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880quiet, silent:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880recursive search:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880regular expressions:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880searching directory trees:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880Searching for a pattern.:\tab {\uldb Introduction}{\v Introduction}.\par}{\fi-2880\li2880\tx2880space characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880suppress binary data:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880suppress error messages:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880translation of message language:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880upper-case alphabetic characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880Usage summary, printing:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880Usage, examples:\tab {\uldb Usage}{\v Usage}.\par}{\fi-2880\li2880\tx2880Using {\f1{}grep}, Q&A:\tab {\uldb Usage}{\v Usage}.\par}{\fi-2880\li2880\tx2880Version, printing:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880whitespace characters:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880with filename prefix:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880xdigit class:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880zero-terminated file names:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880zero-terminated lines:\tab {\uldb Invoking}{\v Invoking}.\par}\page\pard Node: {\b Index}, \keepn Next: {\uldb }{\v }, Prev: {\uldb Concept Index}{\v Concept_Index}, Up: {\uldb Top}{\v Top}\line
+K{\footnote K Index}
+#{\footnote Index}
+${\footnote \pard{}Index}\par
+\pard{\fs24\b Index}\par
+\par
+\pard{}This is an alphabetical list of all {\f1{}grep} commands, command-line options, and environment variables.\par
+\par
+{\fi-2880\li2880\tx2880{\f1{}*}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}+}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}--after-context}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--basic-regexp}:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880{\f1{}--before-context}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--binary}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--byte-offset}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--context}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--directories}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--extended-regexp}:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880{\f1{}--files-with-matches}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--files-without-match}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--file}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--fixed-strings}:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880{\f1{}--help}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--ignore-case}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--invert-match}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--line-number}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--line-regexp}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--mmap}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--no-filename}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--no-messages}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--null-data}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--null}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--quiet}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--recursive}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--regexp={\i pattern}}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--silent}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--text}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--unix-byte-offsets}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--version}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--With-filename}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}--word-regexp}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-a}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-A}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-b}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-B}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-count}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-c}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-C}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-d}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-e}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-E}:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880{\f1{}-f}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-F}:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880{\f1{}-G}:\tab {\uldb Grep Programs}{\v Grep_Programs}.\par}{\fi-2880\li2880\tx2880{\f1{}-H}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-h}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-i}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-L}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-l}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-NUM}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-n}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-q}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-r}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-s}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-u}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-U}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-V}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-v}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-w}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-x}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-y}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-Z}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}-z}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}?}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}\'7Bn,\'7D}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}\'7Bn,m\'7D}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}\'7Bn\'7D}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}_{\i N}_GNU_nonoption_argv_flags_}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}alnum}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}alpha}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}blank}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}cntrl}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}digit}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}graph}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}GREP_OPTIONS}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}LANG}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}LC_ALL}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}LC_CTYPE}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}LC_MESSAGES}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}lower}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}POSIXLY_CORRECT}:\tab {\uldb Invoking}{\v Invoking}.\par}{\fi-2880\li2880\tx2880{\f1{}print}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}punct}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}space}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}upper}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}{\fi-2880\li2880\tx2880{\f1{}xdigit}:\tab {\uldb Regular Expressions}{\v Regular_Expressions}.\par}\page K{\footnote Makertf}#{\footnote hcMakertf}${\footnote \pard{}About Makertf}\pard{\fs24\b About Makertf}\par\par\pard{}Makertf is a program that converts "Texinfo" files into "Rich Text Format" (RTF) files. It can be used to make WinHelp Files from GNU manuals and other documentation written in Texinfo. Visit http://www.snafu.de/~cschenk/makertf for more information.}

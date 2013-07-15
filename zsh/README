@@ -1,0 +1,167 @@
+Better README to come in the future.
+For complete zsh docs see www.zsh.org
+
+This version requires Windows 95 or Windows NT 4.0+
+--------------------------------------------------------------------------
+all paths must be '/'-separated, not '\'-separated. For example, if
+you set HOME or PATH in your .rc files or interactively, use '/' AND
+drive letters.
+--------------------------------------------------------------------------
+
+Known Bugs:
+----------
+
+zed does not work too well.
+binding a key to xxx-menu-complete will cause the shell to crash
+if you type the bound key on an empty line.
+
+
+Basic things to know:
+---------------
+
+1. Drive changes done with 'cd <drive:>'
+(Or setopt autocd to get DOS-like behaviour as a side-effect.)
+
+2. .COM files will need to be executed by specifying the extension (edit.com,
+instead of just edit).
+
+3. International keyboards should work if you setopt printeightbit. Note that
+this will re-init the keymaps, so you may have to redo some bindkey mappings.
+(NOREBIND now has no effect whatsoever.)
+Also, if you change the console font (on NT) from the default raster type to
+anything else, international characters may not be displayed properly.
+
+zsh sets the code-page to 1252 (ansi) when it starts. For international
+versions (far east for example,) this screws up the console. To avoid
+the problem, set ZSH_DONTSETCP in the system environment, before zsh 
+starts.
+
+
+4.If you're using Windows 95 (as opposed to Win98 or higher), and see
+  spurious linefeeds, set the environment variable ZSH_ISWIN95 to a 
+  non-zero-length value, before the shell starts and the problem 
+  should go away;
+
+6. ZSHROOT:
+----------
+If the variable ZSHROOT is set, it will be prepended to the program
+name if the program is not found during the normal search. So, if you
+type /bin/zsh (or have that in a shell script), the shell will try:
+
+1. /bin/zsh
+2. /bin/zsh.exe
+3. $ZSHROOT/bin/zsh
+4. $ZSHROOT/bin/zsh.exe
+
+(Note that a script with a line like #!C:/bin/tcsh.exe will not be
+affected by 3 or 4).
+
+7. HOME directory:
+-----------------
+zsh sets the HOME directory if it's not already set, AND ZDOTDIR is not
+set either. It uses the windows directory on win95, 
+$HOMEDRIVE\$HOMEPATH on nt <4.0, and $USERPROFILE on NT 4.0 and higher.
+
+If ZDOTDIR is set, zsh sets home to "youdonthavehomeset". This
+is to avoid crashing in places where the shell expects a home directory. 
+Picking a real default would defeat the purpose of not setting home.
+
+8. PATHS:
+---------
+In general it's a BAD idea to expect zsh to work with paths that do
+not have drive letters, e.g., '/','/bin' etc.
+
+
+NT-specific builtins:
+--------------------
+* start: like cmd.exe's start
+* title: ditto
+* cls: Clear entire screen buffer instead of visible window.
+* ps: list processes. with -w, lists window titles as well.
+* shutdown: 
+
+	shutdown -[r|l|f] now
+
+(Even though no time argument is supported, "now" must be specified, EXCEPT
+with -l .This is to prevent you from accidentally shutting the machine down.)
+    -r reboots, -l logs you off and -f forces apps to terminate.
+
+The default action is to shut the machine down.
+
+NT-specific setopts:
+------------------
+* winntignorecase: ignore case in completions
+* winntlamepathfix: convert the PATH environment variable back to 
+   '\'-delimited instead of  '/'-delimited when each child process is forked.
+
+* winntnoassociations: Do not try applications associated with extensions
+                   if exec() fails.
+
+* winntconvertbackslash: Convert backslashes to '/' when comparing named
+	directories etc. May be useful if you derive HOME from '\'-delimited 
+	environment variables
+
+* winntwaitforguiapps: When set, makes the shell wait for win32 GUI apps
+to terminate instead of spawning them asynchronously.
+
+Arrow keys etc. and bindkey:
+----------------------------
+* Since windows does not generate codes for the keypad (arrow keys,
+ins,delete etc., ) you will need to use a special options to bindkey
+to bind these keys.
+namely,
+
+bindkey -N \\0xx some-funky-function
+
+where the numeric code is between 0 and 33. The following shows
+the default bindings for each key.
+
+    /* F1 */ z_undefinedkey,
+    /* F2 */ z_undefinedkey,
+    /* F3 */ z_undefinedkey,
+    /* F4 */ z_undefinedkey,
+    /* F5 */ z_undefinedkey,
+    /* F6 */ z_undefinedkey,
+    /* F7 */ z_undefinedkey,
+    /* F8 */ z_undefinedkey,
+    /* F9 */ z_undefinedkey,
+    /* F10 */ z_undefinedkey,
+    /* F11 */ z_undefinedkey,
+    /* F12 */ z_undefinedkey,
+    /* F13 */ z_undefinedkey,
+    /* F14 */ z_undefinedkey,
+    /* F15 */ z_undefinedkey,
+    /* F16 */ z_undefinedkey,
+    /* F17 */ z_undefinedkey,
+    /* F18 */ z_undefinedkey,
+    /* F19 */ z_undefinedkey,
+    /* F20 */ z_undefinedkey,
+    /* F21 */ z_undefinedkey,
+    /* F22 */ z_undefinedkey,
+    /* F23 */ z_undefinedkey,
+    /* F24 */ z_undefinedkey,
+    /* Pgup */ z_undefinedkey,
+    /* Pgdn */ z_undefinedkey,
+    /* end */ z_endofline,
+    /* home */ z_beginningofline,
+    /* left-arrow*/ z_backwardchar,
+    /* up-arrow */ z_uplineorhistory,
+    /* right-arrow */ z_forwardchar,
+    /* down-arrow */ z_downlineorhistory,
+    /* Ins */ z_overwritemode,
+    /* Del */ z_deletechar,
+
+
+For example, to bind F-1 to run-help, you would need:
+
+bindkey -N \\000 run-help 
+
+To bind left-arrow:
+
+bindkey -N \\034 beginning-of-line   ( note that \034 is 28 decimal)
+
+I haven't had a chance to thoroughly test this yet, so watch out for bugs.
+
+
+--
+mail bugs reports to amol@blarg.net
